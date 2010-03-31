@@ -9,7 +9,7 @@
         #header
           %a{:href => "index.html"}
             %img{:src => "images/bundler.png", :width => "850"}/
-          %h1 The best way to manage Ruby applications
+          %h1 The best way to manage your application's dependencies
         = yield
 
     #footer
@@ -21,6 +21,8 @@
         = link("install", "install.html")
         \/
         = link("lock", "bundle_lock.html")
+        \/
+        = link("package", "bundle_package.html")
         \/
         = link("#setup", "bundler_setup.html")
         \/

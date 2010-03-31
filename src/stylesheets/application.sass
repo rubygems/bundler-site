@@ -1,10 +1,9 @@
-@import blueprint/grid.sass
 @import compass/css3/box_shadow.sass
 @import compass/css3/text_shadow.sass
 @import compass/css3/border_radius.sass
 @import compass/css3/box_sizing.sass
 
-=flexbox($direction, $align: center)
+@mixin flexbox($direction, $align: center)
   display: -webkit-box
   display: -moz-box
   -webkit-box-orient: $direction
@@ -12,15 +11,13 @@
   -webkit-box-align: $align
   -moz-box-align: $align
 
-=distribute-children($distribute)
+@mixin distribute-children($distribute)
   -webkit-box-pack: $distribute
   -moz-box-pack: $distribute
 
-=liquid($size: 1)
+@mixin liquid($size: 1)
   -webkit-box-flex: $size
   -moz-box-flex: $size
-
-$width: 850px
 
 html
   width: 100%
@@ -31,11 +28,11 @@ img
   border: 0
 
 #body
-  +flexbox(vertical, center)
+  @include flexbox(vertical, center)
   width: 100%
 
 #contents
-  +flexbox(vertical, justify)
+  @include flexbox(vertical, justify)
 
 #header
   h1
@@ -45,19 +42,19 @@ img
     color: #346B8C
 
 #footer
+  @include box-sizing(border-box)
+  @include flexbox(horizontal, center)
+  @include distribute-children(justify)
   padding: 10px 20px
   background-color: #bcc
   width: 100%
   margin-top: 30px
-  +box-sizing(border-box)
-  +flexbox(horizontal, center)
-  +distribute-children(justify)
 
   img:first-child
-    +box-shadow(blue, 0, 0, 5px)
+    @include box-shadow(blue, 0, 0, 5px)
 
   .spacer
-    +liquid
+    @include liquid
 
   img
     display: block
@@ -71,27 +68,27 @@ img
       color: #699
 
 .contents
-  width: $width
+  width: 850px
 
 h2
+  @include text-shadow
   padding: 5px
   margin-top: 30px
-  +text-shadow
   color: #999
   border-bottom: 3px solid #999
   width: 100%
 
 .bullet
+  @include flexbox(horizontal, start)
   width: 100%
-  +flexbox(horizontal, start)
   padding: 10px
 
   .description
+    @include text-shadow
     width: 300px
     margin-right: 20px
     color: #033
     line-height: 20px
-    +text-shadow
 
     a
       padding-top: 10px
@@ -103,16 +100,16 @@ h2
       text-align: center
 
   .how
-    +flexbox(vertical, justify)
-    +liquid
+    @include flexbox(vertical, justify)
+    @include liquid
     .notes
       margin-top: 10px
       color: #799
 
   pre
+    @include border-radius(5px)
+    @include liquid
     margin: 0
-    +border-radius(5px)
-    +liquid
 
 .bullet:not(:nth-of-type(1))
   border-top: 1px solid #cee

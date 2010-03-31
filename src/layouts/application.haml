@@ -11,3 +11,21 @@
             %img{:src => "images/bundler.png", :width => "850"}/
           %h1 The best way to manage Ruby applications
         = yield
+
+    #footer
+      = img("emocow.png")
+      .spacer
+      %p
+        = link("home", "index.html")
+        \/
+        = link("install", "install.html")
+        \/
+        = link("lock", "bundle_lock.html")
+        \/
+        = link("#setup", "bundler_setup.html")
+        \/
+        = link("git", "git.html")
+        \/
+        = link("groups", "groups.html")
+      .spacer
+      = img("bundler-small.png")

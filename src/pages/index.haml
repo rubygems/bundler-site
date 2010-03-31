@@ -24,6 +24,7 @@
   .bullet
     .description
       Install all of the required gems from your specified sources
+      = link("Learn More: bundle install", "bundle_install.html")
     :highlight_plain
       $ bundle install
       $ git add Gemfile
@@ -31,6 +32,7 @@
   .bullet
     .description
       Inside your app, load up the bundled environment
+      = link("Learn More: Bundler.setup", "bundler_setup.html")
     :highlight_ruby
       require "rubygems"
       require "bundler"
@@ -44,6 +46,7 @@
       When you're ready to share your application
       or deploy it, lock down all the versions of the gems
       you're using
+      = link("Learn more: bundle lock", "bundle_lock.html")
     :highlight_plain
       $ bundle lock
       $ git add Gemfile.lock
@@ -54,6 +57,7 @@
   .bullet
     .description
       Install the required gems
+      = link("Learn More: bundle install", "bundle_install.html")
     :highlight_plain
       $ bundle install
 
@@ -100,5 +104,11 @@
     .description
       Install gems to a different location 
       (the default is ~/.bundle)
-    :highlight_plain
-      $ bundle install vendor --disable-shared-gems
+      = link("Learn More: bundle install", "bundle_install.html")
+    .how
+      :highlight_plain
+        $ bundle install vendor --disable-shared-gems
+      .notes
+        By specifying --disable-shared-gems, you are telling
+        bundler to install the gems into vendor, even if
+        they are already installed in the system

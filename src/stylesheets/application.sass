@@ -2,6 +2,7 @@
 @import compass/css3/box_shadow.sass
 @import compass/css3/text_shadow.sass
 @import compass/css3/border_radius.sass
+@import compass/css3/box_sizing.sass
 
 =flexbox(!direction, !align="center")
   display: -webkit-box
@@ -13,7 +14,7 @@
 
 =distribute-children(!distribute)
   -webkit-box-pack= !distribute
-  -mox-box-box= !distribute
+  -moz-box-pack= !distribute
 
 =liquid(!size = 1)
   -webkit-box-flex= !size
@@ -34,13 +35,38 @@ img
   width: 100%
 
 #contents
-  +flexbox("vertical")
-  width= !width
+  +flexbox("vertical", "justify")
 
 #header
   h1
     text-align: right
     color: #346B8C
+
+#footer
+  padding: 10px 20px
+  background-color: #bcc
+  width: 100%
+  margin-top: 30px
+  +box-sizing("border-box")
+  +flexbox("horizontal", "center")
+  +distribute-children("justify")
+
+  img:first-child
+    +box-shadow("blue", 0, 0, 5px)
+
+  .spacer
+    +liquid
+
+  img
+    display: block
+
+  p
+    font-family: Helvetica, sans-serif
+    color: #366
+    font-size: 24px
+    a
+      text-decoration: none
+      color: #699
 
 .contents
   width= !width
@@ -55,22 +81,31 @@ h2
 
 .bullet
   width: 100%
-  +flexbox("horizontal", "center")
+  +flexbox("horizontal", "start")
   padding: 10px
 
   .description
     width: 300px
     margin-right: 20px
     color: #033
+    line-height: 20px
     +text-shadow
 
     a
       padding-top: 10px
       padding-bottom: 5px
+      padding-right: 30px
       text-decoration: none
       display: block
       color: #060
       text-align: center
+
+  .how
+    +flexbox("vertical", "justify")
+    +liquid
+    .notes
+      margin-top: 10px
+      color: #799
 
   pre
     margin: 0

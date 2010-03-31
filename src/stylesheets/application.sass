@@ -1,0 +1,78 @@
+@import blueprint/grid.sass
+@import compass/css3/box_shadow.sass
+@import compass/css3/text_shadow.sass
+@import compass/css3/border_radius.sass
+
+=flexbox(!direction, !align="center")
+  display: -webkit-box
+  display: -moz-box
+  -webkit-box-orient= !direction
+  -moz-box-orient= !direction
+  -webkit-box-align= !align
+  -moz-box-align= !align
+
+=distribute-children(!distribute)
+  -webkit-box-pack= !distribute
+  -mox-box-box= !distribute
+
+=liquid(!size = 1)
+  -webkit-box-flex= !size
+  -moz-box-flex= !size
+
+html
+  background-color: #eeffff
+  font-family: Helvetica, sans-serif
+
+img
+  border: 0
+
+#contents
+  +flexbox("vertical")
+  width: 850px
+  margin: 0 auto
+
+#header
+  width: 850px
+  h1
+    text-align: right
+    color: #346B8C
+
+.contents
+  width: 100%
+
+h2
+  padding: 5px
+  margin-top: 30px
+  +text-shadow
+  color: #999
+  border-bottom: 3px solid #999
+  width: 100%
+
+.bullet
+  +flexbox("horizontal", "center")
+  padding: 10px
+
+  .description
+    width: 300px
+    margin-right: 20px
+    color: #033
+    +text-shadow
+
+    a
+      padding-top: 10px
+      padding-bottom: 5px
+      text-decoration: none
+      display: block
+      color: #060
+      text-align: center
+
+  pre
+    margin: 0
+    +border-radius(5px)
+    +liquid
+
+.bullet:not(:nth-of-type(1))
+  border-top: 1px solid #367F73
+
+.bullet:not(:nth-last-of-type(1))
+  border-bottom: 1px solid #35658B 

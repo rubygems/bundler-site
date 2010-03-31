@@ -1,0 +1,97 @@
+%h2 Getting Started
+
+.contents
+  .bullet
+    .description
+      Getting started with bundler is easy
+    :highlight_plain
+      $ gem install bundler
+
+  .bullet
+    .description
+      Specify your dependencies in a Gemfile in your project's root
+    :highlight_ruby
+      source :rubygems
+      gem "nokogiri"
+
+  .bullet
+    .description
+      Install all of the required gems from your specified sources
+    :highlight_plain
+      $ bundle install
+      $ git add Gemfile
+
+  .bullet
+    .description
+      Inside your app, load up the bundled environment
+    :highlight_ruby
+      require "rubygems"
+      require "bundler"
+      Bundler.setup
+
+      require "nokogiri"
+      # any other requires you might need
+
+  .bullet
+    .description
+      When you're ready to share your application
+      or deploy it, lock down all the versions of the gems
+      you're using
+    :highlight_plain
+      $ bundle lock
+      $ git add Gemfile.lock
+
+%h2 Checking Out an Application With a Gemfile
+
+.contents
+  .bullet
+    .description
+      Install the required gems
+    :highlight_plain
+      $ bundle install
+
+%h2 Digging Further
+
+.contents
+  .bullet
+    .description
+      Store all of the required gems in your
+      application. All future installs will get gems
+      from this cache, bypassing rubygems.org
+    :highlight_plain
+      $ bundle package
+
+  .bullet
+    .description
+      Put dependencies in a group, so they can
+      be ignored at install time or required
+      together in your application
+      = link("Learn more: Groups", "groups.html")
+    :highlight_ruby
+      group :development do
+        gem "wirble"
+      end
+
+  .bullet
+    .description
+      Use a gem that is stored in git
+      and has a .gemspec at its root. Gemspecs with
+      bins or C extensions are supported
+      = link("Learn more: Git", "git.html")
+    :highlight_ruby
+      gem "nokogiri", :git =>
+        "git://github.com/tenderlove/nokogiri.git"
+
+  .bullet
+    .description
+      Use a gem that you are actively developing
+      on your file system
+    :highlight_ruby
+      gem "nokogiri", :path => "~/Code/nokogiri"
+
+  .bullet
+    .description
+      Install gems to a different location 
+      (the default is ~/.bundle)
+    :highlight_plain
+      $ bundle install vendor --disable-shared-gems

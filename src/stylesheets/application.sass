@@ -28,11 +28,11 @@ img
   border: 0
 
 #body
-  @include flexbox(vertical, center)
+  +flexbox(vertical, center)
   width: 100%
 
 #contents
-  @include flexbox(vertical, justify)
+  +flexbox(vertical, justify)
 
 #header
   h1
@@ -42,19 +42,19 @@ img
     color: #346B8C
 
 #footer
-  @include box-sizing(border-box)
-  @include flexbox(horizontal, center)
-  @include distribute-children(justify)
+  +box-sizing(border-box)
+  +flexbox(horizontal, center)
+  +distribute-children(justify)
   padding: 10px 20px
   background-color: #bcc
   width: 100%
   margin-top: 30px
 
   img:first-child
-    @include box-shadow(blue, 0, 0, 5px)
+    +box-shadow(blue, 0, 0, 5px)
 
   .spacer
-    @include liquid
+    +liquid
 
   img
     display: block
@@ -71,7 +71,7 @@ img
   width: 850px
 
 h2
-  @include text-shadow
+  +text-shadow
   padding: 5px
   margin-top: 30px
   color: #999
@@ -79,12 +79,12 @@ h2
   width: 100%
 
 .bullet
-  @include flexbox(horizontal, start)
+  +flexbox(horizontal, start)
   width: 100%
   padding: 10px
 
   .description
-    @include text-shadow
+    +text-shadow
     width: 300px
     margin-right: 20px
     color: #033
@@ -100,15 +100,15 @@ h2
       text-align: center
 
   .how
-    @include flexbox(vertical, justify)
-    @include liquid
+    +flexbox(vertical, justify)
+    +liquid
     .notes
       margin-top: 10px
       color: #799
 
   pre
-    @include border-radius(5px)
-    @include liquid
+    +border-radius(5px)
+    +liquid
     margin: 0
 
 .bullet:not(:nth-of-type(1))

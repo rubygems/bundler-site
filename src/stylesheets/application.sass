@@ -19,26 +19,31 @@
   -webkit-box-flex= !size
   -moz-box-flex= !size
 
+!width = 850px
+
 html
+  width: 100%
   background-color: #eeffff
   font-family: Helvetica, sans-serif
 
 img
   border: 0
 
+#body
+  +flexbox("vertical", "center")
+  width: 100%
+
 #contents
   +flexbox("vertical")
-  width: 850px
-  margin: 0 auto
+  width= !width
 
 #header
-  width: 850px
   h1
     text-align: right
     color: #346B8C
 
 .contents
-  width: 100%
+  width= !width
 
 h2
   padding: 5px
@@ -49,6 +54,7 @@ h2
   width: 100%
 
 .bullet
+  width: 100%
   +flexbox("horizontal", "center")
   padding: 10px
 

@@ -8,6 +8,10 @@ dependencies:
     group: 
     - :default
     version: ">= 0"
+  haml: 
+    group: 
+    - :default
+    version: = 3.0.0.beta.1
   staticmatic: 
     group: 
     - :default
@@ -16,7 +20,7 @@ specs:
 - cgi_multipart_eof_fix: 
     version: 2.5.0
 - haml: 
-    version: 2.2.22
+    version: 3.0.0.beta.1
 - compass: 
     version: 0.10.0.rc1
 - daemons: 
@@ -40,7 +44,7 @@ specs:
     version: 0.10.1
 - ultraviolet: 
     version: 0.10.2
-hash: 83b79c4329000282631e561442edf87944a2c578
+hash: 4df8b2d60f7ca062be7a6cfc139afcad1538ee23
 sources: 
 - Git: 
     uri: git://github.com/staticmatic/staticmatic.git

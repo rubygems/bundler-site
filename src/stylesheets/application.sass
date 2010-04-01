@@ -27,28 +27,42 @@ html
 img
   border: 0
 
+.intro
+  width: 100%
+
 #body
   +flexbox(vertical, center)
   width: 100%
 
 #contents
   +flexbox(vertical, justify)
+  width: 725px
+
+#intro
+  border-top: 1px solid #366
+  padding-top: 10px
+  color: #699
+  font-size: 18px
+  line-height: 28px
+  strong
+    color: #366
 
 #header
+  margin-bottom: 20px
   h1
-    font-size: 26px
+    font-size: 22px
     text-align: right
-    padding-right: 44px
+    padding-right: 43px
     color: #346B8C
 
 #footer
   +box-sizing(border-box)
   +flexbox(horizontal, center)
   +distribute-children(justify)
-  padding: 10px 20px
+  padding: 8px 16px
   background-color: #bcc
   width: 100%
-  margin-top: 30px
+  margin-top: 25px
 
   img:first-child
     +box-shadow(blue, 0, 0, 5px)
@@ -62,57 +76,69 @@ img
   p
     font-family: Helvetica, sans-serif
     color: #366
-    font-size: 24px
+    font-size: 16px
     a
       text-decoration: none
       color: #699
 
 .contents
-  width: 850px
+  width: 725px
 
 h2
-  +text-shadow
+  font-size: 20px
   padding: 5px
-  margin-top: 30px
+  margin-top: 24px
   color: #999
   border-bottom: 3px solid #999
   width: 100%
 
 .bullet
-  +flexbox(horizontal, start)
   width: 100%
-  padding: 10px
+  padding: 8px
 
   .description
-    +text-shadow
-    width: 300px
-    margin-right: 20px
+    width: 100%
+    margin-right: 16px
     color: #033
-    line-height: 20px
-
+    line-height: 24px
+    margin-bottom: 8px
     a
-      padding-top: 10px
-      padding-bottom: 5px
-      padding-right: 30px
-      text-decoration: none
-      display: block
-      color: #060
-      text-align: center
+      display: inline
+      color: #393
+      white-space: pre
+
+  a
+    padding-top: 8px
+    padding-bottom: 5px
+    padding-right: 4px
+    text-decoration: none
+    display: block
+    color: #060
+    text-align: right
 
   .how
     +flexbox(vertical, justify)
     +liquid
     .notes
-      margin-top: 10px
-      color: #799
+      margin-top: 15px
+      padding-right: 4px
+      padding-left: 4px
+      color: #466
+      &+ a
+        margin-top: 10px
 
   pre
     +border-radius(5px)
     +liquid
     margin: 0
 
-.bullet:not(:nth-of-type(1))
-  border-top: 1px solid #cee
+.bullet:nth-child(even)
+  background-color: #d9f9f9
 
-.bullet:not(:nth-last-of-type(1))
-  border-bottom: 1px solid #9cc
+.bullet:not(:nth-of-type(1))
+  padding-top: 15px
+  border-top: 1px solid #dff
+
+.bullet
+  padding-bottom: 25px
+  border-bottom: 1px solid #add

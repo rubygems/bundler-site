@@ -1,3 +1,7 @@
+#intro
+  Bundler manages an <strong>application's dependencies</strong> through its 
+  entire life across many machines systematically and repeatably.
+
 %h2 Getting Started
 
 .contents
@@ -18,21 +22,21 @@
     .description
       Specify your dependencies in a Gemfile in your project's root
     :highlight_ruby
-      source :rubygems
+      source "http://rubygems.org"
       gem "nokogiri"
+      gem "rack"
 
   .bullet
     .description
       Install all of the required gems from your specified sources
-      = link("Learn More: bundle install", "bundle_install.html")
     :highlight_plain
       $ bundle install
       $ git add Gemfile
+    = link("Learn More: bundle install", "bundle_install.html")
 
   .bullet
     .description
       Inside your app, load up the bundled environment
-      = link("Learn More: Bundler.setup", "bundler_setup.html")
     :highlight_ruby
       require "rubygems"
       require "bundler"
@@ -40,16 +44,45 @@
 
       require "nokogiri"
       # any other requires you might need
+    = link("Learn More: Bundler.setup", "bundler_setup.html")
+
+  .bullet
+    .description
+      Run a script provided by a bundled gem
+    :highlight_plain
+      $ bundle exec rackup
 
   .bullet
     .description
       When you're ready to share your application
       or deploy it, lock down all the versions of the gems
       you're using
-      = link("Learn more: bundle lock", "bundle_lock.html")
     :highlight_plain
       $ bundle lock
       $ git add Gemfile.lock
+    = link("Learn more: bundle lock", "bundle_lock.html")
+
+%h2 Using Bundler with Frameworks
+
+.contents
+  .bullet
+    .description
+      Bundler works out of the box with Rails 3. Once you
+      understand the basics of using bundler, you know
+      everything you need to know.
+      = link("Using Bundler with Rails 3", "rails3.html")
+
+  .bullet
+    .description
+      Bundler works with Rails 2.3 with a small change
+      to boot.rb and adding a preinitializer.rb.
+      = link("Using Bundler with Rails 2.3", "rails23.html")
+
+  / .bullet
+  /   .description
+  /     Setting up Sinatra to use Bundler is as simple as
+  /     using Bundler itself.
+  /     = link("Using Bundler with Sinatra", "sinatra.html")
 
 %h2 Checking Out an Application With a Gemfile
 
@@ -57,9 +90,9 @@
   .bullet
     .description
       Install the required gems
-      = link("Learn More: bundle install", "bundle_install.html")
     :highlight_plain
       $ bundle install
+    = link("Learn More: bundle install", "bundle_install.html")
 
 %h2 Digging Further
 
@@ -69,30 +102,30 @@
       Store all of the required gems in your
       application. All future installs will get gems
       from this cache, bypassing rubygems.org
-      = link("Learn More: bundle package", "bundle_package.html")
     :highlight_plain
       $ bundle package
+    = link("Learn More: bundle package", "bundle_package.html")
 
   .bullet
     .description
       Put dependencies in a group, so they can
       be ignored at install time or required
       together in your application
-      = link("Learn more: Groups", "groups.html")
     :highlight_ruby
       group :development do
         gem "wirble"
       end
+    = link("Learn more: Groups", "groups.html")
 
   .bullet
     .description
       Use a gem that is stored in git
       and has a .gemspec at its root. Gemspecs with
       bins or C extensions are supported
-      = link("Learn more: Git", "git.html")
     :highlight_ruby
       gem "nokogiri", :git =>
         "git://github.com/tenderlove/nokogiri.git"
+    = link("Learn more: Git", "git.html")
 
   .bullet
     .description
@@ -105,7 +138,6 @@
     .description
       Install gems to a different location 
       (the default is ~/.bundle)
-      = link("Learn More: bundle install", "bundle_install.html")
     .how
       :highlight_plain
         $ bundle install vendor --disable-shared-gems
@@ -113,3 +145,4 @@
         By specifying --disable-shared-gems, you are telling
         bundler to install the gems into vendor, even if
         they are already installed in the system
+    = link("Learn More: bundle install", "bundle_install.html")

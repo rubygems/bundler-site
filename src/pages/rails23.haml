@@ -1,0 +1,104 @@
+#intro
+  Rails 2.3 comes with its own gem handling. We're going to
+  override that and replace it with support for Bundler
+
+%h2 Using Bundler with Rails 2.3
+
+.contents
+  .bullet
+    .description
+      Insert the following code in config/boot.rb, right above
+      the line `Rails.boot!`
+    :highlight_ruby
+      class Rails::Boot
+        def run
+          load_initializer
+          extend_environment
+          Rails::Initializer.run(:set_load_path)
+        end
+
+        def extend_environment
+          Rails::Initializer.class_eval do
+            old_load = instance_method(:load_environment)
+            define_method(:load_environment) do
+              Bundler.require Rails.env, :plugins
+              old_load.bind(self).call
+            end
+          end
+        end
+      end
+
+  .bullet
+    .description
+      Create a new file, <code>config/preinitializer.rb</code>,
+      and insert the following
+    :highlight_ruby
+      begin
+        # Set up load paths for the locked set of pre-resolved gems.
+        require File.expand_path('../../.bundle/environment', __FILE__)
+      rescue LoadError
+        # Fall back on trying to resolve out of already-installed gems at runtime.
+        require "rubygems"
+        require "bundler"
+
+        if Gem::Version.new(Bundler::VERSION) <= Gem::Version.new("0.9.5")
+          raise RuntimeError,
+            "Your bundler version is incompatible with Rails 2.3 " \
+            "and an unlocked bundle.\n" \
+            "Run `gem install bundler` to upgrade or `bundle lock` to lock."
+        end
+
+        begin
+          # Set up load paths for all bundled gems
+          Bundler.setup
+          # Require all gems not in a group
+          Bundler.require :default
+        rescue Bundler::GemNotFound
+          raise Bundler::GemNotFound, "Bundler couldn't find some gems. " \
+            "Did you run `bundle install`?"
+        end
+      end
+
+  .bullet
+    .description
+      Get all config.gem declarations from your application, and place
+      them into the Gemfile. If you have declarations in development.rb,
+      for instance, place them in a named group. Make sure to include
+      Rails itself
+    :highlight_ruby
+      gem "rails", "2.3.5"
+      gem "nokogiri", "1.4.2"
+      gem "geokit"
+
+      group :test do
+        gem "rspec"
+        gem "faker"
+      end
+    = link("Learn More: Groups", "groups.html")
+
+  .bullet
+    .description
+      If you have config.gem declarations that refer to gem plugins
+      (gems that rely on Rails to be properly set up), place them in
+      a group called :plugins
+    :highlight_ruby
+      group :plugins do
+        gem "haml"
+        gem "authlogic"
+      end
+
+  .bullet
+    .description
+      Once you have everything set up, you can use script/console,
+      script/server, and other Rake tasks as usual. From this point
+      on, you can follow the instructions in the Rails 3 guide
+    :highlight_plain
+      $ rake db:migrate
+    = link("Learn More: Rails 3", "rails3.html#shared_with_23")
+
+  .bullet
+    .description
+      Don't forget that non-Rails commands must
+      be executed with bundle exec
+    :highlight_plain
+      $ bundle exec cucumber

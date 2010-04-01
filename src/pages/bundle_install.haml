@@ -18,8 +18,6 @@
     .description
       Install your dependencies to a different location
       than BUNDLE_PATH.
-      = link("Learn More: Bundler.setup", "bundler_setup.html")
-      = link("Learn More: Bundler.require", "groups.html")
     .how
       :highlight_plain
         $ bundle install vendor/bundle
@@ -27,14 +25,16 @@
         Further bundle commands or
         calls to Bundler.setup or Bundler.require will
         remember this location
+      = link("Learn More: Bundler.setup", "bundler_setup.html")
+      = link("Learn More: Bundler.require", "groups.html")
 
   .bullet
     .description
       Install all dependencies, except those in groups
       you explicitly excluded
-      = link("Learn More: Groups", "groups.html")
     :highlight_plain
       $ bundle install --without development test
+    = link("Learn More: Groups", "groups.html")
 
   .bullet
     .description
@@ -45,7 +45,7 @@
       unpacked.
     .how
       :highlight_plain
-        $bundle install vendor/bundle --without-shared-gems
+        $bundle install vendor/bundle --disable-shared-gems
       .notes
         By default, bundler will not try to reinstall
         gems that are already installed in your system.

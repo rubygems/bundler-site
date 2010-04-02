@@ -2,6 +2,8 @@
 @import compass/css3/text_shadow.sass
 @import compass/css3/border_radius.sass
 @import compass/css3/box_sizing.sass
+@import compass/css3/gradient.sass
+@import compass/css3/text_shadow.sass
 
 @mixin flexbox($direction, $align: center)
   display: -webkit-box
@@ -21,8 +23,10 @@
 
 html
   width: 100%
-  background-color: #AEDEE4
+  background-color: #c6e7ec
+  padding-top: 10px
   font-family: Helvetica, sans-serif
+
 
 img
   border: 0
@@ -39,13 +43,14 @@ img
   width: 725px
 
 #intro
-  border-top: 1px solid #366
-  padding-top: 10px
-  color: #699
+  background: rgba(0,0,0,0.1)
+  +border-radius(5px)
+  padding: 10px 10px
+  color: #043042
   font-size: 18px
-  line-height: 28px
+  line-height: 24px
   strong
-    color: #366
+    color: #041f2a
 
 #header
   margin-bottom: 20px
@@ -60,12 +65,16 @@ img
   +flexbox(horizontal, center)
   +distribute-children(justify)
   padding: 8px 16px
-  background-color: #bcc
+  background-color: rgba(0,0,0,0.1)
   width: 100%
   margin-top: 25px
 
   img:first-child
     +box-shadow(blue, 0, 0, 5px)
+
+  img:last-child
+    margin-top: -20px
+    margin-right: -20px
 
   .spacer
     +liquid
@@ -79,7 +88,7 @@ img
     font-size: 16px
     a
       text-decoration: none
-      color: #699
+      color: #0e3f54
 
 .contents
   width: 725px
@@ -88,13 +97,15 @@ h2
   font-size: 20px
   padding: 5px
   margin-top: 24px
-  color: #999
-  border-bottom: 3px solid #999
+  color: #0e3f54
+  border-bottom: 3px solid #0e3f54
   width: 100%
+  +box-sizing("border-box")
 
 .bullet
   width: 100%
-  padding: 8px
+  padding: 8px 15px
+  +box-sizing("border-box")
 
   .description
     width: 100%
@@ -104,26 +115,36 @@ h2
     margin-bottom: 8px
     a
       display: inline
+      padding: 0
+      background: transparent
       color: #393
       white-space: pre
 
-  a
+  > a
     padding-top: 8px
     padding-bottom: 5px
-    padding-right: 4px
     text-decoration: none
     display: block
-    color: #060
-    text-align: right
+    color: #fff
+    margin: 10px 0 0 450px
+    +text-shadow(rgba(0,0,0,0.3),0, -1px, 0)
+    text-align: center
+    +linear-gradient(color_stops(#6ecf36, #4e9326))
+    +border-radius(5px)
+    
+  > a:hover
+    +linear-gradient(color_stops(#4e9326, #35641a))
+    
 
   .how
     +flexbox(vertical, justify)
     +liquid
+    line-height: 24px
     .notes
       margin-top: 15px
       padding-right: 4px
       padding-left: 4px
-      color: #466
+      color: #033
       &+ a
         margin-top: 10px
 
@@ -133,12 +154,21 @@ h2
     margin: 0
 
 .bullet:nth-child(even)
-  background-color: #d9f9f9
+  background-color: rgba(0,0,0,0.1)
+  border-top: 1px solid rgba(0,0,0,0.1)
+  border-bottom: 1px solid rgba(0,0,0,0.1)
 
 .bullet:not(:nth-of-type(1))
   padding-top: 15px
-  border-top: 1px solid #dff
 
 .bullet
   padding-bottom: 25px
-  border-bottom: 1px solid #add
+  //border-bottom: 1px solid rgba(0,0,0,0.1)
+
+#credits
+  p
+    text-align: center
+    font-size: 8pt
+    color: #668493
+    a
+      color: #2c596b

@@ -3,13 +3,14 @@
   %head
     %title Bundler: The best way to manage Ruby applications
     = stylesheets
+    %link{:rel => "shortcut icon", :href => "/images/favicon.png", :type => "image/png" }
   %body
     #body
       #contents
         #header
           %a{:href => "index.html"}
             %img{:src => "images/gembundler.png", :width => "725"}/
-          %h1 The best way to manage your application's dependencies
+          /%h1 The best way to manage your application's dependencies
         = yield
 
     #footer
@@ -35,3 +36,5 @@
         = link("Rails 3", "rails3.html")
       .spacer
       = img("bundler-small.png")
+    #credits
+      %p Bundler icon and logo designed by <a href="http://twitter.com/johnneiner">John Neiner</a> and donated by <a href="http://pixelgraphics.us">Pixel Graphic Design Studio</a>

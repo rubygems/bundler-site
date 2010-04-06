@@ -8,9 +8,18 @@
       dependency versions will no longer change.
     :highlight_plain
       $ bundle lock
-      $ git add Gemfile.lock
     = link("Learn more: bundle lock", "bundle_lock.html")
-  
+
+  .bullet
+    .description
+      Add your Gemfile and lockfile to source control,
+      but ignore the .bundle folder, which is specific
+      to each machine.
+    :highlight_plain
+      $ echo ".bundle\n" >> .gitignore
+      $ git add Gemfile Gemfile.lock .gitignore
+      $ git commit -m "Add bundler"
+
   .bullet
     .description
       In your deploy script, after updating to the latest

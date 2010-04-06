@@ -1,0 +1,25 @@
+%h2 Deploying bundled applications
+
+.contents
+  .bullet
+    .description
+      When you are ready to deploy your application,
+      you should lock your bundle to guarantee that
+      dependency versions will no longer change.
+    :highlight_plain
+      $ bundle lock
+      $ git add Gemfile.lock
+    = link("Learn more: bundle lock", "bundle_lock.html")
+  
+  .bullet
+    .description
+      In your deploy script, after updating to the latest
+      code, install your bundle to ensure all your
+      dependencies are met.
+    .how
+      :highlight_plain
+        $ bundle install
+      .notes
+        Start your application servers as usual, and your
+        application will use your bundled environment
+        just like it does locally in development.

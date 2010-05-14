@@ -1,0 +1,51 @@
+%h2 Gemfiles
+
+.contents
+  .bullet
+    .description
+      Gemfiles require at least one gem source, in the form of the URL for a Rubygems server.
+      There are shortcuts for the default gem server, so all of these sources are the same.
+    :highlight_ruby
+      source :rubygems
+      source "http://rubygems.org"
+      source :rubyforge
+      source "http://gems.rubyforge.org"
+      source :gemcutter
+      source "http://gemcutter.org"
+
+  .bullet
+    .description
+      Declare the gems that you need, including version numbers. Specify versions using the same
+      syntax that Rubygems supports for dependencies.
+    :highlight_ruby
+      gem "nokogiri"
+      gem "rails", "3.0.0.beta3"
+      gem "rack",  ">=1.0"
+      gem "thin",  "~>1.1"
+
+  .bullet
+    .description
+      Git repositories are also valid gem sources, for multiple gems or just a single gem. Valid
+      git options are :tag, :branch, and :ref, defaulting to the master branch.
+    :highlight_ruby
+      git "git://github.com/wycats/thor.git", :tag => "v0.13.4"
+      gem "thor"
+
+      gem "nokogiri", :git => "git://github.com/tenderlove/nokogiri.git"
+    = link("Learn more: Git", "git.html")
+
+  .bullet
+    .description
+      If you are actively developing a gem, perhaps checked out from Github, you can use the gem
+      directly from its directory on your filesystem.
+    :highlight_ruby
+      gem "nokogiri", :path => "~/sw/gems/nokogiri"
+
+  .bullet
+    .description
+      Dependencies placed into a group can be ignored at install time or required together
+    :highlight_ruby
+      group :development do
+        gem "wirble"
+      end
+    = link("Learn more: Groups", "groups.html")

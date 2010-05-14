@@ -16,26 +16,36 @@
     #footer
       = img("emocow.png")
       .spacer
-      %p
-        = link("home", "index.html")
-        \/
-        = link("install", "bundle_install.html")
-        \/
-        = link("lock", "bundle_lock.html")
-        \/
-        = link("package", "bundle_package.html")
-        \/
-        = link("#setup", "bundler_setup.html")
-        \/
-        = link("git", "git.html")
-        \/
-        = link("groups", "groups.html")
-        \/
-        = link("Rails 2.3", "rails23.html")
-        \/
-        = link("Rails 3", "rails3.html")
-        \/
-        = link("deploy", "deploy.html")
+      #navigation
+        %p
+          %b commands
+          = link("home", "index.html")
+          \/
+          = link("install", "bundle_install.html")
+          \/
+          = link("lock", "bundle_lock.html")
+          \/
+          = link("package", "bundle_package.html")
+        %p
+          %b usage
+          = link("gemfile", "gemfile.html")
+          \/
+          = link("git", "git.html")
+          \/
+          = link("groups", "groups.html")
+          \/
+          = link("setup", "bundler_setup.html")
+          \/
+          = link("deploying", "deploying.html")
+        %p
+          %b frameworks
+          = link("rubygems", "rubygems.html")
+          \/
+          = link("sinatra", "sinatra.html")
+          \/
+          = link("rails 2.3", "rails23.html")
+          \/
+          = link("rails 3", "rails3.html")
       .spacer
       = img("bundler-small.png")
     #credits
@@ -48,7 +58,7 @@
       _gaq.push(['_setAccount', 'UA-557621-9']);
       _gaq.push(['_trackPageview']);
       (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
       })();

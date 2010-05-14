@@ -82,13 +82,17 @@ img
   img
     display: block
 
-  p
-    font-family: Helvetica, sans-serif
-    color: #366
-    font-size: 16px
-    a
-      text-decoration: none
-      color: #0e3f54
+  #navigation
+    +flexbox(vertical, center)
+
+    p
+      font-family: Helvetica, sans-serif
+      color: #366
+      font-size: 16px
+      margin: 0
+      a
+        text-decoration: none
+        color: #0e3f54
 
 .contents
   width: 725px

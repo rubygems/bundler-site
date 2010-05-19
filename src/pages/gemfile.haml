@@ -25,13 +25,20 @@
 
   .bullet
     .description
-      Git repositories are also valid gem sources, for multiple gems or just a single gem. Valid
-      git options are :tag, :branch, and :ref, defaulting to the master branch.
+      If a gem's main file is different than the gem name, specify how to require it.
     :highlight_ruby
+      gem "rspec", :require => "spec"
+      gem "sqlite3-ruby", "1.2.5", :require => "sqlite3"
+
+  .bullet
+    .description
+      Git repositories are also valid gem sources, as long as the repo contains one or more valid gems.
+      Specify what to check out with :tag, :branch, or :ref. The default is the master branch.
+    :highlight_ruby
+      gem "nokogiri", :git => "git://github.com/tenderlove/nokogiri.git", :branch => "1.4"
+
       git "git://github.com/wycats/thor.git", :tag => "v0.13.4"
       gem "thor"
-
-      gem "nokogiri", :git => "git://github.com/tenderlove/nokogiri.git"
     = link("Learn more: Git", "git.html")
 
   .bullet
@@ -43,9 +50,12 @@
 
   .bullet
     .description
-      Dependencies placed into a group can be ignored at install time or required together
+      Dependencies can be placed into groups, to be ignored at install-time or required all at once.
     :highlight_ruby
-      group :development do
-        gem "wirble"
+      gem "wirble", :group => :development
+      gem "ruby-debug", :group => [:development, :test]
+
+      group :test do
+        gem "rspec"
       end
     = link("Learn more: Groups", "groups.html")

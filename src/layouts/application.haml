@@ -8,9 +8,8 @@
     #body
       #contents
         #header
-          %a{:href => "index.html"}
-            %img{:src => "images/gembundler.png", :width => "725"}/
-          /%h1 The best way to manage your application's dependencies
+          %a{:href => "/"}
+            = img("gembundler.png", :width => 725, :alt => "The best way to manage your application's dependencies")
         = yield
 
     #footer

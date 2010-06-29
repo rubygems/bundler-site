@@ -1,0 +1,25 @@
+%h2 Deploying bundled applications
+
+.contents
+  .bullet
+    .description
+      Add your Gemfile and lockfile to source control,
+      but ignore the .bundle folder, which is specific
+      to each machine.
+    :highlight_plain
+      $ echo ".bundle\n" >> .gitignore
+      $ git add Gemfile Gemfile.lock .gitignore
+      $ git commit -m "Add bundler"
+
+  .bullet
+    .description
+      In your deploy script, after updating to the latest
+      code, install your bundle to ensure all your
+      dependencies are met.
+    .how
+      :highlight_plain
+        $ bundle install
+      .notes
+        Start your application servers as usual, and your
+        application will use your bundled environment
+        just like it does locally in development.

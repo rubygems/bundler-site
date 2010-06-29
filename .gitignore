@@ -1,9 +1,9 @@
 .sass-cache
 theme
-site/*.html
 site/stylesheets/*.css
 !site/stylesheets/sunburst.css
 site/*.html
+site/**/*.html
 .bundle
 onig-5.8.0
 onig-5.8.0.tar.gz

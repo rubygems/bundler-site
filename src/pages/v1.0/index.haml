@@ -26,7 +26,7 @@
       gem "nokogiri"
       gem "rack", "~>1.1"
       gem "rspec", :require => "spec"
-    = link("Learn More: Gemfiles", "gemfile.html")
+    = link("Learn More: Gemfiles", "./gemfile.html")
 
   .bullet
     .description
@@ -34,7 +34,7 @@
     :highlight_plain
       $ bundle install
       $ git add Gemfile Gemfile.lock
-    = link("Learn More: bundle install", "bundle_install.html")
+    = link("Learn More: bundle install", "./bundle_install.html")
 
   .bullet
     .description
@@ -45,7 +45,7 @@
 
       # require your gems as usual
       require "nokogiri"
-    = link("Learn More: Bundler.setup", "bundler_setup.html")
+    = link("Learn More: Bundler.setup", "./bundler_setup.html")
 
 %h2 Using Bundler with Frameworks
 
@@ -55,19 +55,19 @@
       Bundler works out of the box with Rails 3. Once you
       understand the basics of using bundler, you know
       everything you need to know.
-      = link("Using Bundler with Rails 3", "rails3.html")
+      = link("Using Bundler with Rails 3", "./rails3.html")
 
   .bullet
     .description
       Bundler works with Rails 2.3 with a small change
       to boot.rb and adding a preinitializer.rb.
-      = link("Using Bundler with Rails 2.3", "rails23.html")
+      = link("Using Bundler with Rails 2.3", "./rails23.html")
 
   / .bullet
   /   .description
   /     Setting up Sinatra to use Bundler is as simple as
   /     using Bundler itself.
-  /     = link("Using Bundler with Sinatra", "sinatra.html")
+  /     = link("Using Bundler with Sinatra", "./sinatra.html")
 
 %h2 Checking Out an Application With a Gemfile
 
@@ -77,7 +77,7 @@
       Install the required gems
     :highlight_plain
       $ bundle install
-    = link("Learn More: bundle install", "bundle_install.html")
+    = link("Learn More: bundle install", "./bundle_install.html")
 
 %h2 Digging Further
 
@@ -89,7 +89,7 @@
       from this cache, bypassing rubygems.org
     :highlight_plain
       $ bundle package
-    = link("Learn More: bundle package", "bundle_package.html")
+    = link("Learn More: bundle package", "./bundle_package.html")
 
   .bullet
     .description
@@ -100,7 +100,7 @@
       group :development do
         gem "wirble"
       end
-    = link("Learn more: Groups", "groups.html")
+    = link("Learn more: Groups", "./groups.html")
 
   .bullet
     .description
@@ -110,7 +110,7 @@
     :highlight_ruby
       gem "nokogiri", :git =>
         "git://github.com/tenderlove/nokogiri.git"
-    = link("Learn more: Git", "git.html")
+    = link("Learn more: Git", "./git.html")
 
   .bullet
     .description
@@ -130,4 +130,4 @@
         By specifying --disable-shared-gems, you are telling
         bundler to install the gems into vendor, even if
         they are already installed in the system
-    = link("Learn More: bundle install", "bundle_install.html")
+    = link("Learn More: bundle install", "./bundle_install.html")

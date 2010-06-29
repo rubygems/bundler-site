@@ -20,6 +20,11 @@
 @mixin liquid($size: 1)
   -webkit-box-flex: $size
   -moz-box-flex: $size
+  
+=bundler-link
+  text-decoration: none
+  color: #0e3f54
+
 
 html
   width: 100%
@@ -91,8 +96,7 @@ img
       font-size: 16px
       margin: 0
       a
-        text-decoration: none
-        color: #0e3f54
+        +bundler-link
 
 .contents
   width: 725px
@@ -177,3 +181,16 @@ h2
     top: 0
     right: 0
     border: 0
+
+#versions
+  position: absolute
+  top: 0
+  left: 0
+  padding: 0.4em
+  background: rgba(0,0,0,0.1)
+  +border-bottom-right-radius(10px)
+  a
+    +bundler-link
+    padding: 0.1em 0.25em
+  a.current
+    font-weight: bold

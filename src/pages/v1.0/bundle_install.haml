@@ -9,47 +9,36 @@
       :highlight_plain
         $ bundle install
       .notes
-        Gems may be
-        installed to system gems or BUNDLE_PATH (defaults
-        to ~/.bundle). Git repos will be checked out
-        to BUNDLE_PATH.
+        Gems may be installed to system gems or <code>BUNDLE_PATH</code>
+        (which defaults to <code>~/.bundle</code>). Git repos will
+        be checked out into to <code>BUNDLE_PATH</code> as well.
 
   .bullet
     .description
-      Install your dependencies to a different location
-      than BUNDLE_PATH.
+      Install your dependencies, even gems that are already installed
+      to your system gems, to a location other than <code>BUNDLE_PATH</code>.
+      In this case, all gems will be installed to <code>vendor/bundle</code>.
     .how
       :highlight_plain
         $ bundle install vendor/bundle
       .notes
-        Further bundle commands or
-        calls to Bundler.setup or Bundler.require will
-        remember this location
+        Further bundle commands or calls to Bundler.setup or Bundler.require will
+        remember this location.
       = link("Learn More: Bundler.setup", "./bundler_setup.html")
       = link("Learn More: Bundler.require", "./groups.html")
 
   .bullet
     .description
-      Install all dependencies, except those in groups
-      you explicitly excluded
+      Install all dependencies except those in groups
+      that are explicitly excluded.
     :highlight_plain
       $ bundle install --without development test
     = link("Learn More: Groups", "./groups.html")
 
   .bullet
     .description
-      Install all gems to BUNDLE_PATH, but ignore
-      gems that are installed in your system. This
-      is especially useful if you're trying to
-      package up an application with all dependencies
-      unpacked.
-    .how
-      :highlight_plain
-        $bundle install vendor/bundle --disable-shared-gems
-      .notes
-        By default, bundler will not try to reinstall
-        gems that are already installed in your system.
-        By specifying --without-shared-gems, you are
-        telling bundler to install all gems into the
-        BUNDLE_PATH, regardless of whether they are
-        already installed in your system
+      Install all dependencies to <code>vendor/bundle</code>, using cached gems in
+      <code>vendor/cache</code> if they are present.
+    :highlight_plain
+      $ bundle install --deployment
+    = link("Learn More: Deploying", "./deploying.html")

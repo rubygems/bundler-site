@@ -1,39 +1,32 @@
---- 
-dependencies: 
-  compass: 
-    group: 
-    - :default
-    version: = 0.10.0
-  ultraviolet: 
-    group: 
-    - :default
-    version: ">= 0"
-  haml: 
-    group: 
-    - :default
-    version: = 3.0.0
-  staticmatic: 
-    group: 
-    - :default
-    version: = 0.11.0.alpha.8
-specs: 
-- haml: 
-    version: 3.0.0
-- compass: 
-    version: 0.10.0
-- oniguruma: 
-    version: 1.1.0
-- plist: 
-    version: 3.1.0
-- rack: 
-    version: 1.2.1
-- staticmatic: 
-    version: 0.11.0.alpha.8
-- textpow: 
-    version: 0.10.1
-- ultraviolet: 
-    version: 0.10.2
-hash: eb8ef6d9459f3c7d13130058ea2c82f18738bb44
-sources: 
-- Rubygems: 
-    uri: http://gemcutter.org
+GIT
+  remote: git://github.com/indirect/staticmatic.git
+  revision: 88059f4
+  specs:
+    staticmatic (0.11.0.alpha.8)
+      compass (>= 0.10.0)
+      haml (>= 2.0.0)
+      rack (>= 1.0)
+
+GEM
+  remote: http://rubygems.org/
+  specs:
+    compass (0.10.0)
+      haml (>= 3.0.0)
+    haml (3.0.0)
+    oniguruma (1.1.0)
+    plist (3.1.0)
+    rack (1.2.1)
+    textpow (0.10.1)
+      oniguruma (>= 1.1.0)
+      plist (>= 3.0.0)
+    ultraviolet (0.10.2)
+      textpow (>= 0.10.0)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  compass (= 0.10.0)
+  haml (= 3.0.0)
+  staticmatic (= 0.11.0.alpha.8)!
+  ultraviolet

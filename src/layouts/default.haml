@@ -1,4 +1,5 @@
 !!!
+- v1 = (current_page =~ /^\/v1\.0/)
 %html
   %head
     %title Bundler: The best way to manage Ruby applications
@@ -21,8 +22,9 @@
           = link("home", "./index.html")
           \/
           = link("install", "./bundle_install.html")
-          \/
-          = link("lock", "./bundle_lock.html")
+          - unless v1
+            \/
+            = link("lock", "./bundle_lock.html")
           \/
           = link("package", "./bundle_package.html")
         %p
@@ -52,7 +54,6 @@
     %a#github{ :href => "http://github.com/carlhuda/bundler/" }
       %img{:src => "http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png", :alt => "Fork me on GitHub"}
     #versions
-      - v1 = (current_page =~ /^\/v1\.0/)
       = link_to("v0.9", "v0.9/index.html", :class => (v1 ? "" : "current"))
       = link_to("v1.0", "v1.0/index.html", :class => (v1 ? "current" : ""))
 

@@ -1,47 +1,48 @@
 %h2 Using Bundler with Rubygem gemspecs
 
-/ TODO: write this section, using Gemfile's #gemspec method
-/.contents
-/  .bullet
-/    .description
-/      If you already have a gem with a gemspec, you can generate a Gemfile for your gem.
-/    .how
-/      :highlight_plain
-/        $ bundle init --gemspec
-/      .notes
-/        If you are creating a new gem, simply create a new Gemfile.
-/
-/  .bullet
-/    .description
-/      Gems in the default group are regular dependencies, and gems in the :development group are
-/      development dependencies. Gems in other groups will not be included in the gemspec.
-/    :highlight_ruby
-/      source :rubyforge
-/      gem "json"
-/
-/      group :development do
-/        gem "rspec"
-/      end
-/    
-/      group :debugging do
-/        gem "ruby-debug"
-/        gem "awsome_print"
-/      end
-/
-/  .bullet
-/    .description
-/      Inside your gemspec, load bundler and replace all of the dependency calls with a single call to 
-/      \#add_bundler_dependencies.
-/    :highlight_ruby
-/      require 'bundler'
-/      Gem::Specification.new do |s|
-/        # [...]
-/        s.add_bundler_dependencies
-/      end
-/  
-/  .bullet
-/    .description
-/      That's it! You can now build your gem.
-/    :highlight_plain
-/      $ gem build my_gem.gemspec
-/
+.contents
+  .bullet
+    .description
+      If you're creating a gem from scratch, you can use bundler's built in gem skeleton to create a base gem for you to edit.
+    .how
+      :highlight_plain
+        $ bundle gem my_gem
+      .notes
+        This will create a new directory named <code>my_gem</code> with your new gem skeleton.
+
+  .bullet
+    .description
+      If you already have a gem with a gemspec, you can generate a Gemfile for your gem.
+    .how
+      :highlight_plain
+        $ bundle init
+      .notes
+        Then, add the following to your new Gemfile
+        :highlight_ruby
+          gemspec
+      
+  .bullet
+    .description
+      Runtime dependencies in your gemspec are treated like base dependencies, and development dependencies are added by default to the group, <code>:development</code>. You can change that group with the <code>:development_group</code> option
+    :highlight_ruby
+      gemspec :development_group => :dev
+
+  .bullet
+    .description
+      As well, you can point to a specific gemspec using <code>:path</code>. If your gemspec is in <code>/gemspec/path</code>, use
+      :highlight_ruby
+        gemspec :path => '/gemspec/path'
+      
+  .bullet
+    .description
+      If you have multiple gemspecs in the same directory, specify which one you'd like to reference using <code>:name</code>
+      :highlight_ruby
+        gemspec :name => 'my_awesome_gem'
+      .notes
+        This will use <code>my_awesome_gem.gemspec</code>
+  
+  .bullet
+    .description
+      That's it! Use bundler when developing your gem, and otherwise, use gemspecs normally!
+    :highlight_plain
+      $ gem build my_gem.gemspec

@@ -36,6 +36,13 @@ html
 img
   border: 0
 
+code
+  font-family: monospace
+  font-size: 120%
+  padding: 0 3px
+  border: 1px solid rgba(0,0,0,0.1)
+  +border-radius(5px)
+
 .intro
   width: 100%
 
@@ -110,10 +117,22 @@ h2
   width: 100%
   +box-sizing("border-box")
 
+ul.bullet
+  +flexbox(horizontal, center)
+  +distribute-children(justify)
+
+  a
+    margin-left: 0
+    margin-right: 10px
+    +liquid
+    &:last-child
+      margin-right: 0
+
 .bullet
   width: 100%
   padding: 8px 15px
   +box-sizing("border-box")
+  +flexbox(vertical, justify)
 
   .description
     width: 100%
@@ -133,27 +152,35 @@ h2
     text-align: center
     +linear-gradient(color_stops(#6ecf36, #4e9326))
     +border-radius(5px)
-    
+
   a:hover
     +linear-gradient(color_stops(#4e9326, #35641a))
-    
+
 
   .how
     +flexbox(vertical, justify)
     +liquid
     line-height: 24px
-    .notes
-      margin-top: 15px
-      padding-right: 4px
-      padding-left: 4px
-      color: #033
-      &+ a
-        margin-top: 10px
+  .notes
+    margin-top: 15px
+    margin-bottom: 8px
+    padding-right: 4px
+    padding-left: 4px
+    color: #066
+    &+ a
+      margin-top: 10px
+    &+ pre
+      margin-top: 10px
+    &+ .description
+      margin-top: 20px
 
   pre
     +border-radius(5px)
     +liquid
     margin: 0
+
+  code
+    background-color: rgba(0,0,0,0.1)
 
 .bullet:nth-child(even)
   background-color: rgba(0,0,0,0.1)

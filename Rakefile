@@ -14,3 +14,8 @@ task :install_onig do
     system "sudo make install"
   end
 end
+
+desc "Generate the man page"
+task :man do
+  system "ronn ronn/*.ronn"
+end

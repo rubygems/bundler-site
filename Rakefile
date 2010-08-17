@@ -15,7 +15,16 @@ task :install_onig do
   end
 end
 
-desc "Generate the man page"
+desc "Pull in the man pages"
 task :man do
-  system "ronn ronn/*.ronn"
+  if File.exists?("bundler")
+    Dir.chdir("bundler") { system "git pull" }
+  else
+    system "git clone git://github.com/carlhuda/bundler.git"
+  end
+
+  FileUtils.mkdir_p("site/man")
+  Dir.chdir("bundler") { system "ronn -5 man/*.ronn" }
+  FileUtils.mv(Dir["bundler/man/*.html"], "site/man")
 end
+

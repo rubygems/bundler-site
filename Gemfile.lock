@@ -36,5 +36,5 @@ DEPENDENCIES
   compass (= 0.10.0)
   haml (= 3.0.0)
   ronn
-  staticmatic (= 0.11.0.alpha.8)!
+  staticmatic (~> 0.11.0.alpha)!
   ultraviolet

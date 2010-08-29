@@ -5,7 +5,7 @@
     .description
       Read the manual for an in-depth discussion of all of the options available in the
       <code>Gemfile</code> and how to use them.
-    = link("Gemfile manual", "/omg.html")
+    = link("Gemfile manual", "./man/gemfile.5.html")
 
 %h2 Gemfiles
 
@@ -51,7 +51,7 @@
   .bullet
     .description
       Git repositories are also valid gem sources, as long as the repo contains one or
-      more valid gems. Specify what to check out with <code>:tag</code>, 
+      more valid gems. Specify what to check out with <code>:tag</code>,
       <code>:branch</code>, or <code>:ref</code>. The default is the <code>master</code> branch.
     :highlight_ruby
       gem "nokogiri", :git => "git://github.com/tenderlove/nokogiri.git", :branch => "1.4"

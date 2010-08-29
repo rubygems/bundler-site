@@ -7,8 +7,7 @@
       your Gemfile can be required
     :highlight_ruby
       require "rubygems"
-      require "bundler"
-      Bundler.setup
+      require "bundler/setup"
       require "nokogiri"
 
   .bullet
@@ -21,4 +20,4 @@
       require "bundler"
       Bundler.setup(:default, :ci)
       require "nokogiri"
-    = link("Learn More: Groups", "groups.html")
+    = link("Learn More: Groups", "./groups.html")

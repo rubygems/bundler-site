@@ -12,7 +12,8 @@
       Then, set up your config.ru file to load the bundle before it loads your Sinatra app.
     :highlight_ruby
       require 'rubygems'
-      require 'bundler/setup'
+      require 'bundler'
+      Bundler.setup
 
       require 'sinatra'
       require 'my_sinatra_app'

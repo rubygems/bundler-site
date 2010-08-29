@@ -1,5 +1,5 @@
 !!!
-- v1 = (current_page =~ /^\/v1\.0/)
+- v1 = (current_page =~ /^\/v1\.0/ || current_page == "/index.html")
 %html
   %head
     %title Bundler: The best way to manage Ruby applications

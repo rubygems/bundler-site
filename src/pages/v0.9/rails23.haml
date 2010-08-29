@@ -12,7 +12,7 @@
     :highlight_plain
       $ rails myapp
       $ cd myapp
-
+  
   .bullet
     .description
       Insert the following code in config/boot.rb, right above
@@ -45,7 +45,7 @@
       end
 
       if Gem::Version.new(Bundler::VERSION) <= Gem::Version.new("0.9.24")
-        raise RuntimeError, "Your bundler version is too old for Rails 2.3." +
+        raise RuntimeError, "Your bundler version is too old." +
          "Run `gem install bundler` to upgrade."
       end
 
@@ -83,7 +83,7 @@
         # gem "rspec"
         # gem "faker"
       end
-    = link("Learn More: Groups", "./groups.html")
+    = link("Learn More: Groups", "groups.html")
 
   .bullet
     .description
@@ -93,3 +93,10 @@
     :highlight_plain
       $ rake db:migrate
     = link("Learn More: Rails 3", "rails3.html#shared_with_23")
+
+  .bullet
+    .description
+      Don't forget that non-Rails commands must
+      be executed with bundle exec
+    :highlight_plain
+      $ bundle exec cucumber

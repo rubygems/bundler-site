@@ -1,12 +1,3 @@
-%h2 In Depth
-
-.contents
-  .bullet
-    .description
-      Read the manual for an in-depth discussion of all of the options available in the
-      <code>Gemfile</code> and how to use them.
-    = link("Gemfile manual", "/omg.html")
-
 %h2 Gemfiles
 
 .contents
@@ -31,11 +22,6 @@
       gem "rails", "3.0.0.beta3"
       gem "rack",  ">=1.0"
       gem "thin",  "~>1.1"
-    .notes
-      Most of the version specifiers, like <code>>= 1.0</code>, are self-explanatory.
-      The specifier <code>~></code> has a special meaning, best shown by example.
-      <code>~> 2.0.3</code> is identical to <code>>= 2.0.3</code> and <code>< 2.1</code>.
-      <code>~> 2.1</code> is identical to <code>>= 2.1</code> and <code>< 2.2</code>
 
   .bullet
     .description
@@ -43,27 +29,17 @@
     :highlight_ruby
       gem "rspec", :require => "spec"
       gem "sqlite3-ruby", "1.2.5", :require => "sqlite3"
-    .notes
-      In order to require gems in your <code>Gemfile</code>, you will need to call
-      <code>Bundler.require</code> in your application.
-    = link("Learn More: Bundler.require", "./groups.html")
 
   .bullet
     .description
-      Git repositories are also valid gem sources, as long as the repo contains one or
-      more valid gems. Specify what to check out with <code>:tag</code>, 
-      <code>:branch</code>, or <code>:ref</code>. The default is the <code>master</code> branch.
+      Git repositories are also valid gem sources, as long as the repo contains one or more valid gems.
+      Specify what to check out with :tag, :branch, or :ref. The default is the master branch.
     :highlight_ruby
       gem "nokogiri", :git => "git://github.com/tenderlove/nokogiri.git", :branch => "1.4"
 
       git "git://github.com/wycats/thor.git", :tag => "v0.13.4"
       gem "thor"
-    .notes
-      If the git repository does not contain a <code>.gemspec</code> file, bundler
-      will create a simple one, without any dependencies, executables or C extensions.
-      This may work for simple gems, but not work for others. If there is no .gemspec,
-      you probably shouldn't use the gem from git.
-    = link("Learn more: Git", "./git.html")
+    = link("Learn more: Git", "git.html")
 
   .bullet
     .description
@@ -82,4 +58,4 @@
       group :test do
         gem "rspec"
       end
-    = link("Learn more: Groups", "./groups.html")
+    = link("Learn more: Groups", "groups.html")

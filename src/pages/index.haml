@@ -169,7 +169,7 @@
 .contents
   .bullet
     .description
-      Install the required gems for your application into your
+      On your deployment box, install the required gems for your application into your
       application's directory
     :highlight_plain
       $ bundle install --deployment
@@ -181,8 +181,9 @@
 
   .bullet
     .description
-      Use the built-in Capistrano recipe to quickly and easily
-      deploy your application
+      Alternatively, use the built-in Capistrano recipe to quickly and easily
+      deploy your application. If you do, you no longer need to run bundle install
+      yourself, as Capistrano now does it for you automatically
     :highlight_ruby
       require "bundler/capistrano"
     .notes

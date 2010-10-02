@@ -50,3 +50,10 @@
       from gems in the bundle
     :highlight_plain
       $ bundle exec rake db:setup
+
+  .bullet
+    .description
+      Heroku does not use the <code>--deployment</code> or <code>--without</code>
+      flags. If you need to exclude groups on Heroku, use <code>heroku config</code>.
+    :highlight_plain
+      $ heroku config:add BUNDLE_WITHOUT="test development" --app app_name

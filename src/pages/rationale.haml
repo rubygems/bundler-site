@@ -4,7 +4,8 @@
 %br
 
 #standalone
-  %h2 Bundler's Purpose and Rationale
+  %h2#bundlers-purpose-and-rationale
+    Bundler's Purpose and Rationale
 
   %p
     We designed bundler to make it easy to share your code across a number of development,
@@ -87,7 +88,7 @@
     any needed gems to your system, bundler writes a snapshot of all of the gems and
     versions that it installed to <code>Gemfile.lock</code>.
 
-  %h2
+  %h2#setting-up-your-application-to-use-bundler
     Setting Up Your Application to Use Bundler
 
   %p
@@ -147,7 +148,8 @@
     larger <code>Gemfile</code>s, using <code>Bundler.require</code> allows you to skip
     repeating a large stack of requirements.
 
-  %h2 Grouping Your Dependencies
+  %h2#grouping-your-dependencies
+    Grouping Your Dependencies
 
   %p
     You'll sometimes have groups of gems that only make sense in particular environments.
@@ -214,7 +216,8 @@
     place in your app. You might do this because requiring a certain gem takes some time,
     and you don't need it every time you boot your application.
 
-  %h2 Checking Your Code into Version Control
+  %h2#checking-your-code-into-version-control
+    Checking Your Code into Version Control
 
   %p
     After developing your application for a while, check in the application together with
@@ -248,7 +251,8 @@
     in that folder and checked in to your source control. This is an <strong>optional</strong>
     step, and not recommended, due to the increase in size of your source control repository.
 
-  %h2 Sharing Your Application With Other Developers
+  %h2#sharing-your-application-with-other-developers
+    Sharing Your Application With Other Developers
 
   %p
     When your co-developers (or you on another machine) check out your code, it will come
@@ -267,7 +271,8 @@
     relieves a large maintenance burden from application developers, because all machines
     always run the exact same third-party code.
 
-  %h2 Updating a Dependency
+  %h2#updating-a-dependency
+    Updating a Dependency
 
   %p
     Of course, at some point, you might want to update the version of a particular
@@ -338,7 +343,8 @@
     to boot, and bundler will print out an error instructing you to run <code>bundle
     install</code>.
 
-  %h2 Updating a Gem Without Modifying the Gemfile
+  %h2#updating-a-gem-without-modyfying-the-gemfile
+    Updating a Gem Without Modifying the Gemfile
 
   %p
     Sometimes, you want to update a dependency without modifying the Gemfile. For example,
@@ -376,7 +382,8 @@
     number of the third-party packages you depend on have released new versions since you
     last did a full update.
 
-  %h2 Deploying Your Application
+  %h2#deploying-your-application
+    Deploying Your Application
 
   %p
     When you run <code>bundle install</code>, bundler will (by default), install your gems
@@ -442,7 +449,8 @@
     successfully booted your application (or run your tests) since the last time you changed
     your <code>Gemfile</code>.
 
-  %h2 FAQ: Why Can't I Just Specify Only <code>=</code> Dependencies?
+  %h2#faq-1
+    FAQ: Why Can't I Just Specify Only <code>=</code> Dependencies?
 
   %p
     <strong>Q:</strong> I understand the value of locking my gems down to specific versions,
@@ -468,7 +476,8 @@
     version number, while still getting the benefits of ensuring that your application
     always runs with exactly the same versions of all third-party code.
 
-  %h2 FAQ: Why Can't I Just Submodule Everything?
+  %h2#faq-2
+    FAQ: Why Can't I Just Submodule Everything?
 
   %p
     <strong>Q:</strong> I don't understand why I need bundler to manage my gems in this
@@ -499,7 +508,8 @@
     Bottom line: even though it might seem simpler at first glance, it is decidedly
     significantly more complex.
 
-  %h2 FAQ: Why Is Bundler Downloading Gems From <code>--without</code> Groups?
+  %h2#faq-3
+    FAQ: Why Is Bundler Downloading Gems From <code>--without</code> Groups?
 
   %p
     <strong>Q:</strong> I ran <code>bundle install --without production</code> and bundler
@@ -546,7 +556,8 @@
     the possibility of a difficult **installation** process for a gem that you only use in
     production (or in development).
 
-  %h2 FAQ: I Have a C Extension That Requires Special Flags to Install
+  %h2#faq-4
+    FAQ: I Have a C Extension That Requires Special Flags to Install
 
   %p
     <strong>Q</strong>: I have a C extension gem, such as <code>mysql</code>, which requires
@@ -572,7 +583,8 @@
     install that gem as many times as necessary.
 
 
-  %h2 Summary
+  %h2#summary
+    Summary
   %h2 A Simple Bundler Workflow
 
   %ul
@@ -657,7 +669,8 @@
       :highlight_plain
         $ bundle install --deployment
 
-  %h2 Notes
+  %h2#notes
+    Notes
 
   %p
     [1] For instance, if <code>rails 3.0.0</code> depended on <code>rack 2.0</code>, that

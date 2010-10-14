@@ -3,6 +3,17 @@
 .contents
   .bullet
     .description
+      Bundler adds the ability to use gems directly from git repositories. Setting
+      them up is as easy as adding a gem to your Gemfile. Using the very latest
+      version of a gem (or even a fork) is just as easy as using an official
+      release.
+    .description
+      Because Rubygems lacks the ability to handle gems from git, any gems
+      installed from a git repository will not show up in <code>gem list</code>.
+      They will, however, be available after running <code>Bundler.setup</code>.
+
+  .bullet
+    .description
       Specify that a gem should come from a git
       repository with a .gemspec at its root
     :highlight_ruby
@@ -46,4 +57,3 @@
       exactly the same way
     :highlight_ruby
       gem "nokogiri", :git => "git://github.com/tenderlove/nokogiri.git", :ref => "0eec4"
-      

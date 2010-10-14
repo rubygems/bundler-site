@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/indirect/staticmatic.git
-  revision: 88059f4
+  revision: 489d81927b8f1dfa2e8610840a3bec4c78916061
   specs:
     staticmatic (0.11.0.alpha.8)
       compass (>= 0.10.0)
@@ -10,9 +10,9 @@ GIT
 GEM
   remote: http://rubygems.org/
   specs:
-    compass (0.10.0)
-      haml (>= 3.0.0)
-    haml (3.0.0)
+    compass (0.10.5)
+      haml (>= 3.0.4)
+    haml (3.0.21)
     hpricot (0.8.2)
     mustache (0.11.2)
     oniguruma (1.1.0)

@@ -3,7 +3,7 @@
 %br
 
 #standalone
-  %h1#rationale
+  %h1#bundlers-purpose-and-rationale
     Bundler's Purpose and Rationale
 
   %p
@@ -86,7 +86,7 @@
     any needed gems to your system, bundler writes a snapshot of all of the gems and
     versions that it installed to <code>Gemfile.lock</code>.
 
-  %h1#setup
+  %h1#setting-up-your-application-to-use-bundler
     Setting Up Your Application to Use Bundler
 
   %p
@@ -146,7 +146,7 @@
     larger <code>Gemfile</code>s, using <code>Bundler.require</code> allows you to skip
     repeating a large stack of requirements.
 
-  %h1#grouping_dependencies
+  %h1#grouping-your-dependencies
     Grouping Your Dependencies
 
   %p
@@ -214,7 +214,7 @@
     place in your app. You might do this because requiring a certain gem takes some time,
     and you don't need it every time you boot your application.
 
-  %h1#version_control
+  %h1#checking-your-code-into-version-control
     Checking Your Code into Version Control
 
   %p
@@ -237,7 +237,8 @@
     The next time you run <code>bundle install</code> on the same machine, bundler will see
     that it already has all of the dependencies you need, and skip the installation process.
 
-  %h1 Sharing Your Application With Other Developers
+  %h1#sharing-your-application-with-other-developers
+    Sharing Your Application With Other Developers
 
   %p
     When your co-developers (or you on another machine) check out your code, it will come
@@ -256,7 +257,7 @@
     relieves a large maintenance burden from application developers, because all machines
     always run the exact same third-party code.
 
-  %h1#updating_dependency
+  %h1#updating-a-dependency
     Updating a Dependency
 
   %p
@@ -328,7 +329,7 @@
     to boot, and bundler will print out an error instructing you to run <code>bundle
     install</code>.
 
-  %h1#updating_gem_without_modyfying_gemfile 
+  %h1#updating-a-gem-without-modyfying-the-gemfile 
     Updating a Gem Without Modifying the Gemfile
 
   %p
@@ -367,7 +368,7 @@
     number of the third-party packages you depend on have released new versions since you
     last did a full update.
 
-  %h1#deploy
+  %h1#deploying-your-application
     Deploying Your Application
 
   %p
@@ -430,7 +431,7 @@
     successfully booted your application (or run your tests) since the last time you changed
     your <code>Gemfile</code>.
 
-  %h1#faq1
+  %h1#faq-1
     FAQ: Why Can't I Just Specify Only <code>=</code> Dependencies?
 
   %p
@@ -457,7 +458,7 @@
     version number, while still getting the benefits of ensuring that your application
     always runs with exactly the same versions of all third-party code.
 
-  %h1#faq2
+  %h1#faq-2
     FAQ: Why Can't I Just Submodule Everything?
 
   %p
@@ -489,7 +490,7 @@
     Bottom line: even though it might seem simpler at first glance, it is decidedly
     significantly more complex.
 
-  %h1#faq3
+  %h1#faq-3
     FAQ: Why Is Bundler Downloading Gems From <code>--without</code> Groups?
 
   %p
@@ -537,7 +538,7 @@
     the possibility of a difficult **installation** process for a gem that you only use in
     production (or in development).
 
-  %h1#faq4
+  %h1#faq-4
     FAQ: I Have a C Extension That Requires Special Flags to Install
 
   %p

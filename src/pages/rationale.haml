@@ -1,9 +1,10 @@
 #intro
-  If you just want to know our recommended workflow, and don't care about the rationale, feel free to jump to the summary below.
+  If you just want to know our recommended workflow, and don't care about the rationale, feel
+  free to jump to the summary below.
 %br
 
 #standalone
-  %h1 Bundler's Purpose and Rationale
+  %h2 Bundler's Purpose and Rationale
 
   %p
     We designed bundler to make it easy to share your code across a number of development,
@@ -25,8 +26,9 @@
 
   %p
     This <code>Gemfile</code> says a few things. First, it says that bundler should look for gems
-    declared in the <code>Gemfile</code> at <code>http://rubygems.org</code>. You can declare multiple
-    Rubygems sources, and bundler will look for gems in the order you declared the sources.
+    declared in the <code>Gemfile</code> at <code>http://rubygems.org</code>. You can declare
+    multiple Rubygems sources, and bundler will look for gems in the order you declared the
+    sources.
 
   %p
     Next, you declare a few dependencies:
@@ -43,11 +45,11 @@
     $ bundle install    # <code>bundle</code> is a shortcut for <code>bundle install</code>
 
   %p
-    Bundler will connect to <code>rubygems.org</code> (and any other sources that you declared), and
-    find a list of all of the required gems that meet the requirements you specified. Because all of
-    the gems in your <code>Gemfile</code> have dependencies of their own (and some of those have their
-    own dependencies), running <code>bundle install</code> on the <code>Gemfile</code> above will
-    install quite a few gems.
+    Bundler will connect to <code>rubygems.org</code> (and any other sources that you declared),
+    and find a list of all of the required gems that meet the requirements you specified. Because
+    all of the gems in your <code>Gemfile</code> have dependencies of their own (and some of
+    those have their own dependencies), running <code>bundle install</code> on the
+    <code>Gemfile</code> above will install quite a few gems.
 
   :highlight_plain
     $ bundle install
@@ -85,7 +87,7 @@
     any needed gems to your system, bundler writes a snapshot of all of the gems and
     versions that it installed to <code>Gemfile.lock</code>.
 
-  %h1
+  %h2
     Setting Up Your Application to Use Bundler
 
   %p
@@ -145,7 +147,7 @@
     larger <code>Gemfile</code>s, using <code>Bundler.require</code> allows you to skip
     repeating a large stack of requirements.
 
-  %h1 Grouping Your Dependencies
+  %h2 Grouping Your Dependencies
 
   %p
     You'll sometimes have groups of gems that only make sense in particular environments.
@@ -212,7 +214,7 @@
     place in your app. You might do this because requiring a certain gem takes some time,
     and you don't need it every time you boot your application.
 
-  %h1 Checking Your Code into Version Control
+  %h2 Checking Your Code into Version Control
 
   %p
     After developing your application for a while, check in the application together with
@@ -234,7 +236,19 @@
     The next time you run <code>bundle install</code> on the same machine, bundler will see
     that it already has all of the dependencies you need, and skip the installation process.
 
-  %h1 Sharing Your Application With Other Developers
+  %p
+    Do not check in the <code>.bundle</code> directory, or any of the files inside it. Those
+    files are specific to each particular machine, and are used to persist installation options
+    between runs of the <code>bundle install</code> command.
+
+  %p
+    If you have run <code>bundle pack</code>, the gems (although not the git gems) required
+    by your bundle will be downloaded into <code>vendor/cache</code>. Bundler can run without
+    connecting to the internet (or the Rubygems server) if all the gems you need are present
+    in that folder and checked in to your source control. This is an <strong>optional</strong>
+    step, and not recommended, due to the increase in size of your source control repository.
+
+  %h2 Sharing Your Application With Other Developers
 
   %p
     When your co-developers (or you on another machine) check out your code, it will come
@@ -253,7 +267,7 @@
     relieves a large maintenance burden from application developers, because all machines
     always run the exact same third-party code.
 
-  %h1 Updating a Dependency
+  %h2 Updating a Dependency
 
   %p
     Of course, at some point, you might want to update the version of a particular
@@ -324,7 +338,7 @@
     to boot, and bundler will print out an error instructing you to run <code>bundle
     install</code>.
 
-  %h1 Updating a Gem Without Modifying the Gemfile
+  %h2 Updating a Gem Without Modifying the Gemfile
 
   %p
     Sometimes, you want to update a dependency without modifying the Gemfile. For example,
@@ -362,7 +376,7 @@
     number of the third-party packages you depend on have released new versions since you
     last did a full update.
 
-  %h1 Deploying Your Application
+  %h2 Deploying Your Application
 
   %p
     When you run <code>bundle install</code>, bundler will (by default), install your gems
@@ -396,6 +410,10 @@
     %li
       Bundler will not use gems already installed to your system, even if they exist.
     %li
+      If you have run <code>bundle pack</code>, checked in the <code>vendor/cache</code>
+      directory, and do not have any git gems, Bundler will not contact the internet while
+      installing your bundle.
+    %li
       Bundler will require a <code>Gemfile.lock</code> snapshot, and fail if you did not
       provide one.
     %li
@@ -424,7 +442,7 @@
     successfully booted your application (or run your tests) since the last time you changed
     your <code>Gemfile</code>.
 
-  %h1 FAQ: Why Can't I Just Specify Only <code>=</code> Dependencies?
+  %h2 FAQ: Why Can't I Just Specify Only <code>=</code> Dependencies?
 
   %p
     <strong>Q:</strong> I understand the value of locking my gems down to specific versions,
@@ -450,7 +468,7 @@
     version number, while still getting the benefits of ensuring that your application
     always runs with exactly the same versions of all third-party code.
 
-  %h1 FAQ: Why Can't I Just Submodule Everything?
+  %h2 FAQ: Why Can't I Just Submodule Everything?
 
   %p
     <strong>Q:</strong> I don't understand why I need bundler to manage my gems in this
@@ -481,7 +499,7 @@
     Bottom line: even though it might seem simpler at first glance, it is decidedly
     significantly more complex.
 
-  %h1 FAQ: Why Is Bundler Downloading Gems From <code>--without</code> Groups?
+  %h2 FAQ: Why Is Bundler Downloading Gems From <code>--without</code> Groups?
 
   %p
     <strong>Q:</strong> I ran <code>bundle install --without production</code> and bundler
@@ -528,7 +546,7 @@
     the possibility of a difficult **installation** process for a gem that you only use in
     production (or in development).
 
-  %h1 FAQ: I Have a C Extension That Requires Special Flags to Install
+  %h2 FAQ: I Have a C Extension That Requires Special Flags to Install
 
   %p
     <strong>Q</strong>: I have a C extension gem, such as <code>mysql</code>, which requires
@@ -554,7 +572,7 @@
     install that gem as many times as necessary.
 
 
-  %h1 Summary
+  %h2 Summary
   %h2 A Simple Bundler Workflow
 
   %ul
@@ -639,7 +657,7 @@
       :highlight_plain
         $ bundle install --deployment
 
-  %h1 Notes
+  %h2 Notes
 
   %p
     [1] For instance, if <code>rails 3.0.0</code> depended on <code>rack 2.0</code>, that

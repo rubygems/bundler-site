@@ -582,6 +582,14 @@
     a result, once you specify the necessary build flags for a gem, you can successfully
     install that gem as many times as necessary.
 
+  %p
+    For instance, if you are deploying via Capistrano to a server that needs certain flags
+    set, you should log in as your deploy user and run the appropriate <code>bundle config
+    </code> command. This ensures that the appropriate configuration flags are available at
+    <code>~/.bundle/config</code> each time the particular gem is installed on that server.
+    As Bundler expects a Gemfile, you may want to temporarily <code>touch Gemfile</code> in
+    the deploy user's home directory to run the command.
+
 
   %h2#summary
     Summary

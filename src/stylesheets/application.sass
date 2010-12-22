@@ -138,6 +138,21 @@ ul.bullet
     &:last-child
       margin-right: 0
 
+.notes
+  font-size: 90%
+  line-height: 150%
+  margin-top: 15px
+  margin-bottom: 8px
+  padding-right: 4px
+  padding-left: 4px
+  color: #066
+  &+ a
+    margin-top: 10px
+  &+ pre
+    margin-top: 10px
+  &+ .description
+    margin-top: 20px
+
 .bullet
   width: 100%
   padding: 8px 15px
@@ -171,20 +186,6 @@ ul.bullet
     +flexbox(vertical, justify)
     +liquid
     line-height: 24px
-  .notes
-    font-size: 90%
-    line-height: 150%
-    margin-top: 15px
-    margin-bottom: 8px
-    padding-right: 4px
-    padding-left: 4px
-    color: #066
-    &+ a
-      margin-top: 10px
-    &+ pre
-      margin-top: 10px
-    &+ .description
-      margin-top: 20px
 
   pre
     +liquid

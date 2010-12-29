@@ -77,8 +77,7 @@
   .bullet
     .description
       %h3 Heroku
-      Heroku does not use the <code>--deployment</code> or <code>--without</code>
-      flags. If you need to exclude groups on Heroku, use <code>heroku
-      config</code>.
+      When you deploy to Heroku, Bundler will be run automatically as long as a Gemfile is present. If you check in your Gemfile.lock, Heroku will run <code>`bundle install --deployment`</code>. If you want to exclude certain groups using the <code>--without</code> option, you need to use <code>`heroku config`</code>.
     :highlight_plain
       $ heroku config:add BUNDLE_WITHOUT="test development" --app app_name
+    = link("Heroku Bundler Documentation", "http://docs.heroku.com/bundler")

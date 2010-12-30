@@ -1,12 +1,3 @@
-GIT
-  remote: git://github.com/indirect/staticmatic.git
-  revision: 489d81927b8f1dfa2e8610840a3bec4c78916061
-  specs:
-    staticmatic (0.11.0.alpha.8)
-      compass (>= 0.10.0)
-      haml (>= 2.0.0)
-      rack (>= 1.0)
-
 GEM
   remote: http://rubygems.org/
   specs:
@@ -23,6 +14,10 @@ GEM
       hpricot (>= 0.8.2)
       mustache (>= 0.7.0)
       rdiscount (>= 1.5.8)
+    staticmatic (0.11.1)
+      compass (>= 0.10.0)
+      haml (>= 2.0.0)
+      rack (>= 1.0)
     textpow (0.10.1)
       oniguruma (>= 1.1.0)
       plist (>= 3.0.0)
@@ -36,5 +31,5 @@ DEPENDENCIES
   compass (~> 0.10.0)
   haml (~> 3.0.0)
   ronn
-  staticmatic (~> 0.11.0.alpha)!
+  staticmatic (~> 0.11)
   ultraviolet

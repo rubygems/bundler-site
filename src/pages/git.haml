@@ -34,10 +34,11 @@
       multiple .gemspec files should be treated
       as a gem source
     :highlight_ruby
-      git "git://github.com/rails/rails.git"
-      gem "railties"
-      gem "action_pack"
-      gem "active_model"
+      git "git://github.com/rails/rails.git" do
+        gem "railties"
+        gem "action_pack"
+        gem "active_model"
+      end
 
   .bullet
     .description

@@ -174,14 +174,15 @@
 .contents
   .bullet
     .description
-      On your deployment box, install your app's dependencies to an isolated directory
+      On production servers, you can enable deployment mode:
     :highlight_plain
       $ bundle install --deployment
     .notes
-      The <code>--deployment</code> flag turns on defaults that
-      are appropriate for a deployment environment. For instance,
-      gems are installed to <code>vendor/bundle</code> by default
-      and your <code>Gemfile.lock</code> must be up to date.
+      Do <b>not</b> use this flag on development machines. The
+      <code>--deployment</code> flag turns on defaults that are appropriate for
+      a deployment environment. Gems are installed to
+      <code>vendor/bundle</code> and the <code>Gemfile.lock</code> must be
+      checked in and up to date before Bundler is run.
     = link("Learn More: deploying", "./deploying.html")
 
 %h2#digging-further

@@ -1,0 +1,24 @@
+= partial('v1.1/shared/message')
+%h2 Bundler.setup
+
+.contents
+  .bullet
+    .description
+      Configure the load path so all dependencies in
+      your Gemfile can be required
+    :highlight_ruby
+      require "rubygems"
+      require "bundler/setup"
+      require "nokogiri"
+
+  .bullet
+    .description
+      Only add gems from specified groups to the
+      load path. If you want the gems in the
+      default group, make sure to include it
+    :highlight_ruby
+      require "rubygems"
+      require "bundler"
+      Bundler.setup(:default, :ci)
+      require "nokogiri"
+    = link("Learn More: Groups", "./groups.html")

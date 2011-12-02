@@ -64,8 +64,8 @@ code
   +flexbox(vertical, justify)
   width: 725px
 
-#intro
-  background: rgba(0,0,0,0.1)
+@mixin important($color)
+  background: $color
   +border-radius(5px)
   padding: 10px 10px
   color: #043042
@@ -73,6 +73,12 @@ code
   line-height: 24px
   strong
     color: #041f2a
+
+#intro
+  +important(rgba(0,0,0,0.1))
+
+#v11-message
+  +important(#E8E991)
 
 #header
   margin-bottom: 20px
@@ -228,15 +234,22 @@ pre
     right: 0
     border: 0
 
-#versions
+@mixin versions($left, $color)
   position: absolute
   top: 0
-  left: 0
+  left: $left
   padding: 0.4em
-  background: rgba(0,0,0,0.1)
+  background: $color
   +border-bottom-right-radius(10px)
   a
     +bundler-link
     padding: 0.1em 0.25em
   a.current
     font-weight: bold
+
+#prod-versions
+  +versions(0, #B2D0D4)
+  z-index: 1
+#rc-versions
+  +versions(87px, #E8E991)
+  z-index: 0

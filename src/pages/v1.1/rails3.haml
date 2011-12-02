@@ -1,0 +1,74 @@
+= partial('v1.1/shared/message')
+#intro
+  Rails 3 comes with baked in support with bundler.
+
+%h2 Using Bundler with Rails 3
+
+.contents
+  .bullet
+    .description
+      Install Rails as you normally would. Use sudo
+      if you would normally use sudo to install gems.
+    .how
+      :highlight_plain
+        $ gem install rails
+      .notes
+        We recommend using rvm for dependable Ruby
+        installations, especially if you are switching
+        between different versions of Ruby
+
+  .bullet
+    .description
+      Generate a Rails app as usual
+    :highlight_plain
+      $ rails new myapp
+      $ cd myapp
+
+  .bullet
+    .description
+      Run the server. Bundler is transparently managing
+      your dependencies!
+    :highlight_plain
+      $ rails server
+
+  .bullet
+    .description
+      Add new dependencies to your Gemfile as you
+      need them.
+    :highlight_ruby
+      gem "nokogiri"
+      gem "geokit"
+
+  .bullet
+    .description
+      If you want a dependency to be loaded only in
+      a certain Rails environment, place it in a group
+      named after that Rails environment
+    :highlight_ruby
+      group :test do
+        gem "rspec"
+        gem "faker"
+      end
+
+  .bullet#shared_with_23
+    .description
+      You can place a dependency in multiple groups
+      at once as well
+    :highlight_ruby
+      group :development, :test do
+        gem "wirble"
+        gem "ruby-debug"
+      end
+    =link("Learn More: Groups", "./groups.html")
+
+  .bullet
+    .description
+      After adding a dependency, if it is not yet
+      installed, install it
+    .how
+      :highlight_plain
+        $ bundle install
+      .notes
+        This will update all dependencies in your
+        Gemfile to the latest versions that do not
+        conflict with other dependencies

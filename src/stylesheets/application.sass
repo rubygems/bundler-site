@@ -64,8 +64,8 @@ code
   +flexbox(vertical, justify)
   width: 725px
 
-#intro
-  background: rgba(0,0,0,0.1)
+@mixin important($color)
+  background: $color
   +border-radius(5px)
   padding: 10px 10px
   color: #043042
@@ -73,6 +73,12 @@ code
   line-height: 24px
   strong
     color: #041f2a
+
+#intro
+  +important(rgba(0,0,0,0.1))
+
+#v11-message
+  +important(#E8E991)
 
 #header
   margin-bottom: 20px

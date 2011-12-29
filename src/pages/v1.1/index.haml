@@ -10,7 +10,7 @@
     = link("Troubleshooting", "https://github.com/carlhuda/bundler/blob/1-0-stable/ISSUES.md")
     = link("Understanding Bundler", "./rationale.html")
     = link("Gemfile Manual", "../man/gemfile.5.html")
-    = link("CLI Manual", "../man/bundle.1.html")
+    = link("Command Line Reference", "./commands.html")
 
 %h2#getting-started
   Getting Started
@@ -162,6 +162,18 @@
     :highlight_plain
       $ bundle update
 
+  .bullet
+    .description
+      To find out whether a newer version of a gem is available without updating yet:
+    :highlight_plain
+      $ bundle outdated nokogiri
+    .notes
+      %p
+        Check for newer pre-release versions: <code>bundle outdated nokogiri --pre</code>
+      %p
+        Or leave off the gem name to check for newer versions of all gems: <code>$ bundle outdated</code>
+    = link("Learn More: bundle outdated", "./bundle_outdated.html")
+
 %h2#deploying-your-application
   Deploying Your Application
 
@@ -226,4 +238,12 @@
     .notes
       When installing to a path, bundler completely isolates your gems
       from the system, guaranteeing you a clear set of dependencies.
+    = link("Learn More: bundle install", "./bundle_install.html")
+
+  .bullet
+    .description
+      Create a code file along with the installed gems that can load
+      dependencies without Bundler
+    :highlight_plain
+      $ bundle install --standalone
     = link("Learn More: bundle install", "./bundle_install.html")

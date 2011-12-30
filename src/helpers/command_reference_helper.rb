@@ -21,4 +21,8 @@ module CommandReferenceHelper
       }
     )
   end
+
+  def slugize(str)
+    str.sub(/^([^\s]*).*/, "\\1")
+  end
 end

@@ -4,20 +4,24 @@
 .contents
   .bullet
     .description
-      Package up all your .gem files in vendor/cache
+      Locks and then caches all of the gems into vendor/cache
     :highlight_plain
-      $ bundle package
+      $ bundle package [--no-prune]
+    .notes
+      %p
+        Options:
+      %p
+        <code>--no-prune</code>: Don't remove stale gems from the cache.
+    .description
+      The package command will copy the .gem files for every gem in the bundle into the
+      directory ./vendor/cache. If you then check that directory into your source
+      control repository, others who check out your source will be able to install the
+      bundle without having to download any additional gems.
 
   .bullet
     .description
-      Running bundle install in an application with
-      packaged gems will use the gems in the package
-      and skip connecting to rubygems.org
-    .how
-      :highlight_plain
-        $ bundle install --local
-      .notes
-        You can use this to avoid a dependency on
-        rubygems.org at deploy time, or if you
-        have private gems that are not in a public
-        repository
+      (Example with default options TBD)
+
+  .bullet#no-prune
+    .description
+      (Example with --no-prune TBD)

@@ -1,3 +1,4 @@
+= partial('v1.1/shared/message')
 %h2 In Depth
 
 .contents
@@ -5,7 +6,7 @@
     .description
       Read the manual for an in-depth discussion of all of the options available in the
       <code>Gemfile</code> and how to use them.
-    = link("Gemfile manual", "./man/gemfile.5.html")
+    = link("Gemfile manual", "../man/gemfile.5.html")
 
 %h2 Gemfiles
 
@@ -42,14 +43,9 @@
   .bullet
     .description
       If a gem's main file is different than the gem name, specify how to require it.
-      Or use <code>false</code> to prevent bundler to require it (but it will still
-      install it and maintain dependencies). And for gems with several files to require,
-      it's also possible to give an array to <code>:require</code>.
     :highlight_ruby
       gem "rspec", :require => "spec"
       gem "sqlite3-ruby", "1.2.5", :require => "sqlite3"
-      gem "gem-release", :require => false
-      gem "redis", :require => ["redis/connection/hiredis", "redis"]
     .notes
       In order to require gems in your <code>Gemfile</code>, you will need to call
       <code>Bundler.require</code> in your application.

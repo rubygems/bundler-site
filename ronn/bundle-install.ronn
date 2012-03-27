@@ -14,6 +14,9 @@ time you run bundle install (and a `Gemfile.lock` does not exist),
 bundler will fetch all remote sources, resolve dependencies and
 install all needed gems.
 
+Note that gem installed from a git repository will not show up
+in <code>gem list</code>.
+
 If a `Gemfile.lock` does exist, and you have not updated your `Gemfile`,
 bundler will fetch all remote sources, but use the dependencies
 specified in the `Gemfile.lock` instead of resolving dependencies.
@@ -37,7 +40,8 @@ update process below under [CONSERVATIVE UPDATING][].
   The location to install the gems in the bundle to. This defaults
   to the gem home, which is the location that `gem install` installs
   gems to. This means that, by default, gems installed without a
-  `--path` setting will show up in `gem list`. This setting is a
+  `--path` setting will show up in `gem list` except for gems coming
+  from a git repository. This setting is a
   [remembered option][REMEMBERED OPTIONS].
 
 * `--system`:

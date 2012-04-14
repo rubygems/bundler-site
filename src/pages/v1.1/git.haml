@@ -57,3 +57,15 @@
       exactly the same way
     :highlight_ruby
       gem "nokogiri", :git => "git://github.com/tenderlove/nokogiri.git", :ref => "0eec4"
+
+  .bullet
+    .description
+      If you are getting your gems from a public GitHub repository,
+      you can use the shorthand
+    :highlight_ruby
+      gem "nokogiri", :github => "tenderlove/nokogiri"
+    .description
+      If the repository name is the same as the GitHub account hosting it,
+      you can omit it
+    :highlight_ruby
+      gem "rails", :github => "rails"

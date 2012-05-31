@@ -1,28 +1,31 @@
+GIT
+  remote: https://github.com/spox/ultraviolet.git
+  revision: 939d13da90e39f016c84d85f8c0fcf5bdbac44e6
+  specs:
+    ultraviolet (0.10.5)
+      spox-textpow
+
 GEM
   remote: http://rubygems.org/
   specs:
-    compass (0.10.5)
+    compass (0.10.6)
       haml (>= 3.0.4)
-    haml (3.0.21)
-    hpricot (0.8.2)
-    mustache (0.11.2)
-    oniguruma (1.1.0)
-    plist (3.1.0)
-    rack (1.2.1)
-    rdiscount (1.6.5)
+    haml (3.0.25)
+    hpricot (0.8.6)
+    mustache (0.99.4)
+    rack (1.4.1)
+    rdiscount (1.6.8)
     ronn (0.7.3)
       hpricot (>= 0.8.2)
       mustache (>= 0.7.0)
       rdiscount (>= 1.5.8)
+    spox-plist (3.0.1)
+    spox-textpow (0.10.3)
+      spox-plist
     staticmatic (0.11.1)
       compass (>= 0.10.0)
       haml (>= 2.0.0)
       rack (>= 1.0)
-    textpow (0.10.1)
-      oniguruma (>= 1.1.0)
-      plist (>= 3.0.0)
-    ultraviolet (0.10.2)
-      textpow (>= 0.10.0)
 
 PLATFORMS
   ruby
@@ -32,4 +35,4 @@ DEPENDENCIES
   haml (~> 3.0.0)
   ronn
   staticmatic (~> 0.11)
-  ultraviolet
+  ultraviolet!

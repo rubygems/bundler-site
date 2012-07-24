@@ -18,6 +18,16 @@
         gem "faker"
       end
 
+
+      # Including gems in more than one group
+
+      group :test, :development do
+        gem "capybara"
+        gem "capybara-webkit"
+      end
+
+      gem "cucumber", :group => [:test, :development]
+
   .bullet
     .description
       Install all dependencies, except

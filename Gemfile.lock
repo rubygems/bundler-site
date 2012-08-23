@@ -13,6 +13,8 @@ GEM
     haml (3.0.25)
     hpricot (0.8.6)
     mustache (0.99.4)
+    puma (1.6.1)
+      rack (~> 1.2)
     rack (1.4.1)
     rdiscount (1.6.8)
     ronn (0.7.3)
@@ -33,6 +35,7 @@ PLATFORMS
 DEPENDENCIES
   compass (~> 0.10.0)
   haml (~> 3.0.0)
+  puma
   ronn
   staticmatic (~> 0.11)
   ultraviolet!

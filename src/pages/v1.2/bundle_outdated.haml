@@ -1,0 +1,38 @@
+= partial('v1.2/shared/message')
+%h2 bundle outdated
+
+.contents
+  .bullet
+    .description
+      List installed gems with newer versions available
+    :highlight_plain
+      $ bundle outdated [GEM] [--local] [--pre] [--source]
+    .notes
+      %p
+        Options:
+      %p
+        <code>--local</code>: Do not attempt to fetch gems remotely and use the gem cache instead
+      %p
+        <code>--pre</code>: Check for newer pre-release gems
+      %p
+        <code>--source</code>: Check against a specific source
+    .description
+      Outdated lists the names and versions of gems that have a newer version available
+      in the given source. Calling outdated with [GEM [GEM]] will only check for newer
+      versions of the given gems. By default, available prerelease gems will be ignored.
+
+  .bullet
+    .description
+      (Example with default options TBD)
+
+  .bullet#local
+    .description
+      (Example with --local TBD)
+
+  .bullet#pre
+    .description
+      (Example with --pre TBD)
+
+  .bullet#source
+    .description
+      (Example with --source TBD)

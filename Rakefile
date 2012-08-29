@@ -49,3 +49,6 @@ task :release => [:build, :man] do
   end
 end
 
+namespace :assets do
+  task :precompile => [:release]
+end

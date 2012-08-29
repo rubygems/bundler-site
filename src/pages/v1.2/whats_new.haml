@@ -1,0 +1,70 @@
+%h2 What's New
+
+.contents
+  .bullet
+    .description
+      In this section, you'll find the major features introduced in the release.
+
+%h2 ruby directive
+
+.contents
+  .bullet
+    .description
+      You can now specify the version of ruby in the Gemfile like the following:
+    :highlight_ruby
+      ruby "1.9.3"
+
+  .bullet
+    .description
+      What this means is that this app has a dependency to a ruby vm that is ABI compatible with 1.9.3. If the version check does not match, Bundler will raise an exception. This will ensure the running code matches. You can be more specific with the `:engine` and `:engine_version` options.
+    :highlight_ruby
+      ruby "1.9.3", :engine => "jruby", :engine_version => "1.6.7"
+
+%h2 bundle pack --all
+
+.contents
+  .bullet
+    .description
+      Since Bundler 1.2, the `bundle package` command can also package `:git` and
+      `:path` dependencies besides .gem files. This needs to be explicitly enabled
+      via the `--all` option. Once used, the `--all` option will be remembered.
+
+%h2 Local Git Repos
+
+.contents
+  .bullet
+    .description
+      Bundler also allows you to work against a git repository locally
+      instead of using the remote version. This can be achieved by setting
+      up a local override:
+    :highlight_plain
+      bundle config local.GEM_NAME /path/to/local/git/repository
+
+  .bullet
+    .description
+      For example, in order to use a local Rack repository, a developer could call:
+    :highlight_plain
+      bundle config local.rack ~/Work/git/rack
+
+  .bullet
+    .description
+      Now instead of checking out the remote git repository, the local
+      override will be used. Similar to a path source, every time the local
+      git repository change, changes will be automatically picked up by
+      Bundler. This means a commit in the local git repo will update the
+      revision in the `Gemfile.lock` to the local git repo revision. This
+      requires the same attention as git submodules. Before pushing to
+      the remote, you need to ensure the local override was pushed, otherwise
+      you may point to a commit that only exists in your local machine.
+
+      Bundler does many checks to ensure a developer won't work with
+      invalid references. Particularly, we force a developer to specify
+      a branch in the `Gemfile` in order to use this feature. If the branch
+      specified in the `Gemfile` and the current branch in the local git
+      repository do not match, Bundler will abort. This ensures that
+      a developer is always working against the correct branches, and prevents
+      accidental locking to a different branch.
+
+      Finally, Bundler also ensures that the current revision in the
+      `Gemfile.lock` exists in the local git repository. By doing this, Bundler
+      forces you to fetch the latest changes in the remotes.

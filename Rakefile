@@ -37,6 +37,7 @@ end
 
 desc "Prepare a site release"
 task :release => [:build, :man] do
+  commit = `git rev-parse HEAD`.chomp
   if File.exists?("gh-pages")
     Dir.chdir("gh-pages") { system "git pull" }
   else
@@ -47,6 +48,8 @@ task :release => [:build, :man] do
     system "rm -rf *"
     File.open("CNAME", "w") { |file| file.puts "gembundler.com" }
     system "cp -r ../site/* ."
+    system "git add ."
+    system "git commit -m \"carlhuda/bundler-site@#{commit}\""
     system "git push origin gh-pages"
   end
 end

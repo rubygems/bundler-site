@@ -30,10 +30,12 @@ task :man do
   FileUtils.cp(Dir["bundler/man/*.html"], "site/man")
 end
 
+desc "Build the static site"
 task :build do
   system "staticmatic build ."
 end
 
+desc "Prepare a site release"
 task :release => [:build, :man] do
   if File.exists?("gh-pages")
     Dir.chdir("gh-pages") { system "git pull" }
@@ -45,10 +47,10 @@ task :release => [:build, :man] do
     system "rm -rf *"
     File.open("CNAME", "w") { |file| file.puts "gembundler.com" }
     system "cp -r ../site/* ."
-    # system "git push origin gh-pages"
+    system "git push origin gh-pages"
   end
 end
 
 namespace :assets do
-  task :precompile => [:release]
+  task :precompile => [:build, :man]
 end

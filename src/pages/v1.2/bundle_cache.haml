@@ -5,12 +5,14 @@
     .description
       Cache all the gems to vendor/cache
     :highlight_plain
-      $ bundle cache [--no-prune]
+      $ bundle cache [--no-prune] [--all]
     .notes
       %p
         Options:
       %p
         <code>--no-prune</code>: Don't remove stale gems from the cache.
+      %p
+        <code>--all</code>: cache <code>:git</code>, <code>:path</code>, and <code>.gem</code> dependencies. Once used, the <code>--all</code> option will be remembered.
     .description
       (Detailed description TBD)
 

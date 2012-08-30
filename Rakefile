@@ -40,7 +40,7 @@ task :release => [:build, :man] do
   if File.exists?("gh-pages")
     Dir.chdir("gh-pages") { system "git pull" }
   else
-    system "git clone git://github.com/carlhuda/bundler.git gh-pages --branch gh-pages"
+    system "git clone git@github.com:carlhuda/bundler.git gh-pages --branch gh-pages"
   end
 
   Dir.chdir("gh-pages") do

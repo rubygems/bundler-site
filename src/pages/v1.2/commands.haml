@@ -11,6 +11,7 @@
       - command.name   = 'cache'
       - command.desc   = 'Cache all the gems to vendor/cache'
       - command.option = 'no-prune'
+      - command.option = 'all'
     = command_table_row do |command|
       - command.name   = 'check'
       - command.desc   = 'Checks if the dependencies listed in Gemfile are satisfied by currently installed gems'
@@ -68,6 +69,7 @@
       - command.name   = 'package'
       - command.desc   = 'Locks and then caches all of the gems into vendor/cache'
       - command.option = 'no-prune'
+      - command.option = 'all'
     = command_table_row do |command|
       - command.name   = 'show'
       - command.desc   = 'Shows all gems that are part of the bundle, or the path to a given gem'

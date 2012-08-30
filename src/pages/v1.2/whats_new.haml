@@ -3,9 +3,10 @@
 .contents
   .bullet
     .description
-      In this section, you'll find the major features introduced in the release.
+      In this section, you'll find the major features introduced in the release. All the changes are documented in the Bundler 1.2 CHANGELOG.
+      =link("CHANGELOG", "https://github.com/carlhuda/bundler/blob/1-2-stable/CHANGELOG.md")
 
-%h2#ruby-directive <code>ruby</code> Directive
+%h2#ruby-directive Specifying a Ruby Version
 
 .contents
   .bullet
@@ -19,6 +20,7 @@
       What this means is that this app has a dependency to a Ruby VM that is ABI compatible with 1.9.3. If the version check does not match, Bundler will raise an exception. This will ensure the running code matches. You can be more specific with the <code>:engine</code> and <code>:engine_version</code> options.
     :highlight_ruby
       ruby "1.9.3", :engine => "jruby", :engine_version => "1.6.7"
+    = link("Learn More: Ruby Directive", "./gemfile_ruby.html")
 
 %h2#package-git-and-path-dependencies Package <code>:git</code> and <code>:path</code> Dependencies
 

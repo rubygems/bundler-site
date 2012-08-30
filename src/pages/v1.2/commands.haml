@@ -71,6 +71,10 @@
       - command.option = 'no-prune'
       - command.option = 'all'
     = command_table_row do |command|
+      - command.name   = 'platform'
+      - command.desc   = 'Displays platform compatibility information'
+      - command.option = 'ruby'
+    = command_table_row do |command|
       - command.name   = 'show'
       - command.desc   = 'Shows all gems that are part of the bundle, or the path to a given gem'
       - command.option = 'paths'

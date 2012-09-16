@@ -25,9 +25,17 @@ task :man do
     system "git clone git://github.com/carlhuda/bundler.git"
   end
 
-  FileUtils.mkdir_p("site/man")
-  Dir.chdir("bundler") { system "ronn -5 man/*.ronn" }
-  FileUtils.cp(Dir["bundler/man/*.html"], "site/man")
+  %w(v1.0 v1.1 v1.2).each do |version|
+    FileUtils.mkdir_p("site/#{version}/man")
+    FileUtils.rm(Dir["bundler/man/*.html"])
+    branch = (version[1..-1].split(".") + %w(stable)).join("-")
+    Dir.chdir("bundler") do
+      system "git fetch"
+      system "git checkout origin/#{branch}"
+      system "ronn -5 man/*.ronn"
+    end
+    FileUtils.cp(Dir["bundler/man/*.html"], "site/#{version}/man")
+  end
 end
 
 desc "Build the static site"

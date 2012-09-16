@@ -20,7 +20,7 @@ end
 desc "Pull in the man pages"
 task :man do
   if File.exists?("bundler")
-    Dir.chdir("bundler") { system "git pull" }
+    Dir.chdir("bundler") { system "git fetch" }
   else
     system "git clone git://github.com/carlhuda/bundler.git"
   end
@@ -30,7 +30,6 @@ task :man do
     FileUtils.rm(Dir["bundler/man/*.html"])
     branch = (version[1..-1].split(".") + %w(stable)).join("-")
     Dir.chdir("bundler") do
-      system "git fetch"
       system "git checkout origin/#{branch}"
       system "ronn -5 man/*.ronn"
     end

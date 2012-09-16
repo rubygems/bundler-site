@@ -9,13 +9,13 @@
 .contents
   .bullet
     .description
-      Getting started with bundler is easy
+      Getting started with bundler is easy! Open a terminal window and type the following:
     :highlight_plain
       $ gem install bundler
 
   .bullet
     .description
-      Specify your dependencies in a Gemfile in your project's root
+      Specify your dependencies in a Gemfile in your project's root:
     :highlight_ruby
       source "http://rubygems.org"
       gem "nokogiri"
@@ -25,21 +25,19 @@
 
   .bullet
     .description
-      Install all of the required gems from your specified sources
+      Install all of the required gems from your specified sources:
     :highlight_plain
       $ bundle install
       $ git add Gemfile Gemfile.lock
     = link("Learn More: bundle install", "./bundle_install.html")
     .notes
-      Make sure to add Gemfile.lock to your repository. This will
-      ensure that other developers on your app, as well as your
-      deployment environment, use exactly the same third-party code
-      as you just installed.
-
+      The second command adds the Gemfile and Gemfile.lock to your repository. This ensures
+      that other developers on your app, as well as your deployment environment, will all use
+      the same third-party code that you are using now.
 
   .bullet
     .description
-      Inside your app, load up the bundled environment
+      Inside your app, load up the bundled environment:
     :highlight_ruby
       require "rubygems"
       require "bundler/setup"
@@ -49,7 +47,7 @@
     = link("Learn More: Bundler.setup", "./bundler_setup.html")
   .bullet
     .description
-      Run an executable that comes with a gem in your bundle
+      Run an executable that comes with a gem in your bundle:
     :highlight_plain
       $ bundle exec rspec spec/models
     .notes
@@ -63,13 +61,13 @@
         on another machine.
 
     .description
-      If you want a way to get a shortcut to gems in your bundle
+      And, finally, if you want a way to get a shortcut to gems in your bundle:
     :highlight_plain
       $ bundle install --binstubs
       $ bin/rspec spec/models
     .notes
       The executables installed into <code>bin</code> are scoped to the
-      bundle and will always work
+      bundle, and will always work.
     = link("Learn More: Executables", "../man/bundle-exec.1.html")
 
 %h2 Use Bundler with

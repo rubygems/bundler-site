@@ -28,6 +28,8 @@ $link-color: #0e3f54
 =bundler-link
   text-decoration: none
   color: $link-color
+  &:hover
+    border-bottom: 1px solid
 
 =button
   padding-top: 8px
@@ -39,12 +41,11 @@ $link-color: #0e3f54
   text-align: center
   +linear-gradient(color_stops(#6ecf36, #4e9326))
   +border-radius(5px)
+  &:hover
+    border-bottom: none
 
 a
   +bundler-link
-
-a:hover
-  border-bottom: 1px solid $link-color
 
 #standalone
   line-height: 150%

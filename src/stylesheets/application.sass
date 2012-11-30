@@ -5,6 +5,10 @@
 @import compass/css3/gradient
 @import compass/css3/text-shadow
 
+$header-color: #346B8C
+$subhead-color: #0e3f54
+$link-color: #0e3f54
+
 @mixin flexbox($direction, $align: center)
   display: -webkit-box
   display: -moz-box
@@ -23,7 +27,7 @@
 
 =bundler-link
   text-decoration: none
-  color: #0e3f54
+  color: $link-color
 
 =button
   padding-top: 8px
@@ -35,6 +39,12 @@
   text-align: center
   +linear-gradient(color_stops(#6ecf36, #4e9326))
   +border-radius(5px)
+
+a
+  +bundler-link
+
+a:hover
+  border-bottom: 1px solid $link-color
 
 #standalone
   line-height: 150%
@@ -98,7 +108,7 @@ code
     font-size: 22px
     text-align: right
     padding-right: 43px
-    color: #346B8C
+    color: $header-color
 
 #footer
   +box-sizing(border-box)
@@ -144,7 +154,7 @@ h2
   font-size: 20px
   padding: 5px
   margin-top: 24px
-  color: #0e3f54
+  color: $subhead-color
   border-bottom: 3px solid #0e3f54
   width: 100%
   +box-sizing("border-box")
@@ -302,7 +312,7 @@ pre
 .shirts
   @extend .notes
   text-align: center
-  
+
   a, a:visited
     color: #05b5e6
     text-decoration: none
@@ -310,12 +320,21 @@ pre
 
 .other-contributors
   text-align: center
-  
+
 .contributor
   clear: left
   margin: 1em 0
-  
-  img.avatar
+
+  .avatar
     float: left
     margin-right: 1.5em
     width: 150px
+    min-height: 25px
+
+  h3
+    color: $subhead-color
+
+  h4
+    font-size: 80%
+    color: lighten($subhead-color, 5%)
+    margin-top: -1em

@@ -21,7 +21,7 @@
       gem "nokogiri"
       gem "rack", "~>1.1"
       gem "rspec", :require => "spec"
-    = link("Learn More: Gemfiles", "./gemfile.html")
+    = link("Learn More: Gemfiles", "/v1.2/gemfile.html")
 
   .bullet
     .description
@@ -29,7 +29,7 @@
     :highlight_plain
       $ bundle install
       $ git add Gemfile Gemfile.lock
-    = link("Learn More: bundle install", "./bundle_install.html")
+    = link("Learn More: bundle install", "/v1.2/bundle_install.html")
     .notes
       The second command adds the Gemfile and Gemfile.lock to your repository. This ensures
       that other developers on your app, as well as your deployment environment, will all use
@@ -44,7 +44,7 @@
 
       # require your gems as usual
       require "nokogiri"
-    = link("Learn More: Bundler.setup", "./bundler_setup.html")
+    = link("Learn More: Bundler.setup", "/v1.2/bundler_setup.html")
   .bullet
     .description
       Run an executable that comes with a gem in your bundle:
@@ -68,36 +68,36 @@
     .notes
       The executables installed into <code>bin</code> are scoped to the
       bundle, and will always work.
-    = link("Learn More: Executables", "../man/bundle-exec.1.html")
+    = link("Learn More: Executables", "/v1.2/man/bundle-exec.1.html")
 
 %h2 Use Bundler with
 .buttons
-  = link("Rails 3", "./rails3.html")
-  = link("Rails 2.3", "./rails23.html")
-  = link("Sinatra", "./sinatra.html")
-  = link("Rubygems", "./rubygems.html")
+  = link("Rails 3", "/v1.2/rails3.html")
+  = link("Rails 2.3", "/v1.2/rails23.html")
+  = link("Sinatra", "/v1.2/sinatra.html")
+  = link("Rubygems", "/v1.2/rubygems.html")
 
 %h2 Learn about
 .buttons
-  = link("Installing dependencies", "./v1.2/bundle_install.html")
-  = link("Updating dependencies", "./v1.2/man/bundle-update.1.html")
-  = link("Deploying", "./deploying.html")
+  = link("Installing dependencies", "/v1.2/bundle_install.html")
+  = link("Updating dependencies", "/v1.2/man/bundle-update.1.html")
+  = link("Deploying", "/v1.2/deploying.html")
 .buttons
-  = link("Git gems", "./git.html")
-  = link("Gemfile", "./gemfile.html")
-  = link("Bundler commands", "./v1.2/commands.html")
+  = link("Git gems", "/v1.2/git.html")
+  = link("Gemfile", "/v1.2/gemfile.html")
+  = link("Bundler commands", "/v1.2/commands.html")
 
 %h2 More about
 .buttons
-  = link("Why Bundler exists", "./v1.2/rationale.html")
+  = link("Why Bundler exists", "/v1.2/rationale.html")
   = link("Troubleshooting", "https://github.com/carlhuda/bundler/blob/1-2-stable/ISSUES.md")
-  = link("What's New", "./v1.2/whats_new.html")
+  = link("What's New", "/v1.2/whats_new.html")
 
 .shirts
   .content
     = img("/images/bundler-shirt.png")
     %p
-      Want to show the world you support Bundler? 
-      %br 
+      Want to show the world you support Bundler?
+      %br
       Buy Bundler shirts and stickers at
       = link("DevSwag", "http://www.devswag.com/collections/bundler")

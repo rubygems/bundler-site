@@ -20,8 +20,14 @@
       .spacer
       #navigation
         %p
-          %b commands
+          %b= link("commands", "/#{v}/commands.html")
           = link("install", "/#{v}/bundle_install.html")
+          \/
+          = link("update", "/#{v}/bundle_update.html")
+          \/
+          = link("exec", "/#{v}/bundle_exec.html")
+          \/
+          = link("config", "/#{v}/bundle_config.html")
           - if v == "v0.9"
             \/
             = link("lock", "/#{v}/bundle_lock.html")

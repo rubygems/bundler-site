@@ -1,7 +1,14 @@
 %h2 What is Bundler?
 
 #intro
-  Bundler is a tool that maintains a consistent environment for a developer’s code across all machines. When a developer’s code is run on different machines, the libraries the developer originally built their code on may change. This breaks the developer’s application. Bundler ensures that the libraries will remain the same, taping everything together so that the developer’s application runs smoothly on every machine where it is deployed.
+  Bundler maintains a consistent environment for ruby applications. It tracks an application's code and the rubygems it needs to run, so that an application will always have the exact gems (and versions) that it needs to run.
+
+%h2 Would you like to
+.buttons
+  = link("Get started", "#getting-started")
+  = link("Report a bug", "https://github.com/carlhuda/bundler/blob/master/ISSUES.md")
+  = link("See what's new", "/v1.2/whats_new.html")
+  = link("Read documentation", "#use-bundler")
 
 %h2#getting-started
   Getting Started
@@ -70,7 +77,7 @@
       bundle, and will always work.
     = link("Learn More: Executables", "/v1.2/man/bundle-exec.1.html")
 
-%h2 Use Bundler with
+%h2#use-bundler Use Bundler with
 .buttons
   = link("Rails 3", "/v1.2/rails3.html")
   = link("Rails 2.3", "/v1.2/rails23.html")
@@ -78,21 +85,17 @@
   = link("Rubygems", "/v1.2/rubygems.html")
   = link("RubyMotion", "/v1.2/rubymotion.html")
 
-%h2 Learn about
+%h2#learn-about Learn about
 .buttons
-  = link("Installing dependencies", "/v1.2/bundle_install.html")
-  = link("Updating dependencies", "/v1.2/man/bundle-update.1.html")
+  = link("Gemfile", "/v1.2/gemfile.html")
+  = link("Installing", "/v1.2/bundle_install.html")
+  = link("Updating", "/v1.2/man/bundle-update.1.html")
   = link("Deploying", "/v1.2/deploying.html")
 .buttons
   = link("Git gems", "/v1.2/git.html")
-  = link("Gemfile", "/v1.2/gemfile.html")
-  = link("Bundler commands", "/v1.2/commands.html")
-
-%h2 More about
-.buttons
+  = link("Other commands", "/v1.2/commands.html")
   = link("Why Bundler exists", "/v1.2/rationale.html")
-  = link("Troubleshooting", "https://github.com/carlhuda/bundler/blob/1-2-stable/ISSUES.md")
-  = link("What's New", "/v1.2/whats_new.html")
+  = link("Man pages", "/v1.2/man/bundle.1.html")
 
 .shirts
   .content

@@ -1,8 +1,5 @@
 !!!
-- v09 = (current_page =~ /^\/v0\.9/)
-- v10 = (current_page =~ /^\/v1\.0/)
-- v11 = (current_page =~ /^\/v1\.1/)
-- v12 = !v09 && !v10 && !v11
+- v = current_page.scan(/v\d\.\d/).first || "v1.2"
 %html
   %head
     %title Bundler: The best way to manage Ruby applications
@@ -24,36 +21,34 @@
       #navigation
         %p
           %b commands
-          = link("home", "./index.html")
-          \/
-          = link("install", "./bundle_install.html")
-          - if v09
+          = link("install", "/#{v}/bundle_install.html")
+          - if v == "v0.9"
             \/
-            = link("lock", "./bundle_lock.html")
+            = link("lock", "/#{v}/bundle_lock.html")
           \/
-          = link("package", "./bundle_package.html")
+          = link("package", "/#{v}/bundle_package.html")
         %p
           %b usage
-          = link("gemfile", "./gemfile.html")
+          = link("gemfile", "/#{v}/gemfile.html")
           \/
-          = link("git", "./git.html")
+          = link("git", "/#{v}/git.html")
           \/
-          = link("groups", "./groups.html")
+          = link("groups", "/#{v}/groups.html")
           \/
-          = link("setup", "./bundler_setup.html")
+          = link("setup", "/#{v}/bundler_setup.html")
           \/
-          = link("deploying", "./deploying.html")
+          = link("deploying", "/#{v}/deploying.html")
         %p
           %b frameworks
-          = link("rubygems", "./rubygems.html")
+          = link("rubygems", "/#{v}/rubygems.html")
           \/
-          = link("sinatra", "./sinatra.html")
+          = link("sinatra", "/#{v}/sinatra.html")
           \/
-          = link("rails 2.3", "./rails23.html")
+          = link("rails 2.3", "/#{v}/rails23.html")
           \/
-          = link("rails 3", "./rails3.html")
+          = link("rails 3", "/#{v}/rails3.html")
           \/
-          = link("rubymotion", "./rubymotion.html")
+          = link("rubymotion", "/#{v}/rubymotion.html")
       .spacer
       = img("bundler-small.png")
     #credits
@@ -64,10 +59,9 @@
       %img{:src => "http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png", :alt => "Fork me on GitHub"}
     #prod-versions
       Docs:
-      = link_to("v0.9", "v0.9/index.html", :class => (v09 ? "current" : ""))
-      = link_to("v1.0", "v1.0/index.html", :class => (v10 ? "current" : ""))
-      = link_to("v1.1", "v1.1/index.html", :class => (v11 ? "current" : ""))
-      = link_to("v1.2", "v1.2/index.html", :class => (v12 ? "current" : ""))
+      - %w(v0.9 v1.0 v1.1).each do |lv|
+        = link_to(lv, "#{lv}/index.html", :class => ("current" if v == lv))
+      = link_to("v1.2", "/", :class => ("current" if v == "v1.2"))
 
     :javascript
       var _gaq = _gaq || [];

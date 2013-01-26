@@ -5,18 +5,69 @@
     .description
       Retrieve or set a configuration value
     :highlight_plain
-      $ bundle config NAME [VALUE]
+      $ bundle config [NAME [VALUE]] [--local] [--global] [--delete]
+    .notes
+      %p
+        Options:
+      %p
+        <code>--local</code>: Get/set local configuration
+      %p
+        <code>--global</code>: Get/set global configuration
+      %p
+        <code>--delete</code>: Delete NAME value
     .description
-      Retrieves or sets a configuration value. If only parameter is provided, retrieve the value. If two parameters are provided, replace the
-      existing value with the newly provided one.
+      %p
+        Retrieves or sets a configuration value. If only parameter is provided, 
+        retrieve the value. If two parameters are provided, replace the existing 
+        value with the newly provided one.
+      %p
+        By default, setting a configuration value sets it for all projects on 
+        the machine.
+      %p
+        If a global setting is superceded by local configuration, this command
+        will show the current value, as well as any superceded values and where 
+        they were specified.
 
-      By default, setting a configuration value sets it for all projects
-      on the machine.
+  .bullet#config
+    .description
+      Get your bundle configuration.
+    .how
+      :highlight_plain
+        $ bundle config
+      .notes
+        Executing `bundle config` with no parameters will print a list of all
+        bundler configuration for the current bundle, and where that 
+        configuration was set.
 
-      If a global setting is superceded by local configuration, this command
-      will show the current value, as well as any superceded values and
-      where they were specified.
+  .bullet#get
+    .description
+      Get your bundle configuration for NAME variable.
+    .how
+      :highlight_plain
+        $ bundle config NAME
+      .notes
+        Will print the value of that configuration setting for NAME, and where 
+        it was set. Will print both local and global configuration.
 
-  .bullet
+  .bullet#set
+    .description
+      Set your bundle configuration for NAME variable to VALUE.
+    .how
+      :highlight_plain
+        $ bundle config NAME VALUE
+      .notes
+        Will set NAME to VALUE for all bundles executed as the current user
+        (i.e. global setting). The configuration will be stored in 
+        `~/.bundle/config`.
+
+  .bullet#global
+    .description
+      (Example with default options TBD)
+
+  .bullet#local
+    .description
+      (Example with default options TBD)
+
+  .bullet#delete
     .description
       (Example with default options TBD)

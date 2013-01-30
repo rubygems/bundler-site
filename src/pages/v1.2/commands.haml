@@ -8,11 +8,6 @@
       %th
         applicable options
     = command_table_row do |command|
-      - command.name   = 'cache'
-      - command.desc   = 'Cache all the gems to vendor/cache'
-      - command.option = 'no-prune'
-      - command.option = 'all'
-    = command_table_row do |command|
       - command.name   = 'check'
       - command.desc   = 'Checks if the dependencies listed in Gemfile are satisfied by currently installed gems'
       - command.option = 'gemfile'

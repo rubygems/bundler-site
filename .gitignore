@@ -17,3 +17,6 @@ bin
 bundler
 gh-pages
 vendor
+
+*~
+*.swp

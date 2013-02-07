@@ -14,14 +14,22 @@
       gem "wirble", :group => :development
 
       group :test do
-        gem "rspec"
         gem "faker"
+        gem "rspec"
       end
+
+      group :test, :development do
+        gem "capybara"
+        gem "rspec-rails"
+      end
+
+      gem "cucumber", :group => [:cucumber, :test]
 
   .bullet
     .description
-      Install all dependencies, except
-      those in specified groups
+      Install all gems, except those in the
+      listed groups. Gems in at least one
+      non-excluded group will still be installed.
     :highlight_plain
       $ bundle install --without test development
 

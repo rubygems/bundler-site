@@ -4,23 +4,38 @@
   .bullet
     .description
       Update the current environment
+
     :highlight_plain
       $ bundle update [GEM] [--local] [--source=SOURCE]
     .notes
       %p
         Options:
       %p
-        <code>--local</code>: Do not attempt to fetch gems remotely and use the gem cache instead
+        <code>--local</code>: Do not attempt to fetch gems remotely and use 
+        the gem cache instead
       %p
-        <code>--source</code>: Update a specific source (and all gems associated with it)
+        <code>--source</code>: Update a specific source (and all gems 
+        associated with it)
+
     .description
-      Update will install the newest versions of the gems listed in the Gemfile. Use
-      update when you have changed the Gemfile, or if you want to get the newest
-      possible versions of the gems in the bundle.
+      Update the gems specified (all gems, if none are specified), ignoring
+      the previously installed gems specified in the <code>Gemfile.lock</code>. 
+      In general, you should use <code>bundle install</code> to install the same 
+      exact gems and versions across machines.
+      
+      You would use <code>bundle update</code> to explicitly update the version 
+      of a gem.
 
   .bullet
     .description
-      (Example with default options TBD)
+      Update the current environment.
+    .how
+      :highlight_plain
+        $ bundle update
+    .notes
+      If you run <code>bundle update</code> with no parameters, bundler will 
+      ignore any previously installed gems and resolve all dependencies again
+      based on the latest versions of all gems available in the sources.
 
   .bullet#local
     .description
@@ -28,4 +43,12 @@
 
   .bullet#source
     .description
-      (Example with --source TBD)
+      Update a specific source (and all gems associated with it)
+    .how 
+      :highlight_plain
+        $ bundle update --source=SOURCE
+    .notes
+      The name of a <code>:git</code> or <code>:path</code> source used in the 
+      <code>Gemfile</code>. For instance, with a <code>:git</code> source of 
+      <code>http://github.com/rails/rails.git</code>, you would call 
+      <code>bundle update --source rails</code>.

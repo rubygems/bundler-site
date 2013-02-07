@@ -2,7 +2,7 @@
 - v = current_page.scan(/v\d\.\d/).first || "v1.2"
 %html
   %head
-    %title Bundler: The best way to manage Ruby applications
+    %title Bundler: The best way to manage a Ruby application's gems
     %meta{"http-equiv" => "Content-Type", "content" => "text/html; charset=UTF-8"}/
     = stylesheets
     %link{:rel => "shortcut icon", :href => "/images/favicon.png", :type => "image/png" }
@@ -46,15 +46,15 @@
           = link("deploying", "/#{v}/deploying.html")
         %p
           %b frameworks
+          = link("ruby", "/#{v}/bundler_setup.html")
+          \/
           = link("rubygems", "/#{v}/rubygems.html")
+          \/
+          = link("rubymotion", "/#{v}/rubymotion.html")
           \/
           = link("sinatra", "/#{v}/sinatra.html")
           \/
-          = link("rails 2.3", "/#{v}/rails23.html")
-          \/
           = link("rails 3", "/#{v}/rails3.html")
-          \/
-          = link("rubymotion", "/#{v}/rubymotion.html")
       .spacer
       = img("bundler-small.png")
     #credits

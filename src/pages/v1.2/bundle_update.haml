@@ -152,4 +152,103 @@
         Bundler will update <code>nokogiri</code> and any of its dependencies, 
         but leave alone Rails and its dependencies.
 
+%h2 Overlapping dependencies
+.contents
+  .bullet#overlapping_dependencies
+    %p
+      Sometimes, multiple gems declared in your <code>Gemfile</code> are 
+      satisfied by the same second-level dependency. For instance, consider the 
+      case of <code>thin</code> and <code>rack-perftools-profiler</code>.
+
+      :highlight_plain
+        source "http://rubygems.org"
+
+        gem "thin"
+        gem "rack-perftools-profiler"
+
+    %p
+      The <code>thin</code> gem depends on <code>rack >= 1.0</code>, while 
+      <code>rack-perftools-profiler</code> depends on <code>rack ~> 1.0</code>. 
+      If you run bundle install, you get:
+
+      :highlight_plain
+        Fetching source index for http://rubygems.org/
+        Installing daemons (1.1.0)
+        Installing eventmachine (0.12.10) with native extensions
+        Installing open4 (1.0.1)
+        Installing perftools.rb (0.4.7) with native extensions
+        Installing rack (1.2.1)
+        Installing rack-perftools_profiler (0.0.2)
+        Installing thin (1.2.7) with native extensions
+        Using bundler (1.0.0.rc.3)
+
+    %p
+      In this case, the two gems have their own set of dependencies, but they 
+      share <code>rack</code> in common. If you run <code>bundle update 
+      thin</code>, bundler will update <code>daemons</code>, 
+      <code>eventmachine</code> and <code>rack</code>, which are dependencies 
+      of <code>thin</code>, but not <code>open4</code> or 
+      <code>perftools.rb</code>, which are dependencies of 
+      <code>rack-perftools_profiler</code>. Note that 
+      <code>bundle update thin</code> will update <code>rack</code> even though 
+      it's _also_ a dependency of <code>rack-perftools_profiler</code>.
+
+    %p
+      In short, when you update a gem using 
+      <code>bundle update</code>, bundler will update all dependencies of that 
+      gem, including those that are also dependencies of another gem.
+
+    %p
+      In this scenario, updating the <code>thin</code> version manually in the 
+      <code>Gemfile</code>, and then running <code>bundle install</code> will 
+      only update <code>daemons</code> and <code>eventmachine</code>, but not 
+      <code>rack</code>. 
+      -# For more information, see the  <code>CONSERVATIVE UPDATING</code> 
+      -#section of <code>bundle install</code>.
+
+%h2 Recommended workflow
+.contents
+  .bullet#recommended_workflow
+
+    %p
+      In general, when working with an application managed with bundler, you 
+      should use the following workflow:
+    %ul
+      %li
+        After you create your <code>Gemfile</code> for the first time, run
+        :highlight_plain
+          $ bundle install
+      %li
+        Check the resulting <code>Gemfile.lock</code> into version control
+        :highlight_plain
+          $ git add Gemfile.lock
+      %li
+        When checking out this repository on another development machine, run
+        :highlight_plain
+          $ bundle install
+      %li
+        When checking out this repository on a deployment machine, run
+        :highlight_plain
+          $ bundle install --deployment
+      %li
+        After changing the <code>Gemfile</code> to reflect a new or update 
+        dependency, run
+        :highlight_plain
+          $ bundle install
+      %li
+        Make sure to check the updated <code>Gemfile.lock</code> into version 
+        control
+        :highlight_plain
+          $ git add Gemfile.lock
+      %li
+        If <code>bundle install</code> reports a conflict, manually update the 
+        specific gems that you changed in the <code>Gemfile</code>
+        :highlight_plain
+          $ bundle update rails thin
+      %li
+        If you want to update all the gems to the latest possible versions that 
+        still match the gems listed in the <code>Gemfile</code>, run
+        :highlight_plain
+          $ bundle update
+
 

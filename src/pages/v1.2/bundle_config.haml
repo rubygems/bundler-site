@@ -60,7 +60,9 @@
       .notes
         Will set <code>NAME</code> to <code>VALUE</code> for all bundles 
         executed as the current user (i.e. global setting). The configuration 
-        will be stored in  <code>~/.bundle/config</code>.
+        will be stored in  <code>~/.bundle/config</code>. If <code>NAME</code> 
+        already is set, <code>NAME</code> will be overridden and user will be 
+        warned.
 
   .bullet#global
     .description
@@ -90,7 +92,7 @@
       :highlight_plain
         $ bundle config --delete NAME
       .notes
-        Will delete the configuration for <code>NAME</code> variable in both local and global sources.
+        Will delete the configuration for <code>NAME</code> variable in both local and global sources. Not compatible with --global or --local flag.
 
 %h2 Build options
 .contents

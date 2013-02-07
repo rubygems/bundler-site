@@ -22,7 +22,7 @@
       the previously installed gems specified in the <code>Gemfile.lock</code>. 
       In general, you should use <code>bundle install</code> to install the same 
       exact gems and versions across machines.
-      
+
       You would use <code>bundle update</code> to explicitly update the version 
       of a gem.
 
@@ -52,3 +52,104 @@
       <code>Gemfile</code>. For instance, with a <code>:git</code> source of 
       <code>http://github.com/rails/rails.git</code>, you would call 
       <code>bundle update --source rails</code>.
+
+%h2 Update all gems
+.contents
+  .bullet#update_all_extended
+    .description
+      %p
+        If you run <code>bundle update</code> with no parameters, bundler will 
+        ignore any previously installed gems and resolve all dependencies again
+        based on the latest versions of all gems available in the sources.
+
+      %p
+        Consider the following <code>Gemfile</code>:
+
+        :highlight_plain
+          source "http://rubygems.org"
+          gem "rails", "3.0.0.rc"
+          gem "nokogiri"
+      %p
+        When you run <code>bundle install</code> the first time, bundler will 
+        resolve all of the dependencies, all the way down, and install what you 
+        need:
+        :highlight_plain
+          Fetching source index for http://rubygems.org/
+          Installing rake (0.8.7)
+          Installing abstract (1.0.0)
+          Installing activesupport (3.0.0.rc)
+          Installing builder (2.1.2)
+          Installing i18n (0.4.1)
+          Installing activemodel (3.0.0.rc)
+          Installing erubis (2.6.6)
+          Installing rack (1.2.1)
+          Installing rack-mount (0.6.9)
+          Installing rack-test (0.5.4)
+          Installing tzinfo (0.3.22)
+          Installing actionpack (3.0.0.rc)
+          Installing mime-types (1.16)
+          Installing polyglot (0.3.1)
+          Installing treetop (1.4.8)
+          Installing mail (2.2.5)
+          Installing actionmailer (3.0.0.rc)
+          Installing arel (0.4.0)
+          Installing activerecord (3.0.0.rc)
+          Installing activeresource (3.0.0.rc)
+          Installing bundler (1.0.0.rc.3)
+          Installing nokogiri (1.4.3.1) with native extensions
+          Installing thor (0.14.0)
+          Installing railties (3.0.0.rc)
+          Installing rails (3.0.0.rc)
+
+          Your bundle is complete! Use `bundle show [gemname]` to see where a 
+          bundled gem is installed.
+      %p
+        As you can see, even though you have just two gems in the 
+        <code>Gemfile</code>, your application actually needs 25 different gems 
+        in order to run. Bundler remembers the exact versions it installed in 
+        <code>Gemfile.lock</code>. The next time you run 
+        <code>bundle install</code>, bundler skips the dependency resolution and 
+        installs the same gems as it installed last time.
+
+      %p
+        After checking in the <code>Gemfile.lock</code> into version control and 
+        cloning it on another machine, running <code>bundle install</code> will 
+        _still_ install the gems that you installed last time. You don't need to
+        worry that a new release of <code>erubis</code> or <code>mail</code> 
+        changes the gems you use.
+
+      %p
+        However, from time to time, you might want to update the gems you are 
+        using to the newest versions that still match the gems in your 
+        <code>Gemfile</code>.
+
+      %p
+        To do this, run <code>bundle update</code>, which will ignore the 
+        <code>Gemfile.lock</code>, and resolve all the dependencies again. Keep 
+        in mind that this process can result in a significantly different set 
+        of the 25 gems, based on the requirements of new gems that the gem 
+        authors released since the last time you ran <code>bundle update</code>.
+
+%h2 Update a list of gems.
+.contents
+  .bullet#update_list_of_gems
+    .description
+      %p
+        Sometimes, you want to update a single gem in the <code>Gemfile</code>, 
+        and leave the rest of the gems that you specified locked to the 
+        versions in the <code>Gemfile.lock</code>.
+
+      %p
+        For instance, in the scenario above, imagine that 
+        <code>nokogiri</code> releases version <code>1.4.4</code>, and you want 
+        to update it _without_ updating Rails and all of its dependencies. To 
+        do this, run 
+
+        :highlight_plain
+          bundle update nokogiri
+
+      %p
+        Bundler will update <code>nokogiri</code> and any of its dependencies, 
+        but leave alone Rails and its dependencies.
+
+

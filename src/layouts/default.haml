@@ -1,5 +1,5 @@
 !!!
-- v = current_page.scan(/v\d\.\d/).first || "v1.2"
+- v = current_page.scan(/v\d\.\d/).first || "v1.3"
 %html
   %head
     %title Bundler: The best way to manage a Ruby application's gems
@@ -65,9 +65,9 @@
       %img{:src => "http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png", :alt => "Fork me on GitHub"}
     #prod-versions
       Docs:
-      - %w(v0.9 v1.0 v1.1).each do |lv|
+      - %w(v0.9 v1.0 v1.1 v1.2).each do |lv|
         = link_to(lv, "#{lv}/index.html", :class => ("current" if v == lv))
-      = link_to("v1.2", "/", :class => ("current" if v == "v1.2"))
+      = link_to("v1.3", "/", :class => ("current" if v == "v1.3"))
 
     :javascript
       var _gaq = _gaq || [];

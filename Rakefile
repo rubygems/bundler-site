@@ -55,7 +55,7 @@ task :release => [:build, :man] do
     system "rm -rf *"
     File.open("CNAME", "w") { |file| file.puts "gembundler.com" }
     system "cp -r ../site/* ."
-    system "git add ."
+    system "git add -A ."
     system "git commit -m \"carlhuda/bundler-site@#{commit}\""
     system "git push origin gh-pages"
   end

@@ -5,10 +5,10 @@
 
 %h2 Would you like to
 .buttons
-  = link("Get started", "#getting-started")
-  = link("Report a bug", "https://github.com/carlhuda/bundler/blob/master/ISSUES.md")
-  = link("See what's new", "/v1.3/whats_new.html")
-  = link("Read documentation", "#use-bundler")
+  = link_to 'Get started', '#getting-started'
+  = link_to 'Report a bug', 'https://github.com/carlhuda/bundler/blob/master/ISSUES.md'
+  = link_to "See what's new", '/v1.3/whats_new.html'
+  = link_to 'Read documentation', '#use-bundler'
 
 %h2#getting-started
   Getting Started
@@ -24,11 +24,11 @@
     .description
       Specify your dependencies in a Gemfile in your project's root:
     :highlight_ruby
-      source "https://rubygems.org"
-      gem "nokogiri"
-      gem "rack", "~>1.1"
-      gem "rspec", :require => "spec"
-    = link("Learn More: Gemfiles", "/v1.3/gemfile.html")
+      source 'https://rubygems.org'
+      gem 'nokogiri'
+      gem 'rack', '~>1.1'
+      gem 'rspec', :require => 'spec'
+    = link_to 'Learn More: Gemfiles', '/v1.3/gemfile.html'
 
   .bullet
     .description
@@ -36,7 +36,7 @@
     :highlight_plain
       $ bundle install
       $ git add Gemfile Gemfile.lock
-    = link("Learn More: bundle install", "/v1.3/bundle_install.html")
+    = link_to 'Learn More: bundle install', '/v1.3/bundle_install.html'
     .notes
       The second command adds the Gemfile and Gemfile.lock to your repository. This ensures
       that other developers on your app, as well as your deployment environment, will all use
@@ -46,12 +46,12 @@
     .description
       Inside your app, load up the bundled environment:
     :highlight_ruby
-      require "rubygems"
-      require "bundler/setup"
+      require 'rubygems'
+      require 'bundler/setup'
 
       # require your gems as usual
-      require "nokogiri"
-    = link("Learn More: Bundler.setup", "/v1.3/bundler_setup.html")
+      require 'nokogiri'
+    = link_to 'Learn More: Bundler.setup', '/v1.3/bundler_setup.html'
   .bullet
     .description
       Run an executable that comes with a gem in your bundle:
@@ -75,41 +75,42 @@
     .notes
       The executables installed into <code>bin</code> are scoped to the
       bundle, and will always work.
-    = link("Learn More: Executables", "/v1.3/bundle_exec.html")
+    = link_to 'Learn More: Executables', '/v1.3/bundle_exec.html'
 
 %h2#use-bundler Use Bundler with
 .buttons
-  = link("Rails 3", "/v1.3/rails3.html")
-  = link("Rails 2.3", "/v1.3/rails23.html")
-  = link("Sinatra", "/v1.3/sinatra.html")
-  = link("Rubygems", "/v1.3/rubygems.html")
-  = link("RubyMotion", "/v1.3/rubymotion.html")
+  = link_to 'Rails 3', '/v1.3/rails3.html'
+  = link_to 'Rails 2.3', '/v1.3/rails23.html'
+  = link_to 'Sinatra', '/v1.3/sinatra.html'
+  = link_to 'Rubygems', '/v1.3/rubygems.html'
+  = link_to 'RubyMotion', '/v1.3/rubymotion.html'
 
 %h2#learn-about Learn about
 .buttons
-  = link("Gemfile", "/v1.3/gemfile.html")
-  = link("Installing", "/v1.3/bundle_install.html")
-  = link("Updating", "/v1.3/bundle_update.html")
-  = link("Deploying", "/v1.3/deploying.html")
+  = link_to 'Gemfile', '/v1.3/gemfile.html'
+  = link_to 'Installing', '/v1.3/bundle_install.html'
+  = link_to 'Updating', '/v1.3/bundle_update.html'
+  = link_to 'Deploying', '/v1.3/deploying.html'
 .buttons
-  = link("Gems from git", "/v1.3/git.html")
-  = link("Other commands", "/v1.3/commands.html")
-  = link("Why Bundler exists", "/v1.3/rationale.html")
-  = link("The man pages", "/v1.3/man/bundle.1.html")
+  = link_to 'Gems from git', '/v1.3/git.html'
+  = link_to 'Other commands', '/v1.3/commands.html'
+  = link_to 'Why Bundler exists', '/v1.3/rationale.html'
+  = link_to 'The man pages', '/v1.3/man/bundle.1.html'
 
 %h2#get-involved Get involved
 %p Bundler has a lot of contributors and users, and they all talk to each other quite a bit. If you have questions, try the IRC channel or mailing list. If you're interested in contributing to the project (no programming skills needed), read the contributing guide. If you have sponsorship or security questions, email us directly.
 .buttons
-  = link "Contributing", "https://github.com/carlhuda/bundler/blob/master/CONTRIBUTE.md"
-  = link "Mailing list", "http://groups.google.com/group/ruby-bundler"
-  = link "IRC channel", "irc://irc.freenode.net/#bundler"
-  = link "Email core team", "mailto:andre.arko+terence.lee@gmail.com"
+  = link_to 'Contributing', 'https://github.com/carlhuda/bundler/blob/master/CONTRIBUTE.md'
+  = link_to 'Mailing list', 'http://groups.google.com/group/ruby-bundler'
+  = link_to 'IRC channel', 'irc://irc.freenode.net/#bundler'
+  = link_to 'Email core team', 'mailto:andre.arko+terence.lee@gmail.com'
 
 .shirts
   .content
-    = img("/images/bundler-shirt.png")
+    = link_to 'http://www.devswag.com/collections/bundler' do
+      = image_tag '/images/bundler-shirt.png'
     %p
       Want to show the world you support Bundler?
       %br
       Buy Bundler shirts and stickers at
-      = link("DevSwag", "http://www.devswag.com/collections/bundler")
+      = link_to 'DevSwag', 'http://www.devswag.com/collections/bundler'

@@ -6,7 +6,7 @@ module Haml::Filters
 
     def render(text)
       text = text.strip
-      result = Uv.parse( text, "xhtml", "ruby", false, "sunburst")
+      result = Uv.parse( text, 'xhtml', 'ruby', false, 'sunburst')
       Haml::Helpers.preserve result
     end
   end

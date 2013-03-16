@@ -55,6 +55,9 @@ set :images_dir, 'images'
 
 # Build-specific configuration
 configure :build do
+  # Include all files in /lib
+  Dir[File.dirname(__FILE__) + '/lib/**/*.rb'].each {|file| require file }
+
   # For example, change the Compass output style for deployment
   # activate :minify_css
 

@@ -14,4 +14,4 @@
 /.sass-cache
 
 .DS_store
-bundler
+/bundler

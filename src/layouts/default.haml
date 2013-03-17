@@ -20,19 +20,19 @@
       .spacer
       #navigation
         %p
-          %b= link("commands", "/#{v}/commands.html")
-          = link("install", "/#{v}/bundle_install.html")
+          %b commands
+          = link("install", "/#{v}/man/bundle-install.1.html")
           \/
-          = link("update", "/#{v}/bundle_update.html")
+          = link("update", "/#{v}/man/bundle-update.1.html")
           \/
-          = link("exec", "/#{v}/bundle_exec.html")
+          = link("exec", "/#{v}/man/bundle-exec.1.html")
           \/
-          = link("config", "/#{v}/bundle_config.html")
+          = link("config", "/#{v}/man/bundle-config.1.html")
           - if v == "v0.9"
             \/
             = link("lock", "/#{v}/bundle_lock.html")
           \/
-          = link("package", "/#{v}/bundle_package.html")
+          = link("package", "/#{v}/man/bundle-package.1.html")
         %p
           %b usage
           = link("gemfile", "/#{v}/gemfile.html")

@@ -1,4 +1,4 @@
-source :gemcutter
+source 'https://rubygems.org'
 
 gem "staticmatic", "~> 0.11"
 gem "haml", "~>3.0.0"

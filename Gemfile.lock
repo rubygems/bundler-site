@@ -6,7 +6,7 @@ GIT
       spox-textpow
 
 GEM
-  remote: http://rubygems.org/
+  remote: https://rubygems.org/
   specs:
     compass (0.10.6)
       haml (>= 3.0.4)

@@ -1,0 +1,31 @@
+%h2 Bundler.setup
+
+.contents
+  .bullet
+    .description
+      Configure the load path so all dependencies in
+      your Gemfile can be required
+    :highlight_ruby
+      require 'rubygems'
+      require 'bundler/setup'
+      require 'nokogiri'
+
+  .bullet
+    .description
+      Only add gems from specified groups to the
+      load path. If you want the gems in the
+      default group, make sure to include it
+    :highlight_ruby
+      require 'rubygems'
+      require 'bundler'
+      Bundler.setup(:default, :ci)
+      require 'nokogiri'
+    = link_to 'Learn More: Groups', './groups.html'
+
+%h2 Compatibility
+
+.contents
+  .bullet
+    .description
+      Ruby 2.0 and Rubygems 2.0 both require Bundler 1.3 or later. If you have questions about compatibility between Bundler and your system, please check the compatibility list.
+      = link_to 'Learn More: Compatibility', './compatibility.html'

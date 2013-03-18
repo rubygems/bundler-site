@@ -1,0 +1,11 @@
+%tr
+  %td
+    .cli_name
+      = link_to "bundle #{name}", "./bundle_#{name}.html"
+    .cli_desc
+      = desc
+  %td
+    - opts.each do |opt|
+      .cli_option
+        = link_to "--#{opt}", "./bundle_#{name}.html##{slugize(opt)}"
+    .clear

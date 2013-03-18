@@ -1,0 +1,52 @@
+%h2 Bundler Project Sponsors
+
+%p Development work on Bundler has been sponsored by many companies over the years. Here, we thank the companies that have directly contributed money or significant paid time to implement features or fix bugs.
+
+.contributor
+  = link_to image_tag("sponsors/heroku.png", :class => "avatar"), "http://heroku.com"
+  %h3== #{link_to 'Heroku', 'http://heroku.com'}
+  %p== Heroku employs #{link_to 'Terence Lee', 'https://github.com/hone'} to maintain the Ruby platform on Heroku, including ongoing contributions to Bundler.
+
+.contributor
+  = link_to image_tag("sponsors/engineyard.png", :class => "avatar"), "http://engineyard.com"
+  %h3== #{link_to 'Engine Yard', 'http://engineyard.com'}
+  %p== Engine Yard employed #{link_to 'Yehuda Katz', 'https://github.com/wycats'}, #{link_to 'Carl Lerche', 'https://github.com/carllerche'}, and #{link_to 'André Arko', 'https://github.com/indirect'} during the initial development of Bundler. Later, they sponsored the development of the <code>bundle inject</code> command.
+
+.contributor
+  = link_to image_tag("sponsors/mavenlink.png", :class => "avatar"), "http://www.mavenlink.com"
+  %h3== #{link_to 'Mavenlink', 'http://www.mavenlink.com'}
+  %p== Mavenlink employed #{link_to 'André Arko', 'https://github.com/indirect'} to work full-time on open source software, including Bundler, for several months.
+
+.contributor
+  = link_to image_tag("sponsors/travis.png", :class => "avatar"), "http://travis-ci.org"
+  %h3== #{link_to 'Travis CI', 'http://travis-ci.org'}
+  %p== Travis provides #{link_to "Bundler's continuous integration", 'http://travis-ci.org/carlhuda/bundler/'} infrastructure, which uses servers donated by #{link_to 'BlueBox', 'http://bluebox.net'} to automatically test Bundler against all of the Ruby and Rubygems versions that we support.
+
+%h2 Bundler API Sponsors
+
+%p== The #{link_to 'Bundler dependency API', 'http://github.com/rubygems/bundler-api'} provides dependency information to Bundler version 1.1 and higher. It speeds up `bundle install` by several times over, but requires server capacity beyond what RubyCentral is able to provide for rubygems.org. These sponsors have provided the resources that make hosting the Bundler API possible.
+
+.contributor
+  = link_to image_tag("sponsors/heroku.png", :class => "avatar"), "http://heroku.com"
+  %h3== #{link_to 'Heroku', 'http://heroku.com'}
+  %p Heroku provides the Ruby and Postgres servers that the API runs on.
+
+.contributor
+  = link_to image_tag("sponsors/honeybadger.png", :class => "avatar"), "http://honeybadger.io"
+  %h3== #{link_to 'Honeybadger', 'http://honeybadger.io'}
+  %p Honeybadger provides exception reporting, tracking, and alerting.
+
+.contributor
+  = link_to image_tag("sponsors/librato.png", :class => "avatar"), "http://librato.com"
+  %h3== #{link_to 'Librato', 'http://librato.com'}
+  %p== Librato provides metrics, analytics, and #{link_to 'the API dashboard', 'https://metrics.librato.com/share/dashboards/18w46x4p'}.
+
+.contributor
+  = link_to image_tag("sponsors/pagerduty.png", :class => "avatar"), "http://pagerduty.com"
+  %h3== #{link_to 'PagerDuty', 'http://pagerduty.com'}
+  %p PagerDuty provides operational alerting, notifications, and on-call schedule rotation.
+
+.contributor
+  = link_to image_tag("sponsors/papertrail.png", :class => "avatar"), "http://papertrailapp.com"
+  %h3== #{link_to 'Papertrail', 'http://papertrailapp.com'}
+  %p Papertrail provides log aggregation, rotation, searching, and archives.

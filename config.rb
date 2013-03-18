@@ -1,6 +1,9 @@
 # Include lib files
 Dir[File.dirname(__FILE__) + '/lib/**/*.rb'].each {|file| require file }
 
+# Browser will reload changed pages automatically.
+activate :livereload
+
 ###
 # Compass
 ###
@@ -39,16 +42,8 @@ Dir[File.dirname(__FILE__) + '/lib/**/*.rb'].each {|file| require file }
 ###
 # Helpers
 ###
+Dir[File.dirname(__FILE__) + '/helpers/**/*.rb'].each {|file| require file }
 
-# Automatic image dimensions on image_tag helper
-# activate :automatic_image_sizes
-
-# Methods defined in the helpers block are available in templates
-# helpers do
-#   def some_helper
-#     "Helping"
-#   end
-# end
 
 set :css_dir, 'stylesheets'
 

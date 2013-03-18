@@ -43,25 +43,25 @@ task :build do
 end
 
 
-desc 'Prepare a site release.'
-task :release => [:build, :man] do
-  commit = `git rev-parse HEAD`.chomp
-  if File.exists?('gh-pages')
-    Dir.chdir('gh-pages') { system 'git pull' }
-  else
-    system 'git clone git@github.com:carlhuda/bundler.git gh-pages --branch gh-pages'
-  end
+# desc 'Prepare a site release.'
+# task :release => [:build, :man] do
+#   commit = `git rev-parse HEAD`.chomp
+#   if File.exists?('gh-pages')
+#     Dir.chdir('gh-pages') { system 'git pull' }
+#   else
+#     system 'git clone git@github.com:carlhuda/bundler.git gh-pages --branch gh-pages'
+#   end
 
-  Dir.chdir 'gh-pages' do
-    system 'rm -rf *'
-    File.open('CNAME', 'w') { |file| file.puts 'gembundler.com' }
-    system 'cp -r ../site/* .'
-    system 'git add -A .'
-    system "git commit -m \"carlhuda/bundler-site@#{commit}\""
-    system 'git push origin gh-pages'
-  end
-end
+#   Dir.chdir 'gh-pages' do
+#     system 'rm -rf *'
+#     File.open('CNAME', 'w') { |file| file.puts 'gembundler.com' }
+#     system 'cp -r ../site/* .'
+#     system 'git add -A .'
+#     system "git commit -m \"carlhuda/bundler-site@#{commit}\""
+#     system 'git push origin gh-pages'
+#   end
+# end
 
-namespace :assets do
-  task :precompile => [:build, :man]
-end
+# namespace :assets do
+#   task :precompile => [:build, :man]
+# end

@@ -1,13 +1,11 @@
 !!!
-= current_page
-/ - v = current_page.scan(/v\d\.\d/).first || 'v1.3'
+- v = current_page.url.scan(/v\d\.\d/).first || 'v1.3'
 %html
   %head
     %title Bundler: The best way to manage a Ruby application's gems
     %meta{'http-equiv' => 'Content-Type', 'content' => 'text/html; charset=UTF-8'}/
-    = stylesheet_link_tag 'application', 'sunburst'
     %link{:rel => 'shortcut icon', :href => '/images/favicon.png', :type => 'image/png'}
-    / = link_to '', '/images/favicon.png', :rel => 'shortcut icon', :type => 'image/png'
+    = stylesheet_link_tag 'application', 'sunburst'
   %body
     #body
       #contents
@@ -21,44 +19,44 @@
       = image_tag 'emocow.png'
       = image_tag 'panda.jpg'
       .spacer
-      / #navigation
-      /   %p
-      /     %b= link_to 'commands', "/#{v}/commands.html"
-      /     = link_to 'install', "/#{v}/bundle_install.html"
-      /     \/
-      /     = link_to 'update', "/#{v}/bundle_update.html"
-      /     \/
-      /     = link_to 'exec', "/#{v}/bundle_exec.html"
-      /     \/
-      /     = link_to 'config', "/#{v}/bundle_config.html"
-      /     - if v == 'v0.9'
-      /       \/
-      /       = link_to 'lock', "/#{v}/bundle_lock.html"
-      /     \/
-      /     = link_to 'package', "/#{v}/bundle_package.html"
-      /   %p
-      /     %b usage
-      /     = link_to 'gemfile', "/#{v}/gemfile.html"
-      /     \/
-      /     = link_to 'git', "/#{v}/git.html"
-      /     \/
-      /     = link_to 'groups', "/#{v}/groups.html"
-      /     \/
-      /     = link_to 'setup', "/#{v}/bundler_setup.html"
-      /     \/
-      /     = link_to 'deploying', "/#{v}/deploying.html"
-      /   %p
-      /     %b frameworks
-      /     = link_to 'ruby', "/#{v}/bundler_setup.html"
-      /     \/
-      /     = link_to 'rubygems', "/#{v}/rubygems.html"
-      /     \/
-      /     = link_to 'rubymotion', "/#{v}/rubymotion.html"
-      /     \/
-      /     = link_to 'sinatra', "/#{v}/sinatra.html"
-      /     \/
-      /     = link_to 'rails 3', "/#{v}/rails3.html"
-      / .spacer
+      #navigation
+        %p
+          %b= link_to 'commands', "/#{v}/commands.html"
+          = link_to 'install', "/#{v}/bundle_install.html"
+          \/
+          = link_to 'update', "/#{v}/bundle_update.html"
+          \/
+          = link_to 'exec', "/#{v}/bundle_exec.html"
+          \/
+          = link_to 'config', "/#{v}/bundle_config.html"
+          - if v == 'v0.9'
+            \/
+            = link_to 'lock', "/#{v}/bundle_lock.html"
+          \/
+          = link_to 'package', "/#{v}/bundle_package.html"
+        %p
+          %b usage
+          = link_to 'gemfile', "/#{v}/gemfile.html"
+          \/
+          = link_to 'git', "/#{v}/git.html"
+          \/
+          = link_to 'groups', "/#{v}/groups.html"
+          \/
+          = link_to 'setup', "/#{v}/bundler_setup.html"
+          \/
+          = link_to 'deploying', "/#{v}/deploying.html"
+        %p
+          %b frameworks
+          = link_to 'ruby', "/#{v}/bundler_setup.html"
+          \/
+          = link_to 'rubygems', "/#{v}/rubygems.html"
+          \/
+          = link_to 'rubymotion', "/#{v}/rubymotion.html"
+          \/
+          = link_to 'sinatra', "/#{v}/sinatra.html"
+          \/
+          = link_to 'rails 3', "/#{v}/rails3.html"
+      .spacer
       = image_tag 'bundler-small.png'
     #credits
       %p
@@ -66,11 +64,11 @@
         == and #{link_to 'sponsors', '/sponsors.html' }
     %a#github{ :href => 'http://github.com/carlhuda/bundler/' }
       %img{ :src => 'http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png', :alt => 'Fork me on GitHub' }
-    / #prod-versions
-    /   Docs:
-    /   - %w(v0.9 v1.0 v1.1 v1.2).each do |lv|
-    /     = link_to(lv, "#{lv}/index.html", :class => ('current' if v == lv))
-    /   = link_to("v1.3", "/", :class => ('current' if v == 'v1.3'))
+    #prod-versions
+      Docs:
+      - %w(v0.9 v1.0 v1.1 v1.2).each do |lv|
+        = link_to(lv, "/#{lv}/index.html", :class => ('current' if v == lv))
+      = link_to("v1.3", "/", :class => ('current' if v == 'v1.3'))
 
     :javascript
       var _gaq = _gaq || [];

@@ -17,7 +17,8 @@
 
 # (optional) local gems, installed with
 # bundle install --path vendor/bundle
-/vendor/bundle
+# also a checkout of bundler for manpages and releases
+/vendor
 
 # Bundler binstubs
 /bin

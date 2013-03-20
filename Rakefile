@@ -1,67 +1,60 @@
-require 'bundler/setup'
+require "bundler/setup"
 
-# desc 'Install oniguruma'
-# task :install_onig do
-#   if `which wget`.empty?
-#     puts 'You need wget to install oniguruma. Please install it.'
-#     exit
-#   end
+directory "vendor"
+directory "vendor/bundler" => ["vendor"] do
+  system "git clone git://github.com/carlhuda/bundler.git vendor/bundler"
+end
 
-#   system 'curl -O http://www.geocities.jp/kosako3/oniguruma/archive/onig-5.8.0.tar.gz'
-#   system 'tar zxvf onig-5.8.0.tar.gz'
+task :update_vendor => ["vendor/bundler"] do
+  Dir.chdir("vendor/bundler") { sh "git fetch" }
+end
 
-#   Dir.chdir('onig-5.8.0') do
-#     system './configure'
-#     system 'make'
-#     system 'sudo make install'
-#   end
-# end
+desc "Pull in the man pages for the specified gem versions."
+task :man => [:update_vendor] do
+  %w(v1.0 v1.1 v1.2 v1.3)[0..0].each do |version|
+    branch = (version[1..-1].split('.') + %w(stable)).join('-')
 
-desc 'Pull in the man pages for the specified gem versions.'
-task :man do
-  if Dir.exists? 'bundler'
-    Dir.chdir('bundler') { system 'git fetch' }
-  else
-    system 'git clone git://github.com/carlhuda/bundler.git'
-  end
+    mkdir_p "build/#{version}/man"
 
-  %w(v1.0 v1.1 v1.2 v1.3).each do |version|
-    FileUtils.mkdir_p "source/#{version}/man"
-    FileUtils.rm(Dir['bundler/man/*.html'])
-    branch = (version[1..-1].split('.') + %w(stable)).join("-")
-    Dir.chdir 'bundler' do
-      system "git checkout origin/#{branch}"
-      system 'ronn -5 man/*.ronn'
+    Dir.chdir "vendor/bundler" do
+      sh "git checkout origin/#{branch}"
+      sh "git reset --hard HEAD"
+      sh "ronn -5 man/*.ronn"
+      cp(FileList["man/*.html"], "../../build/#{version}/man")
+      sh "git clean -fd"
     end
-    FileUtils.cp(Dir['bundler/man/*.html'], "source/#{version}/man")
+
   end
 end
 
-desc 'Build the static site.'
-task :build do
-  system 'bundle exec middleman build'
+task :clean_build do
+  rm_rf "build"
+end
+
+desc "Build the static site"
+task :build => :clean_build do
+  sh "middleman build"
 end
 
 
-# desc 'Prepare a site release.'
-# task :release => [:build, :man] do
-#   commit = `git rev-parse HEAD`.chomp
-#   if File.exists?('gh-pages')
-#     Dir.chdir('gh-pages') { system 'git pull' }
-#   else
-#     system 'git clone git@github.com:carlhuda/bundler.git gh-pages --branch gh-pages'
-#   end
+desc "Release the current commit to carlhuda/bundler@gh-pages"
+task :release => [:update_vendor, :build, :man] do
+  commit = `git rev-parse HEAD`.chomp
 
-#   Dir.chdir 'gh-pages' do
-#     system 'rm -rf *'
-#     File.open('CNAME', 'w') { |file| file.puts 'gembundler.com' }
-#     system 'cp -r ../site/* .'
-#     system 'git add -A .'
-#     system "git commit -m \"carlhuda/bundler-site@#{commit}\""
-#     system 'git push origin gh-pages'
-#   end
-# end
+  Dir.chdir "vendor/bundler" do
+    sh "git checkout gh-pages"
+    sh "git reset --hard HEAD"
+    rm_rf FileList["*"]
+    cp_r FileList["../../build/*"], "./"
+    File.write("CNAME", "gembundler.com")
 
-# namespace :assets do
-#   task :precompile => [:build, :man]
-# end
+    sh "git add -A ."
+    sh "git commit -m 'carlhuda/bundler-site-middleman@#{commit}'"
+    sh "git push origin gh-pages"
+  end
+end
+
+# Allow Heroku deploys to build the site (for previewing)
+namespace :assets do
+  task :precompile => [:build, :man]
+end

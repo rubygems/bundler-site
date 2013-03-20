@@ -14,4 +14,10 @@
 /.sass-cache
 
 .DS_store
-/bundler
+
+# (optional) local gems, installed with
+# bundle install --path vendor/bundle
+/vendor/bundle
+
+# Bundler binstubs
+/bin

@@ -27,13 +27,9 @@ task :man => [:update_vendor] do
   end
 end
 
-task :clean_build do
-  rm_rf "build"
-end
-
 desc "Build the static site"
-task :build => :clean_build do
-  sh "middleman build"
+task :build do
+  sh "middleman build --clean"
 end
 
 

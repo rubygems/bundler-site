@@ -17,8 +17,8 @@ task :man => [:update_vendor] do
     mkdir_p "build/#{version}/man"
 
     Dir.chdir "vendor/bundler" do
-      sh "git checkout origin/#{branch}"
       sh "git reset --hard HEAD"
+      sh "git checkout origin/#{branch}"
       sh "ronn -5 man/*.ronn"
       cp(FileList["man/*.html"], "../../build/#{version}/man")
       sh "git clean -fd"
@@ -38,8 +38,8 @@ task :release => [:update_vendor, :build, :man] do
   commit = `git rev-parse HEAD`.chomp
 
   Dir.chdir "vendor/bundler" do
-    sh "git checkout gh-pages"
     sh "git reset --hard HEAD"
+    sh "git checkout gh-pages"
     rm_rf FileList["*"]
     cp_r FileList["../../build/*"], "./"
     File.write("CNAME", "gembundler.com")

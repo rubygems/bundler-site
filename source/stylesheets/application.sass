@@ -37,6 +37,7 @@ $link-color: #0e3f54
   @include background-image(linear-gradient(color_stops(#6ecf36, #4e9326)))
   +border-radius(5px)
   &:hover
+    @include background-image(linear-gradient(color_stops(#4e9326, #35641a)))
     border-bottom: none
 
 a
@@ -194,10 +195,7 @@ h2
   a
     +button
     margin: 15px 0 0 450px
-
-  a:hover
-    @include background-image(linear-gradient(color_stops(#4e9326, #35641a)))
-
+    
   .how
     +flexbox(vertical, justify)
     +liquid

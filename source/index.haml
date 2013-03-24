@@ -107,10 +107,10 @@
 
 .shirts
   .content
-    = link_to 'http://www.devswag.com/collections/bundler', :class => 'image' do
+    = link_to 'http://www.devswag.com/collections/bundler', :class => 'image', :onclick => "ga('send', 'devswag');" do
       = image_tag '/images/bundler-shirt.png'
     %p
       Want to show the world you support Bundler?
       %br
       Buy Bundler shirts and stickers at
-      = link_to 'DevSwag', 'http://www.devswag.com/collections/bundler'
+      = link_to 'DevSwag', 'http://www.devswag.com/collections/bundler', :onclick => "ga('send', 'devswag');"

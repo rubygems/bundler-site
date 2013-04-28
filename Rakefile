@@ -2,7 +2,11 @@ require "bundler/setup"
 
 directory "vendor"
 directory "vendor/bundler" => ["vendor"] do
-  system "git clone git://github.com/carlhuda/bundler.git vendor/bundler"
+  system "git clone git@github.com:carlhuda/bundler.git vendor/bundler"
+  # Some users don't have private permissions
+  if !File.exist?("vendor/bundler")
+    system "git clone git://github.com/carlhuda/bundler.git vendor/bundler"
+  end
 end
 
 task :update_vendor => ["vendor/bundler"] do
@@ -31,7 +35,6 @@ desc "Build the static site"
 task :build do
   sh "middleman build --clean"
 end
-
 
 desc "Release the current commit to carlhuda/bundler@gh-pages"
 task :release => [:update_vendor, :build, :man] do

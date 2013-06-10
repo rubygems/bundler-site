@@ -39,6 +39,17 @@ activate :livereload
 #   @which_fake_page = "Rendering a fake page with a variable"
 # end
 
+# Make documentation for the latest version available at the top level, too.
+# Any pages with names that conflict with files already at the top level will be skipped.
+ready do
+  sitemap.resources.each do |page|
+    if page.path.start_with? 'v1.3/'
+      proxy_path = page.path['v1.3/'.length..-1]
+      proxy proxy_path, page.path if sitemap.find_resource_by_path(proxy_path).nil?
+    end
+  end
+end
+
 ###
 # Helpers
 ###

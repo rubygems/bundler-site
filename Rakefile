@@ -29,6 +29,9 @@ task :man => [:update_vendor] do
     end
 
   end
+
+  # Make man pages for the latest version available at the top level, too.
+  cp_r "build/v1.3/man", "build/man"
 end
 
 desc "Build the static site"

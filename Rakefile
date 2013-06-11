@@ -2,10 +2,10 @@ require "bundler/setup"
 
 directory "vendor"
 directory "vendor/bundler" => ["vendor"] do
-  system "git clone git@github.com:carlhuda/bundler.git vendor/bundler"
+  system "git clone git@github.com:bundler/bundler.git vendor/bundler"
   # Some users don't have private permissions
   if !File.exist?("vendor/bundler")
-    system "git clone git://github.com/carlhuda/bundler.git vendor/bundler"
+    system "git clone git://github.com/bundler/bundler.git vendor/bundler"
   end
 end
 
@@ -39,7 +39,7 @@ task :build do
   sh "middleman build --clean"
 end
 
-desc "Release the current commit to carlhuda/bundler@gh-pages"
+desc "Release the current commit to bundler/bundler@gh-pages"
 task :release => [:update_vendor, :build, :man] do
   commit = `git rev-parse HEAD`.chomp
 
@@ -51,7 +51,7 @@ task :release => [:update_vendor, :build, :man] do
     File.write("CNAME", "gembundler.com")
 
     sh "git add -A ."
-    sh "git commit -m 'carlhuda/bundler-site-middleman@#{commit}'"
+    sh "git commit -m 'bundler/bundler-site@#{commit}'"
     sh "git push origin gh-pages"
   end
 end

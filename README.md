@@ -1,9 +1,9 @@
 # gembundler.com
-gembundler.com is intended to serve as a convenient source for documentation on the [bundler](https://github.com/carlhuda/bundler) gem. 
+gembundler.com is intended to serve as a convenient source for documentation on the [bundler](https://github.com/bundler/bundler) gem. 
 
 The site gembundler.com is a static site generated using [Middleman](http://middlemanapp.com/).
 
-[Bundler's manual pages](https://github.com/carlhuda/bundler/tree/master/man) document much of its functionality and serve as an important part of the site. They are included via the **Rakefile**.
+[Bundler's manual pages](https://github.com/bundler/bundler/tree/master/man) document much of its functionality and serve as an important part of the site. They are included via the **Rakefile**.
 
 ## Basic Middleman Commands
 

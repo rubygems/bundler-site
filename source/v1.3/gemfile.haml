@@ -12,15 +12,9 @@
 .contents
   .bullet
     .description
-      Gemfiles require at least one gem source, in the form of the URL for a Rubygems server.
-      There are shortcuts for the default gem server, so all of these sources are the same.
+      Gemfiles require at least one gem source, in the form of the URL for a Rubygems server. Generate a Gemfile with the default rubygems.org source by running <code>bundle init</code>. If you can, use <code>https</code> so your connection to the rubygems.org server will be verified with SSL.
     :highlight_ruby
-      source :rubygems
-      source 'http://rubygems.org'
-      source :rubyforge
-      source 'http://gems.rubyforge.org'
-      source :gemcutter
-      source 'http://gemcutter.org'
+      source 'https://rubygems.org'
 
   .bullet
     .description

@@ -60,25 +60,25 @@
 
   .bullet
     .description
-      If you are actively developing a gem, perhaps checked out from Github, you can use the gem
-      directly from its directory on your filesystem.
+      If you would like to use a unpacked gem directly from the filesystem, simply set the <code>:path</code> option to the path containing the the gem's files.
     :highlight_ruby
-      gem 'nokogiri', :path => '~/sw/gems/nokogiri'
+      gem 'extracted_library', :path => './vendor/extracted_library'
 
   .bullet
     .description
-      Dependencies can be placed into groups, to be ignored at install-time or required all at once.
+      Dependencies can be placed into groups. Groups can be ignored at install-time (using <code>--without</code>) or required all at once (using <code>Bundler.require</code>).
     :highlight_ruby
       gem 'wirble', :group => :development
-      gem 'ruby-debug', :group => [:development, :test]
+      gem 'debugger', :group => [:development, :test]
 
       group :test do
         gem 'rspec'
       end
     = link_to 'Learn more: Groups', './groups.html'
+
   .bullet
     .description
-      You can now specify the version of Ruby in the <code>Gemfile</code> like the following:
+      You can specify the required version of Ruby in the <code>Gemfile</code> with <code>ruby</code>. If the <code>Gemfile</code> is loaded on a different Ruby version, Bundler will raise an exception with an explanation.
     :highlight_ruby
       ruby '1.9.3'
 

@@ -45,6 +45,11 @@
     :highlight_ruby
       gem 'rspec', :require => 'spec'
       gem 'sqlite3'
+    .description
+      Specify <code>:require => false</code> to prevent bundler from requiring the gem, but still install it and maintain dependencies.
+    :highlight_ruby
+      gem 'rspec', :require => false
+      gem 'sqlite3'
     .notes
       In order to require gems in your <code>Gemfile</code>, you will need to call
       <code>Bundler.require</code> in your application.

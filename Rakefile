@@ -48,7 +48,7 @@ task :release => [:update_vendor, :build, :man] do
     sh "git checkout gh-pages"
     rm_rf FileList["*"]
     cp_r FileList["../../build/*"], "./"
-    File.write("CNAME", "gembundler.com")
+    File.write("CNAME", "bundler.io")
 
     sh "git add -A ."
     sh "git commit -m 'bundler/bundler-site@#{commit}'"

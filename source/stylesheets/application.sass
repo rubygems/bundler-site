@@ -77,10 +77,18 @@ code
   +flexbox(vertical, center)
   width: 100%
 
+#container
+  +flexbox(horizontal, left)
+  width: 100%
+
 #contents
   +flexbox(vertical, justify)
   width: 725px
   position: relative
+
+#sidebar
+  +flexbox(vertical, right)
+  width: 250px
 
 @mixin important($color)
   background: $color
@@ -97,6 +105,8 @@ code
 
 #header
   margin-bottom: 20px
+  height: 100%
+  clear: both
   h1
     font-size: 22px
     text-align: right
@@ -198,7 +208,7 @@ h2
   a
     +button
     margin: 15px 0 0 450px
-    
+
   .how
     +flexbox(vertical, justify)
     +liquid

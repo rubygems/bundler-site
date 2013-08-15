@@ -64,6 +64,7 @@ html
   font-family: Helvetica, sans-serif
 
 code
+  background-color: rgba(0,0,0,0.1)
   font-family: monospace
   font-size: 120%
   padding: 0 3px
@@ -94,8 +95,10 @@ code
   text-align: left
 
   .buttons
+    width: 100%
     a
-      margin-left: 0
+      &:last-child
+        margin-left: 0
 
   h2
     font-size: 16px
@@ -239,11 +242,18 @@ h2
     +liquid
     margin: 0
 
-  code
-    background-color: rgba(0,0,0,0.1)
-
 pre
+  background-color: #000000
+  color: #F8F8F8
+  font-size: 13px
+  font-family: Monaco, monospace
+  white-space: pre-line
+  padding: 10px
+  margin: 0
   +border-radius(5px)
+
+  code
+    border: none
 
 .bullet:nth-child(even)
   background-color: rgba(0,0,0,0.1)

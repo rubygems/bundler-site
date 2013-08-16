@@ -1,0 +1,63 @@
+%h2 Report a Bug
+
+.contents
+  .bullet
+    .description
+      %b So, you're having problems with Bundler. The ISSUES.md file is here to help. If you can't figure out how to solve your problem, there are also instructions on how to report a bug.
+      = link_to 'Bundler Issues.md', 'https://github.com/bundler/bundler/blob/master/ISSUES.md'
+
+%h2 Suggest or Discuss a Feature
+
+.contents
+  .bullet
+    .description
+      %b Please use the Bundler Features repo to suggest and discuss features. The bundler issue tracker is only for bugs.
+      = link_to 'Bundler Features', 'https://github.com/bundler/bundler-features'
+
+%h2 Trouble Shooting
+
+.content
+  .bullet
+    .description
+  .bullet
+    .description
+      %b Heroku Errors
+    .description
+      Please open a ticket with Heroku if you're having trouble deploying. They have a professional support team who can help you resolve Heroku issues far better than the Bundler team can. If the problem that you are having turns out to be a bug in Bundler itself, Heroku support can get the exact details to us.
+  .bullet
+    .description
+  .bullet
+    .description
+      %b Other Problems
+    .description
+      %b First,
+      figure out exactly what it is that you're trying to do. Then, go to the Bundler documentation website and see if we have instructions on how to do that.
+    .description
+      %b Second,
+      check the compatibility list, and make sure that the version of Bundler that you are using works with the versions of Ruby and Rubygems that you are using.
+    .description
+      %b Third
+      If the instructions don't work, or you can't find any instructions, you can try these troubleshooting steps:
+
+    :highlight_plain
+      # remove user-specific gems and git repos
+      rm -rf ~/.bundle/ ~/.gem/bundler/ ~/.gems/cache/bundler/
+
+      # remove system-wide git repos and git checkouts
+      rm -rf $GEM_HOME/bundler/ $GEM_HOME/cache/bundler/
+
+      # remove project-specific settings
+      rm -rf .bundle/
+
+      # remove project-specific cached gems and repos
+      rm -rf vendor/cache/
+
+      # remove the saved resolve of the Gemfile
+      rm -rf Gemfile.lock
+
+      # uninstall the rubygems-bundler and open_gem gems
+      rvm gemset use global # if using rvm
+      gem uninstall rubygems-bundler open_gem
+
+      # try to install one more time
+      bundle install

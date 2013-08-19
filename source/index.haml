@@ -2,75 +2,32 @@
 
 #intro
   Bundler maintains a consistent environment for ruby applications. It tracks an application's code and the rubygems it needs to run, so that an application will always have the exact gems (and versions) that it needs to run.
-.bullet
-  = link_to 'Learn More: Why Bundler exists', '/v1.3/rationale.html'
 
-%h2#getting-started
-  Getting Started
-
-.contents
-  .bullet
-    .description
-      Getting started with bundler is easy! Open a terminal window and run this command:
-    :highlight_plain
-      $ gem install bundler
-
-  .bullet
-    .description
-      Specify your dependencies in a Gemfile in your project's root:
-    :highlight_ruby
-      source 'https://rubygems.org'
-      gem 'nokogiri'
-      gem 'rack', '~>1.1'
-      gem 'rspec', :require => 'spec'
-    = link_to 'Learn More: Gemfiles', '/v1.3/gemfile.html'
-
-  .bullet
-    .description
-      Install all of the required gems from your specified sources:
-    :highlight_plain
-      $ bundle install
-      $ git add Gemfile Gemfile.lock
-    = link_to 'Learn More: bundle install', '/v1.3/bundle_install.html'
-    .notes
-      The second command adds the Gemfile and Gemfile.lock to your repository. This ensures
-      that other developers on your app, as well as your deployment environment, will all use
-      the same third-party code that you are using now.
-
-  .bullet
-    .description
-      Inside your app, load up the bundled environment:
-    :highlight_ruby
-      require 'rubygems'
-      require 'bundler/setup'
-
-      # require your gems as usual
-      require 'nokogiri'
-    = link_to 'Learn More: Bundler.setup', '/v1.3/bundler_setup.html'
-  .bullet
-    .description
-      Run an executable that comes with a gem in your bundle:
-    :highlight_plain
-      $ bundle exec rspec spec/models
-    .notes
-      %p
-        In some cases, running executables without <code>bundle exec</code>
-        may work, if the executable happens to be installed in your system
-        and does not pull in any gems that conflict with your bundle.
-      %p
-        However, this is unreliable and is the source of considerable pain.
-        Even if it looks like it works, it may not work in the future or
-        on another machine.
-
-    .description
-      Finally, if you want a way to get a shortcut to gems in your bundle:
-    :highlight_plain
-      $ bundle install --binstubs
-      $ bin/rspec spec/models
-    .notes
-      The executables installed into <code>bin</code> are scoped to the
-      bundle, and will always work.
-    = link_to 'Learn More: Executables', '/v1.3/man/bundle-exec.1.html'
+%h2
+  Get Started
+#get-started
+  .buttons
+    = link_to 'Install Bundler & Create a Simple Work Flow', '/v1.3/get_started.html#install-bundler'
+  %table{:cellspacing => 0}
+    %tr
+      %td
+        %ul
+          %li
+            = link_to "Set Up Your Application to Use Bundler", '/v1.3/get_started.html#setting-up-your-application-to-use-bundler'
+          %li
+            = link_to 'Group Your Dependencies', '/v1.3/get_started.html#grouping-your-dependencies'
+          %li
+            = link_to 'Check Your Code into Version Control', '/v1.3/get_started.html#checking-your-code-into-version-control'
+          %li
+            = link_to 'Share Your Application With Other Developers', '/v1.3/get_started.html#sharing-your-application-with-other-developers'
+      %td
+        %ul
+          %li
+            = link_to 'Updating a Dependency', '/v1.3/get_started.html#updating-a-dependency'
+          %li
+            = link_to 'Updating a Gem Without Modifying the Gemfile', '/v1.3/get_started.html#updating-a-gem-without-modyfying-the-gemfile'
+          %li
+            = link_to 'Deploying Your Application', '/v1.3/get_started.html#deploying-your-application'
 
 %h2#use-bundler Use Bundler with
 .buttons
@@ -109,3 +66,4 @@
       %br
       Buy Bundler shirts and stickers at
       = link_to 'DevSwag', 'http://www.devswag.com/collections/bundler', :onclick => "ga('send', 'devswag');"
+

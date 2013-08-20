@@ -30,6 +30,9 @@
       - command.desc   = 'Creates a skeleton for creating a rubygem'
       - command.option = 'bin or -b'
     = command_table_row do |command|
+      - command.name   = 'help'
+      - command.desc   = 'Displays detailed help for each subcommand'
+    = command_table_row do |command|
       - command.name   = 'init'
       - command.desc   = 'Generates a Gemfile into the current working directory'
       - command.option = 'gemspec'

@@ -34,13 +34,24 @@ task :man => [:update_vendor] do
   cp_r "build/v1.3/man", "build/man"
 end
 
+desc "Pulls in ISSUES.md from the master branch."
+task :issues => [:update_vendor] do
+
+  Dir.chdir "vendor/bundler" do
+    sh "git reset --hard HEAD"
+    sh "git checkout origin/master"
+    cp "ISSUES.md", "../../source/issues.md"
+  end
+
+end
+
 desc "Build the static site"
-task :build do
+task :build => [:issues] do
   sh "middleman build --clean"
 end
 
 desc "Release the current commit to bundler/bundler@gh-pages"
-task :release => [:update_vendor, :build, :man] do
+task :release => [:update_vendor, :build, :man, :issues] do
   commit = `git rev-parse HEAD`.chomp
 
   Dir.chdir "vendor/bundler" do

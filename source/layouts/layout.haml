@@ -57,49 +57,12 @@
       = image_tag 'emocow.png'
       = image_tag 'panda.jpg'
       .spacer
-      #navigation
+      #credits
         %p
-          %b commands
-          = link_to 'install', "/#{v}/man/bundle-install.1.html"
-          \/
-          = link_to 'update', "/#{v}/man/bundle-update.1.html"
-          \/
-          = link_to 'exec', "/#{v}/man/bundle-exec.1.html"
-          \/
-          = link_to 'config', "/#{v}/man/bundle-config.1.html"
-          - if v == 'v0.9'
-            \/
-            = link_to 'lock', "/#{v}/bundle_lock.html"
-          \/
-          = link_to 'package', "/#{v}/man/bundle-package.1.html"
-        %p
-          %b usage
-          = link_to 'gemfile', "/#{v}/gemfile.html"
-          \/
-          = link_to 'git', "/#{v}/git.html"
-          \/
-          = link_to 'groups', "/#{v}/groups.html"
-          \/
-          = link_to 'setup', "/#{v}/bundler_setup.html"
-          \/
-          = link_to 'deploying', "/#{v}/deploying.html"
-        %p
-          %b frameworks
-          = link_to 'ruby', "/#{v}/bundler_setup.html"
-          \/
-          = link_to 'rubygems', "/#{v}/rubygems.html"
-          \/
-          = link_to 'rubymotion', "/#{v}/rubymotion.html"
-          \/
-          = link_to 'sinatra', "/#{v}/sinatra.html"
-          \/
-          = link_to 'rails 3', "/#{v}/rails3.html"
+          == Many thanks to Bundler's #{link_to 'contributors', '/contributors.html' }
+          == and #{link_to 'sponsors', '/sponsors.html' }
       .spacer
       = image_tag 'bundler-small.png'
-    #credits
-      %p
-        == Many thanks to Bundler's #{link_to 'contributors', '/contributors.html' }
-        == and #{link_to 'sponsors', '/sponsors.html' }
     %a#github{ :href => 'http://github.com/bundler/bundler/' }
       %img{ :src => 'http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png', :alt => 'Fork me on GitHub' }
     #prod-versions

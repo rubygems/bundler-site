@@ -57,6 +57,8 @@ task :release => [:update_vendor, :build, :man, :issues] do
   Dir.chdir "vendor/bundler" do
     sh "git reset --hard HEAD"
     sh "git checkout gh-pages"
+    sh "git pull origin gh-pages"
+
     rm_rf FileList["*"]
     cp_r FileList["../../build/*"], "./"
     File.write("CNAME", "bundler.io")

@@ -140,3 +140,15 @@
         you specify the necessary build flags for a gem, you can successfully install that gem as many times 
         as necessary.
 
+      %h3
+        Bundling From RubyGems is Really Slow
+
+      %p
+        <strong>Q</strong>: When I bundle from rubygems it is really slow. Is there anything I can do to make it faster?
+
+      %p
+        <strong>A</strong>: Add the --full-index flag when bundling from the rubygems server. This downloads
+        the index all at once instead of making numerous small requests to the api.
+
+      :highlight_plain
+        $ bundle install --full-index

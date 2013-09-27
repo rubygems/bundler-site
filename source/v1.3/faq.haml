@@ -140,3 +140,15 @@
         you specify the necessary build flags for a gem, you can successfully install that gem as many times 
         as necessary.
 
+      %h3
+        I Do Not Have an Internet Connection and Bundler Keeps Trying to Connect to the Gem Server
+      %p
+        <strong>Q</strong>:  I do not have an internet connection but I have installed the gem before.
+        How do I get bundler to use my local gem cache and not connect to the gem server?
+
+      %p
+        <strong>A</strong>: Use the --local flag with bundle install. The --local flag tells bundler
+        to use the local gem cache instead of reaching out to the remote gem server.
+
+      :highlight_plain
+        $ bundle install --local

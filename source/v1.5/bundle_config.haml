@@ -221,7 +221,7 @@
         pushed, otherwise you may point to a commit that only exists in your 
         local machine.
 
-      %p 
+      %p
         Bundler does many checks to ensure a developer won't work with 
         invalid references. Particularly, we force a developer to specify a 
         branch in the <code>Gemfile</code> in order to use this feature. If the 
@@ -230,7 +230,7 @@
         developer is always working against the correct branches, and prevents 
         accidental locking to a different branch.
 
-      %p 
+      %p
         Finally, Bundler also ensures that the current revision in the 
         <code>Gemfile.lock</code> exists in the local git repository. By doing 
         this, Bundler forces you to fetch the latest changes in the remotes.
@@ -239,4 +239,11 @@
 .contents
   .bullet#gem-source-mirrors
     .description
-      TBD
+      %p
+        If your environment contains a local mirror of the rubygems.org server,
+        use the <code>mirror.URL</code> configuration option to supply the URL
+        of the mirror. At that point, Bundler will download gems and gemspecs
+        from that mirror instead of the source listed in the Gemfile.
+
+      :highlight_plain
+        $ bundle config mirror.https://rubygems.org https://localgems.lan

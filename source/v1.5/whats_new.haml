@@ -5,68 +5,16 @@
 .contents
   .bullet
     .description
-      In this section, you'll find the major features introduced in the release. All the changes are documented in the Bundler 1.5 CHANGELOG.
-      = link_to 'CHANGELOG', 'https://github.com/bundler/bundler/blob/1-5-stable/CHANGELOG.md'
+      In this section, you'll find the major features introduced in the release. All the changes are documented in the Bundler 1.5 changelog.
+      = link_to 'Full 1.5 changelog', 'https://github.com/bundler/bundler/blob/1-5-stable/CHANGELOG.md'
 
 %h2#parallel-install
 
 .contents
   .bullet
     .description
-      Bundler 1.5 provides the <code>--jobs</code> option (<code>-j</code> for short) to pass in the number of workers to install gems in prallel, <code>bundle install -j4</code> for 4 workers. We've seen speedups of upwards of 40% on fresh bundle installs.
+      The <code>--jobs</code> option (<code>-j</code> for short) installs gems in parallel. For example, <code>bundle install -j4</code> will use 4 workers. We've seen speedups of 40-60% on fresh bundle installs. To always install in parallel, run <code>bundle config --global jobs 4</code> or set <code>BUNDLE_JOBS</code>.
     = link_to 'Learn More: Parallel Install', './bundle_install.html#jobs'
-
-%h2#performance
-
-.contents
-  .bullet
-    .description
-      Beyond the parallel install feature, more performance improvements have been added including reducing the stack size of the resolver, stop downloading unnecessary gemspecs during install, and favor fetching local gemspecs over network if available.
-
-%h2#retry-install
-
-.contents
-  .bullet
-    .description
-      <code>bundle install</code> now takes a <code>--retry</code> option which retries failed network or git commands.
-    = link_to 'Learn More: Retry Failed Network Requests', './bundle_install.html#retry'
-
-%h2#ruby-patchlevel
-
-.contents
-  .bullet
-    .description
-      The ruby DSL now takes a <code>:patchlevel</code> option for locking to specific patchlevels of ruby like <code>ruby '2.0.0', :patchlevel => 247</code>
-    = link_to 'Learn More: Ruby Directive', './gemfile_ruby.html#patchlevel'
-
-%h2#detect-cyclic-dependencies
-  
-.contents
-  .bullet
-    .description
-      Bundler now detects cyclic dependencies which creates an infinite loop and displays a friendly message noting that fact.
-
-%h2#binstubs-multiple-gems
-
-.contents
-  .bullet
-    .description
-      The <code>bundle binstubs</code> can now take multiple gems instead of having to only do it one by one.
-
-%h2#bundler-bin
-
-.contents
-  .bullet
-    .description
-      Bundler now has a <code>bundler</code> for those moments when you typo <code>bundle</code>.
-
-%h2#outdated-strict
-
-.contents
-  .bullet
-    .description
-      <code>bundle outdated --strict</code> displays outdated gems that match the dependency requirements.
-    = link_to 'Learn More: bundle outdated --strict', './bundle_outdated.html#strict'
 
 %h2#gem-source-mirrors
 
@@ -74,11 +22,43 @@
   .bullet
     .description
       Bundler now supports the ability to use a gem mirror in a Gemfile locally by using <code>bundle config</code>. <code> bundle config mirror.http://rubygems.org http://rubygems-mirror.org/</code>
-    = link_to 'Learn More: Gem Source Mirrors --strict', './bundle_config.html#gem-source-mirrors'
+    = link_to 'Learn More: Source Mirrors', './bundle_config.html#gem-source-mirrors'
 
-%h2#rubylib
+%h2#ruby-patchlevel
 
 .contents
   .bullet
     .description
-      Bundler now uses <code>RUBYLIB</code> instead of <code>RUBYOPT</code> to better support Windows.
+      The ruby DSL now takes a <code>:patchlevel</code> option for locking to specific patchlevels of ruby like <code>ruby '2.0.0', :patchlevel => "247"</code>
+    = link_to 'Learn More: Ruby Directive', './gemfile_ruby.html#patchlevel'
+
+%h2#outdated-strict
+
+.contents
+  .bullet
+    .description
+      <code>bundle outdated --strict</code> displays outdated gems that match the dependency requirements.
+    = link_to 'Learn More: outdated --strict', './bundle_outdated.html#strict'
+
+%h2#retry-install
+
+.contents
+  .bullet
+    .description
+      <code>bundle install</code> now retries failed downloads. You can adjust the number of retries with the  <code>--retry</code> option.
+    = link_to 'Learn More: Retry', './bundle_install.html#retry'
+
+%h2#other-changes
+
+.contents
+  .bullet
+    .description
+      Bundler 1.5 also includes:
+      %ul
+        %li many smaller performance improvements to make resolving and installing faster
+        %li cyclic dependency detection, to avoid infinite loops
+        %li multiple arguments to the <code>bundle binstubs</code> command
+        %li a <code>bundler</code> command in case you typo <code>bundle</code>
+        %li uses RUBYLIB for better compatibility with Windows
+        %li= link_to 'Full 1.5 changelog', 'https://github.com/bundler/bundler/blob/1-5-stable/CHANGELOG.md'
+

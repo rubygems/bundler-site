@@ -1,5 +1,5 @@
 !!!
-- v = current_page.url.scan(/v\d\.\d/).first || 'v1.3'
+- v = current_page.url.scan(/v\d\.\d/).first || 'v1.5'
 %html
   %head
     %title Bundler: The best way to manage a Ruby application's gems
@@ -15,38 +15,38 @@
       #container
         #contents
           = yield
-        - if v == 'v1.3'
+        - if v == 'v1.5'
           #sidebar
             %h2 Would you like to
             %ul
               %li= link_to 'Get started', '/#getting-started'
               %li= link_to 'Report a bug', '/issues.html'
-              %li= link_to "See what's new", '/v1.3/whats_new.html'
-              %li= link_to 'Read documentation', '/v1.3/man/bundle.1.html'
+              %li= link_to "See what's new", '/v1.5/whats_new.html'
+              %li= link_to 'Read documentation', '/v1.5/man/bundle.1.html'
               %li= link_to 'Discuss and Contribute', '/#get-involved'
-              %li= link_to 'View FAQs', '/v1.3/faq.html'
+              %li= link_to 'View FAQs', '/v1.5/faq.html'
             %h2 Bundler Commands
             %ul
-              %li= link_to 'bundle install', '/v1.3/bundle_install.html'
-              %li= link_to 'bundle update', '/v1.3/bundle_update.html'
+              %li= link_to 'bundle install', '/v1.5/bundle_install.html'
+              %li= link_to 'bundle update', '/v1.5/bundle_update.html'
               .buttons
-                = link_to 'View all commands', '/v1.3/commands.html'
+                = link_to 'View all commands', '/v1.5/commands.html'
             %h2 Usage
             %ul
-              %li= link_to 'Gemfile', '/v1.3/gemfile.html'
-              %li= link_to 'Groups', '/v1.3/groups.html'
-              %li= link_to 'Gems from git', '/v1.3/git.html'
-              %li= link_to 'Bundler.setup', '/v1.3/bundler_setup.html'
-              %li= link_to 'Deploying', '/v1.3/deploying.html'
-              %li= link_to 'Sharing', '/v1.3/bundler_sharing.html'
-              %li= link_to 'Updating Gems', '/v1.3/updating_gems.html'
+              %li= link_to 'Gemfile', '/v1.5/gemfile.html'
+              %li= link_to 'Groups', '/v1.5/groups.html'
+              %li= link_to 'Gems from git', '/v1.5/git.html'
+              %li= link_to 'Bundler.setup', '/v1.5/bundler_setup.html'
+              %li= link_to 'Deploying', '/v1.5/deploying.html'
+              %li= link_to 'Sharing', '/v1.5/bundler_sharing.html'
+              %li= link_to 'Updating Gems', '/v1.5/updating_gems.html'
             %h2 Use Bundler with
             %ul
-              %li= link_to 'Rails 3', '/v1.3/rails3.html'
-              %li= link_to 'Rails 2.3', '/v1.3/rails23.html'
-              %li= link_to 'Sinatra', '/v1.3/sinatra.html'
-              %li= link_to 'Rubygems', '/v1.3/rubygems.html'
-              %li= link_to 'RubyMotion', '/v1.3/rubymotion.html'
+              %li= link_to 'Rails 3', '/v1.5/rails3.html'
+              %li= link_to 'Rails 2.3', '/v1.5/rails23.html'
+              %li= link_to 'Sinatra', '/v1.5/sinatra.html'
+              %li= link_to 'Rubygems', '/v1.5/rubygems.html'
+              %li= link_to 'RubyMotion', '/v1.5/rubymotion.html'
 
             .shirts
               .content
@@ -69,9 +69,9 @@
       %img{ :src => 'http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png', :alt => 'Fork me on GitHub' }
     #prod-versions
       Docs:
-      - %w(v0.9 v1.0 v1.1 v1.2).each do |lv|
+      - %w(v0.9 v1.0 v1.1 v1.2 v1.3).each do |lv|
         = link_to(lv, "/#{lv}/index.html", :class => ('current' if v == lv))
-      = link_to("v1.3", "/", :class => ('current' if v == 'v1.3'))
+      = link_to("v1.5", "/", :class => ('current' if v == 'v1.5'))
 
     :javascript
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

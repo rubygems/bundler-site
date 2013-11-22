@@ -105,32 +105,28 @@
       #{link_to 'bundle config', './bundle_config.html'}
 
   .bullet
-    .description
-      If you run <code>bundle install</code> later, without any flag, bundler will remember
+    %p.description
+      If you run <code>bundle install</code> later, without any flags, bundler will remember
       that you last called <code>bundle install --without production</code>, and use that flag
       again. When you <code>require 'bundler/setup'</code>, bundler will ignore gems in these
       groups.
 
-  .bullet
-    .description
+    %p.description
       You can also specify which groups to automatically require through the parameters to
       <code>Bundler.require</code>. The <code>:default</code> group includes all gems not
       listed under any group. If you call <code>Bundler.require(:default, :development)</code>,
       bundler will <code>require</code> all the gems in the <code>:default</code> group, as
       well as the gems in the <code>:development</code> group.
 
-  .bullet
-    .description
+    %p.description
       By default, a Rails generated app calls <code>Bundler.require(:default,
       Rails.env)</code> in your <code>application.rb</code>, which links the groups in your
       <code>Gemfile</code> to the Rails environment. If you use other groups (not linked to a
       Rails environment), you can add them to the call to <code>Bundler.require</code>, if you
       want them to be automatically required.
 
-  .bullet
-    .description
+    %p.description
       Remember that you can always leave groups of gems out of <code>Bundler.require</code>,
       and then require them manually using Ruby's <code>require</code> at the appropriate
       place in your app. You might do this because requiring a certain gem takes some time,
       and you don't need it every time you boot your application.
-

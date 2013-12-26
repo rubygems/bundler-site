@@ -5,7 +5,7 @@
     .description
       List installed gems with newer versions available
     :highlight_plain
-      $ bundle outdated [GEM] [--local] [--pre] [--source]
+      $ bundle outdated [GEM] [--local] [--pre] [--source] [--strict]
     .notes
       %p
         Options:
@@ -16,7 +16,7 @@
       %p
         <code>--source</code>: Check against a specific source
       %p
-        <code>--strict</code>: disploy outdated gems that match the dependency requirements.
+        <code>--strict</code>: Display outdated gems that match the dependency requirements.
     .description
       Outdated lists the names and versions of gems that have a newer version available
       in the given source. Calling outdated with [GEM [GEM]] will only check for newer

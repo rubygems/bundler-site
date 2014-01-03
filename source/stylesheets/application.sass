@@ -177,6 +177,9 @@ code
 .contents
   width: 725px
 
+.clear
+  clear: left
+
 h2
   font-size: 20px
   padding: 5px
@@ -323,9 +326,6 @@ pre
       margin: 5px 7px 15px 0px
       float: left
 
-    .clear
-      clear: left
-
   tr:nth-child(even)
     background-color: rgba(0,0,0,0.1)
     border-top: 1px solid rgba(0,0,0,0.1)
@@ -346,27 +346,22 @@ pre
     text-decoration: none
     font-weight: bold
 
-.other-contributors
-  text-align: center
-
 .contributor
-  clear: left
+  float: left
   margin: 1em 0
+  text-align: center
+  padding-right: 40px
+
+  &:last-child
+    padding-right: 0
 
   .avatar
-    float: left
-    margin-right: 1.5em
     width: 150px
-    min-height: 25px
 
   h3
     color: $subhead-color
 
   h4
-    font-size: 80%
+    font-weight: normal
     color: lighten($subhead-color, 5%)
-    margin-top: -1em
-
-  p
-    margin-left: 150px
-    padding-left: 1.5em
+    margin-top: -0.5em

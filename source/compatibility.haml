@@ -1,28 +1,56 @@
 %h2 Bundler compatibility with Ruby
 
 .contents
-  .bullet
-    .description
-      Bundler <b>1.0</b> requires a minimum Ruby version of <b>1.8.7</b>.
-
-  .bullet
-    .description
-      Ruby 1.9
-    .notes
-      Requires Bundler 1.0.10.
 
   .bullet
     .description
       Ruby 2.0
     .notes
-      Requires Bundler 1.3.
+      Requires Bundler 1.3 or greater.
+
+  .bullet
+    .description
+      Ruby 1.9
+    .notes
+      Requires Bundler 1.0.10 or greater. Ruby <b>1.9.1</b> is not supported.
+
+  .bullet
+    .description
+      Bundler <b>1.0</b> requires a minimum Ruby version of <b>1.8.7</b>.
+
 
 %h2 Bundler compatibility with Rubygems
 
 .contents
+
+
   .bullet
     .description
-      Bundler <b>1.0</b> requires a minimum Rubygems version of <b>1.3.6</b>.
+      Rubygems 2.0
+    .notes
+      %p Requires at least Bundler version 1.3.0.
+      %p Users of Rubygems 2.0.2 and Bundler 1.3.0-1.3.3 may encounter exceptions while running install or update, and should upgrade either Bundler or Rubygems to a newer version.
+
+  .bullet
+    .description
+      Rubygems 1.8
+    .notes
+      %p Requires Bundler version 1.0.14.
+      %p
+        Users with Rubygems 1.8.0-1.8.2 may encounter exceptions running <code>rake</code>.
+        They should use <code>bundle exec rake</code> instead.
+
+  .bullet
+    .description
+      Rubygems 1.6 and 1.7
+    .notes
+      Requires Bundler version 1.0.11.
+
+  .bullet
+    .description
+      Rubygems 1.5
+    .notes
+      Requires Bundler version 1.0.10.
 
   .bullet
     .description
@@ -33,28 +61,4 @@
 
   .bullet
     .description
-      Rubygems 1.5
-    .notes
-      Requires Bundler version 1.0.10.
-
-  .bullet
-    .description
-      Rubygems 1.6 and 1.7
-    .notes
-      Requires Bundler version 1.0.11.
-
-  .bullet
-    .description
-      Rubygems 1.8
-    .notes
-      %p Requires Bundler version 1.0.14. No known issues.
-      %p
-        Users with Rubygems 1.8.0-1.8.2 may encounter exceptions running <code>rake</code>.
-        They should use <code>bundle exec rake</code> instead.
-
-  .bullet
-    .description
-      Rubygems 2.0
-    .notes
-      %p Requires at least Bundler version 1.3.0.
-      %p Users of Rubygems 2.0.2 and Bundler 1.3.0-1.3.3 may encounter exceptions while running install or update, and should upgrade either Bundler or Rubygems to a newer version.
+      Bundler <b>1.0</b> requires a minimum Rubygems version of <b>1.3.6</b>.

@@ -14,13 +14,15 @@
   .bullet
     .description
       You can now specify the version of Ruby in the <code>Gemfile</code> like the following:
-    :highlight_ruby
+    :code
+      # lang: ruby
       ruby '1.9.3'
 
   .bullet
     .description
       That line declares that this application has a dependency on the Ruby VM that is ABI-compatible with 1.9.3. If the version check does not match, Bundler will raise an exception. This will ensure the running code matches. You can be more specific with the <code>:engine</code> and <code>:engine_version</code> options.
-    :highlight_ruby
+    :code
+      # lang: ruby
       ruby '1.9.3', :engine => 'jruby', :engine_version => '1.6.7'
     = link_to 'Learn More: Ruby Directive', './gemfile_ruby.html'
 
@@ -42,17 +44,18 @@
       Now when developing against a remote git repository, you can use a local
       git repo and keep the remote version for deployment. You can do this by
       setting a local git override:
-    :highlight_plain
+    :code
       bundle config local.GEM_NAME /path/to/local/git/repository
 
   .bullet
     .description
       For example, in order to use a local Rack repository, a developer could call:
-    :highlight_plain
+    :code
       bundle config local.rack ~/Work/git/rack
     .description
       and in your <code>Gemfile</code> you would set:
-    :highlight_ruby
+    :code
+      # lang: ruby
       gem 'rack', :github => 'rack/rack', :branch => 'master'
     .description
       You'll need to reference a git branch, since Bundler will do checks to

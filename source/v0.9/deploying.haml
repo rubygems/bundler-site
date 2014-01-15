@@ -4,14 +4,14 @@
   .bullet
     .description
       When you are ready to deploy your application, you should lock your bundle to guarantee that dependency versions will no longer change.
-    :highlight_plain
+    :code
       $ bundle lock
     = link_to 'Learn more: bundle lock', 'bundle_lock.html'
 
   .bullet
     .description
       Add your Gemfile and lockfile to source control, but ignore the .bundle folder, which is specific to each machine.
-    :highlight_plain
+    :code
       $ echo ".bundle\n" >> .gitignore
       $ git add Gemfile Gemfile.lock .gitignore
       $ git commit -m "Add bundler"
@@ -20,7 +20,7 @@
     .description
       In your deploy script, after updating to the latest code, install your bundle to ensure all your dependencies are met.
     .how
-      :highlight_plain
+      :code
         $ bundle install
       .notes
         Start your application servers as usual, and your application will use your bundled environment just like it does locally in development.

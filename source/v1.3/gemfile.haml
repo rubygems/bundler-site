@@ -13,14 +13,16 @@
   .bullet
     .description
       Gemfiles require at least one gem source, in the form of the URL for a Rubygems server. Generate a Gemfile with the default rubygems.org source by running <code>bundle init</code>. If you can, use <code>https</code> so your connection to the rubygems.org server will be verified with SSL.
-    :highlight_ruby
+    :code
+      # lang: ruby
       source 'https://rubygems.org'
 
   .bullet
     .description
       Declare the gems that you need, including version numbers. Specify versions using the same
       syntax that Rubygems supports for dependencies.
-    :highlight_ruby
+    :code
+      # lang: ruby
       gem 'nokogiri'
       gem 'rails', '3.0.0.beta3'
       gem 'rack',  '>=1.0'
@@ -36,12 +38,14 @@
   .bullet
     .description
       If a gem's main file is different than the gem name, specify how to require it.
-    :highlight_ruby
+    :code
+      # lang: ruby
       gem 'rspec', :require => 'spec'
       gem 'sqlite3'
     .description
       Specify <code>:require => false</code> to prevent bundler from requiring the gem, but still install it and maintain dependencies.
-    :highlight_ruby
+    :code
+      # lang: ruby
       gem 'rspec', :require => false
       gem 'sqlite3'
     .notes
@@ -54,7 +58,8 @@
       Git repositories are also valid gem sources, as long as the repo contains one or
       more valid gems. Specify what to check out with <code>:tag</code>,
       <code>:branch</code>, or <code>:ref</code>. The default is the <code>master</code> branch.
-    :highlight_ruby
+    :code
+      # lang: ruby
       gem 'nokogiri', :git => 'git://github.com/tenderlove/nokogiri.git', :branch => '1.4'
     .notes
       If the git repository does not contain a <code>.gemspec</code> file, bundler
@@ -66,13 +71,15 @@
   .bullet
     .description
       If you would like to use a unpacked gem directly from the filesystem, simply set the <code>:path</code> option to the path containing the the gem's files.
-    :highlight_ruby
+    :code
+      # lang: ruby
       gem 'extracted_library', :path => './vendor/extracted_library'
 
   .bullet
     .description
       Dependencies can be placed into groups. Groups can be ignored at install-time (using <code>--without</code>) or required all at once (using <code>Bundler.require</code>).
-    :highlight_ruby
+    :code
+      # lang: ruby
       gem 'wirble', :group => :development
       gem 'debugger', :group => [:development, :test]
 
@@ -84,12 +91,14 @@
   .bullet
     .description
       You can specify the required version of Ruby in the <code>Gemfile</code> with <code>ruby</code>. If the <code>Gemfile</code> is loaded on a different Ruby version, Bundler will raise an exception with an explanation.
-    :highlight_ruby
+    :code
+      # lang: ruby
       ruby '1.9.3'
 
   .bullet
     .description
       What this means is that this app has a dependency to a Ruby VM that is ABI compatible with 1.9.3. If the version check does not match, Bundler will raise an exception. This will ensure the running code matches. You can be more specific with the <code>:engine</code> and <code>:engine_version</code> options.
-    :highlight_ruby
+    :code
+      # lang: ruby
       ruby '1.9.3', :engine => 'jruby', :engine_version => '1.6.7'
     = link_to 'Learn More: Ruby Directive', './gemfile_ruby.html'

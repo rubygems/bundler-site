@@ -17,13 +17,14 @@
   .bullet
     .description
       Getting started with bundler is easy! Open a terminal window and type the following:
-    :highlight_plain
+    :code
       $ gem install bundler
 
   .bullet
     .description
       Specify your dependencies in a Gemfile in your project's root:
-    :highlight_ruby
+    :code
+      # lang: ruby
       source "https://rubygems.org"
       gem "nokogiri"
       gem "rack", "~>1.1"
@@ -33,7 +34,7 @@
   .bullet
     .description
       Install all of the required gems from your specified sources:
-    :highlight_plain
+    :code
       $ bundle install
       $ git add Gemfile Gemfile.lock
     = link_to "Learn More: bundle install", "/v1.2/bundle_install.html"
@@ -45,7 +46,8 @@
   .bullet
     .description
       Inside your app, load up the bundled environment:
-    :highlight_ruby
+    :code
+      # lang: ruby
       require "rubygems"
       require "bundler/setup"
 
@@ -55,7 +57,7 @@
   .bullet
     .description
       Run an executable that comes with a gem in your bundle:
-    :highlight_plain
+    :code
       $ bundle exec rspec spec/models
     .notes
       %p
@@ -69,7 +71,7 @@
 
     .description
       Finally, if you want a way to get a shortcut to gems in your bundle:
-    :highlight_plain
+    :code
       $ bundle install --binstubs
       $ bin/rspec spec/models
     .notes

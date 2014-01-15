@@ -5,7 +5,8 @@
     .description
       Configure the load path so all dependencies in
       your Gemfile can be required
-    :highlight_ruby
+    :code
+      # lang: ruby
       require "rubygems"
       require "bundler/setup"
       require "nokogiri"
@@ -15,7 +16,8 @@
       Only add gems from specified groups to the
       load path. If you want the gems in the
       default group, make sure to include it
-    :highlight_ruby
+    :code
+      # lang: ruby
       require "rubygems"
       require "bundler"
       Bundler.setup(:default, :ci)

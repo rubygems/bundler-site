@@ -4,7 +4,8 @@
   .bullet
     .description
       Let's say you wanted to run the following Sinatra app.
-    :highlight_ruby
+    :code
+      # lang: ruby
       class MySinatraApp < Sinatra::Base
         get "/" do
           "Hello Bundler"
@@ -14,14 +15,16 @@
   .bullet
     .description
       To use bundler with a Sinatra application, you only need to do two things. First, create a Gemfile.
-    :highlight_ruby
+    :code
+      # lang: ruby
       source "https://rubygems.org"
       gem "sinatra", :require => "sinatra/base"
 
   .bullet
     .description
       Then, set up your config.ru file to load the bundle before it loads your Sinatra app.
-    :highlight_ruby
+    :code
+      # lang: ruby
       require 'rubygems'
       require 'bundler'
 
@@ -33,5 +36,5 @@
   .bullet
     .description
       Start your development server with rackup, and Sinatra will be loaded via Bundler.
-    :highlight_plain
+    :code
       $ rackup

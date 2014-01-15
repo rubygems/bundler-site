@@ -4,7 +4,7 @@
   .bullet
     .description
       Locks and then caches the gems into <code>./vendor/cache</code>.
-    :highlight_plain
+    :code
       $ bundle package [--no-prune] [--all]
     .notes
       %p
@@ -29,7 +29,7 @@
       Lock and cache gems from RubyGems into <code>./vendor/cache</code>.
 
     .how
-      :highlight_plain
+      :code
         $ bundle package
 
     .notes
@@ -49,7 +49,7 @@
       Lock and cache gems from RubyGems into <code>./vendor/cache</code>, and don't remove any stale gems from the existing cache.
 
     .how
-      :highlight_plain
+      :code
         $ bundle package --no-prune
 
   .bullet#all
@@ -57,7 +57,7 @@
       Lock and cache all gems into <code>./vendor/cache</code>, including <code>:git</code>, <code>:path</code>, and <code>.gem</code> dependencies.
 
     .how
-      :highlight_plain
+      :code
         $ bundle package --all
     .notes
       %p

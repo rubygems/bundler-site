@@ -5,7 +5,7 @@
       Before deploying an app that uses Bundler, Add your <code>Gemfile</code>
       and <code>Gemfile.lock</code> to source control, but ignore the
       <code>.bundle</code> folder, which is specific to each machine.
-    :highlight_plain
+    :code
       $ echo ".bundle\n" >> .gitignore
       $ git add Gemfile Gemfile.lock .gitignore
       $ git commit -m "Add Bundler support"
@@ -19,7 +19,7 @@
       In your deploy script, after updating to the latest
       code, install your bundle to the <code>vendor/bundle</code>
       directory, ensuring all your dependencies are met.
-    :highlight_plain
+    :code
       $ bundle install --deployment
     .notes
       %p
@@ -38,7 +38,8 @@
     .description
       To pull in the Bundler Cap task, just add this to your
       <code>deploy.rb</code> file:
-    :highlight_ruby
+    :code
+      # lang: ruby
       require 'bundler/capistrano'
     .notes
       That's it! Running <code>cap deploy</code> will now automatically run
@@ -51,12 +52,14 @@
       %h3 Automatic deployment with Vlad
       There is a default Vlad task available. To make it available, add this line
       to the Vlad <code>deploy.rb</code>.
-    :highlight_ruby
+    :code
+      # lang: ruby
       require 'bundler/vlad'
     .notes
       Once you have done that, the <code>vlad:bundle:install</code> task will be
       available for use. Make sure it is run as part of your deploy. For example:
-    :highlight_ruby
+    :code
+      # lang: ruby
       task "vlad:deploy" => %w[
         vlad:update vlad:bundle:install vlad:start_app vlad:cleanup
       ]
@@ -66,7 +69,7 @@
       %h3 After deploying
       Make sure to use <code>bundle exec</code> to run any executables
       from gems in the bundle
-    :highlight_plain
+    :code
       $ bundle exec rake db:setup
     .notes
       Alternatively, you can use the <code>--binstubs</code> option on the
@@ -78,7 +81,7 @@
     .description
       %h3 Heroku
       When you deploy to Heroku, Bundler will be run automatically as long as a Gemfile is present. If you check in your Gemfile.lock, Heroku will run <code>`bundle install --deployment`</code>. If you want to exclude certain groups using the <code>--without</code> option, you need to use <code>`heroku config`</code>.
-    :highlight_plain
+    :code
       $ heroku config:add BUNDLE_WITHOUT="test development" --app app_name
     = link_to 'Heroku Bundler Documentation', 'http://docs.heroku.com/bundler'
 

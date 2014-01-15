@@ -4,13 +4,15 @@
   .bullet
     .description
       To use bundler with a Sinatra application, you only need to do two things. First, create a Gemfile.
-    :highlight_ruby
+    :code
+      # lang: ruby
       gem 'sinatra'
 
   .bullet
     .description
       Then, set up your config.ru file to load the bundle before it loads your Sinatra app.
-    :highlight_ruby
+    :code
+      # lang: ruby
       require 'rubygems'
       require 'bundler'
 
@@ -22,5 +24,5 @@
   .bullet
     .description
       Start your development server with rackup, and Sinatra will be loaded via Bundler.
-    :highlight_plain
+    :code
       $ rackup

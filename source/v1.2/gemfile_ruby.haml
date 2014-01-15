@@ -4,19 +4,21 @@
   .bullet
     .description
       Like gems, developers can setup a dependency on Ruby. This makes your app fail faster in case you depend on specific features in a Ruby VM. This way, the Ruby VM on your deployment server will match your local one. You can do this by using the <code>ruby</code> directive in the <code>Gemfile</code>:
-    :highlight_ruby
+    :code
+      # lang: ruby
       ruby 'RUBY_VERSION', :engine => 'ENGINE', :engine_version => 'ENGINE_VERSION'
 
   .bullet
     .description
       If you wanted to use JRuby 1.6.7 using Ruby 1.9.3, you would simply do the following:
-    :highlight_ruby
+    :code
+      # lang: ruby
       ruby '1.9.3', :engine => 'jruby', :engine_version => '1.6.7"
   
   .bullet
     .description
       Bundler will make checks against the current running Ruby VM to make sure it matches what is specified in the <code>Gemfile</code>. If things don't match, Bundler will raise an Exception explaining what doesn't match.
-    :highlight_plain
+    :code
       Your Ruby version is 1.8.7, but your Gemfile specified 1.9.3
 
   .bullet
@@ -25,7 +27,7 @@
   .bullet
     .description
       Using the <code>platform</code> command with the <code>--ruby</code> flag, you can see what <code>ruby</code> directive is specified in the <code>Gemfile</code>.
-    :highlight_plain
+    :code
       ruby 1.9.3 (jruby 1.6.7)
     = link_to 'Learn More: bundle platform', './bundle_platform.html'
 

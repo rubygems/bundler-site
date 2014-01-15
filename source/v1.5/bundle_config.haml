@@ -4,7 +4,7 @@
   .bullet
     .description
       Retrieve or set a configuration value
-    :highlight_plain
+    :code
       $ bundle config [NAME [VALUE]] [--local] [--global] [--delete]
     .notes
       %p
@@ -32,7 +32,7 @@
     .description
       Get your bundle configuration.
     .how
-      :highlight_plain
+      :code
         $ bundle config
       .notes
         Executing <code>bundle config</code> with no parameters will print a 
@@ -43,7 +43,7 @@
     .description
       Get your bundle configuration for <code>NAME</code> variable.
     .how
-      :highlight_plain
+      :code
         $ bundle config NAME
       .notes
         Will print the value of that configuration setting for 
@@ -55,7 +55,7 @@
       Set your bundle configuration for <code>NAME</code> variable to 
       <code>VALUE</code>.
     .how
-      :highlight_plain
+      :code
         $ bundle config NAME VALUE
       .notes
         Will set <code>NAME</code> to <code>VALUE</code> for all bundles 
@@ -69,7 +69,7 @@
       Set your bundle global/user configuration for <code>NAME</code> variable 
       to <code>VALUE</code>. 
     .how
-      :highlight_plain
+      :code
         $ bundle config --global NAME VALUE 
       .notes
         Works the same as the command above. 
@@ -79,7 +79,7 @@
       Set your bundle local configuration for <code>NAME</code> variable to 
       <code>VALUE</code>. 
     .how
-      :highlight_plain
+      :code
         $ bundle config --local NAME VALUE 
       .notes
         Works the same as the two command above but for the local application. 
@@ -89,7 +89,7 @@
     .description
       Delete the configuration for <code>NAME</code> in both local and global sources.
     .how
-      :highlight_plain
+      :code
         $ bundle config --delete NAME
       .notes
         Will delete the configuration for <code>NAME</code> variable in both local and global sources. Not compatible with --global or --local flag.
@@ -109,7 +109,7 @@
         to specify where to find the <code>mysql_config</code> executable.
 
       .how
-        :highlight_plain
+        :code
           $ gem install mysql -- --with-mysql-config=/usr/local/mysql/bin/mysql_config
   
       %p 
@@ -117,7 +117,7 @@
         to machine, you can specify these flags on a per-machine basis.
 
       .how
-        :highlight_plain
+        :code
           $ bundle config build.mysql --with-mysql-config=/usr/local/mysql/bin/mysql_config
       %p 
         After running this command, every time bundler needs to install the 
@@ -200,14 +200,14 @@
         instead of using the remote version. This can be achieved by setting 
         up a local override:
 
-      :highlight_plain
+      :code
         $ bundle config local.GEM_NAME /path/to/local/git/repository
 
       %p 
         For example, in order to use a local Rack repository, a developer 
         could call:
 
-      :highlight_plain
+      :code
         $ bundle config local.rack ~/Work/git/rack
 
       %p 
@@ -245,5 +245,5 @@
         of the mirror. At that point, Bundler will download gems and gemspecs
         from that mirror instead of the source listed in the Gemfile.
 
-      :highlight_plain
+      :code
         $ bundle config mirror.https://rubygems.org https://localgems.lan

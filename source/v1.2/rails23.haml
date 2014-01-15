@@ -14,7 +14,7 @@
   .bullet
     .description
       If you don't have a Rails 2.3 app yet, generate one
-    :highlight_plain
+    :code
       $ rails myapp
       $ cd myapp
 
@@ -22,7 +22,8 @@
     .description
       Insert the following code at the bottom of config/boot.rb,
       right above the line `Rails.boot!`
-    :highlight_ruby
+    :code
+      # lang: ruby
       class Rails::Boot
         def run
           load_initializer
@@ -42,7 +43,8 @@
       Create a new file, <code>config/preinitializer.rb</code>,
       and insert the following. That is <code>config</code> <strong>NOT</strong>
       <code>config/initializers</code>.
-    :highlight_ruby
+    :code
+      # lang: ruby
       begin
         require 'rubygems'
         require 'bundler'
@@ -70,7 +72,8 @@
       them into the Gemfile. If you have declarations in development.rb,
       for instance, place them in a named group. Make sure to include
       Rails itself and at least one source
-    :highlight_ruby
+    :code
+      # lang: ruby
       source :gemcutter
       gem 'rails', '~> 2.3.5'
       gem 'sqlite3-ruby', :require => 'sqlite3'
@@ -96,6 +99,6 @@
       Once you have everything set up, you can use script/console,
       script/server, and other Rake tasks as usual. From this point
       on, you can follow the instructions in the Rails 3 guide
-    :highlight_plain
+    :code
       $ rake db:migrate
     = link_to 'Learn More: Rails 3', './rails3.html#shared_with_23'

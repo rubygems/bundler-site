@@ -9,7 +9,7 @@
       Install Rails as you normally would. Use sudo
       if you would normally use sudo to install gems.
     .how
-      :highlight_plain
+      :code
         $ gem install rails
       .notes
         We recommend using rvm for dependable Ruby
@@ -19,7 +19,7 @@
   .bullet
     .description
       Generate a Rails app as usual
-    :highlight_plain
+    :code
       $ rails new myapp
       $ cd myapp
 
@@ -27,14 +27,15 @@
     .description
       Run the server. Bundler is transparently managing
       your dependencies!
-    :highlight_plain
+    :code
       $ rails server
 
   .bullet
     .description
       Add new dependencies to your Gemfile as you
       need them.
-    :highlight_ruby
+    :code
+      # lang: ruby
       gem 'nokogiri'
       gem 'geokit'
 
@@ -43,7 +44,8 @@
       If you want a dependency to be loaded only in
       a certain Rails environment, place it in a group
       named after that Rails environment
-    :highlight_ruby
+    :code
+      # lang: ruby
       group :test do
         gem 'rspec'
         gem 'faker'
@@ -53,7 +55,8 @@
     .description
       You can place a dependency in multiple groups
       at once as well
-    :highlight_ruby
+    :code
+      # lang: ruby
       group :development, :test do
         gem 'wirble'
         gem 'ruby-debug'
@@ -65,7 +68,7 @@
       After adding a dependency, if it is not yet
       installed, install it
     .how
-      :highlight_plain
+      :code
         $ bundle install
       .notes
         This will update all dependencies in your

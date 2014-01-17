@@ -1,3 +1,4 @@
+@import url(http://fonts.googleapis.com/css?family=Source+Code+Pro:400,600)
 @import "compass/css3"
 @import "code"
 
@@ -50,9 +51,6 @@ a
 #standalone
   line-height: 150%
 
-  code
-    background-color: rgba(0, 0, 0, 0.1)
-
   h1
     margin-top: 40px
     margin-bottom: 10px
@@ -66,9 +64,10 @@ html
 
 code
   background-color: rgba(0,0,0,0.1)
-  font-family: monospace
-  font-size: 120%
-  padding: 0 3px
+  font-family: 'Source Code Pro', Monaco, monospace
+  font-size: 15px
+  font-weight: 600
+  padding: 0 2px 0 2px
   border: 1px solid rgba(0,0,0,0.1)
   +border-radius(3px)
 
@@ -252,6 +251,7 @@ pre
   font-size: 13px
   font-family: Monaco, monospace
   white-space: pre-line
+  font-weight: 300
   padding: 10px
   margin: 0
   +border-radius(5px)
@@ -266,6 +266,55 @@ pre
 
 .bullet:not(:nth-of-type(1))
   padding-top: 15px
+
+.blog
+  font-size: 20px
+
+  p
+    font-size: 18px
+    line-height: 24px
+    padding: 5px 0 5px 0
+    margin: 0
+    code
+      vertical-align: top
+  p + p
+    padding: 20px 0 10px 0
+
+  hr
+    border-bottom: 3px solid #0e3f54
+    border-top: none
+    margin-bottom: 25px
+
+  h3
+    font-size: 22px
+    padding: 25px 0 5px 0
+    margin: 0 0 25px 0
+    border-bottom: 3px solid #0e3f54
+    code
+      vertical-align: middle
+    a:hover
+      border: none
+
+  h5
+    margin: 10px 0 5px 0
+
+  .title
+    font-size: 32px
+    margin: 10px 0 0 0
+    padding: 0
+    border-bottom: none
+    line-height: 30px
+    a:hover
+      border: none
+
+  .subtitle
+    font-size: 18px
+    margin: 4px 0 5px 0
+    padding: 0
+    border-bottom: none
+    a:hover
+      border: none
+
 
 #credits
   p

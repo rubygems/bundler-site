@@ -21,8 +21,15 @@ set :css_dir, 'stylesheets'
 set :js_dir, 'javascripts'
 set :images_dir, 'images'
 
+activate :blog do |blog|
+  blog.name = 'blog'
+  blog.prefix = 'blog'
+  blog.permalink = '{year}/{month}/{day}/{title}.html'
+  blog.layout = 'blog_layout'
+end
+
 configure :development do
-  activate :livereload
+  # activate :livereload
 end
 
 configure :build do

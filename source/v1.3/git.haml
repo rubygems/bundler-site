@@ -16,7 +16,8 @@
     .description
       Specify that a gem should come from a git
       repository with a .gemspec at its root
-    :highlight_ruby
+    :code
+      # lang: ruby
       gem 'nokogiri', :git => 'git://github.com/tenderlove/nokogiri.git'
 
   .bullet
@@ -25,7 +26,8 @@
       a git repository, you must specify a version
       that bundler should use when resolving
       dependencies
-    :highlight_ruby
+    :code
+      # lang: ruby
       gem 'deep_merge', '1.0', :git => 'git://github.com/peritor/deep_merge.git'
 
   .bullet
@@ -33,7 +35,8 @@
       Specify that a git repository containing
       multiple .gemspec files should be treated
       as a gem source
-    :highlight_ruby
+    :code
+      # lang: ruby
       git 'git://github.com/rails/rails.git' do
         gem 'railties'
         gem 'action_pack'
@@ -44,7 +47,8 @@
     .description
       Specify that a git repository should use
       a particular ref, branch, or tag
-    :highlight_ruby
+    :code
+      # lang: ruby
       :git => 'git://github.com/rails/rails.git', :ref => '4aded'
       :git => 'git://github.com/rails/rails.git', :branch => '2-3-stable'
       :git => 'git://github.com/rails/rails.git', :tag => 'v2.3.5'
@@ -54,19 +58,22 @@
       Specifying a ref, branch, or tag for a
       git repository specified inline works
       exactly the same way
-    :highlight_ruby
+    :code
+      # lang: ruby
       gem 'nokogiri', :git => 'git://github.com/tenderlove/nokogiri.git', :ref => '0eec4'
 
   .bullet
     .description
       If you are getting your gems from a public GitHub repository,
       you can use the shorthand
-    :highlight_ruby
+    :code
+      # lang: ruby
       gem 'nokogiri', :github => 'tenderlove/nokogiri'
     .description
       If the repository name is the same as the GitHub account hosting it,
       you can omit it
-    :highlight_ruby
+    :code
+      # lang: ruby
       gem 'rails', :github => 'rails'
 
 %h2#local Local Git Repos
@@ -76,17 +83,18 @@
       Bundler also allows you to work against a git repository locally
       instead of using the remote version. This can be achieved by setting
       up a local override:
-    :highlight_plain
+    :code
       bundle config local.GEM_NAME /path/to/local/git/repository
 
   .bullet
     .description
       For example, in order to use a local Rack repository, a developer could call:
-    :highlight_plain
+    :code
       bundle config local.rack ~/Work/git/rack
     .description
       and setup the git repo pointing to a branch:
-    :highlight_ruby
+    :code
+      # lang: ruby
       gem 'rack', :github => 'rack/rack', :branch => 'master'
 
   .bullet
@@ -118,5 +126,5 @@
   .bullet
     .description
       %p If you do not want bundler to make these branch checks, you can override it by setting this option:
-    :highlight_plain
+    :code
       bundle config disable_local_branch_check true

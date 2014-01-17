@@ -7,39 +7,39 @@
         should use the following workflow:
       %p
         After you create your <code>Gemfile</code> for the first time, run
-        :highlight_plain
+        :code
           $ bundle install
       %p
         Check the resulting <code>Gemfile.lock</code> into version control
-        :highlight_plain
+        :code
           $ git add Gemfile.lock
       %p
         When checking out this repository on another development machine, run
-        :highlight_plain
+        :code
           $ bundle install
       %p
         When checking out this repository on a deployment machine, run
-        :highlight_plain
+        :code
           $ bundle install --deployment
       %p
         After changing the <code>Gemfile</code> to reflect a new or update
         dependency, run
-        :highlight_plain
+        :code
           $ bundle install
       %p
         Make sure to check the updated <code>Gemfile.lock</code> into version
         control
-        :highlight_plain
+        :code
           $ git add Gemfile.lock
       %p
         If <code>bundle install</code> reports a conflict, manually update the
         specific gems that you changed in the <code>Gemfile</code>
-        :highlight_plain
+        :code
           $ bundle update rails thin
       %p
         If you want to update all the gems to the latest possible versions that
         still match the gems listed in the <code>Gemfile</code>, run
-        :highlight_plain
+        :code
           $ bundle update
 
 %h2 A Thorough Bundler Workflow
@@ -48,14 +48,14 @@
   .bullet
     .description
       Getting started with bundler is easy! Open a terminal window and run this command:
-    :highlight_plain
+    :code
       $ gem install bundler
     .notes
       %li
         When you first create a Rails application, it already comes with a
         <code>Gemfile</code>.  For another kind of application (such as Sinatra), run:
 
-        :highlight_plain
+        :code
           $ bundle init
 
       %li
@@ -66,7 +66,8 @@
     .description
       Specify your dependencies in the root of your application, called the <code>Gemfile</code>. 
       It looks something like this:
-    :highlight_ruby
+    :code
+      # lang: ruby
       source 'https://rubygems.org'
       gem 'nokogiri'
       gem 'rack', '~>1.1'
@@ -84,7 +85,7 @@
       %p
         After declaring your first set of dependencies, you tell bundler to go get them:
 
-        :highlight_plain
+        :code
           $ bundle install    # <code>bundle</code> is a shortcut for <code>bundle install</code>
 
       %p
@@ -94,7 +95,7 @@
         (and some of those have their own dependencies), running <code>bundle install</code> on the 
         <code>Gemfile</code> above will install quite a few gems.
 
-        :highlight_plain
+        :code
             $ bundle install
             Fetching source index for http://gemcutter.org/
             Using rake (0.8.7)
@@ -136,7 +137,7 @@
             If <code>bundle install</code> reports a conflict between your <code>Gemfile</code> and 
             <code>Gemfile.lock</code>, run:
 
-            :highlight_plain
+            :code
               $ bundle update sinatra
 
           %li
@@ -146,7 +147,7 @@
             %li
               To update all of the gems in your <code>Gemfile</code> to the latest possible versions, run:
 
-              :highlight_plain
+              :code
                 $ bundle update
 
           %li
@@ -164,7 +165,8 @@
   .bullet
     .description
       Inside your app, load up the bundled environment:
-    :highlight_ruby
+    :code
+      # lang: ruby
       require 'rubygems'
       require 'bundler/setup'
 
@@ -174,7 +176,7 @@
   .bullet
     .description
       Run an executable that comes with a gem in your bundle:
-    :highlight_plain
+    :code
       $ bundle exec rspec spec/models
     .notes
       %p
@@ -188,7 +190,7 @@
   .bullet
     .description
       Finally, if you want a way to get a shortcut to gems in your bundle:
-    :highlight_plain
+    :code
       $ bundle install --binstubs
       $ bin/rspec spec/models
     .notes

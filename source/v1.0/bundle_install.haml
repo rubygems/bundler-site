@@ -4,7 +4,7 @@
   .bullet
     .description
       Make sure all dependencies in your Gemfile are available to your application.
-    :highlight_plain
+    :code
       $ bundle install [--system]
     .notes
       %p
@@ -25,7 +25,7 @@
       to your system gems, to a location other than your system's gem
       repository. In this case, install them to <code>vendor/bundle</code>.
     .how
-      :highlight_plain
+      :code
         $ bundle install --path vendor/bundle
       .notes
         Further <code>bundle</code> commands or calls to <code>Bundler.setup</code> or
@@ -36,7 +36,7 @@
   .bullet
     .description
       Install all dependencies except those in groups that are explicitly excluded.
-    :highlight_plain
+    :code
       $ bundle install --without development test
     = link_to("Learn More: Groups", "./groups.html")
 
@@ -44,7 +44,7 @@
     .description
       Install all dependencies on to a production server.
       Do <b>not</b> use this flag on a development machine.
-    :highlight_plain
+    :code
       $ bundle install --deployment
     .notes
       %p

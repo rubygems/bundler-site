@@ -5,7 +5,8 @@
     .description
       Configure the load path so all dependencies in
       your Gemfile can be required
-    :highlight_ruby
+    :code
+      # lang: ruby
       require 'rubygems'
       require 'bundler/setup'
       require 'nokogiri'
@@ -15,7 +16,8 @@
       Only add gems from specified groups to the
       load path. If you want the gems in the
       default group, make sure to include it
-    :highlight_ruby
+    :code
+      # lang: ruby
       require 'rubygems'
       require 'bundler'
       Bundler.setup(:default, :ci)
@@ -47,7 +49,8 @@
       application loads (for Sinatra, the file that calls <code>require 'sinatra'</code>), put
       the following code:
 
-    :highlight_ruby
+    :code
+      # lang: ruby
       require 'rubygems'
       require 'bundler/setup'
 
@@ -65,12 +68,14 @@
       might want to say "require all of the gems in my <code>Gemfile</code>". To do this, put
       the following code immediately following <code>require 'bundler/setup'</code>:
 
-    :highlight_ruby
+    :code
+      # lang: ruby
       Bundler.require(:default)
 
     For our example Gemfile, this line is exactly equivalent to:
 
-    :highlight_ruby
+    :code
+      # lang: ruby
       require 'rails'
       require 'rack-cache'
       require 'nokogiri'
@@ -81,7 +86,8 @@
       gem is <code>require 'rack/cache'</code>, not <code>require 'rack-cache'</code>. To tell
       bundler to use <code>require 'rack/cache'</code>, update your Gemfile:
 
-    :highlight_ruby
+    :code
+      # lang: ruby
       source 'http://rubygems.org'
 
       gem 'rails', '3.0.0.rc'

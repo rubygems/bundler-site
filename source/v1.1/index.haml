@@ -18,13 +18,14 @@
   .bullet
     .description
       Getting started with bundler is easy
-    :highlight_plain
+    :code
       $ gem install bundler
 
   .bullet
     .description
       Specify your dependencies in a Gemfile in your project's root
-    :highlight_ruby
+    :code
+      # lang: ruby
       source 'http://rubygems.org'
       gem 'nokogiri'
       gem 'rack', '~>1.1'
@@ -34,7 +35,7 @@
   .bullet
     .description
       Install all of the required gems from your specified sources
-    :highlight_plain
+    :code
       $ bundle install
       $ git add Gemfile Gemfile.lock
     = link_to 'Learn More: bundle install', './bundle_install.html'
@@ -46,7 +47,8 @@
   .bullet
     .description
       Inside your app, load up the bundled environment
-    :highlight_ruby
+    :code
+      # lang: ruby
       require 'rubygems'
       require 'bundler/setup'
 
@@ -57,7 +59,7 @@
   .bullet
     .description
       Run an executable that comes with a gem in your bundle
-    :highlight_plain
+    :code
       $ bundle exec rspec spec/models
     .notes
       %p
@@ -72,7 +74,7 @@
 
     .description
       If you want a way to get a shortcut to gems in your bundle
-    :highlight_plain
+    :code
       $ bundle install --binstubs
       $ bin/rspec spec/models
     .notes
@@ -103,7 +105,7 @@
   .bullet
     .description
       Install the required gems
-    :highlight_plain
+    :code
       $ bundle install
     = link_to 'Learn More: bundle install', './bundle_install.html'
     .notes
@@ -118,7 +120,8 @@
   .bullet
     .description
       Make a change to your Gemfile
-    :highlight_ruby
+    :code
+      # lang: ruby
       # change
       gem 'nokogiri', '1.4.2'
       # to
@@ -126,7 +129,7 @@
   .bullet
     .description
       Install the new gems
-    :highlight_plain
+    :code
       $ bundle install
     .notes
       %p
@@ -146,7 +149,7 @@
       If bundler reports a conflict, tell bundler to explicitly update the gem,
       but none of the other top-level dependencies (the ones in your
       <code>Gemfile</code>)
-    :highlight_plain
+    :code
       $ bundle update rails
     = link_to 'Learn More: bundle update', './man/bundle-update.1.html'
 
@@ -155,14 +158,14 @@
       In some rare cases, bundler will be unable to update the dependency
       without updating the top-level dependencies as well. In this case, tell
       bundler to update <strong>all</strong> dependencies
-    :highlight_plain
+    :code
       $ bundle update
 
   .bullet
     .description
       To find out whether a newer version of a gem is available without updating
       yet:
-    :highlight_plain
+    :code
       $ bundle outdated nokogiri
     .notes
       %p
@@ -180,7 +183,7 @@
   .bullet
     .description
       On production servers, you can enable deployment mode:
-    :highlight_plain
+    :code
       $ bundle install --deployment
     .notes
       Do <b>not</b> use this flag on development machines. The
@@ -198,7 +201,7 @@
     .description
       Store all of the required gems in your application. All future installs
       will get gems from this cache, bypassing rubygems.org
-    :highlight_plain
+    :code
       $ bundle package
     = link_to 'Learn More: bundle package', './bundle_package.html'
 
@@ -206,7 +209,8 @@
     .description
       Put dependencies in a group, so they can be ignored at install time or
       required together in your application
-    :highlight_ruby
+    :code
+      # lang: ruby
       group :development do
         gem 'wirble'
       end
@@ -217,21 +221,23 @@
       Use a gem that is stored in git and has a <code>.gemspec</code> at its
       root. Bundler will make the executables available to <code>bundle exec</code>
       and compile C extensions
-    :highlight_ruby
+    :code
+      # lang: ruby
       gem 'nokogiri', :git => 'git://github.com/tenderlove/nokogiri.git'
     = link_to 'Learn more: Git', './git.html'
 
   .bullet
     .description
       Use a gem that you are actively developing on your file system
-    :highlight_ruby
+    :code
+      # lang: ruby
       gem 'nokogiri', :path => '~/Code/nokogiri'
 
   .bullet
     .description
       Install gems to an alternate location. By default, bundler installs your
       gems to the system location
-    :highlight_plain
+    :code
       $ bundle install --path vendor
     .notes
       When installing to a path, bundler completely isolates your gems from the
@@ -242,6 +248,6 @@
     .description
       Create a code file along with the installed gems that can load
       dependencies without Bundler
-    :highlight_plain
+    :code
       $ bundle install --standalone
     = link_to 'Learn More: bundle install', './bundle_install.html'

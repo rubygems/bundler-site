@@ -8,7 +8,7 @@
     .description
       Install Rails as you normally would. Use sudo if you would normally use sudo to install gems.
     .how
-      :highlight_plain
+      :code
         $ gem install rails
       .notes
         We recommend using rvm for dependable Ruby installations, especially if you are switching between different versions of Ruby
@@ -16,27 +16,29 @@
   .bullet
     .description
       Generate a Rails app as usual
-    :highlight_plain
+    :code
       $ rails new myapp
       $ cd myapp
 
   .bullet
     .description
       Run the server. Bundler is transparently managing your dependencies!
-    :highlight_plain
+    :code
       $ rails server
 
   .bullet
     .description
       Add new dependencies to your Gemfile as you need them.
-    :highlight_ruby
+    :code
+      # lang: ruby
       gem 'nokogiri'
       gem 'geokit'
 
   .bullet
     .description
       If you want a dependency to be loaded only in a certain Rails environment, place it in a group named after that Rails environment
-    :highlight_ruby
+    :code
+      # lang: ruby
       group :test do
         gem 'rspec'
         gem 'faker'
@@ -45,7 +47,8 @@
   .bullet#shared_with_23
     .description
       You can place a dependency in multiple groups at once as well
-    :highlight_ruby
+    :code
+      # lang: ruby
       group :development, :test do
         gem 'wirble'
         gem 'ruby-debug'
@@ -56,7 +59,7 @@
     .description
       After adding a dependency, if it is not yet installed, install it
     .how
-      :highlight_plain
+      :code
         $ bundle install
       .notes
         This will update all dependencies in your Gemfile to the latest versions that do not conflict with other dependencies
@@ -64,7 +67,7 @@
   .bullet
     .description
       Don't forget that non-Rails commands must be executed with bundle exec
-    :highlight_plain
+    :code
       $ bundle exec cucumber
 
 %h2 Sharing
@@ -75,7 +78,7 @@
       When you're ready to share your application, lock down your dependencies to the specific
       versions you are using now. This will ensure that other machines use exactly these gems,
       and are not affected by new releases of gems in the interim
-    :highlight_plain
+    :code
       $ bundle lock
       $ git add Gemfile.lock
     = link_to 'Learn More: bundle lock', 'bundle_lock.html'
@@ -83,12 +86,12 @@
   .bullet
     .description
       After locking your dependencies you may not modify the Gemfile without unlocking first
-    :highlight_plain
+    :code
       $ bundle unlock
 
   .bullet
     .description
       If you've updated your Gemfile and want to install the new gems and re-lock once the new
       gems are finished installing
-    :highlight_plain
+    :code
       $ bundle install --relock

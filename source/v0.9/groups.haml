@@ -5,7 +5,8 @@
     .description
       Grouping your dependencies allows you to perform operations on the entire
       group.
-    :highlight_ruby
+    :code
+      # lang: ruby
       # These gems are in the :default group
       gem 'nokogiri'
       gem 'sinatra'
@@ -21,7 +22,7 @@
     .description
       Install all dependencies, except
       those in specified groups
-    :highlight_plain
+    :code
       $ bundle install --without test
 
   .bullet
@@ -29,7 +30,8 @@
       Require the gems in particular groups,
       noting that gems outside of a named group
       are in the :default group
-    :highlight_ruby
+    :code
+      # lang: ruby
       Bundler.require(:default, :development)
 
   .bullet
@@ -37,7 +39,8 @@
       Require the default gems, plus the gems
       in a group named the same as the current
       Rails environment
-    :highlight_ruby
+    :code
+      # lang: ruby
       Bundler.require(:default, Rails.env)
 
   .bullet
@@ -45,7 +48,8 @@
       Restrict the groups of gems that you
       want to add to the load path. Only gems
       in these groups will be require'able
-    :highlight_ruby
+    :code
+      # lang: ruby
       require 'rubygems'
       require 'bundler'
       Bundler.setup(:default, :ci)

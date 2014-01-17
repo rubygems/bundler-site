@@ -8,20 +8,21 @@
   .bullet
     .description
       Getting started with bundler is easy
-    :highlight_plain
+    :code
       $ gem install bundler
 
   .bullet
     .description
       If you're on an old version of Rubygems
       (before 1.3.6)
-    :highlight_plain
+    :code
       $ gem update --system
 
   .bullet
     .description
       Specify your dependencies in a Gemfile in your project's root
-    :highlight_ruby
+    :code
+      # lang: ruby
       source 'http://rubygems.org'
       gem 'nokogiri'
       gem 'rack', '~>1.1'
@@ -31,7 +32,7 @@
   .bullet
     .description
       Install all of the required gems from your specified sources
-    :highlight_plain
+    :code
       $ bundle install
       $ git add Gemfile
     = link_to 'Learn More: bundle install', 'bundle_install.html'
@@ -39,7 +40,8 @@
   .bullet
     .description
       Inside your app, load up the bundled environment
-    :highlight_ruby
+    :code
+      # lang: ruby
       require 'rubygems'
       require 'bundler'
       Bundler.setup
@@ -51,13 +53,13 @@
   .bullet
     .description
       Run a script provided by a bundled gem
-    :highlight_plain
+    :code
       $ bundle exec rackup
 
   .bullet
     .description
       When you're ready to share your application or deploy it, lock down all the versions of the gems you're using
-    :highlight_plain
+    :code
       $ bundle lock
       $ git add Gemfile.lock
     = link_to 'Learn more: bundle lock', 'bundle_lock.html'
@@ -86,7 +88,7 @@
   .bullet
     .description
       Install the required gems
-    :highlight_plain
+    :code
       $ bundle install
     = link_to 'Learn More: bundle install', 'bundle_install.html'
 
@@ -96,14 +98,15 @@
   .bullet
     .description
       Store all of the required gems in your application. All future installs will get gems from this cache, bypassing rubygems.org
-    :highlight_plain
+    :code
       $ bundle package
     = link_to 'Learn More: bundle package', 'bundle_package.html'
 
   .bullet
     .description
       Put dependencies in a group, so they can be ignored at install time or required together in your application
-    :highlight_ruby
+    :code
+      # lang: ruby
       group :development do
         gem 'wirble'
       end
@@ -112,14 +115,16 @@
   .bullet
     .description
       Use a gem that is stored in git and has a .gemspec at its root. Gemspecs with bins or C extensions are supported
-    :highlight_ruby
+    :code
+      # lang: ruby
       gem 'nokogiri', :git => 'git://github.com/tenderlove/nokogiri.git'
     = link_to 'Learn more: Git', 'git.html'
 
   .bullet
     .description
       Use a gem that you are actively developing on your file system
-    :highlight_ruby
+    :code
+      # lang: ruby
       gem 'nokogiri', :path => '~/Code/nokogiri'
 
   .bullet
@@ -127,7 +132,7 @@
       Install gems to a different location
       (the default is ~/.bundle)
     .how
-      :highlight_plain
+      :code
         $ bundle install vendor --disable-shared-gems
       .notes
         By specifying --disable-shared-gems, you are telling bundler to install the gems into vendor, even if they are already installed in the system

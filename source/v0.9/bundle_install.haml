@@ -6,7 +6,7 @@
       Make sure all dependencies in your Gemfile are
       available to your application.
     .how
-      :highlight_plain
+      :code
         $ bundle install
       .notes
         Gems may be installed to system gems or <code>BUNDLE_PATH</code>
@@ -19,7 +19,7 @@
       <code>BUNDLE_PATH</code>, in this case
       <code>vendor/bundle</code>.
     .how
-      :highlight_plain
+      :code
         $ bundle install vendor/bundle
       .notes
         Further bundle commands or
@@ -32,7 +32,7 @@
     .description
       Install all dependencies except those in groups
       that are explicitly excluded.
-    :highlight_plain
+    :code
       $ bundle install --without development test
     = link_to 'Learn More: Groups', 'groups.html'
 
@@ -45,7 +45,7 @@
       trying to package up an application with all
       dependencies unpacked.
     .how
-      :highlight_plain
+      :code
         $ bundle install --disable-shared-gems
 
   .bullet
@@ -54,5 +54,5 @@
       even gems that are already installed to your system
       and would normally be used from there instead of installed.
     .how
-      :highlight_plain
+      :code
         $ bundle install vendor/bundle --disable-shared-gems

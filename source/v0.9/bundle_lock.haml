@@ -4,18 +4,18 @@
   .bullet
     .description
       Calculate the entire dependency tree and store the results in Gemfile.lock. Check Gemfile.lock into version control
-    :highlight_plain
+    :code
       $ bundle lock
       $ git add Gemfile.lock
 
   .bullet
     .description
       After you have locked your gems, you've updated your Gemfile and want to update Gemfile.lock
-    :highlight_plain
+    :code
       $ bundle lock
 
   .bullet
     .description
       After you have locked your gems, you've updated your Gemfile and want to install the new gems
-    :highlight_plain
+    :code
       $ bundle install --relock

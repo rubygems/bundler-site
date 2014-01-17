@@ -10,7 +10,8 @@
     First, you declare these dependencies in a file at the root of your application, called
     <code>Gemfile</code>. It looks something like this:
 
-  :highlight_ruby
+  :code
+    # lang: ruby
     source 'https://rubygems.org'
 
     gem 'rails', '3.0.0.rc'
@@ -34,7 +35,7 @@
   %p
     After declaring your first set of dependencies, you tell bundler to go get them:
 
-  :highlight_plain
+  :code
     $ bundle install    # <code>bundle</code> is a shortcut for <code>bundle install</code>
 
   %p
@@ -44,7 +45,7 @@
     those have their own dependencies), running <code>bundle install</code> on the
     <code>Gemfile</code> above will install quite a few gems.
 
-  :highlight_plain
+  :code
     $ bundle install
     Fetching gem metadata from https://rubygems.org/
     Resolving dependencies...
@@ -96,7 +97,8 @@
     application loads (for Sinatra, the file that calls <code>require 'sinatra'</code>), put
     the following code:
 
-  :highlight_ruby
+  :code
+    # lang: ruby
     require 'rubygems'
     require 'bundler/setup'
 
@@ -112,12 +114,14 @@
     might want to say "require all of the gems in my <code>Gemfile</code>". To do this, put
     the following code immediately following <code>require 'bundler/setup'</code>:
 
-  :highlight_ruby
+  :code
+    # lang: ruby
     Bundler.require(:default)
 
   For our example Gemfile, this line is exactly equivalent to:
 
-  :highlight_ruby
+  :code
+    # lang: ruby
     require 'rails'
     require 'rack-cache'
     require 'nokogiri'
@@ -127,7 +131,8 @@
     gem is <code>require 'rack/cache'</code>, not <code>require 'rack-cache'</code>. To tell
     bundler to use <code>require 'rack/cache'</code>, update your Gemfile:
 
-  :highlight_ruby
+  :code
+    # lang: ruby
     source 'http://rubygems.org'
 
     gem 'rails', '3.0.0.rc'
@@ -239,7 +244,7 @@
     to update to <code>rails 3.0.0</code>, simply update your <code>Gemfile</code> to
     <code>gem 'rails', '3.0.0'</code> and run:
 
-  :highlight_plain
+  :code
     $ bundle install
 
   %p
@@ -279,7 +284,7 @@
     <code>rack-cache</code>. To do this, you want to use the <code>bundle update</code>
     command:
 
-  :highlight_plain
+  :code
     $ bundle update rack-cache
 
   %p
@@ -297,7 +302,7 @@
   %p
     If you want to update every gem in the Gemfile to the latest possible versions, run:
 
-  :highlight_plain
+  :code
     $ bundle update
 
   %p
@@ -317,7 +322,7 @@
         When you first create a Rails application, it already comes with a
         <code>Gemfile</code>.  For another kind of application (such as Sinatra), run:
 
-      :highlight_plain
+      :code
         $ bundle init
 
       %p
@@ -329,7 +334,8 @@
         Next, add any gems that your application depends on. If you care which version of a
         particular gem that you need, be sure to include an appropriate version restriction:
 
-      :highlight_ruby
+      :code
+        # lang: ruby
         source 'http://rubygems.org'
 
         gem 'sinatra', '~> 0.9.0'
@@ -340,14 +346,15 @@
       %p
         If you don't have the gems installed in your system yet, run:
 
-      :highlight_plain
+      :code
         $ bundle install
 
     %li
       %p
         To update a gem's version requirements, first modify the Gemfile:
 
-      :highlight_ruby
+      :code
+        # lang: ruby
         source 'http://rubygems.org'
 
         gem 'sinatra', '~> 1.0.0'
@@ -357,7 +364,7 @@
       %p
         and then run:
 
-      :highlight_plain
+      :code
         $ bundle install
 
     %li
@@ -365,7 +372,7 @@
         If <code>bundle install</code> reports a conflict between your <code>Gemfile</code>
         and <code>Gemfile.lock</code>, run:
 
-      :highlight_plain
+      :code
         $ bundle update sinatra
 
       %p
@@ -376,7 +383,7 @@
         To update all of the gems in your <code>Gemfile</code> to the latest possible
         versions, run:
 
-      :highlight_plain
+      :code
         $ bundle update
 
     %li
@@ -390,7 +397,7 @@
         boot your local development server), make sure you have checked in your
         <code>Gemfile.lock</code> to version control. On the remote server, run:
 
-      :highlight_plain
+      :code
         $ bundle install --deployment
 
   %h2#notes

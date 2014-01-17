@@ -5,7 +5,7 @@
     .description
       Update the current environment
 
-    :highlight_plain
+    :code
       $ bundle update [GEM] [--local] [--source=SOURCE]
     .notes
       %p
@@ -30,7 +30,7 @@
     .description
       Update the current environment.
     .how
-      :highlight_plain
+      :code
         $ bundle update
     .notes
       If you run <code>bundle update</code> with no parameters, bundler will
@@ -41,7 +41,7 @@
     .description
       Update a specific source (and all gems associated with it)
     .how
-      :highlight_plain
+      :code
         $ bundle update --source=SOURCE
     .notes
       The name of a <code>:git</code> or <code>:path</code> source used in the
@@ -61,7 +61,8 @@
       %p
         Consider the following <code>Gemfile</code>:
 
-        :highlight_ruby
+        :code
+          # lang: ruby
           source 'http://rubygems.org'
           gem 'rails', '3.0.0.rc'
           gem 'nokogiri'
@@ -69,7 +70,7 @@
         When you run <code>bundle install</code> the first time, bundler will
         resolve all of the dependencies, all the way down, and install what you
         need:
-        :highlight_plain
+        :code
           Fetching source index for http://rubygems.org/
           Installing rake (0.8.7)
           Installing abstract (1.0.0)
@@ -141,7 +142,7 @@
         to update it _without_ updating Rails and all of its dependencies. To
         do this, run
 
-        :highlight_plain
+        :code
           bundle update nokogiri
 
       %p
@@ -157,7 +158,8 @@
         satisfied by the same second-level dependency. For instance, consider the
         case of <code>thin</code> and <code>rack-perftools-profiler</code>.
 
-        :highlight_ruby
+        :code
+          # lang: ruby
           source 'http://rubygems.org'
 
           gem 'thin'
@@ -168,7 +170,7 @@
         <code>rack-perftools-profiler</code> depends on <code>rack ~> 1.0</code>.
         If you run bundle install, you get:
 
-        :highlight_plain
+        :code
           Fetching source index for http://rubygems.org/
           Installing daemons (1.1.0)
           Installing eventmachine (0.12.10) with native extensions

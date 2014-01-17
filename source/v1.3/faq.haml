@@ -131,7 +131,7 @@
         If you really need to pass flags to a C extension, you can use the <code>bundle config</code>
         command:
 
-      :highlight_plain
+      :code
         $ bundle config build.mysql --with-mysql-config=/usr/local/mysql/bin/mysql_config
 
       %p
@@ -150,7 +150,7 @@
         <strong>A</strong>: Use the --local flag with bundle install. The --local flag tells bundler
         to use the local gem cache instead of reaching out to the remote gem server.
 
-      :highlight_plain
+      :code
         $ bundle install --local
 
       %h3
@@ -163,5 +163,5 @@
         <strong>A</strong>: Add the --full-index flag when bundling from the rubygems server. This downloads
         the index all at once instead of making numerous small requests to the api.
 
-      :highlight_plain
+      :code
         $ bundle install --full-index

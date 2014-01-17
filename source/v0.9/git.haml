@@ -4,19 +4,22 @@
   .bullet
     .description
       Specify that a gem should come from a git repository with a .gemspec at its root
-    :highlight_ruby
+    :code
+      # lang: ruby
       gem 'nokogiri', :git => 'git://github.com/tenderlove/nokogiri.git'
 
   .bullet
     .description
       If there is no .gemspec at the root of a git repository, you must specify a version that bundler should use when resolving dependencies
-    :highlight_ruby
+    :code
+      # lang: ruby
       gem 'deep_merge', '1.0', :git => 'git://github.com/peritor/deep_merge.git'
 
   .bullet
     .description
       Specify that a git repository containing multiple .gemspec files should be treated as a gem source
-    :highlight_ruby
+    :code
+      # lang: ruby
       git 'git://github.com/rails/rails.git'
       gem 'railties'
       gem 'action_pack'
@@ -25,7 +28,8 @@
   .bullet
     .description
       Specify that a git repository should use a particular ref, branch, or tag
-    :highlight_ruby
+    :code
+      # lang: ruby
       git 'git://github.com/rails/rails.git', :ref => '4aded'
 
       git 'git://github.com/rails/rails.git', :branch => '2-3-stable'
@@ -35,6 +39,7 @@
   .bullet
     .description
       Specifying a ref, branch, or tag for a git repository specified inline works exactly the same way
-    :highlight_ruby
+    :code
+      # lang: ruby
       gem 'nokogiri', :git => 'git://github.com/tenderlove/nokogiri.git', :ref => '0eec4'
       

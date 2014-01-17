@@ -5,29 +5,33 @@
     .description
       If you already have a gem with a gemspec, you can generate a Gemfile for your gem.
     .how
-      :highlight_plain
+      :code
         $ bundle init
       .notes
         If you are creating a new gem, simply create a new Gemfile. Otherwise, add the following to your new Gemfile
-        :highlight_ruby
+        :code
+          # lang: ruby
           gemspec
 
   .bullet
     .description
       Runtime dependencies in your gemspec are treated like base dependencies, and development dependencies are added by default to the group, <code>:development</code>. You can change that group with the <code>:development_group</code> option
-    :highlight_ruby
+    :code
+      # lang: ruby
       gemspec :development_group => :dev
 
   .bullet
     .description
       As well, you can point to a specific gemspec using <code>:path</code>. If your gemspec is in <code>/gemspec/path</code>, use
-      :highlight_ruby
+      :code
+        # lang: ruby
         gemspec :path => '/gemspec/path'
       
   .bullet
     .description
       If you have multiple gemspecs in the same directory, specify which one you'd like to reference using <code>:name</code>
-      :highlight_ruby
+      :code
+        # lang: ruby
         gemspec :name => 'my_awesome_gem'
       .notes
         This will use <code>my_awesome_gem.gemspec</code>
@@ -35,5 +39,5 @@
   .bullet
     .description
       That's it! Use bundler when developing your gem, and otherwise, use gemspecs normally!
-    :highlight_plain
+    :code
       $ gem build my_gem.gemspec

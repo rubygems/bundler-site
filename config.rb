@@ -12,10 +12,12 @@ ready do
   end
 end
 
+page '/sitemap.xml', layout: false
+
 ###
 # Helpers
 ###
-Dir.glob(File.expand_path("../helpers/**/*.rb", __FILE__), &method(:require))
+Dir.glob(File.expand_path('../helpers/**/*.rb', __FILE__), &method(:require))
 
 set :css_dir, 'stylesheets'
 set :js_dir, 'javascripts'

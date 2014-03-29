@@ -1,6 +1,6 @@
 = partial "shared/whats_new"
 
-%h2#version15 What's New in v1.6
+%h2#version16 What's New in v1.6
 
 .contents
   .bullet
@@ -8,45 +8,29 @@
       In this section, you'll find the major features introduced in the release. All the changes are documented in the Bundler 1.6 changelog.
       = link_to 'Full 1.6 changelog', 'https://github.com/bundler/bundler/blob/1-6-stable/CHANGELOG.md'
 
-%h2#parallel-install
+%h2#new-resolver
 
 .contents
   .bullet
     .description
-      The <code>--jobs</code> option (<code>-j</code> for short) installs gems in parallel. For example, <code>bundle install -j4</code> will use 4 workers. We've seen speedups of 40-60% on fresh bundle installs. To always install in parallel, run <code>bundle config --global jobs 4</code> or set <code>BUNDLE_JOBS</code>.
-    = link_to 'Learn More: Parallel Install', './bundle_install.html#jobs'
+      The resolver has been rewritten to avoid recursion and can now resolve Gemfiles up to 10x faster than before.
 
-%h2#gem-source-mirrors
-
-.contents
-  .bullet
-    .description
-      Bundler now supports the ability to use a gem mirror in a Gemfile locally by using <code>bundle config</code>. <code> bundle config mirror.http://rubygems.org http://rubygems-mirror.org/</code>
-    = link_to 'Learn More: Source Mirrors', './bundle_config.html#gem-source-mirrors'
-
-%h2#ruby-patchlevel
+%h2#bundle-console-irb-alternatives
 
 .contents
   .bullet
     .description
-      The ruby DSL now takes a <code>:patchlevel</code> option for locking to specific patchlevels of ruby like <code>ruby '2.0.0', :patchlevel => "247"</code>
-    = link_to 'Learn More: Ruby Directive', './gemfile_ruby.html#patchlevel'
+      <code>bundle console</code> now supports IRB alternatives Pry and Ripl. If we want to use Pry, set the <code>console</code> Bundler setting: <code>bundle config console pry</code>. You'll need make sure <code>pry</code> is in your Gemfile. Now when running <code>bundle console</code> it will open Pry instead of IRB.
+    = link_to 'Learn More: Bundle Console', './bundle_console.html'
 
-%h2#outdated-strict
-
-.contents
-  .bullet
-    .description
-      <code>bundle outdated --strict</code> displays outdated gems that match the dependency requirements.
-    = link_to 'Learn More: outdated --strict', './bundle_outdated.html#strict'
-
-%h2#retry-install
+%h2#bundle-gem-ext
 
 .contents
   .bullet
     .description
-      <code>bundle install</code> now retries failed downloads. You can adjust the number of retries with the  <code>--retry</code> option.
-    = link_to 'Learn More: Retry', './bundle_install.html#retry'
+      Now when creating a new gem, <code>bundle gem</code> supports the <code>--ext</code> flag which creates skeleton files for a C-extension. When running <code>bundle gem newgem --ext</code>, it will create some new files in a <code>ext</code> directory: <code>extconf.rb</code>, <code>newgem.c</code>, <code>newgem.h</code>
+    = link_to 'Learn More: Bundle Gem', './bundle_gem.html'
+
 
 %h2#other-changes
 
@@ -55,10 +39,9 @@
     .description
       Bundler 1.6 also includes:
       %ul
-        %li many smaller performance improvements to make resolving and installing faster
-        %li cyclic dependency detection, to avoid infinite loops
-        %li multiple arguments to the <code>bundle binstubs</code> command
-        %li a <code>bundler</code> command in case you typo <code>bundle</code>
-        %li uses RUBYLIB for better compatibility with Windows
+        %li other performance improvements to make resolving and installing faster
+        %li <code>:git_source</code> for custom options like :github and :gist
+        %li color highlighting installed or updated gems
+        %li HTTP auth may now be stored in <code>bundle config</code>
         = link_to 'Full 1.6 changelog', 'https://github.com/bundler/bundler/blob/1-6-stable/CHANGELOG.md'
 

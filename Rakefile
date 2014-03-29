@@ -15,7 +15,7 @@ end
 
 desc "Pull in the man pages for the specified gem versions."
 task :man => [:update_vendor] do
-  %w(v1.0 v1.1 v1.2 v1.3 v1.5).each do |version|
+  %w(v1.0 v1.1 v1.2 v1.3 v1.5 v1.6).each do |version|
     branch = (version[1..-1].split('.') + %w(stable)).join('-')
 
     mkdir_p "build/#{version}/man"

@@ -84,23 +84,23 @@
     :code
       # lang: ruby
       gem 'rails', :github => 'rails'
-     .description
-       <b>NB:</b> This shorthand is insecure in versions of Bundler prior to 2.0! Use HTTPS instead
-     :code
-       # lang: ruby
-       gem 'rails', :git => 'https://github.com/rails/rails'
-     .description
-       Alternatively, you can specify a full commit hash
-     :code
-       # lang: ruby
-       gem 'rails', :github => 'rails', :ref => 'a9752dcfd15bcddfe7b6f7126f3a6e0ba5927c56'
+    .description
+      <b>NB:</b> This shorthand is insecure in versions of Bundler prior to 2.0! Use HTTPS instead
+    :code
+      # lang: ruby
+      gem 'rails', :git => 'https://github.com/rails/rails'
+    .description
+      Alternatively, you can specify a full commit hash
+    :code
+      # lang: ruby
+      gem 'rails', :github => 'rails', :ref => 'a9752dcfd15bcddfe7b6f7126f3a6e0ba5927c56'
 
- %h2 Security
- .contents
-   .bullet
-     .description
-       <code>http://</code> and <code>git://</code> URLs are insecure, and should
-       be avoided if at all possible. These protocols are unauthenticated, so a
-       man-in-the-middle attacker can tamper with the code and compromise your system.
-       Note that the <code>:github</code> shortcut translates to a <code>git://</code>
-       URL in pre-2.0 versions.
+%h2 Security
+.contents
+  .bullet
+    .description
+      <code>http://</code> and <code>git://</code> URLs are insecure, and should
+      be avoided if at all possible. These protocols are unauthenticated, so a
+      man-in-the-middle attacker can tamper with the code and compromise your system.
+      Note that the <code>:github</code> shortcut translates to a <code>git://</code>
+      URL in pre-2.0 versions.

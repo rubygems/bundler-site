@@ -6,40 +6,57 @@
       Specify that a gem should come from a git repository with a .gemspec at its root
     :code
       # lang: ruby
-      gem 'nokogiri', :git => 'git://github.com/tenderlove/nokogiri.git'
+      gem 'nokogiri', :git => 'https://github.com/tenderlove/nokogiri.git'
 
   .bullet
     .description
       If there is no .gemspec at the root of a git repository, you must specify a version that bundler should use when resolving dependencies
     :code
       # lang: ruby
-      gem 'deep_merge', '1.0', :git => 'git://github.com/peritor/deep_merge.git'
+      gem 'deep_merge', '1.0', :git => 'https://github.com/peritor/deep_merge.git'
 
   .bullet
     .description
       Specify that a git repository containing multiple .gemspec files should be treated as a gem source
     :code
       # lang: ruby
-      git 'git://github.com/rails/rails.git'
+      git 'https://github.com/rails/rails.git'
       gem 'railties'
       gem 'action_pack'
       gem 'active_model'
+      end
 
   .bullet
     .description
       Specify that a git repository should use a particular ref, branch, or tag
     :code
       # lang: ruby
-      git 'git://github.com/rails/rails.git', :ref => '4aded'
+      git 'https://github.com/rails/rails.git', :ref => '4aded'
 
-      git 'git://github.com/rails/rails.git', :branch => '2-3-stable'
+      git 'https://github.com/rails/rails.git', :branch => '2-3-stable'
 
-      git 'git://github.com/rails/rails.git', :tag => 'v2.3.5'
+      git 'https://github.com/rails/rails.git', :tag => 'v2.3.5'
 
   .bullet
     .description
       Specifying a ref, branch, or tag for a git repository specified inline works exactly the same way
     :code
       # lang: ruby
-      gem 'nokogiri', :git => 'git://github.com/tenderlove/nokogiri.git', :ref => '0eec4'
-      
+      gem 'nokogiri', :git => 'https://github.com/tenderlove/nokogiri.git', :ref => '0eec4'
+
+  .bullet
+    .description
+      Bundler can use HTTP(S), SSH, or git
+    :code
+      # lang: ruby
+      gem 'nokogiri', :git => 'https://github.com/tenderlove/nokogiri.git'
+      gem 'nokogiri', :git => 'git@github.com:tenderlove/nokogiri.git'
+      gem 'nokogiri', :git => 'git://github.com/tenderlove/nokogiri.git'
+
+%h2 Security
+.contents
+  .bullet
+    .description
+      <code>http://</code> and <code>git://</code> URLs are insecure, and should
+      be avoided if at all possible. These protocols are unauthenticated, so a
+      man-in-the-middle attacker can tamper with the code and compromise your system.

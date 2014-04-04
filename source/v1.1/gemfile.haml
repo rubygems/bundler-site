@@ -60,9 +60,9 @@
       <code>:branch</code>, or <code>:ref</code>. The default is the <code>master</code> branch.
     :code
       # lang: ruby
-      gem 'nokogiri', :git => 'git://github.com/tenderlove/nokogiri.git', :branch => '1.4'
+      gem 'nokogiri', :git => 'https://github.com/tenderlove/nokogiri.git', :branch => '1.4'
 
-      git 'git://github.com/wycats/thor.git', :tag => 'v0.13.4'
+      git 'https://github.com/wycats/thor.git', :tag => 'v0.13.4'
       gem 'thor'
     .notes
       If the git repository does not contain a <code>.gemspec</code> file, bundler

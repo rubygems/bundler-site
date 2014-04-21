@@ -25,6 +25,18 @@
               %li= link_to 'Read documentation', '/v1.6/man/bundle.1.html'
               %li= link_to 'Discuss and Contribute', '/#get-involved'
               %li= link_to 'View FAQs', '/v1.6/faq.html'
+
+            .shirts
+              .content
+                %p
+                  Bundler is developed entirely by a team of volunteers.
+                  = link_to 'Support their work', 'http://www.gittip.com/bundler'
+                  and help make Bundler better for everyone.
+                %p
+                  %script{"data-gittip-username" => "bundler", "src" => "//gttp.co/v1.js"}
+                  %br
+                  %br
+
             %h2 Bundler Commands
             %ul
               %li= link_to 'bundle install', '/v1.6/bundle_install.html'
@@ -48,13 +60,6 @@
               %li= link_to 'Sinatra', '/v1.6/sinatra.html'
               %li= link_to 'Rubygems', '/v1.6/rubygems.html'
               %li= link_to 'RubyMotion', '/v1.6/rubymotion.html'
-
-            .shirts
-              .content
-                = link_to 'http://www.devswag.com/collections/bundler', :class => 'image', :onclick => "ga('send', 'devswag');" do
-                  = image_tag '/images/bundler-shirt.png'
-                %p
-                  =link_to 'Buy Bundler Shirts & Stickers!', 'http://www.devswag.com/collections/bundler', :onclick => "ga('send', 'devswag');"
 
     #footer
       = image_tag 'emocow.png'

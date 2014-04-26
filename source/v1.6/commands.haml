@@ -8,6 +8,11 @@
       %th
         applicable options
     = command_table_row do |command|
+      - command.name   = 'binstubs'
+      - command.desc   = 'Installs the binstubs of the listed gem'
+      - command.option = 'force'
+      - command.option = 'path'
+    = command_table_row do |command|
       - command.name   = 'check'
       - command.desc   = 'Checks if the dependencies listed in Gemfile are satisfied by currently installed gems'
       - command.option = 'gemfile'

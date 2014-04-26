@@ -6,13 +6,22 @@
       Update the current environment
 
     :code
-      $ bundle update [GEM] [--local] [--source=SOURCE]
+      $ bundle update [GEM] [--full-index] [--group=GROUP] [--jobs=NUMBER] [--local] [--quiet] [--source=SOURCE]
     .notes
       %p
         Options:
       %p
+        <code>--full-index</code>: Use the rubygems modern index instead of
+        the API endpoint
+      %p
+        <code>--group</code>: Update one or more gem groups
+      %p
+        <code>--jobs</code>: Specify the number of jobs to run in parallel
+      %p
         <code>--local</code>: Do not attempt to fetch gems remotely and use
         the gem cache instead
+      %p
+        <code>--quiet</code>: Only output warnings and errors.
       %p
         <code>--source</code>: Update a specific source (and all gems
         associated with it)

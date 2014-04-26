@@ -42,6 +42,9 @@
       - command.desc   = 'Generates a Gemfile into the current working directory'
       - command.option = 'gemspec'
     = command_table_row do |command|
+      - command.name   = 'inject'
+      - command.desc   = 'Add the named gem(s), with version requirements, to the resolved Gemfile'
+    = command_table_row do |command|
       - command.name   = 'install'
       - command.desc   = 'Install the current environment to the system'
       - command.option = 'binstubs'

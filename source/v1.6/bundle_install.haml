@@ -9,6 +9,7 @@
                        [--full-index] [--gemfile=FILE] [--local] [--no-cache]
                        [--no-prune] [--path=PATH] [--quiet] [--shebang=STRING]
                        [--standalone=ARRAY] [--system] [--without=GROUP GROUP]
+                       [--trust-policy=SECURITYLEVEL]
     .notes
       %p
         Options:
@@ -25,6 +26,8 @@
       %p
         <code>--gemfile</code>: Use the specified gemfile instead of Gemfile
       %p
+        <code>--jobs</code>: Install gems using parallel workers.
+      %p
         <code>--local</code>: Do not attempt to fetch gems remotely and use the gem cache instead
       %p
         <code>--no-cache</code>: Don't update the existing gem cache.
@@ -35,17 +38,17 @@
       %p
         <code>--quiet</code>: Only output warnings and errors.
       %p
+        <code>--retry</code>: Retry network and git requests that have failed.
+      %p
         <code>--shebang</code>: Specify a different shebang executable name than the default (usually 'ruby')
       %p
         <code>--standalone</code>: Make a bundle that can work without the Bundler runtime
       %p
         <code>--system</code>: Install to the system location ($BUNDLE_PATH or $GEM_HOME) even if the bundle was previously installed somewhere else for this application
       %p
+        <code>--trust-policy</code>: Sets level of security when dealing with signed gems. Accepts `LowSecurity`, `MediumSecurity` and `HighSecurity` as values.
+      %p
         <code>--without</code>: Exclude gems that are part of the specified named group.
-      %p
-        <code>--jobs</code>: Install gems using parallel workers.
-      %p
-        <code>--retry</code>: Retry network and git requests that have failed.
     .notes
       %p
         Gems will be installed to your default system location for gems. If your

@@ -1,6 +1,6 @@
 #intro
   If you just want to know our recommended workflow, and don't care about the rationale, feel
-  free to jump to the summary below.
+  free to <a href="#summary">jump to the summary</a> below.
 %br
 
 #standalone
@@ -14,13 +14,13 @@
     # lang: ruby
     source 'https://rubygems.org'
 
-    gem 'rails', '3.0.0.rc'
+    gem 'rails', '4.1.0.rc2'
     gem 'rack-cache'
-    gem 'nokogiri', '~> 1.4.2'
+    gem 'nokogiri', '~> 1.6.1'
 
   %p
     This <code>Gemfile</code> says a few things. First, it says that bundler should look for gems
-    declared in the <code>Gemfile</code> at <code>http://rubygems.org</code>. You can declare
+    declared in the <code>Gemfile</code> at <code>https://rubygems.org</code>. You can declare
     multiple Rubygems sources, and bundler will look for gems in the order you declared the
     sources.
 
@@ -28,9 +28,9 @@
     Next, you declare a few dependencies:
 
   %ul
-    %li on version <code>3.0.0.rc</code> of <code>rails</code>
+    %li on version <code>4.1.0.rc2</code> of <code>rails</code>
     %li on any version of <code>rack-cache</code>
-    %li on a version of <code>nokogiri</code> that is <code>>= 1.4.2</code> but <code>< 1.5.0</code>
+    %li on a version of <code>nokogiri</code> that is <code>>= 1.6.1</code> but <code>< 1.7.0</code>
 
   %p
     After declaring your first set of dependencies, you tell bundler to go get them:
@@ -47,35 +47,44 @@
 
   :code
     $ bundle install
-    Fetching gem metadata from https://rubygems.org/
+    Fetching gem metadata from https://rubygems.org/.........
+    Fetching additional metadata from https://rubygems.org/..
     Resolving dependencies...
-    Using rake (0.8.7)
-    Using abstract (1.0.0)
-    Installing activesupport (3.0.0.rc)
-    Using builder (2.1.2)
-    Using i18n (0.4.1)
-    Installing activemodel (3.0.0.rc)
-    Using erubis (2.6.6)
-    Using rack (1.2.1)
-    Installing rack-mount (0.6.9)
-    Using rack-test (0.5.4)
-    Using tzinfo (0.3.22)
-    Installing actionpack (3.0.0.rc)
-    Using mime-types (1.16)
-    Using polyglot (0.3.1)
-    Using treetop (1.4.8)
-    Using mail (2.2.5)
-    Installing actionmailer (3.0.0.rc)
-    Using arel (0.4.0)
-    Installing activerecord (3.0.0.rc)
-    Installing activeresource (3.0.0.rc)
-    Using bundler (1.0.0.rc.3)
-    Installing nokogiri (1.4.3.1) with native extensions
-    Installing rack-cache (0.5.2)
-    Installing thor (0.14.0)
-    Installing railties (3.0.0.rc)
-    Installing rails (3.0.0.rc)
-    Your bundle is complete! Use `bundle show [gemname]` to see where a bundled gem is installed.
+    Using rake 10.3.1
+    Using json 1.8.1
+    Installing minitest 5.3.3
+    Installing i18n 0.6.9
+    Installing thread_safe 0.3.3
+    Installing builder 3.2.2
+    Installing rack 1.5.2
+    Installing erubis 2.7.0
+    Installing mime-types 1.25.1
+    Using bundler 1.6.2
+    Installing polyglot 0.3.4
+    Installing arel 5.0.1.20140414130214
+    Installing hike 1.2.3
+    Installing mini_portile 0.5.3
+    Installing multi_json 1.9.3
+    Installing thor 0.19.1
+    Installing tilt 1.4.1
+    Installing tzinfo 1.1.0
+    Installing rack-test 0.6.2
+    Installing rack-cache 1.2
+    Installing treetop 1.4.15
+    Installing sprockets 2.12.1
+    Installing activesupport 4.1.0.rc2
+    Installing mail 2.5.4
+    Installing actionview 4.1.0.rc2
+    Installing activemodel 4.1.0.rc2
+    Installing actionpack 4.1.0.rc2
+    Installing activerecord 4.1.0.rc2
+    Installing actionmailer 4.1.0.rc2
+    Installing sprockets-rails 2.0.1
+    Installing railties 4.1.0.rc2
+    Installing rails 4.1.0.rc2
+    Installing nokogiri 1.6.1
+    Your bundle is complete!
+    Use `bundle show [gemname]` to see where a bundled gem is installed.
 
   %p
     If any of the needed gems are already installed, Bundler will use them. After installing
@@ -87,7 +96,7 @@
 
   %p
     Bundler makes sure that Ruby can find all of the gems in the <code>Gemfile</code>
-    (and all of their dependencies). If your app is a Rails 3 app, your default application
+    (and all of their dependencies). If your app is a Rails 3+ app, your default application
     already has the code necessary to invoke bundler. If it is a Rails 2.3 app, please see
     <a href="./rails23.html">Setting up Bundler in Rails 2.3</a>.
 
@@ -133,11 +142,11 @@
 
   :code
     # lang: ruby
-    source 'http://rubygems.org'
+    source 'https://rubygems.org'
 
-    gem 'rails', '3.0.0.rc'
-    gem 'rack-cache', :require => 'rack/cache'
-    gem 'nokogiri', '~> 1.4.2'
+    gem 'rails', '4.1.0.rc2'
+    gem 'rack-cache', require: 'rack/cache'
+    gem 'nokogiri', '~> 1.6.1'
 
   %p
     For such a small <code>Gemfile</code>, we'd advise you to skip
@@ -196,8 +205,8 @@
     In other words, you don't have to guess which versions of the dependencies you should
     install. In the example we've been using, even though <code>rack-cache</code> declares a
     dependency on <code>rack >= 0.4</code>, we know for sure it works with <code>rack
-    1.2.1</code>. Even if the Rack team releases <code>rack 1.2.2</code>, bundler will
-    always install <code>1.2.1</code>, the exact version of the gem that we know works. This
+    1.5.2</code>. Even if the Rack team releases <code>rack 1.5.3</code>, bundler will
+    always install <code>1.5.2</code>, the exact version of the gem that we know works. This
     relieves a large maintenance burden from application developers, because all machines
     always run the exact same third-party code.
 
@@ -207,26 +216,26 @@
   %p
     Of course, at some point, you might want to update the version of a particular
     dependency your application relies on. For instance, you might want to update
-    <code>rails</code> to <code>3.0.0</code> final. Importantly, just because you're
+    <code>rails</code> to <code>4.1.0</code> final. Importantly, just because you're
     updating one dependency, it doesn't mean you want to re-resolve all of your dependencies
     and use the latest version of everything. In our example, you only have three
     dependencies, but even in this case, updating everything can cause complications.
 
   %p
-    To illustrate, the <code>rails 3.0.0.rc</code> gem depends on <code>actionpack
-    3.0.0.rc</code> gem, which depends on <code>rack ~> 1.2.1</code> (which means <code>>=
-    1.2.1</code> and <code>< 1.3.0</code>). The <code>rack-cache</code> gem depends on
-    <code>rack >= 0.4</code>. Let's assume that the <code>rails 3.0.0</code> final gem also
-    depends on <code>rack ~> 1.2.1</code>, and that since the release of <code>rails
-    3.0.0</code>, the Rack team released <code>rack 1.2.2</code>.
+    To illustrate, the <code>rails 4.1.0.rc2</code> gem depends on <code>actionpack
+    4.1.0.rc2</code> gem, which depends on <code>rack ~> 1.5.2</code> (which means <code>>=
+    1.5.2</code> and <code>< 1.6.0</code>). The <code>rack-cache</code> gem depends on
+    <code>rack >= 0.4</code>. Let's assume that the <code>rails 4.1.0</code> final gem also
+    depends on <code>rack ~> 1.5.2</code>, and that since the release of <code>rails
+    4.1.0</code>, the Rack team released <code>rack 1.5.3</code>.
 
   %p
     If we naïvely update all of our gems in order to update Rails, we'll get <code>rack
-    1.2.2</code>, which satisfies the requirements of both <code>rails 3.0.0</code> and
+    1.5.3</code>, which satisfies the requirements of both <code>rails 4.1.0</code> and
     <code>rack-cache</code>. However, we didn't specifically ask to update
-    <code>rack-cache</code>, which may not be compatible with <code>rack 1.2.2</code> (for
-    whatever reason). And while an update from <code>rack 1.2.1</code> to <code>rack
-    1.2.2</code> probably won't break anything, similar scenarios can happen that involve
+    <code>rack-cache</code>, which may not be compatible with <code>rack 1.5.3</code> (for
+    whatever reason). And while an update from <code>rack 1.5.2</code> to <code>rack
+    1.5.3</code> probably won't break anything, similar scenarios can happen that involve
     much larger jumps. (see [1] below for a larger discussion)
 
   %p
@@ -234,15 +243,15 @@
     dependency of that gem if another gem still depends on it. In this example, since
     <code>rack-cache</code> still depends on <code>rack</code>, bundler will not update the
     <code>rack</code> gem. This ensures that updating <code>rails</code> doesn't
-    inadvertently break <code>rack-cache</code>. Since <code>rails 3.0.0</code>'s dependency
-    <code>actionpack 3.0.0</code> remains compatible with <code>rack 1.2.1</code>, bundler
+    inadvertently break <code>rack-cache</code>. Since <code>rails 4.1.0</code>'s dependency
+    <code>actionpack 4.1.0</code> remains compatible with <code>rack 1.5.2</code>, bundler
     leaves it alone, and <code>rack-cache</code> continues to work even in the face of an
-    incompatibility with <code>rack 1.2.2</code>.
+    incompatibility with <code>rack 1.5.3</code>.
 
   %p
-    Since you originally declared a dependency on <code>rails 3.0.0.rc</code>, if you want
-    to update to <code>rails 3.0.0</code>, simply update your <code>Gemfile</code> to
-    <code>gem 'rails', '3.0.0'</code> and run:
+    Since you originally declared a dependency on <code>rails 4.1.0.rc2</code>, if you want
+    to update to <code>rails 4.1.0</code>, simply update your <code>Gemfile</code> to
+    <code>gem 'rails', '4.1.0'</code> and run:
 
   :code
     $ bundle install
@@ -295,7 +304,7 @@
   %p
     It will, however, update dependencies of other gems if necessary. For instance, if the
     latest version of <code>rack-cache</code> specifies a dependency on <code>rack >=
-    1.2.2</code>, bundler will update <code>rack</code> to <code>1.2.2</code> even though
+    1.5.2</code>, bundler will update <code>rack</code> to <code>1.5.2</code> even though
     you have not asked bundler to update <code>rack</code>. If bundler needs to update a
     gem that another gem depends on, it will let you know after the update has completed.
 
@@ -336,9 +345,9 @@
 
       :code
         # lang: ruby
-        source 'http://rubygems.org'
+        source 'https://rubygems.org'
 
-        gem 'sinatra', '~> 0.9.0'
+        gem 'sinatra', '~> 1.3.6'
         gem 'rack-cache'
         gem 'rack-bug'
 
@@ -355,9 +364,9 @@
 
       :code
         # lang: ruby
-        source 'http://rubygems.org'
+        source 'https://rubygems.org'
 
-        gem 'sinatra', '~> 1.0.0'
+        gem 'sinatra', '~> 1.4.5'
         gem 'rack-cache'
         gem 'rack-bug'
 
@@ -376,7 +385,7 @@
         $ bundle update sinatra
 
       %p
-        This will update just the Sinatra gem, as well as any of its dependencies
+        This will update just the Sinatra gem, as well as any of its dependencies.
 
     %li
       %p
@@ -404,15 +413,15 @@
     Notes
 
   %p
-    [1] For instance, if <code>rails 3.0.0</code> depended on <code>rack 2.0</code>, that
+    [1] For instance, if <code>rails 4.1.0</code> depended on <code>rack 2.0</code>, that
     gem would still satisfy the requirement of <code>rack-cache</code>, which declares
-    <code>>= 1.0</code> as a dependency. Of course, you could argue that
+    <code>>= 0.4</code> as a dependency. Of course, you could argue that
     <code>rack-cache</code> is silly for depending on open-ended versions, but these
     situations exist (extensively) in the wild, and projects often find themselves between a
     rock and a hard place when deciding what version to depend on. Constrain the dependency
-    too much (<code>rack =1.2.1</code>) and you make it hard to use your project in other
+    too much (<code>rack =1.5.1</code>) and you make it hard to use your project in other
     compatible projects. Constrain it too little (<code>rack >= 1.0</code>) and a new
-    release of Rack may break your code. Using dependencies like <code>rack ~> 1.2.1</code>
+    release of Rack may break your code. Using dependencies like <code>rack ~> 1.5.2</code>
     and versioning code in a SemVer compliant way mostly solves this problem, but it assumes
     universal compliance. Since Rubygems has over 100,000 packages, this assumption simply
     doesn't hold in practice.

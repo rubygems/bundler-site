@@ -50,22 +50,30 @@ task :build => [:issues] do
   sh "middleman build --clean"
 end
 
-desc "Release the current commit to bundler/bundler@gh-pages"
-task :release => [:update_vendor, :build, :man, :issues] do
+directory "vendor/bundler.github.io" => ["vendor"] do
+  system "git clone git@github.com:bundler/bundler.github.io.git vendor/bundler.github.io"
+end
+
+task :update_site => ["vendor/bundler.github.io"] do
+  Dir.chdir "vendor/bundler.github.io" do
+    sh "git checkout master"
+    sh "git reset --hard HEAD"
+    sh "git pull origin master"
+  end
+end
+
+desc "Release the current commit to bundler/bundler.github.io"
+task :release => [:update_vendor, :build, :man, :issues, :update_site] do
   commit = `git rev-parse HEAD`.chomp
 
-  Dir.chdir "vendor/bundler" do
-    sh "git reset --hard HEAD"
-    sh "git checkout gh-pages"
-    sh "git pull origin gh-pages"
-
+  Dir.chdir "vendor/bundler.github.io" do
     rm_rf FileList["*"]
     cp_r FileList["../../build/*"], "./"
     File.write("CNAME", "bundler.io")
 
     sh "git add -A ."
     sh "git commit -m 'bundler/bundler-site@#{commit}'"
-    sh "git push origin gh-pages"
+    sh "git push origin master"
   end
 end
 

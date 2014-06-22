@@ -85,12 +85,12 @@
       # lang: ruby
       gem 'rails', :github => 'rails'
     .description
-      <b>NB:</b> This shorthand is insecure in versions of Bundler prior to 2.0! Use HTTPS instead
+      <b>NB:</b> This shorthand can only be used for public repos in Bundler version 1.x. Use HTTPS for read and write:
     :code
       # lang: ruby
       gem 'rails', :git => 'https://github.com/rails/rails'
     .description
-      Alternatively, you can specify a full commit hash
+      All of the usual <code>:git</code> options apply, like <code>:branch</code> and <code>:ref</code>.
     :code
       # lang: ruby
       gem 'rails', :github => 'rails', :ref => 'a9752dcfd15bcddfe7b6f7126f3a6e0ba5927c56'
@@ -99,44 +99,29 @@
 .contents
   .bullet
     .description
-      The <code>:github</code> shortcut presented above is a bundler feature called <code>git sources</code>.
-      Similarly to <code>gem_source</code> you can define custom <code>git_source</code>.
-
-      Bundler ships with <code>:github</code> and <code>:gist</code> sources defined by default. They look as
-      follows:
-    :code
-      # lang: ruby
-      git_source(:github) do |repo_name|
-        repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
-        "git://github.com/#{repo_name}.git"
-      end
-
-      git_source(:gist){ |repo_name| "https://gist.github.com/#{repo_name}.git" }
-    .description
-      You can use them in your <code>Gemfile</code> as a shortcut for defining full <code>:git</code> url:
-    :code
-      # lang: ruby
-      gem 'foo', :gist => 'strzalek/9be72acda4006e03b060'
-      gem 'bar', :github => 'strzalek/bar'
+      The <code>:github</code> shortcut used above is one of Bundler's built in git sources. Bundler comes
+      with shortcuts for <code>:github</code>, <code>:gist</code>, and <code>:bitbucket</code>, but you can
+      also add your own.
 
     .description
-      If you're using Github Enterprise or Stash or have custom git setup, you can declare your own git
-      source:
+      If you're using Github Enterprise, Stash, or just have a custom git setup, create your own shortcuts
+      by calling <code>git_source</code> before you use your custom option. Here's an example for Stash:
+
     :code
       # lang: ruby
-      git_source(:stash){ |repo_name| "https://stash.corp.acme.pl/#{repo_name}.git" }
-
+      git_source(:stash){ |repo_name| "https://stash.corp.acme.pl/\#{repo_name}.git" }
       gem 'rails', :stash => 'forks/rails'
 
 %h2 Security
 .contents
   .bullet
     .description
-      <code>http://</code> and <code>git://</code> URLs are insecure, and should
-      be avoided if at all possible. These protocols are unauthenticated, so a
-      man-in-the-middle attacker can tamper with the code and compromise your system.
-      Note that the <code>:github</code> shortcut translates to a <code>git://</code>
-      URL in pre-2.0 versions.
+      <code>http://</code> and <code>git://</code> URLs are insecure. A
+      man-in-the-middle attacker could tamper with the code as you check it out,
+      and potentially supply you with malicious code instead of the code you meant to
+      check out. Because the <code>:github</code> shortcut uses a <code>git://</code>
+      URL in Bundler 1.x versions, we recommend using using HTTPS URLs or overriding
+      the <code>:github</code> shortcut with your own HTTPS git source.
 
 %h2#local Local Git Repos
 .contents

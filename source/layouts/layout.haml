@@ -1,5 +1,5 @@
 !!!
-- v = current_page.url.scan(/v\d\.\d/).first || 'v1.6'
+- v = current_page.url.scan(/v\d\.\d/).first || current_version
 %html
   %head
     = partial 'partials/head'
@@ -11,5 +11,5 @@
       #container
         #contents
           = yield
-        = partial 'partials/sidebar' if v == 'v1.6'
+        = partial 'partials/sidebar' if v == current_version
     = partial 'partials/footer', locals: { v: v }

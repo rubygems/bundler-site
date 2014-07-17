@@ -30,6 +30,11 @@ activate :blog do |blog|
   blog.prefix = 'blog'
   blog.permalink = '{year}/{month}/{day}/{title}.html'
   blog.layout = 'blog_layout'
+
+  blog.calendar_template = 'blog/calendar.html'
+  blog.year_link = "{year}/index.html"
+  blog.month_link = "{year}/{month}/index.html"
+  blog.day_link = "{year}/{month}/{day}/index.html"
 end
 
 configure :development do

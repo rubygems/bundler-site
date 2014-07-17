@@ -3,10 +3,10 @@
   %ul
     %li= link_to 'Get started', '/#getting-started'
     %li= link_to 'Report a bug', '/issues.html'
-    %li= link_to "See what's new", '/v1.6/whats_new.html'
-    %li= link_to 'Read documentation', '/v1.6/man/bundle.1.html'
+    %li= link_to "See what's new", "/#{current_version}/whats_new.html"
+    %li= link_to 'Read documentation', "/#{current_version}/man/bundle.1.html"
     %li= link_to 'Discuss and Contribute', '/#get-involved'
-    %li= link_to 'View FAQs', '/v1.6/faq.html'
+    %li= link_to 'View FAQs', "/#{current_version}/faq.html"
 
   .shirts
     .content
@@ -27,29 +27,29 @@
 
   %h2 Bundler commands
   %ul
-    %li= link_to 'bundle install', '/v1.6/bundle_install.html'
-    %li= link_to 'bundle update', '/v1.6/bundle_update.html'
+    %li= link_to 'bundle install', "/#{current_version}/bundle_install.html"
+    %li= link_to 'bundle update', "/#{current_version}/bundle_update.html"
     .buttons
-      = link_to 'View all commands', '/v1.6/commands.html'
+      = link_to 'View all commands', "/#{current_version}/commands.html"
 
   %h2 Help with
   %ul
-    %li= link_to 'Gemfiles', '/v1.6/gemfile.html'
-    %li= link_to 'Groups', '/v1.6/groups.html'
-    %li= link_to 'Gems from git', '/v1.6/git.html'
-    %li= link_to 'Bundler.setup', '/v1.6/bundler_setup.html'
-    %li= link_to 'Deploying', '/v1.6/deploying.html'
-    %li= link_to 'Sharing', '/v1.6/bundler_sharing.html'
-    %li= link_to 'Updating Gems', '/v1.6/updating_gems.html'
+    %li= link_to 'Gemfiles', "/#{current_version}/gemfile.html"
+    %li= link_to 'Groups', "/#{current_version}/groups.html"
+    %li= link_to 'Gems from git', "/#{current_version}/git.html"
+    %li= link_to 'Bundler.setup', "/#{current_version}/bundler_setup.html"
+    %li= link_to 'Deploying', "/#{current_version}/deploying.html"
+    %li= link_to 'Sharing', "/#{current_version}/bundler_sharing.html"
+    %li= link_to 'Updating Gems', "/#{current_version}/updating_gems.html"
     %li= link_to 'Compatible versions', '/compatibility.html'
 
   %h2 Use Bundler with
   %ul
-    %li= link_to 'Rails 3', '/v1.6/rails3.html'
-    %li= link_to 'Rails 2.3', '/v1.6/rails23.html'
-    %li= link_to 'Sinatra', '/v1.6/sinatra.html'
-    %li= link_to 'Rubygems', '/v1.6/rubygems.html'
-    %li= link_to 'RubyMotion', '/v1.6/rubymotion.html'
+    %li= link_to 'Rails 3', "/#{current_version}/rails3.html"
+    %li= link_to 'Rails 2.3', "/#{current_version}/rails23.html"
+    %li= link_to 'Sinatra', "/#{current_version}/sinatra.html"
+    %li= link_to 'Rubygems', "/#{current_version}/rubygems.html"
+    %li= link_to 'RubyMotion', "/#{current_version}/rubymotion.html"
 
   .shirts
     .content

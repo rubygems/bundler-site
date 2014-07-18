@@ -37,6 +37,8 @@ activate :blog do |blog|
   blog.day_link = "{year}/{month}/{day}/index.html"
 end
 
+page "/blog/feed.xml", layout: false
+
 configure :development do
   # activate :livereload
 end

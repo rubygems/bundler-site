@@ -12,7 +12,7 @@
   %img{ :src => 'http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png', :alt => 'Fork me on GitHub' }
 #prod-versions
   Docs:
-  - %w(v0.9 v1.0 v1.1 v1.2 v1.3 v1.5).each do |lv|
+  - %w(v0.9 v1.0 v1.1 v1.2 v1.3 v1.5 v1.6).each do |lv|
     = link_to(lv, "/#{lv}/index.html", :class => ('current' if v == lv))
   = link_to(current_version, "/", :class => ('current' if v == current_version))
 

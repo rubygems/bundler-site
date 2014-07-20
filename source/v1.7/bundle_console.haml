@@ -1,0 +1,15 @@
+%h2 bundle console
+
+.contents
+  .bullet
+    .description
+      Opens an IRB session with the bundle pre-loaded
+    :code
+      $ bundle console [GROUP]
+
+    .description
+      Alternatives like Pry and Ripl can be used with bundle console by adjusting the <code>console</code> Bundler setting. Also make sure that <code>pry</code> or <code>ripl</code> is in your Gemfile.
+    :code
+      $ bundle config console pry
+      $ bundle console
+      [1] pry(main)>

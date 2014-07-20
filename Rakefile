@@ -31,7 +31,7 @@ task :man => [:update_vendor] do
   end
 
   # Make man pages for the latest version available at the top level, too.
-  cp_r "build/v1.5/man", "build/man"
+  cp_r "build/v1.6/man", "build/man"
 end
 
 desc "Pulls in ISSUES.md from the master branch."

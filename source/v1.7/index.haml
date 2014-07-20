@@ -10,8 +10,8 @@
   Starting work on a project is as simple as <code>bundle install</code>.
 
 .buttons
-  = link_to 'What\'s new in Bundler', '/v1.6/whats_new.html'
-  = link_to 'Why Bundler exists', '/v1.6/rationale.html'
+  = link_to 'What\'s new in Bundler', './whats_new.html'
+  = link_to 'Why Bundler exists', './rationale.html'
 
 %h2#getting-started
   Getting Started
@@ -32,7 +32,7 @@
       gem 'nokogiri'
       gem 'rack', '~>1.1'
       gem 'rspec', :require => 'spec'
-    = link_to 'Learn More: Gemfiles', '/v1.6/gemfile.html'
+    = link_to 'Learn More: Gemfiles', './gemfile.html'
 
   .bullet
     .description
@@ -40,7 +40,7 @@
     :code
       $ bundle install
       $ git add Gemfile Gemfile.lock
-    = link_to 'Learn More: bundle install', '/v1.6/bundle_install.html'
+    = link_to 'Learn More: bundle install', './bundle_install.html'
     .notes
       The second command adds the Gemfile and Gemfile.lock to your repository. This ensures
       that other developers on your app, as well as your deployment environment, will all use
@@ -56,7 +56,7 @@
 
       # require your gems as usual
       require 'nokogiri'
-    = link_to 'Learn More: Bundler.setup', '/v1.6/bundler_setup.html'
+    = link_to 'Learn More: Bundler.setup', './bundler_setup.html'
   .bullet
     .description
       Run an executable that comes with a gem in your bundle:
@@ -80,15 +80,15 @@
     .notes
       The executables installed into <code>bin</code> are scoped to the
       bundle, and will always work.
-    = link_to 'Learn More: Executables', '/v1.6/man/bundle-exec.1.html'
+    = link_to 'Learn More: Executables', './man/bundle-exec.1.html'
 
 %h2#use-bundler Use Bundler with
 .buttons
-  = link_to 'Rails 3', '/v1.6/rails3.html'
-  = link_to 'Rails 2.3', '/v1.6/rails23.html'
-  = link_to 'Sinatra', '/v1.6/sinatra.html'
-  = link_to 'Rubygems', '/v1.6/rubygems.html'
-  = link_to 'RubyMotion', '/v1.6/rubymotion.html'
+  = link_to 'Rails 3', './rails3.html'
+  = link_to 'Rails 2.3', './rails23.html'
+  = link_to 'Sinatra', './sinatra.html'
+  = link_to 'Rubygems', './rubygems.html'
+  = link_to 'RubyMotion', './rubymotion.html'
 
 %h2#get-involved Get involved
 %p== Bundler has a lot of contributors and users, and they all talk to each other quite a bit. If you have questions, try #{link_to 'the IRC channel', 'http://webchat.freenode.net/?channels=bundler'} or #{link_to 'mailing list', 'http://groups.google.com/group/ruby-bundler'}. If you're interested in contributing to the project (no programming skills needed), read #{link_to 'the contributing guide', 'https://github.com/bundler/bundler/blob/master/DEVELOPMENT.md'}. While participating in the Bundler project, please keep the #{link_to 'code of conduct', '/conduct.html'} in mind, and be inclusive and friendly towards everyone. If you have sponsorship or security questions, please contact the core team directly.

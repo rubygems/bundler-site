@@ -57,6 +57,23 @@
 
   .bullet
     .description
+      If some of your gems need to be fetched from a private gem server, this default source can be overridden for those gems.
+
+      For a gem server that contains a single gem, it is easiest to use the <code>:source</code> option on that gem.
+    :code
+      # lang: ruby
+      gem 'my_gem', '1.0', :source => 'https://gems.example.com'
+    .description
+      If several gems come from the same same server, you can use a <code>source</code> block to group them together.
+    :code
+      # lang: ruby
+      source 'https://gems.example.com' do
+        gem 'my_gem', '1.0'
+        gem 'another_gem', '1.2.1'
+      end
+
+  .bullet
+    .description
       Git repositories are also valid gem sources, as long as the repo contains one or
       more valid gems. Specify what to check out with <code>:tag</code>,
       <code>:branch</code>, or <code>:ref</code>. The default is the <code>master</code> branch.

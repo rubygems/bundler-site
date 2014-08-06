@@ -71,10 +71,18 @@
   .bullet
     .description
       Bundler adheres strictly to semantic versioning, and version 1.7.0 is
-      fully backwards compatible with earlier versions. If you have an
-      application that uses multiple gem servers in its <code>Gemfile</code>,
-      the Bundler team highly recommends upgrading to Bundler 1.7.0
-      and updating the <code>Gemfile</code> to use the new syntax.
+      fully backwards compatible with any <code>Gemfile</code> that worked with
+      earlier versions. If you have an application that uses multiple gem
+      servers in its <code>Gemfile</code>, you may see warnings about ambiguous
+      gem sources after upgrading. Whether or not you see these warnings, the
+      Bundler team highly recommends that users of multiple gem servers update
+      your <code>Gemfile</code> to use the new syntax.
+
+    .note
+      Use of the new <code>source</code> syntax will cause your
+      <code>Gemfile</code> to become incompatible with Bundler versions earlier
+      than 1.7.0. You should only perform this change after updating Bundler in
+      all of your environments.
 
       %ol
         %li

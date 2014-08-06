@@ -20,9 +20,9 @@
 
   %p
     This <code>Gemfile</code> says a few things. First, it says that bundler should look for gems
-    declared in the <code>Gemfile</code> at <code>https://rubygems.org</code>. You can declare
-    multiple Rubygems sources, and bundler will look for gems in the order you declared the
-    sources.
+    declared in the <code>Gemfile</code> at <code>https://rubygems.org</code> by default. If some
+    of your gems need to be fetched from a private gem server, this default source can be overridden
+    for those gems.
 
   %p
     Next, you declare a few dependencies:

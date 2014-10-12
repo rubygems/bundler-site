@@ -21,6 +21,20 @@
 
   .bullet
     .description
+      To access private repositories, you can use <code>bundle config</code> to
+      set the username and password on a per-source basis.
+    :code
+      $ bundle config https://gems.example.com/ user:password
+    .description
+      As an alternative, you can provide credentials directly in the source URL.
+    :code
+      # lang: ruby
+      source "https://user:password@gems.example.com"
+    .description
+      Credentials provided in the source URL will take precedence.
+
+  .bullet
+    .description
       Declare the gems that you need, including version numbers. Specify versions using the same
       syntax that Rubygems supports for dependencies.
     :code
@@ -71,6 +85,9 @@
         gem 'my_gem', '1.0'
         gem 'another_gem', '1.2.1'
       end
+    .description
+      Credentials for gem servers can be specified either in the URL or using
+      <code>bundle config</code>, as described above.
 
   .bullet
     .description

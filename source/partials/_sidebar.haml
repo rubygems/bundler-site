@@ -55,7 +55,13 @@
 
   .shirts
     .content
+      = link_to 'http://www.stickermule.com/marketplace/2559-bundler-logo-sticker', :class => 'image', :onclick => "ga('send', 'stickermule');" do
+        = image_tag '/images/bundler-sticker.png', :width => '150'
+      %p
+        =link_to 'Buy Bundler Stickers!', 'http://www.stickermule.com/marketplace/2559-bundler-logo-sticker', :onclick => "ga('send', 'stickermule');"
+
+      %br
       = link_to 'http://www.devswag.com/collections/bundler', :class => 'image', :onclick => "ga('send', 'devswag');" do
         = image_tag '/images/bundler-shirt.png'
       %p
-        =link_to 'Buy Bundler Shirts & Stickers!', 'http://www.devswag.com/collections/bundler', :onclick => "ga('send', 'devswag');"
+        =link_to 'Buy Bundler Shirts!', 'http://www.devswag.com/collections/bundler', :onclick => "ga('send', 'devswag');"

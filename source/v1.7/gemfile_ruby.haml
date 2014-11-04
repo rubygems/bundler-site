@@ -6,7 +6,8 @@
       Like gems, developers can setup a dependency on Ruby. This makes your app fail faster in case you depend on specific features in a Ruby VM. This way, the Ruby VM on your deployment server will match your local one. You can do this by using the <code>ruby</code> directive in the <code>Gemfile</code>:
     :code
       # lang: ruby
-      ruby 'RUBY_VERSION', :engine => 'ENGINE', :engine_version => 'ENGINE_VERSION', :patchlevel => 'RUBY_PATCHLEVEL'
+      ruby 'RUBY_VERSION', :engine => 'ENGINE', :engine_version => 'ENGINE_VERSION',
+        :patchlevel => 'RUBY_PATCHLEVEL'
 
   .bullet
     .description

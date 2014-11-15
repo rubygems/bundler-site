@@ -40,9 +40,10 @@ end
 page "/blog/feed.xml", layout: false
 
 configure :development do
-  # activate :livereload
+  activate :livereload
 end
 
 configure :build do
   activate :minify_css
 end
+

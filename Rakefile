@@ -2,11 +2,7 @@ require "bundler/setup"
 
 directory "vendor"
 directory "vendor/bundler" => ["vendor"] do
-  system "git clone git@github.com:bundler/bundler.git vendor/bundler"
-  # Some users don't have private permissions
-  if !File.exist?("vendor/bundler")
-    system "git clone git://github.com/bundler/bundler.git vendor/bundler"
-  end
+  system "git clone https://github.com/bundler/bundler.git vendor/bundler"
 end
 
 task :update_vendor => ["vendor/bundler"] do
@@ -34,24 +30,18 @@ task :man => [:update_vendor] do
   cp_r "build/v1.7/man", "build/man"
 end
 
-desc "Pulls in ISSUES.md from the master branch."
-task :issues => [:update_vendor] do
-
+desc "Pulls in pages maintained in the bundler repo."
+task :repo_pages => [:update_vendor] do
   Dir.chdir "vendor/bundler" do
     sh "git reset --hard HEAD"
     sh "git checkout origin/master"
     cp "ISSUES.md", "../../source/issues.md"
+    cp "CODE_OF_CONDUCT.md", "../../source/conduct.md"
   end
-
-end
-
-desc "Build the static site"
-task :build => [:issues] do
-  sh "middleman build --clean"
 end
 
 directory "vendor/bundler.github.io" => ["vendor"] do
-  system "git clone git@github.com:bundler/bundler.github.io.git vendor/bundler.github.io"
+  system "git clone https://github.com/bundler/bundler.github.io.git vendor/bundler.github.io"
 end
 
 task :update_site => ["vendor/bundler.github.io"] do
@@ -62,8 +52,13 @@ task :update_site => ["vendor/bundler.github.io"] do
   end
 end
 
+desc "Build the static site"
+task :build => [:man, :repo_pages] do
+  sh "middleman build --clean"
+end
+
 desc "Release the current commit to bundler/bundler.github.io"
-task :release => [:update_vendor, :build, :man, :issues, :update_site] do
+task :release => [:build, :update_site] do
   commit = `git rev-parse HEAD`.chomp
 
   Dir.chdir "vendor/bundler.github.io" do
@@ -79,5 +74,5 @@ end
 
 # Allow Heroku deploys to build the site (for previewing)
 namespace :assets do
-  task :precompile => [:build, :man]
+  task :precompile => :build
 end

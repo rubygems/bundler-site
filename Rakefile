@@ -53,12 +53,12 @@ task :update_site => ["vendor/bundler.github.io"] do
 end
 
 desc "Build the static site"
-task :build => [:man, :repo_pages] do
+task :build => [:repo_pages] do
   sh "middleman build --clean"
 end
 
 desc "Release the current commit to bundler/bundler.github.io"
-task :release => [:build, :update_site] do
+task :release => [:build, :man, :update_site] do
   commit = `git rev-parse HEAD`.chomp
 
   Dir.chdir "vendor/bundler.github.io" do

@@ -1,0 +1,54 @@
+@font-face {
+  font-family: 'octicons';
+  src: font-url('//cdnjs.cloudflare.com/ajax/libs/octicons/2.1.2/octicons.eot?#iefix') format('embedded-opentype'),
+       font-url('//cdnjs.cloudflare.com/ajax/libs/octicons/2.1.2/octicons.woff') format('woff'),
+       font-url('//cdnjs.cloudflare.com/ajax/libs/octicons/2.1.2/octicons.ttf') format('truetype'),
+       font-url('//cdnjs.cloudflare.com/ajax/libs/octicons/2.1.2/octicons.svg#octicons') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.octicon {
+  font: normal normal normal 16px/1 octicons;
+  display: inline-block;
+  text-decoration: none;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+#contents {
+  h2 {
+    position: relative;
+
+    .anchor {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      display: block;
+      padding-right: 6px;
+      padding-left: 30px;
+      margin-left: -30px;
+      padding-top: 4px;
+      padding-bottom: 4px;
+    }
+    &:hover {
+      .octicon-link:before { content: '\f05c' };
+      .octicon-link { display: inline-block };
+      .anchor {
+        border-bottom: none;
+        margin-left: -30px;
+        padding-left: 8px;
+      }
+    }
+  }
+  .octicon-link {
+    display: none;
+  }
+  .octicon-link:before { content: '\f05c' };
+}

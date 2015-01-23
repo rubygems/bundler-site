@@ -8,17 +8,6 @@
     %li= link_to 'Discuss and Contribute', '/#get-involved'
     %li= link_to 'View FAQs', "/#{current_version}/faq.html"
 
-  .shirts
-    .content
-      %p
-        Bundler is developed entirely by a team of volunteers.
-        = link_to 'Support their work', 'http://www.gittip.com/bundler'
-        and help make Bundler better for everyone.
-      %p
-        %script{"data-gittip-username" => "bundler", "src" => "//gttp.co/v1.js"}
-        %br
-        %br
-
   %h2 Read the latest news
   %ul
     - blog.articles[0..1].each_with_index do |article, index|

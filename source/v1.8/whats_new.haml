@@ -1,0 +1,65 @@
+= partial "shared/whats_new"
+
+%h2#version18 What's New in v1.8
+
+.contents
+  .bullet
+    .description
+      %p
+        Bundler 1.8 comes with a host of new features to improve gem isolation,
+        better support for using multi-platform gems in deployment, and faster
+        <code>bundle exec</code> among other changes.
+      %p
+        In this section, you’ll find the major features introduced in this release. All the changes are documented in the Bundler 1.8 changelog.
+        = link_to 'Full 1.8 changelog', 'https://github.com/bundler/bundler/blob/1-8-stable/CHANGELOG.md'
+
+
+%h2#disable-multisource Enforce Source Hijacking Protection
+
+.contents
+  .bullet
+    .description
+      %p
+        If a <code>Gemfile</code> <em>does</em> have multiple top-level gem
+        sources, <code>bundle install</code> warns when a gem is found in more
+        than one source. Setting <code>config disable_multisource</code> turns
+        this warning into an error.
+
+%h2#all-sources Improved gem lookup
+
+.contents
+  .bullet
+    .description
+      %p
+        Gems are now looked up across all sources to satisfy dependencies. In addition, installed gems are now also looked up in remote sources.
+
+%h2#install-and-package-improvements New options for <code>bundle package</code>
+
+.contents
+  .bullet
+    .description
+      %p
+        You can now pass the <code>--no-install</code> flag to <code>bundle package</code> in order to update the gem cache, but not actually install gems. <code>bundle package</code> also takes a new <code>--all-platforms</code>, enabling caching of gem files for platforms other than the one bundler is run on. This solves some problems when deploying on a platform that is different from the development platform.
+
+%h2#new-gem-improvements Improved templates for new Gems
+
+.contents
+  .bullet
+    .description
+      %p
+        Creating new gems now includes more metadata in the template, sets the version appropriately, adds a gem code of conduct file, license setting and appropriate config options.
+
+%h2#other-changes Other changes
+
+.contents
+  .bullet
+    .description
+      Bundler 1.8 also includes:
+      %ul
+        %li improved resolver performance
+        %li speed improvements when running <code>bundle exec</code> with commands on the <code>$PATH</code>
+        %li detection of malformed <code>Gemfile.lock</code>
+        %li improved error handling and better explanations
+        %li new shortcuts for git sources from Bitbucket and GitHub Gists
+        %li More configurability
+      = link_to 'Full 1.8 changelog', 'https://github.com/bundler/bundler/blob/1-8-stable/CHANGELOG.md'

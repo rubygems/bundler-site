@@ -26,6 +26,9 @@
     = command_table_row do |command|
       - command.name   = 'config'
       - command.desc   = 'Retrieve or set a configuration value'
+      - command.option = 'local'
+      - command.option = 'global'
+      - command.option = 'delete'
     = command_table_row do |command|
       - command.name   = 'console'
       - command.desc   = 'Opens an IRB session with the bundle pre-loaded'
@@ -80,10 +83,12 @@
       - command.option = 'local'
       - command.option = 'pre'
       - command.option = 'source'
+      - command.option = 'strict'
     = command_table_row do |command|
       - command.name   = 'package'
       - command.desc   = 'Locks and then caches all of the gems into vendor/cache'
       - command.option = 'all'
+      - command.option = 'all-platforms'
       - command.option = 'gemfile'
       - command.option = 'no-install'
       - command.option = 'no-prune'
@@ -116,3 +121,4 @@
       - command.option = 'format or -F'
       - command.option = 'requirements or -r'
       - command.option = 'version or -v'
+      - command.option = 'without'

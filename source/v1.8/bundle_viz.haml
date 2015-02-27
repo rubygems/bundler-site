@@ -6,6 +6,7 @@
       Generates a visual dependency graph
     :code
       $ bundle viz [--file=FILE] [--format=FORMAT] [--requirements] [--version]
+                   [--without=GROUP GROUP]
     .notes
       %p
         Options:
@@ -17,6 +18,9 @@
         <code>--requirements or -r</code>: Set to show the version of each required dependency.
       %p
         <code>--version or -v</code>: Set to show each gem version.
+      %p
+        <code>--without</code>: Exclude gems that are part of the specified named group.
+        = link_to 'Learn More: Groups', './groups.html'
     .description
       Viz generates a PNG file of the current Gemfile as a dependency graph.
       Viz requires the ruby-graphviz gem (and its dependencies).

@@ -5,7 +5,7 @@
     .description
       Run the command in context of the bundle
     :code
-      $ bundle exec [--keep-file-descriptors]
+      $ bundle exec [--keep-file-descriptors] <command>
     .notes
       %p
         Options:
@@ -14,6 +14,13 @@
         keeps non-standard file descriptors on Kernel#exec
 
     .description
-      Exec runs a command, providing it access to the gems in the bundle. While using
-      bundle exec you can require and call the bundled gems as if they were installed
-      into the systemwide Rubygems repository.
+      This command executes the command, making all gems specified in the
+      <code>Gemfile(5)</code> available to <code>require</code> in Ruby programs.
+
+      Essentially, if you would normally have run something like
+      <code>rspec spec/my_spec.rb</code>, and you want to use the gems specified
+      in the <code>Gemfile</code> and installed via <code>bundle install</code>, you
+      should run <code>bundle exec rspec spec/my_spec.rb</code>.
+
+      Note that <code>bundle exec</code> does not require that an executable is
+      available on your shell's <code>$PATH</code>.

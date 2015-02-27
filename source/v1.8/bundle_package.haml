@@ -5,7 +5,7 @@
     .description
       Locks and then caches the gems into <code>./vendor/cache</code>.
     :code
-      $ bundle package [--all] [--gemfile=GEMFILE] [--no-prune]
+      $ bundle package [--all] [--all-platforms] [--gemfile=GEMFILE] [--no-prune]
                        [--path=PATH] [--quiet]
     .notes
       %p
@@ -13,10 +13,11 @@
       %p
         <code>--all</code>: package <code>:git</code>, <code>:path</code>, and <code>.gem</code> dependencies. Once used, the <code>--all</code> option will be remembered.
       %p
+        <code>--all-platforms</code>: package dependencies for all known platforms, not only the one that <code>bundle package</code> is run on. This option will be remembered in your local Bundler configuration.
+      %p
         <code>--gemfile</code>: Use the specified gemfile instead of Gemfile.
-      -# waiting for 1.8 to come out
-      -# %p
-        -# <code>--no-install</code>: Don't actually install the gems, just package.
+      %p
+        <code>--no-install</code>: Don't actually install the gems, just package.
       %p
         <code>--no-prune</code>: Don't remove stale gems from the cache.
       %p
@@ -26,13 +27,10 @@
     .description
       %p
         The package command will copy the <code>.gem</code> files for your gems in the
-        bundle into <code>./vendor/cache</code>. Afterward, when you run <code>bundle install</code>,
-        Bundler will use the gems in the cache in preference to the ones on rubygems.org.
+        bundle into <code>./vendor/cache</code>. Afterward, when you run <code>bundle install</code>, Bundler will use the gems in the cache in preference to the ones on rubygems.org.
 
       %p
-        Additionally, if you then check that directory into your source control repository,
-        others who check out your source will be able to install the bundle without having
-        to download any additional gems.
+        Additionally, if you then check that directory into your source control repository, others who check out your source will be able to install the bundle without having to download any additional gems.
 
   .bullet
     .description

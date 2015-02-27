@@ -118,6 +118,16 @@
 
   .bullet
     .description
+      If you would like to use multiple local gems directly from the filesystem, you can set a global `path` option to the path containing the gem's files. This will automatically load gemspec files from subdirectories.
+    :code
+      # lang: ruby
+      path 'components' do
+        gem 'admin_ui'
+        gem 'public_ui'
+      end
+
+  .bullet
+    .description
       Dependencies can be placed into groups. Groups can be ignored at install-time (using <code>--without</code>) or required all at once (using <code>Bundler.require</code>).
     :code
       # lang: ruby

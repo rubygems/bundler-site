@@ -70,6 +70,8 @@ task :release => [:build, :man, :update_site] do
     sh "git commit -m 'bundler/bundler-site@#{commit}'"
     sh "git push origin master"
   end
+
+  sh "git push origin master"
 end
 
 # Allow Heroku deploys to build the site (for previewing)

@@ -7,7 +7,7 @@ category: release
 ---
 
 [Bundler 1.8](https://github.com/bundler/bundler/blob/v1.8.0/lib/bundler/templates/newgem/newgem.gemspec.tt)
-[moves the executables directory in generated gemspecs from `bin` to `exe`](https://github.com/bundler/bundler/commit/ab3e21784c6c18702869c771fbe7ae23c82cc7c0).
+[moves the executables directory in generated gemspecs from `bin/` to `exe/`](https://github.com/bundler/bundler/commit/ab3e21784c6c18702869c771fbe7ae23c82cc7c0).
 
 ~~~ diff
 -  spec.executables   = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
@@ -15,26 +15,31 @@ category: release
 ~~~
 
 This means that the Bundler-generated gems can use and commit binstubs,
-such as `bin/rake`, to the `bin` directory.  Only files in the `exe` directory
+such as `bin/rake`, to the `bin/` directory.  Only files in the `exe/` directory
 will be built with the gem.  Prior to this change, we would need to either not
 commit binstubs or change the gemspec not to include all files in `bin` as
 executables.
 
 There's nothing that needs to be done for existing gems.  To modify an existing gem
-to use this convention, we only need to move the executable(s), if any, into `exe`,
-and modify the gemspec `executables` directory to `exe`, as above.
+to use this convention, we only need to move the executable(s), if any, into `exe/`,
+and modify the gemspec `executables` directory to `exe/`, as above.
+
+Using the `exe/` directory for gem executables frees up `bin/` to be used for
+`bundle binstubs rspec-core; bin/rspec` and other libraries that have adopted this
+convention, such as Rails, which installs the scripts `bin/rails`, `bin/rake`, and
+`bin/setup` with all generated apps.
 
 ### Background
 
-This is a new convention.  The current practice of both specifying `bin` as the
+This is a new convention.  The current practice of both specifying `bin/` as the
 `executables` directory and where we put binstubs and other development-only
 executables such as `bin/rails` or `bin/setup`, meant that Bundler-generated
 gems with executables were quite likely to have these development executables
 included in the built gem, and then installed along with the gem.
 
 Rather than make the gemspec template more restrictive by only specifying one
-executable in `bin` as an `executable`, the Bundler team has chosen to use a
-different directory, `exe`, as the `executables` directory in the template.
+executable in `bin/` as an `executable`, the Bundler team has chosen to use a
+different directory, `exe/`, as the `executables` directory in the template.
 
 This change is just part of the evolving conventions in gem development.  RSpec,
 for example, has had its executable [in `exe` since 2011](https://github.com/RSpec/RSpec-core/blob/v2.7.0/RSpec-core.gemspec#L19).
@@ -98,7 +103,7 @@ Bundler is using a binstub that was created for a different gem.
 This is deprecated, in future versions you may need to `bundle binstub new_gem` to work around a system/bundle conflict.
 ~~~
 
-This happened because of the line in the gemspec that installed all git-versioned files in bin:
+This happened because of the line in the gemspec that installed all git-versioned files in `bin/`:
 
 ~~~ ruby
   spec.executables   = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
@@ -148,7 +153,7 @@ To fix our gemspec:
 
 Or just delete the line altogether, since new_gem doesn't have an executable.
 
-If it did, we could continue to use `bin`, create the file as `bin/new_gem` and
+If it did, we could continue to use `bin/`, create the file as `bin/new_gem` and
 specify it as the only executable.
 
 
@@ -156,6 +161,6 @@ specify it as the only executable.
   spec.executables   = "new_gem"
 ~~~
 
-Or use the new `exe` convention, create a file such as `exe/new_gem`, and not worry.
+Or use the new `exe/` convention, create a file such as `exe/new_gem`, and not worry.
 
 Enjoy!

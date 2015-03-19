@@ -1,7 +1,8 @@
 ---
 title: Announcing Ruby Together
 date: 2015-03-19 02:56 UTC
-tags:
+author_url: "http://arko.net"
+category: announcement
 ---
 
 All of the infrastructure used by Ruby developers today, including [Bundler][bundler], [RubyGems][rubygems], and [RubyGems.org](https://rubygems.org/) is maintained and developed by volunteers.  While it's good that no one company controls resources shared by the community, it's terrible that the only people who work on our shared infrastructure are doing so for free and in their spare time.

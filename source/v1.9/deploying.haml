@@ -1,0 +1,155 @@
+%h2 Deploying bundled applications
+.contents
+  .bullet
+    .description
+      Before deploying an app that uses Bundler, Add your <code>Gemfile</code>
+      and <code>Gemfile.lock</code> to source control, but ignore the
+      <code>.bundle</code> folder, which is specific to each machine.
+    :code
+      $ echo ".bundle" >> .gitignore
+      $ git add Gemfile Gemfile.lock .gitignore
+      $ git commit -m "Add Bundler support"
+    .notes
+      Once you have done that, there are two ways to deploy using Bundler:
+      manually or automatically.
+
+  .bullet
+    .description
+      %h3 Manual deployment
+      In your deploy script, after updating to the latest
+      code, install your bundle to the <code>vendor/bundle</code>
+      directory, ensuring all your dependencies are met.
+    :code
+      $ bundle install --deployment
+    .notes
+      %p
+        Start your application servers as usual, and your
+        application will use your bundled environment
+        with the exact same gems you use in development.
+
+      %p
+        If you have run <code>bundle package</code>, the cached
+        gems will be used automatically.
+
+      = link_to 'Learn More: Packing', './bundle_package.html'
+
+  .bullet
+    %h3 Automatic deployment with Capistrano
+    .description
+      To pull in the Bundler Cap task, just add this to your
+      <code>deploy.rb</code> file:
+    :code
+      # lang: ruby
+      require 'bundler/capistrano'
+    .notes
+      That's it! Running <code>cap deploy</code> will now automatically run
+      <code>bundle install</code> on the remote server with deployment-friendly
+      options. A list of options that can be changed is available in the help
+      for the cap task. To see it, run <code>cap -e bundle:install</code>.
+
+  .bullet
+    .description
+      %h3 Automatic deployment with Vlad
+      There is a default Vlad task available. To make it available, add this line
+      to the Vlad <code>deploy.rb</code>.
+    :code
+      # lang: ruby
+      require 'bundler/vlad'
+    .notes
+      Once you have done that, the <code>vlad:bundle:install</code> task will be
+      available for use. Make sure it is run as part of your deploy. For example:
+    :code
+      # lang: ruby
+      task "vlad:deploy" => %w[
+        vlad:update vlad:bundle:install vlad:start_app vlad:cleanup
+      ]
+
+  .bullet
+    .description
+      %h3 After deploying
+      Make sure to use <code>bundle exec</code> to run any executables
+      from gems in the bundle
+    :code
+      $ bundle exec rake db:setup
+    .notes
+      Alternatively, you can use the <code>--binstubs</code> option on the
+      install command to generate executable binaries that can be used instead of
+      <code>bundle exec</code>.
+    = link_to 'Learn More: Executables', './man/bundle-exec.1.html'
+
+  .bullet
+    .description
+      %h3 Heroku
+      When you deploy to Heroku, Bundler will be run automatically as long as a Gemfile is present. If you check in your Gemfile.lock, Heroku will run <code>`bundle install --deployment`</code>. If you want to exclude certain groups using the <code>--without</code> option, you need to use <code>`heroku config`</code>.
+    :code
+      $ heroku config:add BUNDLE_WITHOUT="test development" --app app_name
+    = link_to 'Heroku Bundler Documentation', 'http://docs.heroku.com/bundler'
+
+  %h2#deploying-your-application
+    Deploying Your Application
+
+  .bullet
+    .description
+      When you run <code>bundle install</code>, bundler will (by default), install your gems
+      to your system repository of gems. This means that they will show up in <code>gem
+      list</code>. Additionally, if you are developing a number of applications, you will not
+      need to download and install gems in common for each application. This is nice for
+      development, but somewhat problematic for deployment.
+
+    %p.description
+      In a deployment scenario, the Unix user you deploy with may not have access to install
+      gems to a system location. Even if the user does (or you use <code>sudo</code>), the
+      user that boots the application may not have access to them. For instance, Passenger
+      runs its Ruby subprocesses with the user <code>nobody</code>, a somewhat restricted
+      user. The tradeoffs in a deployment environment lean more heavily in favor of isolation
+      (even at the cost of a somewhat slower deploy-time <code>bundle install</code> when some
+      third-party dependencies have changed).
+
+    %p.description
+      As a result, bundler comes with a <code>--deployment</code> flag that encapsulates the
+      best practices for using bundler in a deployment environment. These practices are based
+      on significant feedback we have received during the development of bundler, as well as a
+      number of bug reports that mostly reflected a misunderstanding of how to best configure
+      bundler for deployment. The <code>--deployment</code> flags adds the following defaults:
+
+    .description
+      %ul
+        %li
+          Instead of installing gems to the system location, bundler will install gems to
+          <code>vendor/bundle</code> inside your application. Bundler will transparently remember
+          this location when you invoke it inside your application (with
+          <code>Bundler.setup</code> and <code>Bundler.require</code>).
+        %li
+          Bundler will not use gems already installed to your system, even if they exist.
+        %li
+          If you have run <code>bundle pack</code>, checked in the <code>vendor/cache</code>
+          directory, and do not have any git gems, Bundler will not contact the internet while
+          installing your bundle.
+        %li
+          Bundler will require a <code>Gemfile.lock</code> snapshot, and fail if you did not
+          provide one.
+        %li
+          Bundler will not transparently update your <code>Gemfile.lock</code> if it is out of
+          date with your <code>Gemfile</code>
+
+    %p.description
+      If you use Capistrano, you should symlink <code>vendor/bundle</code> to
+      <code>shared/vendor_bundle</code> so that bundler will share your installed gems between
+      deployments (making things zippy if you didn't make any changes), but still give you the
+      benefits of isolation from other applications.
+
+    %p.description
+      By defaulting the bundle directory to <code>vendor/bundle</code>, and installing your
+      bundle as part of your deployment process, you can be sure that the same Unix user that
+      checked out your application also installed the third-party code your application needs.
+      This means that if Passenger (or Unicorn) can see your application, it can also see its
+      dependencies.
+
+    %p.description
+      The <code>--deployment</code> flag requires an up-to-date <code>Gemfile.lock</code> to
+      ensure that the testing you have done (in development and staging) actually reflects the
+      code you put into production. You can run <code>bundle check</code> before deploying
+      your application to make sure that your <code>Gemfile.lock</code> is up-to-date. Note
+      that it will always be up-to-date if you have run <code>bundle install</code>,
+      successfully booted your application (or run your tests) since the last time you changed
+      your <code>Gemfile</code>.

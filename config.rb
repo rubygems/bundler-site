@@ -1,7 +1,8 @@
 activate :syntax
 set :markdown_engine, :kramdown
 
-set :current_version, 'v1.8'
+set :versions, `rake versions`.split
+set :current_version, versions.last
 
 # Make documentation for the latest version available at the top level, too.
 # Any pages with names that conflict with files already at the top level will be skipped.

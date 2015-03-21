@@ -1,0 +1,117 @@
+%h2 bundle install
+
+.contents
+  .bullet
+    .description
+      Make sure all dependencies in your Gemfile are available to your application.
+    :code
+      $ bundle install [--binstubs=PATH] [--clean] [--deployment] [--frozen]
+                       [--full-index] [--gemfile=FILE] [--local] [--no-cache]
+                       [--no-prune] [--path=PATH] [--quiet] [--shebang=STRING]
+                       [--standalone[=GROUP [GROUP...]] [--system]
+                       [--without=GROUP[ GROUP...]] [--retry=NUMBER]
+                       [--trust-policy=SECURITYLEVEL]
+    .notes
+      %p
+        Options:
+      %p
+        <code>--binstubs</code>: Generate bin stubs for bundled gems to ./bin
+      %p
+        <code>--clean</code>: Run bundle clean automatically after install
+      %p
+        <code>--deployment</code>: Install using defaults tuned for deployment environments
+      %p
+        <code>--frozen</code>: Do not allow the Gemfile.lock to be updated after this install
+      %p
+        <code>--full-index</code>: Use the rubygems modern index instead of the API endpoint
+      %p
+        <code>--gemfile</code>: Use the specified gemfile instead of Gemfile
+      %p
+        <code>--jobs</code>: Install gems using parallel workers.
+      %p
+        <code>--local</code>: Do not attempt to fetch gems remotely and use the gem cache instead
+      %p
+        <code>--no-cache</code>: Don't update the existing gem cache.
+      %p
+        <code>--no-prune</code>: Don't remove stale gems from the cache.
+      %p
+        <code>--path</code>: Specify a different path than the system default ($BUNDLE_PATH or $GEM_HOME). Bundler will remember this value for future installs on this machine
+      %p
+        <code>--quiet</code>: Only output warnings and errors.
+      %p
+        <code>--retry</code>: Retry network and git requests that have failed.
+      %p
+        <code>--shebang</code>: Specify a different shebang executable name than the default (usually 'ruby')
+      %p
+        <code>--standalone</code>: Make a bundle that can work without the Bundler runtime
+      %p
+        <code>--system</code>: Install to the system location ($BUNDLE_PATH or $GEM_HOME) even if the bundle was previously installed somewhere else for this application
+      %p
+        <code>--trust-policy</code>: Sets level of security when dealing with signed gems. Accepts `LowSecurity`, `MediumSecurity` and `HighSecurity` as values.
+      %p
+        <code>--without</code>: Exclude gems that are part of the specified named group.
+    .notes
+      %p
+        Gems will be installed to your default system location for gems. If your
+        system gems are stored in a root-owned location (such as in Mac OSX),
+        bundle will ask for your root password to install them there.
+      %p
+        While installing gems, Bundler will check <code>vendor/cache</code> and then
+        your system's gems. If a gem isn't cached or installed, Bundler will try to
+        install it from the sources you have declared in your Gemfile.
+      %p
+        The <code>--system</code> option is the default. Pass it to switch back after
+        using the <code>--path</code> option as described below.
+
+  .bullet#path
+    .description
+      Install your dependencies, even gems that are already installed
+      to your system gems, to a location other than your system's gem
+      repository. In this case, install them to <code>vendor/bundle</code>.
+    .how
+      :code
+        $ bundle install --path vendor/bundle
+      .notes
+        Further <code>bundle</code> commands or calls to <code>Bundler.setup</code> or
+        <code>Bundler.require</code> will remember this location.
+      = link_to 'Learn More: Bundler.setup', './bundler_setup.html'
+      = link_to 'Learn More: Bundler.require', './groups.html'
+
+  .bullet#without
+    .description
+      Install all dependencies except those in groups that are explicitly excluded.
+    :code
+      $ bundle install --without development test
+    = link_to 'Learn More: Groups', './groups.html'
+
+  .bullet#deployment
+    .description
+      Install all dependencies on to a production server.
+      Do <b>not</b> use this flag on a development machine.
+    :code
+      $ bundle install --deployment
+    .notes
+      %p
+        The <code>--deployment</code> flag activates a number of deployment-friendly
+        conventions:
+
+      %ul
+        %li Isolate all gems into <code>vendor/bundle</code>
+        %li Require an up-to-date <code>Gemfile.lock</code>
+        %li
+          If <code>bundle package</code> was run, do not fetch gems
+          from rubygems.org. Instead, only use gems in the checked
+          in <code>vendor/cache</code>
+    = link_to 'Learn More: Deploying', './deploying.html'
+
+  .bullet#jobs
+    .description
+      Install gems parallely by starting the number of workers specificed.
+    :code
+      $ bundle install --jobs 4
+
+  .bullet#retry
+    .description
+      Retry failed network or git requests.
+    :code
+      $ bundle install --retry 3

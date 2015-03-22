@@ -9,9 +9,14 @@ task :update_vendor => ["vendor/bundler"] do
   Dir.chdir("vendor/bundler") { sh "git fetch" }
 end
 
+VERSIONS = %w(v0.9 v1.0 v1.1 v1.2 v1.3 v1.5 v1.6 v1.7 v1.8 v1.9).freeze
+task :versions do
+  puts VERSIONS.join(' ')
+end
+
 desc "Pull in the man pages for the specified gem versions."
 task :man => [:update_vendor] do
-  %w(v1.0 v1.1 v1.2 v1.3 v1.5 v1.6 v1.7 v1.8).each do |version|
+  VERSIONS.each do |version|
     branch = (version[1..-1].split('.') + %w(stable)).join('-')
 
     mkdir_p "build/#{version}/man"
@@ -27,7 +32,7 @@ task :man => [:update_vendor] do
   end
 
   # Make man pages for the latest version available at the top level, too.
-  cp_r "build/v1.8/man", "build/man"
+  cp_r "build/#{VERSIONS.last}/man", "build/man"
 end
 
 desc "Pulls in pages maintained in the bundler repo."

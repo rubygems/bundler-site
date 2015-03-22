@@ -383,32 +383,6 @@ pre {
   }
 }
 
-@mixin versions($left, $color) {
-  position: absolute;
-  top: 0;
-  left: $left;
-  padding: 0.4em;
-  background: $color;
-  @include border-bottom-right-radius(10px);
-  a {
-    @include bundler-link;
-    padding: 0.1em 0.25em;
-  }
-  a.current {
-    font-weight: bold;
-  }
-}
-
-#prod-versions {
-  @include versions(0, #b2d0d4);
-  z-index: 1;
-}
-
-#rc-versions {
-  @include versions(87px, #e8e991);
-  z-index: 0;
-}
-
 #command_reference {
   padding-top: 20px;
   th {

@@ -1,0 +1,5 @@
+%h2 Older Versions of Bundler
+.buttons
+  - (versions - [current_version]).each do |version|
+    = link_to(version, "/#{version}/index.html")
+

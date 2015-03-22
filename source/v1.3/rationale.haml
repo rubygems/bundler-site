@@ -21,7 +21,7 @@
   %p
     This <code>Gemfile</code> says a few things. First, it says that bundler should look for gems
     declared in the <code>Gemfile</code> at <code>https://rubygems.org</code>. You can declare
-    multiple Rubygems sources, and bundler will look for gems in the order you declared the
+    multiple RubyGems sources, and bundler will look for gems in the order you declared the
     sources.
 
   %p
@@ -176,7 +176,7 @@
   %p
     If you have run <code>bundle pack</code>, the gems (although not the git gems) required
     by your bundle will be downloaded into <code>vendor/cache</code>. Bundler can run without
-    connecting to the internet (or the Rubygems server) if all the gems you need are present
+    connecting to the internet (or the RubyGems server) if all the gems you need are present
     in that folder and checked in to your source control. This is an <strong>optional</strong>
     step, and not recommended, due to the increase in size of your source control repository.
 
@@ -413,5 +413,5 @@
     compatible projects. Constrain it too little (<code>rack >= 1.0</code>) and a new
     release of Rack may break your code. Using dependencies like <code>rack ~> 1.2.1</code>
     and versioning code in a SemVer compliant way mostly solves this problem, but it assumes
-    universal compliance. Since Rubygems has over 100,000 packages, this assumption simply
+    universal compliance. Since RubyGems has over 100,000 packages, this assumption simply
     doesn't hold in practice.

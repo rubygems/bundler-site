@@ -404,11 +404,6 @@ pre {
   z-index: 1;
 }
 
-#rc-versions {
-  @include versions(87px, #e8e991);
-  z-index: 0;
-}
-
 #command_reference {
   padding-top: 20px;
   th {

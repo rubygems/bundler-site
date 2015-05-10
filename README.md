@@ -1,5 +1,5 @@
 # bundler.io
-bundler.io is intended to serve as a convenient source for documentation on the [bundler](https://github.com/bundler/bundler) gem. 
+bundler.io is intended to serve as a convenient source for documentation on the [bundler](https://github.com/bundler/bundler) gem.
 
 The site bundler.io is a static site generated using [Middleman](http://middlemanapp.com/).
 
@@ -12,6 +12,10 @@ Run a local development web server:
     bundle exec middleman server
 
 This will start a local web server running at: *http://localhost:4567*. It will serve the site as it exists in **/source**.
+
+To specify the host and/or port, add the -h, -p flag(s):
+
+    bundle exec middleman -h 0.0.0.0 -p 8080
 
 Note: the development server will automatically reload pages when they or there associated stylesheets are modified. This feature is enabled in **config.rb**.
 

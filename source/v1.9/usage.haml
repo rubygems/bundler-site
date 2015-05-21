@@ -4,11 +4,11 @@
 %br
 
 #standalone
-  %h2#bundlers-purpose-and-rationale
-    Bundler's Purpose and Rationale
+  %h2#using-bundler
+    Using Bundler
   %p
-    First, you declare these dependencies in a file at the root of your application, called
-    <code>Gemfile</code>. It looks something like this:
+    First, you declare these dependencies in a file called <code>Gemfile</code> at your
+    applications root directory. It looks something like this:
 
   :code
     # lang: ruby
@@ -19,10 +19,11 @@
     gem 'nokogiri', '~> 1.6.1'
 
   %p
-    This <code>Gemfile</code> says a few things. First, it says that bundler should look for gems
-    declared in the <code>Gemfile</code> at <code>https://rubygems.org</code> by default. If some
-    of your gems need to be fetched from a private gem server, this default source can be overridden
-    for those gems.
+    This <code>Gemfile</code> says a few things. First, it says that bundler should
+    look for gems declared in the <code>Gemfile</code> at
+    <code>#{link_to 'https://rubygems.org', 'https://rubygems.org'}</code> by default. If some of
+    your gems need to be fetched from a private gem server, this default source can
+    be overridden for those gems.
 
   %p
     Next, you declare a few dependencies:

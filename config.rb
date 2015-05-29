@@ -5,9 +5,6 @@ set :current_version, versions.last
 # Syntax highlighting
 activate :syntax
 
-# Automatic image dimensions on image_tag helper
-activate :automatic_image_sizes
-
 # Set HAML to render HTML5 by default. It's important that HAML outputs "ugly" HTML to not mess with code blocks
 set :haml, format: :html5, ugly: true
 

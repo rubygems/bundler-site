@@ -324,9 +324,12 @@ $ bundle update
 ```
 
 - Whenever your `Gemfile.lock` changes, always check it in to version control. 
-It keeps a history of the exact versions of all third-party code that you used to successfully run your application.
+It keeps a history of the exact versions of all third-party code that you used 
+to successfully run your application.
 
-- When deploying your code to a staging or production server, first run your tests (orboot your local development server), make sure you have checked in your `Gemfile.lock` to version control. On the remote server, run:
+- When deploying your code to a staging or production server, first run your 
+tests (orboot your local development server), make sure you have checked in your
+`Gemfile.lock` to version control. On the remote server, run:
 
 ``` bash
 $ bundle install --deployment

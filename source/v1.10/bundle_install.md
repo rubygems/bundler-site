@@ -79,10 +79,10 @@ $ bundle install --path vendor/bundle
 ```
 
 <aside class="notes">
-  Further `bundle` commands or calls to `Bundler.setup` or `Bundler.require` will remember this location.
+  Further <code>bundle</code> commands or calls to <code>Bundler.setup</code> or <code>Bundler.require</code> will remember this location.
 </aside>
 
-**Learn more:** [Bundler.setup](./bundler_setup.md) | [Bundler.require](./groups.md)
+**Learn more:** [Bundler.setup](./bundler_setup.html) | [Bundler.require](./groups.html)
 
 Install all dependencies except those in groups that are explicitly excluded.
 
@@ -90,7 +90,7 @@ Install all dependencies except those in groups that are explicitly excluded.
 $ bundle install --without development test`
 ```
 
-**Learn more:** [Groups](./groups.md)
+**Learn more:** [Groups](./groups.html)
 
 Install all dependencies on to a production server. Do **not** use this flag on 
 a development machine.
@@ -105,7 +105,7 @@ The `--deployment` flag activates a number of deployment-friendly conventions:
 - Require an up-to-date `Gemfile.lock`
 - If `bundle package` was run, do not fetch gems from rubygems.org. Instead, only use gems in the checked in `vendor/cache`.
 
-**Learn More:** [Deploying](./deploying.md)
+**Learn More:** [Deploying](./deploying.html)
 
 Install gems in parallel by starting the number of workers specified.
 

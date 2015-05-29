@@ -19,7 +19,8 @@ set :markdown,
     highlight: true,
     quote: true,
     smartypants: true,
-    tables: true
+    tables: true,
+    with_toc_data: true
 
 # Make documentation for the latest version available at the top level, too.
 # Any pages with names that conflict with files already at the top level will be skipped.

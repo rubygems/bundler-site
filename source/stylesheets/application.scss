@@ -1,4 +1,5 @@
 @import url(http://fonts.googleapis.com/css?family=Source+Code+Pro:400,600);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans);
 
 @import "compass/css3";
 @import "code";
@@ -69,8 +70,9 @@ a {
 html {
   width: 100%;
   background-color: #c6e7ec;
+  color: #003333;
   padding-top: 10px;
-  font-family: Helvetica, sans-serif;
+  font-family: 'Open Sans', Helvetica, sans-serif;
 }
 
 code {
@@ -238,7 +240,7 @@ h2 {
   margin-bottom: 8px;
   padding-right: 4px;
   padding-left: 4px;
-  color: #006666;
+  color: #007777;
   &+ a {
     margin-top: 10px;
   }
@@ -248,6 +250,14 @@ h2 {
   &+ .description {
     margin-top: 20px;
   }
+}
+
+.notice {
+  font-size: 90%;
+  color: #006666;
+  background-color: rgba(0, 100, 100, 0.1);
+  padding: 0.05em 0.5em;
+  @include border-radius(5px);
 }
 
 .highlight {
@@ -285,14 +295,16 @@ h2 {
 
 pre {
   background-color: black;
+  
   color: #f8f8f8;
   font-size: 13px;
-  font-family: Monaco, monospace;
+  font-family: 'Source Code Pro', Monaco, monospace;
   font-weight: 300;
   padding: 10px;
   margin: 0;
   @include border-radius(5px);
   code {
+    display: block;
     border: none;
   }
 }
@@ -310,7 +322,7 @@ pre {
 .blog {
   font-size: 20px;
   p {
-    font-size: 18px;
+    font-size: 16px;
     line-height: 24px;
     padding: 5px 0 5px 0;
     margin: 0;
@@ -517,7 +529,7 @@ ul.posts li {
   margin-bottom: 10px;
   clear: left;
   .date {
-    width: 100px;
+    width: 110px;
     position: absolute;
     text-align: right;
   }

@@ -1,12 +1,9 @@
-@import url(http://fonts.googleapis.com/css?family=Source+Code+Pro:400,600);
-@import url(http://fonts.googleapis.com/css?family=Open+Sans);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,700,400italic,700italic|Source+Code+Pro);
 
 @import "compass/css3";
+@import "settings";
+@import "base";
 @import "code";
-
-$header-color: #346b8c;
-$subhead-color: #0e3f54;
-$link-color: #0e3f54;
 
 @mixin flexbox($direction, $align: center) {
   display: -webkit-box;
@@ -27,15 +24,6 @@ $link-color: #0e3f54;
   -moz-box-flex: $size;
 }
 
-@mixin bundler-link {
-  text-decoration: none;
-  color: $link-color;
-  border-bottom: 1px solid transparent;
-  &:hover {
-    border-bottom: 1px solid;
-  }
-}
-
 @mixin button {
   padding: 8px 0;
   text-decoration: none;
@@ -50,14 +38,6 @@ $link-color: #0e3f54;
   }
 }
 
-a {
-  @include bundler-link;
-  &.image {
-    text-decoration: none;
-    border: none;
-  }
-}
-
 #standalone {
   line-height: 150%;
   h1 {
@@ -65,24 +45,6 @@ a {
     margin-bottom: 10px;
     line-height: 125%;
   }
-}
-
-html {
-  width: 100%;
-  background-color: #c6e7ec;
-  color: #003333;
-  padding-top: 10px;
-  font-family: 'Open Sans', Helvetica, sans-serif;
-}
-
-code {
-  background-color: rgba(255, 255, 255, 0.8);
-  font-family: "Source Code Pro", Monaco, monospace;
-  font-size: 15px;
-  font-weight: 600;
-  padding: 0 2px 0 2px;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  @include border-radius(3px);
 }
 
 .intro {
@@ -195,9 +157,6 @@ code {
       color: #336666;
       font-size: 16px;
       margin: 0;
-      a {
-        @include bundler-link;
-      }
     }
   }
 }
@@ -208,16 +167,6 @@ code {
 
 .clear {
   clear: left;
-}
-
-h2 {
-  font-size: 20px;
-  padding: 5px;
-  margin-top: 24px;
-  color: $subhead-color;
-  border-bottom: 3px solid #0e3f54;
-  width: 100%;
-  @include box-sizing("border-box");
 }
 
 .buttons {
@@ -252,71 +201,10 @@ h2 {
   }
 }
 
-.notice {
-  font-size: 90%;
-  color: #006666;
-  background-color: rgba(0, 100, 100, 0.1);
-  padding: 0.05em 0.5em;
-  @include border-radius(5px);
-}
-
 .highlight {
   &+ .description {
     margin-top: 15px;
   }
-}
-
-.bullet {
-  width: 100%;
-  padding: 5px 15px 15px 15px;
-  @include box-sizing("border-box");
-  @include flexbox(vertical, justify);
-  .description {
-    width: 100%;
-    margin-right: 16px;
-    color: #003333;
-    line-height: 24px;
-    margin-bottom: 8px;
-  }
-  a {
-    @include button;
-    margin: 15px 0 0 450px;
-  }
-  .how {
-    @include flexbox(vertical, justify);
-    @include liquid;
-    line-height: 24px;
-  }
-  pre {
-    @include liquid;
-    margin: 0;
-  }
-}
-
-pre {
-  background-color: black;
-  
-  color: #f8f8f8;
-  font-size: 13px;
-  font-family: 'Source Code Pro', Monaco, monospace;
-  font-weight: 300;
-  padding: 10px;
-  margin: 0;
-  @include border-radius(5px);
-  code {
-    display: block;
-    border: none;
-  }
-}
-
-.bullet:nth-child(even) {
-  background-color: rgba(0, 0, 0, 0.1);
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-}
-
-.bullet:not(:nth-of-type(1)) {
-  padding-top: 15px;
 }
 
 .blog {
@@ -402,10 +290,6 @@ pre {
   padding: 0.4em;
   background: $color;
   @include border-bottom-right-radius(10px);
-  a {
-    @include bundler-link;
-    padding: 0.1em 0.25em;
-  }
   a.current {
     font-weight: bold;
   }

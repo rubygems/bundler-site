@@ -1,6 +1,6 @@
 # Bundler versions
-set :versions, `rake versions`.split
-set :current_version, versions.last
+# set :versions, `rake versions`.split
+# set :current_version, versions.last
 
 # Syntax highlighting
 activate :syntax
@@ -8,11 +8,13 @@ activate :syntax
 # Set HAML to render HTML5 by default. It's important that HAML outputs "ugly" HTML to not mess with code blocks
 set :haml, format: :html5, ugly: true
 
+set :layout, :article
+
 # Set markdown features for Redcarpet
 set :markdown_engine, :redcarpet
 set :markdown,
     autolink: true,
-    gh_blockcode: true, 
+    gh_blockcode: true,
     fenced_code_blocks: true,
     footnotes: true,
     no_intra_emphasis: true,
@@ -24,14 +26,14 @@ set :markdown,
 
 # Make documentation for the latest version available at the top level, too.
 # Any pages with names that conflict with files already at the top level will be skipped.
-ready do
-  sitemap.resources.each do |page|
-    if page.path.start_with? "#{current_version}/"
-      proxy_path = page.path["#{current_version}/".length..-1]
-      proxy proxy_path, page.path if sitemap.find_resource_by_path(proxy_path).nil?
-    end
-  end
-end
+# ready do
+#   sitemap.resources.each do |page|
+#     if page.path.start_with? "#{current_version}/"
+#       proxy_path = page.path["#{current_version}/".length..-1]
+#       proxy proxy_path, page.path if sitemap.find_resource_by_path(proxy_path).nil?
+#     end
+#   end
+# end
 
 page '/sitemap.xml', layout: false
 

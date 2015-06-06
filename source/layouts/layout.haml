@@ -1,14 +1,15 @@
-!!!
-- v = current_page.url.scan(/v\d+\.\d+/).first || current_version
-%html
+!!! 5
+-# - v = current_page.url.scan(/v\d+\.\d+/).first || current_version
+%html(lang="en")
   %head
     = partial 'partials/head'
-  %body
-    #body
+  %body.site
+    %header.site-header
       = partial 'partials/header'
-      #container
-        #contents
-          = yield
-        = partial 'partials/sidebar' if v == current_version
-    = partial 'partials/footer', locals: { v: v }
+    %main.cell
+      = yield
+      .sidebar
+        = partial 'partials/sidebar'
+    %footer.site-footer
+      = partial 'partials/footer'
     = partial 'partials/scripts'

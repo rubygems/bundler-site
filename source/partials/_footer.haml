@@ -1,14 +1,9 @@
-#footer
-  = image_tag 'emocow.png'
-  = image_tag 'panda.jpg'
-  .spacer
-  #credits
-    %p
-      Many thanks to Bundler's #{link_to 'contributors', '/contributors.html' }
-      and #{link_to 'sponsors', '/sponsors.html' }
-  .spacer
-  = image_tag 'bundler-small.png'
-#prod-versions
-  Docs:
-  = link_to("Previous Version (#{versions[-2]})", "/#{versions[-2]}/index.html", :class => ('current' if v == versions[-2]))
-  = link_to("Current Version (#{current_version})", "/", :class => ('current' if v == current_version))
+.footer
+  %p
+    Many thanks to Bundler's #{link_to 'contributors', '/contributors.html' }
+    and #{link_to 'sponsors', '/sponsors.html' }
+
+-# #prod-versions
+-#   Docs:
+-#   = link_to("Previous Version (#{versions[-2]})", "/#{versions[-2]}/index.html", :class => ('current' if v == versions[-2]))
+-#   = link_to("Current Version (#{current_version})", "/", :class => ('current' if v == current_version))

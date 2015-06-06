@@ -1,31 +1,48 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
 html {
-  width: 100%;
-  background-color: #c6e7ec;
-  color: #003333;
-  padding-top: 10px;
-  font-family: 'Open Sans', Helvetica, sans-serif;
+  height: 100%;
+  background-color: $color-bg;
+  color: $base-font-color;
+  font-family: $base-font-family;
+  text-rendering: optimizeLegibility;
+}
+
+header,
+footer {
+  flex: none
+}
+
+h1 {
+  font-weight: 300;
+  font-size: 2em;
+  letter-spacing: -.015em;
+  line-height: 1;
+  margin: 0.25em 0 .75em;
+  color: #fff;
 }
 
 h2 {
-  font-size: 20px;
-  padding: 5px;
-  margin-top: 24px;
+  font-size: 1.333em;
+  font-weight: 600;
   color: $subhead-color;
-  border-bottom: 3px solid #0e3f54;
-  width: 100%;
-  @include box-sizing("border-box");
+  // border-bottom: 3px solid $subhead-color;
+  margin: 0 0 calc(1.5em/1.333);
 }
 
-a {
-  color: $link-color;
-  // @include bundler-link;
-  &:hover {
-    border-bottom: 1px solid;
-  }
-  &.image {
-    text-decoration: none;
-    border: none;
-  }
+h3 {
+  font-size: 1em;
+  font-weight: 600;
+  margin: 0 0 1.5em;
+}
+
+p,
+pre {
+  margin: 0 0 1.5em;
 }
 
 code,
@@ -37,23 +54,34 @@ code {
   background-color: rgba(255, 255, 255, 0.8);
   font-size: 15px;
   font-weight: 600;
-  padding: 0 2px 0 2px;
-  border: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 0 4px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
   @include border-radius(3px);
 }
 
 pre {
-  background-color: black;
-
+  background: black;
   color: #f8f8f8;
   font-size: 13px;
   font-weight: 300;
   padding: 10px;
-  margin: 0;
+  overflow: auto;
   @include border-radius(5px);
   code {
-    display: block;
+    // display: block;
     border: none;
+  }
+}
+
+a {
+  color: $link-color;
+  text-decoration: none;
+  &:hover {
+
+  }
+  &:active,
+  &:focus {
+    outline:none;
   }
 }
 
@@ -61,4 +89,44 @@ img,
 picture {
   max-width: 100%;
   margin: 0;
+}
+
+// Containers
+.site {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.cell {
+  display: flex;
+  flex: 1 0 auto;
+  // padding: 1.5em;
+  flex-direction: column;
+  // padding: 1.5em 1.5em 0;
+  // width: 100%;
+}
+
+.site-content {
+  flex: 1 0 auto;
+  width: 100%;
+}
+
+.section {
+  padding: 1.5em;
+
+}
+
+.section:nth-child(2n) {
+  background-color: rgba($subhead-color,0.1);
+}
+
+.container {
+  max-width: 50em;
+  margin: 0 auto;
+  // padding: 1.5em 1.5em 0;
+}
+
+.article-content {
+  padding: 1.5em;
 }

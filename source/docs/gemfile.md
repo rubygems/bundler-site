@@ -4,7 +4,7 @@ Read the [Gemfile manual](./man/gemfile.5.html) for an in-depth discussion of al
 
 ## Gemfiles
 
-Gemfiles require at least one gem source, in the form of the URL for a RubyGems 
+Gemfiles require at least one gem source, in the form of the URL for a RubyGems
 server. Generate a Gemfile with the default rubygems.org source by running `bundle init`. If you can, use `https` so your connection to the rubygems.org server will be verified with SSL.
 
 ``` ruby
@@ -16,17 +16,17 @@ It is possible, but not recommended as of Bundler 1.7, to add multiple global so
 Some gem sources require a username and password. Use `bundle config` to set the
 username and password for any sources that need it. The command must be run once on each computer that will install the Gemfile, but this keeps the credentials from being stored in plain text in version control.
 
-``` bash
+```
 $ bundle config https://gems.example.com/ user:password`
 ```
-For some sources, like a company Gemfury account, it may be easier to simply 
+For some sources, like a company Gemfury account, it may be easier to simply
 include the credentials in the Gemfile as part of the source URL.
 
 ``` ruby
 source "https://user:password@gems.example.com"
 ```
 
-Credentials in the source URL will take precedence over credentials set using 
+Credentials in the source URL will take precedence over credentials set using
 `config`.
 
 Declare the gems that you need, including version numbers. Specify versions using the same
@@ -39,7 +39,7 @@ gem 'rack',  '>=1.0'
 gem 'thin',  '~>1.1'
 ```
 
-Most of the version specifiers, like `>= 1.0`, are self-explanatory. The specifier `~>` 
+Most of the version specifiers, like `>= 1.0`, are self-explanatory. The specifier `~>`
 has a special meaning, best shown by example. `~> 2.0.3` is identical to `>= 2.0.3` and `< 2.1`.
 `~> 2.1` is identical to `>= 2.1` and `< 3.0`.
 `~> 2.2.beta` will match prerelease versions like `2.2.beta.12`.
@@ -86,7 +86,7 @@ Credentials for gem servers can be specified either in the URL or using
 `bundle config`, as described above.
 
 Git repositories are also valid gem sources, as long as the repo contains one or
-more valid gems. Specify what to check out with `:tag`, `:branch`, or `:ref`. 
+more valid gems. Specify what to check out with `:tag`, `:branch`, or `:ref`.
 The default is the `master` branch.
 
 ``` ruby
@@ -142,4 +142,3 @@ ruby '1.9.3', :engine => 'jruby', :engine_version => '1.6.7'
 ```
 
 **Learn More:** [Ruby Directive](./gemfile_ruby.md)
-

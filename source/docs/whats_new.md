@@ -1,3 +1,7 @@
+---
+title: What's New
+---
+
 ## What's New in v1.9
 
 Bundler 1.9 comes with a new dependency resolver, called _Molinillo_, among other changes.
@@ -7,18 +11,18 @@ In this section, you’ll find the major features introduced in this release. Al
 [Full 1.9 changelog](https://github.com/bundler/bundler/blob/1-9-stable/CHANGELOG.md)
 
 
-## Using Molinillo for Dependency Resolution
+### Using Molinillo for Dependency Resolution
 
 Bundler's dependency resolver is now powered by Molinillo, the CocoaPods dependency resolution algorithm sponsored by Stripe that is fully
 documented, tested, and built for use across different dependency managers built in Ruby.
 
-[Molinillo](https://github.com/CocoaPods/Molinillo)
+**Learn More:** [Molinillo](https://github.com/CocoaPods/Molinillo)
 
-## Improved gemspec detection
+### Improved gemspec detection
 
 Directories are now searched resursively for gemspecs, with specs found closer to the root being preferred.
 
-## Other changes
+### Other changes
 
 Bundler 1.9 also includes:
 
@@ -27,4 +31,3 @@ Bundler 1.9 also includes:
 - `bundle which` will no longer be confused by directories
 
 [Full 1.9 changelog](https://github.com/bundler/bundler/blob/1-9-stable/CHANGELOG.md)
-

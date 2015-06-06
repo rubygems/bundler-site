@@ -9,9 +9,10 @@ any gems that aren't already installed on the user's system.
 
 <aside class="notes">
   <p>
-    <b>Note:</b> Every gem that is specified in this 'Gemfile' will be <code>require</code>'d, as if
-    the user had manually called <code>Bundler.require</code>. To avoid a requested gem
-    being automatically required, add the <code>require => false</code> option to the
+    <b>Note:</b> Every gem that is specified in this 'Gemfile' will be
+    <code>require</code>'d, as if the user had manually called
+    <code>Bundler.require</code>. To avoid a requested gem being automatically
+    required, add the <code>require => false</code> option to the
     <code>gem</code> dependency declaration.
   </p>
 </aside>

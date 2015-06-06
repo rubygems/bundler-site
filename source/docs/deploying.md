@@ -6,7 +6,7 @@ title: Deploying bundled applications
 
 Before deploying an app that uses Bundler, Add your `Gemfile` and `Gemfile.lock` to source control, but ignore the `.bundle` folder, which is specific to each machine.
 
-``` bash
+```
 $ echo ".bundle" >> .gitignore
 $ git add Gemfile Gemfile.lock .gitignore
 $ git commit -m "Add Bundler support"
@@ -20,7 +20,7 @@ Once you have done that, there are two ways to deploy using Bundler: manually or
 
 In your deploy script, after updating to the latest code, install your bundle to the `vendor/bundle` directory, ensuring all your dependencies are met.
 
-``` bash
+```
 $ bundle install --deployment
 ```
 
@@ -52,7 +52,7 @@ to the Vlad `deploy.rb`.
 require 'bundler/vlad'
 ```
 
-Once you have done that, the `vlad:bundle:install` task will be available for 
+Once you have done that, the `vlad:bundle:install` task will be available for
 use. Make sure it is run as part of your deploy. For example:
 
 ``` ruby
@@ -62,7 +62,7 @@ task "vlad:deploy" => %w[vlad:update vlad:bundle:install vlad:start_app vlad:cle
 ## After deploying
 Make sure to use `bundle exec` to run any executables from gems in the bundle:
 
-``` bash
+```
 $ bundle exec rake db:setup
 ```
 
@@ -72,11 +72,11 @@ Alternatively, you can use the `--binstubs` option on the install command to gen
 **Learn More:** [Executables](./man/bundle-exec.1.html)
 
 ## Heroku
-When you deploy to Heroku, Bundler will be run automatically as long as a Gemfile 
-is present. If you check in your Gemfile.lock, Heroku will run `bundle install --deployment`. 
+When you deploy to Heroku, Bundler will be run automatically as long as a Gemfile
+is present. If you check in your Gemfile.lock, Heroku will run `bundle install --deployment`.
 If you want to exclude certain groups using the `--without` option, you need to use ``heroku config``.
 
-``` bash
+```
 $ heroku config:add BUNDLE_WITHOUT="test development" --app app_name
 ```
 [Heroku Bundler Documentation](http://docs.heroku.com/bundler)
@@ -130,4 +130,3 @@ code you put into production. You can run `bundle check` before deploying
 your application to make sure that your `Gemfile.lock` is up-to-date. Note
 that it will always be up-to-date if you have run `bundle install`, successfully
 booted your application (or run your tests) since the last time you changed your `Gemfile`.
-

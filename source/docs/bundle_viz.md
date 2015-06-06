@@ -2,7 +2,7 @@
 
 Generates a visual dependency graph.
 
-``` bash
+```
 $ bundle viz [--file=FILE] [--format=FORMAT] [--requirements] [--version]
              [--without=GROUP GROUP]
 ```
@@ -21,6 +21,6 @@ $ bundle viz [--file=FILE] [--format=FORMAT] [--requirements] [--version]
 
 **Learn More:** [Groups](./groups.md)
 
-`viz` generates a PNG file of the current Gemfile as a dependency graph. `viz` requires 
-the `ruby-graphviz` gem (and its dependencies). The associated gems must also be 
+`viz` generates a PNG file of the current Gemfile as a dependency graph. `viz` requires
+the `ruby-graphviz` gem (and its dependencies). The associated gems must also be
 installed via `bundle install`.

@@ -6,7 +6,7 @@ title: bundle clean
 
 Cleans up unused gems in your bundler directory.
 
-``` bash
+```
 $ bundle clean [--dry-run] [--force]
 ```
 

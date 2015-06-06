@@ -1,14 +1,14 @@
 ---
-title: Using Bundler with Rails 3
+title: Using Bundler with Rails
 ---
 
-Rails 3 comes with baked in support with bundler.
+> Rails 3 and up comes with baked in support for bundler.
 
-## Using Bundler with Rails 3
+## Using Bundler with Rails
 
 Install Rails as you normally would. Use `sudo` if you would normally use `sudo` to install gems.
 
-``` bash
+```
 $ gem install rails
 ```
 
@@ -18,14 +18,14 @@ $ gem install rails
 
 Generate a Rails app as usual:
 
-``` bash
+```
 $ rails new myapp
 $ cd myapp
 ```
 
 Run the server. Bundler is transparently managing your dependencies!
 
-``` bash
+```
 $ rails server
 ```
 
@@ -56,12 +56,13 @@ end
 
 **Learn More:** [Groups](./groups.html)
 
-After adding a dependency, if it is not yet installed, install it
+After adding a dependency, if it is not yet installed, install it:
 
-``` bash
+```
 $ bundle install
 ```
 
 <aside class="notes">
-<b>Note:</b> This will update all dependencies in your Gemfile to the latest versions that do not conflict with other dependencies.
+  <b>Note:</b> This will update all dependencies in your Gemfile to the latest
+  versions that do not conflict with other dependencies.
 <aside>

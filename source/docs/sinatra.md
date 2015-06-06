@@ -4,7 +4,7 @@ title: Using Bundler with Sinatra
 
 ## Using Bundler with Sinatra
 
-To use bundler with a Sinatra application, you only need to do two things. 
+To use bundler with a Sinatra application, you only need to do two things.
 First, create a `Gemfile` and declare the `sinatra` gem as a dependency.
 
 ``` ruby
@@ -25,6 +25,6 @@ run MySinatraApp
 
 Start your development server with rackup, and Sinatra will be loaded via Bundler.
 
-``` bash
+```
 $ bundle exec rackup
 ```

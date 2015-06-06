@@ -22,21 +22,21 @@ Bundler.setup(:default, :ci)
 require 'nokogiri'
 ```
 
-[Learn More about Groups ›](./groups.html)
+**Learn More:** [Groups](./groups.html)
 
 ## Compatibility
 
 Ruby 2.0 and RubyGems 2.0 both require Bundler 1.3 or later. If you have questions
 about compatibility between Bundler and your system, please check the compatibility list.
 
-**Learn More:** [Compatibility ›](/compatibility.html)
+**Learn More:** [Compatibility](/compatibility.html)
 
 ## Setting Up Your Application to Use Bundler
 
 Bundler makes sure that Ruby can find all of the gems in the `Gemfile`
 (and all of their dependencies). If your app is a Rails 3 app, your default application
 already has the code necessary to invoke bundler. If it is a Rails 2.3 app, please see:
-[Setting up Bundler in Rails 2.3](./rails23.md).
+[Setting up Bundler in Rails 2.3](./rails23.html).
 
 For another kind of application (such as a Sinatra application), you will need to set up
 bundler before trying to require any gems. At the top of the first file that your

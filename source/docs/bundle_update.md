@@ -2,7 +2,7 @@
 
 Update the current environment.
 
-``` bash
+```
 $ bundle update [GEM] [--full-index] [--group=GROUP] [--jobs=NUMBER] [--local]
                       [--quiet] [--source=SOURCE]
 ```
@@ -30,17 +30,17 @@ You would use `bundle update` to explicitly update the version of a gem.
 
 Update the current environment.
 
-``` bash
+```
 $ bundle update
 ```
 
-If you run `bundle update` with no parameters, bundler will ignore any 
-previously installed gems and resolve all dependencies again based on the latest 
+If you run `bundle update` with no parameters, bundler will ignore any
+previously installed gems and resolve all dependencies again based on the latest
 versions of all gems available in the sources.
 
 Update a specific source (and all gems associated with it)
 
-``` bash 
+```
 $ bundle update --source=SOURCE
 ```
 
@@ -49,8 +49,8 @@ a `:git` source of `http://github.com/rails/rails.git`, you would call `bundle u
 
 ## Update all gems
 
-If you run `bundle update` with no parameters, bundler will ignore any previously 
-installed gems and resolve all dependencies again based on the latest versions 
+If you run `bundle update` with no parameters, bundler will ignore any previously
+installed gems and resolve all dependencies again based on the latest versions
 of all gems available in the sources.
 
 Consider the following `Gemfile`:
@@ -61,10 +61,10 @@ gem 'rails', '3.0.0.rc'
 gem 'nokogiri'
 ```
 
-When you run `bundle install` the first time, bundler will resolve all of the 
+When you run `bundle install` the first time, bundler will resolve all of the
 dependencies, all the way down, and install what you need:
 
-``` shell
+```
 Fetching source index for https://rubygems.org/
 Installing rake (0.8.7)
 Installing abstract (1.0.0)
@@ -96,35 +96,35 @@ Your bundle is complete! Use `bundle show [gemname]` to see where a bundled gem
 is installed.
 ```
 
-As you can see, even though you have just two gems in the `Gemfile`, your 
-application actually needs 25 different gems in order to run. Bundler remembers 
+As you can see, even though you have just two gems in the `Gemfile`, your
+application actually needs 25 different gems in order to run. Bundler remembers
 the exact versions it installed in `Gemfile.lock`. The next time you run
-`bundle install`, bundler skips the dependency resolution and installs the same 
+`bundle install`, bundler skips the dependency resolution and installs the same
 gems as it installed last time.
 
-After checking in the `Gemfile.lock` into version control and cloning it on 
+After checking in the `Gemfile.lock` into version control and cloning it on
 another machine, running `bundle install` will _still_ install the gems that you
-installed last time. You don't need to worry that a new release of `erubis` or 
+installed last time. You don't need to worry that a new release of `erubis` or
 `mail` changes the gems you use.
 
-However, from time to time, you might want to update the gems you are using to 
+However, from time to time, you might want to update the gems you are using to
 the newest versions that still match the gems in your `Gemfile`.
 
-To do this, run `bundle update`, which will ignore the `Gemfile.lock`, and 
+To do this, run `bundle update`, which will ignore the `Gemfile.lock`, and
 resolve all the dependencies again. Keep in mind that this process can result in
-a significantly different set of the 25 gems, based on the requirements of new 
+a significantly different set of the 25 gems, based on the requirements of new
 gems that the gem authors released since the last time you ran `bundle update`.
 
 ## Update a list of gems.
 
-Sometimes, you want to update a single gem in the `Gemfile`, and leave the rest 
+Sometimes, you want to update a single gem in the `Gemfile`, and leave the rest
 of the gems that you specified locked to the versions in the `Gemfile.lock`.
 
-For instance, in the scenario above, imagine that `nokogiri` releases version 
+For instance, in the scenario above, imagine that `nokogiri` releases version
 `1.4.4`, and you want to update it _without_ updating Rails and all of its
 dependencies. To do this, run:
 
-``` shell
+```
 bundle update nokogiri
 ```
 
@@ -132,7 +132,7 @@ Bundler will update `nokogiri` and any of its dependencies, but leave alone Rail
 
 ## Overlapping dependencies
 
-Sometimes, multiple gems declared in your `Gemfile` are satisfied by the same 
+Sometimes, multiple gems declared in your `Gemfile` are satisfied by the same
 second-level dependency. For instance, consider the case of `thin` and `rack-perftools-profiler`.
 
 ``` ruby
@@ -145,7 +145,7 @@ gem 'rack-perftools-profiler'
 The `thin` gem depends on `rack >= 1.0`, while `rack-perftools-profiler` depends on `rack ~> 1.0`.
 If you run bundle install, you get:
 
-``` shell
+```
 Fetching source index for https://rubygems.org/
 Installing daemons (1.1.0)
 Installing eventmachine (0.12.10) with native extensions
@@ -157,16 +157,17 @@ Installing thin (1.2.7) with native extensions
 Using bundler (1.0.0.rc.3)
 ```
 
-In this case, the two gems have their own set of dependencies, but they share `rack`
-in common. If you run `bundle update thin`, bundler will update `daemons`, `eventmachine`
-and `rack`, which are dependencies of `thin`, but not `open4` or `perftools.rb`, which
-are dependencies of `rack-perftools_profiler`. Note that `bundle update thin` will
-update `rack` even though it's _also_ a dependency of `rack-perftools_profiler`.
+In this case, the two gems have their own set of dependencies, but they share
+`rack` in common. If you run `bundle update thin`, bundler will update
+`daemons`, `eventmachine` and `rack`, which are dependencies of `thin`, but not
+`open4` or `perftools.rb`, which are dependencies of `rack-perftools_profiler`.
+Note that `bundle update thin` will update `rack` even though it's _also_ a
+dependency of `rack-perftools_profiler`.
 
 In short, when you update a gem using `bundle update`, bundler will update all
 dependencies of that gem, including those that are also dependencies of another gem.
 
-In this scenario, updating the `thin` version manually in the `Gemfile`, and then
-running `bundle install` will only update `daemons` and `eventmachine`, but not`rack`.
-For more information, see the  `CONSERVATIVE UPDATING`section of `bundle install`.
+In this scenario, updating the `thin` version manually in the `Gemfile`, and
+then running `bundle install` will only update `daemons` and `eventmachine`, but not`rack`.
 
+For more information, see the  `CONSERVATIVE UPDATING`section of `bundle install`.

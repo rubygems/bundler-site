@@ -2,6 +2,9 @@
 # set :versions, `rake versions`.split
 # set :current_version, versions.last
 
+
+activate :autoprefixer
+activate :directory_indexes
 # Syntax highlighting
 activate :syntax
 

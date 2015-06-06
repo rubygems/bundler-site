@@ -91,6 +91,27 @@ picture {
   margin: 0;
 }
 
+blockquote {
+  padding: 10px;
+  margin: 0 0 1.5em;
+  border-left: 4px solid lighten($base-font-color, 60%);;
+  p {
+    color: lighten($base-font-color, 25%);;
+    font-weight: 300;
+  }
+  p:last-child {
+    margin-bottom: 0;
+  }
+  small {
+    display: block;
+    // line-height: @line-height-base;
+    // color: @blockquote-small-color;
+    &:before {
+      content: '\2014 \00A0';// EM DASH, NBSP
+    }
+  }
+}
+
 // Containers
 .site {
   display: flex;

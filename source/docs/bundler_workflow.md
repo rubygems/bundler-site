@@ -8,49 +8,49 @@ In general, when working with an application managed with bundler, you should us
 
 After you create your `Gemfile` for the first time, run
 
-``` bash
+```
 $ bundle install
 ```
 
 Check the resulting `Gemfile.lock` into version control.
 
-``` bash
+```
 $ git add Gemfile.lock
 ```
 When checking out this repository on another development machine, run
 
-``` bash
+```
 $ bundle install
 ```
 
 When checking out this repository on a deployment machine, run
 
-``` bash
+```
 $ bundle install --deployment
 ```
 
 After changing the `Gemfile` to reflect a new or update dependency, run
 
-``` bash
+```
 $ bundle install
 ```
 
 Make sure to check the updated `Gemfile.lock` into version control
 
-``` bash
+```
 $ git add Gemfile.lock
 ```
 
-If `bundle install` reports a conflict, manually update the specific gems that you changed in the `Gemfile` 
+If `bundle install` reports a conflict, manually update the specific gems that you changed in the `Gemfile`
 
-``` bash
+```
 $ bundle update rails thin
 ```
 
 If you want to update all the gems to the latest possible versions that
 still match the gems listed in the `Gemfile`, run
 
-``` bash
+```
 $ bundle update
 ```
 
@@ -58,13 +58,13 @@ $ bundle update
 
 Getting started with bundler is easy! Open a terminal window and run this command:
 
-``` bash
+```
 $ gem install bundler
 ```
 
 - When you first create a Rails application, it already comes with a `Gemfile`.  For another kind of application (such as Sinatra), run:
 
-``` bash
+```
 $ bundle init
 ```
 
@@ -87,13 +87,13 @@ gem 'rspec', :require => 'spec'
 
 After declaring your first set of dependencies, you tell bundler to go get them:
 
-``` bash
+```
 $ bundle    # bundle is a shortcut for bundle install
 ```
 
 Bundler will connect to rubygems.org (and any other sources that you declared), and find a list of all of the required gems that meet the requirements you specified. Because all of the gems in your `Gemfile` have dependencies of their own (and some of those have their own dependencies), running `bundle install` on the `Gemfile` above will install quite a few gems.
 
-``` bash
+```
 $ bundle install
 Fetching gem metadata from https://rubygems.org/
 Resolving dependencies...
@@ -132,7 +132,7 @@ versions that it installed to `Gemfile.lock`.
 
 - If `bundle install` reports a conflict between your `Gemfile` and `Gemfile.lock`, run:
 
-``` bash
+```
 $ bundle update sinatra
 ```
 
@@ -140,16 +140,16 @@ $ bundle update sinatra
 
 - To update all of the gems in your `Gemfile` to the latest possible versions, run:
 
-``` bash
+```
 $ bundle update
 ```
 
 Whenever your `Gemfile.lock` changes, always check it in to version control.
-It keeps a history of the exact versions of all third-party code that you used 
+It keeps a history of the exact versions of all third-party code that you used
 to successfully run your application.
 
-- The `git add Gemfile*` command adds the Gemfile and Gemfile.lock to your repository. 
-This ensures that other developers on your app, as well as your deployment environment, 
+- The `git add Gemfile*` command adds the Gemfile and Gemfile.lock to your repository.
+This ensures that other developers on your app, as well as your deployment environment,
 will all use the same third-party code that you are using now.
 
 **Learn More:** [bundle install](./bundle_install.html) | [bundle update](./bundle_update.html)
@@ -172,10 +172,10 @@ Run an executable that comes with a gem in your bundle:
 $ bundle exec rspec spec/models
 ```
 
-In some cases, running executables without `bundle exec` may work, if the executable 
-happens to be installed in your system and does not pull in any gems that conflict with your bundle. 
+In some cases, running executables without `bundle exec` may work, if the executable
+happens to be installed in your system and does not pull in any gems that conflict with your bundle.
 
-However, this is unreliable and is the source of considerable pain. Even if it 
+However, this is unreliable and is the source of considerable pain. Even if it
 looks like it works, it may not work in the future or on another machine.
 
 Finally, if you want a way to get a shortcut to gems in your bundle:
@@ -187,4 +187,3 @@ $ bin/rspec spec/models
 The executables installed into `bin` are scoped to the bundle, and will always work.
 
 **Learn More:** [Executables](./man/bundle-exec.1.html)
-

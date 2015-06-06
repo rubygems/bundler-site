@@ -11,7 +11,7 @@ $ motion create myapp
 $ cd myapp
 ```
 
-You'll need to create a `Gemfile`. Here we're using `bubblewrap`.
+You'll need to create a Gemfile. Here we're using bubblewrap.
 
 ``` ruby
 gem 'bubble-wrap'
@@ -36,4 +36,3 @@ Now you can just compile your app as normal.
 
 ```
 $ bundle exec rake
-```

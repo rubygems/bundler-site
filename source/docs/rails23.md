@@ -2,19 +2,19 @@
 title: Using Bundler with Rails 2.3
 ---
 
-Rails 2.3 comes with its own gem handling. We're going to override that and replace it with support for Bundler.
+> Rails 2.3 comes with its own gem handling. This behavior has been replaced with support for Bundler for gem management.
 
 <aside class="notes">
-<b>NB:</b> This <i><b>may</b></i> work with Rails versions lower than 2.3.
-The Bundler team has not tested those versions, and will not provide support 
-for anyone on Rails older than 2.3, but feel free to try it. :)
+  <b>NB:</b> This <i><b>may</b></i> work with Rails versions lower than 2.3.
+  The Bundler team has not tested those versions, and will not provide support
+  for anyone on Rails older than 2.3, but feel free to try it. :)
 </aside>
 
 ## Using Bundler with Rails 2.3
 
 If you don't have a Rails 2.3 app yet, generate one
 
-``` shell
+```
 $ rails myapp
 $ cd myapp
 ```
@@ -36,6 +36,7 @@ class Rails::Boot
   end
 end
 ```
+
 Create a new file, `config/preinitializer.rb`, and insert the following. That is `config` **NOT** `config/initializers`.
 
 ``` ruby
@@ -60,9 +61,9 @@ begin
 end
 ```
 
-Get all config.gem declarations from your application, and place them into the `Gemfile`. 
-If you have declarations in development.rb, for instance, place them in a named 
-group. Make sure to include Rails itself and a default gem source.
+Get all config.gem declarations from your application, and place them into the
+`Gemfile`. If you have declarations in development.rb, for instance, place them
+in a named group. Make sure to include Rails itself and a default gem source.
 
 ``` ruby
 source 'https://rubygems.org'
@@ -87,13 +88,11 @@ end
 
 **Learn More:** [Groups](./groups.html)
 
-Once you have everything set up, you can use script/console, script/server, and 
+Once you have everything set up, you can use script/console, script/server, and
 other Rake tasks as usual. From this point on, you can follow the instructions in the Rails 3 guide
 
-``` bash
+```
 $ bundle exec rake db:migrate
 ```
 
 **Learn More:** [Rails 3](./rails3.html#shared_with_23)
-
-

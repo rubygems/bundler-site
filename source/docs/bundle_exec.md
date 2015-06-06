@@ -2,13 +2,13 @@
 
 Run a command in context of the bundle.
 
-``` bash
+```
 $ bundle exec [--keep-file-descriptors] <command>
 ```
 
 **Options:**
 
-`--keep-file-descriptors`: For Ruby versions less than 2.0, keeps non-standard file descriptors on `Kernel#exec` 
+`--keep-file-descriptors`: For Ruby versions less than 2.0, keeps non-standard file descriptors on `Kernel#exec`
 
 This command executes the command, making all gems specified in the `Gemfile(5)` available to `require` in Ruby programs.
 

@@ -70,7 +70,7 @@ gem 'rails', :github => 'rails'
 ```
 
 <aside class="notes">
-  **NB:** This shorthand can only be used for public repos in Bundler version 1.x. Use HTTPS for read and write:
+  <b>NB:</b> This shorthand can only be used for public repos in Bundler version 1.x. Use HTTPS for read and write:
 </aside>
 
  ``` ruby
@@ -115,8 +115,8 @@ or overriding the `:github` shortcut with your own HTTPS git source.
 
 ## Local Git Repos
 
-Bundler also allows you to work against a git repository locally instead of using
-the remote version. This can be achieved by setting up a local override:
+Bundler also allows you to work against a git repository locally instead of
+using the remote version. This can be achieved by setting up a local override:
 
 ```
 bundle config local.GEM_NAME /path/to/local/git/repository

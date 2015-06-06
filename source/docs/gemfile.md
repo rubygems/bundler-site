@@ -39,10 +39,10 @@ gem 'rack',  '>=1.0'
 gem 'thin',  '~>1.1'
 ```
 
-Most of the version specifiers, like `>= 1.0`, are self-explanatory. The specifier `~>`
-has a special meaning, best shown by example. `~> 2.0.3` is identical to `>= 2.0.3` and `< 2.1`.
-`~> 2.1` is identical to `>= 2.1` and `< 3.0`.
-`~> 2.2.beta` will match prerelease versions like `2.2.beta.12`.
+Most of the version specifiers, like `>= 1.0`, are self-explanatory. The
+specifier `~>` has a special meaning, best shown by example. `~> 2.0.3` is
+identical to `>= 2.0.3` and `< 2.1`. `~> 2.1` is identical to `>= 2.1` and
+`< 3.0`. `~> 2.2.beta` will match prerelease versions like `2.2.beta.12`.
 
 [RubyGems version specifiers](http://guides.rubygems.org/patterns/#pessimistic_version_constraint)
 

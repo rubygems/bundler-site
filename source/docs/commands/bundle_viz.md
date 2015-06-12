@@ -1,6 +1,6 @@
 ## bundle viz
 
-Generates a visual dependency graph.
+> Generates a visual dependency graph.
 
 ```
 $ bundle viz [--file=FILE] [--format=FORMAT] [--requirements] [--version]
@@ -19,8 +19,8 @@ $ bundle viz [--file=FILE] [--format=FORMAT] [--requirements] [--version]
 
 `--without`: Exclude gems that are part of the specified named group.
 
-**Learn More:** [Groups](./groups.md)
+[Learn More: Groups](./groups.html)
 
-`viz` generates a PNG file of the current Gemfile as a dependency graph. `viz` requires
-the `ruby-graphviz` gem (and its dependencies). The associated gems must also be
-installed via `bundle install`.
+`viz` generates a PNG file of the current Gemfile as a dependency graph. `viz`
+requires the `ruby-graphviz` gem (and its dependencies). The associated gems must
+also be installed via `bundle install`.

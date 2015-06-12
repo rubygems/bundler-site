@@ -4,7 +4,7 @@ title: bundle binstubs
 
 ## bundle binstubs
 
-Installs the binstubs of the listed gem.
+> Installs the binstubs of the listed gem.
 
 ```
 $ bundle binstubs [GEM] [--force] [--path=PATH]

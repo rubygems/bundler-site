@@ -3,14 +3,14 @@
 # set :current_version, versions.last
 
 
-activate :autoprefixer
+# activate :autoprefixer
 activate :directory_indexes
 # Syntax highlighting
 activate :syntax
 
 # Set HAML to render HTML5 by default. It's important that HAML outputs "ugly" HTML to not mess with code blocks
 set :haml, format: :html5, ugly: true
-
+set :relative_links, true
 set :layout, :article
 
 # Set markdown features for Redcarpet
@@ -49,6 +49,7 @@ Dir.glob(File.expand_path('../helpers/**/*.rb', __FILE__), &method(:require))
 set :css_dir, 'stylesheets'
 set :js_dir, 'javascripts'
 set :images_dir, 'images'
+set :partials_dir, 'partials'
 
 # Blog Settings
 activate :blog do |blog|

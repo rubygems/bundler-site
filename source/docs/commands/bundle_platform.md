@@ -1,6 +1,6 @@
 ## bundle platform
 
-Displays platform compatibility information.
+> Displays platform compatibility information.
 
 ```
 $ bundle platform [--ruby]

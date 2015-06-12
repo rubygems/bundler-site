@@ -1,6 +1,6 @@
 # bundle package
 
-Locks and then caches the gems into `./vendor/cache`.
+> Locks and then caches the gems into `./vendor/cache`.
 
 ```
 $ bundle package [--all] [--all-platforms] [--gemfile=GEMFILE] [--no-prune]

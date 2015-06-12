@@ -1,6 +1,6 @@
 ## bundle outdated
 
-List installed gems with newer versions available.
+> List installed gems with newer versions available.
 
 ```
 $ bundle outdated [GEM] [--local] [--pre] [--source] [--strict]

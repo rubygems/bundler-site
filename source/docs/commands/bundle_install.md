@@ -1,6 +1,6 @@
 ## bundle install
 
-Makes sure all the dependencies in your `Gemfile` are available to your application.
+> Makes sure all the dependencies in your `Gemfile` are available to your application.
 
 ```
 $ bundle install [--binstubs=PATH] [--clean] [--deployment] [--frozen]
@@ -18,6 +18,8 @@ $ bundle install [--binstubs=PATH] [--clean] [--deployment] [--frozen]
 `--clean`: Runs bundle clean automatically after install.
 
 `--deployment`: Install using defaults tuned for deployment environments.
+
+`--force`: Force download every gem, even if the required versions are available locally.
 
 `--frozen`: Do not allow the `Gemfile.lock` to be updated after this install.
 

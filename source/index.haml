@@ -16,9 +16,9 @@ layout: layout
         you need are present in development, staging, and production.
         -# Starting work on a project is as simple as <code>bundle install</code>.
 
-      .buttons
-        = link_to 'What\'s new in Bundler', '/docs/whats_new.html'
-        = link_to 'Why Bundler exists', '/docs/rationale.html'
+    %ul
+      %li= link_to 'What\'s new in Bundler', '/docs/whats_new.html'
+      %li= link_to 'Why Bundler exists', '/docs/rationale.html'
 
   .section
     .container
@@ -29,7 +29,6 @@ layout: layout
 
         :code
           $ gem install bundler
-
       %p
         Specify your dependencies in a Gemfile in your project's root:
 
@@ -39,7 +38,6 @@ layout: layout
           gem 'nokogiri'
           gem 'rack', '~>1.1'
           gem 'rspec', :require => 'spec'
-
         .buttons
           = link_to 'Learn More: Gemfiles', '/docs/gemfile.html'
 
@@ -50,7 +48,7 @@ layout: layout
           $ bundle install
           $ git add Gemfile Gemfile.lock
         .buttons
-          = link_to 'Learn More: bundle install', './bundle_install.html'
+          = link_to 'Learn More: bundle install', '/docs/bundle_install.html'
 
       .notes
         %p
@@ -69,7 +67,6 @@ layout: layout
 
           # require your gems as usual
           require 'nokogiri'
-
         .buttons
           = link_to 'Learn More: Bundler.setup', '/docs/bundler_setup.html'
 
@@ -79,7 +76,6 @@ layout: layout
 
         :code
           $ bundle exec rspec spec/models
-
       .notes
 
         %p
@@ -98,7 +94,6 @@ layout: layout
         :code
           $ bundle install --binstubs
           $ bin/rspec spec/models
-
       .notes
         %p
           The executables installed into <code>bin</code> are scoped to the

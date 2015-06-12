@@ -5,9 +5,11 @@ title: Using Bundler with Rails 2.3
 > Rails 2.3 comes with its own gem handling. This behavior has been replaced with support for Bundler for gem management.
 
 <aside class="notes">
-  <b>NB:</b> This <i><b>may</b></i> work with Rails versions lower than 2.3.
-  The Bundler team has not tested those versions, and will not provide support
-  for anyone on Rails older than 2.3, but feel free to try it. :)
+  <p>
+    <b>NB:</b> This <i><b>may</b></i> work with Rails versions lower than 2.3.
+    The Bundler team has not tested those versions, and will not provide support
+    for anyone on Rails older than 2.3, but feel free to try it. :)
+  </p>
 </aside>
 
 ## Using Bundler with Rails 2.3
@@ -89,7 +91,8 @@ end
 **Learn More:** [Groups](./groups.html)
 
 Once you have everything set up, you can use script/console, script/server, and
-other Rake tasks as usual. From this point on, you can follow the instructions in the Rails 3 guide
+other Rake tasks as usual. From this point on, you can follow the instructions
+in the Rails 3 guide
 
 ```
 $ bundle exec rake db:migrate

@@ -4,7 +4,7 @@ title: bundler/inline
 
 ## bundler/inline
 
-Allows for declaring a Gemfile inline in a ruby script, optionally installing
+> Allows for declaring a Gemfile inline in a ruby script, optionally installing
 any gems that aren't already installed on the user's system.
 
 <aside class="notes">
@@ -17,13 +17,16 @@ any gems that aren't already installed on the user's system.
   </p>
 </aside>
 
-`install [Boolean]`: Whether gems that aren't already installed on the user's system should be installed. Defaults to `false`.
+`install [Boolean]`: Whether gems that aren't already installed on the user's
+system should be installed. Defaults to `false`.
 
 `gemfile [Proc]`: A block that is evaluated as a `Gemfile`.
 
-## Using an inline Gemfile
+### Using an inline Gemfile
 
-To use a `Gemfile` inline in your script, first `require 'bundler/inline'`. Then in the `gemfile` block, declare your source and gems as you would in a normal `Gemfile`.
+To use a `Gemfile` inline in your script, first `require 'bundler/inline'`.
+Then in the `gemfile` block, declare your source and gems as you would in a
+normal `Gemfile`.
 
 ``` ruby
 #!/usr/bin/env ruby

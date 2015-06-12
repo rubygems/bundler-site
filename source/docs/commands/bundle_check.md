@@ -4,7 +4,7 @@ title: bundle check
 
 ## bundle check
 
-Checks if the dependencies listed in Gemfile are satisfied by currently installed gems.
+> Checks if the dependencies listed in Gemfile are satisfied by currently installed gems.
 
 ```
 $ bundle check [--dry-run] [--gemfile=FILE] [--path=PATH]

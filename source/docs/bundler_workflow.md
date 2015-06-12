@@ -1,8 +1,10 @@
 ---
-title: Recommended Workflow with Version Control
+title: Bundler Workflow
 ---
 
-# Recommended Workflow with Version Control
+## Bundler Workflow
+
+### Recommended Workflow with Version Control
 
 In general, when working with an application managed with bundler, you should use the following workflow:
 
@@ -54,7 +56,7 @@ still match the gems listed in the `Gemfile`, run
 $ bundle update
 ```
 
-## A Thorough Bundler Workflow
+### A Thorough Bundler Workflow
 
 Getting started with bundler is easy! Open a terminal window and run this command:
 
@@ -62,7 +64,8 @@ Getting started with bundler is easy! Open a terminal window and run this comman
 $ gem install bundler
 ```
 
-- When you first create a Rails application, it already comes with a `Gemfile`.  For another kind of application (such as Sinatra), run:
+- When you first create a Rails application, it already comes with a `Gemfile`.
+For another kind of application (such as Sinatra), run:
 
 ```
 $ bundle init
@@ -168,7 +171,7 @@ require 'nokogiri'
 
 Run an executable that comes with a gem in your bundle:
 
-``` shell
+```
 $ bundle exec rspec spec/models
 ```
 
@@ -180,7 +183,7 @@ looks like it works, it may not work in the future or on another machine.
 
 Finally, if you want a way to get a shortcut to gems in your bundle:
 
-``` shell
+```
 $ bundle install --binstubs
 $ bin/rspec spec/models
 ```

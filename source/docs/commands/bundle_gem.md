@@ -1,6 +1,6 @@
 ## bundle gem
 
-Creates a skeleton for creating a rubygem.
+> Creates a skeleton for creating a rubygem.
 
 ```
 $ bundle gem GEM [-b, --bin] [--test=TESTFRAMEWORK] [--edit=TEXTEDITOR] [--ext]

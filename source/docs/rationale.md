@@ -1,4 +1,5 @@
-If you just want to know our recommended workflow, and don't care about the rationale, feel free to [jump to the summary](#summary) below.
+If you just want to know our recommended workflow, and don't care about the
+rationale, feel free to [jump to the summary](#summary) below.
 
 ## Bundler's Purpose and Rationale
 First, you declare these dependencies in a file at the root of your application,
@@ -105,7 +106,7 @@ your `Gemfile` available to Ruby (in technical terms, it puts the gems
 
 Now that your code is available to Ruby, you can require the gems that you need.
 For instance, you can `require 'sinatra'`. If you have a lot of dependencies,
-you might want to say "require all of the gems in my `Gemfile`". To do this, put
+you might want to say "require all of the gems in my Gemfile". To do this, put
 the following code immediately following `require 'bundler/setup'`:
 
 ``` ruby
@@ -351,7 +352,7 @@ tests (orboot your local development server), make sure you have checked in your
 $ bundle install --deployment
 ```
 
-## Notes
+### Notes
 [1] For instance, if `rails 4.1.0` depended on `rack 2.0`, that gem would still
 satisfy the requirement of `rack-cache`, which declares `>= 0.4` as a
 dependency. Of course, you could argue that `rack-cache` is silly for depending

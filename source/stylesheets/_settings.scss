@@ -1,23 +1,28 @@
 // -- Variables --
 
 // Typography
-$base-font-family: "Open Sans", Helvetica, sans-serif;
-$base-font-mono: "Source Code Pro", Monaco, monospace;
+$base-font-family: "Lato", Helvetica Neue, Helvetica, sans-serif;
+$base-font-serif: "Source Serif Pro", serif;
+$base-font-mono: "Source Code Pro", Menlo, Monaco, Consolas, "DejaVu Sans Mono", monospace;
 $link-color: #00486a;
 
 // Colors
 $dark-blue: #00486a;
+$dark-grey: #333333;
 
 // Background Color
 $color-bg: #fff;
 
+$base-line-height: 1.5em;
 
 // $header-color: #346b8c;
-$subhead-color: #00486a;
+$subhead-color: $dark-blue;
 
-$base-font-color: #333333;
+$base-font-color: $dark-grey;
 
 $base-border-radius: 5px;
 
 // Buttons
 $button-bg-color: #00b0e2;
+
+$code-font-size: 14px;

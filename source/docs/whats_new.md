@@ -1,25 +1,28 @@
 ---
-title: What's New
+title: What's New in Bundler
 ---
 
 ## What's New in v1.9
 
 Bundler 1.9 comes with a new dependency resolver, called _Molinillo_, among other changes.
 
-In this section, you’ll find the major features introduced in this release. All the changes are documented in the Bundler 1.9 changelog.
+In this section, you’ll find the major features introduced in this release. All
+the changes are documented in the Bundler 1.9 changelog.
 
 [Full 1.9 changelog](https://github.com/bundler/bundler/blob/1-9-stable/CHANGELOG.md)
 
 ### Using Molinillo for Dependency Resolution
 
-Bundler's dependency resolver is now powered by Molinillo, the CocoaPods dependency resolution algorithm sponsored by Stripe that is fully
-documented, tested, and built for use across different dependency managers built in Ruby.
+Bundler's dependency resolver is now powered by Molinillo, the CocoaPods
+dependency resolution algorithm sponsored by Stripe that is fully documented,
+tested, and built for use across different dependency managers built in Ruby.
 
 **Learn More:** [Molinillo](https://github.com/CocoaPods/Molinillo)
 
 ### Improved gemspec detection
 
-Directories are now searched resursively for gemspecs, with specs found closer to the root being preferred.
+Directories are now searched resursively for gemspecs, with specs found closer
+to the root being preferred.
 
 ### Other changes
 
@@ -31,6 +34,7 @@ Bundler 1.9 also includes:
 
 [Full 1.9 changelog](https://github.com/bundler/bundler/blob/1-9-stable/CHANGELOG.md)
 
+----
 
 ## What's New in v1.8
 
@@ -41,7 +45,7 @@ better support for using multi-platform gems in deployment, and faster
 In this section, you’ll find the major features introduced in this release. All
 the changes are documented in the Bundler 1.8 changelog.
 
-[Full 1.8 changelog](https://github.com/bundler/bundler/blob/1-8-stable/CHANGELOG.md')
+[Full 1.8 changelog](https://github.com/bundler/bundler/blob/1-8-stable/CHANGELOG.md)
 
 ### Enforce Source Hijacking Protection
 
@@ -52,15 +56,21 @@ this warning into an error.
 
 ### Improved gem lookup
 
-Gems are now looked up across all sources to satisfy dependencies. In addition, installed gems are now also looked up in remote sources.
+Gems are now looked up across all sources to satisfy dependencies. In addition,
+installed gems are now also looked up in remote sources.
 
 ### New options for `bundle package`
 
-You can now pass the `--no-install` flag to `bundle package` in order to update the gem cache, but not actually install gems. `bundle package` also takes a new `--all-platforms`, enabling caching of gem files for platforms other than the one bundler is run on. This solves some problems when deploying on a platform that is different from the development platform.
+You can now pass the `--no-install` flag to `bundle package` in order to update
+the gem cache, but not actually install gems. `bundle package` also takes a
+new `--all-platforms`, enabling caching of gem files for platforms other than
+the one bundler is run on. This solves some problems when deploying on a
+platform that is different from the development platform.
 
 ### Improved templates for new Gems
 
-Creating new gems now includes more metadata in the template, sets the version appropriately, adds a gem code of conduct file, license setting and appropriate config options.
+Creating new gems now includes more metadata in the template, sets the version
+appropriately, adds a gem code of conduct file, license setting and appropriate config options.
 
 ### Other changes
 
@@ -75,6 +85,7 @@ Bundler 1.8 also includes:
 
 [Full 1.8 changelog](https://github.com/bundler/bundler/blob/1-8-stable/CHANGELOG.md)
 
+----
 
 ## What's New in v1.7
 
@@ -144,31 +155,31 @@ at the top of the `Gemfile`
 2. For each additional gem source, add a block to the `source` line and move the
 relevant gem declarations inside it.
 
-For example, this `Gemfile`:
+    For example, this `Gemfile`:
 
-``` ruby
-source 'https://rubygems.org'
-source 'https://gems.example.com'
+    ``` ruby
+    source 'https://rubygems.org'
+    source 'https://gems.example.com'
 
-gem 'rails', '4.1.4'
-gem 'sqlite3'
-gem 'my_gem', '1.0'
-gem 'another_gem', '1.2.1'
-```
+    gem 'rails', '4.1.4'
+    gem 'sqlite3'
+    gem 'my_gem', '1.0'
+    gem 'another_gem', '1.2.1'
+    ```
 
-might change to this:
+    might change to this:
 
-``` ruby
-source 'https://rubygems.org'
+    ``` ruby
+    source 'https://rubygems.org'
 
-gem 'rails', '4.1.4'
-gem 'sqlite3'
+    gem 'rails', '4.1.4'
+    gem 'sqlite3'
 
-source 'https://gems.example.com' do
-  gem 'my_gem', '1.0'
-  gem 'another_gem', '1.2.1'
-end
-```
+    source 'https://gems.example.com' do
+      gem 'my_gem', '1.0'
+      gem 'another_gem', '1.2.1'
+    end
+    ```
 
 ### Workarounds
 
@@ -190,25 +201,34 @@ will be guaranteed to come from that git repository rather than a gem server.
 `Gemfile` to point it to the unpacked gem directory. In this case, you should
 commit the vendored gem to your source control system.
 
+----
 
 ## What's New in v1.6
 
-In this section, you'll find the major features introduced in the release. All the changes are documented in the Bundler 1.6 changelog.
+In this section, you'll find the major features introduced in the release. All
+the changes are documented in the Bundler 1.6 changelog.
+
 [Full 1.6 changelog](https://github.com/bundler/bundler/blob/1-6-stable/CHANGELOG.md)
 
 ### New Resolver
 
-The resolver has been rewritten to avoid recursion and can now resolve Gemfiles up to 10x faster than before.
+The resolver has been rewritten to avoid recursion and can now resolve Gemfiles
+up to 10x faster than before.
 
 ### Bundle console irb alternatives
 
-`bundle console` now supports IRB alternatives Pry and Ripl. If we want to use Pry, set the `console` Bundler setting: `bundle config console pry`. You'll need make sure `pry` is in your Gemfile. Now when running `bundle console` it will open Pry instead of IRB.
+`bundle console` now supports IRB alternatives Pry and Ripl. If we want to use
+Pry, set the `console` Bundler setting: `bundle config console pry`. You'll need
+make sure `pry` is in your Gemfile. Now when running `bundle console` it will
+open Pry instead of IRB.
 
 [Learn More: Bundle Console](/docs/bundle_console.html)
 
 ### Bundle gem extention
 
-Now when creating a new gem, `bundle gem` supports the `--ext` flag which creates skeleton files for a C-extension. When running `bundle gem newgem --ext`, it will create some new files in a `ext` directory: `extconf.rb`, `newgem.c`, `newgem.h`.
+Now when creating a new gem, `bundle gem` supports the `--ext` flag which creates
+skeleton files for a C-extension. When running `bundle gem newgem --ext`, it
+will create some new files in a `ext` directory: `extconf.rb`, `newgem.c`, `newgem.h`.
 
 [Learn More: Bundle Gem](/docs/bundle_gem.html)
 
@@ -223,22 +243,28 @@ Bundler 1.6 also includes:
 
 [Full 1.6 changelog](https://github.com/bundler/bundler/blob/1-6-stable/CHANGELOG.md)
 
+----
 
 ## What's New in v1.5
 
-In this section, you'll find the major features introduced in the release. All the changes are documented in the Bundler 1.5 changelog.
+In this section, you'll find the major features introduced in the release. All
+the changes are documented in the Bundler 1.5 changelog.
 
 [Full 1.5 changelog](https://github.com/bundler/bundler/blob/1-5-stable/CHANGELOG.md)
 
 ### Parallel Install
 
-The `--jobs` option (`-j` for short) installs gems in parallel. For example, `bundle install -j4` will use 4 workers. We've seen speedups of 40-60% on fresh bundle installs. To always install in parallel, run `bundle config --global jobs 4` or set `BUNDLE_JOBS`.
+The `--jobs` option (`-j` for short) installs gems in parallel. For example,
+`bundle install -j4` will use 4 workers. We've seen speedups of 40-60% on
+fresh bundle installs. To always install in parallel, run
+`bundle config --global jobs 4` or set `BUNDLE_JOBS`.
 
 [Learn More: Parallel Install](/docs/bundle_install.html#jobs)
 
 ### Gem Source Mirrors
 
-Bundler now supports the ability to use a gem mirror in a Gemfile locally by using `bundle config`.
+Bundler now supports the ability to use a gem mirror in a Gemfile locally by
+using `bundle config`.
 
 ```
 bundle config mirror.https://rubygems.org https://rubygems-mirror.org/`
@@ -248,7 +274,8 @@ bundle config mirror.https://rubygems.org https://rubygems-mirror.org/`
 
 ### Ruby Patchlevel
 
-The ruby DSL now takes a `:patchlevel` option for locking to specific patchlevels of ruby like `ruby '2.0.0', :patchlevel => "247"`
+The ruby DSL now takes a `:patchlevel` option for locking to specific
+patchlevels of ruby like `ruby '2.0.0', :patchlevel => "247"`
 
 [Learn More: Ruby Directive](/docs/gemfile_ruby.html#patchlevel)
 
@@ -260,7 +287,8 @@ The ruby DSL now takes a `:patchlevel` option for locking to specific patchlevel
 
 ### Retry Install
 
-`bundle install` now retries failed downloads. You can adjust the number of retries with the  `--retry` option.
+`bundle install` now retries failed downloads. You can adjust the number of
+retries with the  `--retry` option.
 
 [Learn More: Retry](/docs/bundle_install.html#retry)
 
@@ -276,12 +304,12 @@ Bundler 1.5 also includes:
 
 [Full 1.5 changelog](https://github.com/bundler/bundler/blob/1-5-stable/CHANGELOG.md)
 
+----
 
 ## What's New in v1.3
 
-In this section, you'll find the major features introduced in the release. All the changes are documented in the Bundler 1.3 CHANGELOG.
-
-[CHANGELOG](https://github.com/bundler/bundler/blob/1-3-stable/CHANGELOG.md)
+In this section, you'll find the major features introduced in the release. All
+the changes are documented in the [Bundler 1.3 CHANGELOG](https://github.com/bundler/bundler/blob/1-3-stable/CHANGELOG.md).
 
 ### Compatible with Ruby 2 and RubyGems 2
 
@@ -289,7 +317,10 @@ Bundler 1.3 is compatible with Ruby 2.0.0 and RubyGems 2.0.0. The way of the fut
 
 ### Compatible with Rails 4
 
-Bundler 1.3 provides the `binstubs` command, which is used by Rails 4 to create executables that will run inside the context of your Rails app. For example, `bundle binstubs rspec-core` will create `bin/rspec` that you can run directly without needing `bundle exec`.
+Bundler 1.3 provides the `binstubs` command, which is used by Rails 4 to create
+executables that will run inside the context of your Rails app. For example,
+`bundle binstubs rspec-core` will create `bin/rspec` that you can run directly
+without needing `bundle exec`.
 
 ### Install and update speed improvements
 
@@ -302,10 +333,12 @@ within a few seconds. In some cases, the install or update completes 150 times f
 Bundler now supports signed gems! `bundle install --trust-policy` takes the same
 arguments as `gem install --trust-policy` does.
 
+----
 
 ## What's New in v1.2
 
-In this section, you'll find the major features introduced in the release. All the changes are documented in the [Bundler 1.2 CHANGELOG](https://github.com/bundler/bundler/blob/1-2-stable/CHANGELOG.md).
+In this section, you'll find the major features introduced in the release. All
+the changes are documented in the [Bundler 1.2 CHANGELOG](https://github.com/bundler/bundler/blob/1-2-stable/CHANGELOG.md).
 
 ### Specifying a Ruby Version
 
@@ -364,3 +397,15 @@ developer is always working against the correct branches, and prevents
 accidental locking to a different branch.
 
 [Learn More: Git](/docs/git.html#local-git-repos)
+
+----
+
+## What's New in v1.1
+
+[Bundler 1.1 CHANGELOG](https://github.com/bundler/bundler/blob/master/CHANGELOG.md#110-mar-7-2012)
+
+----
+
+## What's New in v1.0
+
+[Bundler 1.0 CHANGELOG](https://github.com/bundler/bundler/blob/master/CHANGELOG.md#100-august-29-2010)

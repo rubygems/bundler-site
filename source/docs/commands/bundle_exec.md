@@ -1,6 +1,6 @@
 ## bundle exec
 
-Run a command in context of the bundle.
+> Run a command in context of the bundle.
 
 ```
 $ bundle exec [--keep-file-descriptors] <command>

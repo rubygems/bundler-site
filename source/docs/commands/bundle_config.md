@@ -4,7 +4,7 @@ title: bundle config
 
 ## bundle config
 
-Retrieve or set a configuration value.
+> Retrieve or set a configuration value.
 
 ```
 $ bundle config [NAME [VALUE]] [--local] [--global] [--delete]

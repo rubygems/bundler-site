@@ -1,6 +1,6 @@
 ## bundle show
 
-Shows all gems that are part of the bundle, or the path to a given gem.
+> Shows all gems that are part of the bundle, or the path to a given gem.
 
 ```
 $ bundle show [GEM] [--paths]

@@ -1,6 +1,6 @@
 ## bundle inject
 
-Add the named gem(s), with version requirements, to the resolved `Gemfile`.
+> Add the named gem(s), with version requirements, to the resolved `Gemfile`.
 
 ```
 $ bundle inject [GEM] [VERSION]

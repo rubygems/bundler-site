@@ -1,6 +1,6 @@
-# bundle open
+## bundle open
 
-Opens the source directory of the given bundled gem.
+> Opens the source directory of the given bundled gem.
 
 ```
 $ bundle open GEM

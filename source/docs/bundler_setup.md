@@ -22,26 +22,27 @@ Bundler.setup(:default, :ci)
 require 'nokogiri'
 ```
 
-**Learn More:** [Groups](./groups.html)
+[Learn More: Groups](./groups.html)
 
-## Compatibility
+### Compatibility
 
-Ruby 2.0 and RubyGems 2.0 both require Bundler 1.3 or later. If you have questions
-about compatibility between Bundler and your system, please check the compatibility list.
+Ruby 2.0 and RubyGems 2.0 both require Bundler 1.3 or later. If you have
+questions about compatibility between Bundler and your system, please check
+the compatibility list.
 
-**Learn More:** [Compatibility](/compatibility.html)
+[Learn More: Compatibility](./compatibility.html)
 
-## Setting Up Your Application to Use Bundler
+### Setting Up Your Application to Use Bundler
 
 Bundler makes sure that Ruby can find all of the gems in the `Gemfile`
-(and all of their dependencies). If your app is a Rails 3 app, your default application
-already has the code necessary to invoke bundler. If it is a Rails 2.3 app, please see:
-[Setting up Bundler in Rails 2.3](./rails23.html).
+(and all of their dependencies). If your app is a Rails 3 app, your default
+application already has the code necessary to invoke bundler. If it is a
+Rails 2.3 app, please see: [Setting up Bundler in Rails 2.3](./rails23.html).
 
-For another kind of application (such as a Sinatra application), you will need to set up
-bundler before trying to require any gems. At the top of the first file that your
-application loads (for Sinatra, the file that calls `require 'sinatra'`), put
-the following code:
+For another kind of application (such as a Sinatra application), you will need
+to set up bundler before trying to require any gems. At the top of the first
+file that your application loads (for Sinatra, the file that calls `require 'sinatra'`),
+put the following code:
 
 ``` ruby
 require 'rubygems'
@@ -49,13 +50,14 @@ require 'bundler/setup'
 ```
 
 This will automatically discover your `Gemfile`, and make all of the gems in your
-`Gemfile` available to Ruby (in technical terms, it puts the gems "on the load path").
-You can think of it as an adding some extra powers to `require 'rubygems'`.
+`Gemfile` available to Ruby (in technical terms, it puts the gems
+"on the load path"). You can think of it as an adding some extra powers to
+`require 'rubygems'`.
 
-Now that your code is available to Ruby, you can require the gems that you need. For
-instance, you can `require 'sinatra'`. If you have a lot of dependencies, you might
-want to say "require all of the gems in my `Gemfile`". To do this, put the following
-code immediately following `require 'bundler/setup'`:
+Now that your code is available to Ruby, you can require the gems that you need.
+For instance, you can `require 'sinatra'`. If you have a lot of dependencies, you
+might want to say "require all of the gems in my `Gemfile`". To do this, put the
+following code immediately following `require 'bundler/setup'`:
 
 ``` ruby
 Bundler.require(:default)

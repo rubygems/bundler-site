@@ -1,6 +1,6 @@
 ## bundle update
 
-Update the current environment.
+> Update the current environment.
 
 ```
 $ bundle update [GEM] [--full-index] [--group=GROUP] [--jobs=NUMBER] [--local]
@@ -47,7 +47,7 @@ $ bundle update --source=SOURCE
 The name of a `:git` or `:path` source used in the `Gemfile`. For instance, with
 a `:git` source of `http://github.com/rails/rails.git`, you would call `bundle update --source rails`.
 
-## Update all gems
+### Update all gems
 
 If you run `bundle update` with no parameters, bundler will ignore any previously
 installed gems and resolve all dependencies again based on the latest versions
@@ -115,7 +115,7 @@ resolve all the dependencies again. Keep in mind that this process can result in
 a significantly different set of the 25 gems, based on the requirements of new
 gems that the gem authors released since the last time you ran `bundle update`.
 
-## Update a list of gems.
+### Update a list of gems.
 
 Sometimes, you want to update a single gem in the `Gemfile`, and leave the rest
 of the gems that you specified locked to the versions in the `Gemfile.lock`.
@@ -130,7 +130,7 @@ bundle update nokogiri
 
 Bundler will update `nokogiri` and any of its dependencies, but leave alone Rails and its dependencies.
 
-## Overlapping dependencies
+### Overlapping dependencies
 
 Sometimes, multiple gems declared in your `Gemfile` are satisfied by the same
 second-level dependency. For instance, consider the case of `thin` and `rack-perftools-profiler`.

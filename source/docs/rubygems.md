@@ -11,7 +11,7 @@ $ bundle gem my_gem
 ```
 
 <aside class="notes">
-  <b>Note:</b> This will create a new directory named `my_gem` with your new gem skeleton.
+  <b>Note:</b> This will create a new directory named <code>my_gem</code> with your new gem skeleton.
 </aside>
 
 If you already have a gem with a gemspec, you can generate a Gemfile for your gem.
@@ -51,4 +51,3 @@ That's it! Use bundler when developing your gem, and otherwise, use gemspecs nor
 ``` shell
 $ gem build my_gem.gemspec
 ```
-

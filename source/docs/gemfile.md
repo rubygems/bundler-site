@@ -1,6 +1,6 @@
-## In Depth
-
-Read the [Gemfile manual](./man/gemfile.5.html) for an in-depth discussion of all of the options available in the `Gemfile` and how to use them.
+---
+title: Gemfiles
+---
 
 ## Gemfiles
 
@@ -63,7 +63,7 @@ gem 'sqlite3'
 In order to require gems in your `Gemfile`, you will need to call
 `Bundler.require` in your application.
 
-**Learn More:** [Bundler.require](./groups.html)
+[Learn More: Bundler.require](./groups.html)
 
 If some of your gems need to be fetched from a private gem server, this default source can be overridden for those gems.
 
@@ -98,7 +98,7 @@ will create a simple one, without any dependencies, executables or C extensions.
 This may work for simple gems, but not work for others. If there is no .gemspec,
 you probably shouldn't use the gem from git.
 
-**Learn more:** [Git](./git.html)
+[Learn more: Git](./git.html)
 
 If you would like to use a unpacked gem directly from the filesystem, simply set the `:path` option to the path containing the gem's files.
 
@@ -125,7 +125,7 @@ group :test do
   gem 'rspec'
 end
 ```
-**Learn more:** [Groups](./groups.md)
+[Learn more: Groups](./groups.html)
 
 
 You can specify the required version of Ruby in the `Gemfile` with `ruby`. If the
@@ -141,4 +141,8 @@ What this means is that this app has a dependency to a Ruby VM that is ABI compa
 ruby '1.9.3', :engine => 'jruby', :engine_version => '1.6.7'
 ```
 
-**Learn More:** [Ruby Directive](./gemfile_ruby.md)
+[Learn More: Ruby Directive](./gemfile_ruby.html)
+
+### In Depth
+
+Read the [Gemfile manual](./man/gemfile.5.html) for an in-depth discussion of all of the options available in the `Gemfile` and how to use them.

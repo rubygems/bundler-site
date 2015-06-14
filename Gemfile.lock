@@ -1,4 +1,12 @@
 GIT
+  remote: git://github.com/middleman/middleman-autoprefixer.git
+  revision: 01ed7d1c07b6691151888336508df9d2f9451877
+  specs:
+    middleman-autoprefixer (2.4.4)
+      autoprefixer-rails (~> 5.2.0)
+      middleman-core (>= 3.3.3)
+
+GIT
   remote: git://github.com/middleman/middleman-syntax.git
   revision: d1a49ee30f9a2ef939a00b78f3b38cca6c5bcc0c
   specs:
@@ -16,6 +24,12 @@ GEM
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
     addressable (2.3.8)
+    autoprefixer-rails (5.2.0)
+      execjs
+      json
+    bootstrap-sass (3.3.4.1)
+      autoprefixer-rails (>= 5.0.0.1)
+      sass (>= 3.2.19)
     builder (3.2.2)
     celluloid (0.16.0)
       timers (~> 4.0.0)
@@ -146,9 +160,10 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bootstrap-sass
   builder
-  compass
   middleman (~> 3.2)
+  middleman-autoprefixer!
   middleman-blog
   middleman-livereload
   middleman-syntax!

@@ -2,13 +2,21 @@
 # the following line to use "https"
 source 'https://rubygems.org'
 
+# Core
 gem 'middleman', '~> 3.2'
 gem 'middleman-livereload'
-#gem 'middleman-autoprefixer', github: 'middleman/middleman-autoprefixer'
+
+# Plugins
+gem 'middleman-autoprefixer', github: 'middleman/middleman-autoprefixer'
 gem 'middleman-syntax', github: 'middleman/middleman-syntax'
 gem 'middleman-blog'
-gem 'compass'
-gem 'rake'
+
+# Assets
+gem 'bootstrap-sass'
+
 gem 'ronn'
+gem 'rake'
+
+# Templating
 gem 'redcarpet'
 gem 'builder'

@@ -3,75 +3,9 @@
 @import url(http://fonts.googleapis.com/css?family=Lato:400,700|Source+Serif+Pro:400,700,400italic,700italic|Source+Code+Pro);
 
 @import "compass/css3";
-@import "normalize";
-@import "settings";
-@import "base";
-@import "layout";
+
+@import "application-custom";
+
+@import "bootstrap-includes";
+
 @import "code";
-
-.header {
-  padding: 1em;
-  text-align: center;
-  font-weight: bold;
-  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
-  h2 {
-    font-size: 2em;
-    border: 0;
-    padding: 0;
-    margin: 0 auto;
-    a:active,
-    a:hover {
-      text-decoration: none;
-    }
-  }
-}
-
-.footer {
-  margin-top: 2em;
-  padding: 1.5rem 1.5rem;
-  // background: white;
-  font-size: 0.833em;
-  text-align: center;
-  a {
-    padding-bottom: 1px;
-    border: 0;
-  }
-}
-
-@mixin important($color) {
-  color: $base-font-color;
-  font-size: 1.1em;
-  code {
-    //color: $subhead-color;
-    border: 1px solid rgba($subhead-color, 0.5);
-  }
-}
-
-#intro {
-  @include important(rgba(255, 255, 255, 0.7));
-}
-
-#hero {
-  // background-color: $subhead-color;
-  padding-top: 1.5em;
-  h1 {
-    font-size: 1.4em;
-    font-weight: bold;
-    line-height: $base-line-height;
-    // color: white;
-  }
-}
-
-.notes {
-  font-size: 90%;
-  color: rgba($subhead-color, 0.8);
-  margin: 0 0 1.5em;
-  line-height: $base-line-height;
-  background: rgba($subhead-color, 0.1);
-  border: 2px solid rgba($subhead-color, 0.2);
-  border-radius: $base-border-radius;
-  padding: 10px;
-  p {
-    margin: 0;
-  }
-}

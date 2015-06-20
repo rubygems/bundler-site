@@ -1,15 +1,14 @@
-!!! 5
--# - v = current_page.url.scan(/v\d+\.\d+/).first || current_version
-%html(lang="en")
-  %head
-    = partial 'partials/head'
-  %body.site
-    %header.site-header
-      = partial 'partials/header'
-    %main.cell
-      = yield
-      .sidebar
-        = partial 'partials/sidebar'
-    %footer.site-footer
-      = partial 'partials/footer'
-    = partial 'partials/scripts'
+~ wrap_layout :base do
+
+  %main#page-wrap.container
+
+    .row
+
+      #sidebar
+        = partial "header"
+
+      %section#content.col-md-9.col-lg-10
+
+        = yield
+
+    = partial "footer"

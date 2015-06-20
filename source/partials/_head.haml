@@ -1,13 +1,15 @@
-%title
-  = "Bundler: #{current_page.data.title || "The best way to manage a Ruby application's gems"}"
-
 %meta(charset="utf-8")
 %meta(content="IE=edge,chrome=1" http-equiv="X-UA-Compatible")
 %meta(name="viewport" content="width=device-width,initial-scale=1")
 %meta(name="globalsign-domain-verification" content="276VSYOko8B8vIu1i8i5qbj7_ql5PXo0dU69XQy-SL")
 
+%title
+  = "Bundler: #{current_page.data.title || "The best way to manage your application's dependencies"}"
+
 = favicon_tag 'images/favicon.png'
+
 = stylesheet_link_tag 'application'
+
 = feed_tag :atom, "#{blog.options.prefix.to_s}/feed.xml", title: "Atom Feed"
 
 -# %a#github{ :href => 'http://github.com/bundler/bundler/' }

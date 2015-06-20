@@ -1,2 +1,29 @@
-%nav(class="navbar" role="navigation")
-	
+%nav.navbar(role="navigation" class="navbar-inverse navbar-static-top")
+  .navbar-header
+    %button.navbar-toggle( type="button" data-toggle="collapse" data-target=".navbar-ex-collapse" )
+
+      %span.sr-only
+        Toggle navigation
+
+      - 3.times do
+        %span.icon-bar
+
+    %a.navbar-brand( href="/" title="Home" ) Home
+
+  .collapse.navbar-collapse.navbar-ex-collapse
+    %ul.nav.navbar-nav
+      %li
+        %a( href="/blog/" ) Blog
+      %li
+        %a( href="/documentation/" ) Documentation
+      %li.dropdown
+        %a.dropdown-toggle( href="#help" title="help" data-toggle="dropdown" )
+          Help
+          %b.caret
+        %ul.dropdown-menu
+          %li
+            %a( href="http://middlemanapp.com/" ) Middleman
+          %li
+            %a( href="http://getbootstrap.com" ) Bootstrap
+          %li
+            %a( href="http://haml.info/" ) Haml

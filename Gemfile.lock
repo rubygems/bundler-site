@@ -122,12 +122,12 @@ GEM
       rack
     rack-test (0.6.3)
       rack (>= 1.0)
+    rails-assets-jquery (1.11.2)
     rake (10.4.2)
     rb-fsevent (0.9.5)
     rb-inotify (0.9.5)
       ffi (>= 0.5.0)
     rdiscount (2.1.8)
-    redcarpet (3.3.1)
     ronn (0.7.3)
       hpricot (>= 0.8.2)
       mustache (>= 0.7.0)
@@ -162,13 +162,14 @@ PLATFORMS
 DEPENDENCIES
   bootstrap-sass
   builder
+  kramdown
   middleman (~> 3.2)
   middleman-autoprefixer!
   middleman-blog
   middleman-livereload
   middleman-syntax!
+  rails-assets-jquery
   rake
-  redcarpet
   ronn
 
 BUNDLED WITH

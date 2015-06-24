@@ -1,14 +1,21 @@
 ~ wrap_layout :base do
 
-  %main#page-wrap.container
+	-# Main navbar
+	= partial "header"
 
-    .row
+	= partial "banner"
+	-# Content
+	%main.container.doc-container
 
-      #sidebar
-        = partial "header"
+		.row
 
-      %section#content.col-md-9.col-lg-10
+			%section.col-md-9(role="main")
 
-        = yield
+				= yield
 
-    = partial "footer"
+			.col-md-3
+
+				.sidebar
+					= partial "sidebar"
+
+	= partial "footer"

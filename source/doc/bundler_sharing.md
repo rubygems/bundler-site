@@ -14,13 +14,13 @@ only three gems (with varying degrees of version strictness), your application
 depends on dozens of gems, once you take into consideration all of the implicit
 requirements of the gems you depend on.
 
-<aside class="notes">
-  <b>Important:</b> The <code>Gemfile.lock</code> makes your application a single
-  package of both your own code and the third-party code it ran the last time you
-  know for sure that everything worked. Specifying exact versions of the third-party
-  code you depend on in your `Gemfile` would not provide the same guarantee,
-  because gems usually declare a range of versions for their dependencies.
-</aside>
+
+**Important:** The `Gemfile.lock` makes your application a single
+package of both your own code and the third-party code it ran the last time you
+know for sure that everything worked. Specifying exact versions of the third-party
+code you depend on in your `Gemfile` would not provide the same guarantee,
+because gems usually declare a range of versions for their dependencies.
+{:.alert .alert-info}
 
 The next time you run `bundle install` on the same machine, bundler will see
 that it already has all of the dependencies you need, and skip the installation process.

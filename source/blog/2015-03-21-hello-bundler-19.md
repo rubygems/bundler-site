@@ -18,8 +18,8 @@ Having dependencies inside Bundler itself is a bit crazy: Bundler is a dependenc
 
 To install the last release of Bundler you can run:
 
-```
+~~~
 $ [sudo] gem install bundler
-```
+~~~
 
 For all the details, don’t miss the Changelog!

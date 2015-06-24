@@ -2,27 +2,32 @@
   .navbar-header
     %button.navbar-toggle( type="button" data-toggle="collapse" data-target=".navbar-ex-collapse" )
 
-      %span.sr-only
-        Toggle navigation
+      %span.sr-only Toggle navigation
 
       - 3.times do
         %span.icon-bar
 
-    %a.navbar-brand( href="/" title="Home" ) Home
+    %a.navbar-brand(href="/" alt="Bundler")
+      = data.site.name
 
-  .collapse.navbar-collapse.navbar-ex-collapse
+  %nav.collapse.navbar-collapse.navbar-ex-collapse
     %ul.nav.navbar-nav
       %li
-        %a( href="/blog/" ) Blog
+        %a( href="/#getting-started" ) Get Started
       %li
-        %a( href="/documentation/" ) Documentation
+        %a( href="/doc/" ) Documentation
+      %li
+        %a( href="/doc/commands" ) Reference
+      %li
+        %a( href="/blog/" ) Blog
       %li.dropdown
         %a.dropdown-toggle( href="#help" title="help" data-toggle="dropdown" )
-          Help
+          Github
           %b.caret
         %ul.dropdown-menu
           %li
-            %a( href="http://middlemanapp.com/" ) Middleman
+            %a( href="http://github.com/rgb-one/bundler-site" )
+              Docs Repo
           %li
             %a( href="http://getbootstrap.com" ) Bootstrap
           %li

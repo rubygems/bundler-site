@@ -1,52 +1,62 @@
--# #sidebar
--#   %h2 Would you like to
--#   %ul
--#     %li= link_to 'Get started', '/#getting-started'
--#     %li= link_to 'Report a bug', '/issues.html'
--#     %li= link_to "See what's new", "/#{current_version}/whats_new.html"
--#     %li= link_to 'Read documentation', "/#{current_version}/man/bundle.1.html"
--#     %li= link_to 'Discuss and Contribute', '/#get-involved'
--#     %li= link_to 'View FAQs', "/#{current_version}/faq.html"
--#
--#   %h2 Read the latest news
--#   %ul
--#     - blog.articles[0..1].each_with_index do |article, index|
--#       %li
--#         = link_to article.title, article.url
--#     .buttons
--#       = link_to 'All posts', '/blog/'
--#
--#   %h2 Bundler commands
--#   %ul
--#     %li= link_to 'bundle install', "/#{current_version}/bundle_install.html"
--#     %li= link_to 'bundle update', "/#{current_version}/bundle_update.html"
--#     .buttons
--#       = link_to 'View all commands', "/#{current_version}/commands.html"
--#
--#   %h2 Help with
--#   %ul
--#     %li= link_to 'Gemfiles', "/#{current_version}/gemfile.html"
--#     %li= link_to 'Groups', "/#{current_version}/groups.html"
--#     %li= link_to 'Gems from git', "/#{current_version}/git.html"
--#     %li= link_to 'Bundler.setup', "/#{current_version}/bundler_setup.html"
--#     %li= link_to 'Bundler Inline', "/#{current_version}/bundler_inline.html"
--#     %li= link_to 'Deploying', "/#{current_version}/deploying.html"
--#     %li= link_to 'Sharing', "/#{current_version}/bundler_sharing.html"
--#     %li= link_to 'Updating Gems', "/#{current_version}/updating_gems.html"
--#     %li= link_to 'Compatiblity', '/compatibility.html'
--#     %li= link_to 'Older Versions', '/older_versions.html'
--#
--#   %h2 Use Bundler with
--#   %ul
--#     %li= link_to 'Rails 3', "/#{current_version}/rails3.html"
--#     %li= link_to 'Rails 2.3', "/#{current_version}/rails23.html"
--#     %li= link_to 'Sinatra', "/#{current_version}/sinatra.html"
--#     %li= link_to 'RubyGems', "/#{current_version}/rubygems.html"
--#     %li= link_to 'RubyMotion', "/#{current_version}/rubymotion.html"
--#
--#   .shirts
--#     .content
--#       = link_to 'http://www.devswag.com/collections/bundler', :class => 'image', :onclick => "ga('send', 'devswag');" do
--#         = image_tag '/images/bundler-shirt.png'
--#       %p
--#         =link_to 'Buy Bundler Shirts & Stickers!', 'http://www.devswag.com/collections/bundler', :onclick => "ga('send', 'devswag');"
+#sidebar
+  %h5= link_to 'Get started', '/#getting-started'
+  %h5= link_to 'Using Bundler', '#'
+  %h5= link_to 'Command Reference', '/doc/commands'
+  %h5= link_to 'Get started', '/#getting-started'
+  %h5= link_to 'FAQ', 'doc/faq'
+
+  -# %h4 Basic
+  -# %ul
+  -#   %li= link_to 'Get started', '/#getting-started'
+  -#   %li= link_to 'Get started', '/#getting-started'
+  -#   %li= link_to 'Get started', '/#getting-started'
+  -#   %li= link_to 'Get started', '/#getting-started'
+  -#   %li= link_to 'Get started', '/#getting-started'
+  -#   -# %li= link_to 'Report a bug', '/issues'
+  -#   -# %li= link_to "See what's new", "/doc/whats_new"
+  -#   -# %li= link_to 'Read documentation', "/doc/man/bundle.1"
+  -#   -# %li= link_to 'Discuss and Contribute', '/#get-involved'
+  -#   %li= link_to 'View FAQs', "/doc/faq"
+
+  -# %h2 Read the latest news
+  -# %ul
+  -#   - blog.articles[0..1].each_with_index do |article, index|
+  -#     %li
+  -#       = link_to article.title, article.url
+  -#   .buttons
+  -#     = link_to 'All posts', '/blog/'
+
+  -# %h4 Commands Reference
+  -# %ul
+  -#   %li= link_to 'bundle install', "/doc/bundle_install"
+  -#   %li= link_to 'bundle update', "/doc/bundle_update"
+  -#   .btn.btn-default.btn-block
+  -#     = link_to 'View all commands', "/doc/commands"
+  -#
+  -# %h4 Guides
+  -# %ul
+  -#   %li= link_to 'Gemfiles', "/doc/gemfile"
+  -#   %li= link_to 'Groups', "/doc/groups"
+  -#   %li= link_to 'Gems from git', "/doc/git"
+  -#   %li= link_to 'Bundler.setup', "/doc/bundler_setup"
+  -#   %li= link_to 'Bundler Inline', "/doc/bundler_inline"
+  -#   %li= link_to 'Deploying', "/doc/deploying"
+  -#   %li= link_to 'Sharing', "/doc/bundler_sharing"
+  -#   %li= link_to 'Updating Gems', "/doc/updating_gems"
+  -#   %li= link_to 'Compatiblity', '/compatibility'
+  -#   -# %li= link_to 'Older Versions', '/older_versions'
+  -#
+  -# %h4 Usage
+  -# %ul
+  -#   %li= link_to 'Rails', "/doc/rails3"
+  -#   -# %li= link_to 'Rails 2.3', "/doc/rails23"
+  -#   %li= link_to 'Sinatra', "/doc/sinatra"
+  -#   %li= link_to 'RubyGems', "/doc/rubygems"
+  -#   %li= link_to 'RubyMotion', "/doc/rubymotion"
+  -#
+  -# .shirts
+  -#   .content
+  -#     = link_to 'http://www.devswag.com/collections/bundler', :class => 'image', :onclick => "ga('send', 'devswag');" do
+  -#       = image_tag '/images/bundler-shirt.png'
+  -#     %p
+  -#       =link_to 'Buy Bundler Shirts & Stickers!', 'http://www.devswag.com/collections/bundler', :onclick => "ga('send', 'devswag');"

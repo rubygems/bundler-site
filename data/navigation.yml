@@ -1,5 +1,19 @@
-- Getting Started: "#getting-started"
-- Documentation: "/docs"
-- Community: "/community"
-- Github: "https://github.com/bundler/"
-- Blog: "/blog"
+# Main navigation
+main:
+  docs:
+    url: /doc/get-started
+    title: Getting Started
+
+  contribute:
+    url: /contribute
+    title: Get Involved
+
+  blog:
+    url: /blog/
+    title: Blog
+
+  github:
+    url: https://github.com/bundler/bundler
+    title: On GitHub
+
+# Documentation navigation

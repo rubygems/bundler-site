@@ -36,3 +36,4 @@ Now you can just compile your app as normal.
 
 ~~~
 $ bundle exec rake
+~~~

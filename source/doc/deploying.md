@@ -40,12 +40,11 @@ To pull in the Bundler Cap task, just add this to your `deploy.rb` file:
 require 'bundler/capistrano'
 ~~~
 
-<aside class="notes">
-<b>Note:</b> That's it! Running <code>cap deploy</code> will now automatically
-run <code>bundle install</code> on the remote server with deployment-friendly
+**Note:** That's it! Running `cap deploy` will now automatically
+run `bundle install` on the remote server with deployment-friendly
 options. A list of options that can be changed is available in the help for
-the cap task. To see it, run <code>cap -e bundle:install</code>.
-</aside>
+the cap task. To see it, run `cap -e bundle:install`.
+{:.alert .alert-info}
 
 ### Automatic deployment with Vlad
 There is a default Vlad task available. To make it available, add this line

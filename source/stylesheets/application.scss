@@ -2,9 +2,14 @@
 
 @import url(http://fonts.googleapis.com/css?family=Lato:400,700|Source+Serif+Pro:400,700,400italic,700italic|Source+Code+Pro);
 
-// @import "compass/css3";
+@import "compass/css3";
+@import "components/variables";
 
 @import "application-custom";
+@import "components/navbar-main";
+@import "components/banner";
+@import "components/footer";
+
 @import "bootstrap";
 
 @import "bootstrap-includes";

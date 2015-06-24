@@ -1,0 +1,14 @@
+name: bundler
+version: 1.10.4
+description: Dependency Manager for Ruby
+homepage: http://bundler.io
+
+repo: https://github.com/bundler/bundler.git
+issues: https://github.com/bundler/bundler/issues
+master: https://github.com/bundler/bundler
+
+license:
+  type: MIT
+  url: https://github.com/bundler/bundler/blob/master/LICENSE.md
+
+changelog: https://github.com/bundler/bundler/blob/master/CHANGELOG.md

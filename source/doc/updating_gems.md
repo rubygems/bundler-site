@@ -37,9 +37,9 @@ the face of an incompatibility with `rack 1.2.2`.
 Since you originally declared a dependency on `rails 3.0.0.rc`, if you want to
 update to `rails 3.0.0`, simply update your `Gemfile` to `gem 'rails', '3.0.0'` and run:
 
-```
+~~~
 $ bundle install
-```
+~~~
 
 As described above, the `bundle install` command always does a conservative
 update, refusing to update gems (or their dependencies) that you have not
@@ -70,9 +70,9 @@ you did not declare a specific version of `rack-cache` in the `Gemfile`, you
 might want to periodically get the latest version of `rack-cache`. To do this,
 you want to use the `bundle update` command:
 
-```
+~~~
 $ bundle update rack-cache
-```
+~~~
 
 This command will update `rack-cache` and its dependencies to the latest version
 allowed by the `Gemfile` (in this case, the latest version available). It will
@@ -86,9 +86,9 @@ will let you know after the update has completed.
 
 If you want to update every gem in the Gemfile to the latest possible versions, run:
 
-```
+~~~
 $ bundle update
-```
+~~~
 
 This will resolve dependencies from scratch, ignoring the `Gemfile.lock`. If you
 do this, keep `git reset --hard` and your test suite in your back pocket.

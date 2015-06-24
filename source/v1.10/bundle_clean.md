@@ -4,11 +4,11 @@ title: bundle clean
 
 ## bundle clean
 
-Cleans up unused gems in your bundler directory.
+> Cleans up unused gems in your bundler directory.
 
-``` bash
+~~~
 $ bundle clean [--dry-run] [--force]
-```
+~~~
 
 **Options:**
 

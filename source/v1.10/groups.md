@@ -6,7 +6,7 @@ title: Using Groups
 
 Grouping your dependencies allows you to perform operations on an entire group.
 
-```ruby
+~~~ruby
 # These gems are in the :default group
 gem 'nokogiri'
 gem 'sinatra'
@@ -27,31 +27,31 @@ groups :test, :development do
 end
 
 gem 'cucumber', :group => [cucumber, :test]
-```
+~~~
 
 You can exclude gems to be installed by using the  `--without` option followed by the group(s):
 
-```bash
+~~~
 $ bundle install `--without` test development
-```
+~~~
 
 Require the gems in particular groups, noting that gems outside of a named group are in the `:default` group
 
-```ruby
+~~~ruby
 Bundler.require(:default, :development)
-```
+~~~
 
 Require the default gems, plus the gems in a group named the same as the current Rails environment
 
-```ruby
+~~~ruby
 Bundler.require(:default, Rails.env)
-```
+~~~
 
 Restrict the groups of gems that you want to add to the load path. Only gems in these groups can be required.
 
-```ruby
+~~~ruby
 require 'rubygems'
 require 'bundler'
 Bundler.setup(:default, :ci)
 require 'nokogiri'
-```
+~~~

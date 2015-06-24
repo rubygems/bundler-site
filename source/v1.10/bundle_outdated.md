@@ -1,10 +1,10 @@
 ## bundle outdated
 
-List installed gems with newer versions available.
+> List installed gems with newer versions available.
 
-``` bash
+~~~
 $ bundle outdated [GEM] [--local] [--pre] [--source] [--strict]
-```
+~~~
 
 **Options:**
 
@@ -19,4 +19,3 @@ $ bundle outdated [GEM] [--local] [--pre] [--source] [--strict]
 `outdated` lists the names and versions of gems that have a newer version available
 in the given source. Calling outdated with [GEM [GEM]] will only check for newer
 versions of the given gems. By default, available prerelease gems will be ignored.
-

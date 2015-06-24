@@ -4,27 +4,28 @@ title: bundler/inline
 
 ## bundler/inline
 
-Allows for declaring a Gemfile inline in a ruby script, optionally installing
+> Allows for declaring a Gemfile inline in a ruby script, optionally installing
 any gems that aren't already installed on the user's system.
 
-<aside class="notes">
-  <p>
-    <b>Note:</b> Every gem that is specified in this 'Gemfile' will be <code>require</code>'d, as if
-    the user had manually called <code>Bundler.require</code>. To avoid a requested gem
-    being automatically required, add the <code>require => false</code> option to the
-    <code>gem</code> dependency declaration.
-  </p>
-</aside>
+**Note:** Every gem that is specified in this 'Gemfile' will be
+`require`'d, as if the user had manually called
+`Bundler.require`. To avoid a requested gem being automatically
+required, add the `require => false` option to the
+`gem` dependency declaration.
+{:.alert .alert-info}
 
-`install [Boolean]`: Whether gems that aren't already installed on the user's system should be installed. Defaults to `false`.
+`install [Boolean]`: Whether gems that aren't already installed on the user's
+system should be installed. Defaults to `false`.
 
 `gemfile [Proc]`: A block that is evaluated as a `Gemfile`.
 
-## Using an inline Gemfile
+### Using an inline Gemfile
 
-To use a `Gemfile` inline in your script, first `require 'bundler/inline'`. Then in the `gemfile` block, declare your source and gems as you would in a normal `Gemfile`.
+To use a `Gemfile` inline in your script, first `require 'bundler/inline'`.
+Then in the `gemfile` block, declare your source and gems as you would in a
+normal `Gemfile`.
 
-``` ruby
+~~~ ruby
 #!/usr/bin/env ruby
 
 require 'bundler/inline'
@@ -37,4 +38,4 @@ gemfile do
 end
 
 puts Pod::VERSION => "0.34.4"
-```
+~~~

@@ -1,10 +1,10 @@
 ## bundle show
 
-Shows all gems that are part of the bundle, or the path to a given gem.
+> Shows all gems that are part of the bundle, or the path to a given gem.
 
-``` bash 
+~~~
 $ bundle show [GEM] [--paths]
-```
+~~~
 
 **Options:**
 

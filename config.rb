@@ -8,11 +8,11 @@ activate :syntax
 # Set HAML to render HTML5 by default. It's important that HAML outputs "ugly" HTML to not mess with code blocks
 set :haml, format: :html5, ugly: true
 
-# Set markdown features for Redcarpet
-set :markdown_engine, :redcarpet
+# Set markdown features for the markdown engine
+set :markdown_engine, :kramdown
 set :markdown,
     autolink: true,
-    gh_blockcode: true, 
+    gh_blockcode: true,
     fenced_code_blocks: true,
     footnotes: true,
     no_intra_emphasis: true,

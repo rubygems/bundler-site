@@ -1,0 +1,218 @@
+%h2 bundle update
+
+.contents
+  .bullet
+    .description
+      Update the current environment
+
+    :code
+      $ bundle update [GEM] [--full-index] [--group=GROUP] [--jobs=NUMBER] [--local] 
+                            [--quiet] [--source=SOURCE]
+    .notes
+      %p
+        Options:
+      %p
+        <code>--full-index</code>: Use the rubygems modern index instead of
+        the API endpoint
+      %p
+        <code>--group</code>: Update one or more gem groups
+      %p
+        <code>--jobs</code>: Specify the number of jobs to run in parallel
+      %p
+        <code>--local</code>: Do not attempt to fetch gems remotely and use
+        the gem cache instead
+      %p
+        <code>--quiet</code>: Only output warnings and errors.
+      %p
+        <code>--source</code>: Update a specific source (and all gems
+        associated with it)
+
+    .description
+      %p
+        Update the gems specified (all gems, if none are specified), ignoring
+        the previously installed gems specified in the <code>Gemfile.lock</code>.
+        In general, you should use <code>bundle install</code> to install the
+        same exact gems and versions across machines.
+      
+      %p
+        You would use <code>bundle update</code> to explicitly update the 
+        version of a gem.
+
+  .bullet
+    .description
+      Update the current environment.
+    .how
+      :code
+        $ bundle update
+    .notes
+      If you run <code>bundle update</code> with no parameters, bundler will
+      ignore any previously installed gems and resolve all dependencies again
+      based on the latest versions of all gems available in the sources.
+
+  .bullet#source
+    .description
+      Update a specific source (and all gems associated with it)
+    .how
+      :code
+        $ bundle update --source=SOURCE
+    .notes
+      The name of a <code>:git</code> or <code>:path</code> source used in the
+      <code>Gemfile</code>. For instance, with a <code>:git</code> source of
+      <code>http://github.com/rails/rails.git</code>, you would call
+      <code>bundle update --source rails</code>.
+
+%h2 Update all gems
+.contents
+  .bullet#update_all_extended
+    .description
+      %p
+        If you run <code>bundle update</code> with no parameters, bundler will
+        ignore any previously installed gems and resolve all dependencies again
+        based on the latest versions of all gems available in the sources.
+
+      %p
+        Consider the following <code>Gemfile</code>:
+
+        :code
+          # lang: ruby
+          source 'https://rubygems.org'
+          gem 'rails', '3.0.0.rc'
+          gem 'nokogiri'
+      %p
+        When you run <code>bundle install</code> the first time, bundler will
+        resolve all of the dependencies, all the way down, and install what you
+        need:
+        :code
+          Fetching source index for https://rubygems.org/
+          Installing rake (0.8.7)
+          Installing abstract (1.0.0)
+          Installing activesupport (3.0.0.rc)
+          Installing builder (2.1.2)
+          Installing i18n (0.4.1)
+          Installing activemodel (3.0.0.rc)
+          Installing erubis (2.6.6)
+          Installing rack (1.2.1)
+          Installing rack-mount (0.6.9)
+          Installing rack-test (0.5.4)
+          Installing tzinfo (0.3.22)
+          Installing actionpack (3.0.0.rc)
+          Installing mime-types (1.16)
+          Installing polyglot (0.3.1)
+          Installing treetop (1.4.8)
+          Installing mail (2.2.5)
+          Installing actionmailer (3.0.0.rc)
+          Installing arel (0.4.0)
+          Installing activerecord (3.0.0.rc)
+          Installing activeresource (3.0.0.rc)
+          Installing bundler (1.0.0.rc.3)
+          Installing nokogiri (1.4.3.1) with native extensions
+          Installing thor (0.14.0)
+          Installing railties (3.0.0.rc)
+          Installing rails (3.0.0.rc)
+
+          Your bundle is complete! Use `bundle show [gemname]` to see where a
+          bundled gem is installed.
+      %p
+        As you can see, even though you have just two gems in the
+        <code>Gemfile</code>, your application actually needs 25 different gems
+        in order to run. Bundler remembers the exact versions it installed in
+        <code>Gemfile.lock</code>. The next time you run
+        <code>bundle install</code>, bundler skips the dependency resolution and
+        installs the same gems as it installed last time.
+
+      %p
+        After checking in the <code>Gemfile.lock</code> into version control and
+        cloning it on another machine, running <code>bundle install</code> will
+        _still_ install the gems that you installed last time. You don't need to
+        worry that a new release of <code>erubis</code> or <code>mail</code>
+        changes the gems you use.
+
+      %p
+        However, from time to time, you might want to update the gems you are
+        using to the newest versions that still match the gems in your
+        <code>Gemfile</code>.
+
+      %p
+        To do this, run <code>bundle update</code>, which will ignore the
+        <code>Gemfile.lock</code>, and resolve all the dependencies again. Keep
+        in mind that this process can result in a significantly different set
+        of the 25 gems, based on the requirements of new gems that the gem
+        authors released since the last time you ran <code>bundle update</code>.
+
+%h2 Update a list of gems.
+.contents
+  .bullet#update_list_of_gems
+    .description
+      %p
+        Sometimes, you want to update a single gem in the <code>Gemfile</code>,
+        and leave the rest of the gems that you specified locked to the
+        versions in the <code>Gemfile.lock</code>.
+
+      %p
+        For instance, in the scenario above, imagine that
+        <code>nokogiri</code> releases version <code>1.4.4</code>, and you want
+        to update it _without_ updating Rails and all of its dependencies. To
+        do this, run
+
+        :code
+          bundle update nokogiri
+
+      %p
+        Bundler will update <code>nokogiri</code> and any of its dependencies,
+        but leave alone Rails and its dependencies.
+
+%h2 Overlapping dependencies
+.contents
+  .bullet#overlapping_dependencies
+    .description
+      %p
+        Sometimes, multiple gems declared in your <code>Gemfile</code> are
+        satisfied by the same second-level dependency. For instance, consider the
+        case of <code>thin</code> and <code>rack-perftools-profiler</code>.
+
+        :code
+          # lang: ruby
+          source 'https://rubygems.org'
+
+          gem 'thin'
+          gem 'rack-perftools-profiler'
+
+      %p
+        The <code>thin</code> gem depends on <code>rack >= 1.0</code>, while
+        <code>rack-perftools-profiler</code> depends on <code>rack ~> 1.0</code>.
+        If you run bundle install, you get:
+
+        :code
+          Fetching source index for https://rubygems.org/
+          Installing daemons (1.1.0)
+          Installing eventmachine (0.12.10) with native extensions
+          Installing open4 (1.0.1)
+          Installing perftools.rb (0.4.7) with native extensions
+          Installing rack (1.2.1)
+          Installing rack-perftools_profiler (0.0.2)
+          Installing thin (1.2.7) with native extensions
+          Using bundler (1.0.0.rc.3)
+
+      %p
+        In this case, the two gems have their own set of dependencies, but they
+        share <code>rack</code> in common. If you run <code>bundle update
+        thin</code>, bundler will update <code>daemons</code>,
+        <code>eventmachine</code> and <code>rack</code>, which are dependencies
+        of <code>thin</code>, but not <code>open4</code> or
+        <code>perftools.rb</code>, which are dependencies of
+        <code>rack-perftools_profiler</code>. Note that
+        <code>bundle update thin</code> will update <code>rack</code> even though
+        it's _also_ a dependency of <code>rack-perftools_profiler</code>.
+
+      %p
+        In short, when you update a gem using
+        <code>bundle update</code>, bundler will update all dependencies of that
+        gem, including those that are also dependencies of another gem.
+
+      %p
+        In this scenario, updating the <code>thin</code> version manually in the
+        <code>Gemfile</code>, and then running <code>bundle install</code> will
+        only update <code>daemons</code> and <code>eventmachine</code>, but not
+        <code>rack</code>.
+        -# For more information, see the  <code>CONSERVATIVE UPDATING</code>
+        -#section of <code>bundle install</code>.

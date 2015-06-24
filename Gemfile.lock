@@ -155,3 +155,6 @@ DEPENDENCIES
   middleman-syntax!
   rake
   ronn
+
+BUNDLED WITH
+   1.10.4

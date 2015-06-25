@@ -39,7 +39,7 @@ $ bundle config
 **Note:** Executing `bundle config` with no parameters will
 print a list of all bundler configuration for the current bundle, and where
 that configuration was set.
-{:.alert .alert-info}
+{:.notes}
 
 Get your bundle configuration for the `NAME` variable:
 
@@ -50,7 +50,7 @@ $ bundle config NAME
 **Note:** `bundle config NAME` print the value of that
 configuration setting for `NAME`, and  where it was set. It will
 print both local and global configuration.
-{:.alert .alert-info}
+{.notes}
 
 Set your bundle configuration for `NAME` variable to `VALUE`.
 
@@ -63,7 +63,7 @@ $ bundle config NAME VALUE
 bundles executed as the current user (i.e. global setting). The configuration
 will be stored in  `~/.bundle/config`. If `NAME` already
 is set, `NAME` will be overridden and the user will be warned.
-{:.alert .alert-info}
+{.notes}
 
 Set your bundle global/user configuration for `NAME` variable to `VALUE`.
 
@@ -73,7 +73,7 @@ $ bundle config --global NAME VALUE
 
 
 Works the same as the previous command.
-{:.alert .alert-info}
+{.notes}
 
 Set your bundle local configuration for `NAME` variable to `VALUE`.
 

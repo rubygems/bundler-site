@@ -3,13 +3,56 @@
 @import "compass/css3";
 @import "code";
 
+
+//=> Variables
 $header-color: #346b8c;
 $subhead-color: #0e3f54;
 $link-color: #0e3f54;
-$sans-serif: "Open Sans", Helvetica, sans-serif;
-$monospace: "Source Code Pro", Monaco, monospace;
+
+$font-family-base: "Open Sans", "Helvetica Neue", Helvetica, sans-serif;
+$font-family-monospace: "Source Code Pro", Monaco, Courier, monospace;
+$font-color-base: #000;
+
+$button-color: #fff;
+$button-bg: #05b5e6;
+$button-hover-bg: #2a91ad;
+
+//=> Base Styles
+html {
+  width: 100%;
+  background-color: #c6e7ec;
+  color: $font-color-base;
+  padding-top: 10px;
+  font-family: $font-family-base;
+}
+
+//=> Typography
 
 
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 0;
+  margin-bottom: 20px;
+  font-weight: 800;
+}
+
+h1 { font-size: 30px; }
+h2 { font-size: 24px; }
+h3 { font-size: 18px; }
+h4 { font-size: 14px; }
+h5 { font-size: 12px; }
+h6 { font-size: 11px; }
+
+h2 {
+  // font-size: 20px;
+  padding: 5px;
+  margin-top: 24px;
+  color: $subhead-color;
+  border-bottom: 3px solid #0e3f54;
+  width: 100%;
+  @include box-sizing("border-box");
+}
+
+//=> Mixins
 @mixin flexbox($direction, $align: center) {
   display: -webkit-box;
   display: -moz-box;
@@ -42,16 +85,17 @@ $monospace: "Source Code Pro", Monaco, monospace;
   padding: 8px 0;
   text-decoration: none;
   display: block;
-  color: white;
+  color: $button-color;
   text-align: center;
-  background-color: #05b5e6;
+  background-color: $button-bg;
   @include border-radius(5px);
   border-bottom: none;
   &:hover {
-    background-color: #2a91ad;
+    background-color: $button-hover-bg;
   }
 }
 
+//=> Links
 a {
   @include bundler-link;
   &.image {
@@ -69,17 +113,10 @@ a {
   }
 }
 
-html {
-  width: 100%;
-  background-color: #c6e7ec;
-  color: #003333;
-  padding-top: 10px;
-  font-family: $sans-serif;
-}
-
+//=> Code (Inline and block)
 code {
   background-color: rgba(255, 255, 255, 0.8);
-  font-family: $monospace;
+  font-family: $font-family-monospace;
   font-size: 15px;
   font-weight: 600;
   padding: 0 2px 0 2px;
@@ -87,6 +124,22 @@ code {
   @include border-radius(3px);
 }
 
+pre {
+  background-color: black;
+  color: #f8f8f8;
+  font-size: 13px;
+  font-family: $font-family-monospace;
+  font-weight: 300;
+  padding: 10px;
+  margin: 0;
+  @include border-radius(5px);
+  code {
+    display: block;
+    border: none;
+  }
+}
+
+//=>
 .intro {
   width: 100%;
 }
@@ -193,7 +246,7 @@ code {
   #navigation {
     @include flexbox(vertical, center);
     p {
-      font-family: Helvetica, sans-serif;
+      font-family: $font-family-base;
       color: #336666;
       font-size: 16px;
       margin: 0;
@@ -210,16 +263,6 @@ code {
 
 .clear {
   clear: left;
-}
-
-h2 {
-  font-size: 20px;
-  padding: 5px;
-  margin-top: 24px;
-  color: $subhead-color;
-  border-bottom: 3px solid #0e3f54;
-  width: 100%;
-  @include box-sizing("border-box");
 }
 
 .buttons {
@@ -254,14 +297,6 @@ h2 {
   }
 }
 
-.notice {
-  font-size: 90%;
-  color: #006666;
-  background-color: rgba(0, 100, 100, 0.1);
-  padding: 0.05em 0.5em;
-  @include border-radius(5px);
-}
-
 .highlight {
   &+ .description {
     margin-top: 15px;
@@ -292,22 +327,6 @@ h2 {
   pre {
     @include liquid;
     margin: 0;
-  }
-}
-
-pre {
-  background-color: black;
-
-  color: #f8f8f8;
-  font-size: 13px;
-  font-family: $monospace;
-  font-weight: 300;
-  padding: 10px;
-  margin: 0;
-  @include border-radius(5px);
-  code {
-    display: block;
-    border: none;
   }
 }
 

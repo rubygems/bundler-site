@@ -55,11 +55,11 @@ the bundle was previously installed somewhere else for this application.
 **Note:** Gems will be installed to your default system location for
 gems. If your system gems are stored in a root-owned location (such as in
 Mac OSX), bundle will ask for your root password to install them there.
-
+{:.notes}
 While installing gems, Bundler will check `vendor/cache` and the
 your system's gems. If a gem isn't cached or installed, Bundler will try to
 install it from the sources you have declared in your `Gemfile`.
-{:.alert .alert-info}
+{:.notes}
 
 The `--system` option is the default. Pass it to switch back
 after using the `--path` option as described below.
@@ -75,7 +75,9 @@ $ bundle install --path vendor/bundle
 Further `bundle` commands or calls to `Bundler.setup` or
 `Bundler.require` will remember this location.
 
-**Learn more:** [Bundler.setup](./bundler_setup.html) | [Bundler.require](./groups.html)
+[Learn more: Bundler.setup](./bundler_setup.html)
+
+[Bundler.require](./groups.html)
 
 Install all dependencies except those in groups that are explicitly excluded.
 
@@ -83,7 +85,7 @@ Install all dependencies except those in groups that are explicitly excluded.
 $ bundle install --without development test`
 ~~~
 
-**Learn more:** [Groups](./groups.html)
+[Learn more: Groups](./groups.html)
 
 Install all dependencies on to a production server. Do **not** use this flag on
 a development machine.
@@ -99,7 +101,7 @@ The `--deployment` flag activates a number of deployment-friendly conventions:
 - If `bundle package` was run, do not fetch gems from rubygems.org. Instead,
 only use gems in the checked in `vendor/cache`.
 
- [Learn More: Deploying](./deploying.html)
+[Learn More: Deploying](./deploying.html)
 
 Install gems in parallel by starting the number of workers specified.
 

@@ -11,6 +11,7 @@ Bundler 1.10 is out! In fact, Bundler 1.10.5 is out today, so we thought it was 
 
 This release comes with a bunch of new features: the `lock` command, support for inline gemfiles in scripts, the ability to disable post-install messages, optional groups, conditional gem installation, dramatically improved `outdated` output, and the option to force installed gems to be downloaded and installed again.
 
+[日本語訳 / Japanese translation](http://qiita.com/jnchito/items/a9907114bc56af67d0b0)
 
 ### New features
 

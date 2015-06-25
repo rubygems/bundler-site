@@ -22,7 +22,7 @@ Are you tired of being told to HTTParty hard? This option's for you. Run `bundle
 
 Who needs a jetpack future when you can have optional groups? The long-requested ability to create groups of gems that are not installed by default is finally here. Mark a group as optional using `group :name, optional: true do`, and then opt in to installing an optional group with `bundle install --with name`.
 
-At the same time as adding the long-awaited optional groups, we added groups that can be installed (or not) completely automatically! Provide a lambda or proc to determine if gems in the `install_if` group should be installed, and they will be. Or not. For an example, check out the [Gemfile](/v1.10/man/bundle-gemfile.1.html#INSTALL_IF) documentation.
+At the same time as adding the long-awaited optional groups, we added groups that can be installed (or not) completely automatically! Provide a lambda or proc to determine if gems in the `install_if` group should be installed, and they will be. Or not. For an example, check out the [Gemfile](/v1.10/man/gemfile.5.html#INSTALL_IF-install_if-) documentation.
 
 There are several more changes, so check out the full [1.10 changelog](https://github.com/bundler/bundler/blob/1-10-stable/CHANGELOG.md) to read about all of them.
 

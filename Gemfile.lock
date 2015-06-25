@@ -114,6 +114,7 @@ GEM
     rb-inotify (0.9.5)
       ffi (>= 0.5.0)
     rdiscount (2.1.7)
+    redcarpet (3.2.3)
     ronn (0.7.3)
       hpricot (>= 0.8.2)
       mustache (>= 0.7.0)
@@ -148,12 +149,12 @@ PLATFORMS
 DEPENDENCIES
   builder
   compass
-  kramdown
   middleman (~> 3.2)
   middleman-blog
   middleman-livereload
   middleman-syntax!
   rake
+  redcarpet
   ronn
 
 BUNDLED WITH

@@ -43,7 +43,7 @@ is specified in the `Gemfile`.
 ruby 1.9.3 (jruby 1.6.7)
 ~~~
 
-**Learn More:** [bundle platform](./bundle_platform.md)
+[Learn More: bundle platform](./bundle_platform.md)
 
 In the `ruby` directive, `:patchlevel` is optional, as patchlevel releases are
 usually compatible and include important security fixes. The patchlevel option

@@ -3,7 +3,7 @@
 > Makes sure all the dependencies in your `Gemfile` are available to your application.
 
 ~~~
-$ bundle install [--binstubs=PATH] [--clean] [--deployment] [--frozen]
+$ bundle install [--clean] [--deployment] [--frozen]
                  [--full-index] [--gemfile=FILE] [--local] [--no-cache]
                  [--no-prune] [--path=PATH] [--quiet] [--shebang=STRING]
                  [--standalone[=GROUP [GROUP...]] [--system]
@@ -12,8 +12,6 @@ $ bundle install [--binstubs=PATH] [--clean] [--deployment] [--frozen]
 ~~~
 
 **Options:**
-
-`--binstubs`: Generate binstubs for bundled gems to `./bin`.
 
 `--clean`: Runs bundle clean automatically after install.
 
@@ -54,21 +52,17 @@ the bundle was previously installed somewhere else for this application.
 
 `--without`: Exclude gems that are part of the specified named group.
 
-<aside class="notes">
-  <p>
-    <b>Note:</b> Gems will be installed to your default system location for
-    gems. If your system gems are stored in a root-owned location (such as in
-    Mac OSX), bundle will ask for your root password to install them there.
-  </p>
-  <p>
-    While installing gems, Bundler will check <code>vendor/cache</code> and the
-    your system's gems. If a gem isn't cached or installed, Bundler will try to
-    install it from the sources you have declared in your <code>Gemfile</code>.
-  </p>
-  <p>
-    The <code>--system</code> option is the default. Pass it to switch back
-    after using the <code>--path</code> option as described below.
-  </p>
+<aside class="alert alert-info" markdown="1">
+  **Note:** Gems will be installed to your default system location for
+  gems. If your system gems are stored in a root-owned location (such as in
+  Mac OSX), bundle will ask for your root password to install them there.
+
+  While installing gems, Bundler will check <code>vendor/cache</code> and the
+  your system's gems. If a gem isn't cached or installed, Bundler will try to
+  install it from the sources you have declared in your <code>Gemfile</code>.
+
+  The `--system` option is the default. Pass it to switch back
+  after using the `--path` option as described below.
 </aside>
 
 Install your dependencies, even gems that are already installed to your system

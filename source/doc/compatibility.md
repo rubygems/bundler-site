@@ -10,7 +10,7 @@ Requires Bundler 1.3 or greater.
 
 #### Ruby 1.9
 
-Requires Bundler 1.0.10 or greater. Ruby <b>1.9.1</b> is not supported.
+Requires Bundler 1.0.10 or greater. Ruby **1.9.1** is not supported.
 
 Bundler **1.0** requires a minimum Ruby version of **1.8.7**.
 

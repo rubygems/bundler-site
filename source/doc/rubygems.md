@@ -10,8 +10,9 @@ If you're creating a gem from scratch, you can use bundler's built in gem skelet
 $ bundle gem my_gem
 ~~~
 
+<aside class="alert alert-info" markdown="1">
 **Note:** This will create a new directory named `my_gem` with your new gem skeleton.
-{:.alert .alert-info}
+</aside>
 
 If you already have a gem with a gemspec, you can generate a Gemfile for your gem.
 
@@ -41,8 +42,9 @@ If you have multiple gemspecs in the same directory, specify which one you'd lik
 gemspec :name => 'my_awesome_gem'
 ~~~
 
+<aside class="alert alert-info" markdown="1">
 This will use `my_awesome_gem.gemspec`
-{:.alert .alert-info}
+</aside>
 
 That's it! Use bundler when developing your gem, and otherwise, use gemspecs normally!
 

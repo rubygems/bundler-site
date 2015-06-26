@@ -145,6 +145,7 @@ gem sources after upgrading. Whether or not you see these warnings, the
 Bundler team highly recommends that users of multiple gem servers update
 your `Gemfile` to use the new syntax.
 
+<aside class="alert alert-info" markdown="1">
 Use of the new `source` syntax will cause your `Gemfile` to become incompatible
 with Bundler versions earlier than 1.7.0. You should only perform this change
 after updating Bundler in all of your environments.
@@ -157,29 +158,28 @@ relevant gem declarations inside it.
 
     For example, this `Gemfile`:
 
-    ~~~ ruby
-    source 'https://rubygems.org'
-    source 'https://gems.example.com'
+        source 'https://rubygems.org'
+        source 'https://gems.example.com'
 
-    gem 'rails', '4.1.4'
-    gem 'sqlite3'
-    gem 'my_gem', '1.0'
-    gem 'another_gem', '1.2.1'
-    ~~~
+        gem 'rails', '4.1.4'
+        gem 'sqlite3'
+        gem 'my_gem', '1.0'
+        gem 'another_gem', '1.2.1'
+    {:.language-ruby}
 
     might change to this:
 
-    ~~~ ruby
-    source 'https://rubygems.org'
+        source 'https://rubygems.org'
 
-    gem 'rails', '4.1.4'
-    gem 'sqlite3'
+        gem 'rails', '4.1.4'
+        gem 'sqlite3'
 
-    source 'https://gems.example.com' do
-      gem 'my_gem', '1.0'
-      gem 'another_gem', '1.2.1'
-    end
-    ~~~
+        source 'https://gems.example.com' do
+          gem 'my_gem', '1.0'
+          gem 'another_gem', '1.2.1'
+        end
+    {:.language-ruby}
+</aside>
 
 ### Workarounds
 

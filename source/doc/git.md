@@ -69,8 +69,9 @@ If the repository name is the same as the GitHub account hosting it, you can omi
 gem 'rails', :github => 'rails'
 ~~~
 
+<aside class="alert alert-info" markdown="1">
 **NB:** This shorthand can only be used for public repos in Bundler version 1.x. Use HTTPS for read and write:
-{:.alert .alert-info}
+</aside>
 
  ~~~ ruby
 gem 'rails', :git => 'https://github.com/rails/rails'

@@ -82,11 +82,11 @@ gem 'rack', '~>1.1'
 gem 'rspec', :require => 'spec'
 ~~~
 
-<aside class="notes">
-  <b>Note:</b> This `Gemfile` says a few things. First, it says that bundler should look for gems declared in the `Gemfile` at https://rubygems.org by default.
+<aside class="alert alert-info" markdown="1">
+  **Note:** This `Gemfile` says a few things. First, it says that bundler should look for gems declared in the `Gemfile` at https://rubygems.org by default.
 </aside>
 
-**Learn More:** [Gemfiles](./gemfile.html)
+[Learn More: Gemfiles](./gemfile.html)
 
 After declaring your first set of dependencies, you tell bundler to go get them:
 
@@ -167,7 +167,7 @@ require 'bundler/setup'
 require 'nokogiri'
 ~~~
 
-**Learn More:** [Bundler.setup](./bundler_setup.html)
+[Learn More: Bundler.setup](./bundler_setup.html)
 
 Run an executable that comes with a gem in your bundle:
 
@@ -189,4 +189,4 @@ $ bin/rspec spec/models
 ~~~
 The executables installed into `bin` are scoped to the bundle, and will always work.
 
-**Learn More:** [Executables](./man/bundle-exec.1.html)
+[Learn More: Executables](./man/bundle-exec.1.html)

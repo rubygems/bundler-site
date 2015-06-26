@@ -35,8 +35,8 @@ Get your bundle configuration.
 $ bundle config
 ~~~
 
-<aside class="notes">
-  <b>Note:</b> Executing <code>bundle config</code> with no parameters will
+<aside class="alert alert-info" markdown="1">
+  **Note:** Executing `bundle config` with no parameters will
   print a list of all bundler configuration for the current bundle, and where
   that configuration was set.
 </aside>
@@ -47,9 +47,9 @@ Get your bundle configuration for `NAME` variable.
 $ bundle config NAME
 ~~~
 
-<aside class=notes>
-  <b>Note:</b> <code>bundle config NAME</code> print the value of that
-  configuration setting for <code>NAME</code>, and  where it was  set. It will
+<aside class="alert alert-info" markdown="1">
+  **Note:** `bundle config NAME` print the value of that
+  configuration setting for `NAME`, and  where it was  set. It will
   print both local and global configuration.
 </aside>
 
@@ -59,11 +59,11 @@ Set your bundle configuration for `NAME` variable to `VALUE`.
 $ bundle config NAME VALUE
 ~~~
 
-<aside class="notes">
-  <b>Note:</b> This will set <code>NAME</code> to <code>VALUE</code> for all
+<aside class="alert alert-info" markdown="1">
+  **Note:** This will set `NAME` to `VALUE` for all
   bundles executed as the current user (i.e. global setting). The configuration
-  will be stored in  <code>~/.bundle/config</code>. If <code>NAME</code> already
-  is set, <code>NAME</code> will be overridden and the user will be warned.
+  will be stored in  `~/.bundle/config`. If `NAME` already
+  is set, `NAME` will be overridden and the user will be warned.
 </aside>
 
 Set your bundle global/user configuration for `NAME` variable to `VALUE`.
@@ -72,8 +72,8 @@ Set your bundle global/user configuration for `NAME` variable to `VALUE`.
 $ bundle config --global NAME VALUE
 ~~~
 
-<aside class="notes">
-Works the same as the previous command.
+<aside class="alert alert-info" markdown="1">
+  Works the same as the previous command.
 </aside>
 
 Set your bundle local configuration for `NAME` variable to `VALUE`.

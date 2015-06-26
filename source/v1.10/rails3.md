@@ -12,8 +12,9 @@ Install Rails as you normally would. Use `sudo` if you would normally use `sudo`
 $ gem install rails
 ~~~
 
+<aside class="notes" markdown="1">
 **Note:** We recommend using rvm for dependable Ruby installations, especially if you are switching between different versions of Ruby.
-{:.alert .alert-info}
+</aside>
 
 Generate a Rails app as usual:
 
@@ -62,6 +63,7 @@ After adding a dependency, if it is not yet installed, install it:
 $ bundle install
 ~~~
 
+<aside class="notes" markdown="1">
 **Note:** This will update all dependencies in your Gemfile to the latest
   versions that do not conflict with other dependencies.
-{:.alert .alert-info}
+</aside>

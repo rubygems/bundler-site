@@ -7,12 +7,13 @@ title: bundler/inline
 > Allows for declaring a Gemfile inline in a ruby script, optionally installing
 any gems that aren't already installed on the user's system.
 
+<aside class="notes" markdown="1">
 **Note:** Every gem that is specified in this 'Gemfile' will be
 `require`'d, as if the user had manually called
 `Bundler.require`. To avoid a requested gem being automatically
 required, add the `require => false` option to the
 `gem` dependency declaration.
-{:.alert .alert-info}
+</aside>
 
 `install [Boolean]`: Whether gems that aren't already installed on the user's
 system should be installed. Defaults to `false`.

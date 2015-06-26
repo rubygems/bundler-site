@@ -82,9 +82,9 @@ gem 'rack', '~>1.1'
 gem 'rspec', :require => 'spec'
 ~~~
 
-
+<aside class="notes" markdown="1">
 **Note:** This `Gemfile` says a few things. First, it says that bundler should look for gems declared in the `Gemfile` at https://rubygems.org by default.
-{:.alert .alert-info}
+</aside>
 
 **Learn More:** [Gemfiles](./gemfile.html)
 
@@ -155,7 +155,7 @@ to successfully run your application.
 This ensures that other developers on your app, as well as your deployment environment,
 will all use the same third-party code that you are using now.
 
-**Learn More:** [bundle install](./bundle_install.html) | [bundle update](./bundle_update.html)
+[Learn More: bundle install](./bundle_install.html) | [bundle update](./bundle_update.html)
 
 Inside your app, load up the bundled environment:
 
@@ -167,7 +167,7 @@ require 'bundler/setup'
 require 'nokogiri'
 ~~~
 
-**Learn More:** [Bundler.setup](./bundler_setup.html)
+[Learn More: Bundler.setup](./bundler_setup.html)
 
 Run an executable that comes with a gem in your bundle:
 
@@ -187,6 +187,7 @@ Finally, if you want a way to get a shortcut to gems in your bundle:
 $ bundle install --binstubs
 $ bin/rspec spec/models
 ~~~
+
 The executables installed into `bin` are scoped to the bundle, and will always work.
 
-**Learn More:** [Executables](./man/bundle-exec.1.html)
+[Learn More: Executables](./man/bundle-exec.1.html)

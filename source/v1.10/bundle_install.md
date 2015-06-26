@@ -52,14 +52,15 @@ the bundle was previously installed somewhere else for this application.
 
 `--without`: Exclude gems that are part of the specified named group.
 
+<aside class="notes" markdown="1">
 **Note:** Gems will be installed to your default system location for
 gems. If your system gems are stored in a root-owned location (such as in
 Mac OSX), bundle will ask for your root password to install them there.
-{:.notes}
+
 While installing gems, Bundler will check `vendor/cache` and the
 your system's gems. If a gem isn't cached or installed, Bundler will try to
 install it from the sources you have declared in your `Gemfile`.
-{:.notes}
+</aside>
 
 The `--system` option is the default. Pass it to switch back
 after using the `--path` option as described below.

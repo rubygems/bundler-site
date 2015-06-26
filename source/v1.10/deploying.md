@@ -40,11 +40,12 @@ To pull in the Bundler Cap task, just add this to your `deploy.rb` file:
 require 'bundler/capistrano'
 ~~~
 
+<aside class="notes" markdown="1">
 **Note:** That's it! Running `cap deploy` will now automatically
 run `bundle install` on the remote server with deployment-friendly
 options. A list of options that can be changed is available in the help for
 the cap task. To see it, run `cap -e bundle:install`.
-{:.alert .alert-info}
+</aside>
 
 ### Automatic deployment with Vlad
 There is a default Vlad task available. To make it available, add this line
@@ -71,7 +72,7 @@ $ bundle exec rake db:setup
 Alternatively, you can use the `--binstubs` option on the install command to
 generate executable binaries that can be used instead of `bundle exec`.
 
-**Learn More:** [Executables](/commands/bundle-exec.1.html)
+[Learn More: Executables](/commands/bundle-exec.1.html)
 
 ### Heroku
 When you deploy to Heroku, Bundler will be run automatically as long as a

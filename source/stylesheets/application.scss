@@ -5,9 +5,14 @@
 
 
 //=> Variables
+// ============
+
+$body-bg: #c6e7ec;
+
+$dark-blue: #0e3f54;
 $header-color: #346b8c;
-$subhead-color: #0e3f54;
-$link-color: #0e3f54;
+$subhead-color: $dark-blue;
+$link-color: $dark-blue;
 
 $font-family-base: "Open Sans", "Helvetica Neue", Helvetica, sans-serif;
 $font-family-monospace: "Source Code Pro", Monaco, Courier, monospace;
@@ -18,15 +23,23 @@ $button-bg: #05b5e6;
 $button-hover-bg: #2a91ad;
 
 //=> Base Styles
+// ==============
 html {
   width: 100%;
-  background-color: #c6e7ec;
+  background-color: $body-bg;
   color: $font-color-base;
   padding-top: 10px;
   font-family: $font-family-base;
 }
 
+img {
+  // display: block;
+  max-width: 100%;
+  height: auto;
+}
+
 //=> Typography
+// ==============
 
 
 h1, h2, h3, h4, h5, h6 {
@@ -47,9 +60,25 @@ h2 {
   padding: 5px;
   margin-top: 24px;
   color: $subhead-color;
-  border-bottom: 3px solid #0e3f54;
+  border-bottom: 3px solid $subhead-color;
   width: 100%;
   @include box-sizing("border-box");
+}
+
+// Blockquotes
+blockquote {
+  padding: 12px 12px;
+  margin: 0 0 12px;
+  font-size: 18px;
+  // border-left: 5px solid rgba(black, 0.1);
+
+  p,
+  ul,
+  ol {
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
 }
 
 //=> Mixins
@@ -81,6 +110,18 @@ h2 {
   }
 }
 
+@mixin important($color) {
+  background: $color;
+  @include border-radius(5px);
+  padding: 10px 10px;
+  color: #043042;
+  font-size: 18px;
+  line-height: 24px;
+  strong {
+    color: #041f2a;
+  }
+}
+
 @mixin button {
   padding: 8px 0;
   text-decoration: none;
@@ -94,6 +135,20 @@ h2 {
     background-color: $button-hover-bg;
   }
 }
+
+.buttons {
+  @include flexbox(horizontal, center);
+  @include distribute-children(justify);
+  a {
+    @include button;
+    margin: 10px;
+    @include liquid;
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}
+
 
 //=> Links
 a {
@@ -190,17 +245,7 @@ pre {
   }
 }
 
-@mixin important($color) {
-  background: $color;
-  @include border-radius(5px);
-  padding: 10px 10px;
-  color: #043042;
-  font-size: 18px;
-  line-height: 24px;
-  strong {
-    color: #041f2a;
-  }
-}
+
 
 #intro {
   @include important(rgba(255, 255, 255, 0.7));
@@ -263,19 +308,6 @@ pre {
 
 .clear {
   clear: left;
-}
-
-.buttons {
-  @include flexbox(horizontal, center);
-  @include distribute-children(justify);
-  a {
-    @include button;
-    margin: 10px;
-    @include liquid;
-    &:last-child {
-      margin-right: 0;
-    }
-  }
 }
 
 .notes {

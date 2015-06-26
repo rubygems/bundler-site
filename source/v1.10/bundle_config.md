@@ -58,12 +58,12 @@ Set your bundle configuration for `NAME` variable to `VALUE`.
 $ bundle config NAME VALUE
 ~~~
 
-
+<aside class="notes" markdown="1">
 **Note:** This will set `NAME` to `VALUE` for all
 bundles executed as the current user (i.e. global setting). The configuration
 will be stored in  `~/.bundle/config`. If `NAME` already
 is set, `NAME` will be overridden and the user will be warned.
-{.notes}
+</aside>
 
 Set your bundle global/user configuration for `NAME` variable to `VALUE`.
 

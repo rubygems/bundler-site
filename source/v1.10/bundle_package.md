@@ -38,12 +38,13 @@ Lock and cache gems from RubyGems into `./vendor/cache`.
 $ bundle package
 ~~~
 
+<aside class="notes" markdown="1">
 **Note:** By default, if you simply run `bundle install` after running `bundle package`, Bundler will still connect to rubygems.org to check whether a platform-specific gem exists for any of the gems in `vendor/cache`.
 
 This behavior can be avoided by instead running `bundle install --local`. Note that this requires you to have the correctly platformed version for all of your gems already cached. The easiest way to achieve this is to run `bundle package` on an identical machine and then check in those vendored gems.
+</aside>
 
 Lock and cache gems from RubyGems into `./vendor/cache`, and don't remove any stale gems from the existing cache.
-{:.alert .alert-info}
 
 ~~~
 $ bundle package --no-prune
@@ -57,5 +58,6 @@ $ bundle package --all
 
 Once used, the `--all` option will be remembered.
 
+<aside class="notes" markdown="1">
 This will be the default on Bundler 2.0.
-{:.alert .alert-info}
+</aside>

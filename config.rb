@@ -1,8 +1,26 @@
-activate :syntax
-set :markdown_engine, :kramdown
-
+# Bundler versions
 set :versions, `rake versions`.split
 set :current_version, versions.last
+
+# Syntax highlighting
+activate :syntax
+
+# Set HAML to render HTML5 by default. It's important that HAML outputs "ugly" HTML to not mess with code blocks
+set :haml, format: :html5, ugly: true
+
+# Set markdown features for the markdown engine
+set :markdown_engine, :kramdown
+set :markdown,
+    autolink: true,
+    gh_blockcode: true,
+    fenced_code_blocks: true,
+    footnotes: true,
+    no_intra_emphasis: true,
+    highlight: true,
+    quote: true,
+    smartypants: true,
+    tables: true,
+    with_toc_data: true
 
 # Make documentation for the latest version available at the top level, too.
 # Any pages with names that conflict with files already at the top level will be skipped.
@@ -22,10 +40,12 @@ page '/sitemap.xml', layout: false
 ###
 Dir.glob(File.expand_path('../helpers/**/*.rb', __FILE__), &method(:require))
 
+# Set directories
 set :css_dir, 'stylesheets'
 set :js_dir, 'javascripts'
 set :images_dir, 'images'
 
+# Blog Settings
 activate :blog do |blog|
   blog.name = 'blog'
   blog.prefix = 'blog'

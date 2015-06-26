@@ -1,12 +1,87 @@
-@import url(http://fonts.googleapis.com/css?family=Source+Code+Pro:400,600);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,700,400italic,700italic|Source+Code+Pro);
 
 @import "compass/css3";
 @import "code";
 
-$header-color: #346b8c;
-$subhead-color: #0e3f54;
-$link-color: #0e3f54;
 
+//=> Variables
+// ============
+
+$body-bg: #c6e7ec;
+
+$dark-blue: #0e3f54;
+$header-color: #346b8c;
+$subhead-color: $dark-blue;
+$link-color: $dark-blue;
+
+$font-family-base: "Open Sans", "Helvetica Neue", Helvetica, sans-serif;
+$font-family-monospace: "Source Code Pro", Monaco, Courier, monospace;
+$font-color-base: #000;
+
+$button-color: #fff;
+$button-bg: #05b5e6;
+$button-hover-bg: #2a91ad;
+
+//=> Base Styles
+// ==============
+html {
+  width: 100%;
+  background-color: $body-bg;
+  color: $font-color-base;
+  padding-top: 10px;
+  font-family: $font-family-base;
+}
+
+img {
+  // display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+//=> Typography
+// ==============
+
+
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 0;
+  margin-bottom: 20px;
+  font-weight: 800;
+}
+
+h1 { font-size: 30px; }
+h2 { font-size: 24px; }
+h3 { font-size: 18px; }
+h4 { font-size: 14px; }
+h5 { font-size: 12px; }
+h6 { font-size: 11px; }
+
+h2 {
+  // font-size: 20px;
+  padding: 5px;
+  margin-top: 24px;
+  color: $subhead-color;
+  border-bottom: 3px solid $subhead-color;
+  width: 100%;
+  @include box-sizing("border-box");
+}
+
+// Blockquotes
+blockquote {
+  padding: 12px 12px;
+  margin: 0 0 12px;
+  font-size: 18px;
+  // border-left: 5px solid rgba(black, 0.1);
+
+  p,
+  ul,
+  ol {
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+//=> Mixins
 @mixin flexbox($direction, $align: center) {
   display: -webkit-box;
   display: -moz-box;
@@ -35,20 +110,47 @@ $link-color: #0e3f54;
   }
 }
 
+@mixin important($color) {
+  background: $color;
+  @include border-radius(5px);
+  padding: 10px 10px;
+  color: #043042;
+  font-size: 18px;
+  line-height: 24px;
+  strong {
+    color: #041f2a;
+  }
+}
+
 @mixin button {
   padding: 8px 0;
   text-decoration: none;
   display: block;
-  color: white;
+  color: $button-color;
   text-align: center;
-  background-color: #05b5e6;
+  background-color: $button-bg;
   @include border-radius(5px);
   border-bottom: none;
   &:hover {
-    background-color: #2a91ad;
+    background-color: $button-hover-bg;
   }
 }
 
+.buttons {
+  @include flexbox(horizontal, center);
+  @include distribute-children(justify);
+  a {
+    @include button;
+    margin: 10px;
+    @include liquid;
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}
+
+
+//=> Links
 a {
   @include bundler-link;
   &.image {
@@ -66,16 +168,10 @@ a {
   }
 }
 
-html {
-  width: 100%;
-  background-color: #c6e7ec;
-  padding-top: 10px;
-  font-family: Helvetica, sans-serif;
-}
-
+//=> Code (Inline and block)
 code {
   background-color: rgba(255, 255, 255, 0.8);
-  font-family: "Source Code Pro", Monaco, monospace;
+  font-family: $font-family-monospace;
   font-size: 15px;
   font-weight: 600;
   padding: 0 2px 0 2px;
@@ -83,6 +179,22 @@ code {
   @include border-radius(3px);
 }
 
+pre {
+  background-color: black;
+  color: #f8f8f8;
+  font-size: 13px;
+  font-family: $font-family-monospace;
+  font-weight: 300;
+  padding: 10px;
+  margin: 0;
+  @include border-radius(5px);
+  code {
+    display: block;
+    border: none;
+  }
+}
+
+//=>
 .intro {
   width: 100%;
 }
@@ -133,17 +245,7 @@ code {
   }
 }
 
-@mixin important($color) {
-  background: $color;
-  @include border-radius(5px);
-  padding: 10px 10px;
-  color: #043042;
-  font-size: 18px;
-  line-height: 24px;
-  strong {
-    color: #041f2a;
-  }
-}
+
 
 #intro {
   @include important(rgba(255, 255, 255, 0.7));
@@ -189,7 +291,7 @@ code {
   #navigation {
     @include flexbox(vertical, center);
     p {
-      font-family: Helvetica, sans-serif;
+      font-family: $font-family-base;
       color: #336666;
       font-size: 16px;
       margin: 0;
@@ -208,29 +310,6 @@ code {
   clear: left;
 }
 
-h2 {
-  font-size: 20px;
-  padding: 5px;
-  margin-top: 24px;
-  color: $subhead-color;
-  border-bottom: 3px solid #0e3f54;
-  width: 100%;
-  @include box-sizing("border-box");
-}
-
-.buttons {
-  @include flexbox(horizontal, center);
-  @include distribute-children(justify);
-  a {
-    @include button;
-    margin: 10px;
-    @include liquid;
-    &:last-child {
-      margin-right: 0;
-    }
-  }
-}
-
 .notes {
   font-size: 90%;
   line-height: 150%;
@@ -238,7 +317,7 @@ h2 {
   margin-bottom: 8px;
   padding-right: 4px;
   padding-left: 4px;
-  color: #006666;
+  color: #007777;
   &+ a {
     margin-top: 10px;
   }
@@ -283,20 +362,6 @@ h2 {
   }
 }
 
-pre {
-  background-color: black;
-  color: #f8f8f8;
-  font-size: 13px;
-  font-family: Monaco, monospace;
-  font-weight: 300;
-  padding: 10px;
-  margin: 0;
-  @include border-radius(5px);
-  code {
-    border: none;
-  }
-}
-
 .bullet:nth-child(even) {
   background-color: rgba(0, 0, 0, 0.1);
   border-top: 1px solid rgba(0, 0, 0, 0.1);
@@ -310,7 +375,7 @@ pre {
 .blog {
   font-size: 20px;
   p {
-    font-size: 18px;
+    font-size: 16px;
     line-height: 24px;
     padding: 5px 0 5px 0;
     margin: 0;
@@ -517,7 +582,7 @@ ul.posts li {
   margin-bottom: 10px;
   clear: left;
   .date {
-    width: 100px;
+    width: 110px;
     position: absolute;
     text-align: right;
   }

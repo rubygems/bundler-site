@@ -45,7 +45,7 @@ At this point in the explanation, several people have then asked if we could ju
 
 First, and most importantly, as soon as everyone is on 1.10+, the churn completely disappears. Version 1.10.1 will not change a lock that says it was bundled with 1.10.3. The absolute worst case once everyone has upgraded to Bundler 1.9.10 or higher is a single commit per version of Bundler, followed by no git churn.
 
-Second, Bundler patch level fixes definitely fix bugs, and oftentimes those bugs are big enough to break `bundle install` for certain subsets of users. Only tracking minor version would be similar to only tracking the minor version of Rails—it’s not really feasible to say “oh, you can use any 4.2.x version of Rails”, because the x allows security holes, breaking bugs, and other problems.
+Second, Bundler patch level releases definitely fix bugs, and oftentimes those bugs are big enough to break `bundle install` for certain subsets of users. Only tracking minor version would be similar to only tracking the minor version of Rails—it’s not really feasible to say “oh, you can use any 4.2.x version of Rails”, because the x allows security holes, breaking bugs, and other problems.
 
 So, in conclusion, the change was never intended to be this disruptive, we're doing what we can to reduce the impact, and the problem should be completely resolved by updating Bundler to 1.10 (or even the latest 1.9 release, if some of your team want to stay on 1.9).
 

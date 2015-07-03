@@ -1,34 +1,33 @@
-%nav.navbar(role="navigation" class="navbar-inverse navbar-static-top")
-  .navbar-header
-    %button.navbar-toggle( type="button" data-toggle="collapse" data-target=".navbar-ex-collapse" )
+- data_source ||= "navigation"
 
-      %span.sr-only Toggle navigation
+%nav(role="navigation" class="navbar navbar-default navbar-static-top")
+  .container-fluid
+    .navbar-header
+      %button.navbar-toggle( type="button" data-toggle="collapse" data-target=".navbar-ex-collapse" )
 
-      - 3.times do
-        %span.icon-bar
+        %span.sr-only Toggle navigation
 
-    %a.navbar-brand(href="/" alt="Bundler")
-      = data.site.name
+        - 3.times do
+          %span.icon-bar
 
-  %nav.collapse.navbar-collapse.navbar-ex-collapse
-    %ul.nav.navbar-nav
-      %li
-        %a( href="/#getting-started" ) Get Started
-      %li
-        %a( href="/doc/" ) Documentation
-      %li
-        %a( href="/doc/commands" ) Reference
-      %li
-        %a( href="/blog/" ) Blog
-      %li.dropdown
-        %a.dropdown-toggle( href="#help" title="help" data-toggle="dropdown" )
-          Github
-          %b.caret
-        %ul.dropdown-menu
-          %li
-            %a( href="http://github.com/rgb-one/bundler-site" )
-              Docs Repo
-          %li
-            %a( href="http://getbootstrap.com" ) Bootstrap
-          %li
-            %a( href="http://haml.info/" ) Haml
+      %a.navbar-brand(href="/" alt="Bundler")
+        = data.site.name
+        -# %img(class="" src="/images/bundler-small.png")
+
+    %nav.collapse.navbar-collapse.navbar-ex-collapse
+      %ul.nav.navbar-nav
+        - data[data_source].each do |item|
+
+          -item.each do |text, link|
+            %li= link_to("#{text}", "#{link}", class: text.parameterize)
+
+        %li.dropdown
+          %a.dropdown-toggle( href="#help" title="help" data-toggle="dropdown" )
+            Github
+            %b.caret
+          %ul.dropdown-menu
+            %li= link_to("Site Repo", data.bundler.site.repo)
+            %li= link_to("Site Issues", data.bundler.site.issues)
+            %span.divider
+            %li= link_to("Bundler Repo", data.bundler.master)
+            %li= link_to("Bundler Issues", data.bundler.issues)

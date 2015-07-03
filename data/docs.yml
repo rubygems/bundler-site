@@ -1,0 +1,32 @@
+
+- First Steps:
+  Introduction: /introduction
+  Getting Started: /#getting-started
+
+- In Depth:
+  Gemfiles: /doc/gemfile
+  Groups: doc/groups
+  Gems from git: /doc/git
+  Bundler.setup: /doc/bundler_setup
+  Bundler Inline: /doc/bundler_inline
+  Deploying: /doc/deploying
+  Sharing: /doc/sharing
+  Updating Gems: /doc/updating_gems
+
+- Tutorials:
+  Rails: /doc/rails3
+  Sinatra: /doc/sinatra
+  RubyGems: /doc/rubygems
+  RubyMotion: /doc/rubymotion
+
+- Get Involved:
+  Code of Conduct: #{data.bundler.homepage}/conduct.html
+  How to Contribute: /doc/contributing
+  Issue Tracker: #{data.bundler.issues}
+
+
+# - Command Reference:
+#   bundle binstub: /doc/commands/bundle_binstubs
+#   bundle check: /doc/commands/bundle_check
+#   bundle install: /doc/commands/bundle_install
+#   bundle open: /doc/command/bundle_open

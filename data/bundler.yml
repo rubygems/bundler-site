@@ -1,11 +1,16 @@
 name: bundler
-version: 1.10.4
+version: 1.10.5
 description: Dependency Manager for Ruby
+subhead: The best way to manage your applications dependencies
 homepage: http://bundler.io
 
-repo: https://github.com/bundler/bundler.git
-issues: https://github.com/bundler/bundler/issues
+org: https://github.com/bundler/
 master: https://github.com/bundler/bundler
+issues: https://github.com/bundler/bundler/issues
+
+site:
+  repo: https://github.com/rgb-one/bundler-site
+  issues: https://github.com/rgb-one/bundler-site/issues
 
 license:
   type: MIT

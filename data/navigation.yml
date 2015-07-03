@@ -1,19 +1,7 @@
 # Main navigation
-main:
-  docs:
-    url: /doc/get-started
-    title: Getting Started
 
-  contribute:
-    url: /contribute
-    title: Get Involved
-
-  blog:
-    url: /blog/
-    title: Blog
-
-  github:
-    url: https://github.com/bundler/bundler
-    title: On GitHub
-
-# Documentation navigation
+- Get Started: "/#get-started"
+- Documentation: "/doc/"
+- Reference: "/doc/commands/"
+- Blog: "/blog/"
+# - On Github: "https://github.com/bundler"

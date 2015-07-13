@@ -32,7 +32,7 @@ task :man => [:update_vendor] do
   end
 
   # Make man pages for the latest version available at the top level, too.
-  cp_r "build/#{VERSIONS.last}/man", "build/man"
+  cp_r "build/#{VERSIONS.last}/man", "build"
 end
 
 desc "Pulls in pages maintained in the bundler repo."

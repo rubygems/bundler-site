@@ -1,5 +1,5 @@
 !!!
-- v = current_page.url.scan(/v\d\.\d/).first || current_version
+- v = current_page.url.scan(/v\d\.\d+/).first || current_version
 %html
   %head
     = partial 'partials/head'

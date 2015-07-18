@@ -82,6 +82,35 @@
       bundle, and will always work.
     = link_to 'Learn More: Executables', './man/bundle-exec.1.html'
 
+%h2#create-gem Create a rubygem with Bundler
+
+%p
+  Bundler is also an easy way to create new gems. Just like you might create a standard Rails project using <code>rails new</code>, you can create a standard gem project with <code>bundle gem</code>.
+
+.bullet
+  .description
+    Create a new gem with a README, .gemspec, Rakefile, directory structure, and all the basic boilerplate you need to describe, test, and publish a gem:
+  :code
+    $ bundle gem my_gem
+    Creating gem 'my_gem'...
+          create  my_gem/Gemfile
+          create  my_gem/.gitignore
+          create  my_gem/lib/my_gem.rb
+          create  my_gem/lib/my_gem/version.rb
+          create  my_gem/my_gem.gemspec
+          create  my_gem/Rakefile
+          create  my_gem/README.md
+          create  my_gem/bin/console
+          create  my_gem/bin/setup
+          create  my_gem/CODE_OF_CONDUCT.md
+          create  my_gem/LICENSE.txt
+          create  my_gem/.travis.yml
+          create  my_gem/test/test_helper.rb
+          create  my_gem/test/my_gem_test.rb
+    Initializing git repo in ./my_gem
+
+  = link_to 'Learn More: bundle gem', './bundle_gem.html'
+
 %h2#use-bundler Use Bundler with
 .buttons
   = link_to 'Rails 3', './rails3.html'

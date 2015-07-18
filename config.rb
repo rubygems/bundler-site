@@ -1,6 +1,20 @@
 activate :syntax
 set :markdown_engine, :kramdown
 
+# Markdown extentions
+set :markdown,
+    autolink: true,
+    fenced_code_blocks: true,
+    footnotes: true,
+    gh_codeblock: true,
+    highlight: true,
+    no_intra_emphasis: true,
+    quote: true,
+    smartypants: true,
+    strikethrough: true,
+    superscript: true,
+    tables: true
+
 set :versions, `rake versions`.split
 set :current_version, versions.last
 

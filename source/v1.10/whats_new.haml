@@ -1,0 +1,69 @@
+= partial "shared/whats_new"
+
+%h2#version110 What's New in v1.10
+
+.contents
+  .bullet
+    .description
+      %p
+        Bundler 1.10 comes with a new `lock` command, support for inline gemfiles in scripts, the ability to disable post-install messages, optional groups, conditional gem installation, dramatically improved `outdated` output, and the option to force installed gems to be downloaded and installed again.
+      %p
+        In this section, you’ll find the major features introduced in this release. All the changes are documented in the Bundler 1.10 changelog.
+        = link_to 'Full 1.10 changelog', 'https://github.com/bundler/bundler/blob/1-10-stable/CHANGELOG.md'
+
+%h2#lock The `lock` command
+
+.contents
+  .bullet
+    .description
+      %p
+        Bundler now provides a <code>lock</code> command. Running <code>bundle lock</code> will resolve the Gemfile and write a Gemfile.lock, but will not download or install any gems.
+
+%h2#inline Inline Gemfiles
+
+.contents
+  .bullet
+    .description
+      %p
+        For single-file scripts that still depend on gems, a <code>gemfile</code> method is provided by <code>require "bundler/inline"</code>. This method will not generate a lock, so be careful what gem versions you allow!
+      = link_to 'bundler/inline', 'https://github.com/bundler/bundler/blob/master/lib/bundler/inline.rb'
+
+%h2#ignore-messages Ignore gem post-install messages
+
+.contents
+  .bullet
+    .description
+      %p
+        Are you tired of being told to HTTParty hard? This option's for you. Run <code>bundle config ignore_messages.httparty true</code> to silence HTTParty for good, or run <code>bundle config ignore_messages true</code> to turn off all messages forever.
+      = link_to 'config ignore_messages', '/v1.10/man/bundle-config.1.html#LIST-OF-AVAILABLE-KEYS'
+
+%h2#optional-groups Optional groups and <code>--with</code>
+
+.contents
+  .bullet
+    .description
+      %p
+        Who needs a jetpack future when you can have optional groups? The long-requested ability to create groups of gems that are not installed by default is finally here. Mark a group as optional using <code>group :name, optional: true do</code>, and then opt in to installing an optional group with <code>bundle install --with name</code>.
+      = link_to 'install --force', '/v1.10/man/bundle-install.1.html#OPTIONS'
+
+%h2#install-if Conditional groups via <code>install_if</code>
+
+.contents
+  .bullet
+    .description
+      %p
+        At the same time as adding the long-awaited optional groups, we added groups that can be installed (or not) completely automatically! Provide a lambda or proc to determine if gems in the <code>install_if</code> group should be installed, and they will be. Or not.
+      = link_to 'install_if', '/v1.10/man/bundle-gemfile.1.html#INSTALL_IF'
+
+.contents
+  .bullet
+    .description
+      Bundler 1.10 also includes:
+      %ul
+        %li add <code>install --force</code> to re-install installed gems
+        %li show more information, including groups, in <code>outdated</code>
+        %li improved error reports for Gemfile errors
+        %li improved <code>gem</code> minitest template
+        %li glob arguments for <code>gemspec</code> in Gemfile
+        %li timeouts and retries are now configurable
+      = link_to 'Full 1.10 changelog', 'https://github.com/bundler/bundler/blob/1-10-stable/CHANGELOG.md'

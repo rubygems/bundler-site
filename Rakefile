@@ -9,7 +9,8 @@ task :update_vendor => ["vendor/bundler"] do
   Dir.chdir("vendor/bundler") { sh "git fetch" }
 end
 
-VERSIONS = %w(v1.0 v1.1 v1.2 v1.3 v1.5 v1.6 v1.7 v1.8 v1.9).freeze
+VERSIONS = %w(v1.0 v1.1 v1.2 v1.3 v1.5 v1.6 v1.7 v1.8 v1.9 v1.10).freeze
+desc "Print the Bundler versions the site documents"
 task :versions do
   puts VERSIONS.join(' ')
 end
@@ -28,11 +29,10 @@ task :man => [:update_vendor] do
       cp(FileList["man/*.html"], "../../build/#{version}/man")
       sh "git clean -fd"
     end
-
   end
 
   # Make man pages for the latest version available at the top level, too.
-  cp_r "build/#{VERSIONS.last}/man", "build/man"
+  cp_r "build/#{VERSIONS.last}/man", "build"
 end
 
 desc "Pulls in pages maintained in the bundler repo."
@@ -73,7 +73,7 @@ task :release => [:build, :man, :update_site] do
 
     sh "git add -A ."
     sh "git commit -m 'bundler/bundler-site@#{commit}'"
-    
+
     Bundler.with_clean_env do
       sh "git push origin master"
     end

@@ -39,6 +39,7 @@ Dir.glob(File.expand_path('../helpers/**/*.rb', __FILE__), &method(:require))
 set :css_dir, 'stylesheets'
 set :js_dir, 'javascripts'
 set :images_dir, 'images'
+set :partials_dir, 'partials'
 
 activate :blog do |blog|
   blog.name = 'blog'

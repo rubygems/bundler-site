@@ -1,0 +1,29 @@
+!!! 5
+%html(lang="en")
+  %head
+    %meta(charset="utf-8")
+    %meta(http-equiv="X-UA-Compatible" content="IE=edge")
+    %meta(name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no")
+    %meta(name="globalsign-domain-verification" content="276VSYOko8B8vIu1i8i5qbj7_ql5PXo0dU69XQy-SL")
+
+    %title
+      - page_title = current_page.data.title
+      = "Bundler: #{ page_title || "The best way to manage a Ruby application's gems"}"
+
+    %link(rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700,400italic,700italic|Source+Code+Pro")
+
+    = yield_content :head
+
+    = stylesheet_link_tag "application"
+
+    = favicon_tag 'images/favicon.png'
+
+    = feed_tag :atom, "#{blog.options.prefix.to_s}/feed.xml", title: "Atom Feed"
+
+  %body{class: current_page.data.page_classes || ''}
+
+    ~ yield
+
+    = javascript_include_tag "application"
+
+    = yield_content :tail

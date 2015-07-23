@@ -5,6 +5,6 @@
     = partial 'header'
     #container
       #contents
-        = yield
+        ~ yield
       = partial 'sidebar' if v == current_version
   = partial 'footer', locals: { v: v }

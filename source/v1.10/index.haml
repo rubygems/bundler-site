@@ -19,13 +19,15 @@
 .contents
   .bullet
     .description
-      Getting started with bundler is easy! Open a terminal window and run this command:
+      %p
+        Getting started with bundler is easy! Open a terminal window and run this command:
     :code
       $ gem install bundler
 
   .bullet
     .description
-      Specify your dependencies in a Gemfile in your project's root:
+      %p
+        Specify your dependencies in a Gemfile in your project's root:
     :code
       # lang: ruby
       source 'https://rubygems.org'
@@ -36,19 +38,22 @@
 
   .bullet
     .description
-      Install all of the required gems from your specified sources:
+      %p
+        Install all of the required gems from your specified sources:
     :code
       $ bundle install
       $ git add Gemfile Gemfile.lock
     = link_to 'Learn More: bundle install', './bundle_install.html'
     .notes
-      The second command adds the Gemfile and Gemfile.lock to your repository. This ensures
-      that other developers on your app, as well as your deployment environment, will all use
-      the same third-party code that you are using now.
+      %p
+        The second command adds the Gemfile and Gemfile.lock to your repository. This ensures
+        that other developers on your app, as well as your deployment environment, will all use
+        the same third-party code that you are using now.
 
   .bullet
     .description
-      Inside your app, load up the bundled environment:
+      %p
+        Inside your app, load up the bundled environment:
     :code
       # lang: ruby
       require 'rubygems'
@@ -59,7 +64,8 @@
     = link_to 'Learn More: Bundler.setup', './bundler_setup.html'
   .bullet
     .description
-      Run an executable that comes with a gem in your bundle:
+      %p
+        Run an executable that comes with a gem in your bundle:
     :code
       $ bundle exec rspec spec/models
     .notes
@@ -73,13 +79,15 @@
         on another machine.
 
     .description
-      Finally, if you want a way to get a shortcut to gems in your bundle:
+      %p
+        Finally, if you want a way to get a shortcut to gems in your bundle:
     :code
       $ bundle install --binstubs
       $ bin/rspec spec/models
     .notes
-      The executables installed into <code>bin</code> are scoped to the
-      bundle, and will always work.
+      %p
+        The executables installed into <code>bin</code> are scoped to the
+        bundle, and will always work.
     = link_to 'Learn More: Executables', './man/bundle-exec.1.html'
 
 %h2#create-gem Create a rubygem with Bundler
@@ -89,7 +97,8 @@
 
 .bullet
   .description
-    Create a new gem with a README, .gemspec, Rakefile, directory structure, and all the basic boilerplate you need to describe, test, and publish a gem:
+    %p
+      Create a new gem with a README, .gemspec, Rakefile, directory structure, and all the basic boilerplate you need to describe, test, and publish a gem:
   :code
     $ bundle gem my_gem
     Creating gem 'my_gem'...
@@ -120,7 +129,9 @@
   = link_to 'RubyMotion', './rubymotion.html'
 
 %h2#get-involved Get involved
-%p== Bundler has a lot of contributors and users, and they all talk to each other quite a bit. If you have questions, try #{link_to 'the IRC channel', 'http://webchat.freenode.net/?channels=bundler'} or #{link_to 'mailing list', 'http://groups.google.com/group/ruby-bundler'}. If you're interested in contributing to the project (no programming skills needed), read #{link_to 'the contributing guide', 'https://github.com/bundler/bundler/blob/master/DEVELOPMENT.md'}. While participating in the Bundler project, please keep the #{link_to 'code of conduct', '/conduct.html'} in mind, and be inclusive and friendly towards everyone. If you have sponsorship or security questions, please contact the core team directly.
+%p
+  Bundler has a lot of contributors and users, and they all talk to each other quite a bit. If you have questions, try #{link_to 'the IRC channel', 'http://webchat.freenode.net/?channels=bundler'} or #{link_to 'mailing list', 'http://groups.google.com/group/ruby-bundler'}. If you're interested in contributing to the project (no programming skills needed), read #{link_to 'the contributing guide', 'https://github.com/bundler/bundler/blob/master/DEVELOPMENT.md'}. While participating in the Bundler project, please keep the #{link_to 'code of conduct', '/conduct.html'} in mind, and be inclusive and friendly towards everyone. If you have sponsorship or security questions, please contact the core team directly.
+  
 .buttons
   = link_to 'Code of Conduct', '/conduct.html'
   = link_to '#bundler on IRC', 'http://webchat.freenode.net/?channels=bundler'

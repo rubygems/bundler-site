@@ -1,6 +1,7 @@
 @import url(http://fonts.googleapis.com/css?family=Source+Code+Pro:400,600);
 
 @import "compass/css3";
+@import "normalize";
 @import "code";
 
 $header-color: #346b8c;
@@ -167,7 +168,6 @@ code {
   @include distribute-children(justify);
   padding: 8px 16px;
   background-color: rgba(0, 0, 0, 0.1);
-  width: 100%;
   margin-top: 25px;
   img:first-child {
     @include box-shadow(blue, 0, 0, 5px);
@@ -175,10 +175,6 @@ code {
   }
   img:nth-child(2) {
     @include box-shadow(blue, 0, 0, 5px);
-  }
-  img:last-child {
-    margin-top: -20px;
-    margin-right: -20px;
   }
   .spacer {
     @include liquid;

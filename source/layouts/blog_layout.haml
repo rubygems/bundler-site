@@ -14,6 +14,5 @@
           %time
             = current_article.date.strftime('%b %e %Y')
         %hr
-        = find_and_preserve do
           ~ yield
-  = partial 'partials/footer', locals: { v: v }
+  = partial 'footer', locals: { v: v }

@@ -73,6 +73,14 @@
 
   .bullet
     .description
+      Specify that the submodules from a git repository
+      also should be expanded by bundler
+    :code
+      # lang: ruby
+      gem 'rugged', :git => 'git://github.com/libgit2/rugged.git', :submodules => true
+
+  .bullet
+    .description
       If you are getting your gems from a public GitHub repository,
       you can use the shorthand
     :code

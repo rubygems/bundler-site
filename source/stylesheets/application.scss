@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css?family=Alfa+Slab+One|Source+Serif+Pro:300,400,700,400italic,700italic|Source+Code+Pro");
+@import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css");
 @import "compass/css3";
 @import "compass/utilities/general/clearfix";
 @import "normalize";
@@ -16,14 +17,19 @@ $link-color: $bundler-blue;
 /* Base */
 
 body {
-  font: 300 18px "Source Serif Pro", Georgia, Times New Roman, serif;
+  -webkit-font-smoothing: antialiased;
+  font: 300 16px "Source Serif Pro", Georgia, Times New Roman, serif;
   background-color: #c6e7ec;
   color: #000;
+  font-feature-settings: "kern", "liga", "pnum";
+  line-height: 1.5;
 }
 
 /* HTML Elements */
 h1, h2, h3, h4, h5, h6 {
-  margin: 0;
+  line-height: 1.25;
+  font-weight: 800;
+  margin-bottom: 0.3em;
 }
 
 h2 {
@@ -39,7 +45,15 @@ a {
   @include bundler-link;
 }
 
-p { line-height: 1.5; }
+p {
+  line-height: 1.5;
+  margin: 0 0 1.5;
+}
+
+::selection {
+  background-color: $bundler-blue;
+  color: #fff;
+}
 
 /* Code Highlighting */
 code {
@@ -67,16 +81,9 @@ pre {
   font-size: 90%;
   border-left: 2px solid #006666;
   padding-left: 20px;
+  margin: 2em 0;
   font-style: italic;
-  font-size: 16px;
-  font-weight: 500;
   color: #006666;
-  &+ a {
-    margin-top: 10px;
-  }
-  &+ pre {
-    margin-top: 10px;
-  }
 }
 
 #intro {
@@ -113,7 +120,7 @@ pre {
   }
 
   li {
-    padding: 5px;
+    padding: 3px;
   }
 }
 

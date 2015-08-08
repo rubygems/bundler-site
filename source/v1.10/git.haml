@@ -1,5 +1,4 @@
 %h2 Gems from git repositories
-
 %p
   Bundler adds the ability to use gems directly from git repositories. Setting
   them up is as easy as adding a gem to your Gemfile. Using the very latest
@@ -64,6 +63,12 @@
   gem 'nokogiri', :git => 'git://github.com/tenderlove/nokogiri.git'
 
 %p
+  Specify that the submodules from a git repository also should be expanded by bundler
+:code
+  # lang: ruby
+  gem 'rugged', :git => 'git://github.com/libgit2/rugged.git', :submodules => true
+
+%p
   If you are getting your gems from a public GitHub repository,
   you can use the shorthand
 :code
@@ -93,6 +98,7 @@
   # lang: ruby
   gem 'capistrano-sidekiq', :github => 'seuros/capistrano-sidekiq'
   gem 'keystone', :bitbucket => 'musicone/keystone'
+>>>>>>> feature
 
 
 %h2 Custom git sources

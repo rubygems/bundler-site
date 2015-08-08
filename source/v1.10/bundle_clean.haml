@@ -1,16 +1,13 @@
 %h2 bundle clean
+%p
+  Cleans up unused gems in your bundler directory
+:code
+  $ bundle clean [--dry-run] [--force]
 
-.contents
-  .bullet
-    .description
-      Cleans up unused gems in your bundler directory
-    :code
-      $ bundle clean [--dry-run] [--force]
-    .notes
-      %p
-        Options:
-      %p
-        <code>--dry-run</code>: Only print out changes, do not actually clean
-        gems
-      %p
-        <code>--force</code>: Forces clean even if --path is set
+%p
+  %b Options:
+%p
+  <code>--dry-run</code>: Only print out changes, do not actually clean
+  gems
+%p
+  <code>--force</code>: Forces clean even if --path is set

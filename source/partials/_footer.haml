@@ -1,15 +1,19 @@
 #footer
-  = image_tag 'emocow.png'
-  = image_tag 'panda.jpg'
-  .spacer
-  #credits
-    %p
-      == Many thanks to Bundler's #{link_to 'contributors', '/contributors.html' }
-      == and #{link_to 'sponsors', '/sponsors.html' }
-  .spacer
-  = image_tag 'bundler-small.png'
+  .grid
+    .unit.one-third.align-left#friends
+      = image_tag 'emocow.png'
+      = image_tag 'panda.jpg'
+
+    .unit.one-third.align-center#credits
+      %p
+        Many thanks to Bundler's #{link_to 'contributors', '/contributors.html' } and #{link_to 'sponsors', '/sponsors.html' }
+
+    .unit.one-third.align-right
+      = image_tag 'bundler-small.png'
+
 %a#github{ :href => 'http://github.com/bundler/bundler/' }
   %img{ :src => 'http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png', :alt => 'Fork me on GitHub' }
+
 #prod-versions
   Docs:
   = link_to("Previous Version (#{versions[-2]})", "/#{versions[-2]}/index.html", :class => ('current' if v == versions[-2]))

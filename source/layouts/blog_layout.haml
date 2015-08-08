@@ -1,18 +1,17 @@
 - v = current_page.url.scan(/v\d\.\d+/).first || current_version
 
 ~ wrap_layout :base do
-  #body
-    = partial 'header'
-    #container
-      .contents.blog
-        %h2.title
-          = link_to current_article.title, current_article.url
-        %h3.subtitle
-          by
-          = link_to current_article.data.author, current_article.data.author_url, :target => '_blank'
-          on
-          %time
-            = current_article.date.strftime('%b %e %Y')
-        %hr
-          ~ yield
+  = partial 'header'
+  .grid
+    .unit.whole.blog
+      %h2.title
+        = link_to current_article.title, current_article.url
+      %h3.subtitle
+        by
+        = link_to current_article.data.author, current_article.data.author_url, :target => '_blank'
+        on
+        %time
+          = current_article.date.strftime('%b %e %Y')
+      %hr
+        ~ yield
   = partial 'footer', locals: { v: v }

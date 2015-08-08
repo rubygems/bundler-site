@@ -45,8 +45,7 @@
     %li= link_to 'RubyMotion', "/#{current_version}/rubymotion.html"
 
   .shirts
-    .content
-      = link_to 'http://www.devswag.com/collections/bundler', :class => 'image', :onclick => "ga('send', 'devswag');" do
-        = image_tag '/images/bundler-shirt.png'
-      %p
-        =link_to 'Buy Bundler Shirts & Stickers!', 'http://www.devswag.com/collections/bundler', :onclick => "ga('send', 'devswag');"
+    = link_to 'http://www.devswag.com/collections/bundler', :class => 'image', :onclick => "ga('send', 'devswag');" do
+      = image_tag '/images/bundler-shirt.png'
+    %p
+      =link_to 'Buy Bundler Shirts & Stickers!', 'http://www.devswag.com/collections/bundler', :onclick => "ga('send', 'devswag');"

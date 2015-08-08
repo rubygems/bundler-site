@@ -1,10 +1,13 @@
 - v = current_page.url.scan(/v\d\.\d+/).first || current_version
 
 ~ wrap_layout :base do
-  #body
-    = partial 'header'
-    #container
-      #contents
-        ~ yield
+
+  = partial 'header'
+  .grid
+    .unit.two-thirds
+      ~ yield
+
+    .unit.one-third
       = partial 'sidebar' if v == current_version
+
   = partial 'footer', locals: { v: v }

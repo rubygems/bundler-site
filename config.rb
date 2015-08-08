@@ -62,3 +62,8 @@ end
 configure :build do
   activate :minify_css
 end
+
+# All docs have the docs layout
+with_layout :docs do
+  page "/docs/*"
+end

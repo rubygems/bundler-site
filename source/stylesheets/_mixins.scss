@@ -1,0 +1,47 @@
+@mixin bundler-link {
+  text-decoration: none;
+  color: $link-color;
+
+  &:hover {
+    color: darken($link-color, 10);
+  }
+}
+
+@mixin button {
+  padding: 8px;
+  color: white;
+  font-size: 16px;
+  text-align: center;
+  background-color: #05b5e6;
+  @include border-radius(5px);
+  &:hover {
+    background-color: #2a91ad;
+  }
+}
+
+@mixin important($color) {
+  background: $color;
+  @include border-radius(5px);
+  padding: 10px;
+  color: #043042;
+  font-size: 20px;
+  strong {
+    color: #041f2a;
+  }
+}
+
+@mixin versions($left, $color) {
+  position: absolute;
+  top: 0;
+  left: $left;
+  padding: 0.4em;
+  background: $color;
+  @include border-bottom-right-radius(10px);
+  a {
+    @include bundler-link;
+    padding: 0.1em 0.25em;
+  }
+  a.current {
+    font-weight: bold;
+  }
+}

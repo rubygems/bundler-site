@@ -18,7 +18,7 @@ $link-color: $bundler-blue;
 
 body {
   -webkit-font-smoothing: antialiased;
-  font: 300 16px "Source Serif Pro", Georgia, Times New Roman, serif;
+  font: 300 17px "Source Serif Pro", Georgia, Times New Roman, serif;
   background-color: #c6e7ec;
   color: #000;
   font-feature-settings: "kern", "liga", "pnum";
@@ -95,6 +95,7 @@ pre {
   margin: 40px 0 0 0;
 }
 
+/* Screen reader only */
 .text-logo {
   font: 400 3.7em "Alfa Slab One";
 }
@@ -102,14 +103,12 @@ pre {
 
 /* Primary Sidebar*/
 #sidebar {
-  text-align: left;
   .buttons {
     width: 100%;
   }
 
-  h2 {
-    font-size: 18px;
-    border-bottom: none;
+  h4 {
+    color: $bundler-blue;
   }
 
   ul {
@@ -126,7 +125,6 @@ pre {
 
 /* Footer */
 #footer {
-  padding: 8px 16px;
   background-color: rgba(0, 0, 0, 0.1);
   margin-top: 25px;
   img:first-child {
@@ -151,7 +149,6 @@ pre {
 }
 
 /* Buttons */
-
 .button {
   a {
     display: inline-block;
@@ -169,6 +166,19 @@ pre {
       margin-right: 0;
     }
   }
+
+  @media only screen and (max-width: 768px) {
+    flex-direction: column;
+    a {
+      margin: 0 0 5px;
+    }
+  }
+}
+
+/* Article - Used for docs  */
+
+article {
+
 }
 
 /* Command Reference  */

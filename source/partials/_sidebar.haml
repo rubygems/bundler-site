@@ -1,5 +1,5 @@
-#sidebar
-  %h2 Would you like to
+#sidebar.align-left
+  %h4 Would you like to
   %ul
     %li= link_to 'Get started', '/#getting-started'
     %li= link_to 'Report a bug', '/issues.html'
@@ -8,7 +8,7 @@
     %li= link_to 'Discuss and Contribute', '/#get-involved'
     %li= link_to 'View FAQs', "/#{current_version}/faq.html"
 
-  %h2 Read the latest news
+  %h4 Read the latest news
   %ul
     - blog.articles[0..1].each_with_index do |article, index|
       %li
@@ -16,7 +16,7 @@
     .buttons
       = link_to 'All posts', '/blog/'
 
-  %h2 Bundler commands
+  %h4 Bundler commands
   %ul
     %li= link_to 'bundle install', "/#{current_version}/bundle_install.html"
     %li= link_to 'bundle update', "/#{current_version}/bundle_update.html"
@@ -24,7 +24,7 @@
     .buttons
       = link_to 'View all commands', "/#{current_version}/commands.html"
 
-  %h2 Help with
+  %h4 Help with
   %ul
     %li= link_to 'Gemfiles', "/#{current_version}/gemfile.html"
     %li= link_to 'Groups', "/#{current_version}/groups.html"
@@ -36,7 +36,7 @@
     %li= link_to 'Compatiblity', '/compatibility.html'
     %li= link_to 'Older Versions', '/older_versions.html'
 
-  %h2 Use Bundler with
+  %h4 Use Bundler with
   %ul
     %li= link_to 'Rails 3', "/#{current_version}/rails3.html"
     %li= link_to 'Rails 2.3', "/#{current_version}/rails23.html"

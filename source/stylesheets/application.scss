@@ -18,11 +18,12 @@ $link-color: $bundler-blue;
 
 body {
   -webkit-font-smoothing: antialiased;
-  font: 300 17px "Source Serif Pro", Georgia, Times New Roman, serif;
+  font-family: "Source Serif Pro", Georgia, Times New Roman, serif;
+  font-weight: 300;
+  font-size: 16px;
   background-color: #c6e7ec;
   color: #000;
   font-feature-settings: "kern", "liga", "pnum";
-  line-height: 1.5;
 }
 
 /* HTML Elements */
@@ -32,10 +33,15 @@ h1, h2, h3, h4, h5, h6 {
   margin-bottom: 0.3em;
 }
 
+h1 { font-size: 48px; }
+h2 { font-size: 30px; }
+h3 { font-size: 24px; }
+h4 { font-size: 18px; }
+h5 { font-size: 14px; }
+h6 { font-size: 12px; }
+
 h2 {
-  font-size: 24px;
-  padding: 5px;
-  margin-top: 24px;
+  padding-left: 5px;
   color: $subhead-color;
   border-bottom: 3px solid #0e3f54;
   @include box-sizing("border-box");
@@ -46,7 +52,7 @@ a {
 }
 
 p {
-  line-height: 1.5;
+  line-height: 1.65;
   margin: 0 0 1.5;
 }
 
@@ -56,18 +62,23 @@ p {
 }
 
 /* Code Highlighting */
+pre, code {
+  font-family: "Source Code Pro", Monaco, monospace;
+  font-size: 14px;
+}
+
 code {
-  font: 600 15px "Source Code Pro", Monaco, monospace;
   background-color: rgba(255, 255, 255, 0.8);
   padding: 0 2px;
   color: $subhead-color;
   border: 1px solid rgba($subhead-color, 0.2);
+  font-weight: 600;
   @include border-radius(3px);
 }
 
 pre {
   background-color: black;
-  font: 300 14px "Source Code Pro", Monaco, monospace;
+  font-weight: 300;
   color: #f8f8f8;
   padding: 0.5em 1em;
   @include border-radius(5px);
@@ -103,6 +114,7 @@ pre {
 
 /* Primary Sidebar*/
 #sidebar {
+  padding-left: 30px;
   .buttons {
     width: 100%;
   }
@@ -166,7 +178,7 @@ pre {
       margin-right: 0;
     }
   }
-
+  /* screens smaller than 768px */
   @media only screen and (max-width: 768px) {
     flex-direction: column;
     a {

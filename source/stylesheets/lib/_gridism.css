@@ -20,7 +20,7 @@
 .grid .unit {
   float: left;
   width: 100%;
-  padding: 10px;
+  padding: 0 10px;
 }
 
 /* This ensures the outer gutters are equal to the (doubled) inner gutters. */
@@ -42,8 +42,7 @@
 /* Wrapping at a maximum width is optional */
 .wrap .grid,
 .grid.wrap {
-  /*max-width: 978px;*/
-  max-width: 1080px;
+  max-width: 978px;
   margin: 0 auto;
 }
 
@@ -97,8 +96,12 @@
   display: none !important;
 }
 
+.show-on-mobiles {
+  display: none;
+}
+
 /* Responsive Stuff */
-@media screen and (max-width: 568px) {
+@media screen and (max-width: 767px) {
   /* Stack anything that isn’t full-width on smaller screens
      and doesn't provide the no-stacking-on-mobiles class */
   .grid:not(.no-stacking-on-mobiles) > .unit {
@@ -120,6 +123,13 @@
   }
   .only-on-mobiles {
     display: block !important;
+  }
+
+  .show-on-mobiles {
+    display: block !important;
+  }
+  a .show-on-mobiles {
+    display: inline !important;
   }
 }
 

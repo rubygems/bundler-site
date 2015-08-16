@@ -1,8 +1,5 @@
-- v = current_page.url.scan(/v\d\.\d+/).first || current_version
-
 ~ wrap_layout :base do
-  = partial 'header'
-  .grid
+  %article
     .unit.whole.blog
       %h2.title
         = link_to current_article.title, current_article.url
@@ -14,4 +11,3 @@
           = current_article.date.strftime('%b %e %Y')
       %hr
         ~ yield
-  = partial 'footer', locals: { v: v }

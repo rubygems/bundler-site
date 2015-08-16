@@ -1,3 +1,13 @@
+:ruby
+  def edit_page_url
+    p = Pathname(current_page.source_file).relative_path_from(Pathname(root))
+    "https://github.com/bundler/bundler-site/blob/master/#{p}"
+  end
+
 ~ wrap_layout :layout do
   %article
     ~ yield
+
+  %p.fork-and-edit.hide-on-mobiles
+    Found an error or typo? Want to add some content?
+    = link_to "Fork and edit", "#{edit_page_url}"

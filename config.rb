@@ -65,5 +65,5 @@ end
 
 # All docs have the docs layout
 with_layout :docs do
-  page "/v*"
+  page "/v*/*"
 end

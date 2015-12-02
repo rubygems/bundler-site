@@ -23,5 +23,10 @@
 # Bundler binstubs
 /bin
 
+# pages from the bundler repo
 source/issues.md
 source/conduct.md
+
+# man pages built from the bundler repo
+/source/man/
+/source/v*/man/

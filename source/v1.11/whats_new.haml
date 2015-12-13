@@ -1,0 +1,39 @@
+= partial "shared/whats_new"
+
+%h2#version111 What's New in v1.11
+
+%h3#error-messages Improved permissions errors
+
+.contents
+  .bullet
+    .description
+      %p
+        Bundler now provides a helpful error message for all sorts of permissions errors that used to cause an exception and show a backtrace.
+
+%h3#git-credentials Git Credentials
+
+.contents
+  .bullet
+    .description
+      %p
+        Bundler now allows specifying custom git credentials via <code>bundle config</code>.
+
+%h3#lock-update Update gems without installing them
+
+.contents
+  .bullet
+    .description
+      %p
+        It is now possible to update the locked version of a gem without also installing it, by running <code>bundle lock --update [GEM [GEM ...]]</code> to update the versions of some gems (or all gems).
+
+.contents
+  .bullet
+    .description
+      Bundler 1.11 also includes:
+      %ul
+        %li up to 25x faster dependency resolution
+        %li vastly improved resolver conflict messages
+        %li configurable timeouts and retries
+        %li configurable git remote and gem server for `rake release`
+        %li many, many, many bugfixes
+      = link_to 'Full 1.11 changelog', 'https://github.com/bundler/bundler/blob/1-11-stable/CHANGELOG.md'

@@ -1,0 +1,39 @@
+= partial "shared/whats_new"
+
+%h2#version111 What's New in v1.11
+
+%h2#version110 What's New in v1.10
+
+.contents
+  .bullet
+    .description
+      %p
+        Bundler 1.10 comes with a new `lock` command, support for inline gemfiles in scripts, the ability to disable post-install messages, optional groups, conditional gem installation, dramatically improved `outdated` output, and the option to force installed gems to be downloaded and installed again.
+      %p
+        In this section, you’ll find the major features introduced in this release. All the changes are documented in the Bundler 1.11 changelog.
+        = link_to 'Full 1.10 changelog', 'https://github.com/bundler/bundler/blob/1-11-stable/CHANGELOG.md'
+
+%h2#error-messages Improved error messages
+
+.contents
+  .bullet
+    .description
+      %p
+        Bundler now provides more helpful error messages in 90% of known error cases, avoiding showing a backtrace whenever possible.
+
+%h2#git-credentials Git Credentials
+
+.contents
+  .bullet
+    .description
+      %p
+        Bundler now allows specifying custom git credentials via <code>bundle config</code>.
+
+.contents
+  .bullet
+    .description
+      Bundler 1.11 also includes:
+      %ul
+        %li faster dependency resolution
+        %li timeouts and retries are now configurable
+      = link_to 'Full 1.10 changelog', 'https://github.com/bundler/bundler/blob/1-10-stable/CHANGELOG.md'

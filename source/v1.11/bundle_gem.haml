@@ -1,0 +1,38 @@
+%h2 bundle gem
+
+.contents
+  .bullet
+    .description
+      Creates a skeleton for creating a rubygem
+    :code
+      $ bundle gem GEM [--bin or -b] [--test=TESTFRAMEWORK] [--edit=TEXTEDITOR] [--ext]
+    .notes
+      %p
+        Options:
+      %p
+        <code>--bin or -b</code>: Generate a binary for your library.
+      %p
+        <code>--coc</code>: Generate a code of conduct file.
+      %p
+        <code>--edit</code>: Open generated gemspec in the specified editor (defaults to <code>$EDITOR</code> or <code>$BUNDLER_EDITOR</code>)
+      %p
+        <code>--ext</code>: Generate a skeleton for a C-extension.
+      %p
+        <code>--mit</code>: Generate an MIT license file.
+      %p
+        <code>--test</code>: Generate a test directory for your library:
+        <code>rspec</code> is the default, but <code>minitest</code> is also supported.
+    .notes
+      %p
+        When run for the first time, <code>bundle gem</code> will ask for your preferences regarding test framework, code of conduct, and MIT license. These preferences will be stored in <code>~/.bundle/config</code> for future runs.
+  .bullet
+    .description
+      The generated project will contain all the necessary boilerplate, including a README and a gemspec template. Also included will be a Rakefile with tasks suitable for gem development:
+    .how
+      :code
+        $ rake -T
+        rake build          # Build GEM-0.1.0.gem into the pkg directory
+        rake install        # Build and install GEM-0.1.0.gem into system gems
+        rake install:local  # Build and install GEM-0.1.0.gem into system gems without network access
+        rake release        # Create tag v0.1.0 and build and push GEM-0.1.0.gem to Rubygems
+        rake test           # Run tests

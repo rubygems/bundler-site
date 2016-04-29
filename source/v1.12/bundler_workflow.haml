@@ -1,0 +1,198 @@
+%h2 Recommended Workflow with Version Control
+.contents
+  .bullet#recommended_workflow
+    .description
+      %p
+        In general, when working with an application managed with bundler, you
+        should use the following workflow:
+      %p
+        After you create your <code>Gemfile</code> for the first time, run
+        :code
+          $ bundle install
+      %p
+        Check the resulting <code>Gemfile.lock</code> into version control
+        :code
+          $ git add Gemfile.lock
+      %p
+        When checking out this repository on another development machine, run
+        :code
+          $ bundle install
+      %p
+        When checking out this repository on a deployment machine, run
+        :code
+          $ bundle install --deployment
+      %p
+        After changing the <code>Gemfile</code> to reflect a new or update
+        dependency, run
+        :code
+          $ bundle install
+      %p
+        Make sure to check the updated <code>Gemfile.lock</code> into version
+        control
+        :code
+          $ git add Gemfile.lock
+      %p
+        If <code>bundle install</code> reports a conflict, manually update the
+        specific gems that you changed in the <code>Gemfile</code>
+        :code
+          $ bundle update rails thin
+      %p
+        If you want to update all the gems to the latest possible versions that
+        still match the gems listed in the <code>Gemfile</code>, run
+        :code
+          $ bundle update
+
+%h2 A Thorough Bundler Workflow
+
+.contents
+  .bullet
+    .description
+      Getting started with bundler is easy! Open a terminal window and run this command:
+    :code
+      $ gem install bundler
+    .notes
+      %li
+        When you first create a Rails application, it already comes with a
+        <code>Gemfile</code>.  For another kind of application (such as Sinatra), run:
+
+        :code
+          $ bundle init
+
+      %li
+        The <code>bundle init</code> command creates a simple <code>Gemfile</code> which you
+        can edit.
+
+  .bullet
+    .description
+      Specify your dependencies in the root of your application, called the <code>Gemfile</code>.
+      It looks something like this:
+    :code
+      # lang: ruby
+      source 'https://rubygems.org'
+      gem 'nokogiri'
+      gem 'rack', '~>1.1'
+      gem 'rspec', :require => 'spec'
+
+    .notes
+      This <code>Gemfile</code> says a few things. First, it says that bundler should
+      look for gems declared in the <code>Gemfile</code> at <code>https://rubygems.org</code> by default.
+    = link_to 'Learn More: Gemfiles', './gemfile.html'
+
+  .bullet
+    .description
+      %p
+        After declaring your first set of dependencies, you tell bundler to go get them:
+
+        :code
+          $ bundle install    # <code>bundle</code> is a shortcut for <code>bundle install</code>
+
+      %p
+        Bundler will connect to <code>rubygems.org</code> (and any other sources that you declared),
+        and find a list of all of the required gems that meet the requirements you specified.
+        Because all of the gems in your <code>Gemfile</code> have dependencies of their own
+        (and some of those have their own dependencies), running <code>bundle install</code> on the
+        <code>Gemfile</code> above will install quite a few gems.
+
+        :code
+            $ bundle install
+            Fetching gem metadata from https://rubygems.org/
+            Resolving dependencies...
+            Using rake (0.8.7)
+            Using abstract (1.0.0)
+            Installing activesupport (3.0.0.rc)
+            Using builder (2.1.2)
+            Using i18n (0.4.1)
+            Installing activemodel (3.0.0.rc)
+            Using erubis (2.6.6)
+            Using rack (1.2.1)
+            Installing rack-mount (0.6.9)
+            Using rack-test (0.5.4)
+            Using tzinfo (0.3.22)
+            Installing actionpack (3.0.0.rc)
+            Using mime-types (1.16)
+            Using polyglot (0.3.1)
+            Using treetop (1.4.8)
+            Using mail (2.2.5)
+            Installing actionmailer (3.0.0.rc)
+            Using arel (0.4.0)
+            Installing activerecord (3.0.0.rc)
+            Installing activeresource (3.0.0.rc)
+            Using bundler (1.0.0.rc.3)
+            Installing nokogiri (1.4.3.1) with native extensions
+            Installing rack-cache (0.5.2)
+            Installing thor (0.14.0)
+            Installing railties (3.0.0.rc)
+            Installing rails (3.0.0.rc)
+            Your bundle is complete! Use `bundle show [gemname]` to see where a bundled gem is installed.
+
+      %p
+        If any of the needed gems are already installed, Bundler will use them. After installing
+        any needed gems to your system, bundler writes a snapshot of all of the gems and
+        versions that it installed to <code>Gemfile.lock</code>.
+
+        .notes
+
+          %li
+            If <code>bundle install</code> reports a conflict between your <code>Gemfile</code> and
+            <code>Gemfile.lock</code>, run:
+
+            :code
+              $ bundle update sinatra
+
+          %li
+            This will update just the Sinatra gem, as well as any of its dependencies.
+
+          %p
+            %li
+              To update all of the gems in your <code>Gemfile</code> to the latest possible versions, run:
+
+              :code
+                $ bundle update
+
+          %li
+            Whenever your <code>Gemfile.lock</code> changes, always check it in to version control.
+            It keeps a history of the exact versions of all third-party code that you used to successfully
+            run your application.
+
+          %li
+            The <code>git add Gemfile*</code> command adds the Gemfile and Gemfile.lock to your repository. This ensures that
+            other developers on your app, as well as your deployment environment, will all use the same
+            third-party code that you are using now.
+  .buttons
+    = link_to 'Learn More: bundle install', './bundle_install.html'
+    = link_to 'Learn More: bundle update', './bundle_update.html'
+  .bullet
+    .description
+      Inside your app, load up the bundled environment:
+    :code
+      # lang: ruby
+      require 'rubygems'
+      require 'bundler/setup'
+
+      # require your gems as usual
+      require 'nokogiri'
+    = link_to 'Learn More: Bundler.setup', './bundler_setup.html'
+  .bullet
+    .description
+      Run an executable that comes with a gem in your bundle:
+    :code
+      $ bundle exec rspec spec/models
+    .notes
+      %p
+        In some cases, running executables without <code>bundle exec</code>
+        may work, if the executable happens to be installed in your system
+        and does not pull in any gems that conflict with your bundle.
+      %p
+        However, this is unreliable and is the source of considerable pain.
+        Even if it looks like it works, it may not work in the future or
+        on another machine.
+  .bullet
+    .description
+      Finally, if you want a way to get a shortcut to gems in your bundle:
+    :code
+      $ bundle install --binstubs
+      $ bin/rspec spec/models
+    .notes
+      The executables installed into <code>bin</code> are scoped to the
+      bundle, and will always work.
+    = link_to 'Learn More: Executables', './man/bundle-exec.1.html'

@@ -18,6 +18,7 @@ end
 desc "Pull in the man pages for the specified gem versions."
 task :man => [:update_vendor] do
   VERSIONS.each do |version|
+    next if version == "v0.9"
     branch = (version[1..-1].split('.') + %w(stable)).join('-')
 
     rm_rf "source/#{version}/man"

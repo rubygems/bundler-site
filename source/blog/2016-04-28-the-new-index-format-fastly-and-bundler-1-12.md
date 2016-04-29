@@ -19,7 +19,7 @@ On top of the new index, we also made specific improvements to the performance o
 
 ## `outdated` by version size
 
-Another new feature is the ability to run `bundle outdated` with the flags `--major`, `--minor`, and `--tiny`. Using those flags, you can limit Bundler to only show you new versions that are both allowed by your `Gemfile` and also meet the criteria of only changing the major, minor, or tiny version of the gem. You can combine them to get only minor and tiny updates, or even only major and tiny updates (but I have no idea why you would want to do that).
+Another new feature is the ability to run `bundle outdated` with the flags `--major`, `--minor`, and `--patch`. Using those flags, you can limit Bundler to only show you new versions that are both allowed by your `Gemfile` and also meet the criteria of only changing the major, minor, or patch version of the gem. You can combine them to get only minor and patch updates, or even only major and patch updates (but I have no idea why you would want to do that).
 
 ## Ruby versions
 

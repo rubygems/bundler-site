@@ -9,7 +9,7 @@ task :update_vendor => ["vendor/bundler"] do
   Dir.chdir("vendor/bundler") { sh "git fetch" }
 end
 
-VERSIONS = %w(v1.0 v1.1 v1.2 v1.3 v1.5 v1.6 v1.7 v1.8 v1.9 v1.10 v1.11).freeze
+VERSIONS = Dir.chdir("source") { Dir.glob("v*").sort_by{|x| [x.size, x] } }.freeze
 desc "Print the Bundler versions the site documents"
 task :versions do
   puts VERSIONS.join(' ')

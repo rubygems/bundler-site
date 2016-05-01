@@ -2,7 +2,7 @@
 
 @import "compass/css3";
 @import "normalize";
-@import "code";
+@import "code.css";
 
 $header-color: #346b8c;
 $subhead-color: #0e3f54;
@@ -82,6 +82,16 @@ code {
   padding: 0 2px 0 2px;
   border: 1px solid rgba(0, 0, 0, 0.1);
   @include border-radius(3px);
+}
+
+.highlight {
+  code {
+    background: none;
+    font-family: 'Source Code Pro', Monaco, monospace;
+    font-weight: 400;
+    padding: 0;
+    font-size: 13px;
+  }
 }
 
 .intro {

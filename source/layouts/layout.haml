@@ -2,9 +2,9 @@
 
 ~ wrap_layout :base do
   #body
-    = partial 'header'
+    = partial 'partials/header'
     #container
       #contents
         ~ yield
-      = partial 'sidebar' if v == current_version
-  = partial 'footer', locals: { v: v }
+      = partial 'partials/sidebar' if v == current_version
+  = partial 'partials/footer', locals: { v: v }

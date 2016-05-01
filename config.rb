@@ -15,15 +15,15 @@ set :markdown,
     superscript: true,
     tables: true
 
-set :versions, `rake versions`.split
-set :current_version, versions.last
+config[:versions] = `rake versions`.split
+config[:current_version] = config[:versions].last
 
 # Make documentation for the latest version available at the top level, too.
 # Any pages with names that conflict with files already at the top level will be skipped.
 ready do
   sitemap.resources.each do |page|
-    if page.path.start_with? "#{current_version}/"
-      proxy_path = page.path["#{current_version}/".length..-1]
+    if page.path.start_with? "#{config[:current_version]}/"
+      proxy_path = page.path["#{config[:current_version]}/".length..-1]
       proxy proxy_path, page.path if sitemap.find_resource_by_path(proxy_path).nil?
     end
   end
@@ -35,11 +35,11 @@ page '/sitemap.xml', layout: false
 # Helpers
 ###
 Dir.glob(File.expand_path('../helpers/**/*.rb', __FILE__), &method(:require))
+helpers CommandReferenceHelper
+helpers ConfigHelper
 
 set :css_dir, 'stylesheets'
-set :js_dir, 'javascripts'
 set :images_dir, 'images'
-set :partials_dir, 'partials'
 
 activate :blog do |blog|
   blog.name = 'blog'
@@ -47,7 +47,6 @@ activate :blog do |blog|
   blog.permalink = '{year}/{month}/{day}/{title}.html'
   blog.layout = 'blog_layout'
 
-  blog.calendar_template = 'blog/calendar.html'
   blog.year_link = "{year}/index.html"
   blog.month_link = "{year}/{month}/index.html"
   blog.day_link = "{year}/{month}/{day}/index.html"

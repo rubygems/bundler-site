@@ -2,7 +2,7 @@
 
 ~ wrap_layout :base do
   #body
-    = partial 'header'
+    = partial 'partials/header'
     #container
       .contents.blog
         %h2.title
@@ -15,4 +15,4 @@
             = current_article.date.strftime('%b %e %Y')
         %hr
           ~ yield
-  = partial 'footer', locals: { v: v }
+  = partial 'partials/footer', locals: { v: v }

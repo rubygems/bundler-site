@@ -273,3 +273,20 @@
 
       :code
         $ bundle config mirror.https://rubygems.org https://localgems.lan
+      
+      %p
+        If you want to make sure that bundling from rubygems.org still works
+        when your mirror is not available for some reason, you can easily 
+        configure Bundler to fallback to https://rubygems.org using the
+        <code>mirror.URL.fallback_timeout</code> configuration option:
+        
+      :code
+        $ bundle config mirror.https://rubygems.org.fallback_timeout true
+        
+      %p
+        You can also configure this fallback as a number of seconds - in case the
+        mirror is online but simply unresponsive in a timely fashion.
+        This example uses a 3 second timeout:
+        
+      :code
+        $ bundle config mirror.https://rubygems.org.fallback_timeout 3

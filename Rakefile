@@ -78,6 +78,13 @@ task :release => [:build, :update_site] do
     sh "git commit -m 'bundler/bundler-site@#{commit}'"
 
     Bundler.with_clean_env do
+      puts <<-TWO_FACTOR_WARNING
+====================================================================
+Please note that if you have two-factor auth enabled for your Github
+account, you will need to use a github access token instead of your
+account password.
+====================================================================
+      TWO_FACTOR_WARNING
       sh "git push origin master"
     end
   end

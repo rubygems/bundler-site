@@ -1,13 +1,12 @@
 %h2
   Bundler news and updates from
-  - if defined?(page_type) #TODO ? fails when building without this line
-    - case page_type
-    - when 'day'
-      = Date.new(year, month, day).strftime('%b %e, %Y')
-    - when 'month'
-      = Date.new(year, month, 1).strftime('%b, %Y')
-    - when 'year'
-      = year
+  - case page_type
+  - when 'day'
+    = Date.new(year, month, day).strftime('%b %e, %Y')
+  - when 'month'
+    = Date.new(year, month, 1).strftime('%b, %Y')
+  - when 'year'
+    = year
 
 %ul.posts
   - page_articles.each do |article|

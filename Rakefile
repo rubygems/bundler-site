@@ -1,5 +1,3 @@
-require "bundler/setup"
-
 directory "vendor"
 directory "vendor/bundler" => ["vendor"] do
   system "git clone https://github.com/bundler/bundler.git vendor/bundler"

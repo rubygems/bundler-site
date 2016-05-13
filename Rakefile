@@ -92,7 +92,7 @@ account password.
   end
 end
 
-# Allow Heroku deploys to build the site (for previewing)
+# Heroku deploys need to build the non-Middleman pages
 namespace :assets do
-  task :precompile => :build
+  task :precompile => [:repo_pages, :man]
 end

@@ -1,1 +1,1 @@
-web: bundle exec middleman server -p $PORT
+web: bin/middleman s -e build --port=$PORT

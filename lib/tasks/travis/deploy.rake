@@ -1,0 +1,42 @@
+namespace :travis do
+  def encrypted_key
+    ENV["encrypted_#{ENV["ENCRYPTION_LABEL"]}_key"]
+  end
+
+  def encrypted_iv
+    ENV["encrypted_#{ENV["ENCRYPTION_LABEL"]}_iv"]
+  end
+
+  def commit_author_email
+    ENV["COMMIT_AUTHOR_EMAIL"]
+  end
+
+  def configure_ssh_deploy_key
+    sh "openssl aes-256-cbc -K #{encrypted_key} -iv #{encrypted_iv} -in deploy_key.enc -out deploy_key -d"
+    sh "chmod 600 deploy_key"
+    sh "ssh-add deploy_key"
+    sh "rm deploy_key"
+  end
+
+  task :deploy => [:build] do
+    configure_ssh_deploy_key
+
+    Rake::Task["travis:update_ssh_site"].invoke
+
+    commit = `git rev-parse HEAD`.chomp
+
+    Dir.chdir "vendor/ssh_bundler.github.io" do
+      rm_rf FileList["*"]
+      cp_r FileList["../../build/*"], "./"
+      File.write("CNAME", "bundler.io")
+
+      sh "git add -A ."
+
+      sh "git config user.name 'Travis CI'"
+      sh "git config user.email '#{commit_author_email}'"
+
+      sh "git commit -m 'bundler/bundler-site@#{commit}'"
+      sh "git push origin master"
+    end
+  end
+end

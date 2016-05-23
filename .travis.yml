@@ -3,7 +3,7 @@ cache: bundler
 rvm:
   - 2.3.1
 install:
-  - bundle install --path vendor/bundle
+  - bundle install --deployment
   - eval "$(ssh-agent -s)"
 script: bundle exec rake travis:deploy
 branches:

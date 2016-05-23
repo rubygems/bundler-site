@@ -20,13 +20,13 @@ config[:current_version] = config[:versions].last
 
 # Make documentation for the latest version available at the top level, too.
 # Any pages with names that conflict with files already at the top level will be skipped.
-ready do
-  sitemap.resources.each do |page|
-    if page.path.start_with? "#{config[:current_version]}/"
-      proxy_path = page.path["#{config[:current_version]}/".length..-1]
-      proxy proxy_path, page.path if sitemap.find_resource_by_path(proxy_path).nil?
-    end
-  end
+Dir.glob("./source/#{config[:current_version]}/**/*").select{ |f| !File.directory? f }.each do |file_path|
+  file_path = file_path[0..-6] if file_path[-5..-1] == '.haml'
+
+  page_path = file_path["./source/".length..-1]
+  proxy_path = file_path["./source/#{config[:current_version]}/".length..-1]
+
+  proxy proxy_path, page_path unless File.exist?("./source/#{proxy_path}")
 end
 
 page '/sitemap.xml', layout: false

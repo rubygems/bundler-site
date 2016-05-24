@@ -26,7 +26,16 @@ Dir.glob("./source/#{config[:current_version]}/**/*").select{ |f| !File.director
   page_path = file_path["./source/".length..-1]
   proxy_path = file_path["./source/#{config[:current_version]}/".length..-1]
 
-  proxy proxy_path, page_path unless File.exist?("./source/#{proxy_path}")
+  proxy proxy_path, page_path unless File.exist?("./source/#{proxy_path}") || File.exist?("./source/#{proxy_path}.haml")
+end
+
+# old layout
+page '/contributors.html', layout: :old_layout
+page '/sponsors.html', layout: :old_layout
+page '/older_versions.html', layout: :old_layout
+page '/compatibility.html', layout: :old_layout
+%w(v0.9 v1.0 v1.1 v1.2 v1.3 v1.5 v1.6 v1.7 v1.8 v1.9 v1.10 v1.11 v1.12).each do |version|
+  page "/#{version}/*", layout: :old_layout
 end
 
 page '/sitemap.xml', layout: false

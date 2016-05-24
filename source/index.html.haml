@@ -1,0 +1,51 @@
+.row
+  .col-md-12
+    %img.img-responsive.bg-dark-blue{src: "/images/header_transparent_bg.png"}
+.row
+  .col-md-12
+    .content-padding.large-font
+      %p
+        Bundler provides a consistent environment for Ruby projects by tracking
+        and installing the exact gems and versions that are needed.
+      %p
+        Bundler is an exit from dependency hell, and ensures that the gems
+        you need are present in development, staging, and production.
+        Starting work on a project is as simple as <code>bundle install</code>.
+
+    %p.text-center
+      = link_to 'What\'s new in Bundler (to change)', './whats_new.html', class: 'btn btn-primary btn-lg'
+
+.bg-light-blue
+  .row
+    .col-md-12
+      %h2#getting-started
+        %b Getting Started
+
+      .contents
+        .bullet
+          .description
+            %p
+              Getting started with bundler is easy! Open a terminal window and run this command:
+          :code
+            $ gem install bundler
+        .bullet
+          .description
+            %p
+              Specify your dependencies in a Gemfile in your project's root:
+          :code
+            # lang: ruby
+            source 'https://rubygems.org'
+            gem 'nokogiri'
+            gem 'rack', '~>1.1'
+            gem 'rspec', :require => 'spec'
+          = link_to 'Learn More: Gemfiles', './gemfile.html', class: 'btn btn-primary btn-lg pull-right'
+        .clearfix
+
+        .bullet
+          .description
+            %p
+              Install all of the required gems from your specified sources:
+          :code
+            $ bundle install
+            $ git add Gemfile Gemfile.lock
+          = link_to 'Learn More: bundle install', './bundle_install.html', class: 'btn btn-primary btn-lg pull-right'

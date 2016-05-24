@@ -10,16 +10,17 @@
       - page_title = current_page.data.title
       = "Bundler: #{ page_title || "The best way to manage a Ruby application's gems"}"
 
+    %link(rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700,400italic,700italic|Source+Code+Pro")
+
     = yield_content :head
 
-    = stylesheet_link_tag "application"
+    = stylesheet_link_tag "old_application"
 
     = favicon_tag 'images/favicon.png'
 
     = feed_tag :atom, "#{blog.options.prefix.to_s}/feed.xml", title: "Atom Feed"
 
   %body{class: current_page.data.page_classes || ''}
-    = partial "layouts/navbar"
 
     ~ yield
 

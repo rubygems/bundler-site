@@ -30,7 +30,6 @@ Dir.glob("./source/#{config[:current_version]}/**/*").select{ |f| !File.director
 end
 
 # old layout
-page '/contributors.html', layout: :old_layout
 page '/sponsors.html', layout: :old_layout
 page '/older_versions.html', layout: :old_layout
 page '/compatibility.html', layout: :old_layout

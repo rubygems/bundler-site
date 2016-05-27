@@ -1,18 +1,14 @@
-- v = current_page.url.scan(/v\d\.\d+/).first || current_version
-
-~ wrap_layout :old_base do
-  #body
-    = partial 'partials/header'
-    #container
-      .contents.blog
-        %h2.title
-          = link_to current_article.title, current_article.url
-        %h3.subtitle
-          by
-          = link_to current_article.data.author, current_article.data.author_url, :target => '_blank'
-          on
-          %time
-            = current_article.date.strftime('%b %e %Y')
-        %hr
-          ~ yield
-  = partial 'partials/footer', locals: { v: v }
+~ wrap_layout :base do
+  = partial 'partials/blog_header'
+  .container
+    .contents.blog
+      %h2.title
+        = link_to current_article.title, current_article.url
+      .subtitle
+        by
+        = link_to current_article.data.author, current_article.data.author_url, :target => '_blank'
+        on
+        %time
+          = current_article.date.strftime('%b %e %Y')
+      .blog-content
+        ~ yield

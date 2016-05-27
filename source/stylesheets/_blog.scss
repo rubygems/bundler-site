@@ -1,0 +1,26 @@
+.blog {
+  .subtitle {
+    font-style: italic;
+    margin-bottom: 45px;
+  }
+
+  .blog-content {
+    font-size: 18px;
+  }
+
+  .title {
+    margin-bottom: 0;
+  }
+
+  h2, h3, h4 {
+    font-weight: bold;
+    
+    a {
+      color: #06456A;
+    }
+  }
+
+  h4 {
+    margin-top: 20px;
+  }
+}

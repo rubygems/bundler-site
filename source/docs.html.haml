@@ -1,0 +1,57 @@
+- primary_commands = %w(bundle_install bundle_update bundle_package bundle_exec bundle_config bundle_help)
+
+.row.bg-light-blue
+  .container
+    .col-sm-6.col-sm-offset-3
+      = image_tag '/images/docs_header_transparent_bg.png', class: 'img-responsive header-padding'
+
+.row.docs
+  .container
+    .col-sm-4
+      %h3
+        %b Guides
+      %ul
+        %li= link_to 'Using Gemfiles to install gems', "/#{current_version}/gemfile.html"
+        %li= link_to 'Leaving gems out in production', "/#{current_version}/groups.html"
+        %li= link_to 'Installing gems from git repos', "/#{current_version}/git.html"
+        %li= link_to 'Setting up & using bundled gems', "/#{current_version}/bundler_setup.html"
+        %li= link_to 'Deploying', "/#{current_version}/deploying.html"
+        %li= link_to 'Sharing', "/#{current_version}/bundler_sharing.html"
+        %li= link_to 'Updating Gems', "/#{current_version}/updating_gems.html"
+        %li= link_to 'Compatibility', '/compatibility.html'
+        %li= link_to 'Older Versions', '/older_versions.html'
+
+      %h4
+        %b Use Bundler with
+      %ul
+        %li= link_to 'Rails 3', "/#{current_version}/rails3.html"
+        %li= link_to 'Rails 2.3', "/#{current_version}/rails23.html"
+        %li= link_to 'Sinatra', "/#{current_version}/sinatra.html"
+        %li= link_to 'RubyGems', "/#{current_version}/rubygems.html"
+
+    .col-sm-4
+      %h3
+        %b Reference
+      %h4
+        %b Primary Commands
+      %ul
+        - primary_commands.select{ |page| path_exist?(page) }.each do |page|
+          %li= link_to_documentation(page)
+
+      %h4
+        %b Utilities
+      %ul
+        - other_commands(primary_commands).each do |page|
+          %li= link_to_documentation(page)
+
+    .col-sm-4
+      %h3
+        %b Release Notes
+      %h4
+        %b What's new in
+      %ul
+        - versions.reverse.select{ |version| path_exist?('whats_new', version) }.each do |v|
+          %li= link_to v, "/#{v}/whats_new.html"
+
+        %li= link_to 'v1.1', 'https://github.com/bundler/bundler/blob/master/CHANGELOG.md#110-mar-7-2012'
+        %li= link_to 'v1.0', 'https://github.com/bundler/bundler/blob/master/CHANGELOG.md#100-august-29-2010'

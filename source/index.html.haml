@@ -1,27 +1,30 @@
 .row.bg-dark-blue
-  .col-md-12
-    = image_tag '/images/header_transparent_bg.png', class: 'img-responsive'
-.row
-  .col-md-12
-    .content-padding.large-font
-      %p
-        Bundler provides a consistent environment for Ruby projects by tracking
-        and installing the exact gems and versions that are needed.
-      %p
-        Bundler is an exit from dependency hell, and ensures that the gems
-        you need are present in development, staging, and production.
-        Starting work on a project is as simple as <code>bundle install</code>.
+  .container
+    .col-md-12
+      = image_tag '/images/header_transparent_bg.png', class: 'img-responsive'
 
-    %p.text-center
-      = link_to 'What\'s new in Bundler (to change)', './whats_new.html', class: 'btn btn-primary btn-lg'
+.row.btn-margin-top
+  .container
+    .col-md-12
+      .content-padding.large-font
+        %p
+          Bundler provides a consistent environment for Ruby projects by tracking
+          and installing the exact gems and versions that are needed.
+        %p
+          Bundler is an exit from dependency hell, and ensures that the gems
+          you need are present in development, staging, and production.
+          Starting work on a project is as simple as <code>bundle install</code>.
 
-.bg-light-blue
-  .row
+      %p.text-center
+        = link_to 'How Does Bundler Work?', '/v1.12#getting-started', class: 'btn btn-primary btn-lg btn-responsive'
+
+.row.bg-light-blue
+  .container
     .col-md-12
       %h2#getting-started
         %b Getting Started
 
-      .contents
+      .contents.btn-margin-top
         .bullet
           .description
             %p
@@ -38,7 +41,7 @@
             gem 'nokogiri'
             gem 'rack', '~>1.1'
             gem 'rspec', :require => 'spec'
-          = link_to 'Learn More: Gemfiles', './gemfile.html', class: 'btn btn-primary btn-lg pull-right'
+          = link_to 'Learn More: Gemfiles', './gemfile.html', class: 'btn btn-primary btn-lg pull-right btn-responsive'
         .clearfix
 
         .bullet
@@ -48,4 +51,4 @@
           :code
             $ bundle install
             $ git add Gemfile Gemfile.lock
-          = link_to 'Learn More: bundle install', './bundle_install.html', class: 'btn btn-primary btn-lg pull-right'
+          = link_to 'Learn More: bundle install', './bundle_install.html', class: 'btn btn-primary btn-lg pull-right btn-responsive'

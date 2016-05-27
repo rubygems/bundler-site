@@ -45,6 +45,7 @@ page '/sitemap.xml', layout: false
 Dir.glob(File.expand_path('../helpers/**/*.rb', __FILE__), &method(:require))
 helpers CommandReferenceHelper
 helpers ConfigHelper
+helpers DocsHelper
 
 set :css_dir, 'stylesheets'
 set :images_dir, 'images'

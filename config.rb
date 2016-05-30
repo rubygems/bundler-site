@@ -1,4 +1,7 @@
+Dir.glob(File.expand_path('../lib/config/*.rb', __FILE__), &method(:require))
+
 activate :syntax
+activate :i18n
 set :markdown_engine, :kramdown
 
 # Markdown extentions
@@ -26,7 +29,7 @@ Dir.glob("./source/#{config[:current_version]}/**/*").select{ |f| !File.director
   page_path = file_path["./source/".length..-1]
   proxy_path = file_path["./source/#{config[:current_version]}/".length..-1]
 
-  proxy proxy_path, page_path unless File.exist?("./source/#{proxy_path}") || File.exist?("./source/#{proxy_path}.haml")
+  proxy proxy_path, page_path unless file_exist?(proxy_path)
 end
 
 # old layout

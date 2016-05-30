@@ -1,0 +1,46 @@
+.row.bg-dark-blue
+  .container
+    .col-md-12
+      = image_tag '/images/header_transparent_bg.png', class: 'img-responsive'
+
+.row.btn-margin-top
+  .container
+    .col-md-12
+      .content-padding.large-font
+        %p= t('home.bundler_info1')
+        %p= t('home.bundler_info2')
+
+      %p.text-center
+        = link_to t('home.how_bundler_work_button'), '/v1.12#getting-started', class: 'btn btn-primary btn-lg btn-responsive'
+
+.row.bg-light-blue
+  .container
+    .col-md-12
+      %h2#getting-started
+        %b= t('home.getting_started')
+
+      .contents.btn-margin-top
+        .bullet
+          .description
+            %p= t('home.getting_started_description')
+          :code
+            $ gem install bundler
+        .bullet
+          .description
+            %p= t('home.getting_started_description2')
+          :code
+            # lang: ruby
+            source 'https://rubygems.org'
+            gem 'nokogiri'
+            gem 'rack', '~>1.1'
+            gem 'rspec', :require => 'spec'
+          = link_to t('home.learn_more_gemfile'), './gemfile.html', class: 'btn btn-primary btn-lg pull-right btn-responsive'
+        .clearfix
+
+        .bullet
+          .description
+            %p= t('home.bundle_install_description')
+          :code
+            $ bundle install
+            $ git add Gemfile Gemfile.lock
+          = link_to t('home.learn_more_bundle_install'), './bundle_install.html', class: 'btn btn-primary btn-lg pull-right btn-responsive'

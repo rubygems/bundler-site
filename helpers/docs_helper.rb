@@ -22,4 +22,8 @@ module DocsHelper
 
     (commands - primary_commands).sort
   end
+
+  def current_visible_version
+    current_page.url.scan(/v\d\.\d+/).first || current_version
+  end
 end

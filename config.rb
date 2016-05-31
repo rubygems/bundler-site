@@ -33,12 +33,14 @@ Dir.glob("./source/#{config[:current_version]}/**/*").select{ |f| !File.director
 end
 
 # old layout
-page '/sponsors.html', layout: :old_layout
-page '/older_versions.html', layout: :old_layout
-page '/compatibility.html', layout: :old_layout
-%w(v0.9 v1.0 v1.1 v1.2 v1.3 v1.5 v1.6 v1.7 v1.8 v1.9 v1.10 v1.11 v1.12).each do |version|
-  page "/#{version}/*", layout: :old_layout
+page '/sponsors.html', layout: :compatibility_layout
+page '/older_versions.html', layout: :compatibility_layout
+page '/compatibility.html', layout: :compatibility_layout
+%w(v0.9 v1.0 v1.1 v1.2 v1.3 v1.5 v1.6 v1.7 v1.8 v1.9 v1.10 v1.11).each do |version|
+  page "/#{version}/*", layout: :compatibility_layout
 end
+page '/v1.12/bundle_*', layout: :compatibility_layout
+page '/v1.12/commands.html', layout: :compatibility_layout
 
 page '/sitemap.xml', layout: false
 

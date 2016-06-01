@@ -3,7 +3,7 @@ pl:
   home:
     bundler_info1: |
       Bundler dostarcza spójne środowisko dla projektów Ruby poprzez śledzenie
-      i instalację właściwych gemów i ich wersji.
+      i instalację właściwych gem'ów i ich wersji.
     bundler_info2: |
       Bundler pomaga wydostać się z piekła zależności i zapewnia, że gem'y które
       potrzebujesz są w Twoich środowiskach.

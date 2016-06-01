@@ -8,10 +8,11 @@
 
     %title
       - page_title = current_page.data.title
-      = "Bundler: #{ page_title || "The best way to manage a Ruby application's gems"}"
+      = "Bundler: #{ page_title || "The best way to manage a Ruby application's gems" }"
 
     = yield_content :head
 
+    = javascript_include_tag "application"
     = stylesheet_link_tag "application"
 
     = favicon_tag 'images/favicon.png'
@@ -24,3 +25,9 @@
     ~ yield
 
     = yield_content :tail
+
+    .footer
+      .row
+        .container
+          .col-md-12
+            = image_tag 'images/bundler_managing_dependencies.png', class: 'img-responsive footer-logo'

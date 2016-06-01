@@ -1,0 +1,149 @@
+/*!
+ * Start Bootstrap - Simple Sidebar (http://startbootstrap.com/)
+ * Copyright 2013-2016 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE)
+ */
+
+#wrapper {
+  padding-left: 0;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+
+#wrapper.toggled {
+  padding-left: 270px;
+}
+
+#sidebar-wrapper {
+  z-index: 1000;
+  float: left;
+  left: 250px;
+  width: 0;
+  height: 100%;
+  margin-top: 15px;
+  margin-left: -290px;
+  padding-bottom: 20px;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+
+#wrapper.toggled #sidebar-wrapper {
+  width: 250px;
+}
+
+#page-content-wrapper {
+  position: relative;
+  padding: 15px;
+}
+
+#wrapper.toggled #page-content-wrapper {
+  position: relative;
+  margin-right: -250px;
+}
+
+/* Sidebar Styles */
+
+.sidebar-nav {
+  position: relative;
+  top: 20px;
+  width: 250px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  padding-left: 30px;
+
+  h4 {
+    font-weight: bold;
+    color: #06456A;
+  }
+
+  ul {
+    padding-left: 0;
+  }
+
+  .active {
+    background-color: #DBEAF3;
+  }
+}
+
+.sidebar-nav li {
+  text-indent: 20px;
+  line-height: 40px;
+  list-style-type: none;
+}
+
+.sidebar-nav li a {
+  display: block;
+  text-decoration: none;
+  color: #000;
+}
+
+.sidebar-nav li a:hover {
+  text-decoration: none;
+  color: #000;
+  background: rgba(255,255,255,0.2);
+}
+
+.sidebar-nav li a:active,
+.sidebar-nav li a:focus {
+  text-decoration: none;
+}
+
+.sidebar-nav .separator {
+  hr {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+}
+
+.sidebar-nav > .sidebar-brand {
+  height: 65px;
+  font-size: 18px;
+  line-height: 60px;
+}
+
+.sidebar-nav > .sidebar-brand a {
+  color: #999999;
+}
+
+.sidebar-nav > .sidebar-brand a:hover {
+  color: #fff;
+  background: none;
+}
+
+@media(min-width:768px) {
+  .sidebar-nav {
+    padding-left: 10px;
+  }
+
+  #wrapper {
+    padding-left: 250px;
+  }
+
+  #wrapper.toggled {
+    padding-left: 0;
+  }
+
+  #sidebar-wrapper {
+    width: 250px;
+    padding-left: 10px;
+  }
+
+  #wrapper.toggled #sidebar-wrapper {
+    width: 0;
+  }
+
+  #page-content-wrapper {
+    padding: 20px;
+    position: relative;
+  }
+
+  #wrapper.toggled #page-content-wrapper {
+    position: relative;
+    margin-right: 0;
+  }
+}

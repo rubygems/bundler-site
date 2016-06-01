@@ -38,15 +38,53 @@
 @import "docs";
 @import "blog";
 @import "guide";
+@import "sidebar";
+
+/* Sticky footer styles
+-------------------------------------------------- */
+$footer-height: 150px;
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  margin-bottom: $footer-height;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  margin-top: 30px;
+  padding-top: 5px;
+
+  .row {
+    background-color: #DBEAF3;
+  }
+
+  .footer-logo {
+    float: right;
+    max-height: $footer-height;
+    padding: 5px;
+  }
+}
+/* Sticky footer styles
+-------------------------------------------------- */
+
+.row {
+  margin-left: auto;
+  margin-right: auto;
+}
 
 .bg-light-blue {
   background-color: #DBEAF3;
-  padding: 30px 4%;
+  padding: 30px 2%;
 }
 
 .bg-dark-blue {
   background-color: #64C9EF;
-  padding: 30px 4%;
+  padding: 30px 2%;
 }
 
 .large-font {
@@ -69,7 +107,7 @@
 }
 
 .content-padding {
-  padding: 30px 4%;
+  padding: 30px 2%;
 }
 
 .header-padding {

@@ -2,6 +2,7 @@ Dir.glob(File.expand_path('../lib/config/*.rb', __FILE__), &method(:require))
 
 activate :syntax
 activate :i18n
+activate :sprockets
 set :markdown_engine, :kramdown
 
 # Markdown extentions
@@ -34,13 +35,14 @@ end
 
 # old layout
 page '/sponsors.html', layout: :compatibility_layout
-page '/older_versions.html', layout: :compatibility_layout
-page '/compatibility.html', layout: :compatibility_layout
+page '/older_versions.html', layout: :guides_layout
+page '/compatibility.html', layout: :commands_layout
 %w(v0.9 v1.0 v1.1 v1.2 v1.3 v1.5 v1.6 v1.7 v1.8 v1.9 v1.10 v1.11).each do |version|
-  page "/#{version}/*", layout: :compatibility_layout
+  page /\/#{Regexp.escape(version)}\/(?!bundle_)(.*)/, layout: :compatibility_layout
 end
-page '/v1.12/bundle_*', layout: :compatibility_layout
-page '/v1.12/commands.html', layout: :compatibility_layout
+page /\/v(.*)\/bundle_(.*)/, layout: :commands_layout
+page '/v1.12/commands.html', layout: :commands_layout
+page '/v1.12/index.html', layout: :guides_layout
 
 page '/sitemap.xml', layout: false
 
@@ -52,6 +54,7 @@ helpers CommandReferenceHelper
 helpers ConfigHelper
 helpers DocsHelper
 
+set :javascript_dir, 'javascripts'
 set :css_dir, 'stylesheets'
 set :images_dir, 'images'
 
@@ -74,5 +77,7 @@ configure :development do
 end
 
 configure :build do
+  activate :minify_html
   activate :minify_css
+  activate :minify_javascript
 end

@@ -1,14 +1,17 @@
 module DocsHelper
   def documentation_path(page, version=nil)
-    "/#{version || current_version}/#{page}.html"
+    path = "/#{version || current_version}/#{page}.html"
+
+    return nil unless sitemap.find_resource_by_path(path)
+    path
   end
 
-  def link_to_documentation(page)
-    link_to page.gsub('_', ' '), documentation_path(page)
+  def link_to_documentation(page, version=nil)
+    link_to page.gsub('_', ' '), documentation_path(page, version)
   end
 
   def path_exist?(page, version=nil)
-    sitemap.find_resource_by_path(documentation_path(page, version))
+    documentation_path(page, version)
   end
 
   def other_commands(primary_commands, version=nil)
@@ -25,5 +28,9 @@ module DocsHelper
 
   def current_visible_version
     current_page.url.scan(/v\d\.\d+/).first || current_version
+  end
+
+  def current_page_without_version
+    current_page.url.scan(/v\d\.\d+\/(.*).html/)&.first&.first
   end
 end

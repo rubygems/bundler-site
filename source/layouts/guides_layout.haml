@@ -1,0 +1,10 @@
+- v = current_page.url.scan(/v\d\.\d+/).first || current_version
+
+~ wrap_layout :base do
+  .row.bg-light-blue
+    .container
+      .col-sm-6.col-sm-offset-3
+        = image_tag '/images/docs_header_transparent_bg.png', class: 'img-responsive header-padding'
+  .row
+    .container
+      ~ yield

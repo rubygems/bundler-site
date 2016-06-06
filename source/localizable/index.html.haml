@@ -1,7 +1,9 @@
 .row.bg-dark-blue
   .container
     .col-md-12
-      = image_tag '/images/header_transparent_bg.png', class: 'img-responsive'
+      = image_tag '/images/header_transparent_bg.png',
+        srcset: '/images/header_transparent_bg.png 1x, /images/header_transparent_bg@2x.png 2x, /images/header_transparent_bg@3x.png 3x',
+        class: 'img-responsive'
 
 .row.btn-margin-top
   .container
@@ -34,7 +36,8 @@
             gem 'nokogiri'
             gem 'rack', '~>1.1'
             gem 'rspec', :require => 'spec'
-          = link_to t('home.learn_more_gemfile'), './gemfile.html', class: 'btn btn-primary btn-lg pull-right btn-responsive'
+          %p.center-on-xs
+            = link_to t('home.learn_more_gemfile'), './gemfile.html', class: 'btn btn-primary btn-lg pull-right btn-responsive'
         .clearfix
 
         .bullet
@@ -43,4 +46,5 @@
           :code
             $ bundle install
             $ git add Gemfile Gemfile.lock
-          = link_to t('home.learn_more_bundle_install'), './bundle_install.html', class: 'btn btn-primary btn-lg pull-right btn-responsive'
+          %p.center-on-xs
+            = link_to t('home.learn_more_bundle_install'), './bundle_install.html', class: 'btn btn-primary btn-lg pull-right btn-responsive'

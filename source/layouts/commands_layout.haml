@@ -4,7 +4,9 @@
   .row.bg-light-blue
     .container
       .col-sm-6.col-sm-offset-3
-        = image_tag '/images/docs_header_transparent_bg.png', class: 'img-responsive header-padding'
+        = image_tag '/images/docs_header_transparent_bg.png',
+          srcset: '/images/docs_header_transparent_bg.png 1x, /images/docs_header_transparent_bg@2x.png 2x, /images/docs_header_transparent_bg@3x.png 3x',
+          class: 'img-responsive header-padding'
   .row
     .container
       #wrapper

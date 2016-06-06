@@ -12,4 +12,14 @@
     padding-left: 0;
     font-size: 18px;
   }
+
+  @media (max-width: $screen-xs-max) {
+    h3, h4 {
+      text-align: center;
+    }
+
+    li {
+      text-align: center;
+    }
+  }
 }

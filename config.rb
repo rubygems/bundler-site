@@ -61,6 +61,7 @@ page /\/v(.*)\/bundle_(.*)/, layout: :commands_layout
 page /\/v(.*)\/man\/(.*)/, layout: :commands_layout
 page /\/man\/(.*)/, layout: :commands_layout
 page /\/v(.*)\/commands\.html/, layout: :commands_layout
+page /\/v(.*)\/guides\/(.*)/, layout: :guides_layout
 
 page '/sitemap.xml', layout: false
 

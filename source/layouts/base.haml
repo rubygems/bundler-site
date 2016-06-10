@@ -20,16 +20,13 @@
     = feed_tag :atom, "#{blog.options.prefix.to_s}/feed.xml", title: "Atom Feed"
 
   %body{class: current_page.data.page_classes || ''}
-    = partial "layouts/navbar"
+    = partial 'layouts/navbar'
 
-    ~ yield
+    .main-wrapper
+      ~ yield
 
-    = yield_content :tail
+      = yield_content :tail
 
     .footer
-      .row
-        .container
-          .col-md-12
-            = image_tag 'images/bundler-logo.png',
-              srcset: 'images/bundler-logo.png 1x, images/bundler-logo@2x.png 2x, images/bundler-logo@3x.png 3x',
-              class: 'img-responsive footer-logo'
+      = partial 'layouts/footer'
+

@@ -1,7 +1,8 @@
-.row.bg-light-blue
-  .container
-    .col-sm-6.col-sm-offset-3
-      = image_tag '/images/team_header_transparent_bg.png', class: 'img-responsive header-padding'
+.row.bg-light-blue.header
+  = image_tag '/images/team_header_transparent_bg.png',
+    srcset: '/images/team_header_transparent_bg.png 1x, /images/team_header_transparent_bg@2x.png 2x, /images/team_header_transparent_bg@3x.png 3x',
+    class: 'img-responsive header-padding',
+    style: 'max-width: 460px; padding-bottom: 10px; width: 78%;'
 
 .row.docs
   .container

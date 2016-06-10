@@ -76,6 +76,10 @@
   list-style-type: none;
 }
 
+.sidebar-nav ul li:last-child hr {
+  border-top-color: #ffffff;
+}
+
 .sidebar-nav li a {
   display: block;
   text-decoration: none;

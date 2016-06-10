@@ -33,16 +33,12 @@ Dir.glob("./source/#{config[:current_version]}/**/*").select{ |f| !File.director
   proxy proxy_path, page_path unless file_exist?(proxy_path)
 end
 
-# old layout
 page '/sponsors.html', layout: :compatibility_layout
 page '/older_versions.html', layout: :guides_layout
 page '/compatibility.html', layout: :commands_layout
-%w(v0.9 v1.0 v1.1 v1.2 v1.3 v1.5 v1.6 v1.7 v1.8 v1.9 v1.10 v1.11).each do |version|
-  page /\/#{Regexp.escape(version)}\/(?!bundle_)(.*)/, layout: :compatibility_layout
-end
+page /\/v(.*)\/(?!bundle_|commands|docs)(.*)/, layout: :guides_layout
 page /\/v(.*)\/bundle_(.*)/, layout: :commands_layout
-page '/v1.12/commands.html', layout: :commands_layout
-page '/v1.12/index.html', layout: :guides_layout
+page /\/v(.*)\/commands\.html/, layout: :commands_layout
 
 page '/sitemap.xml', layout: false
 

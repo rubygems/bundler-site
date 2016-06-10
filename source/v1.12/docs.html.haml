@@ -1,18 +1,17 @@
 - primary_commands = %w(bundle_install bundle_update bundle_package bundle_exec bundle_config bundle_help)
 
-.row.bg-light-blue
-  .container
-    .col-sm-6.col-sm-offset-3
-      = image_tag '/images/docs_header_transparent_bg.png',
-        srcset: '/images/docs_header_transparent_bg.png 1x, /images/docs_header_transparent_bg@2x.png 2x, /images/docs_header_transparent_bg@3x.png 3x',
-        class: 'img-responsive header-padding'
+.row.bg-light-blue.header
+  = image_tag '/images/docs_header_transparent_bg.png',
+    srcset: '/images/docs_header_transparent_bg.png 1x, /images/docs_header_transparent_bg@2x.png 2x, /images/docs_header_transparent_bg@3x.png 3x',
+    class: 'img-responsive header-padding',
+    style: 'max-width: 400px;'
 
 .row.docs
   .container
     .col-sm-4
       %h3
         %b Guides
-      %ul
+      %ul.ul-padding
         %li= link_to 'Using Gemfiles to install gems', "/#{current_version}/gemfile.html"
         %li= link_to 'Leaving gems out in production', "/#{current_version}/groups.html"
         %li= link_to 'Installing gems from git repos', "/#{current_version}/git.html"
@@ -25,7 +24,7 @@
 
       %h4
         %b Use Bundler with
-      %ul
+      %ul.ul-padding
         %li= link_to 'Rails 3', "/#{current_version}/rails3.html"
         %li= link_to 'Rails 2.3', "/#{current_version}/rails23.html"
         %li= link_to 'Sinatra', "/#{current_version}/sinatra.html"
@@ -36,13 +35,13 @@
         %b Reference
       %h4
         %b Primary Commands
-      %ul
+      %ul.ul-padding
         - primary_commands.select{ |page| path_exist?(page) }.each do |page|
           %li= link_to_documentation(page)
 
       %h4
         %b Utilities
-      %ul
+      %ul.ul-padding
         - other_commands(primary_commands).each do |page|
           %li= link_to_documentation(page)
 
@@ -51,7 +50,7 @@
         %b Release Notes
       %h4
         %b What's new in
-      %ul
+      %ul.centered
         - versions.reverse.select{ |version| path_exist?('whats_new', version) }.each do |v|
           %li= link_to v, "/#{v}/whats_new.html"
 

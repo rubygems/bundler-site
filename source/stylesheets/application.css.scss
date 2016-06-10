@@ -39,38 +39,9 @@
 @import "guide";
 @import "sidebar";
 @import "hexagon_image";
+@import "footer";
 
-/* Sticky footer styles
--------------------------------------------------- */
-$footer-height: 150px;
-
-html {
-  position: relative;
-  min-height: 100%;
-}
-body {
-  margin-bottom: $footer-height;
-}
-
-.footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  margin-top: 30px;
-  padding-top: 5px;
-
-  .row {
-    background-color: #DBEAF3;
-  }
-
-  .footer-logo {
-    float: right;
-    max-height: $footer-height;
-    padding: 5px;
-  }
-}
-/* Sticky footer styles
--------------------------------------------------- */
+$header-height: 200px;
 
 .row {
   margin-left: auto;
@@ -116,6 +87,27 @@ body {
   padding: 30px 2%;
 }
 
+.content-width-padding {
+  padding: 0 2%;
+}
+
 .header-padding {
-  padding: 50px 0;
+  @extend .container;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 70%;
+}
+
+.main-wrapper {
+  padding-bottom: 50px;
+}
+
+.header {
+  position: relative;
+  height: $header-height;
+  margin-bottom: 25px;
 }

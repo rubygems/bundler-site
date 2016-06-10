@@ -13,13 +13,38 @@
     font-size: 18px;
   }
 
-  @media (max-width: $screen-xs-max) {
-    h3, h4 {
-      text-align: center;
-    }
+  h3, h4 {
+    text-align: center;
+  }
 
-    li {
+  li {
+    text-align: left;
+    
+    @media (max-width: $screen-xs-max) {
       text-align: center;
     }
+  }
+
+  .ul-padding {
+    @media (min-width: $screen-lg-min) {
+      padding-left: 50px;
+    }
+  }
+
+  .centered li {
+    text-align: center;
+  }
+
+  .thumbnail {
+    img {
+      max-width: 200px;
+    }
+  }
+}
+
+.commands {
+  pre {
+    margin-top: 20px;
+    margin-bottom: 20px;
   }
 }

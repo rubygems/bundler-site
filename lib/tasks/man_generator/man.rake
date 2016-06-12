@@ -13,6 +13,8 @@ task :man => [:update_vendor] do
       sh "ronn -5 man/*.ronn"
       cp(FileList["man/*.html"], "../../source/#{version}/man")
       sh "git clean -fd"
+
+      Rake::Task["man:strip_pages"].execute("../../source/#{version}/man")
     end
   end
 

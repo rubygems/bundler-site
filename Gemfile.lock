@@ -123,9 +123,12 @@ GEM
     middleman-sprockets (4.0.0.rc.3)
       middleman-core (~> 4.0)
       sprockets (>= 3.0)
+    mini_portile2 (2.0.0)
     minitest (5.9.0)
     multi_json (1.12.1)
     mustache (1.0.3)
+    nokogiri (1.6.7.2)
+      mini_portile2 (~> 2.0.0.rc2)
     padrino-helpers (0.13.2)
       i18n (~> 0.6, >= 0.6.7)
       padrino-support (= 0.13.2)
@@ -182,6 +185,7 @@ DEPENDENCIES
   middleman-minify-html
   middleman-sprockets (~> 4.0.0.rc.3)
   middleman-syntax!
+  nokogiri
   pry
   pry-byebug
   rake
@@ -191,4 +195,4 @@ RUBY VERSION
    ruby 2.3.1p112
 
 BUNDLED WITH
-   1.12.0
+   1.12.4

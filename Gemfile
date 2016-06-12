@@ -14,6 +14,7 @@ gem 'kramdown'
 gem 'builder'
 gem 'bootstrap-sass'
 gem 'jquery-middleman'
+gem 'nokogiri'
 
 group :development do
   gem 'pry'

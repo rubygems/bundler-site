@@ -36,8 +36,9 @@ end
 page '/sponsors.html', layout: :compatibility_layout
 page '/older_versions.html', layout: :guides_layout
 page '/compatibility.html', layout: :commands_layout
-page /\/v(.*)\/(?!bundle_|commands|docs)(.*)/, layout: :guides_layout
+page /\/v(\d+.\d+)\/(?!bundle_|commands|docs|man)(.*)/, layout: :guides_layout
 page /\/v(.*)\/bundle_(.*)/, layout: :commands_layout
+page /\/v(.*)\/man\/(.*)/, layout: :commands_layout
 page /\/v(.*)\/commands\.html/, layout: :commands_layout
 
 page '/sitemap.xml', layout: false

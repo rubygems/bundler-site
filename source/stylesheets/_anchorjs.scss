@@ -1,0 +1,9 @@
+.anchorjs-link {
+  transition: all .15s linear;
+  opacity: 0;
+}
+
+*:hover > .anchorjs-link {
+  opacity: 1;
+  text-decoration: none;
+}

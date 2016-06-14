@@ -1,11 +1,23 @@
 require 'nokogiri'
+require 'active_support/core_ext/string'
 
 namespace :man do
-  def strip_html(content)
+  def extract_command_name(file_path)
+    file_path.match(/man\/(.*)\.\d+\.html$/)[1].gsub('-', ' ')
+  end
+
+  def strip_html(command_name, content)
+    # remove man navigation
     content.search('.man-navigation').remove
     content.search('ol.man-decor.man-head.man.head').remove
     content.search('ol.man-decor.man-foot.man.foot').remove
+
+    # headers
     content.search('#SYNOPSIS').first.next_element.name = 'pre'
+    content.search('#SYNOPSIS').remove
+    content.search('h2').each { |elem| elem.content = elem.content.titleize }
+    content.search('#NAME').first.content = command_name
+
     content
   end
 
@@ -20,7 +32,8 @@ namespace :man do
       doc = File.open(file_path) { |f| Nokogiri::HTML(f) }
       rm_f file_path
 
-      content = strip_html(doc.at('body').children)
+      command_name = extract_command_name(file_path)
+      content = strip_html(command_name, doc.at('body').children)
 
       File.write("#{file_path}.erb", content.to_html)
     end

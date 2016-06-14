@@ -15,6 +15,7 @@ gem 'builder'
 gem 'bootstrap-sass'
 gem 'jquery-middleman'
 gem 'nokogiri'
+gem 'activesupport'
 
 group :development do
   gem 'pry'

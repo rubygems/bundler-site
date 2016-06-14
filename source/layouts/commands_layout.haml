@@ -1,4 +1,4 @@
-- primary_commands = %w(bundle_install bundle_update bundle_package bundle_exec bundle_config bundle_help)
+- primary_commands = %w(bundle-install.1 bundle-update.1 bundle-package.1 bundle-exec.1 bundle-config.1 bundle_help)
 
 ~ wrap_layout :base do
   .row.bg-light-blue.header
@@ -16,7 +16,7 @@
               %select#version-select.form-control
                 - versions.reverse.each do |version|
                   %option{selected: version == current_visible_version,
-                          value: documentation_path(current_page_without_version, version) || documentation_path('bundle_install', version)}
+                          value: documentation_path(current_page_without_version, version) || documentation_path('bundle-install.1', version)}
                     = version
             %h4 Primary Commands
             %ul
@@ -44,4 +44,7 @@
     });
     $('#version-select').change(function(e) {
       document.location.href = $(e.target).find(":selected").val();
+    });
+    $(document).ready(function(){
+      anchors.add();
     });

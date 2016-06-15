@@ -1,5 +1,4 @@
 require 'nokogiri'
-require 'active_support/core_ext/string'
 
 namespace :man do
   def extract_command_name(file_path)
@@ -15,10 +14,14 @@ namespace :man do
     # headers
     content.search('#SYNOPSIS').first.next_element.name = 'pre'
     content.search('#SYNOPSIS').remove
-    content.search('h2').each { |elem| elem.content = elem.content.titleize }
+    content.search('h2, h3').each { |elem| elem.content = titleize(elem.content) }
     content.search('#NAME').first.content = command_name
 
     content
+  end
+
+  def titleize(header)
+    header.split(' ').map(&:capitalize).join(' ')
   end
 
   task :strip_pages, :directory do |_, arg|

@@ -1,3 +1,6 @@
+$larger-font-size: 18px;
+$header-height: 200px;
+
 @font-face {
   font-family: SancoaleSlab;
   font-style:  normal;
@@ -41,8 +44,6 @@
 @import "hexagon_image";
 @import "footer";
 @import "anchorjs";
-
-$header-height: 200px;
 
 .row {
   margin-left: auto;
@@ -111,4 +112,27 @@ $header-height: 200px;
   position: relative;
   height: $header-height;
   margin-bottom: 25px;
+}
+
+h1, h2, h3, h4, h5 {
+  code {
+    background-color: transparent;
+    color: black;
+  }
+}
+
+.contents {
+  font-size: 17px;
+
+  @media(min-width: $screen-lg-min) {
+    font-size: 18px;
+  }
+
+  .btn {
+    font-size: 17px;
+
+    @media(min-width: $screen-lg-min) {
+      font-size: 18px;
+    }
+  }
 }

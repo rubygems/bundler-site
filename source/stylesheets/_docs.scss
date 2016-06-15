@@ -10,25 +10,7 @@
   ul {
     list-style-type: none;
     padding-left: 0;
-    font-size: 18px;
-  }
-
-  h3, h4 {
-    text-align: center;
-  }
-
-  li {
-    text-align: left;
-    
-    @media (max-width: $screen-xs-max) {
-      text-align: center;
-    }
-  }
-
-  .ul-padding {
-    @media (min-width: $screen-lg-min) {
-      padding-left: 50px;
-    }
+    font-size: $larger-font-size;
   }
 
   .centered li {
@@ -36,8 +18,10 @@
   }
 
   .thumbnail {
-    img {
-      max-width: 200px;
+    @media(min-width: $screen-sm-min) {
+      img {
+        max-width: 200px;
+      }
     }
   }
 }

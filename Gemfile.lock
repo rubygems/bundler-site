@@ -174,7 +174,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  activesupport
   bootstrap-sass
   builder
   jquery-middleman
@@ -196,4 +195,4 @@ RUBY VERSION
    ruby 2.3.1p112
 
 BUNDLED WITH
-   1.12.4
+   1.12.5

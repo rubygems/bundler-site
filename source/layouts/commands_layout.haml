@@ -11,7 +11,7 @@
       #wrapper
         #sidebar-wrapper
           .sidebar-nav
-            %h4 Choose version:
+            %h4 Choose version
             .form-group
               %select#version-select.form-control
                 - versions.reverse.each do |version|
@@ -32,7 +32,7 @@
                   = link_to_documentation(page, current_visible_version)
                 %li.separator
                   %hr
-        #page-content-wrapper.commands
+        #page-content-wrapper.commands.contents
           %a.btn.btn-primary.btn-sm.visible-xs-inline#menu-toggle{href: '#'}
             <- Toggle Menu
           ~ yield
@@ -45,6 +45,7 @@
     $('#version-select').change(function(e) {
       document.location.href = $(e.target).find(":selected").val();
     });
-    $(document).ready(function(){
-      anchors.add();
+    $(document).ready(function() {
+      anchors.add('#page-content-wrapper h1, #page-content-wrapper h2, #page-content-wrapper h3, ' +
+        '#page-content-wrapper h4, #page-content-wrapper h5');
     });

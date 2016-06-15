@@ -2,24 +2,26 @@
 
 .row
   .container
-    .contents.blog
-      %h2.title
-        = link_to blog.articles.first.title, blog.articles.first.url
-      .subtitle
-        by
-        = link_to blog.articles.first.data.author, blog.articles.first.data.author_url, :target => '_blank'
-        on
-        %time
-          = blog.articles.first.date.strftime('%b %e %Y')
-      .blog-content
-        = blog.articles.first.render layout: false
+    .col-md-12.col-lg-10.col-lg-offset-1
+      .contents.blog
+        %h2.title
+          = link_to blog.articles.first.title, blog.articles.first.url
+        .subtitle
+          by
+          = link_to blog.articles.first.data.author, blog.articles.first.data.author_url, :target => '_blank'
+          on
+          %time
+            = blog.articles.first.date.strftime('%b %e %Y')
+        .blog-content
+          = blog.articles.first.render layout: false
 
 .row.btn-margin-top
   .container
-    .contents.blog
-      %h1 Previous Posts
-      %ul.posts
-        - blog.articles[1..-1].each do |article|
-          %li
-            .date= article.date.to_date.strftime("%b %e, %Y")
-            = link_to article.title, article.url
+    .col-md-12.col-lg-10.col-lg-offset-1
+      .contents.blog
+        %h1 Previous Posts
+        %ul.posts
+          - blog.articles[1..-1].each do |article|
+            %li
+              .date= article.date.to_date.strftime("%b %e, %Y")
+              = link_to article.title, article.url

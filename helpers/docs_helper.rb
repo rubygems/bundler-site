@@ -1,4 +1,6 @@
 module DocsHelper
+  ADDITIONAL_PAGES = %w(bundle.1 gemfile.5).freeze
+
   def documentation_path(page, version=nil)
     check_single_page("/man/#{page}.html", version) || check_single_page("/#{page}.html", version) ||
       check_single_page("/#{normalize_man_page(page)}.html", version)
@@ -23,7 +25,7 @@ module DocsHelper
     commands_from_others = current_other_pages.map{ |page| page.path[(version.length + 1)..-6] } # ex: bundle_console
     commands_from_others -= comparable_commands_from_man
 
-    (commands_from_man + commands_from_others - primary_commands).sort do |x,y|
+    (commands_from_man + commands_from_others - primary_commands + ADDITIONAL_PAGES).sort do |x,y|
       normalize_man_page(x) <=> normalize_man_page(y)
     end
   end

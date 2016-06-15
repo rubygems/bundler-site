@@ -21,7 +21,7 @@
       %h2#getting-started
         %b= t('home.getting_started')
 
-      .contents.btn-margin-top
+      .large-font.btn-margin-top
         .bullet
           .description
             %p= t('home.getting_started_description')
@@ -47,7 +47,7 @@
             $ bundle install
             $ git add Gemfile Gemfile.lock
           %p.center-on-xs
-            = link_to t('home.learn_more_bundle_install'), './bundle_install.html', class: 'btn btn-primary btn-lg pull-right btn-responsive'
+            = link_to t('home.learn_more_bundle_install'), "./#{current_version}/man/bundle-install.1.html", class: 'btn btn-primary btn-lg pull-right btn-responsive'
 :css
   .main-wrapper {
     padding-bottom: 0;

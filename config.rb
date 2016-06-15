@@ -19,6 +19,10 @@ set :markdown,
     superscript: true,
     tables: true
 
+set :javascript_dir, 'javascripts'
+set :css_dir, 'stylesheets'
+set :images_dir, 'images'
+
 config[:versions] = `rake versions`.split
 config[:current_version] = config[:versions].last
 
@@ -33,12 +37,29 @@ Dir.glob("./source/#{config[:current_version]}/**/*").select{ |f| !File.director
   proxy proxy_path, page_path unless file_exist?(proxy_path)
 end
 
+# Proxy man generated documentation to be available at /vX.XX/ (for compatibility with old guides)
+# Ex: /v1.12/man/bundle-install.1.html.erb available at /v1.12/bundle_install.html
+config[:versions].each do |version|
+  Dir.glob("./source/#{version}/man/**/*").select{ |f| !File.directory? f }.each do |file_path|
+    file_path = file_path[0..-5]
+    page_path = file_path["./source".length..-1]
+
+    man_page_name_matched = file_path.match(/man\/(.*)\.html$/)
+    next unless man_page_name_matched
+
+    man_page_name = man_page_name_matched[1].gsub(/\.\d+$/, '').gsub('-', '_')
+
+    proxy "/#{version}/#{man_page_name}.html", page_path unless man_page_exists?(man_page_name, version)
+  end
+end
+
 page '/sponsors.html', layout: :compatibility_layout
 page '/older_versions.html', layout: :guides_layout
-page '/compatibility.html', layout: :commands_layout
+page '/compatibility.html', layout: :guides_layout
 page /\/v(\d+.\d+)\/(?!bundle_|commands|docs|man)(.*)/, layout: :guides_layout
 page /\/v(.*)\/bundle_(.*)/, layout: :commands_layout
 page /\/v(.*)\/man\/(.*)/, layout: :commands_layout
+page /\/man\/(.*)/, layout: :commands_layout
 page /\/v(.*)\/commands\.html/, layout: :commands_layout
 
 page '/sitemap.xml', layout: false
@@ -50,10 +71,6 @@ Dir.glob(File.expand_path('../helpers/**/*.rb', __FILE__), &method(:require))
 helpers CommandReferenceHelper
 helpers ConfigHelper
 helpers DocsHelper
-
-set :javascript_dir, 'javascripts'
-set :css_dir, 'stylesheets'
-set :images_dir, 'images'
 
 activate :blog do |blog|
   blog.name = 'blog'

@@ -20,12 +20,8 @@
   img {
     max-width: 100%;
     height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
   }
-}
-
-.polygon-clip-hexagon {
-  -webkit-clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-  -webkit-clip-path: url("#polygon-clip-hexagon");
-  clip-path: url("#polygon-clip-hexagon");
 }

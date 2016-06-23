@@ -4,11 +4,20 @@
     class: 'img-responsive header-padding',
     style: 'max-width: 460px; padding-bottom: 10px; width: 78%;'
 
+:css
+  .polygon-clip-hexagon {
+    -webkit-clip-path: polygon(25% 6%, 75% 6%, 100% 50%, 75% 94%, 25% 94%, 0% 50%);
+    clip-path: polygon(25% 6%, 75% 6%, 100% 50%, 75% 94%, 25% 94%, 0% 50%);
+    -webkit-clip-path: url(#polygon);
+    clip-path: url(#polygon);
+  }
+
 .row.docs
   .container
     .col-xs-6.col-md-4
       .thumbnail
-        = image_tag 'team/andre_hexagon.png'
+        .polygon-each-img-wrap
+          = image_tag 'team/andre.jpg', class: 'polygon-clip-hexagon'
         .caption.text-center
           %h4
             %b André Arko
@@ -16,7 +25,8 @@
 
     .col-xs-6.col-md-4
       .thumbnail
-        = image_tag 'team/andre_medeiros_hexagon.png'
+        .polygon-each-img-wrap
+          = image_tag 'team/andremedeiros.png', class: 'polygon-clip-hexagon'
         .caption.text-center
           %h4
             %b André Madeiros
@@ -24,7 +34,8 @@
 
     .col-xs-6.col-md-4
       .thumbnail
-        = image_tag 'team/james_hexagon.png'
+        .polygon-each-img-wrap
+          = image_tag 'team/jameswen.jpg', class: 'polygon-clip-hexagon'
         .caption.text-center
           %h4
             %b James Wen
@@ -32,7 +43,8 @@
 
     .col-xs-6.col-md-4
       .thumbnail
-        = image_tag 'team/samuel_hexagon.png'
+        .polygon-each-img-wrap
+          = image_tag 'team/segiddins.jpg', class: 'polygon-clip-hexagon'
         .caption.text-center
           %h4
             %b Samuel Giddins
@@ -40,7 +52,8 @@
 
     .col-xs-6.col-md-4
       .thumbnail
-        = image_tag 'team/tim_hexagon.png'
+        .polygon-each-img-wrap
+          = image_tag 'team/tim.jpg', class: 'polygon-clip-hexagon'
         .caption.text-center
           %h4
             %b Tim Moore
@@ -49,5 +62,5 @@
 -#definitions for hexagon-ing square image with CSS
 %svg.clip-svg{style: 'position: absolute;'}
   %defs
-    %clipPath#polygon-clip-hexagon{:clipPathUnits => 'objectBoundingBox'}
-      %polygon{:points => '0.265 0.06, 0.735 0.06, 1 0.5, 0.735 0.94, 0.265 0.94, 0 0.5'}/
+    %clipPath#polygon{:clipPathUnits => 'objectBoundingBox'}
+      %polygon{:points => '0.25 0.06, 0.75 0.06, 1 0.5, 0.75 0.94, 0.25 0.94, 0 0.5'}

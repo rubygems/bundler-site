@@ -293,7 +293,7 @@ in `Foodie::Food`. We will now create a _features_ directory where we will make 
 to Aruba to write tests for our CLI. In this directory we'll create a new file called
 _features/food.feature_ and fill it with this juicy code:
 
-~~~cucumber
+~~~ cucumber
 Feature: Food
   In order to portray or pluralize food
   As a CLI
@@ -357,7 +357,7 @@ _foodie_. This file has no extension because it's an *executable* file rather th
 don't want to go around calling `foodie.rb` everywhere, do we? No, no we don't. We will fill this
 file with this content:
 
-~~~bash
+~~~ bash
 #!/usr/bin/env ruby
 print "nothing."
 ~~~
@@ -365,7 +365,9 @@ print "nothing."
 If this file was completely empty, we would run into a non-friendly `Errno::ENOEXEC` error. Hey,
 speaking of running, we should `chmod` this file to be an executable from our terminal:
 
-    chmod +x exe/foodie
+~~~ bash
+chmod +x exe/foodie
+~~~
 
 Alright so we've got the executable file, now what? If we re-run our features we get *nothing*
 for the output. Nothing! Literally!
@@ -408,12 +410,14 @@ to build our CLI interface and then later on the generator (if you behave, remem
 
 Let's define the `lib/foodie/cli.rb` file now like this:
 
-    require 'thor'
-    module Foodie
-      class CLI < Thor
+~~~ ruby
+require 'thor'
+module Foodie
+  class CLI < Thor
 
-      end
-    end
+  end
+end
+~~~
 
 The `Thor` class has a series of methods -- such as the `start` method we reference back in
 `exe/foodie` -- that we can use to create this CLI. Oh, by the way, our class doesn't have to be
@@ -529,7 +533,7 @@ Thankfully for us, Aruba has ways of testing that a generator generates files an
 Let's create a new file called `features/generator.feature` and fill it with this content:
 
 
-~~~cucumber
+~~~ cucumber
 Feature: Generating things
   In order to generate many a thing
   As a CLI newbie
@@ -672,8 +676,10 @@ Amazing stuff, hey?
 
 If we haven't already, we should commit all the files for our repository:
 
-    git add .
-    git commit -m "The beginnings of the foodie gem"
+~~~ bash
+git add .
+git commit -m "The beginnings of the foodie gem"
+~~~
 
 This is because the `foodie.gemspec` file uses `git ls-files` to detect which files should be 
 added to the gem when we release it.

@@ -50,48 +50,43 @@ zbuduje aktualną wersję gem'a i przechowuje ją w folderze _pkg_, task `instal
 zbuduje _i_ zainstaluje gem w naszym systemie (jakbyśmy użyli `gem install` na niej)
 i `release` wyśle gem'a na serwery Rubygems do użytku publicznego.
 
- * **CODE_OF_CONDUCT.md**: Zawiera "Code of Conduct"
-that you expect all contributors to your gem to follow. Will only be included if you chose to 
-have it included.
+ * **CODE_OF_CONDUCT.md**: Zawiera "Code of Conduct", który wszyscy
+powinni przestrzegać. Zostanie dołączony tylko, gdy wybierzesz odpowiednią opcję.
 
- * **LICENSE.txt**: Includes the MIT license. Will only be
-included if you chose to have it included.
+ * **LICENSE.txt**: Zawiera licencję MIT.Includes the MIT license. Zostanie dołączona tylko, gdy wybierzesz odpowiednią opcję.
 
- * **.gitignore**: (only if we have Git). This ignores anything
-in the _pkg_ directory (generally files put there by `rake build`), anything with a _.gem_ 
-extension and the _.bundle_ directory.
+ * **.gitignore**: (jeśli korzystasz z Git-a). Ignoruje wszystko w folderze _pkg_
+(miejsce, gdzie zazwyczaj trafiają wygenerowane pliki po `rake build`), 
+wszystko z roszerzeniem _.gem_ i folder _.bundle_ .
 
- * **foodie.gemspec**: The Gem Specification file. This is
-where we provide information for Rubygems' consumption such as the name, description and homepage 
-of our gem. This is also where we specify the dependencies our gem needs to run.
+ * **foodie.gemspec**: Plik konfiguracyjny Gem-a. Jest to miejsce gdzie
+podajemy wszystkie informacje dla Rubygems-ów, np. nazwę, opis, stronę główną 
+naszego gem-a. Również tutaj dodajemy zależności, które muszą być zainstalowane, żeby uruchomić gem-a.
 
- * **lib/foodie.rb**: The main file to define our gem's
-code. This is the file that will be required by Bundler (or any similarly smart system) when our 
-gem is loaded. This file defines a `module` which we can use as a namespace for all our gem's 
-code. It's best practice to put our code in...
+ * **lib/foodie.rb**: Plik wejściowy kodu. Ten plik jest dołączany przez Bundler-a (lub inne), kiedy 
+gem jest ładowany. Ten plik definiuje `module`, który będzie użyty jako namespace dla kodu naszego gem-a.
+Najlepiej właśnie w tym module umieszczać kod...
 
- * **lib/foodie**: here. This folder should contain all the
-code (classes, etc.) for our gem. The _lib/foodie.rb_ file is there for setting up our gem's 
-environment, whilst all the parts of it go in this folder. If our gem has multiple uses, 
-separating this out so that people can require one class/file at a time can be really helpful.
+ * **lib/foodie**: Ten folder powinien zawierać cały kod (klasy, etc.) naszego gem-a.
+Plik _lib/foodie.rb_ jest po to, by ustawić środowisko gem-a, natomiast wszystkie inne części biblioteki powinny
+trafić to folderu _lib/foodie_. Jeśli gem będzie można używać na różne sposoby, rozdziel kod tak, by ludzie mogli załączać
+pojedynczą klasę/plik.
 
- * **lib/foodie/version.rb**: Defines a `Foodie`
-module and in it, a `VERSION` constant. This file is loaded by the _foodie.gemspec_ to specify a 
-version for the gem specification. When we release a new version of the gem we will increment a 
-part of this version number to indicate to Rubygems that we're releasing a new version.
+ * **lib/foodie/version.rb**: Definiuje `Foodie` moduł, a w nim stałą `VERSION`.
+Jest to plik ładowany przez _foodie.gemspec_ do określenia wersji gem-a.
+Kiedy wypuszczamy nową wersję, będziemy zwiększać numer wersji.
 
-There's our base and our layout, now get developing!
+Był to podstawowy opis, a teraz przejdźmy do kodzenia! 
 
-## Testing our gem
+## Testowanie gem-a
 
-For this guide, we're going to use RSpec to test our gem. We write tests to ensure that 
-everything goes according to plan and to prevent future-us from building a time machine to come 
-back and kick our asses.
+W tym poradniku, będziemy używać RSpec-a to testowania naszego gem-a. Piszemy testy, by zapewnić,
+że wszystko uruchomi sie zgodnie z planem i by przestrzec nas przed nieprzyjemnymi problemami w przyszłości.
 
-To get started with writing our tests, we'll create a _spec_ directory at the root of gem by 
-using the command `mkdir spec`. Next, we'll specify in our _foodie.gemspec_ file that `rspec` is 
-a development dependency by adding this line inside the `Gem::Specification` block:
-
+Aby rozpocząć pisać testy, stworzymy folder _spec_ w katalogu głównym gem-a przez użycie komendy
+`mkdir spec`. Następnie, dodamy linijkę do _foodie.gemspec_ w bloku `Gem::Specification`, aby sprawić że
+`rspec` będzie wymaganą zależnością przy dewelopowaniu.
+ 
 ~~~ ruby
 spec.add_development_dependency "rspec", "~> 3.2"
 ~~~
@@ -712,18 +707,15 @@ also takes options to do these things:
 For more information, check out the ["gem-release" GitHub repository 
 homepage](http://github.com/svenfuchs/gem-release).
 
-## Summary
+## Podsumowanie
 
-Whilst this isn't an _exhaustive_ guide on developing a gem, it covers the basics needed for gem 
-development. It's really, _really_ recommended that you check out the source for Bundler, Rails 
-and RSpec for great examples of gem development.
+Nie jest to może _stuprocentowa_ instrukcja jak dewelopować gem, to jednak zawiera podstawowe elementy. 
+Naprawdę zachęcam, żeby sprawdzić źródła Bundler-a, Rails-ów 
+i RSpec-a. Są tam świetne przykłady pokazujące, jak pisać swojego własnego gem-a.
 
-**If you've found any errors for this guide or if you have any suggestions, please file an issue 
-on http://github.com/radar/guides.**
+**Kompletne źródła tego przykładu możesz znaleźć [tutaj](http://github.com/radar/guides/tree/master/gem-development/foodie)**
 
-**I'd like to thank [Andre Arko](http://github.com/indirect) for his involvement in the Bundler 
-project and for answering my questions about it. Without his help, this guide would have been 
-difficult to write.**
+***
 
-** If you're looking for the complete source code for this example it can be found 
-[here](http://github.com/radar/guides/tree/master/gem-development/foodie)**
+**Autor: [Ryan Bigg](https://github.com/radar). Możesz znaleźć więcej jego poradników [tutaj](https://github.com/radar/guides).**
+**Przetłumaczył: [Jakub Kruczek](https://github.com/kruczjak)**

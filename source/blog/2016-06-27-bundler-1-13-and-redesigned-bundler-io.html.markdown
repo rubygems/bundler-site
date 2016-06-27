@@ -13,7 +13,7 @@ category: release
 
 Most visible change is completely redesigned page with new styles and graphics. Now it’s responsive and adjusted also for mobile devices using [Bootstrap framework](http://getbootstrap.com/).
 
-The [Docs page](/docs.html) allows you to choose between guide, command reference or versions' changelog. After choosing one of commands (e.g. [bundle install](/v1.13/man/bundle-install.1.html)), there
+The [Docs page](/docs.html) allows you to choose between guide, command reference or versions' changelog. After choosing one of commands (e.g. [bundle install](/man/bundle-install.1.html)), there
 is a new sidebar, making navigation between other commands and versions easier.
 
 There are also two new guides: [`Using Bundler In Application`](/guides/using_bundler_in_application.html) written by Jakub ([@kruczjak](https://github.com/kruczjak)) and [`Developing a RubyGem using

@@ -36,6 +36,20 @@ Dir.glob("./source/#{config[:current_version]}/**/*").select{ |f| !File.director
 
   proxy proxy_path, page_path unless file_exist?(proxy_path)
 end
+# Same for localizable
+Dir.glob("./source/localizable/#{config[:current_version]}/**/*").select{ |f| !File.directory? f }.each do |file_path|
+  matched = file_path.match(/(localizable\/v\d+.\d+\/(.*)\.(.{2})\.html)/)
+  next unless matched
+
+  page_path = matched[1]
+  proxy_path = "#{matched[2]}.html"
+  country = matched[3]
+
+  next if file_exist?(proxy_path)
+
+  proxy "#{country}/#{proxy_path}", page_path, locale: country.to_sym
+  proxy proxy_path, page_path, locale: :en if country == 'en'
+end
 
 # Proxy man generated documentation to be available at /vX.XX/ (for compatibility with old guides)
 # Ex: /v1.12/man/bundle-install.1.html.erb available at /v1.12/bundle_install.html

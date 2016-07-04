@@ -1,5 +1,8 @@
 ---
 en:
+  languages:
+    en: English
+    pl: polski
   home:
     bundler_info1: |
       Bundler provides a consistent environment for Ruby projects by tracking
@@ -23,5 +26,9 @@ en:
     blog: "Blog"
     repository: "Repository"
     toggle_navigation: "Toggle navigation"
+    language_bar_html: |
+          Hi! We've guessed that your native language is <a href='#' id='language-link'></a>.
+          You can switch clicking <a href='#' id='language-link-static'>here</a>.
+    dismiss: "[dismiss]"
   search:
     placeholder: "Type to search..."

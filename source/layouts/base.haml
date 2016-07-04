@@ -11,6 +11,10 @@
 
     = yield_content :head
 
+    :javascript
+      var CURRENT_LANGUAGE = '#{current_page_language}';
+      var LANGUAGES = #{current_page_languages.to_json};
+
     = javascript_include_tag "application"
     = javascript_include_tag "analytics", async: true
     = stylesheet_link_tag "application"

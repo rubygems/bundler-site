@@ -103,6 +103,7 @@ helpers CommandReferenceHelper
 helpers ConfigHelper
 helpers DocsHelper
 helpers AvatarHelper
+helpers LanguageHelper
 
 activate :blog do |blog|
   blog.name = 'blog'

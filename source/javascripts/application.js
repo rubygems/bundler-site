@@ -1,4 +1,7 @@
 //= require jquery
+//= require js.cookie
+//= require cookies_manager
+//= require translations_widget
 //= require bootstrap/transition
 //= require bootstrap/button
 //= require bootstrap/tooltip

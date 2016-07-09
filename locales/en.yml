@@ -2,7 +2,7 @@
 en:
   languages:
     en: English
-    pl: polski
+    pl: polski (Polish)
   home:
     bundler_info1: |
       Bundler provides a consistent environment for Ruby projects by tracking

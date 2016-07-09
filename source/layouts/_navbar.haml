@@ -18,3 +18,9 @@
         %li= link_to t('navbar.docs'), '/docs.html'
         %li= link_to t('navbar.team'), '/contributors.html'
         %li= link_to t('navbar.blog'), '/blog'
+
+#translations-bar.row.bg-light-blue-no-padding.translate-bar-height{style: 'display: none'}
+  .container
+    .text-center
+      %span= t('navbar.language_bar_html').html_safe
+      %a#translations-bar-close{href: '#'}= t('navbar.dismiss').html_safe

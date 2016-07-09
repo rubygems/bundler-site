@@ -5,3 +5,5 @@
       %li= link_to t('navbar.team'), "/contributors.html"
       %li= link_to t('navbar.blog'), "/blog"
       %li= link_to t('navbar.repository'), "https://github.com/bundler/bundler"
+
+      %form.navbar-form.pull-right.translation_select_height= select_tag :language, options: current_page_languages_select, selected: current_page_language, id: 'language-select', class: 'form-control'

@@ -6,6 +6,8 @@
     this.LANGUAGE_LINK_ID = '#language-link';
     this.LANGUAGE_LINK_STATIC_ID = '#language-link-static';
     this.DISMISS_BUTTON_ID = '#translations-bar-close';
+    this.LANGUAGE_SELECT_ID = '#language-select';
+    this.LINK_REGEX = /^\/[a-zA-Z]{2}(\/.*)/;
     this.cookiesManager = new CookiesManager();
     this.choosenLanguage = this.cookiesManager.choosenLanguage();
 
@@ -53,7 +55,8 @@
     };
 
     this.languagePath = function()  {
-      return '/' + this.browserLanguage + location.pathname;
+      var language = (this.browserLanguage == 'en' ? '' : ('/' + this.browserLanguage));
+      return language + this.pathname();
     };
 
     this.switchToLanguageUsingCookies = function()  {
@@ -61,12 +64,18 @@
     };
 
     this.languagePathFromCookies = function() {
-      return '/' + this.cookiesManager.choosenLanguage() + location.pathname;
+      var language = (this.cookiesManager.choosenLanguage() == 'en' ? '' : ('/' + this.cookiesManager.choosenLanguage()));
+      return language + this.pathname();
     };
 
     this.checkChoosenLanguage = function() {
       return (this.choosenLanguage != null) && (CURRENT_LANGUAGE != this.choosenLanguage) &&
         (this.choosenLanguage in LANGUAGES);
+    };
+
+    this.pathname = function()  {
+      var url_without_language = location.pathname.match(this.LINK_REGEX);
+      return url_without_language != null ? url_without_language[1] : location.pathname;
     }
   };
 
@@ -94,11 +103,26 @@
       return this.switchToLanguageUsingCookies();
     }
   };
+
+  TranslationWidget.prototype.initLanguageSelect = function()  {
+    var self = this;
+    this.languageSelect = $(this.LANGUAGE_SELECT_ID);
+
+    this.languageSelect.change(function() {
+      var optionSelected = $(this).find("option:selected");
+      var valueSelected  = optionSelected.val();
+
+      self.cookiesManager.setDismiss();
+      self.cookiesManager.setLanguage(valueSelected);
+      self.switchToLanguageUsingCookies();
+    })
+  };
 })();
 
 window.translationWidget = new TranslationWidget();
 translationWidget.checkChoosenLanguageAndRedirect();
 
 $(document).ready(function()  {
+  translationWidget.initLanguageSelect();
   translationWidget.init();
 });

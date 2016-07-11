@@ -1,33 +1,28 @@
 ---
-title: Bundler 1.13 and Redesigned bundler.io
-date: 2016-06-27 21:44 UTC
+title: A New Bundler Website
+date: 2016-07-10 21:44 UTC
 tags:
-author: xxxx
-author_url: xxxx
+author: Jakub Kruczek
+author_url: https://github.com/kruczjak
 category: release
 ---
 
-## Bundler v1.13
+Announcing... the new Bundler website! As part of Google Summer of Code 2016, Bundler has a new, prettier, and better website. The most visible changes are a completely new design and color scheme. In addition, the entire site is now responsive and easy to read on mobile devices using the [Bootstrap framework](http://getbootstrap.com/).
 
-## Redesigned **bundler.io**
+The [new Docs page](/docs.html) provides a table of contents for the entire site, allowing you to choose between guides, command reference pages, and changelogs for each version. On each command page (e.g. [bundle install](/man/bundle-install.1.html)), there
+is a new sidebar, allowing navigation not just between commands but also to previous versions of the same command.
 
-Most visible change is completely redesigned page with new styles and graphics. Now it’s responsive and adjusted also for mobile devices using [Bootstrap framework](http://getbootstrap.com/).
+There are also two new guides to go with the new website: [Using Bundler In Applications](/guides/using_bundler_in_application.html) written by [me](https://github.com/kruczjak), and [Developing a RubyGem using Bundler](/guides/using_bundler_in_application.html) by Ryan Bigg ([@radar](https://github.com/radar)).
 
-The [Docs page](/docs.html) allows you to choose between guide, command reference or versions' changelog. After choosing one of commands (e.g. [bundle install](/man/bundle-install.1.html)), there
-is a new sidebar, making navigation between other commands and versions easier.
+The new site also includes some more improvements:
 
-There are also two new guides: [`Using Bundler In Application`](/guides/using_bundler_in_application.html) written by Jakub ([@kruczjak](https://github.com/kruczjak)) and [`Developing a RubyGem using
-Bundler`](/guides/using_bundler_in_application.html) by Ryan ([@radar](https://github.com/radar)).
+* Command pages are now built from the Bundler repository instead of hand-written (where possible)
+* Commits to the master branch of [bundler-site](https://github.com/bundler/bundler-site) are now auto-deployed (via Travis)
+* Middleman has been updated to latest version
+* Every header in the guides and commands pages now has anchor links for navigation and reference
+* The site now supports multiple translations (although no translations have been completed yet)
 
-More improvements:
-
-* Man pages from Bundler repository instead of hand-written commands pages (where possible)
-* Commit to master branch in [bundler-site repository](https://github.com/bundler/bundler-site) causes auto-deploy of the newest page version (via Travis)
-* Middleman updated to latest version
-* Added anchor links in guides and commands docs for faster navigation
-* [WIP] Started work on translations
-
-Many thanks to Amy ([@sailorhg](https://github.com/sailorhg)), Andre ([@indirect](https://github.com/indirect)) and Samuel ([@segiddins](https://github.com/segiddins)). Without their help, it wouldn't be
+Many thanks to Amy ([@sailorhg](https://github.com/sailorhg)), André ([@indirect](https://github.com/indirect)) and Samuel ([@segiddins](https://github.com/segiddins)). Without their help, it wouldn't have been
 possible.
 
 Enjoy :D

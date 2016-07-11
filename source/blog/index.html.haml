@@ -1,7 +1,27 @@
-%h2 Bundler news and updates
+= partial 'partials/blog_header'
 
-%ul.posts
-  - blog.articles.each do |article|
-    %li
-      .date= article.date.to_date.strftime("%b %e, %Y")
-      = link_to article.title, article.url
+.row
+  .container
+    .col-md-12.col-lg-10.col-lg-offset-1
+      .contents.blog
+        %h2.title
+          = link_to blog.articles.first.title, blog.articles.first.url
+        .subtitle
+          by
+          = link_to blog.articles.first.data.author, blog.articles.first.data.author_url, :target => '_blank'
+          on
+          %time
+            = blog.articles.first.date.strftime('%b %e %Y')
+        .blog-content
+          = blog.articles.first.render layout: false
+
+.row.btn-margin-top
+  .container
+    .col-md-12.col-lg-10.col-lg-offset-1
+      .contents.blog
+        %h1 Previous Posts
+        %ul.posts
+          - blog.articles[1..-1].each do |article|
+            %li
+              .date= article.date.to_date.strftime("%b %e, %Y")
+              = link_to article.title, article.url

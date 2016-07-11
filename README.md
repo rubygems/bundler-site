@@ -7,6 +7,10 @@ The site bundler.io is a static site generated using [Middleman](http://middlema
 
 ## Basic Middleman Commands
 
+Fetch latest documentation from bundler repo (should be done before running local development web server):
+
+    rake man
+
 Run a local development web server:
 
     bundle exec middleman server

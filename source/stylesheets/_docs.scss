@@ -1,0 +1,34 @@
+.docs {
+  h4 {
+    color: #06456A;
+  }
+
+  a {
+    color: black;
+  }
+
+  ul {
+    list-style-type: none;
+    padding-left: 0;
+    font-size: $larger-font-size;
+  }
+
+  .centered li {
+    text-align: center;
+  }
+
+  .thumbnail {
+    @media(min-width: $screen-sm-min) {
+      img {
+        max-width: 200px;
+      }
+    }
+  }
+}
+
+.commands {
+  pre {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+}

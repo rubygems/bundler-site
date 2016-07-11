@@ -8,12 +8,12 @@
 
     %title
       - page_title = current_page.data.title
-      = "Bundler: #{ page_title || "The best way to manage a Ruby application's gems"}"
-
-    %link(rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700,400italic,700italic|Source+Code+Pro")
+      = "Bundler: #{ page_title || "The best way to manage a Ruby application's gems" }"
 
     = yield_content :head
 
+    %script{type: 'text/javascript', src: 'https://cdnjs.cloudflare.com/ajax/libs/anchor-js/3.2.0/anchor.min.js'}
+    = javascript_include_tag "application"
     = stylesheet_link_tag "application"
 
     = favicon_tag 'images/favicon.png'
@@ -21,7 +21,13 @@
     = feed_tag :atom, "#{blog.options.prefix.to_s}/feed.xml", title: "Atom Feed"
 
   %body{class: current_page.data.page_classes || ''}
+    = partial 'layouts/navbar'
 
-    ~ yield
+    .main-wrapper
+      ~ yield
 
-    = yield_content :tail
+      = yield_content :tail
+
+    .footer
+      = partial 'layouts/footer'
+

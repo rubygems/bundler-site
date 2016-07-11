@@ -1,14 +1,8 @@
 %h1 What's New in each Release
-.buttons
-  = link_to 'v1.12', '/v1.12/whats_new.html#version112'
-  = link_to 'v1.11', '/v1.11/whats_new.html#version111'
-  = link_to 'v1.10', '/v1.10/whats_new.html#version110'
-  = link_to 'v1.9', '/v1.9/whats_new.html#version19'
-  = link_to 'v1.8', '/v1.8/whats_new.html#version18'
-  = link_to 'v1.7', '/v1.7/whats_new.html#version17'
-  = link_to 'v1.6', '/v1.6/whats_new.html#version16'
-  = link_to 'v1.5', '/v1.5/whats_new.html#version15'
-  = link_to 'v1.3', '/v1.3/whats_new.html#version13'
-  = link_to 'v1.2', '/v1.2/whats_new.html#version12'
-  = link_to 'v1.1', 'https://github.com/bundler/bundler/blob/master/CHANGELOG.md#110-mar-7-2012'
-  = link_to 'v1.0', 'https://github.com/bundler/bundler/blob/master/CHANGELOG.md#100-august-29-2010'
+.row
+  .col-sm-12
+    - versions.reverse.select{ |version| path_exist?('whats_new', version) }.each do |v|
+      = link_to v, "/#{v}/whats_new.html", class: "btn btn-sm #{current_visible_version == v ? 'btn-default' : 'btn-primary'}"
+
+    = link_to 'v1.1', 'https://github.com/bundler/bundler/blob/master/CHANGELOG.md#110-mar-7-2012', class: 'btn btn-sm btn-primary'
+    = link_to 'v1.0', 'https://github.com/bundler/bundler/blob/master/CHANGELOG.md#100-august-29-2010', class: 'btn btn-sm btn-primary'

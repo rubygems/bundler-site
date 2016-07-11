@@ -1,5 +1,8 @@
-%h2 Older Versions of Bundler
-.buttons
-  - (versions - [current_version]).each do |version|
-    = link_to(version, "/#{version}/index.html")
+.container
+  %h2 Older Versions of Bundler
+  .row
+    .col-sm-12.text-center
+      - versions.reverse.select{ |version| path_exist?('docs', version) || path_exist?('index', version) }.each do |v|
+        = link_to v, "/#{v}/#{path_exist?('docs', v) ? 'docs' : 'index'}.html", class: "btn btn-sm #{current_visible_version == v ? 'btn-default' : 'btn-primary'}"
+
 

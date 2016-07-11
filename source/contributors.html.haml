@@ -1,73 +1,66 @@
-%p== Development of Bundler and related projects is managed by the Bundler Core Team, led by André Arko. Bundler was originally written by Yehuda Katz and Carl Lerche. Additional support and code has been provided by #{link_to 'over 450 other contributors, as listed on Github.', 'http://github.com/bundler/bundler/contributors'}
+.row.bg-light-blue.header
+  = image_tag '/images/team_header_transparent_bg.png',
+    srcset: '/images/team_header_transparent_bg.png 1x, /images/team_header_transparent_bg@2x.png 2x, /images/team_header_transparent_bg@3x.png 3x',
+    class: 'img-responsive header-padding',
+    style: 'max-width: 460px; padding-bottom: 10px; width: 78%;'
 
-%h2 Bundler Core Team
+:css
+  .polygon-clip-hexagon {
+    -webkit-clip-path: polygon(25% 6%, 75% 6%, 100% 50%, 75% 94%, 25% 94%, 0% 50%);
+    clip-path: polygon(25% 6%, 75% 6%, 100% 50%, 75% 94%, 25% 94%, 0% 50%);
+    -webkit-clip-path: url(#polygon);
+    clip-path: url(#polygon);
+  }
 
-.contributors
+.row.docs
+  .container
+    .col-xs-6.col-md-4
+      .thumbnail
+        .polygon-each-img-wrap
+          = image_tag 'team/andre.jpg', class: 'polygon-clip-hexagon'
+        .caption.text-center
+          %h4
+            %b André Arko
+          %h5= link_to '@indirect', 'https://github.com/indirect'
 
-  .contributor
-    = image_tag 'contributors/andre.jpg', :class => 'avatar'
-    %h3== André Arko
-    %h4= link_to '@indirect', 'https://github.com/indirect'
+    .col-xs-6.col-md-4
+      .thumbnail
+        .polygon-each-img-wrap
+          = image_tag 'team/andremedeiros.png', class: 'polygon-clip-hexagon'
+        .caption.text-center
+          %h4
+            %b André Madeiros
+          %h5= link_to '@andremedeiros', 'https://github.com/andremedeiros'
 
-  .contributor
-    = image_tag 'contributors/tim.jpg', :class => 'avatar'
-    %h3== Tim Moore
-    %h4= link_to '@TimMoore', 'https://github.com/TimMoore'
+    .col-xs-6.col-md-4
+      .thumbnail
+        .polygon-each-img-wrap
+          = image_tag 'team/jameswen.jpg', class: 'polygon-clip-hexagon'
+        .caption.text-center
+          %h4
+            %b James Wen
+          %h5= link_to '@RochesterinNYC', 'https://github.com/RochesterinNYC'
 
-  .contributor
-    = image_tag 'contributors/andremedeiros.jpg', :class => 'avatar'
-    %h3== André Medeiros
-    %h4= link_to '@andremedeiros', 'https://github.com/andremedeiros'
+    .col-xs-6.col-md-4
+      .thumbnail
+        .polygon-each-img-wrap
+          = image_tag 'team/segiddins.jpg', class: 'polygon-clip-hexagon'
+        .caption.text-center
+          %h4
+            %b Samuel Giddins
+          %h5= link_to '@segiddins', 'https://github.com/segiddins'
 
-.contributors
+    .col-xs-6.col-md-4
+      .thumbnail
+        .polygon-each-img-wrap
+          = image_tag 'team/tim.jpg', class: 'polygon-clip-hexagon'
+        .caption.text-center
+          %h4
+            %b Tim Moore
+          %h5= link_to '@TimMoore', 'https://github.com/TimMoore'
 
-  .contributor
-    = image_tag 'contributors/segiddins.jpg', :class => 'avatar'
-    %h3== Samuel Giddins
-    %h4= link_to '@segiddins', 'https://github.com/segiddins'
-
-  .contributor
-    = image_tag 'contributors/jameswen.jpg', :class => 'avatar'
-    %h3== James Wen
-    %h4= link_to '@RochesterinNYC', 'https://github.com/RochesterinNYC'
-
-%h2 Core Team Alumni
-
-.contributors
-
-  .contributor
-    = image_tag 'contributors/yehuda.jpg', :class => 'avatar'
-    %h3== Yehuda Katz
-    %h4= link_to '@wycats', 'https://github.com/wycats'
-
-  .contributor
-    = image_tag 'contributors/carl.jpg', :class => 'avatar'
-    %h3== Carl Lerche
-    %h4= link_to '@carllerche', 'https://github.com/carllerche'
-
-  .contributor
-    = image_tag 'contributors/jessica.jpg', :class => 'avatar'
-    %h3== Jessica Lynn Suttles
-    %h4= link_to '@jlsuttles', 'https://github.com/jlsuttles'
-
-.contributors
-
-  .contributor
-    = image_tag 'contributors/larry.jpg', :class => 'avatar'
-    %h3== Larry Marburger
-    %h4= link_to '@lmarburger', 'https://github.com/lmarburger'
-
-  .contributor
-    = image_tag 'contributors/smit.jpg', :class => 'avatar'
-    %h3== Smit Shah
-    %h4= link_to '@Who828', 'https://github.com/Who828'
-
-  .contributor
-    = image_tag 'contributors/terence.jpg', :class => 'avatar'
-    %h3== Terence Lee
-    %h4= link_to '@hone', 'https://github.com/hone'
-
-%h2 Icon and Logo
-%p
-  == Provided by #{link_to 'John Neiner', 'http://twitter.com/johnneiner'} and
-  == the #{link_to 'Pixel Graphic Design Studio', 'http://pixelgraphics.us'}
+-#definitions for hexagon-ing square image with CSS
+%svg.clip-svg{style: 'position: absolute;'}
+  %defs
+    %clipPath#polygon{:clipPathUnits => 'objectBoundingBox'}
+      %polygon{:points => '0.25 0.06, 0.75 0.06, 1 0.5, 0.75 0.94, 0.25 0.94, 0 0.5'}

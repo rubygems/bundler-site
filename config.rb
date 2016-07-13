@@ -1,8 +1,24 @@
 Dir.glob(File.expand_path('../lib/config/*.rb', __FILE__), &method(:require))
 
+config[:versions] = `rake versions`.split
+config[:current_version] = config[:versions].last
+
 activate :syntax
 activate :i18n
 activate :sprockets
+activate :search do |search|
+  search.resources = ['blog/', 'index.html', "#{config[:current_version]}/"]
+
+  search.index_path = 'search/lunr-index.json' # defaults to `search.json`
+
+  search.fields = {
+    title:   {boost: 100, store: true, required: true},
+    content: {boost: 50},
+    url:     {index: false, store: true},
+    author:  {boost: 30}
+  }
+end
+
 set :markdown_engine, :kramdown
 
 # Markdown extentions
@@ -22,9 +38,6 @@ set :markdown,
 set :javascript_dir, 'javascripts'
 set :css_dir, 'stylesheets'
 set :images_dir, 'images'
-
-config[:versions] = `rake versions`.split
-config[:current_version] = config[:versions].last
 
 # Make documentation for the latest version available at the top level, too.
 # Any pages with names that conflict with files already at the top level will be skipped.

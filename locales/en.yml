@@ -22,3 +22,5 @@ en:
     team: "Team"
     blog: "Blog"
     repository: "Repository"
+  search:
+    placeholder: "Type to search..."

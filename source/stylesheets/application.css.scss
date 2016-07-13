@@ -1,5 +1,6 @@
 $larger-font-size: 18px;
 $header-height: 200px;
+$navbar-height: 50px;
 
 @font-face {
   font-family: SancoaleSlab;
@@ -44,6 +45,7 @@ $header-height: 200px;
 @import "team";
 @import "footer";
 @import "anchorjs";
+@import "search_input";
 
 .row {
   margin-left: auto;

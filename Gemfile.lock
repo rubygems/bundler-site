@@ -70,6 +70,7 @@ GEM
       thor (>= 0.14, < 2.0)
     json (1.8.3)
     kramdown (1.11.1)
+    libv8 (3.16.14.15)
     listen (3.0.8)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
@@ -122,6 +123,10 @@ GEM
     middleman-minify-html (3.4.1)
       htmlcompressor (~> 0.2.0)
       middleman-core (>= 3.2)
+    middleman-search (0.8.0)
+      middleman-core (>= 3.2)
+      nokogiri (~> 1.6)
+      therubyracer (~> 0.12.2)
     middleman-sprockets (4.0.0.rc.3)
       middleman-core (~> 4.0)
       sprockets (>= 3.0)
@@ -157,6 +162,7 @@ GEM
     rb-inotify (0.9.7)
       ffi (>= 0.5.0)
     rdiscount (2.2.0.1)
+    ref (2.0.0)
     ronn (0.7.3)
       hpricot (>= 0.8.2)
       mustache (>= 0.7.0)
@@ -171,6 +177,9 @@ GEM
     sprockets (3.6.0)
       concurrent-ruby (~> 1.0)
       rack (> 1, < 3)
+    therubyracer (0.12.2)
+      libv8 (~> 3.16.14.0)
+      ref
     thor (0.19.1)
     thread_safe (0.3.5)
     tilt (1.4.1)
@@ -192,6 +201,7 @@ DEPENDENCIES
   middleman-compass
   middleman-livereload
   middleman-minify-html
+  middleman-search
   middleman-sprockets (~> 4.0.0.rc.3)
   middleman-syntax!
   nokogiri

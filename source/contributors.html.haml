@@ -4,14 +4,6 @@
     class: 'img-responsive header-padding',
     style: 'max-width: 460px; padding-bottom: 10px; width: 78%;'
 
-:css
-  .polygon-clip-hexagon {
-    -webkit-clip-path: polygon(25% 6%, 75% 6%, 100% 50%, 75% 94%, 25% 94%, 0% 50%);
-    clip-path: polygon(25% 6%, 75% 6%, 100% 50%, 75% 94%, 25% 94%, 0% 50%);
-    -webkit-clip-path: url(#polygon);
-    clip-path: url(#polygon);
-  }
-
 .row.docs
   .container
     .col-xs-6.col-md-4
@@ -58,9 +50,3 @@
           %h4
             %b Tim Moore
           %h5= link_to '@TimMoore', 'https://github.com/TimMoore'
-
--#definitions for hexagon-ing square image with CSS
-%svg.clip-svg{style: 'position: absolute;'}
-  %defs
-    %clipPath#polygon{:clipPathUnits => 'objectBoundingBox'}
-      %polygon{:points => '0.25 0.06, 0.75 0.06, 1 0.5, 0.75 0.94, 0.25 0.94, 0 0.5'}

@@ -48,6 +48,14 @@
             %b Samuel Giddins
           %h5= link_to '@segiddins', 'https://github.com/segiddins'
 
+.row.contributors
+  .col-xs-10.col-xs-push-1
+    %p And a big thank you to all of our contributors throughout the years, including:
+    - data.contributors.each do |c|
+      %span.contributor
+        = link_to c[:name], c[:href], title: "#{pluralize(c[:commits], "commit")}"
+        &nbsp;•&nbsp;
+    %span.contributor and everyone who has given time, effort, thought, or help, instead of git commits <3
 
 %svg.clip-svg{style: 'position: absolute;'}
   %defs

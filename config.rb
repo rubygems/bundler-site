@@ -7,15 +7,15 @@ activate :syntax
 activate :i18n
 activate :sprockets
 activate :search do |search|
-  search.resources = ['blog/', 'index.html', "#{config[:current_version]}/"]
+  search.resources = ['index.html', "#{config[:current_version]}/"]
 
-  search.index_path = 'search/lunr-index.json' # defaults to `search.json`
+  search.index_path = 'search/lunr-index.json'
 
   search.fields = {
-    title:   {boost: 100, store: true, required: true},
+    title: {boost: 100, store: true, required: true},
     content: {boost: 50},
-    url:     {index: false, store: true},
-    author:  {boost: 30}
+    url: {index: false, store: true},
+    description: {index: false, store: true},
   }
 end
 

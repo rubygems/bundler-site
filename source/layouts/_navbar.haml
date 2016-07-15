@@ -1,9 +1,20 @@
 %nav.navbar.navbar-default
   .container
-    %b= link_to "Bundler", "/", class: 'navbar-brand'
-    .search-wrapper.nav.navbar-nav
-      %input#input-search.input-search{type: :text, placeholder: t('search.placeholder')}
-    %ul.nav.navbar-nav.navbar-right
-      %li= link_to t('navbar.docs'), "/docs.html"
-      %li= link_to t('navbar.team'), "/contributors.html"
-      %li= link_to t('navbar.blog'), "/blog"
+    .navbar-header
+      %button.navbar-toggle.collapsed{type: 'button', data: { toggle: 'collapse', target: '#bs-navbar-collapse' }, 'aria-expanded': 'false' }
+        %span.sr-only= t('navbar.toggle_navigation')
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+      %b= link_to 'Bundler', '/', class: 'navbar-brand'
+
+    .collapse.navbar-collapse{id: 'bs-navbar-collapse'}
+      %ul.nav.navbar-nav.navbar-right
+        %li
+          .search-wrapper
+            .form-group.has-feedback
+              %i.glyphicon.glyphicon-search.form-control-feedback
+              %input#input-search.input-search{type: :text, placeholder: t('search.placeholder')}
+        %li= link_to t('navbar.docs'), '/docs.html'
+        %li= link_to t('navbar.team'), '/contributors.html'
+        %li= link_to t('navbar.blog'), '/blog'

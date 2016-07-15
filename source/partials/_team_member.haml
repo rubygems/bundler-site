@@ -1,0 +1,8 @@
+.col-xs-6.col-md-4
+  .thumbnail
+    .polygon-each-img-wrap
+      = image_tag "team/#{login}.jpg", class: "polygon-clip-hexagon"
+    .caption.text-center
+      %h4
+        %b= name
+      %h5= link_to "@#{login}", "https://github.com/#{login}"

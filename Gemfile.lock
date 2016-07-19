@@ -143,6 +143,7 @@ GEM
     pry-byebug (3.4.0)
       byebug (~> 9.0)
       pry (~> 0.10)
+    puma (3.5.0)
     rack (1.6.4)
     rack-livereload (0.3.16)
       rack
@@ -188,6 +189,7 @@ DEPENDENCIES
   nokogiri
   pry
   pry-byebug
+  puma (~> 3.4)
   rake
   ronn
 

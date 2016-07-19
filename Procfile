@@ -1,1 +1,1 @@
-web: bin/middleman s -e build --port=$PORT
+web: bin/puma -p $PORT

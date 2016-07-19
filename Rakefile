@@ -7,7 +7,5 @@ end
 
 # Heroku runs assets:precompile during deploys
 namespace :assets do
-  task :precompile => [:repo_pages, :man] do
-    sh "middleman build --environment build"
-  end
+  task :precompile => :build
 end

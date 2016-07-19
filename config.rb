@@ -68,6 +68,7 @@ config[:versions].each do |version|
 end
 
 page '/sponsors.html', layout: :compatibility_layout
+page '/conduct.html', layout: :guides_layout
 page '/older_versions.html', layout: :guides_layout
 page '/compatibility.html', layout: :guides_layout
 page /\/v(\d+.\d+)\/(?!bundle_|commands|docs|man)(.*)/, layout: :guides_layout

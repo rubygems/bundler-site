@@ -15,29 +15,30 @@
     %clipPath#polygon{:clipPathUnits => 'objectBoundingBox'}
       %polygon{:points => '0.25 0.06, 0.75 0.06, 1 0.5, 0.75 0.94, 0.25 0.94, 0 0.5'}
 
-.row.docs
-  .container
+.container
+  .row
     %h3 Maintainers
+  .row.team
     = team_member("indirect", "André Arko")
     = team_member("segiddins", "Samuel Giddins")
     = team_member("RochesterinNYC", "James Wen")
     = team_member("andremedeiros", "André Medeiros")
 
-.row
-  .container
+  .row
     %h3 Website team
+  .row.team
     = team_member("sailorhg", "Amy Wibowo")
     = team_member("kruczjak", "Jakub Kruczek")
 
-.row.contributors
-  .container
+  .row
     %h3 And many, many thanks to all of our contributors throughout the years, including:
     %br
-  .col-xs-10.col-xs-push-1
-    - data.contributors.each do |c|
-      %span.contributor
-        = link_to c[:name], c[:href], title: "#{pluralize(c[:commits], "commit")}"
-        = "&nbsp;•&nbsp;" unless c == data.contributors.last
-    %p
-      %br
-      …and everyone who has given time, effort, thought, or help, instead of git commits <3
+  .row
+    .col-xs-10
+      - data.contributors.each do |c|
+        %span.contributor
+          = link_to c[:name], c[:href], title: "#{pluralize(c[:commits], "commit")}"
+          = "&nbsp;•&nbsp;" unless c == data.contributors.last
+      %p
+        %br
+        …and everyone who has given time, effort, thought, or help, instead of git commits <3

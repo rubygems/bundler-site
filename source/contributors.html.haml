@@ -34,11 +34,10 @@
     %h3 And many, many thanks to all of our contributors throughout the years, including:
     %br
   .row
-    .col-xs-10
-      - data.contributors.each do |c|
-        %span.contributor
-          = link_to c[:name], c[:href], title: "#{pluralize(c[:commits], "commit")}"
-          = "&nbsp;•&nbsp;" unless c == data.contributors.last
-      %p
-        %br
-        …and everyone who has given time, effort, thought, or help, instead of git commits <3
+    - data.contributors.each do |c|
+      %span.contributor
+        = link_to c[:name], c[:href], title: "#{pluralize(c[:commits], "commit")}"
+        = "&nbsp;•&nbsp;" unless c == data.contributors.last
+    %p
+      %br
+      …and everyone who has given time, effort, thought, or help, instead of git commits <3

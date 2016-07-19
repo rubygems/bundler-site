@@ -44,6 +44,7 @@ $(document).ready(function() {
     this.hidePopover = function() {
       this.popover.options.animation = true;
       this.searchInput.popover('hide');
+      this.searchArrows.destroy();
     };
 
     this.showPopover = function(text) {
@@ -64,7 +65,7 @@ $(document).ready(function() {
         var description = (store.description == null ? '' : $('<p>').text(store.description));
         
         var element = $('<div>').html(
-          $('<li>').html(
+          $('<li class="search-list-li">').html(
             $('<a>').attr('href', store.url).html('<h4>' + store.title + '</h4>').
             append(
               $('<br />')
@@ -91,29 +92,38 @@ $(document).ready(function() {
       });
       return uniqueResults;
     };
+
+    this.initializePopoverEvents = function() {
+      var self = this;
+
+      this.searchInput.on('paste keyup', function(e) {
+        if (self.searchArrows.isOneOfKeys(e.which)) return;
+        if (e.which == 27)  return self.hidePopover(); // esc key
+        
+        var text = $(this).val();
+        self.processText(text);
+      });
+      this.searchInput.focus(function(e)  {
+        var text = $(this).val();
+        if (text === '') return;
+        
+        self.showPopover(text);
+      });
+      this.searchInput.on('shown.bs.popover', function()  {
+        self.popoverHandler = $(self.POPOVER_CLASS);
+        self.popover.options.animation = false;
+        self.popoverHandler.click(function(e) { e.stopPropagation() });
+        self.searchArrows.init();
+      });
+      this.searchInput.click(function(e) { e.stopPropagation() });
+      $(window).click(function() { self.hidePopover() });
+    }
   };
 
   Search.prototype.init = function()  {
-    var self = this;
     this.searchInput = $(this.SEARCH_INPUT_ID);
-
-    this.searchInput.on('paste keyup', function(e) {
-      if (e.which == 27)  return self.hidePopover(); // esc key
-      var text = $(this).val();
-      self.processText(text);
-    });
-    this.searchInput.focus(function(e)  {
-      var text = $(this).val();
-      if (text === '') return;
-      self.showPopover(text);
-    });
-    this.searchInput.on('shown.bs.popover', function()  {
-      self.popoverHandler = $(self.POPOVER_CLASS);
-      self.popover.options.animation = false;
-      self.popoverHandler.click(function(e) { e.stopPropagation() });
-    });
-    this.searchInput.click(function(e) { e.stopPropagation() });
-    $(window).click(function() { self.hidePopover() });
+    this.searchArrows = new SearchArrows();
+    this.initializePopoverEvents();
     this.initializePopover();
   };
 

@@ -89,6 +89,7 @@ Dir.glob(File.expand_path('../helpers/**/*.rb', __FILE__), &method(:require))
 helpers CommandReferenceHelper
 helpers ConfigHelper
 helpers DocsHelper
+helpers AvatarHelper
 
 activate :blog do |blog|
   blog.name = 'blog'

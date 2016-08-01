@@ -10,54 +10,34 @@
     clip-path: url(#polygon);
   }
 
-.row.docs
-  .container
-    .col-xs-6.col-md-4
-      .thumbnail
-        .polygon-each-img-wrap
-          = image_tag 'team/andre.jpg', class: 'polygon-clip-hexagon'
-        .caption.text-center
-          %h4
-            %b André Arko
-          %h5= link_to '@indirect', 'https://github.com/indirect'
-
-    .col-xs-6.col-md-4
-      .thumbnail
-        .polygon-each-img-wrap
-          = image_tag 'team/andremedeiros.png', class: 'polygon-clip-hexagon'
-        .caption.text-center
-          %h4
-            %b André Madeiros
-          %h5= link_to '@andremedeiros', 'https://github.com/andremedeiros'
-
-    .col-xs-6.col-md-4
-      .thumbnail
-        .polygon-each-img-wrap
-          = image_tag 'team/jameswen.jpg', class: 'polygon-clip-hexagon'
-        .caption.text-center
-          %h4
-            %b James Wen
-          %h5= link_to '@RochesterinNYC', 'https://github.com/RochesterinNYC'
-
-    .col-xs-6.col-md-4
-      .thumbnail
-        .polygon-each-img-wrap
-          = image_tag 'team/segiddins.jpg', class: 'polygon-clip-hexagon'
-        .caption.text-center
-          %h4
-            %b Samuel Giddins
-          %h5= link_to '@segiddins', 'https://github.com/segiddins'
-
-    .col-xs-6.col-md-4
-      .thumbnail
-        .polygon-each-img-wrap
-          = image_tag 'team/tim.jpg', class: 'polygon-clip-hexagon'
-        .caption.text-center
-          %h4
-            %b Tim Moore
-          %h5= link_to '@TimMoore', 'https://github.com/TimMoore'
-
 %svg.clip-svg{style: 'position: absolute;'}
   %defs
     %clipPath#polygon{:clipPathUnits => 'objectBoundingBox'}
       %polygon{:points => '0.25 0.06, 0.75 0.06, 1 0.5, 0.75 0.94, 0.25 0.94, 0 0.5'}
+
+.container
+  .row
+    %h3 Maintainers
+  .row.team
+    = team_member("indirect", "André Arko")
+    = team_member("segiddins", "Samuel Giddins")
+    = team_member("RochesterinNYC", "James Wen")
+    = team_member("andremedeiros", "André Medeiros")
+
+  .row
+    %h3 Website team
+  .row.team
+    = team_member("sailorhg", "Amy Wibowo")
+    = team_member("kruczjak", "Jakub Kruczek")
+
+  .row
+    %h3 And many, many thanks to all of our contributors throughout the years, including:
+    %br
+  .row
+    - data.contributors.each do |c|
+      %span.contributor
+        = link_to c[:name], c[:href], title: "#{pluralize(c[:commits], "commit")}"
+        = "&nbsp;•&nbsp;" unless c == data.contributors.last
+    %p
+      %br
+      …and everyone who has given time, effort, thought, or help, instead of git commits <3

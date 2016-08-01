@@ -9,7 +9,8 @@
   .row
     #guide-container.container
       .col-md-12
-        ~ yield
+        .container.guide.contents
+          ~ yield
 
   :javascript
     $(document).ready(function() {

@@ -30,6 +30,7 @@ config[:current_version] = config[:versions].last
 # Any pages with names that conflict with files already at the top level will be skipped.
 Dir.glob("./source/#{config[:current_version]}/**/*").select{ |f| !File.directory? f }.each do |file_path|
   file_path = file_path[0..-6] if file_path[-5..-1] == '.haml'
+  file_path = file_path[0..-4] if file_path[-3..-1] == '.md'
 
   page_path = file_path["./source/".length..-1]
   proxy_path = file_path["./source/#{config[:current_version]}/".length..-1]
@@ -62,6 +63,7 @@ config[:versions].each do |version|
     next unless man_page_name_matched
 
     man_page_name = man_page_name_matched[1].gsub(/\.\d+$/, '').gsub('-', '_')
+    man_page_name = 'gemfile_man' if man_page_name == 'gemfile'
 
     proxy "/#{version}/#{man_page_name}.html", page_path unless man_page_exists?(man_page_name, version)
   end
@@ -70,12 +72,12 @@ end
 page '/sponsors.html', layout: :compatibility_layout
 page '/older_versions.html', layout: :guides_layout
 page '/compatibility.html', layout: :guides_layout
-page /\/v(\d+.\d+)\/(?!bundle_|commands|docs|man)(.*)/, layout: :guides_layout
+page /\/v(\d+.\d+)\/(?!bundle_|commands|docs|man)(.*)/, layout: :md_guides_layout
 page /\/v(.*)\/bundle_(.*)/, layout: :commands_layout
 page /\/v(.*)\/man\/(.*)/, layout: :commands_layout
 page /\/man\/(.*)/, layout: :commands_layout
 page /\/v(.*)\/commands\.html/, layout: :commands_layout
-page /\/v(.*)\/guides\/(.*)/, layout: :guides_layout
+page /\/v(.*)\/guides\/(.*)/, layout: :md_guides_layout
 
 page '/sitemap.xml', layout: false
 

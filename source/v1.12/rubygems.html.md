@@ -1,3 +1,7 @@
+---
+title: Using Bundler with Rubygem gemspecs
+---
+
 ## Using Bundler with Rubygem gemspecs
 
 If you're creating a gem from scratch, you can use bundler's built in gem skeleton to create a base gem for you to edit.

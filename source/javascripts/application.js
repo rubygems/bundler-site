@@ -1,8 +1,10 @@
 //= require jquery
-//= require bootstrap
+//= require bootstrap/transition
+//= require bootstrap/button
 //= require bootstrap/tooltip
 //= require bootstrap/popover
 //= require bootstrap/dropdown
+//= require bootstrap/collapse
 //= require lunr.min
 //= require search
 //= require search_arrows

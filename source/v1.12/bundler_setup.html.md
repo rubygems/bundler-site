@@ -1,3 +1,8 @@
+---
+title: Bundler setup
+description: Configure the load path so all dependencies in your Gemfile can be required
+---
+
 ## Bundler.setup
 
 Configure the load path so all dependencies in

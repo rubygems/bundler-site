@@ -1,3 +1,7 @@
+---
+title: Using Bundler with Rails 2.3
+---
+
 Rails 3 comes with baked in support with bundler.
 
 ## Using Bundler with Rails 3

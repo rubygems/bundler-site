@@ -1,3 +1,8 @@
+---
+title: Gemfile
+description: What's inside Gemfile
+---
+
 ## In Depth
 
 Read the manual for an in-depth discussion of all of the options available in the

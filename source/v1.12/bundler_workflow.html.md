@@ -1,3 +1,8 @@
+---
+title: Recommended Workflow with Version Control
+description: Basic Bundler commands to follow
+---
+
 ## Recommended Workflow with Version Control
 
 In general, when working with an application managed with bundler, you

@@ -1,3 +1,7 @@
+---
+title: Updating Gems
+---
+
 ## Updating Gems
 
 ### Updating a Dependency

@@ -1,3 +1,8 @@
+---
+title: bundle outdated
+description: List installed gems with newer versions available
+---
+
 ## bundle outdated
 
 List installed gems with newer versions available

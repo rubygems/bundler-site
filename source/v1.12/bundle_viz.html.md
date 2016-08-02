@@ -1,3 +1,8 @@
+---
+title: bundle viz
+description: Generates a visual dependency graph
+---
+
 ## bundle viz
 
 Generates a visual dependency graph

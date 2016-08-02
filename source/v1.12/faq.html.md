@@ -1,3 +1,7 @@
+---
+title: FAQ - Frequently Asked Questions
+---
+
 ## FAQ - Frequently Asked Questions
   
 ### Why Can't I Just Specify Only <code>=</code> Dependencies?

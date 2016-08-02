@@ -1,3 +1,8 @@
+---
+title: Using Groups
+description: Grouping your dependencies allows you to perform operations on the entire group
+---
+
 ## Using Groups
 
 Grouping your dependencies allows you

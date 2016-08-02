@@ -1,3 +1,8 @@
+---
+title: bundle binstubs
+description: Installs the binstubs of the listed gem
+---
+
 ## bundle binstubs
 
 Installs the binstubs of the listed gem

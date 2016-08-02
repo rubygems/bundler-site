@@ -1,3 +1,8 @@
+---
+title: Gems from git repositories
+description: How to use gem directly from repository
+---
+
 ## Gems from git repositories
 
 Bundler adds the ability to use gems directly from git repositories. Setting

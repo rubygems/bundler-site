@@ -9,6 +9,7 @@
       - page_title = current_page.data.title
       = "Bundler: #{ page_title || "The best way to manage a Ruby application's gems" }"
     = javascript_include_tag "application"
+    = javascript_include_tag "google_analytics", async: true
     = stylesheet_link_tag "application"
     = partial 'layouts/favicon'
     = feed_tag :atom, "#{blog.options.prefix.to_s}/feed.xml", title: "Atom Feed"

@@ -17,7 +17,22 @@ namespace :man do
     content.search('h2, h3').each { |elem| elem.content = titleize(elem.content) }
     content.search('#NAME').first.content = command_name
 
-    content
+    # man_whatis
+    man_whatis = content.search('.man-whatis').text
+
+    { content: content, man_whatis: man_whatis }
+  end
+
+  def add_middleman_title(command_name, man_whatis, html_content)
+    title = <<-eos
+---
+title: #{command_name}
+description: #{man_whatis}
+---
+
+    eos
+
+    title + html_content
   end
 
   def titleize(header)
@@ -36,9 +51,10 @@ namespace :man do
       rm_f file_path
 
       command_name = extract_command_name(file_path)
-      content = strip_html(command_name, doc.at('body').children)
+      hash = strip_html(command_name, doc.at('body').children)
+      html_content = add_middleman_title(command_name, hash[:man_whatis], hash[:content].to_html)
 
-      File.write("#{file_path}.erb", content.to_html)
+      File.write("#{file_path}.erb", html_content)
     end
 
     puts '-' * 40

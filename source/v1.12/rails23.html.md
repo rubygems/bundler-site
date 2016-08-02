@@ -1,3 +1,7 @@
+---
+title: Using Bundler with Rails 3
+---
+
 Rails 2.3 comes with its own gem handling. We're going to
 override that and replace it with support for Bundler.
 

@@ -1,3 +1,8 @@
+---
+title: Sharing
+description: How to share an application with Bundler
+---
+
 ## Sharing
   
 ### Checking Your Code into Version Control

@@ -1,3 +1,8 @@
+---
+title: bundle clean
+description: Cleans up unused gems in your bundler directory
+---
+
 ## bundle clean
 
 Cleans up unused gems in your bundler directory

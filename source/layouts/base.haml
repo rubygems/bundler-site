@@ -8,6 +8,9 @@
     %title
       - page_title = current_page.data.title
       = "Bundler: #{ page_title || "The best way to manage a Ruby application's gems" }"
+
+    = yield_content :head
+
     = javascript_include_tag "application"
     = javascript_include_tag "analytics", async: true
     = stylesheet_link_tag "application"

@@ -1,3 +1,8 @@
+---
+title: bundle show
+description: Shows all gems that are part of the bundle, or the path to a given gem
+---
+
 ## bundle show
 
 Shows all gems that are part of the bundle, or the path to a given gem

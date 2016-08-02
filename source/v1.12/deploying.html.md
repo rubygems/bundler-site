@@ -1,3 +1,8 @@
+---
+title: Deploying bundled applications
+---
+
+
 ## Deploying bundled applications
 
 Before deploying an app that uses Bundler, Add your <code>Gemfile</code>

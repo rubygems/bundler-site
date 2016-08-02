@@ -1,3 +1,7 @@
+---
+title: Using Bundler with Sinatra
+---
+
 ## Using Bundler with Sinatra
 
 To use bundler with a Sinatra application, you only need to do two things. First, create a Gemfile.

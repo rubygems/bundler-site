@@ -1,3 +1,7 @@
+---
+title: Bundler's Purpose and Rationale
+---
+
 If you just want to know our recommended workflow, and don't care about the rationale, feel
 free to <a href="#summary">jump to the summary</a> below.
 

@@ -1,3 +1,7 @@
+---
+title: Specifying a Ruby Version
+---
+
 ## Specifying a Ruby Version
 
 Like gems, developers can setup a dependency on Ruby. This makes your app fail faster in case you depend on specific features in a Ruby VM. This way, the Ruby VM on your deployment server will match your local one. You can do this by using the <code>ruby</code> directive in the <code>Gemfile</code>:

@@ -1,3 +1,8 @@
+---
+title: bundle check
+description: Checks if the dependencies listed in Gemfile are satisfied by currently installed gems
+---
+
 ## bundle check
 
 Checks if the dependencies listed in Gemfile are satisfied by currently installed gems

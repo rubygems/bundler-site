@@ -1,5 +1,6 @@
 $larger-font-size: 18px;
 $header-height: 200px;
+$navbar-height: 50px;
 
 @font-face {
   font-family: SancoaleSlab;
@@ -10,12 +11,13 @@ $header-height: 200px;
 @import "code.css";
 @import "bootstrap-overrides";
 
+@import "bootstrap-sprockets";
 // Core variables and mixins
 @import "bootstrap/variables";
 @import "bootstrap/mixins";
 // Reset and dependencies
 @import "bootstrap/normalize";
-@import "bootstrap/print";
+@import "bootstrap/glyphicons";
 // Core CSS
 @import "bootstrap/scaffolding";
 @import "bootstrap/type";
@@ -25,6 +27,8 @@ $header-height: 200px;
 @import "bootstrap/forms";
 @import "bootstrap/buttons";
 // Components
+@import "bootstrap/component-animations";
+@import "bootstrap/dropdowns";
 @import "bootstrap/navs";
 @import "bootstrap/navbar";
 @import "bootstrap/pagination";
@@ -36,6 +40,10 @@ $header-height: 200px;
 @import "bootstrap/utilities";
 @import "bootstrap/responsive-utilities";
 
+@import "bootstrap/modals";
+@import "bootstrap/tooltip";
+@import "bootstrap/popovers";
+
 @import "navbar";
 @import "docs";
 @import "blog";
@@ -44,6 +52,7 @@ $header-height: 200px;
 @import "team";
 @import "footer";
 @import "anchorjs";
+@import "search";
 
 .row {
   margin-left: auto;

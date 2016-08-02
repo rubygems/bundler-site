@@ -1,3 +1,8 @@
+---
+title: bundle open
+description: Opens the source directory of the given bundled gem
+---
+
 ## bundle open
 
 Opens the source directory of the given bundled gem

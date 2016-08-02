@@ -1,3 +1,8 @@
+---
+title: bundle init
+description: Generates a Gemfile into the current working directory
+---
+
 ## bundle init
 
 Generates a Gemfile into the current working directory

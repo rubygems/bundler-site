@@ -32,33 +32,33 @@
   :href: https://github.com/joshbuddy
   :name: joshbuddy
 - :avatar_url: https://avatars.githubusercontent.com/u/6130147?v=3&s=40
-  :commits: 37
+  :commits: 47
   :href: https://github.com/b-ggs
   :name: b-ggs
 - :avatar_url: https://avatars.githubusercontent.com/u/543455?v=3&s=40
   :commits: 37
   :href: https://github.com/Koronen
   :name: Koronen
-- :avatar_url: https://avatars.githubusercontent.com/u/278?v=3&s=40
-  :commits: 33
-  :href: https://github.com/gnufied
-  :name: gnufied
 - :avatar_url: https://avatars.githubusercontent.com/u/8092?v=3&s=40
   :commits: 33
   :href: https://github.com/chrismo
   :name: chrismo
+- :avatar_url: https://avatars.githubusercontent.com/u/278?v=3&s=40
+  :commits: 33
+  :href: https://github.com/gnufied
+  :name: gnufied
 - :avatar_url: https://avatars.githubusercontent.com/u/827224?v=3&s=40
   :commits: 32
   :href: https://github.com/agis-
   :name: agis-
-- :avatar_url: https://avatars.githubusercontent.com/u/148989?v=3&s=40
-  :commits: 29
-  :href: https://github.com/esasse
-  :name: esasse
 - :avatar_url: https://avatars.githubusercontent.com/u/199?v=3&s=40
   :commits: 29
   :href: https://github.com/jeremy
   :name: jeremy
+- :avatar_url: https://avatars.githubusercontent.com/u/148989?v=3&s=40
+  :commits: 29
+  :href: https://github.com/esasse
+  :name: esasse
 - :avatar_url: https://avatars.githubusercontent.com/u/2687?v=3&s=40
   :commits: 27
   :href: https://github.com/radar
@@ -67,6 +67,10 @@
   :commits: 26
   :href: https://github.com/spastorino
   :name: spastorino
+- :avatar_url: https://avatars.githubusercontent.com/u/4496338?v=3&s=40
+  :commits: 24
+  :href: https://github.com/pcarranza
+  :name: pcarranza
 - :avatar_url: https://avatars.githubusercontent.com/u/6308109?v=3&s=40
   :commits: 24
   :href: https://github.com/pducks32
@@ -75,10 +79,6 @@
   :commits: 24
   :href: https://github.com/tenderlove
   :name: tenderlove
-- :avatar_url: https://avatars.githubusercontent.com/u/4496338?v=3&s=40
-  :commits: 24
-  :href: https://github.com/pcarranza
-  :name: pcarranza
 - :avatar_url: https://avatars.githubusercontent.com/u/14514?v=3&s=40
   :commits: 23
   :href: https://github.com/rohit
@@ -103,14 +103,14 @@
   :commits: 15
   :href: https://github.com/kiela
   :name: kiela
-- :avatar_url: https://avatars.githubusercontent.com/u/4031210?v=3&s=40
-  :commits: 15
-  :href: https://github.com/smlance
-  :name: smlance
 - :avatar_url: https://avatars.githubusercontent.com/u/3300?v=3&s=40
   :commits: 15
   :href: https://github.com/jherdman
   :name: jherdman
+- :avatar_url: https://avatars.githubusercontent.com/u/4031210?v=3&s=40
+  :commits: 15
+  :href: https://github.com/smlance
+  :name: smlance
 - :avatar_url: https://avatars.githubusercontent.com/u/277819?v=3&s=40
   :commits: 14
   :href: https://github.com/zzak
@@ -135,22 +135,26 @@
   :commits: 12
   :href: https://github.com/mvz
   :name: mvz
-- :avatar_url: https://avatars.githubusercontent.com/u/1714?v=3&s=40
-  :commits: 12
-  :href: https://github.com/xaviershay
-  :name: xaviershay
 - :avatar_url: https://avatars.githubusercontent.com/u/4614?v=3&s=40
   :commits: 12
   :href: https://github.com/joelmoss
   :name: joelmoss
-- :avatar_url: https://avatars.githubusercontent.com/u/522155?v=3&s=40
-  :commits: 11
-  :href: https://github.com/kirs
-  :name: kirs
+- :avatar_url: https://avatars.githubusercontent.com/u/1714?v=3&s=40
+  :commits: 12
+  :href: https://github.com/xaviershay
+  :name: xaviershay
 - :avatar_url: https://avatars.githubusercontent.com/u/348?v=3&s=40
   :commits: 11
   :href: https://github.com/raggi
   :name: raggi
+- :avatar_url: https://avatars.githubusercontent.com/u/314014?v=3&s=40
+  :commits: 11
+  :href: https://github.com/NickLaMuro
+  :name: NickLaMuro
+- :avatar_url: https://avatars.githubusercontent.com/u/522155?v=3&s=40
+  :commits: 11
+  :href: https://github.com/kirs
+  :name: kirs
 - :avatar_url: https://avatars.githubusercontent.com/u/4182?v=3&s=40
   :commits: 10
   :href: https://github.com/luislavena
@@ -159,10 +163,10 @@
   :commits: 9
   :href: https://github.com/pskocik
   :name: pskocik
-- :avatar_url: https://avatars.githubusercontent.com/u/6180?v=3&s=40
+- :avatar_url: https://avatars.githubusercontent.com/u/150632?v=3&s=40
   :commits: 8
-  :href: https://github.com/carllerche
-  :name: carllerche
+  :href: https://github.com/smellsblue
+  :name: smellsblue
 - :avatar_url: https://avatars.githubusercontent.com/u/27443?v=3&s=40
   :commits: 8
   :href: https://github.com/jaym
@@ -171,46 +175,46 @@
   :commits: 8
   :href: https://github.com/jendiamond
   :name: jendiamond
-- :avatar_url: https://avatars.githubusercontent.com/u/150632?v=3&s=40
+- :avatar_url: https://avatars.githubusercontent.com/u/6180?v=3&s=40
   :commits: 8
-  :href: https://github.com/smellsblue
-  :name: smellsblue
+  :href: https://github.com/carllerche
+  :name: carllerche
 - :avatar_url: https://avatars.githubusercontent.com/u/12671?v=3&s=40
   :commits: 8
   :href: https://github.com/postmodern
   :name: postmodern
-- :avatar_url: https://avatars.githubusercontent.com/u/491877?v=3&s=40
-  :commits: 8
-  :href: https://github.com/mobilutz
-  :name: mobilutz
-- :avatar_url: https://avatars.githubusercontent.com/u/9211?v=3&s=40
-  :commits: 8
-  :href: https://github.com/dubek
-  :name: dubek
-- :avatar_url: https://avatars.githubusercontent.com/u/3516115?v=3&s=40
-  :commits: 8
-  :href: https://github.com/jhhere
-  :name: jhhere
 - :avatar_url: https://avatars.githubusercontent.com/u/22220?v=3&s=40
   :commits: 8
   :href: https://github.com/zofrex
   :name: zofrex
-- :avatar_url: https://avatars.githubusercontent.com/u/193936?v=3&s=40
+- :avatar_url: https://avatars.githubusercontent.com/u/9211?v=3&s=40
   :commits: 8
-  :href: https://github.com/simi
-  :name: simi
+  :href: https://github.com/dubek
+  :name: dubek
 - :avatar_url: https://avatars.githubusercontent.com/u/11493?v=3&s=40
   :commits: 8
   :href: https://github.com/amatsuda
   :name: amatsuda
-- :avatar_url: https://avatars.githubusercontent.com/u/14406?v=3&s=40
-  :commits: 7
-  :href: https://github.com/voxik
-  :name: voxik
+- :avatar_url: https://avatars.githubusercontent.com/u/491877?v=3&s=40
+  :commits: 8
+  :href: https://github.com/mobilutz
+  :name: mobilutz
+- :avatar_url: https://avatars.githubusercontent.com/u/3516115?v=3&s=40
+  :commits: 8
+  :href: https://github.com/jhhere
+  :name: jhhere
+- :avatar_url: https://avatars.githubusercontent.com/u/193936?v=3&s=40
+  :commits: 8
+  :href: https://github.com/simi
+  :name: simi
 - :avatar_url: https://avatars.githubusercontent.com/u/26941?v=3&s=40
   :commits: 7
   :href: https://github.com/mavenraven
   :name: mavenraven
+- :avatar_url: https://avatars.githubusercontent.com/u/3326332?v=3&s=40
+  :commits: 7
+  :href: https://github.com/allenzhao
+  :name: allenzhao
 - :avatar_url: https://avatars.githubusercontent.com/u/56633?v=3&s=40
   :commits: 7
   :href: https://github.com/chastell
@@ -223,10 +227,10 @@
   :commits: 7
   :href: https://github.com/JuanitoFatas
   :name: JuanitoFatas
-- :avatar_url: https://avatars.githubusercontent.com/u/5466070?v=3&s=40
-  :commits: 6
-  :href: https://github.com/Elffers
-  :name: Elffers
+- :avatar_url: https://avatars.githubusercontent.com/u/14406?v=3&s=40
+  :commits: 7
+  :href: https://github.com/voxik
+  :name: voxik
 - :avatar_url: https://avatars.githubusercontent.com/u/19625?v=3&s=40
   :commits: 6
   :href: https://github.com/banyan
@@ -235,10 +239,10 @@
   :commits: 6
   :href: https://github.com/lukaso
   :name: lukaso
-- :avatar_url: https://avatars.githubusercontent.com/u/1007202?v=3&s=40
+- :avatar_url: https://avatars.githubusercontent.com/u/5466070?v=3&s=40
   :commits: 6
-  :href: https://github.com/neoeno
-  :name: neoeno
+  :href: https://github.com/Elffers
+  :name: Elffers
 - :avatar_url: https://avatars.githubusercontent.com/u/579876?v=3&s=40
   :commits: 6
   :href: https://github.com/skottler
@@ -251,14 +255,14 @@
   :commits: 6
   :href: https://github.com/gretel
   :name: gretel
+- :avatar_url: https://avatars.githubusercontent.com/u/1007202?v=3&s=40
+  :commits: 6
+  :href: https://github.com/neoeno
+  :name: neoeno
 - :avatar_url: https://avatars.githubusercontent.com/u/482957?v=3&s=40
   :commits: 6
   :href: https://github.com/as-cii
   :name: as-cii
-- :avatar_url: https://avatars.githubusercontent.com/u/3326332?v=3&s=40
-  :commits: 6
-  :href: https://github.com/allenzhao
-  :name: allenzhao
 - :avatar_url: https://avatars.githubusercontent.com/u/833383?v=3&s=40
   :commits: 6
   :href: https://github.com/arthurnn
@@ -839,14 +843,14 @@
   :commits: 2
   :href: https://github.com/hsbt
   :name: hsbt
-- :avatar_url: https://avatars.githubusercontent.com/u/14548?v=3&s=40
-  :commits: 2
-  :href: https://github.com/lenary
-  :name: lenary
 - :avatar_url: https://avatars.githubusercontent.com/u/4469761?v=3&s=40
   :commits: 2
   :href: https://github.com/qblake
   :name: qblake
+- :avatar_url: https://avatars.githubusercontent.com/u/688886?v=3&s=40
+  :commits: 2
+  :href: https://github.com/seanlinsley
+  :name: seanlinsley
 - :avatar_url: https://avatars.githubusercontent.com/u/97400?v=3&s=40
   :commits: 2
   :href: https://github.com/Sirupsen
@@ -911,6 +915,10 @@
   :commits: 2
   :href: https://github.com/hirochachacha
   :name: hirochachacha
+- :avatar_url: https://avatars.githubusercontent.com/u/153388?v=3&s=40
+  :commits: 2
+  :href: https://github.com/ojab
+  :name: ojab
 - :avatar_url: https://avatars.githubusercontent.com/u/823277?v=3&s=40
   :commits: 2
   :href: https://github.com/rhysd
@@ -939,10 +947,10 @@
   :commits: 2
   :href: https://github.com/csgui
   :name: csgui
-- :avatar_url: https://avatars.githubusercontent.com/u/688886?v=3&s=40
+- :avatar_url: https://avatars.githubusercontent.com/u/14548?v=3&s=40
   :commits: 2
-  :href: https://github.com/seanlinsley
-  :name: seanlinsley
+  :href: https://github.com/lenary
+  :name: lenary
 - :avatar_url: https://avatars.githubusercontent.com/u/803765?v=3&s=40
   :commits: 1
   :href: https://github.com/Intrepidd
@@ -1707,7 +1715,3 @@
   :commits: 1
   :href: https://github.com/sarahduve
   :name: sarahduve
-- :avatar_url: https://avatars.githubusercontent.com/u/4303686?v=3&s=40
-  :commits: 1
-  :href: https://github.com/csfrancis
-  :name: csfrancis

@@ -8,8 +8,19 @@
       style: 'max-width: 400px;'
   .row
     #guide-container.container
-      .col-md-12
-        .container.guide.contents
+      #wrapper
+        #sidebar-wrapper
+          .sidebar-nav
+            %h4 Guides
+            %ul
+              - guides.each do |page|
+                %li{class: current_guide?(page[:filename])}
+                  = link_to_guide(page)
+                %li.separator
+                  %hr
+        #page-content-wrapper.guide.contents
+          %a.btn.btn-primary.btn-sm.visible-xs-inline#menu-toggle{href: '#'}
+            <- Toggle Menu
           ~ yield
 
   :javascript

@@ -1,3 +1,7 @@
+---
+title: Developing a RubyGem using Bundler
+---
+
 # Developing a RubyGem using Bundler
 
 Bundler is a tool created by Carl Lerche, Yehuda Katz, André Arko and various superb contributors 

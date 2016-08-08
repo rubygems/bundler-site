@@ -157,3 +157,74 @@
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
+/* Bottom Sidebar Styles */
+
+.bottom-sidebar-nav {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  h4 {
+    font-weight: bold;
+    color: #06456A;
+  }
+
+  ul {
+    padding-left: 0;
+  }
+
+  .active {
+    background-color: #DBEAF3;
+  }
+}
+
+.bottom-sidebar-nav li {
+  text-indent: 20px;
+  line-height: 40px;
+  list-style-type: none;
+}
+
+.bottom-sidebar-nav ul li:last-child hr {
+  border-top-color: #ffffff;
+}
+
+.bottom-sidebar-nav li a {
+  display: block;
+  text-decoration: none;
+  color: #000;
+}
+
+.bottom-sidebar-nav li a:hover {
+  text-decoration: none;
+  color: #000;
+  background: rgba(255,255,255,0.2);
+}
+
+.bottom-sidebar-nav li a:active,
+.bottom-sidebar-nav li a:focus {
+  text-decoration: none;
+}
+
+.bottom-sidebar-nav .separator {
+  hr {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+}
+
+.bottom-sidebar-nav > .sidebar-brand {
+  height: 65px;
+  font-size: $larger-font-size;
+  line-height: 60px;
+}
+
+.bottom-sidebar-nav > .sidebar-brand a {
+  color: #999999;
+}
+
+.bottom-sidebar-nav > .sidebar-brand a:hover {
+  color: #fff;
+  background: none;
+}

@@ -1,0 +1,6 @@
+%ul
+  - guides.each do |page|
+    %li{class: current_guide?(page[:filename])}
+      = link_to_guide(page)
+    %li.separator
+      %hr

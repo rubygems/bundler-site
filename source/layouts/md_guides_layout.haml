@@ -9,19 +9,18 @@
   .row
     #guide-container.container
       #wrapper
-        #sidebar-wrapper
+        #sidebar-wrapper.hidden-xs
           .sidebar-nav
             %h4 Guides
-            %ul
-              - guides.each do |page|
-                %li{class: current_guide?(page[:filename])}
-                  = link_to_guide(page)
-                %li.separator
-                  %hr
+            = partial 'partials/guides_sidebar'
         #page-content-wrapper.guide.contents
-          %a.btn.btn-primary.btn-sm.visible-xs-inline#menu-toggle{href: '#'}
-            <- Toggle Menu
           ~ yield
+
+  .row
+    .container
+      #bottom-sidebar-wrapper.hidden-lg.hidden-md.hidden-sm
+        .bottom-sidebar-nav
+          = partial 'partials/guides_sidebar'
 
   :javascript
     $(document).ready(function() {

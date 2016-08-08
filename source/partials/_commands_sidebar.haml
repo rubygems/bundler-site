@@ -1,0 +1,23 @@
+- primary_commands = %w(bundle-install.1 bundle-update.1 bundle-package.1 bundle-exec.1 bundle-config.1 bundle_help)
+
+%h4 Choose version
+.form-group
+  %select.version-selects.form-control
+    - versions.reverse.each do |version|
+      %option{selected: version == current_visible_version,
+                        value: documentation_path(current_page_without_version, version) || documentation_path('bundle-install.1', version)}
+        = version
+%h4 Primary Commands
+%ul
+  - primary_commands.select{ |page| path_exist?(page, current_visible_version) }.each do |page|
+    %li{class: current_page.url[-(page.size+5)..-6] == page ? 'active' : ''}
+      = link_to_documentation(page, current_visible_version)
+    %li.separator
+      %hr
+%h4 Utilities
+%ul
+  - other_commands(primary_commands, current_visible_version).each do |page|
+    %li{class: current_page.url[-(page.size+5)..-6] == page ? 'active' : ''}
+      = link_to_documentation(page, current_visible_version)
+    %li.separator
+      %hr

@@ -1,5 +1,5 @@
 ## What is Bundler?
-  
+
 Bundler provides a consistent environment for Ruby projects by tracking
 and installing the exact gems and versions that are needed.
 
@@ -11,11 +11,11 @@ Starting work on a project is as simple as <code>bundle install</code>.
 
 <a href="/whats_new.html" class="btn btn-primary">What's new in Bundler</a>
 <a href="/rationale.html" class="btn btn-primary">Why Bundler exists</a>
-  
+
 ## Getting Started
-  
+
 Getting started with bundler is easy! Open a terminal window and run this command:
-  
+
     $ gem install bundler
 
 Specify your dependencies in a Gemfile in your project's root:
@@ -34,7 +34,7 @@ Install all of the required gems from your specified sources:
     $ bundle install
     $ git add Gemfile Gemfile.lock
 
-<a href="/bundle_install.html" class="btn btn-primary">Learn More: bundle install</a> 
+<a href="/bundle_install.html" class="btn btn-primary">Learn More: bundle install</a>
 
 The second command adds the Gemfile and Gemfile.lock to your repository. This ensures
 that other developers on your app, as well as your deployment environment, will all use
@@ -68,7 +68,7 @@ Finally, if you want a way to get a shortcut to gems in your bundle:
 
     $ bundle install --binstubs
     $ bin/rspec spec/models
-    
+
 The executables installed into <code>bin</code> are scoped to the
 bundle, and will always work.
 
@@ -110,7 +110,7 @@ Create a new gem with a README, .gemspec, Rakefile, directory structure, and all
 
 ## Get involved
 
-Bundler has a lot of contributors and users, and they all talk to each other quite a bit. If you have questions, try #{link_to 'the IRC channel', 'http://webchat.freenode.net/?channels=bundler'} or #{link_to 'mailing list', 'http://groups.google.com/group/ruby-bundler'}. If you're interested in contributing to the project (no programming skills needed), read #{link_to 'the contributing guide', 'https://github.com/bundler/bundler/blob/master/CONTRIBUTING.md'} or #{link_to 'the development guide', 'https://github.com/bundler/bundler/blob/master/DEVELOPMENT.md'}. While participating in the Bundler project, please keep the #{link_to 'code of conduct', '/conduct.html'} in mind, and be inclusive and friendly towards everyone. If you have sponsorship or security questions, please contact the core team directly.
+Bundler has a lot of contributors and users, and they all talk to each other quite a bit. If you have questions, try joining <a href="http://slack.bundler.io/">the Slack channel</a> or our <a href="http://groups.google.com/group/ruby-bundler">mailing list</a>. If you're interested in contributing to the project (no programming skills needed), read <a href="https://github.com/bundler/bundler/blob/master/CONTRIBUTING.md">the contributing guide</a> or <a href="https://github.com/bundler/bundler/blob/master/DEVELOPMENT.md">the development guide</a>. While participating in the Bundler project, please keep the <a href="/conduct.html">code of conduct</a> in mind, and be inclusive and friendly towards everyone. If you have sponsorship or security questions, please contact the core team directly.
 
 <a href="/conduct.html" class="btn btn-primary">Code of Conduct</a>
 <a href="http://webchat.freenode.net/?channels=bundler" class="btn btn-primary">#bundler on IRC</a>

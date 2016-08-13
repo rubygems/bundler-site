@@ -22,4 +22,5 @@ gem 'nokogiri'
 group :development do
   gem 'pry'
   gem 'pry-byebug'
+  gem 'travis'
 end

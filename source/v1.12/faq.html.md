@@ -133,3 +133,9 @@ to use the local gem cache instead of reaching out to the remote gem server.
 the index all at once instead of making numerous small requests to the api.
 
     $ bundle install --full-index
+
+### `Gemfile.lock` Breaks `git bisect`
+ 
+<strong>Q</strong>: How to run `git bisect` correctly?
+ 
+<strong>A</strong>: Read [Git Bisect Guide](/git_bisect.html)

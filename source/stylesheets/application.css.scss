@@ -145,3 +145,24 @@ h1, h2, h3, h4, h5 {
     }
   }
 }
+
+.no-thumbnail-margin {
+  .thumbnail {
+    @media(min-width: $screen-sm-min) {
+      margin: 0;
+      padding-bottom: 0;
+    }
+  }
+}
+
+.margin-bottom-15 {
+  margin-bottom: 15px;
+}
+
+.img-xs-width {
+  img {
+    @media(max-width: $screen-xs-max) {
+      max-width: 150px !important;
+    }
+  }
+}

@@ -1,0 +1,37 @@
+.row
+  .container
+    .col-sm-12
+      %h3.text-center
+        %b Our sponsors
+      .row.no-thumbnail-margin.img-xs-width
+        .col-sm-4
+          .thumbnail
+            = link_to 'http://rubycentral.org/' do
+              = image_tag '/images/sponsors/ruby_central.png'
+          .caption.hidden-sm.hidden-md.hidden-lg
+            %h4.text-center
+              %b= link_to 'Ruby Central', 'http://rubycentral.org/'
+        .col-sm-4
+          .thumbnail
+            = link_to 'https://rubytogether.org/' do
+              = image_tag '/images/sponsors/rubies.svg'
+          .caption.hidden-sm.hidden-md.hidden-lg
+            %h4.text-center
+              %b= link_to 'Ruby Together', 'https://rubytogether.org/'
+        .col-sm-4
+          .thumbnail.bg-dark-blue{style: 'margin-top:25px;'}
+            = link_to 'https://www.librato.com/' do
+              = image_tag '/images/sponsors/librato-solarwind-logo.svg'
+          .caption.hidden-sm.hidden-md.hidden-lg
+            %h4.text-center.margin-bottom-15
+              %b= link_to 'Librato', 'https://www.librato.com/'
+      .row.margin-bottom-15.hidden-xs
+        .col-sm-4
+          %h4.text-center
+            %b= link_to 'Ruby Central', 'http://rubycentral.org/'
+        .col-sm-4
+          %h4.text-center
+            %b= link_to 'Ruby Together', 'https://rubytogether.org/'
+        .col-sm-4
+          %h4.text-center
+            %b= link_to 'Librato', 'https://www.librato.com/'

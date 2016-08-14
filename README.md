@@ -5,6 +5,16 @@ The site bundler.io is a static site generated using [Middleman](http://middlema
 
 [Bundler's manual pages](https://github.com/bundler/bundler/tree/master/man) document much of its functionality and serve as an important part of the site. They are included via the **Rakefile**.
 
+## Development Set Up
+
+Begin by cloning the repository onto your location machine:
+
+  git clone https://github.com/bundler/bundler-site.git
+
+Once complete repare the dependencies by running:
+
+  bundle install
+
 ## Basic Middleman Commands
 
 Fetch latest documentation from bundler repo (should be done before running local development web server):

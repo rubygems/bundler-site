@@ -42,7 +42,7 @@ executable in `bin/` as an `executable`, the Bundler team has chosen to use a
 different directory, `exe/`, as the `executables` directory in the template.
 
 This change is just part of the evolving conventions in gem development.  RSpec,
-for example, has had its executable [in `exe` since 2011](https://github.com/RSpec/RSpec-core/blob/v2.7.0/RSpec-core.gemspec#L19).
+for example, has had its executable [in `exe` since 2011](https://github.com/rspec/rspec-core/blob/b54e2a161b7de5e6cfdcfde9abce2ea3cec10b82/rspec-core.gemspec#L19).
 
 Here's an example of the kind of buggy behavior you might see when binstubs are
 build with a gem as executables.

@@ -1,5 +1,6 @@
 require 'net/http'
 require 'json'
+require 'openssl'
 
 namespace :travis do
   def fastly_cache_purge_uri
@@ -22,6 +23,9 @@ namespace :travis do
     req = Net::HTTP::Post.new(fastly_cache_purge_uri, 'Content-Type': 'application/json')
     req.body = body.to_json
 
-    Net::HTTP.start(fastly_cache_purge_uri.hostname, fastly_cache_purge_uri.port) { |http| http.request(req) }
+    net_http = Net::HTTP.new(fastly_cache_purge_uri.hostname, fastly_cache_purge_uri.port)
+    net_http.use_ssl = true
+    net_http.verify_mode = OpenSSL::SSL::VERIFY_PEER
+    net_http.start { |http| http.request(req) }
   end
 end

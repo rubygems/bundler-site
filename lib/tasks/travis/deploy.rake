@@ -38,5 +38,7 @@ namespace :travis do
       sh "git commit -m 'bundler/bundler-site@#{commit}'"
       sh "git push origin master"
     end
+
+    Rake::Task["travis:clean_fastly_cache"].invoke
   end
 end

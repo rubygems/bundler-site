@@ -21,6 +21,7 @@ namespace :contributors do
         name: c[:login]
       }
     end
+    contributors.sort_by! {|c| [-c[:commits], c[:name].downcase] }
 
     File.write("data/contributors.yml", YAML.dump(contributors))
   end

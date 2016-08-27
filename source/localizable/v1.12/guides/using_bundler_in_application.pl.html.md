@@ -1,3 +1,7 @@
+---
+title: Bundler w aplikacjach
+---
+
 # Bundler w aplikacjach
 
 Ten poradnik został oryginalnie napisany przy użyciu Bundler-a v1.12. Jeśli używasz innej wersji wyniki mogą się nieznacznie różnić.

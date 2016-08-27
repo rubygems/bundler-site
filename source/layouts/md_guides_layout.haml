@@ -8,9 +8,19 @@
       style: 'max-width: 400px;'
   .row
     #guide-container.container
-      .col-md-12
-        .container.guide.contents
+      #wrapper
+        #sidebar-wrapper.hidden-xs
+          .sidebar-nav
+            %h4 Guides
+            = partial 'partials/guides_sidebar'
+        #page-content-wrapper.guide.contents
           ~ yield
+
+  .row
+    .container
+      #bottom-sidebar-wrapper.hidden-lg.hidden-md.hidden-sm
+        .bottom-sidebar-nav
+          = partial 'partials/guides_sidebar'
 
   :javascript
     $(document).ready(function() {

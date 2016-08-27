@@ -1,3 +1,7 @@
+---
+title: Using Bundler In Application
+---
+
 # Using Bundler In Application
 
 This guide is originally written for Bundler v1.12. If you are using different version keep in mind that output can differ.

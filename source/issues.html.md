@@ -1,3 +1,8 @@
+---
+title: Troubleshooting Guide
+description: If you're running into an error, try reading this page for help.
+---
+
 # Bundler Issues
 
 So! You're having problems with Bundler. This file is here to help. If you're running into an error, try reading the rest of this file for help. If you can't figure out how to solve your problem, there are also instructions on how to report a bug.

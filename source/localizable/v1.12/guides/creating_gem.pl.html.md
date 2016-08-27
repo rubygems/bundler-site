@@ -1,3 +1,7 @@
+---
+title: Tworzenie RubyGem'a korzystając z Bundler'a
+---
+
 # Tworzenie RubyGem'a korzystając z Bundler'a
 
 Bundler to narzędzie stworzone przez Carl'a Lerche'a, Yehuda Katz'a, André Arko i inne kontrybucje

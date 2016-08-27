@@ -7,7 +7,7 @@ activate :syntax
 activate :i18n
 activate :sprockets
 activate :search do |search|
-  search.resources = ['index.html', "#{config[:current_version]}/"]
+  search.resources = ['index.html', "#{config[:current_version]}/", 'issues.html']
 
   search.index_path = 'search/lunr-index.json'
 
@@ -41,17 +41,16 @@ set :images_dir, 'images'
 
 # Make documentation for the latest version available at the top level, too.
 # Any pages with names that conflict with files already at the top level will be skipped.
-Dir.glob("./source/#{config[:current_version]}/**/*").select{ |f| !File.directory? f }.each do |file_path|
-  file_path = file_path[0..-6] if file_path[-5..-1] == '.haml'
-  file_path = file_path[0..-4] if file_path[-3..-1] == '.md'
+Dir.glob("./source/#{config[:current_version]}/**/*").select{ |f| File.file?(f) }.each do |file_path|
+  file_path = file_path.sub(/(\.haml$|\.md$)/, '')
 
-  page_path = file_path["./source/".length..-1]
+  page_path = file_path.sub(/^\.\/source\//, '')
   proxy_path = file_path["./source/#{config[:current_version]}/".length..-1]
 
   proxy proxy_path, page_path unless file_exist?(proxy_path)
 end
 # Same for localizable
-Dir.glob("./source/localizable/#{config[:current_version]}/**/*").select{ |f| !File.directory? f }.each do |file_path|
+Dir.glob("./source/localizable/#{config[:current_version]}/**/*").select{ |f| File.file?(f) }.each do |file_path|
   matched = file_path.match(/(localizable\/v\d+.\d+\/(.*)\.(.{2})\.html)/)
   next unless matched
 
@@ -68,9 +67,9 @@ end
 # Proxy man generated documentation to be available at /vX.XX/ (for compatibility with old guides)
 # Ex: /v1.12/man/bundle-install.1.html.erb available at /v1.12/bundle_install.html
 config[:versions].each do |version|
-  Dir.glob("./source/#{version}/man/**/*").select{ |f| !File.directory? f }.each do |file_path|
+  Dir.glob("./source/#{version}/man/**/*").select{ |f| File.file?(f) }.each do |file_path|
     file_path = file_path[0..-5]
-    page_path = file_path["./source".length..-1]
+    page_path = file_path.sub(/^\.\/source/, '')
 
     man_page_name_matched = file_path.match(/man\/(.*)\.html$/)
     next unless man_page_name_matched
@@ -92,6 +91,7 @@ page /\/v(.*)\/man\/(.*)/, layout: :commands_layout
 page /\/man\/(.*)/, layout: :commands_layout
 page /\/v(.*)\/commands\.html/, layout: :commands_layout
 page /\/v(.*)\/guides\/(.*)/, layout: :md_guides_layout
+page '/issues.html', layout: :md_guides_layout
 
 page '/sitemap.xml', layout: false
 

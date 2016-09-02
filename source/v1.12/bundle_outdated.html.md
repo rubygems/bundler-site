@@ -25,7 +25,7 @@ Options:
 
 <code>--patch</code>: Display gems with a patch version update
 
-<code>--parseable</code>: Disaply the output in a machine-readable format
+<code>--parseable</code>: Display the output in a machine-readable format
 
 Outdated lists the names and versions of gems that have a newer version available
 in the given source. Calling outdated with [GEM [GEM]] will only check for newer

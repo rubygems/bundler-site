@@ -5,14 +5,14 @@ namespace :contributors do
       [url, "s=40"].join(connector)
     end
 
-    core_team = %w[indirect segiddins andremedeiros TimMoore RochesterinNYC]
-    core_team += %w[homu bundlerbot]
+    core_team = %w[indirect segiddins RochesterinNYC]
+    credited_elsewhere = core_team + %w[homu bundlerbot]
 
     require "octokit"
     require "yaml"
     client = Octokit::Client.new(auto_paginate: true)
     contributors = client.contributors("bundler/bundler", false)
-    contributors.reject!{|c| core_team.include?(c[:login]) }
+    contributors.reject!{|c| credited_elsewhere.include?(c[:login]) }
     contributors.map! do |c|
       {
         avatar_url: small_avatar(c[:avatar_url]),

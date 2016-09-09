@@ -1,0 +1,17 @@
+%h2 bundle init
+
+.contents
+  .bullet
+    .description
+      Generates a Gemfile into the current working directory
+    :code
+      $ bundle init [--gemspec=FILE]
+    .notes
+      %p
+        Options:
+      %p
+        <code>--gemspec</code>: Use the specified .gemspec to create the Gemfile
+    .description
+      Init generates a default Gemfile in the current working directory. When adding a
+      Gemfile to a gem with a gemspec, the --gemspec option will automatically add each
+      dependency listed in the gemspec file to the newly created Gemfile.

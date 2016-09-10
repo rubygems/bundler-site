@@ -21,7 +21,9 @@ To check Bundler version simply run `bundle -v`.
 1. [Executing Commands - **bundle exec**](#executing-commands---bundle-exec)
 1. [Updating Gems - **bundle outdated** and **bundle update**](#updating-gems---bundle-outdated-and-bundle-update)
 1. [Recommended Workflow](#recommended-workflow)
-
+1. [Troubleshooting](#troubleshooting)
+    1. [Running `git bisect` in projects using Bundler](#running-git-bisect-in-projects-using-bundler)
+    
 ## Getting Started - Installing Bundler and **bundle init**
 
 **Some of the frameworks have builtin support for Bundler, e.g. when you run `rails new app` it
@@ -338,3 +340,9 @@ $ bundle update rails thin
 ~~~
 $ bundle update
 ~~~
+
+## Troubleshooting
+
+### Running `git bisect` in projects using Bundler
+
+See [Git Bisect Guide](/git_bisect.html).

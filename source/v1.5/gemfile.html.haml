@@ -15,11 +15,7 @@
       Gemfiles require at least one gem source, in the form of the URL for a RubyGems server. Generate a Gemfile with the default rubygems.org source by running <code>bundle init</code>. If you can, use <code>https</code> so your connection to the rubygems.org server will be verified with SSL.
     :code
       # lang: ruby
-      source 'https://rubygems.org' do
-        # Gems here
-      end
-    .notes
-      Global source lines are a security risk and should not be used as they can lead to gems being installed from unintended sources.
+      source 'https://rubygems.org'
 
   .bullet
     .description

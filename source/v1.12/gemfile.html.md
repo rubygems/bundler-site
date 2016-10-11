@@ -15,10 +15,12 @@ Read the manual for an in-depth discussion of all of the options available in th
 Gemfiles require at least one gem source, in the form of the URL for a RubyGems server. Generate a Gemfile with the default rubygems.org source by running <code>bundle init</code>. If you can, use <code>https</code> so your connection to the rubygems.org server will be verified with SSL.
 
 ~~~ ruby
-source 'https://rubygems.org'
+source 'https://rubygems.org' do
+  # Gems here
+end
 ~~~
 
-It is possible, but not recommended as of Bundler 1.7, to add multiple global source lines. These are searched from last to first.
+Global source lines are a security risk and should not be used as they can lead to gems being installed from unintended sources.
 
 Some gem sources require a username and password. Use
 <code>bundle config</code> to set the username and password for any

@@ -48,7 +48,7 @@ To begin to create a gem using Bundler, use the `bundle gem` command like this:
 We call our gem `foodie` because this gem is going to do a couple of things around food, such as 
 portraying them as either "Delicious!" or "Gross!". Stay tuned.
 
-For information on gem naming conventions, you can read &ldquo;[Name Your
+For information on gem naming conventions, you can read the &ldquo;[Name Your
 Gem](http://guides.rubygems.org/name-your-gem/)&rdquo; guide on the RubyGems website.
 
 This command creates a [scaffold directory](https://github.com/radar/guides/tree/master/gem-scaffold/foodie)

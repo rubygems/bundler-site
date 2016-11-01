@@ -13,6 +13,13 @@ Did you know that you can use Bundler for not only gem dependency management but
 our own gems? It's really easy to do this and Bundler provides a couple of things to help you 
 along this path.
 
+Related reading:
+
+* [Creating a gem with a C
+  extension](http://guides.rubygems.org/gems-with-extensions/)
+* [Common practices for developing
+  gems](http://guides.rubygems.org/patterns/)
+
 ## But first, why?
 
 Why should we create a gem? Can't we just throw in some code into our *other* library and use 
@@ -40,6 +47,9 @@ To begin to create a gem using Bundler, use the `bundle gem` command like this:
 
 We call our gem `foodie` because this gem is going to do a couple of things around food, such as 
 portraying them as either "Delicious!" or "Gross!". Stay tuned.
+
+For information on gem naming conventions, you can read the &ldquo;[Name Your
+Gem](http://guides.rubygems.org/name-your-gem/)&rdquo; guide on the RubyGems website.
 
 This command creates a [scaffold directory](https://github.com/radar/guides/tree/master/gem-scaffold/foodie)
 for our new gem and, if we have

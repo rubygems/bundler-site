@@ -1,6 +1,6 @@
 /* Sticky footer styles
 -------------------------------------------------- */
-$footer-height: 75px;
+$footer-height: 200px;
 $footer-color: #55BCEB;
 
 html {
@@ -15,7 +15,7 @@ body {
   position: absolute;
   bottom: 0;
   width: 100%;
-  margin-top: 30px;
+  margin-top: 0px;
   padding-top: 5px;
 
   .row {
@@ -28,8 +28,25 @@ body {
     padding: 5px;
   }
 
+  #ruby-together-cta {
+    margin-top: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 220px;
+    text-align: left;
+    height: 150px;
+    background-image: url("/images/ruby_together_logotype_200.png");
+    background-repeat: no-repeat;
+    clear: both;
+    width: 80%;
+  }
+
+  #ruby-together-cta a {
+    color: #DBEAF3;
+  }
+
   ul {
-    height: $footer-height;
+    height: 25;
     display: inline-block;
     float: none !important;
     vertical-align: top;
@@ -41,7 +58,7 @@ body {
       display: inline-block;
 
       a {
-        line-height: $footer-height - 2*14;
+        line-height: 48px;
         color: black;
       }
 

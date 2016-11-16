@@ -29,12 +29,12 @@ Bundler zostanie automatycznie zainicjalizowany**
 
 Po pierwsze, musimy zainstalować Bundler-a.
  
-    gem install bundler
+    $ gem install bundler
     
 Powyższa komenda zaktualizuje Bundler-a, jeśli był wcześniej zainstalowany. Powinniśmy dostać coś takiego, jako wynik:
 
 ~~~ bash
-[kruczjak:~/git] % gem install bundler
+$ gem install bundler
 Successfully installed bundler-1.12.5
 1 gem installed
 ~~~
@@ -168,7 +168,7 @@ Ten plik będzie omawiany w [następnym rozdziale](#gemfilelock).
 Dla deployment-u powinniśmy użyć
 [opcji `--deployment`](/man/bundle-install.1.html#DEPLOYMENT-MODE):
 
-    bundle install --deployment
+    $ bundle install --deployment
     
 Zainstaluje nam to wszystkie zależności do folderu `./vendor/bundle`.
 
@@ -226,9 +226,9 @@ Prześledźmy jego ważniejsze elementy:
 
 Popatrzmy najpierw na przykład:
 
-    bundle exec rspec
+    $ bundle exec rspec
     
-    bundle exec rails s
+    $ bundle exec rails s
 
 Dzięki temu, komenda (w tym przypadku `rspec` i `rails s`) zostanie uruchomiona w aktualnym kontekście bundle-a, 
 pozwalając dołączać i używać wszystkich gem-ów zdefiniowanych w `Gemfile`-u.
@@ -241,7 +241,7 @@ Czytaj więcej o komendzie `bundle exec` [tu](/man/bundle-exec.1.html).
 
 Now let's update some gems. With `bundle outdated` we can list installed gems with newer versions available:
 
-    [kruczjak:~/git] % bundle outdated
+    $ bundle outdated
     Fetching gem metadata from https://rubygems.org/
     Fetching version metadata from https://rubygems.org/
     Fetching dependency metadata from https://rubygems.org/
@@ -256,7 +256,7 @@ We've got `nokogiri` locked on version 1.6.7.2. How can we update it?
 `bundle install` won't install newer version because it's locked in `Gemfile.lock` file.
 We must use `bundle update`.
 
-    [kruczjak:~/git] % bundle update
+    $ bundle update
     Fetching git://github.com/middleman/middleman-syntax.git
     Fetching gem metadata from https://rubygems.org/
     Fetching version metadata from https://rubygems.org/

@@ -28,37 +28,37 @@ list](http://bundler.io/compatibility.html), and make sure that the version of B
 using works with the versions of Ruby and Rubygems that you are using. To see your versions:
 
     # Bundler version
-    bundle -v
+    $ bundle -v
 
     # Ruby version
-    ruby -v
+    $ ruby -v
 
     # Rubygems version
-    gem -v
+    $ gem -v
 
 If these instructions don't work, or you can't find any appropriate instructions, you can try these troubleshooting steps:
 
     # Remove user-specific gems and git repos
-    rm -rf ~/.bundle/ ~/.gem/bundler/ ~/.gems/cache/bundler/
+    $ rm -rf ~/.bundle/ ~/.gem/bundler/ ~/.gems/cache/bundler/
 
     # Remove system-wide git repos and git checkouts
-    rm -rf $GEM_HOME/bundler/ $GEM_HOME/cache/bundler/
+    $ rm -rf $GEM_HOME/bundler/ $GEM_HOME/cache/bundler/
 
     # Remove project-specific settings
-    rm -rf .bundle/
+    $ rm -rf .bundle/
 
     # Remove project-specific cached gems and repos
-    rm -rf vendor/cache/
+    $ rm -rf vendor/cache/
 
     # Remove the saved resolve of the Gemfile
-    rm -rf Gemfile.lock
+    $ rm -rf Gemfile.lock
 
     # Uninstall the rubygems-bundler and open_gem gems
-    rvm gemset use global # if using rvm
-    gem uninstall rubygems-bundler open_gem
+    $ rvm gemset use global # if using rvm
+    $ gem uninstall rubygems-bundler open_gem
 
     # Try to install one more time
-    bundle install
+    $ bundle install
 
 ## Reporting unresolved problems
 

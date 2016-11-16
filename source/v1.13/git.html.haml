@@ -147,13 +147,13 @@
         instead of using the remote version. This can be achieved by setting
         up a local override:
       :code
-        bundle config local.GEM_NAME /path/to/local/git/repository
+        $ bundle config local.GEM_NAME /path/to/local/git/repository
 
     .bullet
       .description
         For example, in order to use a local Rack repository, a developer could call:
       :code
-        bundle config local.rack ~/Work/git/rack
+        $ bundle config local.rack ~/Work/git/rack
       .description
         and setup the git repo pointing to a branch:
       :code
@@ -190,4 +190,4 @@
       .description
         %p If you do not want bundler to make these branch checks, you can override it by setting this option:
       :code
-        bundle config disable_local_branch_check true
+        $ bundle config disable_local_branch_check true

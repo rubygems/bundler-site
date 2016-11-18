@@ -36,14 +36,14 @@ This guide was made using version 1.9.0 of bundler. We can follow along with oth
 we might not get the exact same output.  To check which version of bundler we currently have, 
 lets run the following command:
 
-    bundle -v
+    $ bundle -v
 
 We should see something close to `Bundler version 1.9.0`.  If necessary, we can update to the 
 newest version of Bundler by running `gem update bundler`.
 
 To begin to create a gem using Bundler, use the `bundle gem` command like this:
 
-    bundle gem foodie
+    $ bundle gem foodie
 
 We call our gem `foodie` because this gem is going to do a couple of things around food, such as 
 portraying them as either "Delicious!" or "Gross!". Stay tuned.
@@ -335,7 +335,7 @@ same thing, but we pass that value in as an option rather than an argument.
 To run this feature, we use the `cucumber` command, but of course because it's available within
 the context of our bundle, we use `bundle exec cucumber` like this:
 
-    bundle exec cucumber features/
+    $ bundle exec cucumber features/
 
 See those yellow things? They're undefined steps:
 
@@ -380,7 +380,7 @@ If this file was completely empty, we would run into a non-friendly `Errno::ENOE
 speaking of running, we should `chmod` this file to be an executable from our terminal:
 
 ~~~ bash
-chmod +x exe/foodie
+$ chmod +x exe/foodie
 ~~~
 
 Alright so we've got the executable file, now what? If we re-run our features we get *nothing*
@@ -691,8 +691,8 @@ Amazing stuff, hey?
 If we haven't already, we should commit all the files for our repository:
 
 ~~~ bash
-git add .
-git commit -m "The beginnings of the foodie gem"
+$ git add .
+$ git commit -m "The beginnings of the foodie gem"
 ~~~
 
 This is because the `foodie.gemspec` file uses `git ls-files` to detect which files should be 
@@ -724,15 +724,15 @@ whatever we see fit, make another commit to GitHub with a useful message such as
 
 If we want to make this process a little easier we could install the "gem-release" gem with:
 
-    gem install gem-release
+    $ gem install gem-release
 
 This gem provides several methods for helping with gem development in general, but most helpful 
 is the `gem bump` command which will bump the gem version to the next patch level. This method 
 also takes options to do these things:
 
-    gem bump --version minor # bumps to the next minor version
-    gem bump --version major # bumps to the next major version
-    gem bump --version 1.1.1 # bumps to the specified version
+    $ gem bump --version minor # bumps to the next minor version
+    $ gem bump --version major # bumps to the next major version
+    $ gem bump --version 1.1.1 # bumps to the specified version
 
 For more information, check out the ["gem-release" GitHub repository 
 homepage](http://github.com/svenfuchs/gem-release).

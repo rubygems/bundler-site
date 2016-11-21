@@ -27,13 +27,13 @@ Ta instrukcja została stworzona używając wersji 1.9.0 Bundler'a. Możesz kont
 możesz nie otrzymać takiego samego wyniku. Żeby sprawdzić jaka wersja bundler'a jest aktualnie zainstalowana,
 uruchom poniższą komendę:
 
-    bundle -v
+    $ bundle -v
 
 Jeśli to potrzebne, możesz zaktualizować Bundler'a do najnowszej wersji wpisując `gem install bundler`.
 
 Aby rozpocząć tworzenie nowego gem'a, użyj komendy `bundle gem` tak jak niżej:
 
-    bundle gem foodie
+    $ bundle gem foodie
 
 Nasz gem będzie się nazywał `foodie`, ponieważ będzie robił kilka rzeczy związanych z jedzeniem,
 np. określając je jako "Delicious!" lub "Gross!".

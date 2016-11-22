@@ -166,3 +166,19 @@
 
         :code
           $ bundle install --full-index
+
+        %h3
+          Why Does Running `bundle install` Sometimes Fail With `Gem::InstallError::GEM requires Ruby version`?
+
+        %p
+          <strong>Q</strong>: When I `bundle install` the library I authored, bundler downloads too-new versions
+          of rubygems, so that older Ruby versions no longer can use my library, since one of my dependencies
+          updated their `required_ruby_version` in its gemspec. What can I do for my users on older Rubies?
+
+        %p
+          <strong>A</strong>: Add the `ruby RUBY_VERSION` marker to your Gemfile in your gem's source code repository.
+          This will allow your continuous integration runs that use different Ruby versions to install the right
+          set of dependencies for just that version.
+
+        :code
+          $ bundle install --full-index

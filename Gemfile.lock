@@ -1,5 +1,5 @@
 GIT
-  remote: git://github.com/middleman/middleman-syntax.git
+  remote: https://github.com/middleman/middleman-syntax
   revision: dc0ba9796802aa6231b4b3b62daf21af42427c30
   specs:
     middleman-syntax (2.1.0)
@@ -250,4 +250,4 @@ RUBY VERSION
    ruby 2.3.1p112
 
 BUNDLED WITH
-   1.12.5
+   1.13.6

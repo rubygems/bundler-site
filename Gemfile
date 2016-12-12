@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.3.1'
+ruby File.read('.ruby-version').strip
 
 gem 'octokit', '~> 4.3'
 gem 'middleman', '~> 4.1'

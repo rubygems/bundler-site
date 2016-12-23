@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.3.1'
+ruby '2.3.3'
 
 gem 'octokit', '~> 4.3'
 gem 'middleman', '~> 4.1'

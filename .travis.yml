@@ -9,7 +9,13 @@ rvm:
 install:
   - bundle install --deployment
   - eval "$(ssh-agent -s)"
-script: bundle exec rake travis:deploy
+script:
+  - |
+      if [ "$TRAVIS_BRANCH" = "master" ];
+      then bundle exec rake travis:deploy
+      else bundle exec rake build
+      fi
 branches:
   only:
     - master
+    - auto

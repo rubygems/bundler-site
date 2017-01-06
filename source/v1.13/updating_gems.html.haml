@@ -48,7 +48,6 @@
 
       :code
         $ bundle install
-
       %p.description
         As described above, the <code>bundle install</code> command always does a conservative
         update, refusing to update gems (or their dependencies) that you have not explicitly
@@ -90,7 +89,6 @@
 
         :code
           $ bundle update rack-cache
-
         %p
           This command will update <code>rack-cache</code> and its dependencies to the latest
           version allowed by the <code>Gemfile</code> (in this case, the latest version
@@ -108,7 +106,6 @@
 
         :code
           $ bundle update
-
         %p
           This will resolve dependencies from scratch, ignoring the <code>Gemfile.lock</code>. If
           you do this, keep <code>git reset --hard</code> and your test suite in your back pocket.

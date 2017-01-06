@@ -20,7 +20,6 @@
       :code
         # lang: ruby
         gem 'nokogiri', :git => 'https://github.com/sparklemotion/nokogiri.git'
-
     .bullet
       .description
         If there is no .gemspec at the root of
@@ -30,7 +29,6 @@
       :code
         # lang: ruby
         gem 'deep_merge', '1.0', :git => 'https://github.com/peritor/deep_merge.git'
-
     .bullet
       .description
         Specify that a git repository containing
@@ -43,7 +41,6 @@
           gem 'action_pack'
           gem 'active_model'
         end
-
     .bullet
       .description
         Specify that a git repository should use
@@ -53,7 +50,6 @@
         :git => 'https://github.com/rails/rails.git', :ref => '4aded'
         :git => 'https://github.com/rails/rails.git', :branch => '5-0-stable'
         :git => 'https://github.com/rails/rails.git', :tag => 'v5.0.0'
-
     .bullet
       .description
         Specifying a ref, branch, or tag for a
@@ -62,7 +58,6 @@
       :code
         # lang: ruby
         gem 'nokogiri', :git => 'https://github.com/sparklemotion/nokogiri.git', :ref => '0eec4'
-
     .bullet
       .description
         Bundler can use HTTP(S), SSH, or git
@@ -71,7 +66,6 @@
         gem 'nokogiri', :git => 'https://github.com/sparklemotion/nokogiri.git'
         gem 'nokogiri', :git => 'git@github.com:sparklemotion/nokogiri.git'
         gem 'nokogiri', :git => 'git://github.com/sparklemotion/nokogiri.git'
-
     .bullet
       .description
         Specify that the submodules from a git repository
@@ -79,7 +73,6 @@
       :code
         # lang: ruby
         gem 'rugged', :git => 'git://github.com/libgit2/rugged.git', :submodules => true
-
     .bullet
       .description
         If you are getting your gems from a public GitHub repository,
@@ -109,8 +102,6 @@
         # lang: ruby
         gem 'capistrano-sidekiq', :github => 'seuros/capistrano-sidekiq'
         gem 'keystone', :bitbucket => 'musicone/keystone'
-
-
   %h2 Custom git sources
   .contents
     .bullet
@@ -127,7 +118,6 @@
         # lang: ruby
         git_source(:stash){ |repo_name| "https://stash.corp.acme.pl/\#{repo_name}.git" }
         gem 'rails', :stash => 'forks/rails'
-
   %h2 Security
   .contents
     .bullet
@@ -148,7 +138,6 @@
         up a local override:
       :code
         $ bundle config local.GEM_NAME /path/to/local/git/repository
-
     .bullet
       .description
         For example, in order to use a local Rack repository, a developer could call:
@@ -159,7 +148,6 @@
       :code
         # lang: ruby
         gem 'rack', :github => 'rack/rack', :branch => 'master'
-
     .bullet
       .description
         %p

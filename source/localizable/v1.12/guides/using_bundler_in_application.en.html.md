@@ -186,7 +186,7 @@ To learn more about `bundle install` command click [here](/man/bundle-install.1.
 
 ## Gemfile.lock
 
-Bundler uses this file to save names and versions of gems all gems.
+Bundler uses this file to save names and versions of all gems.
 It guarantees that you always use the same exact code, even as your application moves across machines.
 After specified gem is installed for the first time, Bundler will lock its version.
 To update it, you must use: [`bundler update`](#updating-gems---bundle-outdated-and-bundle-update)

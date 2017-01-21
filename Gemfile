@@ -1,10 +1,10 @@
 source 'https://rubygems.org'
-ruby '2.3.3'
+ruby '2.4.0'
 
 gem 'octokit', '~> 4.3'
 gem 'middleman', '~> 4.1'
 gem 'middleman-livereload'
-gem 'middleman-syntax', git: 'https://github.com/middleman/middleman-syntax'
+gem 'middleman-syntax'
 gem 'middleman-blog'
 gem 'middleman-compass'
 gem 'middleman-minify-html'

@@ -1,8 +1,3 @@
----
-title: Troubleshooting Guide
-description: If you're running into an error, try reading this page for help.
----
-
 # Bundler Issues
 
 So! You're having problems with Bundler. This file is here to help. If you're running into an error, try reading the rest of this file for help. If you can't figure out how to solve your problem, there are also instructions on how to report a bug.
@@ -14,6 +9,23 @@ Instructions for common Bundler uses can be found on the [Bundler documentation 
 Detailed information about each Bundler command, including help with common problems, can be found in the [Bundler man pages](http://bundler.io/man/bundle.1.html) or [Bundler Command Line Reference](http://bundler.io/v1.11/commands.html).
 
 ## Troubleshooting
+
+### Permission denied when installing bundler
+
+Certain operating systems such as MacOS and Ubuntu have versions of Ruby that require evelated privileges to install gems.
+
+    ERROR:  While executing gem ... (Gem::FilePermissionError)
+      You don't have write permissions for the /Library/Ruby/Gems/2.0.0 directory.
+
+There are multiple ways to solve this issue. You can install bundler with elevated privilges using `sudo` or `su`.
+
+    sudo gem install bundler
+
+If you cannot elevated your privileges or do not want to globally install Bundler, you can use the `--user-install` option.
+
+    gem install bundler --user-install
+
+This will install Bundler into your home directory. Note that you will need to append `~/.gem/ruby/<ruby version>/bin` to your `$PATH` variable to use `bundle`.
 
 ### Heroku errors
 
@@ -28,37 +40,37 @@ list](http://bundler.io/compatibility.html), and make sure that the version of B
 using works with the versions of Ruby and Rubygems that you are using. To see your versions:
 
     # Bundler version
-    $ bundle -v
+    bundle -v
 
     # Ruby version
-    $ ruby -v
+    ruby -v
 
     # Rubygems version
-    $ gem -v
+    gem -v
 
 If these instructions don't work, or you can't find any appropriate instructions, you can try these troubleshooting steps:
 
     # Remove user-specific gems and git repos
-    $ rm -rf ~/.bundle/ ~/.gem/bundler/ ~/.gems/cache/bundler/
+    rm -rf ~/.bundle/ ~/.gem/bundler/ ~/.gems/cache/bundler/
 
     # Remove system-wide git repos and git checkouts
-    $ rm -rf $GEM_HOME/bundler/ $GEM_HOME/cache/bundler/
+    rm -rf $GEM_HOME/bundler/ $GEM_HOME/cache/bundler/
 
     # Remove project-specific settings
-    $ rm -rf .bundle/
+    rm -rf .bundle/
 
     # Remove project-specific cached gems and repos
-    $ rm -rf vendor/cache/
+    rm -rf vendor/cache/
 
     # Remove the saved resolve of the Gemfile
-    $ rm -rf Gemfile.lock
+    rm -rf Gemfile.lock
 
     # Uninstall the rubygems-bundler and open_gem gems
-    $ rvm gemset use global # if using rvm
-    $ gem uninstall rubygems-bundler open_gem
+    rvm gemset use global # if using rvm
+    gem uninstall rubygems-bundler open_gem
 
     # Try to install one more time
-    $ bundle install
+    bundle install
 
 ## Reporting unresolved problems
 

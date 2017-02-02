@@ -12,7 +12,7 @@ task :repo_pages => [:update_vendor] do
   Dir.chdir "vendor/bundler" do
     sh "git reset --hard HEAD"
     sh "git checkout origin/master"
-    cp "ISSUES.md", "../../source/issues.html.md"
+    cp "doc/contributing/ISSUES.md", "../../source/issues.html.md"
     cp "CODE_OF_CONDUCT.md", "../../source/conduct.html.md"
   end
 end

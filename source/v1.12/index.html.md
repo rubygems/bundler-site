@@ -98,7 +98,7 @@ Create a new gem with a README, .gemspec, Rakefile, directory structure, and all
           create  my_gem/test/my_gem_test.rb
     Initializing git repo in ./my_gem
 
-<a href="/bundle_gem.html" class="btn btn-primary">Learn More: bundle gem</a>
+<a href="/man/bundle-gem.1.html" class="btn btn-primary">Learn More: bundle gem</a>
 
 ## Use Bundler with
 

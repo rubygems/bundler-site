@@ -146,9 +146,8 @@ GEM
     mustache (1.0.3)
     net-http-persistent (2.9.4)
     net-http-pipeline (1.0.1)
-    nokogiri (1.6.8)
+    nokogiri (1.7.1)
       mini_portile2 (~> 2.1.0)
-      pkg-config (~> 1.1.7)
     octokit (4.3.0)
       sawyer (~> 0.7.0, >= 0.5.3)
     padrino-helpers (0.13.2)
@@ -158,7 +157,6 @@ GEM
     padrino-support (0.13.2)
       activesupport (>= 3.1)
     parallel (1.9.0)
-    pkg-config (1.1.7)
     pry (0.10.4)
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
@@ -232,7 +230,7 @@ DEPENDENCIES
   middleman-search
   middleman-sprockets (~> 4.0)
   middleman-syntax
-  nokogiri
+  nokogiri (~> 1.7)
   octokit (~> 4.3)
   pry
   pry-byebug
@@ -245,4 +243,4 @@ RUBY VERSION
    ruby 2.3.3p222
 
 BUNDLED WITH
-   1.14.2
+   1.14.6

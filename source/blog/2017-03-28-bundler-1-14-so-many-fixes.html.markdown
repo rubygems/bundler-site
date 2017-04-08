@@ -1,9 +1,10 @@
 ---
-title: Bundler 1.14: So many fixes
+title: "Bundler 1.14: So many fixes"
 date: 2017-03-28 07:15 UTC
 tags:
 author: André Arko
 author_url: http://github.com/indirect
+category: release
 ---
 
 # What’s new in Bundler 1.14?

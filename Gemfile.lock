@@ -146,7 +146,7 @@ GEM
     mustache (1.0.3)
     net-http-persistent (2.9.4)
     net-http-pipeline (1.0.1)
-    nokogiri (1.7.1)
+    nokogiri (1.7.2)
       mini_portile2 (~> 2.1.0)
     octokit (4.3.0)
       sawyer (~> 0.7.0, >= 0.5.3)

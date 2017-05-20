@@ -1,5 +1,5 @@
 ---
-title: Bundler 1.15: Bundle Oh So Fast
+title: "Bundler 1.15: Bundle Oh So Fast"
 date: 2017-05-19 12:00 UTC
 tags:
 author: Samuel Giddins

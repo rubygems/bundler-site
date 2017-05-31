@@ -10,7 +10,7 @@ task :man => [:update_vendor] do
     Dir.chdir "vendor/bundler" do
       sh "git reset --hard HEAD"
       sh "git checkout origin/#{branch}"
-      sh "ronn -5 man/*.ronn"
+      sh "#{Gem.ruby} -S bundle exec ronn -5 man/*.ronn"
       cp(FileList["man/*.html"], "../../source/#{version}/man")
       sh "git clean -fd"
 

@@ -11,6 +11,9 @@
 
     = yield_content :head
 
+    - if content_for?(:canonical)
+      %link(rel="canonical" href="#{yield_content(:canonical)}")
+
     = javascript_include_tag "application"
     = javascript_include_tag "analytics", async: true
     = stylesheet_link_tag "application"

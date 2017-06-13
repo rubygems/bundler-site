@@ -1,3 +1,6 @@
+- if /v(.*?)\/(man|bundle_(.*?))\//.match(current_page.destination_path)
+  - content_for(:canonical, commands_toplevel_path(current_page.destination_path))
+
 ~ wrap_layout :base do
   .row.bg-light-blue.header
     = image_tag '/images/docs_header_transparent_bg.png',

@@ -12,7 +12,7 @@ Announcing... the new Bundler website! As part of Google Summer of Code 2016, Bu
 The [new Docs page](/docs.html) provides a table of contents for the entire site, allowing you to choose between guides, command reference pages, and changelogs for each version. On each command page (e.g. [bundle install](/man/bundle-install.1.html)), there
 is a new sidebar, allowing navigation not just between commands but also to previous versions of the same command.
 
-There are also two new guides to go with the new website: [Using Bundler In Applications](/guides/using_bundler_in_application.html) written by [me](https://github.com/kruczjak), and [Developing a RubyGem using Bundler](/guides/using_bundler_in_application.html) by Ryan Bigg ([@radar](https://github.com/radar)).
+There are also two new guides to go with the new website: [Using Bundler In Applications](/guides/using_bundler_in_applications.html) written by [me](https://github.com/kruczjak), and [Developing a RubyGem using Bundler](/guides/using_bundler_in_applications.html) by Ryan Bigg ([@radar](https://github.com/radar)).
 
 The new site also includes some more improvements:
 

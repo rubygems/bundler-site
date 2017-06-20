@@ -1,8 +1,8 @@
 ---
-title: Using Bundler In Application
+title: Using Bundler In Applications
 ---
 
-# Using Bundler In Application
+# Using Bundler In Applications
 
 This guide is originally written for Bundler v1.12. If you are using different version keep in mind that output can differ.
 To check Bundler version simply run `bundle -v`.
@@ -221,7 +221,7 @@ Let's break it down:
   * `remote` - source of gems
   * `specs` - installed gems (with versions). We can see here that `mini_portile2` is
   dependency of `nokogiri` because it's beneath and indented
-* `PLATFORMS` - platform that is used in application ([see more here](/man/gemfile.5.html#PLATFORMS)).
+* `PLATFORMS` - platform that is used in your application ([see more here](/man/gemfile.5.html#PLATFORMS)).
 * `DEPENDENCIES` - gems defined in our Gemfile.
 * `BUNDLED WITH` - version of Bundler which was last used to change `Gemfile.lock`
 

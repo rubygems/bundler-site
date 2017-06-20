@@ -1,8 +1,8 @@
 ---
-title: Using Bundler In Application
+title: Using Bundler In Applications
 ---
 
-# Using Bundler In Application
+# Using Bundler In Applications
 
 This guide is originally written for Bundler v1.12. If you are using different version keep in mind that output can differ.
 To check Bundler version simply run `bundle -v`.
@@ -31,12 +31,12 @@ will automatically init Bundler.**
 
 Firstly, we need to install Bundler.
  
-    gem install bundler
+    $ gem install bundler
     
 This command will also update already installed bundler. You should get something similar as output:
 
 ~~~ bash
-[kruczjak:~/git] % gem install bundler
+$ gem install bundler
 Successfully installed bundler-1.12.5
 1 gem installed
 ~~~
@@ -171,7 +171,7 @@ This Gemfile.lock is described in [next chapter](#gemfilelock).
 For deployment you should use
 [`--deployment` option](/man/bundle-install.1.html#DEPLOYMENT-MODE):
 
-    bundle install --deployment
+    $ bundle install --deployment
     
 This will install all dependencies to `./vendor/bundle`.
 
@@ -221,7 +221,7 @@ Let's break it down:
   * `remote` - source of gems
   * `specs` - installed gems (with versions). We can see here that `mini_portile2` is
   dependency of `nokogiri` because it's beneath and indented
-* `PLATFORMS` - platform that is used in application ([see more here](/man/gemfile.5.html#PLATFORMS)).
+* `PLATFORMS` - platform that is used in your application ([see more here](/man/gemfile.5.html#PLATFORMS)).
 * `DEPENDENCIES` - gems defined in our Gemfile.
 * `BUNDLED WITH` - version of Bundler which was last used to change `Gemfile.lock`
 
@@ -229,9 +229,9 @@ Let's break it down:
 
 Let's see examples first:
 
-    bundle exec rspec
+    $ bundle exec rspec
     
-    bundle exec rails s
+    $ bundle exec rails s
 
 This will allow you to run command (`rspec` and `rails s` here) in current bundle context,
 making all gems in Gemfile available to `require` and use.
@@ -244,7 +244,7 @@ To learn more about `bundle exec` command click [here](/man/bundle-exec.1.html).
 
 Now let's update some gems. With `bundle outdated` we can list installed gems with newer versions available:
 
-    [kruczjak:~/git] % bundle outdated
+    $ bundle outdated
     Fetching gem metadata from https://rubygems.org/
     Fetching version metadata from https://rubygems.org/
     Fetching dependency metadata from https://rubygems.org/
@@ -259,7 +259,7 @@ We've got `nokogiri` locked on version 1.6.7.2. How can we update it?
 `bundle install` won't install newer version because it's locked in `Gemfile.lock` file.
 We must use `bundle update`.
 
-    [kruczjak:~/git] % bundle update
+    $ bundle update
     Fetching git://github.com/middleman/middleman-syntax.git
     Fetching gem metadata from https://rubygems.org/
     Fetching version metadata from https://rubygems.org/

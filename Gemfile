@@ -3,7 +3,6 @@ ruby File.read(File.expand_path('../.ruby-version', __FILE__)).strip
 
 gem 'octokit', '~> 4.3'
 gem 'middleman', '~> 4.2'
-gem 'middleman-livereload'
 gem 'middleman-syntax'
 gem 'middleman-blog'
 gem 'middleman-compass'

@@ -1,0 +1,23 @@
+.container.guide
+  = partial "shared/whats_new"
+
+  %p
+    The
+    = link_to 'Bundler <%= version %> announcement', '/blog/<%= date_slug %>/bundler-<%= version_slug %>.html'
+    includes context and a more detailed explanation of the changes in this version. This is a summary of the biggest changes. As always, a detailed list of every change is provided in
+    == #{link_to "the changelog", "https://github.com/bundler/bundler/blob/<%= version_slug %>-stable/CHANGELOG.md"}.
+
+  %h3 BIG NEW THING
+  .contents
+    .bullet
+      .description
+        %p
+          THE BIG NEW THING DOES COOL NEW STUFF.
+
+  .contents
+    .bullet
+      .description
+      Bundler <%= version %> also includes:
+      %ul
+        %li SMALL NEW THING FIXES A PROBLEM
+      = link_to 'Full <%= version %> changelog', 'https://github.com/bundler/bundler/blob/<%= version_slug %>-stable/CHANGELOG.md', class: 'btn btn-primary'

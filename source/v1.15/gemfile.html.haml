@@ -149,7 +149,6 @@
       :code
         # lang: ruby
         ruby '1.9.3'
-
     .bullet
       .description
         What this means is that this app has a dependency to a Ruby VM that is ABI compatible with 1.9.3. If the version check does not match, Bundler will raise an exception. This will ensure the running code matches. You can be more specific with the <code>:engine</code> and <code>:engine_version</code> options.

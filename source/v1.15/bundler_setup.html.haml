@@ -71,7 +71,6 @@
       :code
         # lang: ruby
         Bundler.require(:default)
-
       For our example Gemfile, this line is exactly equivalent to:
 
       :code
@@ -79,7 +78,6 @@
         require 'rails'
         require 'rack-cache'
         require 'nokogiri'
-
     .bullet
       .description
         Astute readers will notice that the correct way to require the <code>rack-cache</code>
@@ -93,7 +91,6 @@
         gem 'rails', '5.0.0'
         gem 'rack-cache', :require => 'rack/cache'
         gem 'nokogiri', '~> 1.4.2'
-
     .bullet
       .description
         For such a small <code>Gemfile</code>, we'd advise you to skip

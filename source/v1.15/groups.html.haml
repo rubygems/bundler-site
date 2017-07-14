@@ -26,7 +26,6 @@
         end
 
         gem 'cucumber', :group => [:cucumber, :test]
-
     .bullet
       .description
         Install all gems, except those in the
@@ -34,7 +33,6 @@
         non-excluded group will still be installed.
       :code
         $ bundle install --without test development
-
     .bullet
       .description
         Require the gems in particular groups,
@@ -43,7 +41,6 @@
       :code
         # lang: ruby
         Bundler.require(:default, :development)
-
     .bullet
       .description
         Require the default gems, plus the gems
@@ -52,7 +49,6 @@
       :code
         # lang: ruby
         Bundler.require(:default, Rails.env)
-
     .bullet
       .description
         Restrict the groups of gems that you
@@ -92,14 +88,12 @@
         group :production do
           gem 'pg'
         end
-
     .bullet
       .description
         Now, in development, you can instruct bundler to skip the <code>production</code> group:
 
       :code
         $ bundle install --without production
-
     .bullet
       .description
         Bundler will remember that you installed the gems using <code>--without

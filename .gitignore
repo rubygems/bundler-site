@@ -24,8 +24,8 @@
 /bin
 
 # pages from the bundler repo
-source/issues.html.md
 source/conduct.html.md
+source/doc
 
 # man pages built from the bundler repo
 /source/man/

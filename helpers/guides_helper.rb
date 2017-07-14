@@ -34,8 +34,8 @@ module GuidesHelper
 
   def process_localizable(filename)
     matched = filename.match(LOCALIZABLE_REGEX)
-    return filename unless matched
+    return "/#{filename}" unless matched
 
-    "#{matched[1]}.html"
+    "/#{matched[1]}.html"
   end
 end

@@ -300,11 +300,10 @@ spec.add_development_dependency "cucumber"
 spec.add_development_dependency "aruba"
 ~~~
 
-Hot. Let's run `bundle install` to get these awesome tools set up.
+Cool. Let's run `bundle install` to get these awesome tools set up.
 
 Our CLI is going to have two methods, which correspond to the two methods which we have defined
-in `Foodie::Food`. We will now create a _features_ directory where we will make sweet, sweet love
-to Aruba to write tests for our CLI. In this directory we'll create a new file called
+in `Foodie::Food`. We will now create a _features_ directory where we will use Aruba to write tests for our CLI. In this directory we'll create a new file called
 _features/food.feature_ and fill it with this juicy code:
 
 ~~~ cucumber

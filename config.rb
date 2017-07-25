@@ -7,7 +7,7 @@ activate :syntax
 activate :i18n
 activate :sprockets
 activate :search do |search|
-  search.resources = ['index.html', "#{config[:current_version]}/", 'issues.html']
+  search.resources = ['index.html', "#{config[:current_version]}/", '/doc/contributing/issues.html']
 
   search.index_path = 'search/lunr-index.json'
 
@@ -91,9 +91,11 @@ page /\/v(.*)\/man\/(.*)/, layout: :commands_layout
 page /\/man\/(.*)/, layout: :commands_layout
 page /\/v(.*)\/commands\.html/, layout: :commands_layout
 page /\/v(.*)\/guides\/(.*)/, layout: :md_guides_layout
-page '/issues.html', layout: :md_guides_layout
+page /\/doc\/(.*)/, layout: :md_guides_layout # Imported from bundler/bundler
 
 page '/sitemap.xml', layout: false
+
+redirect "issues.html", to: "doc/contributing/issues.html" # Backwards compatibility
 
 ###
 # Helpers

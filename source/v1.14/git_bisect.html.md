@@ -2,6 +2,12 @@
 title: How to git bisect in projects using Bundler
 ---
 
+## How to use git bisect
+
+[`git bisect`](https://git-scm.com/docs/git-bisect) is a useful debugging tool. For context, `git bisect` is a git command that can be used to track down the specific commit which a bug was introduced into the codebase.
+
+If you can find a commit where the code works properly and a commit with the offending bug, you don’t have to trace down the buggy commit by hand. The `git bisect` command, via binary search, will help you find the offending commit. For example, the Git documentation has [a handy `git bisect` guide](https://git-scm.com/book/en/v2/Git-Tools-Debugging-with-Git) that shows two ways to use it.
+
 ## How to git bisect in projects using Bundler
 
 A few things that may not be obvious are needed for `git bisect` to work

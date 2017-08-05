@@ -1,9 +1,9 @@
 module GuidesHelper
   LOCALIZABLE_REGEX = /localizable\/(v\d+.\d+\/.*)\.(.{2})\.html/
   ADDITIONAL_GUIDES = %w(./source/doc/contributing/issues.html.md)
-  
+
   def guides
-    guides = Dir.glob("./source/#{current_version}/*").select { |filename| proper_md_file?(filename) }
+    guides = Dir.glob("./source/#{current_version}/guides/*").select { |filename| proper_md_file?(filename) }
     localizable_guides = Dir.glob("./source/localizable/#{current_version}/guides/*.en.html.md")
 
     (guides + localizable_guides + ADDITIONAL_GUIDES).map do |filename|

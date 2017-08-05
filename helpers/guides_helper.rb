@@ -15,7 +15,7 @@ module GuidesHelper
 
   def link_to_guide(page)
     filename = process_localizable(page[:filename])
-    link_to page[:title], filename, class: 'truncate-text'
+    link_to page[:title], '/' + filename, class: 'truncate-text'
   end
 
   def current_guide?(filename)

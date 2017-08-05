@@ -1,6 +1,6 @@
 ---
 title: Gems from git repositories
-description: How to use gem directly from repository
+description: How to use gems directly from git
 ---
 
 ## Gems from git repositories

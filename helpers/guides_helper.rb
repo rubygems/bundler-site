@@ -3,7 +3,7 @@ module GuidesHelper
   ADDITIONAL_GUIDES = %w(./source/doc/contributing/issues.html.md)
 
   def guides
-    guides = Dir.glob("./source/#{current_version}/guides/*").select { |filename| proper_md_file?(filename) }
+    guides = Dir.glob("./source/#{current_version}/guides/*")
     localizable_guides = Dir.glob("./source/localizable/#{current_version}/guides/*.en.html.md")
 
     (guides + localizable_guides + ADDITIONAL_GUIDES).map do |filename|
@@ -27,10 +27,6 @@ module GuidesHelper
   end
 
   private
-
-  def proper_md_file?(filename)
-    File.file?(filename) && filename.end_with?('.md') && filename !~ /bundle_/
-  end
 
   def process_localizable(filename)
     matched = filename.match(LOCALIZABLE_REGEX)

@@ -23,7 +23,7 @@ Finally, we've managed to avoid evaluating the full `.gemspec` of all the gems t
 
 ### New Commands
 
-We've added 3 new commands that have been on our wish list for a long time.
+We've added 4 new commands that have been on our wish list for a long time.
 
 #### `bundle info`
 

@@ -12,25 +12,8 @@
       %h3
         %b Guides
       %ul.ul-padding
-        %li= link_to 'Using Bundler In Applications', "/#{current_visible_version}/guides/using_bundler_in_applications.html"
-        %li= link_to 'Using Gemfiles to install gems', "/#{current_visible_version}/gemfile.html"
-        %li= link_to 'Leaving gems out in production', "/#{current_visible_version}/groups.html"
-        %li= link_to 'Installing gems from git repos', "/#{current_visible_version}/git.html"
-        %li= link_to 'Setting up & using bundled gems', "/#{current_visible_version}/bundler_setup.html"
-        %li= link_to 'Developing a RubyGem using Bundler', "/#{current_visible_version}/guides/creating_gem.html"
-        %li= link_to 'Deploying', "/#{current_visible_version}/deploying.html"
-        %li= link_to 'Sharing', "/#{current_visible_version}/bundler_sharing.html"
-        %li= link_to 'Updating Gems', "/#{current_visible_version}/updating_gems.html"
-        %li= link_to 'Compatibility', '/compatibility.html'
-        %li= link_to 'Older Versions', '/older_versions.html'
-        %li= link_to 'View FAQ', "/#{current_visible_version}/faq.html"
-
-      %h4
-        %b Use Bundler with
-      %ul.ul-padding
-        %li= link_to 'Rails', "/#{current_visible_version}/rails.html"
-        %li= link_to 'Sinatra', "/#{current_visible_version}/sinatra.html"
-        %li= link_to 'RubyGems', "/#{current_visible_version}/rubygems.html"
+        - guides.each do |guide|
+          %li= link_to_guide guide
 
     .col-sm-4.col-sm-offset-0.col-xs-9.col-xs-offset-2
       %h3

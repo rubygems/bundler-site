@@ -11,21 +11,21 @@ If you're not interested in the reasons, and just want to get things fixed as qu
 ## Table of Contents
 
   - **The Problems**
-    - [Why am I seeing `certificate verify failed`?](#why-am-i-seeing--code-certificate-verify-failed--code--)
-      - [Why does this matter?]()
+    - [Why am I seeing `certificate verify failed`?]()
+      - [Why use certificates at all?]()
       - [How Ruby uses CA certificates]()
       - [Possible solutions for certificate errors]()
-    - [Why am I seeing `read server hello A`?](#read-server)
+    - [Why am I seeing `read server hello A`?][read-server]
       - [SSL and TLS protocol versions]()
       - [TLS 1.0 and 1.1 are deprecated]()
       - [Possible solutions for protocol errors]()
   - **The Solutions**
-    - [Automated SSL check]()
-    - [Updating Bundler]()
-    - [Updating RubyGems]()
+    - [Automated SSL check][ssl-check]
+    - [Updating Bundler][update-bundler]
+    - [Updating RubyGems][update-rubygems]
     - [Updating CA certificates]()
-      - [Installing new RubyGems certificates]()
-      - [Installing new OS certificates]()
+      - [Installing new RubyGems certificates][update-rubygems-certs]
+      - [Installing new OS certificates][update-os-certs]
     - [Reinstalling Ruby]()
       - [Installed with `rvm`]()
       - [Installed with `ruby-build` or `rbenv install`]()
@@ -43,6 +43,66 @@ If you're not interested in the reasons, and just want to get things fixed as qu
     - [Contributing to this guide]()
 
 ## The Problems
+
+### Why am I seeing `certificate verify failed`?
+
+This error happens when your computer is missing a file that it needs to verify that the server behind RubyGems.org is the correct one.
+The latest version of RubyGems should fix this problem, so we recommend updating to the current version. To tell RubyGems to update itself to the latest version, run `gem update --system`. If that doesn’t work, try the manual update process below.
+(What do we mean by updating “should fix this problem”? Review our article on how SSL works with RubyGems to gain a better understanding of the underlying problems.
+
+#### What are these certificates?
+
+Anytime your computer is talking to a server using HTTPS, it uses an _SSL certificate_ as part of that connection. The certificate allows your computer to know that it is talking to the real server for a domain, and allows it to make sure that your computer and that server can communicate completely privately, without any other computer knowing what is sent back and forth.
+
+To know if the certificate for RubyGems.org is correct, your computer consults another certificate from a Certificate Authority (CA). The CA certificate bundle includes certificates from every company that provides SSL certificates for servers, like Verisign, Globalsign, and many others. 
+
+Each CA has a "root” certificate that they use to verify other certificates. The CA certificates are called "root" because they sign other certificates that sign yet other certificates, and a graph of the certificates would look like a tree, with the "root" certificates at the root of the tree. Your computer will use its built-in CA bundle of many root certificates to know whether to trust an SSL certificate provided by a particular website, such as RubyGems.org.
+ 
+Occasionally, new companies are added to the CA bundle, or existing companies have their certificates expire and need to distribute new ones. For most websites, this isn't a huge problem, because web browsers regularly update their CA bundle as part of general browser updates. 
+
+#### How Ruby uses CA certificates
+
+The SSL certificate used by RubyGems.org descends from a new-ish root certificate. Ruby (and therefore RubyGems and Bundler) does not have a regularly updated CA bundle to use when contacting websites. Usually, Ruby uses a CA bundle provided by the operating system (OS). On older OSes, this CA bundle can be really old—as in a decade old. Since a CA bundle that old can’t verify the (new-ish) certificate for RubyGems.org, you might see the error in question: `certificate verify failed`.
+ 
+Further complicating things, an otherwise unrelated change 18-24 months ago lead to a new SSL certificate being issued for RubyGems.org. This meant the “root” certificate that needed to verify connections changed. So even if you’d previously upgraded RubyGems/Bundler in order to fix the SSL problem, you would need to upgrade again—this time to an even newer version with even newer certificates.
+
+#### Troubleshooting certificate errors
+
+Start by [running the automatic SSL check][ssl-check], and follow the instructions. You might need to [update Bundler][update-bundler], [update RubyGems][update-rubygems], [manually update RubyGems certificates][update-rubygems-certs], or perhaps even [install new OS certificates][update-os-certs].
+
+### Why am I seeing `read server hello A`?
+[read-server]: #why-am-i-seeing--code-read-server-hello-a--code--
+
+#### SSL and TLS protocol versions
+#### TLS 1.0 and 1.1 are deprecated
+#### Possible solutions for protocol errors
+## The Solutions
+### Automated SSL check
+[ssl-check]: #automated-ssl-check
+### Updating Bundler
+[update-bundler]: #updating-bundler
+### Updating RubyGems
+[update-rubygems]: #updating-rubygems
+### Updating CA certificates
+#### Installing new RubyGems certificates
+[update-rubygems-certs]: #installing-new-rubygems-certificates
+#### Installing new OS certificates
+[update-os-certs]: #installing-new-os-certificates
+### Reinstalling Ruby
+#### Installed with `rvm`
+#### Installed with `ruby-build` or `rbenv install`
+#### Installed with `ruby-installer`
+#### Ruby was packaged for your OS
+##### macOS: Built-in Ruby
+##### macOS: Installed with Homebrew
+##### Debian or Ubuntu: Installed with `apt-get`
+##### Fedora: Installed with `dnf`
+##### RHEL or CentOS: Installed with `yum`
+##### Windows: Installed with Ruby Installer
+## Additional help
+### Another automated SSL check
+### Still having trouble?
+### Contributing to this guide
 
 ### Why am I seeing `certificate verify failed`?
 
@@ -304,4 +364,5 @@ If you’re still having trouble, please visit the [Bundler issue tracker](https
 3. The output from running `gem env`
 
 4. Which troubleshooting steps you have tried so far
+
 

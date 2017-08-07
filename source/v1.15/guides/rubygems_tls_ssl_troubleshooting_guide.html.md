@@ -6,17 +6,19 @@ title: RubyGems.org SSL Troubleshooting Guide
 
 If you're trying to install gems with Bundler or RubyGems, but seeing an error that includes `SSL_connect`, keep reading. This guide will explain the underlying reasons for common errors, and suggest possible ways to fix them.
 
+If you're not interested in the reasons, and just want to get things fixed as quickly as possible, you can jump straight to [solutions for SSL issues]().
+
 ## Table of Contents
 
   - **The Problems**
     - [Why am I seeing `certificate verify failed`?](#why-am-i-seeing--code-certificate-verify-failed--code--)
-      - [What are the certificates?]()
-      - [How Ruby uses CA bundles]()
-      - [Fixing SSL certificate errors]()
+      - [Why does this matter?]()
+      - [How Ruby uses CA certificates]()
+      - [Possible solutions for certificate errors]()
     - [Why am I seeing `read server hello A`?](#read-server)
-      - [SSL and TLS versions]()
+      - [SSL and TLS protocol versions]()
       - [TLS 1.0 and 1.1 are deprecated]()
-      - [Fixing TLS version errors]()
+      - [Possible solutions for protocol errors]()
   - **The Solutions**
     - [Automated SSL check]()
     - [Updating Bundler]()
@@ -36,11 +38,13 @@ If you're trying to install gems with Bundler or RubyGems, but seeing an error t
         - [RHEL or CentOS: Installed with `yum`]()
         - [Windows: Installed with Ruby Installer]()
   - **Additional help**
+    - [Another automated SSL check]()
     - [Still having trouble?]()
     - [Contributing to this guide]()
 
-### Why am I seeing `certificate verify failed`?
+## The Problems
 
+### Why am I seeing `certificate verify failed`?
 
 This error happens when your computer is missing a file that it needs to verify that the server behind RubyGems.org is the correct one.
 The latest version of RubyGems should fix this problem, so we recommend updating to the current version. To tell RubyGems to update itself to the latest version, run `gem update --system`. If that doesn’t work, try the manual update process below.

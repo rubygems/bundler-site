@@ -1,21 +1,23 @@
 module GuidesHelper
   LOCALIZABLE_REGEX = /localizable\/(v\d+.\d+\/.*)\.(.{2})\.html/
   ADDITIONAL_GUIDES = %w(./source/doc/contributing/issues.html.md)
-  
+
   def guides
-    guides = Dir.glob("./source/#{current_version}/*").select { |filename| proper_md_file?(filename) }
-    localizable_guides = Dir.glob("./source/localizable/#{current_version}/guides/*.en.html.md")
+    guides = Dir.glob("./source/#{current_visible_version}/guides/*")
+    localizable_guides = Dir.glob("./source/localizable/#{current_visible_version}/guides/*.en.html.md")
+    all_guides = guides + localizable_guides + ADDITIONAL_GUIDES
+    all_guides.map! { |md_file| md_file.sub(/^\.\/source\//, '').sub(/\.(md|haml)$/, '') }
 
-    (guides + localizable_guides + ADDITIONAL_GUIDES).map do |filename|
-      filename = filename.sub(/^\.\/source\//, '').sub(/\.md$/, '')
-
-      { filename: filename, title: sitemap.find_resource_by_path(filename).metadata[:page][:title] }
+    all_guides.map do |filename|
+      resource = sitemap.find_resource_by_path(filename)
+      next unless resource
+      { filename: filename, title: resource.metadata[:page][:title] }
     end.select { |page| page[:title] }.sort_by { |page| page[:title] }
   end
 
-  def link_to_guide(page)
+  def link_to_guide(page, options = {})
     filename = process_localizable(page[:filename])
-    link_to page[:title], filename, class: 'truncate-text'
+    link_to page[:title], '/' + filename, options
   end
 
   def current_guide?(filename)
@@ -27,10 +29,6 @@ module GuidesHelper
   end
 
   private
-
-  def proper_md_file?(filename)
-    File.file?(filename) && filename.end_with?('.md') && filename !~ /bundle_/
-  end
 
   def process_localizable(filename)
     matched = filename.match(LOCALIZABLE_REGEX)

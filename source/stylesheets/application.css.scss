@@ -59,6 +59,10 @@ $navbar-height: 50px;
   margin-right: auto;
 }
 
+.row:after {
+  clear: none;
+}
+
 .bg-light-blue {
   background-color: #DBEAF3;
   padding: 30px 2%;

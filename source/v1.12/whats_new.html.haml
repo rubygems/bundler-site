@@ -11,15 +11,14 @@
     .bullet
       .description
         %p
-          Bundler now fetches gem metadata using [the new index format](http://andre.arko.net/2014/03/28/the-new-rubygems-index-format/), speeding up `install` significantly. In addition to the speed increases provided by the format itself, we’re also serving the new index directly from the Fastly CDN. That means Bundler will be able to talk to a server located nearby, no matter where you are in the world. We expect that to make a huge difference, especially in Oceania and Africa. 🎉
-
+          Bundler now fetches gem metadata using <a href="http://andre.arko.net/2014/03/28/the-new-rubygems-index-format/" target="_blank">the new index format</a> speeding up <code>install</code> significantly. In addition to the speed increases provided by the format itself, we’re also serving the new index directly from the Fastly CDN. That means Bundler will be able to talk to a server located nearby, no matter where you are in the world. We expect that to make a huge difference, especially in Oceania and Africa. 🎉
   %h3 Outdated by version significance
 
   .contents
     .bullet
       .description
         %p
-          It is now possible to run `bundle outdated` with the flags `--major`, `--minor`, and `--patch`. Using those flags, you can limit Bundler to only show you new versions that are both allowed by your `Gemfile` and also meet the criteria of only changing the major, minor, or patch version of the gem. You can combine them to get only minor and patch updates, or even only major and patch updates (but I have no idea why you would want to do that)
+          It is now possible to run <code>bundle outdated</code> with the flags <code>--major</code>, <code>--minor</code>, and <code>--patch</code>. Using those flags, you can limit Bundler to only show you new versions that are both allowed by your <code>Gemfile</code> and also meet the criteria of only changing the major, minor, or patch version of the gem. You can combine them to get only minor and patch updates, or even only major and patch updates (but I have no idea why you would want to do that)
 
   %h3 Ruby version locking
 

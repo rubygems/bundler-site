@@ -49,8 +49,7 @@ If you're not interested in the reasons, and just want to get things fixed as qu
 [verify-failed]: #why-am-i-seeing--code-certificate-verify-failed--code--
 
 This error happens when your computer is missing a file that it needs to verify that the server behind RubyGems.org is the correct one.
-The latest version of RubyGems should fix this problem, so we recommend updating to the current version. To tell RubyGems to update itself to the latest version, run `gem update --system`. If that doesn’t work, try the manual update process below.
-(What do we mean by updating “should fix this problem”? Review our article on how SSL works with RubyGems to gain a better understanding of the underlying problems.
+The latest version of RubyGems should fix this problem, so we recommend updating to the current version. To tell RubyGems to update itself to the latest version, run `gem update --system`. If that doesn’t work, try the manual update process below. (What do we mean by updating “should fix this problem”? Review our article on how SSL works with RubyGems to gain a better understanding of the underlying problems.
 
 #### What are these certificates?
 [what-are-certificates]: #what-are-these-certificates-
@@ -78,12 +77,30 @@ Start by [running the automatic SSL check][ssl-check], and follow the instructio
 ### Why am I seeing `read server hello A`?
 [read-server]: #why-am-i-seeing--code-read-server-hello-a--code--
 
+This error means that your machine was unable to establish a secure connection to RubyGems.org. The most common cause for that problem is a Ruby that uses an old version of OpenSSL. OpenSSL 1.0.1, released March 12, 2012, is the minimum version required to connect to RubyGems.org, starting January 1, 2018.
+
+To understand why that version is required, keep reading. To see instructions on how to update OpenSSL and/or Ruby to fix the problem, skip to the [troubleshooting section][troubleshooting-protocol-errors].
+
 #### SSL and TLS protocol versions
 [ssl-and-tls-protocol-versions]: #ssl-and-tls-protocol-versions
+
+Secure connections on the internet use [HTTPS](https://en.wikipedia.org/wiki/HTTPS), the secure version of HTTP. That security was originally provided by SSL, an acronym for Secure Sockets Layer. Over time, researchers discovered flaws in SSL, and network developers responded with changes and fixes. After SSL 3.0, it was replaced by TLS: [Transport Layer Security](https://en.wikipedia.org/wiki/Transport_Layer_Security).
+
+Over time, TLS was also revised. TLS version 1.2, originally defined in 2011, and supported by OpenSSL starting in 2012, is the current standard. In 2017, every version of SSL and TLS older than TLS 1.2 has been found to have critical flaws that can be exploited by a determined or knowledable adversary. As a result, security best practices suggest actively blocking all versions of SSL, as well as TLS versions 1.0 and 1.1.
+
 #### TLS 1.0 and 1.1 are deprecated
 [tls-10-and-11-are-deprecated]: #tls-10-and-11-are-deprecated
+
+RubyGems.org is served by a content delivery network, [Fastly](https://www.fastly.com/). By using Fastly, RubyGems.org is able to provide dramatically faster service, answering requests around the world from a nearby data center instead of answering every request from the US.
+
+In 2016, Fastly announced it will deprecate TLS versions 1.0 and 1.1 due to a mandate published by the PCI Security Standard Council. ([Read more about this in Fastly’s blog post.](https://www.fastly.com/blog/phase-two-our-tls-10-and-11-deprecation-plan))
+
+Following the recommendations of the PCI Security Standard Council, RubyGems.org will require TLSv1.2 starting January 2018. This means RubyGems.org and the `gem` command will only work on a version of Ruby with OpenSSL 1.0.1 or newer, with support for TLSv1.2.
+
 #### Troubleshooting protocol errors
 [troubleshooting-protocol-errors]: #troubleshooting-protocol-errors
+
+To troubleshoot protocol connection errors, start by [running the automatic SSL check][ssl-check], and follow the instructions. You might need to [update Bundler][update-bundler], [update RubyGems][update-rubygems], or even [reinstall ruby][reinstall-ruby].
 
 
 ## The Solutions
@@ -101,6 +118,7 @@ Start by [running the automatic SSL check][ssl-check], and follow the instructio
 #### Installing new OS certificates
 [update-os-certs]: #installing-new-os-certificates
 ### Reinstalling Ruby from version managers
+[reinstall-ruby]: #reinstalling-ruby-from-version-managers
 #### Installed with `rvm`
 #### Installed with `ruby-build` or `rbenv install`
 #### Installed with `ruby-installer`
@@ -119,74 +137,10 @@ Start by [running the automatic SSL check][ssl-check], and follow the instructio
 ### Still having trouble?
 ### Contributing to this guide
 
-### Why am I seeing `certificate verify failed`?
-
-This error happens when your computer is missing a file that it needs to verify that the server behind RubyGems.org is the correct one.
-The latest version of RubyGems should fix this problem, so we recommend updating to the current version. To tell RubyGems to update itself to the latest version, run `gem update --system`. If that doesn’t work, try the manual update process below.
-(What do we mean by updating “should fix this problem”? Review our article on how SSL works with RubyGems to gain a better understanding of the underlying problems.
 
 
-## Common SSL exceptions
 
-When running `bundle install` or `gem install`, there are two different SSL-related exceptions that frequently crop up.
-
-The first error means that Ruby isn't able to verify that it is talking to the true RubyGems.org. Rather than possibly installing gems from a malicious server pretending to be RubyGems.org, Ruby raises an exception to let you know about the problem. That exception looks like this:
-
-    Gem::RemoteFetcher::FetchError: SSL_connect returned=1 errno=0 state=error: certificate verify failed
-
-The other issue occurs if your version of OpenSSL is very old, and Ruby is not able to use it to connect to the RubyGems.org servers securely. In that case, you'll see an error like this one:
-
-    Gem::RemoteFetcher::FetchError: SSL_connect returned=1 errno=0 state=SSLv2/v3 read server
-
-If you want to know more about why these errors occurr, keep reading. If you're just looking for a fix, [jump straight to the solutions](#solutions).
-
-# How Bundler uses SSL certificates
-
-## What are these certificates?
-
-All web browsers come with a certificate authority (CA) bundle. These are cryptographic certificates provided by the companies that sell SSL certificates (like Verisign, Globalsign, and others). Using those "root” keys/certificates (they’re called root keys because they are the keys from which many other companies and websites derive their SSL certificates), web browsers “know” they can trust the SSL certificate being given to them by a particular website, such as RubyGems.org.
-
-Occasionally, new companies are added to the CA bundle, or existing companies have their certificates expire and need to distribute new ones. For most websites, this isn't a huge problem, because web browsers regularly update their CA bundle as part of general browser updates.
-
-## How Ruby uses CA bundles
-
-The SSL certificate used by RubyGems.org descends from a new-ish root certificate. Ruby (and therefore RubyGems and Bundler) does not have a regularly updated CA bundle to use when contacting websites. Usually, Ruby uses a CA bundle provided by the operating system (OS). On older OSes, this CA bundle can be really old—as in a decade old. Since a CA bundle that old can’t verify the (new-ish) certificate for RubyGems.org, you might see the error in question: `certificate verify failed`.
-
-Further complicating things, an otherwise unrelated change 18-24 months ago lead to a new SSL certificate being issued for RubyGems.org. This meant the “root” certificate that needed to verify connections changed. So even if you’d previously upgraded RubyGems/Bundler in order to fix the SSL problem, you would need to upgrade again—this time to an even newer version with even newer certificates.
-
-## Fixing SSL certificate errors
-
-There are two ways to supply the certificate Ruby needs to verify RubyGems.org:
-
-1. Update to the latest versions of RubyGems/Bundler, which include the relevant certificates in the gem and ask Ruby to use them, or
-2. You can update the certificates provided by your OS. This lets Ruby use those certificates to successfully verify the connection.
-
-You can upgrade Bundler by running `gem install bundler`, and you can upgrade RubyGems by running `gem update --system`. If you're still having trouble even after running those commands, check out our [SSL Troubleshooting Guide][1] for more help.
-
-
-## SSL/TLS minimum requirements
-
-RubyGems.org uses a 3rd party CDN provider called [Fastly](https://www.fastly.com/), which lets users all around the world download gems really quickly.
-
-Last year, Fastly announced it will deprecate TLS versions 1.0 and 1.1 due to a mandate published by the PCI Security Standard Council. ([Read more about this in Fastly’s blog post.](https://www.fastly.com/blog/phase-two-our-tls-10-and-11-deprecation-plan))
-
-As a result, RubyGems.org will require TLSv1.2 at minimum starting January 2018. This means RubyGems.org and the `gem` command will no longer support versions of Ruby and OpenSSL that are do not have support of TLS 1.2.
-
-### Troubleshooting instructions
-
-You can check if your current ruby environment supports TLS 1.2. Execute the following command in your terminal:
-
-    ruby -ropenssl -e 'puts "TLS v1.2 support: #{OpenSSL::SSL::SSLContext::METHODS.include?(:TLSv1_2)}"'
-
-This will print a result saying if ruby supports TLS 1.2
-
-    TLS v1.2 support: true
-
-If the result is `false` then you will need to update both Ruby and OpenSSL.
-
-### Solutions
-
-The easiest and recommended solution is to update Ruby and OpenSSL to a recent version which supports TLS 1.2. Refer to your system's package manager on updating Ruby and OpenSSL.
+# Content that hasn't yet been slotted into a section
 
 #### Reinstalling from rbenv/ruby-build
 Follow the instructions outlined in the [Updating and Troubleshooting ruby-build guide](https://github.com/rbenv/ruby-build/wiki#updating-ruby-build) by rbenv.

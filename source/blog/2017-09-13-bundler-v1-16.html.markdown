@@ -1,0 +1,37 @@
+---
+title: "Bundler 1.16: 2.0 Is So Close!"
+date: 2017-09-13 05:43 UTC
+tags:
+author: Samuel Giddins
+author_url: http://segiddins.me
+category: release
+---
+
+# What's new in Bundler 1.16?
+
+A short summer after the performance-focused Bundler 1.15 release, we've shipped 1.16. Before we get to the list of changes, we want to share a very exciting announcement: Bundler 2.0 is right around the corner! We anticipate that v1.16 will be the last 1.x release, and details about the transition to 2.0 can be found below.
+
+### Improved Resolver
+
+Thanks to the heroic efforts of [Grey Baker](https://github.com/greysteil), the Molinillo library Bundler uses for dependency resolution has once again been overhauled. By replacing the heuristic-focused "swapping" algorithm with one that can consider groups of gems at once, Grey managed to eliminate many bugs around dependency resolution, all while making resolution faster than ever before.
+
+### Speed
+
+Following on the heels of the speed boosts in 1.15, we've continued to make the performance of Bundler a top priority. We've managed to reduce the number of times a Gemfile needs to be `eval`ed when running `bundle install`. Additionally, running `bundle install` when no installation needs to be done is several times faster, bringing it within a few hundred ms of `bundle check`.
+
+### Various improvements
+
+In addition to those larger additions, we made some smaller tweaks with the aim of smoothing and improving the overall experience of using Bundler:
+
+- `bundle pristine` will now allow passing a list of gems to pristine
+- gemfiles are evaluated one fewer time when running `bundle install`
+
+We also fixed over 20 separate bugs, and you can read about every single one of them [in the Bundler 1.16 changelog](https://github.com/bundler/bundler/blob/1-16-stable/CHANGELOG.md).
+
+### Transitioning to Bundler 2
+
+As this announcement is being written, Bundler 2 has landed on the `master` branch. We anticipate having the first pre-release of 2.0 available on RubyGems within a couple of days, but for those of you chomping at the bit to get ready, fear not. 1.16 contains most of the code that will ship as 2.0, but disabled behind feature flags. This also means that 1.16 has intimate knowledge of the parts of Bundler that will be changing, and by setting the `BUNDLE_MAJOR_DEPRECATIONS` environment variable (or the `major_deprecations` config setting), Bundler 1.16 will let you know if you're relying on deprecated behavior, along with telling you how to migrate to the future behavior (and almost all of those suggestions are actionable _today_).
+
+### How To Upgrade
+
+Run `gem install bundler` to upgrade to the newest version of Bundler.

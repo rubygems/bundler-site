@@ -20,6 +20,7 @@ gem 'nokogiri', '~> 1.7'
 gem 'haml', '~> 4.0.7'
 
 group :development do
+  gem 'colorize'
   gem 'pry'
   gem 'pry-byebug'
   gem 'travis'

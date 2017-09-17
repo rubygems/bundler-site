@@ -10,6 +10,7 @@ install:
   - bundle install --deployment
   - eval "$(ssh-agent -s)"
 script:
+  - ruby spec/quality_spec.rb
   - |
       if [ "$TRAVIS_BRANCH" = "master" ];
       then bundle exec rake travis:deploy

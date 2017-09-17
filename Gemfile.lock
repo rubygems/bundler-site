@@ -21,6 +21,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.12.2)
+    colorize (0.8.1)
     compass (1.0.3)
       chunky_png (~> 1.2)
       compass-core (~> 1.0.2)
@@ -207,6 +208,7 @@ PLATFORMS
 DEPENDENCIES
   bootstrap-sass
   builder
+  colorize
   haml (~> 4.0.7)
   jquery-middleman
   kramdown
@@ -230,4 +232,4 @@ RUBY VERSION
    ruby 2.4.1p111
 
 BUNDLED WITH
-   1.15.1
+   1.15.4

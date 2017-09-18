@@ -18,13 +18,32 @@ The change only applies to new gems created using Bundler by running `bundle gem
 We'd like to thank David for bringing this issue to our attention and implementing the changes to Bundler!
 
 ### Recommended CI Flow
-Gem authors who check in `Gemfile.lock` into the Git repository and use CI platforms for testing their gems can add the following step in their CI script so it can test different versions of the gem dependencies:
+There are two different CI flows gem authors can implement if they choose to check the `Gemfile.lock` into the Git repository:
 
-* Delete the `Gemfile.lock` file before the CI installs the dependencies using `bundle install`.
+#### 1. Delete the lock file
+Delete the `Gemfile.lock` file before the CI installs the dependencies using `bundle install`. This will test the build against the latest version of the gem dependencies but has the disadvantage of not testing the build against the locked versions of the dependencies. Add the following step in the CI script:
 
-Here is an example to configure TravisCI (`travis.yml`):
+Here's an example to configure TravisCI to delete `Gemfile` (`travis.yml`):
 
 ~~~ ruby
 before_install: "rm ${BUNDLE_GEMFILE}.lock"
 ~~~
 
+#### 2. Or add a duplicate Gemfile
+Create a duplicate of the `Gemfile` and call it `Gemfile.no_lock` (can use any name). The advantage with this flow is both cases are covered. The `Gemfile` will have a lock file to use the locked versions of the dependencies. The `Gemfile.no_lock` will not have an associated lock file so it'll use the latest acceptable versions of the dependencies. Check all three files into the Git repo - `Gemfile`, `Gemfile.lock`, and `Gemfile.no_lock`. Next configure TravisCI to use a build matrix as shown in the example below:
+
+Here's an example to configure TravisCI build matrix (`travis.yml`):
+
+~~~ yml
+sudo: false
+language: ruby
+
+# specify your ruby versions
+rvm:
+  - 2.4.2
+
+# tell TravisCI to run with Gemfile and then with Gemfile.no_lock
+gemfile:
+  - Gemfile
+  - Gemfile.no_lock
+~~~

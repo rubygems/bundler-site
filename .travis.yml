@@ -1,9 +1,5 @@
 language: ruby
 cache: bundler
-env:
-  global:
-    - secure: "AWklp5z/n19GoLjf0e6mjwWDBFMURr5evwDW3MyPKJ7WfqKzVfFQ1HVT8HkiviZyz7IksvI+8DOIhsTttP4bwCnS13WbRECrWR1fB2nKSqNC/EnkYFeyuA4sVOBq/AOA3lOEHUWMcsnTXkt4EdYPLtCNRezNhF1FgA5tSNTTFO0="
-    - secure: "ky6PZ4r57c42qA1v1Hw6TycojOlDQwcSq+fKalwaCb22wKc6JDyRDVHNjXWliEGe3CAWCwRUVy4FlEoYg8GZwTR7tITGG2rjpWC4Q0MLvO7OyjzfvtNXqf55NoU90aSPe/24YbOD+sLANhB9G5JEYDCsj6SzNHPDMK6lECVC0TE="
 rvm:
   - 2.4.2
 install:

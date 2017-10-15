@@ -79,14 +79,14 @@ title: Deploying with Bundler
         Alternatively, you can use the <code>--binstubs</code> option on the
         install command to generate executable binaries that can be used instead of
         <code>bundle exec</code>.
-      = link_to 'Learn More: Executables', './man/bundle-exec.1.html', class: 'btn btn-primary'
+      = link_to 'Learn More: Executables', '/man/bundle-exec.1.html', class: 'btn btn-primary'
 
     .bullet
       .description
         %h3 Heroku
         When you deploy to Heroku, Bundler will be run automatically as long as a Gemfile is present. If you check in your Gemfile.lock, Heroku will run <code>`bundle install --deployment`</code>. If you want to exclude certain groups using the <code>--without</code> option, you need to use <code>`heroku config`</code>.
       :code
-        $ heroku config:add BUNDLE_WITHOUT="test development" --app app_name
+        $ heroku config:set BUNDLE_WITHOUT="test development" --app app_name
       = link_to 'Heroku Bundler Documentation', 'http://docs.heroku.com/bundler', class: 'btn btn-primary'
 
     %h2#deploying-your-application

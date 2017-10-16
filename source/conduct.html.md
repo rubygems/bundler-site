@@ -1,3 +1,8 @@
+---
+title: Code of conduct
+description: Rules to adhere to while contributing to Bundler
+---
+
 # Bundler Code of Conduct
 
 The Bundler project strongly values contributors from anywhere, regardless of level of experience, gender, gender identity and expression, sexual orientation, disability, physical appearance, body size, race, ethnicity, age, religion, or nationality. As a result, the Bundler team has agreed to and enforces this code of conduct in order to provide a harassment-free experience for everyone who participates in the development of Bundler.

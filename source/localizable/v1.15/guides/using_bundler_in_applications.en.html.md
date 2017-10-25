@@ -345,4 +345,4 @@ $ bundle update
 
 ### Running `git bisect` in projects using Bundler
 
-See [Git Bisect Guide](/git_bisect.html).
+See [Git Bisect Guide](./git_bisect.html).

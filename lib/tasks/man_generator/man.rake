@@ -8,6 +8,7 @@ task :man => [:update_vendor] do
     mkdir_p "source/#{version}/man"
 
     Dir.chdir "vendor/bundler" do
+      sh("bin/rake", "index.txt") { } # it's OK if this fails, as it means there was no index.txt file
       sh "git reset --hard HEAD"
       sh "git checkout origin/#{branch}"
       sh "#{Gem.ruby} -S bundle exec ronn -5 man/*.ronn"

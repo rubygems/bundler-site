@@ -17,6 +17,7 @@ en:
     learn_more_gemfile: "Learn More: Gemfiles"
     bundle_install_description: "Install all of the required gems from your specified sources:"
     learn_more_bundle_install: "Learn More: bundle install"
+    whats_new: "What's new?"
   navbar:
     docs: "Docs"
     team: "Team"

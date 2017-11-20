@@ -9,7 +9,7 @@ es:
       usted necesita estén presente en entorno de desarollo, staging, y entorno de producción.
       Empezando trabajar en un proyecto es tan simple como <code>bundle install</code>.
     how_bundler_work_button: ¿Cómo funciona Bundler?
-    getting_started: Empezar
+    getting_started: Para empezar
     getting_started_description: |
       ¡Empezando con bundler es fácil! Abre una ventana del terminal y ejecuta este comando:
     getting_started_description2: |
@@ -17,6 +17,7 @@ es:
     learn_more_gemfile: "Aprenda más: Gemfiles"
     bundle_install_description: "Instala todas de las gemas necesarias de sus fuentes especificadas:"
     learn_more_bundle_install: "Aprenda más: bundle install"
+    whats_new: "Novedades"
   navbar:
     docs: "Docs"
     team: "Equipo"

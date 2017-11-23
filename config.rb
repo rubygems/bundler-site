@@ -7,7 +7,7 @@ activate :syntax
 activate :i18n
 activate :sprockets
 activate :search do |search|
-  search.resources = ['index.html', "#{config[:current_version]}/", '/doc/contributing/issues.html']
+  search.resources = ['index.html', "#{config[:current_version]}/", 'compatibility.html', 'conduct.html', 'contributors.html', 'older_versions.html']
 
   search.index_path = 'search/lunr-index.json'
 

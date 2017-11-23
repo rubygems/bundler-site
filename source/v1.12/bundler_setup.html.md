@@ -72,20 +72,7 @@ require 'rack-cache'
 require 'nokogiri'
 ~~~
 
-Astute readers will notice that the correct way to require the <code>rack-cache</code>
-gem is <code>require 'rack/cache'</code>, not <code>require 'rack-cache'</code>. To tell
-bundler to use <code>require 'rack/cache'</code>, update your Gemfile:
-
-~~~ ruby
-source 'https://rubygems.org'
-
-gem 'rails', '3.0.0.rc'
-gem 'rack-cache', :require => 'rack/cache'
-gem 'nokogiri', '~> 1.4.2'
-~~~
-
 For such a small <code>Gemfile</code>, we'd advise you to skip
-<code>Bundler.require</code> and just require the gems by hand (especially given the
-need to put in a <code>:require</code> directive in the <code>Gemfile</code>). For much
+<code>Bundler.require</code> and just require the gems by hand. For much
 larger <code>Gemfile</code>s, using <code>Bundler.require</code> allows you to skip
 repeating a large stack of requirements.

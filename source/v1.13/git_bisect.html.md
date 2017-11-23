@@ -19,7 +19,7 @@ to test if they are not reset.
 Here's a minimal example script that runs the rake task `spec`:
 
 ~~~ bash
-#!/bin/bash
+#!/usr/bin/env bash
 bundle install
 bin/rake spec
 status=$?

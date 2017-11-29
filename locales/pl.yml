@@ -8,7 +8,6 @@ pl:
       Bundler pomaga wydostać się z piekła zależności i zapewnia, że gem'y które
       potrzebujesz są w Twoich środowiskach.
       Dzięki temu rozpoczęcie pracy nad projektem to wpisanie <code>bundle install</code> w konsoli.
-    how_bundler_work_button: Jak bundler działa?
     getting_started: Jak rozpocząć?
     getting_started_description: |
       Rozpoczęcie pracy z bundler'em jest bardzo proste! Otwórz terminal i uruchom tą komendę:

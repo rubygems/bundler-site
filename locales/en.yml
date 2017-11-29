@@ -8,7 +8,9 @@ en:
       Bundler is an exit from dependency hell, and ensures that the gems
       you need are present in development, staging, and production.
       Starting work on a project is as simple as <code>bundle install</code>.
-    how_bundler_work_button: How Does Bundler Work?
+    what_can_bundler_do: What Can Bundler Do?
+    cli_docs: CLI Docs
+    chat_with_us: Chat With Us
     getting_started: Getting Started
     getting_started_description: |
       Getting started with bundler is easy! Open a terminal window and run this command:

@@ -8,7 +8,6 @@ es:
       Bundler es un éxito del infierno de dependencias, y asegura que las gemas
       usted necesita estén presente en entorno de desarollo, staging, y entorno de producción.
       Empezando trabajar en un proyecto es tan simple como <code>bundle install</code>.
-    how_bundler_work_button: ¿Cómo funciona Bundler?
     getting_started: Para empezar
     getting_started_description: |
       ¡Empezando con bundler es fácil! Abre una ventana del terminal y ejecuta este comando:

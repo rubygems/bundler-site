@@ -14,7 +14,9 @@
 
       %p.text-center
         = link_to t("home.whats_new"), '/whats_new.html', class: 'btn btn-primary btn-lg btn-responsive'
-        = link_to t('home.how_bundler_work_button'), "./#{current_version}/#getting-started", class: 'btn btn-primary btn-lg btn-responsive'
+        = link_to t('home.what_can_bundler_do'), "./#{current_version}/#getting-started", class: 'btn btn-primary btn-lg btn-responsive'
+        = link_to t('home.cli_docs'), './man/bundle-install.1.html', class: 'btn btn-primary btn-lg btn-responsive'
+        = link_to t('home.chat_with_us'), 'http://slack.bundler.io', class: 'btn btn-primary btn-lg btn-responsive'
 
 .row.bg-light-blue
   .container
@@ -49,6 +51,21 @@
             $ git add Gemfile Gemfile.lock
           %p.center-on-xs
             = link_to t('home.learn_more_bundle_install'), "./#{current_version}/man/bundle-install.1.html", class: 'btn btn-primary btn-lg pull-right btn-responsive'
+
+.row
+  .container
+    .col-md-12
+      %h2#get-involved Get involved
+      .large-font
+        Bundler has a lot of contributors and users, and we would love to have your help! If you have questions, join #{link_to 'the Bundler Slack', 'http://slack.bundler.io'} and we'll try to answer them. If you're interested in contributing (no programming skills needed), start with #{link_to 'the contributing guide', 'https://github.com/bundler/bundler/blob/master/doc/contributing/README.md'}. While participating in the Bundler project, please keep the #{link_to 'code of conduct', '/conduct.html'} in mind, and be inclusive and friendly towards everyone. If you have sponsorship or security questions, please contact the core team directly.
+
+      .contents
+        .buttons
+          = link_to 'Code of Conduct', '/conduct.html', class: 'btn btn-primary'
+          = link_to 'Join the Bundler Slack', 'http://slack.bundler.io', class: 'btn btn-primary'
+          = link_to 'Contributing guide', 'https://github.com/bundler/bundler/blob/master/doc/contributing/README.md', class: 'btn btn-primary'
+          = link_to 'Email the core team', 'mailto:team@bundler.io', class: 'btn btn-primary'
+
 :css
   .main-wrapper {
     padding-bottom: 0;

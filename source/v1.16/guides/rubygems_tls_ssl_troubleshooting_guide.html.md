@@ -39,7 +39,7 @@ possible, you can jump straight to [solutions for SSL issues][solutions-for-ssl-
       - [Debian or Ubuntu: Installed with `apt-get`][installed-with-apt-get]
       - [Fedora: Installed with `dnf`][installed-with-dnf]
       - [RHEL or CentOS: Installed with `yum`][installed-with-yum]
-      - [Windows: Installed with Ruby Installer][installed-with-ruby-installer]
+      - [Windows: Installed with Ruby Installer][windows-ruby-installer]
   - **Additional Help**
     - [Another automated SSL check][another-automated-ssl-check]
     - [Creating an issue][creating-an-issue]
@@ -159,10 +159,11 @@ do not have support of TLS 1.2.
 To troubleshoot protocol connection errors, start by [running the automatic SSL check][ssl-check],
 and follow the instructions. You might need to [update Bundler][update-bundler],
 [update RubyGems][update-rubygems], or even reinstall Ruby (you can find reinstallation
-instructions by [version manager][[installing-from-version-managers]
+instructions by [version manager][installing-from-version-managers]
 or [package manager][installing-from-package-managers].)
 
 ## The Solutions
+[solutions-for-SSL-issues]: #solutions-for-ssl-issues
 
 ### Automated SSL check
 [ssl-check]: #automated-ssl-check

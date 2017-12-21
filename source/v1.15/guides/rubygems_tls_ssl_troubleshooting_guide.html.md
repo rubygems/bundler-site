@@ -420,18 +420,18 @@ encountering an issue, go to the [creating an issue][creating-an-issue] section 
 If none of these instructions fixed the problem, the next step is to open an issue.
 
 (Create an issue in the [RubyGems issue tracker](https://github.com/rubygems/rubygems/issues)
-If your error came from `gem install`. If it came from `bundle install`, create an issue in
+if your error came from `gem install`. If it came from `bundle install`, create an issue in
 the [Bundler issue tracker](https://github.com/bundler/bundler).)
 
 Please include:
-- Your Ruby version:
-- Your RubyGems version:
-- Your Bundler version:
+- The output from running `gem env`:
+- The output from running `bundle env`:
 - Output from running `ruby -ropenssl -e 'puts OpenSSL::OPENSSL_LIBRARY_VERSION'`:
 - Your Ruby version manager (if any):
-- OS package manager (if applicable):
+- Your OS and OS version:
+- Your package manager name and version (if applicable):
 
 ### Contributing to this guide
 [contributing-to-guide]: #contributing-to-guide
 
-If you found a solution not listed here, [submit a PR](https://github.com/rubygems/guides/blob/gh-pages/ssl-certificate-update.md) to get it added!
+If you found a solution not listed here, submit a PR to add your solution to [this guide](https://github.com/bundler/bundler-site/blob/master/source/v1.16/guides/rubygems_tls_ssl_troubleshooting_guide.html.md)!

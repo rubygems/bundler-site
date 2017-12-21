@@ -1,248 +1,437 @@
 ---
-title: RubyGems.org SSL/TLS Troubleshooting Guide
+title: RubyGems.org SSL Troubleshooting Guide
 ---
 
-# RubyGems.org SSL/TLS Troubleshooting Guide
+# RubyGems.org SSL Troubleshooting Guide
+
+If you’ve experienced issues related to SSL certificates and/or TLS versions, you’ve come
+to the right place. In this guide, we’ll explain how both of those issues come about and how
+to solve them. Many of the instructions in this guide can help fix either the SSL certs issue
+or the TLS version issue.
+
+If you're not interested in the reasons, and just want to get things fixed as quickly as
+possible, you can jump straight to [solutions for SSL issues][solutions-for-ssl-issues].
+
+## Table of Contents
+
+  - **The Problems**
+    - [Why am I seeing `certificate verify failed`?][verify-failed]
+      - [What are these certificates?][what-are-certificates]
+      - [How Ruby uses CA certificates][how-ruby-uses-ca-certs]
+      - [Troubleshooting certificate errors][troubleshooting-certificate-errors]
+    - [Why am I seeing `read server hello A`?][read-server]
+      - [SSL and TLS protocol versions][ssl-and-tls-protocol-versions]
+      - [TLS 1.0 and 1.1 are deprecated][tls-10-and-11-are-deprecated]
+      - [Troubleshooting protocol errors][troubleshooting-protocol-errors]
+  - **The Solutions**
+    - [Automated SSL check][ssl-check]
+    - [Updating Bundler][update-bundler]
+    - [Updating RubyGems][update-rubygems]
+    - [Updating CA certificates][updating-ca-certificates]
+      - [Installing new RubyGems certificates][update-rubygems-certs]
+      - [Installing new OS certificates][update-os-certs]
+    - [Reinstalling Ruby from version managers][installing-from-version-managers]
+      - [Installed with `rvm`][installed-with-rvm]
+      - [Installed with `ruby-build` or `rbenv install`][installed-with-ruby-build]
+    - [Reinstalling Ruby from OS package managers][installing-from-package-managers]
+      - [macOS: Built-in Ruby][macos-built-in-ruby]
+      - [macOS: Installed with Homebrew][installed-with-homebrew]
+      - [Debian or Ubuntu: Installed with `apt-get`][installed-with-apt-get]
+      - [Fedora: Installed with `dnf`][installed-with-dnf]
+      - [RHEL or CentOS: Installed with `yum`][installed-with-yum]
+      - [Windows: Installed with Ruby Installer][installed-with-ruby-installer]
+  - **Additional Help**
+    - [Another automated SSL check][another-automated-ssl-check]
+    - [Creating an issue][creating-an-issue]
+    - [Contributing to this guide][contributing-to-guide]
+
+## The Problems
+
+### Why am I seeing `certificate verify failed`?
+[verify-failed]: #why-am-i-seeing--code-certificate-verify-failed--code--
+
+If you've seen the following SSL error when trying to pull updates from RubyGems:
+`OpenSSL::SSL::SSLError: SSL_connect returned=1 errno=0 state=SSLv3 read server certificate B: certificate verify failed`
+
+This error happens when your computer is missing a file that it needs to verify that the server
+behind RubyGems.org is the correct one.
+
+The latest version of RubyGems should fix this problem, so we recommend updating to the current
+version. To tell RubyGems to update itself to the latest version, run `gem update --system`. If
+that doesn’t work, try the manual update process below.
+
+(What do we mean by updating “should fix this problem”? Review the [What are these certificates?][what-are-certificates]
+and [How Ruby uses CA certificates][how-ruby-uses-ca-certs] sections
+below to gain a better understanding of the underlying problems.)
+
+#### What are these certificates?
+[what-are-certificates]: #what-are-these-certificates
+
+Anytime your computer is talking to a server using HTTPS, it uses an _SSL certificate_ as part
+of that connection. The certificate allows your computer to know that it is talking to the real
+server for a domain, and allows it to make sure that your computer and that server can
+communicate completely privately, without any other computer knowing what is sent back and forth.
+
+To know if the certificate for RubyGems.org is correct, your computer consults another
+certificate from a Certificate Authority (CA). The CA certificate bundle includes certificates
+from every company that provides SSL certificates for servers, like Verisign, Globalsign, and
+many others.
+
+Each CA has a "root” certificate that they use to verify other certificates. The CA certificates
+are called "root" because they sign other certificates that sign yet other certificates, and a
+graph of the certificates would look like a tree, with the "root" certificates at the root of
+the tree. Your computer will use its built-in CA bundle of many root certificates to know
+whether to trust an SSL certificate provided by a particular website, such as RubyGems.org.
+
+Occasionally, new companies are added to the CA bundle, or existing companies have their certificates
+expire and need to distribute new ones. For most websites, this isn't a huge
+problem, because web browsers regularly update their CA bundle as part of general browser
+updates.
+
+#### How Ruby uses CA certificates
+[how-ruby-uses-ca-certs]: #how-ruby-uses-ca-certificates
+
+The SSL certificate used by RubyGems.org descends from a new-ish root certificate. Ruby (and
+therefore RubyGems and Bundler) does not have a regularly updated CA bundle to use when
+contacting websites. Usually, Ruby uses a CA bundle provided by the operating system (OS). On
+older OSes, this CA bundle can be really old—as in a decade old. Since a CA bundle that old
+can’t verify the (new-ish) certificate for RubyGems.org, you might see the error in question:
+`certificate verify failed`.
+
+Further complicating things, an otherwise unrelated change 18-24 months ago lead to a new SSL
+certificate being issued for RubyGems.org. This meant the “root” certificate that needed to
+verify connections changed. So even if you’d previously upgraded RubyGems/Bundler in order to
+fix the SSL problem, you would need to upgrade again—this time to an even newer version with
+even newer certificates.
 
-If you’ve experienced issues related to SSL/TLS when attempting to download gems from RubyGems.org you’ve come to the right place. In this guide, we’ll explain how these issues come about and how to solve them.
+#### Troubleshooting certificate errors
+[troubleshooting-certificate-errors]: #troubleshooting-certificate-errors
 
-## Overview
+Start by [running the automatic SSL check][ssl-check], and follow the instructions. You might need
+to [update Bundler][update-bundler], [update RubyGems][update-rubygems],
+[manually update RubyGems certificates][update-rubygems-certs], or perhaps
+even [install new OS certificates][update-os-certs].
 
-When using Bundler an error such as
+### Why am I seeing `read server hello A`?
+[read-server]: #why-am-i-seeing--code-read-server-hello-a--code--
 
-    $ bundle install
+This error means that your machine was unable to establish a secure connection to RubyGems.org.
+The most common cause for that problem is a Ruby that uses an old version of OpenSSL. OpenSSL
+1.0.1, released March 12, 2012, is the minimum version required to connect to
+RubyGems.org, starting January 1, 2018.
 
-    Gem::RemoteFetcher::FetchError: SSL_connect returned=1 errno=0 state=error: certificate verify failed
+To understand why that version is required, keep reading. To see instructions on how to update
+OpenSSL and/or Ruby to fix the problem, skip to the
+[troubleshooting section][troubleshooting-protocol-errors].
 
-Or
+#### SSL and TLS protocol versions
+[ssl-and-tls-protocol-versions]: #ssl-and-tls-protocol-versions
 
-    $ bundle install
+Secure connections on the internet use [HTTPS](https://en.wikipedia.org/wiki/HTTPS),
+the secure version of HTTP. That security was originally provided by SSL, an acronym
+for Secure Sockets Layer. Over time, researchers discovered flaws in SSL, and network
+developers responded with changes and fixes. After SSL 3.0, it was replaced by TLS, or
+[Transport Layer Security](https://en.wikipedia.org/wiki/Transport_Layer_Security).
 
-    Gem::RemoteFetcher::FetchError: SSL_connect returned=1 errno=0 state=SSLv2/v3 read server
+Over time, TLS was also revised. TLS version 1.2, originally defined in 2011, and supported
+by OpenSSL starting in 2012, is the current standard. In 2017, every version of SSL and TLS
+older than TLS 1.2 has been found to have critical flaws that can be exploited by a
+determined or knowledable adversary. As a result, security best practices suggest actively
+blocking all versions of SSL, as well as TLS versions 1.0 and 1.1.
 
-mean that Bundler was unable to establish a SSL/TLS connection to the RubyGems.org servers which is required to let Bundler download gems.
+#### TLS 1.0 and 1.1 are deprecated
+[tls-10-and-11-are-deprecated]: #tls-10-and-11-are-deprecated
 
-## Why Does This Error Occur?
+RubyGems.org uses a 3rd party CDN provider called [Fastly](https://www.fastly.com/), which lets
+users all around the world download gems really quickly.
 
-There are 2 main reasons why this error will occur. You're running a version Ruby that does not support the minimum requirements to allow Bundler to connect to RubyGems.org using SSL/TLS.
+Last year, Fastly announced it will deprecate TLS versions 1.0 and 1.1 due to a mandate
+published by the PCI Security Standard Council.
+([Read more about this in Fastly’s blog post.](https://www.fastly.com/blog/phase-two-our-tls-10-and-11-deprecation-plan))
 
-The other reason is that you may have an old version of rubygems or an old certificate authority bundle.
+As a result, RubyGems.org will require TLSv1.2 at minimum starting January 2018. This means
+RubyGems.org and the `gem` command will no longer support versions of Ruby and OpenSSL that are
+do not have support of TLS 1.2.
 
-We'll explain each problem and the steps you can take to solve it.
+#### Troubleshooting protocol errors
+[troubleshooting-protocol-errors]: #troubleshooting-protocol-errors
 
-## SSL/TLS minimum requirements
+To troubleshoot protocol connection errors, start by [running the automatic SSL check][ssl-check],
+and follow the instructions. You might need to [update Bundler][update-bundler],
+[update RubyGems][update-rubygems], or even reinstall Ruby (you can find reinstallation
+instructions by [version manager][[installing-from-version-managers]
+or [package manager][installing-from-package-managers].)
 
-RubyGems.org uses a 3rd party CDN provider called [Fastly](https://www.fastly.com/), which lets users all around the world download gems really quickly.
+## The Solutions
 
-Last year, Fastly announced it will deprecate TLS versions 1.0 and 1.1 due to a mandate published by the PCI Security Standard Council. ([Read more about this in Fastly’s blog post.](https://www.fastly.com/blog/phase-two-our-tls-10-and-11-deprecation-plan)) 
+### Automated SSL check
+[ssl-check]: #automated-ssl-check
 
-As a result, RubyGems.org will require TLSv1.2 at minimum starting January 2018. This means RubyGems.org and the `gem` command will no longer support versions of Ruby and OpenSSL that are do not have support of TLS 1.2.
+First, [run this script](https://github.com/indirect/ruby-ssl-check/blob/master/check.rb) to
+check whether your errors result from the SSL certs issue or the TLS versions issue.
 
-### Troubleshooting instructions
+You can run the script immediately with this command:
 
-You can check if your current ruby environment supports TLS 1.2. Execute the following command in your terminal:
+```$ curl -sL https://git.io/vQhWq | ruby```
 
-    ruby -ropenssl -e 'puts "TLS v1.2 support: #{OpenSSL::SSL::SSLContext::METHODS.include?(:TLSv1_2)}"'
+If the output reads “Your Ruby can't connect to rubygems.org because you are missing the
+certificate” you have a certificate verification error, and need to update your certs.
 
-This will print a result saying if ruby supports TLS 1.2
+If you instead see "Your Ruby can't connect to rubygems.org because your version of OpenSSL is
+too old” your OpenSSL version is old and incompatible with TLSv1.2, and you need to upgrade your
+OpenSSL and/or recompile Ruby to use a newer version of SSL.
 
-    TLS v1.2 support: true
+The instructions in this guide can help you troubleshoot both problems.
 
-If the result is `false` then you will need to update both Ruby and OpenSSL.
 
-### Solutions
+### Updating Bundler
+[update-bundler]: #update-bundler
 
-The easiest and recommended solution is to update Ruby and OpenSSL to a recent version which supports TLS 1.2. Refer to your system's package manager on updating Ruby and OpenSSL.
+Update to the latest version of Bundler by running:
 
-#### Reinstalling from rbenv/ruby-build
-Follow the instructions outlined in the [Updating and Troubleshooting ruby-build guide](https://github.com/rbenv/ruby-build/wiki#updating-ruby-build) by rbenv.
+```gem install bundler```
 
-#### macOS: Upgrading built-in Ruby
-Note: macOS 10.13 High Sierra comes with default Ruby that is compatible with TLSv1.2.
+### Updating RubyGems
+[update-rubygems]: #update-rubygems
 
-To check your current macOS version, go to the Apple menu and choose “About This Mac”. If you see anything other than “macOS High Sierra”, you will need to upgrade to the newest macOS (or else install a newer version of Ruby with Homebrew by following the next set of instructions after these).
+To upgrade to RubyGems version 2.6.x, download the latest RubyGems in a directory that you can
+later point to. (Examples include your home directory, `~`, or the root of your hard drive: `C:\ `.)
 
-To upgrade to High Sierra:
-* Open the App Store application
-* Choose the “Updates” tab
-* Click the “Install” button for “macOS High Sierra”
+Once you’ve downloaded RubyGems, run the following commands (substituting `C:\` for the
+directory with RubyGems):
 
-#### macOS: Upgrading Ruby with Homebrew
-To install a newer version of Ruby with Homebrew, first make sure Homebrew is installed. If the brew command is not present, follow the installation instructions at [https://brew.sh](https://brew.sh) and then come back to these steps.
+**On Windows**:
+```
+  C:\>gem install --local C:\rubygems-update-2.6.10.gem
+  C:\>update_rubygems
+```
 
-    $ brew install ruby
+**On Linux or macOS**:
+```
+  $ gem install --local rubygems-update-2.6.10.gem
+  $ update_rubygems
+```
 
-If Ruby is already installed
+Running `gem --version` should display the updated version.
 
-    $ brew upgrade ruby
 
-to upgrade to the latest version.
+### Updating CA certificates
+[updating-ca-certificates]: #updating-ca-certificates
 
-#### Debian/Ubuntu: Upgrading Ruby with apt
+#### Installing new RubyGems certificates
+[update-rubygems-certs]: #installing-new-rubygems-certificates
 
-To remove Ruby with apt, you’ll need to check which versions of Ruby you have installed. apt installs Ruby v2.3.1.
+If you’re unable to update RubyGems, you can manually add the certificate RubyGems needs. If you
+have a version of RubyGems new enough (version 2.1.x and above) that can use those “vendored”
+certificates—and you install the certificate successfully—it will work without upgrading the
+RubyGems version.
 
-To uninstall, [follow the directions listed here](https://stackoverflow.com/a/22753859) (These instructions work for both Ubuntu and Debian).
-
-Once you’ve successfully uninstalled Ruby, reinstall it by running:
-
-    $ sudo apt-get install ruby
-
-#### Fedora: Upgrading Ruby with dnf
-The newest versions of Fedora use `dnf` as its package manager, but older versions use `yum` instead. If you see the error message `dnf: command not found`, replace the dnf in these instructions with `yum`.
-
-First, uninstall Ruby by running:
-
-    $ dnf remove ruby
-
-And then reinstall (this command will install Ruby 2.3):
-
-    $ dnf install ruby
-
-#### RHEL/CentOS: Upgrading Ruby with yum
-Follow these directions for [upgrading Ruby on CentOS](http://ask.xmodulo.com/upgrade-ruby-centos.html) (They also include instructions for troubleshooting OpenSSL).
-
-#### Windows: Reinstalling with Ruby Installer
-From the Control Panel, find the Ruby installer in “Programs”. Click on the folder, and click again on “Uninstall Ruby”.
-Reinstall by downloading Ruby and the Ruby DevKit at [RubyInstaller](https://rubyinstaller.org/downloads/).
-
-### Certificate Verify Failed
-
-This error occurs when Bundler/RubyGems was unable to verify the SSl/TLS certificate on RubyGems.org. This is most likely an issue with your Ruby environment than RubyGems.org. There are several ways the certificate could not be verified such as:
-
-* The clock on your machine is not up to date
-* old or missing certificate authority bundles
-
-#### Solutions
-
-There are numerous approaches to fixing this problem, it's recommended to read each solution and determine which is the best suited for your situation.
-
-##### Make sure your clock is current
-
-Part of verifying a SSL certificate is checking when the certificate was issued and when it expires. So having the correct time on your system is up to date.
-
-Most operating systems like Windows and MacOS will automatically update the clock to the current time for you. For Unix type systems you may need to check your running the NTP daemon.
-
-* [How To Set Up Time Synchronization on Ubuntu 16.04](https://www.digitalocean.com/community/tutorials/how-to-set-up-time-synchronization-on-ubuntu-16-04)
-* [Clock Synchronization with NTP on FreeBSD](https://www.freebsd.org/doc/handbook/network-ntp.html)
-
-##### Old or missing certificate authority bundle
-
-A certificate authority bundle is a set of certificates that have been signed by Certificate Authorities that is installed on your system. These certificates validate that a signed certificate a website like RubyGems.org for example, was validated and signed by a trusted Certificate Authority.
-
-Operating like MacOS and Windows distribute a certificate bundle with each release, but on Unix systems one may have to be installed through your package manager.
-
-Refer to your systems documentation on installing an up to date certificate bundle.
-
-##### Update RubyGems
-RubyGems ships with a set of certificates that lets Bundler download gems from RubyGems.org even without the certificate authority bundle. Overtime these certificates do expire so we recommend to keep RubyGems up to date.
-
-    $ gem update --system
-
-##### Manually installing the trust certificate
-
-If you’re unable to update RubyGems, you can manually add the certificate RubyGems needs. If you have a version of RubyGems new enough (version 2.1.x and above) that can use those “vendored” certificates—and you install the certificate successfully—it will work without upgrading the RubyGems version.
-
-Warning: These instructions will only add new certs; Ruby will be left untouched. To ensure your Ruby version can use TLSv1.2, run the snippet again. If not, follow a different set of instructions in this guide for upgrading Ruby as well.
-
+**Warning**: These instructions will only add new certs; Ruby will be left untouched. To ensure
+your Ruby version can use TLSv1.2, run the snippet again. If not, follow a different set of
+instructions in this guide for upgrading Ruby as well.
 
 **Step 1: Get the new trust certificate**
 
-Download the `.pem` file from this link: [GlobalSignRootCA.pem](https://raw.githubusercontent.com/rubygems/rubygems/master/lib/rubygems/ssl_certs/index.rubygems.org/GlobalSignRootCA.pem) 
+Download the `.pem` file from this link: [GlobalSignRootCA.pem](https://raw.githubusercontent.com/rubygems/rubygems/master/lib/rubygems/ssl_certs/index.rubygems.org/GlobalSignRootCA.pem)
 
-Then, find the downloaded file, and check to make sure the filename ends in `.pem`. (Some browsers will change the extension to `.txt`, which will prevent this from working. So it’s important to make sure the file you downloaded ends in a `.pem` extension.)
+Then, find the downloaded file, and check to make sure the filename ends in `.pem`.
+(*Note*: Some browsers will change the extension to `.txt`, which will prevent this from working.
+So it’s important to make sure the file you downloaded ends in a `.pem` extension.)
 
 **Step 2: Locate RubyGems certificate directory in your installation**
 
-Next, you’ll want to find the directory where you installed Ruby in order to add the .pem  file there.
+Next, you’ll want to find the directory where you installed Ruby in order to add the .pem file there.
 
-**On Windows**
+**On Windows**:
 
 Open your command line and type in:
 
-    C:\>gem which rubygems
+```C:\>gem which rubygems```
 
 You’ll see output like this:
 
-    C:/Ruby21/lib/ruby/2.1.0/rubygems.rb 
+```C:/Ruby21/lib/ruby/2.1.0/rubygems.rb```
 
-To  open a window showing the directory we need to find, enter the path part up to the file extension in the same window (but using backslashes instead). For example, based on the output above, you would run this command.
+To open a window showing the directory we need to find, enter the path part up to the file
+extension in the same window (but using backslashes instead). For example, based on the output
+above, you would run this command:
 
-    C:\>start C:\Ruby21\lib\ruby\2.1.0\rubygems
+```C:\>start C:\Ruby21\lib\ruby\2.1.0\rubygems```
 
-This will open an Explorer window, showing the directory RubyGems is installed into. .
+This will open an Explorer window, showing the directory RubyGems is installed into.
 
-**On macOS**
+**On macOS**:
 
 Open Terminal and run this command:
 
-    $ gem which rubygems
+```$ gem which rubygems```
 
 You’ll see output like this:
 
-    /opt/rubies/2.4.1/lib/ruby/2.4.0/rubygems.rb
+```/opt/rubies/2.4.1/lib/ruby/2.4.0/rubygems.rb```
 
-To open a window showing the directory we need to find, use the `open` command on that output without the “.rb” on the end, like this:
+To open a window showing the directory we need to find, use the `open` command on that output
+without the “.rb” on the end, like this:
 
-    $ open /opt/rubies/2.4.1/lib/ruby/2.4.0/rubygems
+```$ open /opt/rubies/2.4.1/lib/ruby/2.4.0/rubygems```
 
 A Finder window will open showing the directory that RubyGems is installed into.
 
 **Step 3: Copy new trust certificate**
 
-In the window, open the ssl_certs directory and drag your `.pem` file into it. It will be listed with other files like `AddTrustExternalCARoot.pem`.
+In the window, open the `ssl_certs` directory and drag your `.pem`
+file into it. It will be listed with other files like `AddTrustExternalCARoot.pem`.
 
-Once you’ve done this, it should be possible to follow the directions at the very top to automatically update RubyGems. Visit the Updating RubyGems section for step-by-step instructions. If that doesn’t work, keep following this guide.
+Once you’ve done this, it should be possible to follow the directions at the very top to
+automatically update RubyGems. Visit the [Update RubyGems][update-rubygems] section for
+step-by-step instructions. If that doesn’t work, keep following this guide.
 
-#### Reinstalling RVM
+#### Installing new OS certificates
+[update-os-certs]: #installing-new-os-certificates
 
-_Try this solution if updating SSL certificates with RVM doesn’t work._
-
-If Ruby which was installed with RVM can’t find the correct certificates even after they have been updated, you might be able to fix it by reinstalling RVM and then reinstalling your Ruby version.
-
-Run these commands to remove RVM and reinstall it:
-
-    $ rvm implode
-
-    $ \curl -sSL https://get.rvm.io | bash -s stable
-
-Then, reinstall Ruby while telling RVM that you don’t want to use precompiled binaries. (Unfortunately, this will take longer, but it will hopefully fix the SSL problem.) This command will install Ruby 2.2.3. Adjust the command to install the version(s) of Ruby that you need.
-
-    $ rvm install 2.2.3 --disable-binary
-
-**macOS: Reinstalling RVM with OpenSSL from Homebrew **
-
-This solution might work when the version of OpenSSL installed with Homebrew interferes with Ruby’s ability to find the correct certificates. Sometimes, uninstalling everything and starting again from scratch is enough to fix things.
+This solution might work when the version of OpenSSL installed with Homebrew interferes
+with Ruby’s ability to find the correct certificates. Sometimes, uninstalling everything and
+starting again from scratch is enough to fix things.
 
 First, you’ll want to remove RVM. You can do that by running this command:
 
-    $ rvm implode
+```$ rvm implode```
 
-Next, you’ll want to remove OpenSSL from Homebrew. (Using --force ensures that you remove all versions of OpenSSL you might have):
+Next, you’ll want to remove OpenSSL from Homebrew. (Using `--force` ensures that you remove all
+versions of OpenSSL you might have):
 
-    $ brew uninstall openssl --force
+```$ brew uninstall openssl --force```
 
-Now, you can reinstall RVM, following the instructions from the previous step. 
+Now, you can reinstall RVM, following the instructions from the previous step.
 
-**macOS: Updating SSL certs using RVM**
 
-This lets you to download a new CA bundle that can verify RubyGems.org, allowing Ruby to use that new bundle.
+### Reinstalling Ruby from version managers
+[installing-from-version-managers]: #installing-from-version-managers
 
-Run the following in your command line to update all of your SSL certs:
+#### Installed with `rvm`
+[installed-with-rvm]: #installed-with-rvm
 
-    $ rvm osx-ssl-certs update all
+**Note**: Try this solution if updating SSL certificates with RVM doesn’t work. If Ruby
+installed with RVM can’t find the correct certificates even after they have been updated,
+ you might be able to fix it by reinstalling RVM and then reinstalling your Ruby version.
 
----
+Run these commands to remove RVM and reinstall it:
 
-Hopefully, these troubleshooting steps were able to help you resolve your problems with installing gems. 
+```$ rvm implode
+   $ \curl -sSL https://get.rvm.io | bash -s stable
+```
 
-If you’re still having trouble, please visit the [Bundler issue tracker](https://github.com/rubygems/rubygems/issues) and [create a new issue](https://github.com/rubygems/rubygems/issues/new). Please include:
+Then, reinstall Ruby while telling RVM that you don’t want to use precompiled binaries.
+(Unfortunately, this will take longer, but it will hopefully fix the SSL problem.)
 
-1. The command(s) you are running
+This command will install Ruby 2.2.3. Adjust the command to install the version(s) of Ruby that you need:
 
-2. The output from that command
+```$ rvm install 2.2.3 --disable-binary```
 
-3. The output from running `gem env`
+#### Installed with `ruby-build` or `rbenv install`
+[installed-with-ruby-build]: #installed-with-ruby-build
 
-4. Which troubleshooting steps you have tried so far
+Follow the instructions outlined in the [Updating and Troubleshooting ruby-build guide](https://github.com/rbenv/ruby-build/wiki#updating-ruby-build) by rbenv.
 
+
+### Reinstalling Ruby from OS package managers
+[installing-from-package-managers]: #installing-from-package-managers
+
+#### macOS: Built-in Ruby
+[macos-built-in-ruby]: #macos-built-in-ruby
+
+macOS 10.13 High Sierra comes with default Ruby that is compatible with TLSv1.2.
+
+To check your current macOS version, go to the Apple menu and choose “About This Mac”.
+If you see anything other than “macOS High Sierra”, you will need to upgrade to the newest
+macOS (or else install a newer version of Ruby with Homebrew by following the next set of
+instructions after these).
+
+To upgrade to High Sierra:
+- 1. Open the App Store application
+- 2. Choose the “Updates” tab
+- 3. Click the “Install” button for “macOS High Sierra”
+
+#### macOS: Installed with Homebrew
+[installed-with-homebrew]: #installed-with-homebrew
+
+*Note*: To install a newer version of Ruby with Homebrew, first make sure Homebrew is installed.
+If the `brew` command is not present, follow the installation instructions at [https://brew.sh](https://brew.sh)
+and then come back to these steps.
+
+- 1. Run `brew update`
+- 2. Run `brew install ruby`
+- 3. If Ruby is already installed, run `brew upgrade ruby` to upgrade to the latest version.
+
+#### Debian or Ubuntu: Installed with `apt-get`
+[installed-with-apt-get]: #installed-with-apt-get
+
+**Note**: To remove Ruby with `apt`, you’ll need to check which versions of Ruby you have installed.
+`apt` installs Ruby v2.3.1.
+
+To uninstall, follow the [directions listed here](https://stackoverflow.com/a/22753859).
+(These instructions work for both Ubuntu and Debian.)
+
+Once you’ve successfully uninstalled Ruby, reinstall it by running:
+
+```$ sudo apt-get install ruby```
+
+#### Fedora: Installed with `dnf`
+[installed-with-dnf]: #installed-with-dnf
+
+**Note**: The newest versions of Fedora use `dnf` as its package manager, but older versions
+use `yum` instead. If you see the error message `dnf: command not found`, replace the `dnf`
+in these instructions with `yum`.
+
+First, uninstall Ruby by running:
+
+```$ dnf remove ruby```
+
+And then reinstall (this command will install Ruby 2.3):
+
+```$ dnf install ruby```
+
+#### RHEL or CentOS: Installed with `yum`
+[installed-with-yum]: #installed-with-yum
+
+Follow these directions for [upgrading Ruby on CentOS](http://ask.xmodulo.com/upgrade-ruby-centos.html).
+(They also include instructions for troubleshooting OpenSSL.)
+
+#### Windows: Installed with Ruby Installer
+[windows-ruby-installer]: #windows-ruby-installer
+
+From the Control Panel, find the Ruby installer in “Programs”. Click on the folder, and click
+again on “Uninstall Ruby”.
+Reinstall by downloading [Ruby and the Ruby DevKit](https://rubyinstaller.org/downloads/) at RubyInstaller.
+
+
+## Additional Help
+
+### Running another automated SSL check
+[another-automated-ssl-check]: #another-automated-ssl-check
+
+Rerun the automated [SSL check][ssl-check] to verify if the issue lies with an SSL issue
+or a TLS issue. If you've already followed the troubleshooting steps above and are still
+encountering an issue, go to the [creating an issue][creating-an-issue] section below for next steps.
+
+### Creating an issue
+[creating-an-issue]: #creating-an-issue
+
+If none of these instructions fixed the problem, the next step is to open an issue.
+
+(Create an issue in the [RubyGems issue tracker](https://github.com/rubygems/rubygems/issues)
+if your error came from `gem install`. If it came from `bundle install`, create an issue in
+the [Bundler issue tracker](https://github.com/bundler/bundler).)
+
+Please include:
+- The output from running `gem env`:
+- The output from running `bundle env`:
+- Output from running `ruby -ropenssl -e 'puts OpenSSL::OPENSSL_LIBRARY_VERSION'`:
+- Your Ruby version manager (if any):
+- Your OS and OS version:
+- Your package manager name and version (if applicable):
+
+### Contributing to this guide
+[contributing-to-guide]: #contributing-to-guide
+
+If you found a solution not listed here, submit a PR to add your solution to [this guide](https://github.com/bundler/bundler-site/blob/master/source/v1.16/guides/rubygems_tls_ssl_troubleshooting_guide.html.md)!

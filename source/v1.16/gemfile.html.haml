@@ -65,7 +65,7 @@
         If a gem's main file is different than the gem name, specify how to require it.
       :code
         # lang: ruby
-        gem 'rspec'
+        gem 'rack-cache', :require => 'rack/cache'
         gem 'sqlite3'
       .description
         Specify <code>:require => false</code> to prevent bundler from requiring the gem, but still install it and maintain dependencies.

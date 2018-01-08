@@ -13,12 +13,23 @@
         %p= t('home.bundler_info2')
 
       %p.text-center
-        = link_to t("home.whats_new"), '/whats_new.html', class: 'btn btn-primary btn-lg btn-responsive'
         = link_to t('home.what_can_bundler_do'), "./#{current_version}/#getting-started", class: 'btn btn-primary btn-lg btn-responsive'
+        = link_to "#{t("home.new_in")} #{current_version}", '/whats_new.html', class: 'btn btn-primary btn-lg btn-responsive'
         = link_to t('home.cli_docs'), './man/bundle-install.1.html', class: 'btn btn-primary btn-lg btn-responsive'
         = link_to t('home.chat_with_us'), 'http://slack.bundler.io', class: 'btn btn-primary btn-lg btn-responsive'
 
 .row.bg-light-blue
+  .container
+    .col-md-12
+      %h2
+        The latest news
+      %h3
+        - blog.articles[1..1].each do |article|
+          = article.date.to_date.strftime("%b %e, %Y")
+          = link_to article.title, article.url
+      %br
+
+.row.btn-margin-top
   .container
     .col-md-12
       %h2#getting-started
@@ -52,7 +63,7 @@
           %p.center-on-xs
             = link_to t('home.learn_more_bundle_install'), "./#{current_version}/man/bundle-install.1.html", class: 'btn btn-primary btn-lg pull-right btn-responsive'
 
-.row
+.row.bg-light-blue
   .container
     .col-md-12
       %h2#get-involved Get involved

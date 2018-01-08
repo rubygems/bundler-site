@@ -21,6 +21,17 @@
 .row.bg-light-blue
   .container
     .col-md-12
+      %h2
+        The latest news
+      %h3
+        - blog.articles[1..1].each do |article|
+          = article.date.to_date.strftime("%b %e, %Y")
+          = link_to article.title, article.url
+      %br
+
+.row.btn-margin-top
+  .container
+    .col-md-12
       %h2#getting-started
         %b= t('home.getting_started')
 
@@ -52,7 +63,7 @@
           %p.center-on-xs
             = link_to t('home.learn_more_bundle_install'), "./#{current_version}/man/bundle-install.1.html", class: 'btn btn-primary btn-lg pull-right btn-responsive'
 
-.row
+.row.bg-light-blue
   .container
     .col-md-12
       %h2#get-involved Get involved

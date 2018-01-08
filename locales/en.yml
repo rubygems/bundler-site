@@ -9,6 +9,7 @@ en:
       you need are present in development, staging, and production.
       Starting work on a project is as simple as <code>bundle install</code>.
     what_can_bundler_do: What Can Bundler Do?
+    new_in: New in
     cli_docs: CLI Docs
     chat_with_us: Chat With Us
     getting_started: Getting Started

@@ -1,6 +1,6 @@
 ---
 title: "Making gem development a little better"
-date: 2017-09-13 15:01 UTC
+date: 2018-01-17 15:01 UTC
 tags:
 author: Hiren Mistry
 author_url: http://github.com/hmistry
@@ -17,33 +17,20 @@ The change only applies to new gems created using Bundler by running `bundle gem
 
 We'd like to thank David for bringing this issue to our attention and implementing the changes to Bundler!
 
-### Recommended CI Flow
-There are two different CI flows gem authors can implement if they choose to check the `Gemfile.lock` into the Git repository:
+### CI recommendations
 
-#### 1. Delete the lock file
-Delete the `Gemfile.lock` file before the CI installs the dependencies using `bundle install`. This will test the build against the latest version of the gem dependencies but has the disadvantage of not testing the build against the locked versions of the dependencies. Add the following step in the CI script:
+There are (at least) two ways to ensure your gem is still tested against the latest versions of dependencies, even after your `Gemfile.lock` is checked in to your gem repo.
 
-Here's an example to configure TravisCI to delete `Gemfile` (`travis.yml`):
+#### Delete the lock when testing
+
+One option is to delete the lockfile before running your test suite. This will test the build against the latest version of the gem dependencies, giving you a preview of what your users will experience when they install your gem. The easiest way to do this is to add one line to your `travis.yml`:
 
 ~~~ ruby
-before_install: "rm ${BUNDLE_GEMFILE}.lock"
+before_install: "rm Gemfile.lock"
 ~~~
 
-#### 2. Or add a duplicate Gemfile
-Create a duplicate of the `Gemfile` and call it `Gemfile.no_lock` (can use any name). The advantage with this flow is both cases are covered. The `Gemfile` will have a lock file to use the locked versions of the dependencies. The `Gemfile.no_lock` will not have an associated lock file so it'll use the latest acceptable versions of the dependencies. Check all three files into the Git repo - `Gemfile`, `Gemfile.lock`, and `Gemfile.no_lock`. Next configure TravisCI to use a build matrix as shown in the example below:
+This will mean CI only runs with the latest dependencies, and so the results may not match what developers see on their local machines. You can try to work around that problem by running your tests twice, or setting up a Travis build matrix, to make sure you see test results both with and without a lock.
 
-Here's an example to configure TravisCI build matrix (`travis.yml`):
+#### Let a bot handle it
 
-~~~ yml
-sudo: false
-language: ruby
-
-# specify your ruby versions
-rvm:
-  - 2.4.2
-
-# tell TravisCI to run with Gemfile and then with Gemfile.no_lock
-gemfile:
-  - Gemfile
-  - Gemfile.no_lock
-~~~
+The easiest way to make sure new versions are tested with your gem is to ask a friendly bot to update your `Gemfile.lock` and open a PR anytime your dependencies release new versions. Friendly bot options include [Dependabot](https://dependabot.com) (by Bundler contributor [@greysteil](https://github.com/greysteil)), [Depfu](https://depfu.com), and others. Getting a separate PR for every version bump makes it easy to tell which gems and versions caused failures, if any. They also make it easy to update a version in your lock, secure in the knowledge that your tests have already passed with the new version.

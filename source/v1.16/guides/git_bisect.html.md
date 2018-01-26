@@ -1,5 +1,5 @@
 ---
-title: How to git bisect in projects using Bundler
+title: How to use git bisect with Bundler
 ---
 
 ## How to use git bisect

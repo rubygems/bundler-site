@@ -1,8 +1,8 @@
 ---
-title: RubyGems.org SSL Troubleshooting Guide
+title: How to troubleshoot RubyGems and Bundler TLS/SSL Issues
 ---
 
-# RubyGems.org SSL Troubleshooting Guide
+# How to troubleshoot RubyGems and Bundler TLS/SSL Issues
 
 If you’ve experienced issues related to SSL certificates and/or TLS versions, you’ve come
 to the right place. In this guide, we’ll explain how both of those issues come about and how

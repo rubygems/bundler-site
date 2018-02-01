@@ -1,8 +1,8 @@
 ---
-title: Developing a RubyGem using Bundler
+title: How to create a Ruby gem with Bundler
 ---
 
-# Developing a RubyGem using Bundler
+# How to create a Ruby gem with Bundler
 
 Bundler is a tool created by Carl Lerche, Yehuda Katz, André Arko and various superb contributors 
 for managing Rubygems dependencies in Ruby libraries. Bundler 1.0 was released around the same 

@@ -121,7 +121,7 @@ gem "nokogiri", ">= 1.4.2"
 
 Learn more about gems in Gemfile [here](/man/gemfile.5.html#GEMS).
 
-### More About Gemfile Syntax
+### Gemfile Syntax
 
 To learn more about Gemfile syntax click [here](/man/gemfile.5.html#SYNTAX).
 

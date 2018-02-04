@@ -13,7 +13,7 @@ To check Bundler version simply run `bundle -v`.
 1. [Editing Gemfile](#editing-gemfile)
     1. [Sources](#sources)
     1. [Adding Gems](#adding-gems)
-    1. [More About Gemfile Syntax](#more-about-gemfile-syntax)
+    1. [Gemfile Syntax](#gemfile-syntax)
 1. [Installing Gems - **bundle install**](#installing-gems---bundle-install)
     1. [Development](#development)
     1. [Deployment](#deployment)
@@ -121,9 +121,9 @@ gem "nokogiri", ">= 1.4.2"
 
 Learn more about gems in Gemfile [here](/man/gemfile.5.html#GEMS).
 
-### More About Gemfile Syntax
+### Gemfile Syntax
 
-To learn more about Gemfile's click [here](/man/gemfile.5.html).
+Learn more about Gemfile syntax from the [gemfile manpage](/man/gemfile.5.html#SYNTAX).
 
 ## Installing Gems - **bundle install**
 

@@ -123,7 +123,7 @@ Learn more about gems in Gemfile [here](/man/gemfile.5.html#GEMS).
 
 ### Gemfile Syntax
 
-To learn more about Gemfile syntax click [here](/man/gemfile.5.html#SYNTAX).
+Learn more about Gemfile syntax from the [gemfile manpage](/man/gemfile.5.html#SYNTAX).
 
 ## Installing Gems - **bundle install**
 

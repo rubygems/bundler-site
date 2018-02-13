@@ -155,15 +155,21 @@ title: Frequently Asked Questions
 
         :code
           $ bundle install --local
+
         %h3
           Bundling From RubyGems is Really Slow
 
         %p
-          <strong>Q</strong>: When I bundle from rubygems it is really slow. Is there anything I can do to make it faster?
+          <strong>Q</strong>: When I bundle from RubyGems.org, it is really slow. Is there anything I can do
+          to make it faster?
 
         %p
-          <strong>A</strong>: Add the --full-index flag when bundling from the rubygems server. This downloads
-          the index all at once instead of making numerous small requests to the api.
+          <strong>A</strong>: First, update to the latest version of Bundler by running `gem install bundler`.
+          We have added many, many improvements that make installing gems faster over the years.
+
+          If you have an extremely high-latency connection, you might also see an improvement by using the
+          `--full-index` flag. This downloads gem information all at once, instead of making many small HTTP
+          requests.
 
         :code
           $ bundle install --full-index

@@ -11,7 +11,7 @@ Begin by cloning the repository onto your location machine:
 
     git clone https://github.com/bundler/bundler-site.git
 
-Once complete repare the dependencies by running:
+Once complete prepare the dependencies by running:
 
     bundle install
 

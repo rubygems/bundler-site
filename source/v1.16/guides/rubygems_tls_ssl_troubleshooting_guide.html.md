@@ -27,6 +27,7 @@ possible, you can jump straight to [solutions for SSL issues][solutions-for-ssl-
     - [Automated SSL check][ssl-check]
     - [Updating Bundler][update-bundler]
     - [Updating RubyGems][update-rubygems]
+    - [Updating Time in Vagrant][update-vagrant]
     - [Updating CA certificates][updating-ca-certificates]
       - [Installing new RubyGems certificates][update-rubygems-certs]
       - [Installing new OS certificates][update-os-certs]
@@ -215,6 +216,10 @@ directory with RubyGems):
 
 Running `gem --version` should display the updated version.
 
+### Updating Time in Vagrant
+[update-vagrant]: #update-vagrant
+
+If the RubyGems certificate is newer than the time set inside of your Vagrant machine, you might have to set the correct time in Vagrant to resolve the error.
 
 ### Updating CA certificates
 [updating-ca-certificates]: #updating-ca-certificates

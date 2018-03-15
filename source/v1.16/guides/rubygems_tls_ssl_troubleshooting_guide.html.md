@@ -187,14 +187,14 @@ The instructions in this guide can help you troubleshoot both problems.
 
 
 ### Updating Bundler
-[update-bundler]: #update-bundler
+[update-bundler]: #updating-bundler
 
 Update to the latest version of Bundler by running:
 
 ```gem install bundler```
 
 ### Updating RubyGems
-[update-rubygems]: #update-rubygems
+[update-rubygems]: #updating-rubygems
 
 To upgrade to RubyGems version 2.6.x, download the latest RubyGems in a directory that you can
 later point to. (Examples include your home directory, `~`, or the root of your hard drive: `C:\ `.)
@@ -217,7 +217,7 @@ directory with RubyGems):
 Running `gem --version` should display the updated version.
 
 ### Updating Time in Vagrant
-[update-vagrant]: #update-vagrant
+[update-vagrant]: #updating-time-in-vagrant
 
 If the RubyGems certificate is newer than the time set inside of your Vagrant machine, you might have to set the correct time in Vagrant to resolve the error.
 
@@ -312,7 +312,7 @@ Now, you can reinstall RVM, following the instructions from the previous step.
 
 
 ### Reinstalling Ruby from version managers
-[installing-from-version-managers]: #installing-from-version-managers
+[installing-from-version-managers]: #reinstalling-ruby-from-version-managers
 
 #### Installed with `rvm`
 [installed-with-rvm]: #installed-with-rvm
@@ -335,13 +335,13 @@ This command will install Ruby 2.2.3. Adjust the command to install the version(
 ```$ rvm install 2.2.3 --disable-binary```
 
 #### Installed with `ruby-build` or `rbenv install`
-[installed-with-ruby-build]: #installed-with-ruby-build
+[installed-with-ruby-build]: #installed-with-ruby-build-or-rbenv-install
 
 Follow the instructions outlined in the [Updating and Troubleshooting ruby-build guide](https://github.com/rbenv/ruby-build/wiki#updating-ruby-build) by rbenv.
 
 
 ### Reinstalling Ruby from OS package managers
-[installing-from-package-managers]: #installing-from-package-managers
+[installing-from-package-managers]: #reinstalling-ruby-from-os-package-managers
 
 #### macOS: Built-in Ruby
 [macos-built-in-ruby]: #macos-built-in-ruby
@@ -359,7 +359,7 @@ To upgrade to High Sierra:
 - 3. Click the “Install” button for “macOS High Sierra”
 
 #### macOS: Installed with Homebrew
-[installed-with-homebrew]: #installed-with-homebrew
+[installed-with-homebrew]: #macos-installed-with-homebrew
 
 *Note*: To install a newer version of Ruby with Homebrew, first make sure Homebrew is installed.
 If the `brew` command is not present, follow the installation instructions at [https://brew.sh](https://brew.sh)
@@ -370,7 +370,7 @@ and then come back to these steps.
 - 3. If Ruby is already installed, run `brew upgrade ruby` to upgrade to the latest version.
 
 #### Debian or Ubuntu: Installed with `apt-get`
-[installed-with-apt-get]: #installed-with-apt-get
+[installed-with-apt-get]: #debian-or-ubuntu-installed-with-apt-get
 
 **Note**: To remove Ruby with `apt`, you’ll need to check which versions of Ruby you have installed.
 `apt` installs Ruby v2.3.1.
@@ -383,7 +383,7 @@ Once you’ve successfully uninstalled Ruby, reinstall it by running:
 ```$ sudo apt-get install ruby```
 
 #### Fedora: Installed with `dnf`
-[installed-with-dnf]: #installed-with-dnf
+[installed-with-dnf]: #fedora-installed-with-dnf
 
 **Note**: The newest versions of Fedora use `dnf` as its package manager, but older versions
 use `yum` instead. If you see the error message `dnf: command not found`, replace the `dnf`
@@ -398,13 +398,13 @@ And then reinstall (this command will install Ruby 2.3):
 ```$ dnf install ruby```
 
 #### RHEL or CentOS: Installed with `yum`
-[installed-with-yum]: #installed-with-yum
+[installed-with-yum]: #rhel-or-centos-installed-with-yum
 
 Follow these directions for [upgrading Ruby on CentOS](http://ask.xmodulo.com/upgrade-ruby-centos.html).
 (They also include instructions for troubleshooting OpenSSL.)
 
 #### Windows: Installed with Ruby Installer
-[windows-ruby-installer]: #windows-ruby-installer
+[windows-ruby-installer]: #windows-installed-with-ruby-installer
 
 From the Control Panel, find the Ruby installer in “Programs”. Click on the folder, and click
 again on “Uninstall Ruby”.
@@ -414,7 +414,7 @@ Reinstall by downloading [Ruby and the Ruby DevKit](https://rubyinstaller.org/do
 ## Additional Help
 
 ### Running another automated SSL check
-[another-automated-ssl-check]: #another-automated-ssl-check
+[another-automated-ssl-check]: #running-another-automated-ssl-check
 
 Rerun the automated [SSL check][ssl-check] to verify if the issue lies with an SSL issue
 or a TLS issue. If you've already followed the troubleshooting steps above and are still
@@ -438,6 +438,6 @@ Please include:
 - Your package manager name and version (if applicable):
 
 ### Contributing to this guide
-[contributing-to-guide]: #contributing-to-guide
+[contributing-to-guide]: #contributing-to-this-guide
 
 If you found a solution not listed here, submit a PR to add your solution to [this guide](https://github.com/bundler/bundler-site/blob/master/source/v1.16/guides/rubygems_tls_ssl_troubleshooting_guide.html.md)!

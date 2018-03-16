@@ -219,7 +219,7 @@ Running `gem --version` should display the updated version.
 ### Updating System Clock
 [update-system-clock]: #updating-system-clock
 
-If your system clock is set to a time in the past or future, your machine will not be able to establish a secure connection to RubyGems.org. To resolve the issue, you will need to set your system clock to the current time. In a Linux VM, you can update the system clock by running `sudo ntpdate ntp.ubuntu.com`. 
+If your system clock is set to a time in the past or future, your machine will not be able to establish a secure connection to RubyGems.org. To resolve the issue, you will need to set your system clock to the current time. In Linux, you can update the system clock by running `sudo ntpdate ntp.ubuntu.com`. 
 
 Here are other possible solutions for updating a system clock:
 

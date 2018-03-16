@@ -27,7 +27,7 @@ possible, you can jump straight to [solutions for SSL issues][solutions-for-ssl-
     - [Automated SSL check][ssl-check]
     - [Updating Bundler][update-bundler]
     - [Updating RubyGems][update-rubygems]
-    - [Updating Time in Vagrant][update-vagrant]
+    - [Updating System Clock][update-system-clock]
     - [Updating CA certificates][updating-ca-certificates]
       - [Installing new RubyGems certificates][update-rubygems-certs]
       - [Installing new OS certificates][update-os-certs]
@@ -216,10 +216,12 @@ directory with RubyGems):
 
 Running `gem --version` should display the updated version.
 
-### Updating Time in Vagrant
-[update-vagrant]: #updating-time-in-vagrant
+### Updating System Clock
+[update-system-clock]: #updating-system-clock
 
-If the RubyGems certificate is newer than the time set inside of your Vagrant machine, you might have to set the correct time in Vagrant to resolve the error.
+f your system clock is set to a time in the past or future, your machine will not be able to establish a secure connection to RubyGems.org. To resolve the issue, you will need to set your system clock to the current time.
+
+This issue most commonly shows up using Vagrant to run virtual machines on macOS. In a Linux VM, you can update the system clock by running sudo ntpdate ntp.ubuntu.com. For a more permanent fix, [check out this Stack Overflow answer about automating Vagrant clock updates](https://stackoverflow.com/questions/33939834/how-to-correct-system-clock-in-vagrant-automatically).
 
 ### Updating CA certificates
 [updating-ca-certificates]: #updating-ca-certificates

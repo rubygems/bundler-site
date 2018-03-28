@@ -174,7 +174,7 @@ check whether your errors result from the SSL certs issue or the TLS versions is
 
 You can run the script immediately with this command:
 
-```$ curl -sL https://git.io/vQhWq | ruby```
+```$ ruby -ropen-uri -e 'eval open("https://git.io/vQhWq").read'```
 
 If the output reads “Your Ruby can't connect to rubygems.org because you are missing the
 certificate” you have a certificate verification error, and need to update your certs.
@@ -196,25 +196,19 @@ Update to the latest version of Bundler by running:
 ### Updating RubyGems
 [update-rubygems]: #updating-rubygems
 
-To upgrade to RubyGems version 2.6.x, download the latest RubyGems in a directory that you can
-later point to. (Examples include your home directory, `~`, or the root of your hard drive: `C:\ `.)
+You might be able to upgrade RubyGems using the self-update command:
 
-Once you’ve downloaded RubyGems, run the following commands (substituting `C:\` for the
-directory with RubyGems):
+```gem update --system```
 
-**On Windows**:
-```
-  C:\>gem install --local C:\rubygems-update-2.6.10.gem
-  C:\>update_rubygems
-```
+If that command fails, you can try downloading the latest RubyGems yourself and installing it, using these steps. In this example, we will be downloading and installing RubyGems 2.7.6. If the latest version of RubyGems has changed by the time you are reading this, you will need to change anyplace you see `2.7.6` to the version of RubyGems that you have downloaded.
 
-**On Linux or macOS**:
-```
-  $ gem install --local rubygems-update-2.6.10.gem
-  $ update_rubygems
-```
+1. Using your web browser, head to the [Download RubyGems](https://rubygems.org/pages/download) page, and download the gem version of the latest rubygems.
+2. Once you've downloaded the gem, open Terminal.app on macOS, or Command Prompt with Ruby on Windows.
+3. Change directories to your Downloads folder. On macOS, the command would be `cd ~/Downloads`. On Windows, it would be `cd C:\Users\%USERNAME%\Downloads`.
+4. Install the downloaded RubyGems upgrade gem by running `gem install --local rubygems-update-2.7.6.gem`.
+5. Run the upgrade command `update_rubygems`.
 
-Running `gem --version` should display the updated version.
+You're done! Run `gem --version` to verify that you are using the latest version of RubyGems.
 
 ### Updating System Clock
 [update-system-clock]: #updating-system-clock

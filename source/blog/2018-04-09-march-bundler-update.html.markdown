@@ -1,6 +1,6 @@
 ---
 title: "March 2018 Bundler Update"
-date: 2018-04-07 15:01 UTC
+date: 2018-04-09 15:01 UTC
 tags:
 author: Stephanie Morillo
 author_url: http://www.stephaniemorillo.co
@@ -12,4 +12,4 @@ Bundler saw a variety of bug fixes in March thanks to our contributors, includin
 
 Coming up next, we expect to ship bug fixes, push out a small feature release, and begin public testing on Bundler 2.0. In total, Bundler gained 60 new commits, contributed by 13 authors. There were 353 additions and 97 deletions across 47 files.
 
-Interested in contributing to Bundler? We always welcome contributions in the forms of triaging bugs, adding new features, writing docs, and engaging with the wider community. Visit the [Bundler Contributor Guidelines](https://github.com/bundler/bundler/blob/master/doc/contributing/README.md) on GitHub to get started.
+Interested in contributing to Bundler? We always welcome contributions in the forms of triaging bugs, adding new features, writing docs, and engaging with the wider community. Visit the [Bundler Contributor Guidelines](https://github.com/bundler/bundler/blob/master/doc/contributing/README.md) on GitHub to get started. Don't have time to contribute, but want to support our work? Sign up as a member of [Ruby Together](https://rubytogether.org) to help fund our work to keep Bundler working for everyone.

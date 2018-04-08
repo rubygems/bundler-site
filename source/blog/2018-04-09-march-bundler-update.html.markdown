@@ -1,6 +1,6 @@
 ---
 title: "March 2018 Bundler Update"
-date: 2018-04-07 15:01 UTC
+date: 2018-04-09 15:01 UTC
 tags:
 author: Stephanie Morillo
 author_url: http://www.stephaniemorillo.co

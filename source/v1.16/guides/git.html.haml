@@ -33,6 +33,14 @@ title: How to install gems from git repositories
         gem 'nokogiri', '1.7.0.1', :git => 'https://github.com/sparklemotion/nokogiri'
     .bullet
       .description
+        If the gem is located within a subdirectory of
+        a git repository, you can use the <code>:glob</code> option
+        to specify the location of its .gemspec
+      :code
+        # lang: ruby
+        gem 'cf-copilot', :git => 'https://github.com/cloudfoundry/copilot', :glob => 'sdk/ruby/*.gemspec'
+    .bullet
+      .description
         Specify that a git repository containing
         multiple .gemspec files should be treated
         as a gem source

@@ -1,6 +1,13 @@
 - v = current_page.url.scan(/v\d\.\d+/).first || current_version
 
 ~ wrap_layout :base do
+  - content_for :tail do
+    .row.bg-light-blue
+      .container
+        .contents
+          .edit-on-github.text-center
+            = link_to_editable_version
+
   .row.bg-light-blue.header
     = image_tag '/images/docs_header_transparent_bg.png',
       srcset: '/images/docs_header_transparent_bg.png 1x, /images/docs_header_transparent_bg@2x.png 2x, /images/docs_header_transparent_bg@3x.png 3x',
@@ -26,3 +33,8 @@
     $(document).ready(function() {
       anchors.add();
     });
+
+:css
+  .main-wrapper {
+    padding-bottom: 0;
+  }

@@ -14,7 +14,7 @@ title: How to write a Bundler plugin
       .description
         Bundler plugins are specialized gems that are aimed at integrating and extending Bundler's functionality.
 
-        This guide aims to be a getting started guide about writing these plugins.
+        This guide will help you start writing your own Bundler plugins.
 
   %h2#why-would-i-use-a-plugin
     Why would I use a plugin?
@@ -47,23 +47,23 @@ title: How to write a Bundler plugin
 
 
   %h2#using-a-plugin
-    Using a Plugin
+    Using a plugin
 
   .contents
     .bullet
       .description
 
       %h4#install_from_command
-        Install a Plugin from a command
+        Install a plugin from a command
 
       %p
-        Plugins can be install from RubyGems (default) or from a Git server. To use a gem on your machine, you can run <code>bundler plugin install <gem_name></code>. Once the plugin is installed, the commands will be available for use and the hooks will be automatically registered with Bundler.
+        Plugins can be installed from RubyGems (default) or from a Git server. To use a gem on your machine, you can run <code>bundler plugin install <gem_name></code>. Once the plugin is installed, the commands will be available for use and the hooks will be automatically registered with Bundler.
 
       %p
         Run <code>bundler plugin help install</code> for more details help and instructions on installing from Git.
 
       %h4#install_from_command
-        Install a Plugin from your Gemfile
+        Install a plugin from your Gemfile
 
       %p
         You can also specify a plugin in your Gemfile
@@ -79,18 +79,22 @@ title: How to write a Bundler plugin
   .contents
     .bullet
       .description
-      To make a Bundler plugin, you need to create a specialized gem. Follow these steps to build the base gem:
 
       %h3#create-a-gem
-        1. Create a Gem
-
-      = link_to 'Create a gem using this guide', './guides/creating_gem.html'
-      
-      %h3#plugins_rb
-        2. plugins.rb
+        1. Create a gem
 
       %p
-        A <code>plugins.rb</code> file is located at the top level of your gem and is the entrypoint Bundler will use to call your plugin. This is a Ruby file that defines your commands, hooks, and other code. Often, you may just require the gem's upper-most lib file.
+        You'll first need to create a specialized gem before you can make a Bundler plugin.
+
+      %p
+        = link_to 'Create a gem using this guide.', './guides/creating_gem.html'
+        When you're done, come back to this guide and move onto step two.
+      
+      %h3#plugins_rb
+        2. Create a plugins.rb file
+
+      %p
+        A <code>plugins.rb</code> file is located at the top level of your gem's folder and is the entry point Bundler will use to call your plugin. This is a Ruby file that defines your commands, hooks, and other code. Often, you may just require the gem's upper-most lib file.
 
       %p
         For example, if your gem is called "my_plugin", you might have a file at <code>lib/my_plugin.rb</code> which contains the highest level namespace for your gem. Your <code>plugins.rb</code> file might be:
@@ -101,7 +105,7 @@ title: How to write a Bundler plugin
       %p
         The <code>lib/my_plugin.rb</code> file would include other require statements, hooks, and commands similar to a normal gem.
       %h3#developing_your_plugin_commands
-        3. Developing your Plugin: Making Bundler Commands
+        3. Making Bundler commands
 
       %p
         Bundler commands allow you to extend the Bundler interface with additional functionality.
@@ -136,7 +140,7 @@ title: How to write a Bundler plugin
           end
         end
       %p
-        There are two important parts for a command to be registered to Bundler:
+        These two parts are important in order for a command to be registered in Bundler:
 
       %ol
         %li
@@ -145,13 +149,13 @@ title: How to write a Bundler plugin
           The class defines the instance method <code>exec(command_name, args)</code>
 
       %h3#developing_your_plugin_hooks
-        4. Developing your Plugin: Using Bundler Hooks
+        4. Using Bundler hooks
 
       %p
         To interface with various parts of Bundler, you can use a hook. Hooks will let you inject some functionality at specific events by registering to listen for specific things to happen. To listen to an event, you need to add a hook for it and provide a block.
 
       %p
-        For example, for a <code>before-install-all</code> hook you must give a block that has an argument for an Array of <code>Bundler::Dependency</code> objects
+        For example, for a <code>Bundler::Plugin::Events::GEM_BEFORE_INSTALL_ALL</code> hook you must give a block that has an argument for an Array of <code>Bundler::Dependency</code> objects:
 
       :code
         # lang: ruby
@@ -159,7 +163,7 @@ title: How to write a Bundler plugin
           # Do something with the dependencies
         end
       %h3#developing_your_plugin_sources
-        4. Developing your Plugin: Developing a Source Plugin
+        5. Developing a source plugin
 
       %p
         A source plugin allows you to specify more possible installation sources to use within Bundler. For example, let's say you want to install gems from Amazon S3. This can be done by building a plugin.
@@ -188,16 +192,16 @@ title: How to write a Bundler plugin
           = link_to 'path source', 'https://github.com/bundler/bundler/blob/master/lib/bundler/source/path.rb'
 
       %h3#running_your_plugin_locally
-        5. Running your plugin locally
+        6. Running your plugin locally
 
       %p
         To install and run your plugin locally, you can run <code>bundler plugin install copycat --source file://PATH_TO_GEM</code>
 
       %h3#deploying_your_plugin
-        6. Deploying your plugin
+        7. Deploying your plugin
 
       %p
-        Plugins are recommended to be installed from RubyGems. For instructions on how to deploy to RubyGems, visit
+        It's recommended that plugins get deployed RubyGems in order for others to install them. For instructions on deploying to RubyGems, visit
 
         = link_to 'this guide.', './guides/creating_gem.html#releasing-the-gem'
 

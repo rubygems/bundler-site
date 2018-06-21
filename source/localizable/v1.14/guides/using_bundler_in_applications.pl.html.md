@@ -28,9 +28,9 @@ Aby sprawdzić, którą wersję Bundler-a posiadasz, uruchom `bundler -v`.
 Bundler zostanie automatycznie zainicjalizowany**
 
 Po pierwsze, musimy zainstalować Bundler-a.
- 
+
     $ gem install bundler
-    
+
 Powyższa komenda zaktualizuje Bundler-a, jeśli był wcześniej zainstalowany. Powinniśmy dostać coś takiego, jako wynik:
 
 ~~~ bash
@@ -43,7 +43,7 @@ Aby zainicjalizować Bundler-a ręcznie, wpiszmy poniższe komendy (`bundler_exa
 
     $ mkdir bundler_example && cd bundler_example
     $ bundle init
-    
+
 Plik `Gemfile` powinien zostać automatycznie stworzony:
 
 ~~~ ruby
@@ -82,7 +82,7 @@ Gem-y te będą uzyskiwane z dwóch różnych źródeł.
 
 ***
 
-Czytaj więcej o `source` [tu](/man/gemfile.5.html#GLOBAL-SOURCES). 
+Czytaj więcej o `source` [tu](/man/gemfile.5.html#GLOBAL-SOURCES).
 
 ### Dodawanie gem-ów
 
@@ -110,7 +110,7 @@ gem "rails", "3.0.0"
 lub użyć poniższej składni:
 
 ~~~ ruby
-gem "rails", "~> 4.0.0" # to jest to samo, co gem "rails", ">= 4.0.0", "< 4.1.0" 
+gem "rails", "~> 4.0.0" # to jest to samo, co gem "rails", ">= 4.0.0", "< 4.1.0"
 gem "nokogiri", ">= 1.4.2"
 ~~~
 
@@ -151,13 +151,13 @@ Stworzy to także [plik `Gemfile.lock`](/man/bundle-install.1.html#THE-GEMFILE-L
           mini_portile2 (~> 2.1.0)
           pkg-config (~> 1.1.7)
         pkg-config (1.1.7)
-    
+
     PLATFORMS
       ruby
-    
+
     DEPENDENCIES
       nokogiri (>= 1.4.0)
-    
+
     BUNDLED WITH
        1.12.5
 
@@ -169,7 +169,7 @@ Dla deployment-u powinniśmy użyć
 [opcji `--deployment`](/man/bundle-install.1.html#DEPLOYMENT-MODE):
 
     $ bundle install --deployment
-    
+
 Zainstaluje nam to wszystkie zależności do folderu `./vendor/bundle`.
 
 Jednakże, by uruchomić tą komendę, są pewne wymagania:
@@ -192,7 +192,7 @@ lub/i zmodyfikować jego wersję w `Gemfile`-u.
 Ten plik jest tworzony/aktualizowany automatycznie, kiedy uruchamiasz niektóre komendy Bundler-a
 (np. `bundle install` lub `bundle update`) i powinno się go dodać do systemu kontroli wersji.
 
-Użyjemy `Gemfile.lock`-a z poprzedniego rozdziału jako przykład. 
+Użyjemy `Gemfile.lock`-a z poprzedniego rozdziału jako przykład.
 
     GEM
       remote: https://rubygems.org/
@@ -202,13 +202,13 @@ Użyjemy `Gemfile.lock`-a z poprzedniego rozdziału jako przykład.
           mini_portile2 (~> 2.1.0)
           pkg-config (~> 1.1.7)
         pkg-config (1.1.7)
-    
+
     PLATFORMS
       ruby
-    
+
     DEPENDENCIES
       nokogiri (>= 1.4.0)
-    
+
     BUNDLED WITH
        1.12.5
 
@@ -216,7 +216,7 @@ Prześledźmy jego ważniejsze elementy:
 
 * `GEM`
   * `remote` - źródło gem-ów
-  * `specs` - zainstalowany gem-y (z wersją). Widzimy tu, że przykładowo `mini_portile2` jest 
+  * `specs` - zainstalowany gem-y (z wersją). Widzimy tu, że przykładowo `mini_portile2` jest
   zależnością `nokogiri`, ponieważ jest poniżej i ma wcięcie.
 * `PLATFORMS` - platforma, która została użyta w aplikacji ([zobacz więcej](/man/gemfile.5.html#PLATFORMS)).
 * `DEPENDENCIES` - gem-y zdefiniowane w `Gemfile`-u.
@@ -227,10 +227,10 @@ Prześledźmy jego ważniejsze elementy:
 Popatrzmy najpierw na przykład:
 
     $ bundle exec rspec
-    
+
     $ bundle exec rails s
 
-Dzięki temu, komenda (w tym przypadku `rspec` i `rails s`) zostanie uruchomiona w aktualnym kontekście bundle-a, 
+Dzięki temu, komenda (w tym przypadku `rspec` i `rails s`) zostanie uruchomiona w aktualnym kontekście bundle-a,
 pozwalając dołączać i używać wszystkich gem-ów zdefiniowanych w `Gemfile`-u.
 
 ***
@@ -246,7 +246,7 @@ Now let's update some gems. With `bundle outdated` we can list installed gems wi
     Fetching version metadata from https://rubygems.org/
     Fetching dependency metadata from https://rubygems.org/
     Resolving dependencies.......
-    
+
     Outdated gems included in the bundle:
       * nokogiri (newest 1.6.8, installed 1.6.7.2) in group "default"
 
@@ -264,11 +264,11 @@ We must use `bundle update`.
     Resolving dependencies.....
     Installing nokogiri 1.6.8 (was 1.6.7.2) with native extensions
     Using i18n 0.7.0
-    
+
     ... (and more)
-    
+
     Bundle updated!
-    
+
 Using `bundle update` without any argument will try to update every gem to newest available version
 (restrained by `Gemfile`).
 
@@ -301,9 +301,9 @@ $ bundle install
 ~~~
 $ git add Gemfile.lock
 ~~~
- 
+
 * When checking out this repository on another development machine, run
- 
+
 ~~~
 $ bundle install
 ~~~

@@ -33,4 +33,4 @@ We added a bunch of other small tweaks, features, and bugfixes, so be sure to ch
 
 ## Updating
 
-To get the newest version of Bundler, run `gem install bundler`. If you have any issues, please check out our [issues guide](https://github.com/bundler/bundler/blob/master/ISSUES.md) and let us know!
+To get the newest version of Bundler, run `gem install bundler`. If you have any issues, please check out our [issues guide](https://github.com/bundler/bundler/blob/master/doc/contributing/ISSUES.md) and let us know!

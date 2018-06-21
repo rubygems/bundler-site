@@ -75,7 +75,7 @@ gem 'sqlite3'
 In order to require gems in your <code>Gemfile</code>, you will need to call
 <code>Bundler.require</code> in your application.
 
-<a href="/groups.html" class="btn btn-primary">Learn More: Bundler.require</a>
+<a href="./groups.html" class="btn btn-primary">Learn More: Bundler.require</a>
 
 If some of your gems need to be fetched from a private gem server, this default source can be overridden for those gems.
 
@@ -110,7 +110,7 @@ will create a simple one, without any dependencies, executables or C extensions.
 This may work for simple gems, but not work for others. If there is no .gemspec,
 you probably shouldn't use the gem from git.
 
-<a href="/git.html" class="btn btn-primary">Learn More: Git</a>
+<a href="./git.html" class="btn btn-primary">Learn More: Git</a>
 
 If you would like to use an unpacked gem directly from the filesystem, simply set the <code>:path</code> option to the path containing the gem's files.
 
@@ -138,7 +138,7 @@ group :test do
 end
 ~~~
 
-<a href="/groups.html" class="btn btn-primary">Learn More: Groups</a>
+<a href="./groups.html" class="btn btn-primary">Learn More: Groups</a>
 
 You can specify the required version of Ruby in the <code>Gemfile</code> with <code>ruby</code>. If the <code>Gemfile</code> is loaded on a different Ruby version, Bundler will raise an exception with an explanation.
 
@@ -152,4 +152,4 @@ What this means is that this app has a dependency to a Ruby VM that is ABI compa
 ruby '1.9.3', :engine => 'jruby', :engine_version => '1.6.7'
 ~~~
 
-<a href="/gemfile_ruby.html" class="btn btn-primary">Learn More: Ruby Directive</a>
+<a href="./gemfile_ruby.html" class="btn btn-primary">Learn More: Ruby Directive</a>

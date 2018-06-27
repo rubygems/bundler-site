@@ -74,15 +74,15 @@
       .notes
         Further <code>bundle</code> commands or calls to <code>Bundler.setup</code> or
         <code>Bundler.require</code> will remember this location.
-      = link_to 'Learn More: Bundler.setup', './bundler_setup.html'
-      = link_to 'Learn More: Bundler.require', './groups.html'
+      = link_to 'Learn More: Bundler.setup', './guides/bundler_setup.html'
+      = link_to 'Learn More: Bundler.require', './guides/groups.html'
 
   .bullet#without
     .description
       Install all dependencies except those in groups that are explicitly excluded.
     :code
       $ bundle install --without development test
-    = link_to 'Learn More: Groups', './groups.html'
+    = link_to 'Learn More: Groups', './guides/groups.html'
 
   .bullet#deployment
     .description
@@ -107,7 +107,7 @@
           If <code>bundle package</code> was run, do not fetch gems
           from rubygems.org. Instead, only use gems in the checked
           in <code>vendor/cache</code>
-    = link_to 'Learn More: Deploying', './deploying.html'
+    = link_to 'Learn More: Deploying', './guides/deploying.html'
 
   .bullet#jobs
     .description

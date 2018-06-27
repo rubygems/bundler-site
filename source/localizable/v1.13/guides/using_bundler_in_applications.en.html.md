@@ -23,16 +23,16 @@ To check Bundler version simply run `bundle -v`.
 1. [Recommended Workflow](#recommended-workflow)
 1. [Troubleshooting](#troubleshooting)
     1. [Running `git bisect` in projects using Bundler](#running-git-bisect-in-projects-using-bundler)
-    
+
 ## Getting Started - Installing Bundler and **bundle init**
 
 **Some of the frameworks have builtin support for Bundler, e.g. when you run `rails new app` it
 will automatically init Bundler.**
 
 Firstly, we need to install Bundler.
- 
+
     $ gem install bundler
-    
+
 This command will also update already installed bundler. You should get something similar as output:
 
 ~~~ bash
@@ -45,7 +45,7 @@ To init Bundler manually, let's do this (`bundler_example` will be folder with o
 
     $ mkdir bundler_example && cd bundler_example
     $ bundle init
-    
+
 This will create `Gemfile` inside `bundler_example` folder:
 
 ~~~ ruby
@@ -84,7 +84,7 @@ Gems inside block will be retrieved from given source.
 
 ***
 
-Learn more about `source` [here](/man/gemfile.5.html#GLOBAL-SOURCES). 
+Learn more about `source` [here](/man/gemfile.5.html#GLOBAL-SOURCES).
 
 ### Adding Gems
 
@@ -113,7 +113,7 @@ gem "rails", "3.0.0"
 or use this syntax:
 
 ~~~ ruby
-gem "rails", "~> 4.0.0" # which is same as gem "rails", ">= 4.0.0", "< 4.1.0" 
+gem "rails", "~> 4.0.0" # which is same as gem "rails", ">= 4.0.0", "< 4.1.0"
 gem "nokogiri", ">= 1.4.2"
 ~~~
 
@@ -154,13 +154,13 @@ It should also create [`Gemfile.lock` file](/man/bundle-install.1.html#THE-GEMFI
           mini_portile2 (~> 2.1.0)
           pkg-config (~> 1.1.7)
         pkg-config (1.1.7)
-    
+
     PLATFORMS
       ruby
-    
+
     DEPENDENCIES
       nokogiri (>= 1.4.0)
-    
+
     BUNDLED WITH
        1.12.5
 
@@ -172,7 +172,7 @@ For deployment you should use
 [`--deployment` option](/man/bundle-install.1.html#DEPLOYMENT-MODE):
 
     $ bundle install --deployment
-    
+
 This will install all dependencies to `./vendor/bundle`.
 
 To run this command, there are some requirements:
@@ -195,7 +195,7 @@ or/and modify its version in `Gemfile`.
 This file is created/updated automatically when you use some of Bundler's commands
 (e.g. `bundle install` or `bundle update`) and you should check it into version control.
 
-We will use Gemfile.lock from previous chapter as an example. 
+We will use Gemfile.lock from previous chapter as an example.
 
     GEM
       remote: https://rubygems.org/
@@ -205,17 +205,17 @@ We will use Gemfile.lock from previous chapter as an example.
           mini_portile2 (~> 2.1.0)
           pkg-config (~> 1.1.7)
         pkg-config (1.1.7)
-    
+
     PLATFORMS
       ruby
-    
+
     DEPENDENCIES
       nokogiri (>= 1.4.0)
-    
+
     BUNDLED WITH
        1.12.5
 
-Let's break it down: 
+Let's break it down:
 
 * `GEM`
   * `remote` - source of gems
@@ -230,7 +230,7 @@ Let's break it down:
 Let's see examples first:
 
     $ bundle exec rspec
-    
+
     $ bundle exec rails s
 
 This will allow you to run command (`rspec` and `rails s` here) in current bundle context,
@@ -249,7 +249,7 @@ Now let's update some gems. With `bundle outdated` we can list installed gems wi
     Fetching version metadata from https://rubygems.org/
     Fetching dependency metadata from https://rubygems.org/
     Resolving dependencies.......
-    
+
     Outdated gems included in the bundle:
       * nokogiri (newest 1.6.8, installed 1.6.7.2) in group "default"
 
@@ -267,11 +267,11 @@ We must use `bundle update`.
     Resolving dependencies.....
     Installing nokogiri 1.6.8 (was 1.6.7.2) with native extensions
     Using i18n 0.7.0
-    
+
     ... (and more)
-    
+
     Bundle updated!
-    
+
 Using `bundle update` without any argument will try to update every gem to newest available version
 (restrained by `Gemfile`).
 
@@ -304,9 +304,9 @@ $ bundle install
 ~~~
 $ git add Gemfile.lock
 ~~~
- 
+
 * When checking out this repository on another development machine, run
- 
+
 ~~~
 $ bundle install
 ~~~
@@ -345,4 +345,4 @@ $ bundle update
 
 ### Running `git bisect` in projects using Bundler
 
-See [Git Bisect Guide](/git_bisect.html).
+See [Git Bisect Guide](/guides/git_bisect.html).

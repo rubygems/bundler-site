@@ -24,7 +24,7 @@
       %h2
         The latest news
       %h3
-        - blog.articles[1..1].each do |article|
+        - blog.articles[0..0].each do |article|
           = article.date.to_date.strftime("%b %e, %Y")
           = link_to article.title, article.url
       %br

@@ -11,7 +11,7 @@ Welcome to the July Bundler update!
 
 We released Bundler 1.16.3 on July 17. The new release includes support for the upcoming Ruby 2.6, and fixes several bugs including symlink handling, temporary file handling, and improving error messages around filesystem access and installation errors.
 
-Since we announced the new RFC process last month, we’ve seen new comments and new proposals in the [Bundler RFC repo](https://github.com/bundler/rfcs/pulls). Keep the comments and suggestions coming! If you're interested in ideas for the future of Bundler, definitely take a look.
+Since we announced the new RFC process last month, we’ve seen new comments and new proposals in the [Bundler RFC repo](https://github.com/bundler/rfcs/pulls). If you're interested in ideas for the future of Bundler, definitely take a look. Keep the comments and suggestions coming!
 
 In other exciting news, we added a new contributor to the core team. Welcome [David Rodríguez](https://github.com/deivid-rodriguez) to Bundler! Probably best known for his work on the `byebug` debugger gem, David was the driver behind updating gem templates to check in lockfiles, as well as work around ensuring that Bundler 2 will work on existing applications when it is released.
 

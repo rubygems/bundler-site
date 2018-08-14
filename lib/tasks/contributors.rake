@@ -5,7 +5,7 @@ namespace :contributors do
       [url, "s=40"].join(connector)
     end
 
-    core_team = %w[indirect segiddins hsbt colby-swandale]
+    core_team = %w[indirect segiddins hsbt colby-swandale deivid-rodriguez]
     credited_elsewhere = core_team + %w[homu bundlerbot]
 
     require "octokit"

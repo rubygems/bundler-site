@@ -17,7 +17,7 @@ To use Bundler in a single-file script, add `require 'bundler/inline' ` at the t
 	end
 
 	puts 'Gems installed and loaded!'
-	puts "The nap gem is at version #{Nap::VERSION}"
+	puts "The nap gem is at version #{REST::VERSION}"
 
 
 To run this script, including installing any missing gems, save the script into a file (for example, `bundler_inline_example.rb`) and then run the file with the command `ruby bundler_inline_example.rb`.

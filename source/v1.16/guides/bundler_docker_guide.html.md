@@ -6,26 +6,32 @@ title: How to use Bundler with Docker
 
 ## Introduction 
 
-If you have tried to bundle an application in Docker with Bundler v1.16 or earlier, you may run into issues with explicitly setting `GEM_HOME`, `BUNDLE_BIN`, `BUNDLE_PATH`, and with adding the `BUNDLE_BIN` to the `PATH` in your Dockerfile similar to this:
+The official Docker images for Ruby assume that you will use only one application, with one Gemfile, and no other gems or Ruby applications will be installed or run in your container.
 
-```
-ENV GEM_HOME="/usr/local/bundle"
-ENV BUNDLE_PATH="$GEM_HOME"
-ENV BUNDLE_BIN="$GEM_HOME/bin"
-ENV PATH="$BUNDLE_BIN:$PATH"
-```
+If you want to install more than one Gemfile in your container, or simply install gems via RubyGems and use them as system gems, this situation is confusing, and has historically led to many confusing errors that appear to be bugs in Bundler.
 
-This is due to Docker treating Bundler binstubs as if they were RubyGems binstubs, which results in Bundler first creating RubyGems binstubs at `$BUNDLE_PATH/bin` and then overwriting those generic binstubs with application-locked Bundler binstubs (available in Bundler v1.16). 
+However, these errors ultimately come from the way the Dockerfile tells Bundler to create [binstubs](https://bundler.io/v1.16/man/bundle-binstubs.1.html) (which are linked to one application and Gemfile) in a single global place for the entire container. If you install two Gemfiles with `rake`, for example, running the `rake` command will always load the last Gemfile that was installed, and never any others.
 
-## How to fix the issue
+## Dockerfiles for multiple Ruby applications and gems
 
-First, unset `BUNDLE_PATH` and `BUNDLE_BIN`, and change the `PATH` to use `$GEM_HOME/bin` in your Dockerfile:
+To build a Docker container that can run more than one Ruby application or global commands installed with `gem install`, you will need to change some environment variables from the defaults set in the official Docker image for Ruby.
+
+In your Dockerfile, change the `PATH` and `GEM_HOME` so that Bundler will install all gems to the same location, and running commands will use the RubyGems binstubs instead of Bundler's application-locked binstubs:
 
 ```
 ENV GEM_HOME="/usr/local/bundle"
 ENV PATH $GEM_HOME/bin:$GEM_HOME/gems/bin:$PATH
 ```
 
-This will create the original generic RubyGems binstubs in `$GEM_HOME/bin`. (You will still be able to use gem commands like rake directly if there's only one version of the gem installed.) 
+You will also need to unset `BUNDLE_PATH` and `BUNDLE_BIN`. Unsetting environment variables can be somewhat tricky in Docker, but the most common way is at the beginning of your `ENTRYPOINT` script:
 
-If more than one version of a gem is installed, or if you want to use the application/Gemfile-specified version of a gem, run `bundle exec <gem name>`.
+```bash
+#!/bin/bash
+
+unset BUNDLE_PATH
+unset BUNDLE_BIN
+
+# your script goes here
+```
+
+Once you've done that, you'll be able to run commands without a bundle by calling them directly, like `rake`. You'll be able to run commands in a specific bundle by `cd`ing to that bundle's directory and then using `bundle exec`. For example, to run rake inside your application bundle, you would use `bundle exec rake`.

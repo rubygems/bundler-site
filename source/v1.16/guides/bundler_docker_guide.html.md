@@ -4,7 +4,7 @@ title: How to use Bundler with Docker
 
 # How to use Bundler with Docker
 
-## Introduction 
+## Introduction
 
 The official Docker images for Ruby assume that you will use only one application, with one Gemfile, and no other gems or Ruby applications will be installed or run in your container.
 
@@ -18,20 +18,16 @@ To build a Docker container that can run more than one Ruby application or globa
 
 In your Dockerfile, change the `PATH` and `GEM_HOME` so that Bundler will install all gems to the same location, and running commands will use the RubyGems binstubs instead of Bundler's application-locked binstubs:
 
-```
-ENV GEM_HOME="/usr/local/bundle"
-ENV PATH $GEM_HOME/bin:$GEM_HOME/gems/bin:$PATH
-```
+    ENV GEM_HOME="/usr/local/bundle"
+    ENV PATH $GEM_HOME/bin:$GEM_HOME/gems/bin:$PATH
 
 You will also need to unset `BUNDLE_PATH` and `BUNDLE_BIN`. Unsetting environment variables can be somewhat tricky in Docker, but the most common way is at the beginning of your `ENTRYPOINT` script:
 
-```bash
-#!/bin/bash
+    #!/bin/bash
 
-unset BUNDLE_PATH
-unset BUNDLE_BIN
+    unset BUNDLE_PATH
+    unset BUNDLE_BIN
 
-# your script goes here
-```
+    # your script goes here
 
 Once you've done that, you'll be able to run commands without a bundle by calling them directly, like `rake`. You'll be able to run commands in a specific bundle by `cd`ing to that bundle's directory and then using `bundle exec`. For example, to run rake inside your application bundle, you would use `bundle exec rake`.

@@ -11,6 +11,7 @@ namespace :contributors do
       greysteil
       hsbt
       indirect
+      rubymorillo
       segiddins
     ]
     credited_elsewhere = core_team + %w[homu bundlerbot]

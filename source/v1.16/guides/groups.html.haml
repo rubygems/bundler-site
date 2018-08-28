@@ -65,8 +65,16 @@ title: How to manage groups of gems
         require 'nokogiri'
       = link_to 'Learn More: Bundler.setup', './bundler_setup.html', class: 'btn btn-primary'
 
+
+    %h2#optional-groups
+      Optional groups and <code>--with</code>
+    .bullet
+      .description
+      Mark a group as optional using <code>group :name, optional: true do</code>, and then opt
+      into installing an optional group with <code>bundle install --with name</code>.
+
     %h2#grouping-your-dependencies
-      Grouping Your Dependencies
+      Grouping your dependencies
     .bullet
       .description
         You'll sometimes have groups of gems that only make sense in particular environments.

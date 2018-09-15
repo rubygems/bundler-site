@@ -487,7 +487,7 @@ option passed to the task. To define the `pluralize` task we use this code in `F
 
 ~~~ ruby
 desc "pluralize", "Pluralizes a word"
-method_option :word, :aliases => "-w"
+method_option :word, aliases: "-w"
 def pluralize
   puts Foodie::Food.pluralize(options[:word])
 end
@@ -511,7 +511,7 @@ If we want to add more options later on, we can define them by using the `method
 like this:
 
 ~~~ ruby
-method_options :word => :string, :uppercase => :boolean
+method_options word: :string, uppercase: :boolean
 def pluralize
   # accessed as options[:word], options[:uppercase]
 end
@@ -607,8 +607,8 @@ module Foodie
     class Recipe < Thor::Group
       include Thor::Actions
 
-      argument :group, :type => :string
-      argument :name, :type => :string
+      argument :group, type: :string
+      argument :name, type: :string
     end
   end
 end

@@ -16,7 +16,7 @@ title: How to manage groups of gems
         gem 'nokogiri'
         gem 'sinatra'
 
-        gem 'wirble', :group => :development
+        gem 'wirble', group: :development
 
         group :test do
           gem 'faker'
@@ -28,7 +28,7 @@ title: How to manage groups of gems
           gem 'rspec-rails'
         end
 
-        gem 'cucumber', :group => [:cucumber, :test]
+        gem 'cucumber', group: [:cucumber, :test]
     .bullet
       .description
         Install all gems, except those in the
@@ -89,7 +89,7 @@ title: How to manage groups of gems
         source 'https://rubygems.org'
 
         gem 'rails', '3.2.2'
-        gem 'rack-cache', :require => 'rack/cache'
+        gem 'rack-cache', require: 'rack/cache'
         gem 'nokogiri', '~> 1.4.2'
 
         group :development do

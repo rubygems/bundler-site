@@ -30,3 +30,23 @@ title: How to use Bundler with Sinatra
         Start your development server with rackup, and Sinatra will be loaded via Bundler.
       :code
         $ bundle exec rackup
+      
+    .bullet  
+      .description
+        If you run the above command and receive a 'command not found' error
+        Ensure you have a bin folder in your projects root directory
+        Check to see that there is a file named 'rackup' within that folder
+        If you notice the file is not there run the following command:
+      :code
+        $ bundle install --binstubs
+      .description
+        This will install the executables needed for bundle exec
+        Attempt to rerun the following:
+      :code
+        $ bundle exec rackup
+      .description
+        The code should no longer produce the error and your development server will be up and running
+        
+        
+
+        

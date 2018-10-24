@@ -1,0 +1,72 @@
+.container.guide
+  = partial "shared/whats_new"
+
+  %p
+    The
+    = link_to 'Bundler 1.17 announcement', '/blog/2018/10/25/announcing-bundler-1-17-0.html'
+    includes context and a more detailed explanation of the changes in this version. This is a summary of the biggest changes. As always, a detailed list of every change is provided in
+    == #{link_to "the changelog", "https://github.com/bundler/bundler/blob/1-17-stable/CHANGELOG.md"}.
+
+  %h3 Remove gems from the CLI
+  .contents
+    .bullet
+      .description
+        %p
+          We've added a new command called `remove` that allows you to remove gems from the command line. Here's a quick example:
+
+        :code
+          # lang: ruby
+          # Gemfile
+          source 'https://rubygems.org'
+
+          gem 'rake'
+          gem 'json'
+
+        %p
+          We can now remove a gem using `bundle remove`:
+
+        :code
+          # lang: bash
+          $ bundle remove json
+          Removing gems from Gemfile
+          json was removed.
+
+        %p
+          Bundler will then remove the <code>json</code> gem from the Gemfile. There also is an  <code>--install</code> option that will run <code>bundle install</code> after the gem has been removed.
+
+  %h3 New command options
+  .contents
+    .bullet
+      .description
+        %p
+          We've added a few options that extend existing features and improve the overall user experience:
+          %ul
+            %li
+              Add <code>--optimistic</code> and <code>--strict</code> options to `bundle add`  that will add a version constraint to new gems
+            %li
+              Add <code>--gemfile</code> option to  <code>bundle exec</code>
+            %li
+              Add <code>--skip-install</code> option to <code>bundle add</code>  to skip running <code>bundle install</code> when adding a new gem
+            %li
+              Add <code>--only-explicit</code> option to <code>bundle outdated</code> to only show outdated gems that are listed directly in the Gemfile
+
+  %h3 New plugin events
+  .contents
+    .bullet
+      .description
+        %p
+          We've added new events into Bundler for plugins. Libraries are now able to perform an action before and after each gem is installed.
+
+          We are excited to see plugins take advantage of these events, and enhance the user experience on top of Bundler.
+
+  %h3 Bundler home, plugin, cache and config environment variables
+  .contents
+    .bullet
+      .description
+        %p
+          Users have been asking for a feature that will allow them to specify a location for Bundler to place any files/folders that it creates or downloads, but until now Bundler has been hardcoded to place all of its files into <code>~/.bundle</code>.  To solve this issue, we've added some environment variables that (optionally) let you tell Bundler exactly where to put its files.
+
+          To change the directory where Bundler will store all user-level files (which is <code>~/.bundle</code> by default), set <code>BUNDLE_USER_HOME</code>. To change the directory where Bundler caches downloaded gems and gem metadata (which is <code>~/.bundle/cache</code> by default), set <code>BUNDLE_USER_CACHE</code>. To change the location of the user-level configuration file (which is <code>~/.bundle/config</code> by default), set <code>BUNDLE_USER_CONFIG</code>. Finally, to set the location that Bundler will look for plugin files (which is <code>~/.bundle/plugins</code> by default), set <code>BUNDLE_USER_PLUGIN</code>.
+
+
+

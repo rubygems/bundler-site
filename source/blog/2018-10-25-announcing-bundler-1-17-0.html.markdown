@@ -15,7 +15,6 @@ Here are a few features we want to highlight:
 We've added a new command called `remove` that allows you to remove gems from the command line. Here's a quick example:
 
 ~~~ruby
-
 # Gemfile
 source 'https://rubygems.org'
 
@@ -26,13 +25,12 @@ gem 'json'
 We can now remove a gem using `bundle remove`:
 
 ~~~bash
-
 $ bundle remove json
 Removing gems from Gemfile
 json was removed.
 ~~~
 
-Bundler will remove then the `json` gem in the Gemfile. There also is an  `--install` option that will run `bundle install` after the gem has been removed.
+Bundler will then remove the `json` gem from the Gemfile. There also is an  `--install` option that will run `bundle install` after the gem has been removed.
 
 Thanks to [agrim123 (Agrim Mittal)](https://github.com/agrim123) for developing this feature.
 
@@ -61,7 +59,7 @@ To change the directory where Bundler will store all user-level files (which is 
 
 ### And a whole lot more!
 
-There is a lot more that we've added into this release. For a more detailed list of changes, check out the [CHANGELOG](https://github.com/bundler/bundler/blob/master/CHANGELOG.md).
+There is a lot more that we've added into this release. For a more detailed list of changes, check out the [CHANGELOG](https://github.com/bundler/bundler/tree/1-17-stable/CHANGELOG.md).
 
 ## Upgrading from Bundler 1.16
 

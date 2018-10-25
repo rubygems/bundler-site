@@ -1,0 +1,47 @@
+- primary_commands = %w(bundle-install.1 bundle-update.1 bundle-package.1 bundle-exec.1 bundle-config.1 bundle_help)
+
+.row.bg-light-blue.header
+  = image_tag '/images/docs_header_transparent_bg.png',
+    srcset: '/images/docs_header_transparent_bg.png 1x, /images/docs_header_transparent_bg@2x.png 2x, /images/docs_header_transparent_bg@3x.png 3x',
+    class: 'img-responsive header-padding',
+    style: 'max-width: 400px;'
+
+.row.docs
+  .container
+    .col-sm-5.col-sm-offset-0.col-xs-9.col-xs-offset-2
+      %h3
+        %b Guides
+      %p
+        Step-by-step tutorials that include useful explanations and and detailed instructions to help you get up and running.
+      %ul.ul-padding
+        - guides.each do |guide|
+          %li= link_to_guide guide
+
+    .col-sm-4.col-sm-offset-0.col-xs-9.col-xs-offset-2
+      %h3
+        %b Reference Guides
+      %p
+        In-depth articles with information on each primary command and utility, and how to use them.
+      %h4
+        %b Primary Commands
+      %ul.ul-padding
+        - primary_commands.select{ |page| path_exist?(page) }.each do |page|
+          %li= link_to_documentation(page)
+
+      %h4
+        %b Utilities
+      %ul.ul-padding
+        - other_commands(primary_commands).each do |page|
+          %li= link_to_documentation(page)
+
+    .col-sm-2.col-sm-offset-0.col-xs-9.col-xs-offset-2
+      %h3
+        %b Release Notes
+      %h4
+        %b What's new in
+      %ul
+        - versions.reverse.select{ |version| path_exist?('whats_new', version) }.each do |v|
+          %li= link_to "Version #{v}", "/#{v}/whats_new.html"
+
+        %li= link_to 'Version v1.1', 'https://github.com/bundler/bundler/blob/master/CHANGELOG.md#110-mar-7-2012'
+        %li= link_to 'Version v1.0', 'https://github.com/bundler/bundler/blob/master/CHANGELOG.md#100-august-29-2010'

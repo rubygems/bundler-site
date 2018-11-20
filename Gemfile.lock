@@ -156,7 +156,7 @@ GEM
       byebug (~> 9.1)
       pry (~> 0.10)
     public_suffix (3.0.0)
-    puma (3.10.0)
+    puma (3.12.0)
     pusher-client (0.6.2)
       json
       websocket (~> 1.0)
@@ -223,7 +223,7 @@ DEPENDENCIES
   octokit (~> 4.3)
   pry
   pry-byebug
-  puma (~> 3.4)
+  puma (~> 3.12)
   rake
   ronn
   travis

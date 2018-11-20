@@ -138,7 +138,7 @@ GEM
     net-http-persistent (3.0.0)
       connection_pool (~> 2.2)
     net-http-pipeline (1.0.1)
-    nokogiri (1.8.4)
+    nokogiri (1.8.5)
       mini_portile2 (~> 2.3.0)
     octokit (4.7.0)
       sawyer (~> 0.8.0, >= 0.5.3)
@@ -219,7 +219,7 @@ DEPENDENCIES
   middleman-search
   middleman-sprockets (~> 4.0)
   middleman-syntax
-  nokogiri (~> 1.7)
+  nokogiri (~> 1.8)
   octokit (~> 4.3)
   pry
   pry-byebug

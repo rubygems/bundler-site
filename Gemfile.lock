@@ -129,15 +129,15 @@ GEM
     middleman-syntax (3.0.0)
       middleman-core (>= 3.2)
       rouge (~> 2.0)
-    mini_portile2 (2.3.0)
+    mini_portile2 (2.4.0)
     minitest (5.10.3)
     multi_json (1.13.1)
     multipart-post (2.0.0)
     mustache (1.0.5)
     net-http-persistent (2.9.4)
     net-http-pipeline (1.0.1)
-    nokogiri (1.8.5)
-      mini_portile2 (~> 2.3.0)
+    nokogiri (1.9.1)
+      mini_portile2 (~> 2.4.0)
     octokit (4.13.0)
       sawyer (~> 0.8.0, >= 0.5.3)
     padrino-helpers (0.13.3.4)
@@ -220,7 +220,7 @@ DEPENDENCIES
   middleman-search
   middleman-sprockets (~> 4.0)
   middleman-syntax
-  nokogiri (~> 1.8)
+  nokogiri (~> 1.9)
   octokit (~> 4.13)
   pry
   pry-byebug

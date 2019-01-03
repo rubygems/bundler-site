@@ -72,6 +72,7 @@ We recommend committing your Gemfile.lock before you upgrade. That way, if somet
 When you create a new application, using `bundle init`, `rails new`, or something like that, your application will use the newest version of Bundler that is currently installed. If you have Bundler 2 installed, your application will be locked to Bundler 2. You can verify this by reading the lockfile, looking for the section named `BUNDLED_WITH`.
 
 ## FAQ
+
 ### Why does Bundler have automatic version switching?
 Many Ruby developers have more than one application on their machines. If we forced all applications on one machine to use either Bundler 1 or Bundler 2 exclusively, it would cause everyone a huge amount of pain.
 
@@ -91,6 +92,7 @@ Oh no! Sorry about that. Please head over to our [troubleshooting guide](https:/
 
 ### Will Bundler 2 have any other notable changes?
 Bundler 2 includes these changes:
+
 * Remove support for deprecated versions of Ruby (\< 2.3)
 * Remove support for deprecated versions of RubyGems (\< 2.5.0)
 * Print Bundler errors to STDERR instead of STDOUT

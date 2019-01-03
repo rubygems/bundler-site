@@ -1,0 +1,18 @@
+%h2 bundle binstubs
+
+.contents
+  .bullet
+    .description
+      Installs the binstubs of the listed gem
+    :code
+      $ bundle binstubs [GEM] [--force] [--path=PATH]
+    .notes
+      %p
+        Options:
+      %p
+        <code>--force</code>: Overwrite existing binstubs if they exist.
+      %p
+        <code>--path</code>: Binstub destination directory (default bin)
+    .description
+      Generate binstubs for executables in [GEM]. Binstubs are put into bin,
+      or the --binstubs directory if one has been set.

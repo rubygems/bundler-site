@@ -52,7 +52,7 @@ If you have Bundler 2 installed, new applications will use Bundler 2 automatical
 
 Yes you can! The Heroku team has said they plan to upgrade the official Ruby buildpack to Bundler 2, but it will take some time. They have a zillion users, so that totally makes sense.
 
-In the meantime, you can use our [buildpack](https://github.com/bundler/heroku-buildpack-bundler2), which is exactly the same as Heroku’s but with Bundler 2, by running:
+In the meantime, you can use our [buildpack](https://github.com/bundler/heroku-buildpack-bundler2), which is exactly the same as Heroku’s but with Bundler 2.
 
 Note: Support for the Bundler 2 buildpack is limited. You are welcome to report issues at the [bundler/heroku-buildpack-bundler2](https://github.com/bundler/heroku-buildpack-bundler2) repository, but we can’t guarantee solutions.
 
@@ -66,7 +66,7 @@ If you have more questions, or want more information about Bundler 2, read our [
 
 ### I tried to upgrade but something is broken!
 
-Oh no! Sorry about that. Please head over to our [troubleshooting guide](https://github.com/bundler/bundler/blob/master/ISSUES.md) and open a ticket so that we can try to fix your problem ASAP.
+Oh no! Sorry about that. Please head over to our [troubleshooting guide](https://github.com/bundler/bundler/blob/master/doc/contributing/ISSUES.md) and open a ticket so that we can try to fix your problem ASAP.
 
 ---- 
 

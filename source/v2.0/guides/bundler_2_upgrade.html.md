@@ -85,7 +85,7 @@ If you try to use Bundler 1 on an application that requires Bundler 2, you’ll 
 If you try to use Bundler 2 on an application that needs Bundler 1, and you also don’t have Bundler 1 installed at all, you’ll see an error message asking you to install Bundler 1. Go ahead and run `gem install bundler -v "~>1.0"` to install the latest 1.x version of Bundler, and then try your command again.
 
 ### Can I downgrade my application from Bundler 2 to Bundler 1?
-Bundler 2 formats the lockfile in a slightly different way, so there isn’t an easy way for Bundler itself to reverse the upgrade. Instead, we recommend checking in your `Gemfile` and `Gemfile.lock` before you upgrade your application. That way, if something goes wrong, you can revert to the previous commit and go back to using Bundler 1.
+Bundler 2 does not provide a way to downgrade a Gemfile back to Bundler 1. Instead, we recommend checking in your `Gemfile` and `Gemfile.lock` before you upgrade your application. That way, if something goes wrong, you can revert to the previous commit and go back to using Bundler 1.
 
 ### There was an issue upgrading my application to Bundler 2
 Oh no! Sorry about that. Please head over to our [troubleshooting guide](https://github.com/bundler/bundler/blob/master/doc/TROUBLESHOOTING.md#other-problems) and open a ticket so that we can try to fix your problem ASAP.

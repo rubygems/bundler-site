@@ -98,7 +98,9 @@ Bundler 2 includes these changes:
 * Print Bundler errors to STDERR instead of STDOUT
 * The `github:` shortcut in the `Gemfile` will use `https` instead of `http`
 
-### Will Heroku have bundler 2?
-The Heroku team has said they plan to upgrade the official Ruby buildpack to Bundler 2, but it will take some time. They have a zillion users, so that totally makes sense.
+### Can I use Bundler 2 on Heroku?
+Yes you can! The Heroku team has said they plan to upgrade the official Ruby buildpack to Bundler 2, but it will take some time. They have a zillion users, so that totally makes sense.
 
-In the meantime, you can use our [buildpack](https://github.com/bundler/heroku-buildpack-bundler2), which is exactly the same but with Bundler 2, by running:
+In the meantime, you can use our [buildpack](https://github.com/bundler/heroku-buildpack-bundler2), which is exactly the same as Heroku’s but with Bundler 2.
+
+Note: Support for the Bundler 2 buildpack is limited. You are welcome to report issues at the [bundler/heroku-buildpack-bundler2](https://github.com/bundler/heroku-buildpack-bundler2) repository, but we can’t guarantee solutions.

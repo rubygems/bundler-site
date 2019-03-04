@@ -69,7 +69,7 @@ Your existing applications will continue to use Bundler 1. Bundler will never ch
 We recommend committing your Gemfile.lock before you upgrade. That way, if something goes wrong or doesn’t work, you can always revert to the previous lockfile and go back to using Bundler 1.
 
 ### Using Bundler 2 with new applications
-When you create a new application, using `bundle init`, `rails new`, or something like that, your application will use the newest version of Bundler that is currently installed. If you have Bundler 2 installed, your application will be locked to Bundler 2. You can verify this by reading the lockfile, looking for the section named `BUNDLED_WITH`.
+When you create a new application, using `bundle init`, `rails new`, or something like that, your application will use the newest version of Bundler that is currently installed. If you have Bundler 2 installed, your application will be locked to Bundler 2. You can verify this by reading the lockfile, looking for the section named `BUNDLED WITH`.
 
 ## FAQ
 

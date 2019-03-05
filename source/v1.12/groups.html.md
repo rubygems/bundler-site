@@ -99,7 +99,7 @@ production</code>. For curious readers, bundler stores the flag in
 there by running <code>bundle config</code>, which will also print out global settings
 (stored in <code>~/.bundle/config</code>), and settings set via environment variables.
 For more information on configuring bundler, please see:
-[bundle config](/bundle_config.html)
+[bundle config](/v1.12/bundle_config.html)
 
 If you run <code>bundle install</code> later, without any flags, bundler will remember
 that you last called <code>bundle install --without production</code>, and use that flag

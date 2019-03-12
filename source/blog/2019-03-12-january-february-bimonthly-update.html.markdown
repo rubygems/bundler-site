@@ -1,6 +1,6 @@
 ---
 title: "January and February Bundler Update"
-date: 2019-03-13
+date: 2019-03-12
 tags:
 author: Stephanie Morillo
 ---

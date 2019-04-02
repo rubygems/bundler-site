@@ -39,7 +39,7 @@ Here's an example Gemfile.lock that was created with Bundler 1.17.1.
 
 The version of Bundler in the `BUNDLED WITH` section is read by Bundler to determine which version of Bundler should run. Using the example lock above, Bundler 1 will be used, as you can see here:
 
-    $ cat Gemfile.lock | grep -A 1 "BUNDLED WITH"
+    $ grep -A 1 "BUNDLED WITH" Gemfile.lock
     BUNDLED WITH
        1.17.1
 
@@ -48,7 +48,7 @@ The version of Bundler in the `BUNDLED WITH` section is read by Bundler to deter
 
 When a Gemfile has been created by Bundler 2, or manually upgraded by a developer from Bundler 1 to Bundler 2, then commands will be run by the latest installed Bundler 2. Here’s an example of what that looks like:
 
-    $ cat Gemfile.lock | grep -A 1 "BUNDLED WITH"
+    $ grep -A 1 "BUNDLED WITH" Gemfile.lock
     BUNDLED WITH
        2.0.0
 

@@ -37,7 +37,7 @@ possible, you can jump straight to [solutions for SSL issues][solutions-for-ssl-
     - [Reinstalling Ruby from OS package managers][installing-from-package-managers]
       - [macOS: Built-in Ruby][macos-built-in-ruby]
       - [macOS: Installed with Homebrew][installed-with-homebrew]
-      - [Debian or Ubuntu: Installed with `apt-get`][installed-with-apt-get]
+      - [Debian or Ubuntu 16.04: Installed with `apt-get`][installed-with-apt-get]
       - [Fedora: Installed with `dnf`][installed-with-dnf]
       - [RHEL or CentOS: Installed with `yum`][installed-with-yum]
       - [Windows: Installed with Ruby Installer][windows-ruby-installer]
@@ -371,7 +371,7 @@ and then come back to these steps.
 - 2. Run `brew install ruby`
 - 3. If Ruby is already installed, run `brew upgrade ruby` to upgrade to the latest version.
 
-#### Debian or Ubuntu: Installed with `apt-get`
+#### Debian or Ubuntu 16.04: Installed with `apt-get`
 [installed-with-apt-get]: #debian-or-ubuntu-installed-with-apt-get
 
 **Note**: To remove Ruby with `apt`, you’ll need to check which versions of Ruby you have installed.

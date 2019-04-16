@@ -169,7 +169,7 @@ or [package manager][installing-from-package-managers].)
 ### Automated SSL check
 [ssl-check]: #automated-ssl-check
 
-First, [run this script](https://github.com/indirect/ruby-ssl-check/blob/master/check.rb) to
+First, [run this script](https://github.com/bundler/ruby-ssl-check/blob/master/check.rb) to
 check whether your errors result from the SSL certs issue or the TLS versions issue.
 
 You can run the script immediately with this command:

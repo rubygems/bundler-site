@@ -1,0 +1,4 @@
+# Please report security issues to the RubyGems HackerOne tracker.
+# The Bundler and RubyGems teams will get back to you as soon as possible.
+Contact: https://hackerone.com/rubygems
+Preferred-Languages: en

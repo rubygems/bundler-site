@@ -6,10 +6,10 @@ title: How to Upgrade to Bundler 2
 
 So! You’ve heard that [Bundler 2 was released](https://bundler.io/blog/2019/01/03/announcing-bundler-2.html)! If you want to try out Bundler 2 for yourself, this guide will help you do that.
 
-Bundler 2 is almost entirely the same as the previous version, 1.17. The big change is that Bundler now requires at least Ruby 2.3.0 and RubyGems 2.5.0.
+Bundler 2 is almost entirely the same as the previous version, 1.17. The big change is that Bundler now requires at least Ruby 2.3.0 and RubyGems 3.0.0.
 
 ### Prerequisites
-Before you upgrade to Bundler 2, make sure you have the right Ruby and RubyGems. You need to be using Ruby 2.3.0 or higher, and you need to have RubyGems 2.5.0 or higher.
+Before you upgrade to Bundler 2, make sure you have the right Ruby and RubyGems. You need to be using Ruby 2.3.0 or higher, and you need to have RubyGems 3.0.0 or higher.
 
 You can check your Ruby version by running `ruby --version`, and you can check your RubyGems version by running `gem --version`. If you need to upgrade Ruby, use your ruby version manager’s instructions. If you need to upgrade RubyGems, run `gem update --system`.
 
@@ -94,7 +94,7 @@ Oh no! Sorry about that. Please head over to our [troubleshooting guide](https:/
 Bundler 2 includes these changes:
 
 * Remove support for deprecated versions of Ruby (\< 2.3)
-* Remove support for deprecated versions of RubyGems (\< 2.5.0)
+* Remove support for deprecated versions of RubyGems (\< 3.0.0)
 * Print Bundler errors to STDERR instead of STDOUT
 * The `github:` shortcut in the `Gemfile` will use `https` instead of `http`
 

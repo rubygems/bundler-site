@@ -54,7 +54,7 @@ GEM
       multi_json (~> 1.0)
       net-http-persistent (~> 2.9)
       net-http-pipeline
-    haml (5.0.4)
+    haml (5.1.2)
       temple (>= 0.8.0)
       tilt
     hamster (3.0.0)
@@ -209,7 +209,7 @@ PLATFORMS
 DEPENDENCIES
   bootstrap-sass
   builder
-  haml (~> 5.0.4)
+  haml (~> 5.1.2)
   jquery-middleman
   kramdown
   middleman (~> 4.3)

@@ -4,6 +4,7 @@
 Recently, a metric collection and reporting system for Bundler [has been introduced](https://github.com/bundler/bundler/pull/7298).
 
 Let's start with a TL;DR - **No personally identifying information is collected** (aside from your **hashed** remote git repo).
+The data is reported **only to the rubygems.org servers**.
 
 We collect this information for various reasons, such as:
 

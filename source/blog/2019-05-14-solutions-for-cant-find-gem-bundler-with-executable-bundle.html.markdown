@@ -6,7 +6,7 @@ author: Colby Swandale
 category: release
 ---
 
-TL;DR: `run gem update --system`.
+TL;DR: run `gem update --system`.
 
 ## What is this bug?
 

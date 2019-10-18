@@ -135,6 +135,7 @@ GEM
     mustache (1.0.5)
     net-http-persistent (2.9.4)
     net-http-pipeline (1.0.1)
+    nio4r (2.5.2)
     nokogiri (1.10.4)
       mini_portile2 (~> 2.4.0)
     octokit (4.14.0)
@@ -152,7 +153,8 @@ GEM
     pry-byebug (3.7.0)
       byebug (~> 11.0)
       pry (~> 0.10)
-    puma (3.12.1)
+    puma (4.2.1)
+      nio4r (~> 2.0)
     pusher-client (0.6.2)
       json
       websocket (~> 1.0)
@@ -223,7 +225,7 @@ DEPENDENCIES
   octokit (~> 4.14)
   pry
   pry-byebug
-  puma (~> 3.12)
+  puma (~> 4.2)
   rake
   ronn
   travis

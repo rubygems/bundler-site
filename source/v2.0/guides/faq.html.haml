@@ -219,6 +219,6 @@ title: Frequently Asked Questions
           <strong>A</strong>: To avoid the tradeoff between breaking `gem install` and breaking `bundle install`,
           one solution is to simply test both.  By keeping the `Gemfile.lock` in source control, it's possible to
           `bundle install` with and without the lockfile (by deleting it).
-  
+        %p
           To go a step further, running daily tests of `bundle install` without the lockfile is the most proactive
           solution to keeping the dependencies in working order.  This the approach taken by tools like Dependabot.

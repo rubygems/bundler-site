@@ -1,6 +1,6 @@
 .container.guide
   #intro
-    If you just want to know our recommended workflow, and don't care about the rationale, feel
+    If you just want to know our recommended workflow and don't care about the rationale, feel
     free to <a href="#summary">jump to the summary</a> below.
   %br
 
@@ -8,7 +8,7 @@
     %h2#bundlers-purpose-and-rationale
       Bundler's Purpose and Rationale
     %p
-      First, you declare these dependencies in a file at the root of your application, called
+      First, you declare these dependencies in a file at the root of your application called
       <code>Gemfile</code>. It looks something like this:
 
     :code
@@ -40,7 +40,7 @@
       $ bundle install    # 'bundle' is a shortcut for 'bundle install'
 
     %p
-      Bundler will connect to <code>rubygems.org</code> (and any other sources that you declared),
+      Bundler will connect to <code>rubygems.org</code> (and any other sources that you declared)
       and find a list of all of the required gems that meet the requirements you specified. Because
       all of the gems in your <code>Gemfile</code> have dependencies of their own (and some of
       those have their own dependencies), running <code>bundle install</code> on the
@@ -112,9 +112,9 @@
       require 'bundler/setup'
 
     %p
-      This will automatically discover your <code>Gemfile</code>, and make all of the gems in
+      This will automatically discover your <code>Gemfile</code> and make all of the gems in
       your <code>Gemfile</code> available to Ruby (in technical terms, it puts the gems "on the
-      load path"). You can think of it as an adding some extra powers to <code>require
+      load path"). You can think of it as adding some extra powers to <code>require
       'rubygems'</code>.
 
     %p
@@ -162,11 +162,11 @@
 
     %p
       The next time you run <code>bundle install</code> on the same machine, bundler will see
-      that it already has all of the dependencies you need, and skip the installation process.
+      that it already has all of the dependencies you need and skip the installation process.
 
     %p
-      Do not check in the <code>.bundle</code> directory, or any of the files inside it. Those
-      files are specific to each particular machine, and are used to persist installation options
+      Do not check in the <code>.bundle</code> directory or any of the files inside it. Those
+      files are specific to each particular machine and are used to persist installation options
       between runs of the <code>bundle install</code> command.
 
     %p
@@ -174,7 +174,7 @@
       by your bundle will be downloaded into <code>vendor/cache</code>. Bundler can run without
       connecting to the internet (or the RubyGems server) if all the gems you need are present
       in that folder and checked in to your source control. This is an <strong>optional</strong>
-      step, and not recommended, due to the increase in size of your source control repository.
+      step and not recommended due to the increase in size of your source control repository.
 
     %h2#sharing-your-application-with-other-developers
       Sharing Your Application With Other Developers
@@ -193,7 +193,7 @@
       dependency on <code>rack >= 0.4</code>, we know for sure it works with <code>rack
       1.5.2</code>. Even if the Rack team releases <code>rack 1.5.3</code>, bundler will
       always install <code>1.5.2</code>, the exact version of the gem that we know works. This
-      relieves a large maintenance burden from application developers, because all machines
+      relieves a large maintenance burden from application developers because all machines
       always run the exact same third-party code.
 
     %h2#updating-a-dependency
@@ -231,7 +231,7 @@
       <code>rack</code> gem. This ensures that updating <code>rails</code> doesn't
       inadvertently break <code>rack-cache</code>. Since <code>rails 4.1.0</code>'s dependency
       <code>actionpack 4.1.0</code> remains compatible with <code>rack 1.5.2</code>, bundler
-      leaves it alone, and <code>rack-cache</code> continues to work even in the face of an
+      leaves it alone and <code>rack-cache</code> continues to work even in the face of an
       incompatibility with <code>rack 1.5.3</code>.
 
     %p
@@ -256,7 +256,7 @@
       If you update your <code>Gemfile</code>, and your system already has all of the needed
       dependencies, bundler will transparently update the <code>Gemfile.lock</code> when you
       boot your application. For instance, if you add <code>mysql</code> to your
-      <code>Gemfile</code>, and have already installed it in your system, you can boot your
+      <code>Gemfile</code> and have already installed it in your system, you can boot your
       application without running <code>bundle install</code>, and bundler will persist the
       "last known good" configuration to the <code>Gemfile.lock</code> snapshot.
 

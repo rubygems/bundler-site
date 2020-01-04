@@ -181,11 +181,11 @@ title: Frequently Asked Questions
           <strong>Q</strong>: Should I commit my `Gemfile.lock` when writing a gem?
 
         %p
-          <strong>A</strong>: The answer depends on how you prefer to balance the experiences of your gem's
-          developers and its users. Broken dependencies occur externally to the development of a gem -- 
-          they can break even when the gem itself remains unchanged, typically because a new version of a 
-          dependency may fail to work with the gem.  Committing `Gemfile.lock` (or not)
-          will determine whether developer or users will be the first to discover these broken dependencies.
+          <strong>A</strong>: The answer depends on how you prefer to handle the problem of broken 
+          dependencies in your gem -- a situation that can occur externally to the development of a gem, 
+          even when the gem itself remains unchanged.  Gem developers and gem users encounter such
+          problems at different times, and the impact on each group depends in a large part on your
+          development workflow -- including whether you commit `Gemfile.lock`.
           
         %p
           <strong>Q</strong>: What are the implications of committing my `Gemfile.lock` when writing a gem?
@@ -195,8 +195,9 @@ title: Frequently Asked Questions
           a fresh checkout of the repository (e.g. by a new contributor) will complete its `bundle install`
           successfully.  
         %p
-          The disadvantage to committing `Gemfile.lock` means that it is the <i>users</i> of your gem who 
-          will be the first affected by broken dependencies -- their `gem install` may fail.
+          The consequence of committing `Gemfile.lock` is that the developers -- those in a position to 
+          resolve broken dependencies -- may be shielded from seeing the issue in the first place.  This
+          can be either good or bad.
         %p
           When Bundler first shipped, the `Gemfile.lock` was `.gitignore`d inside gems.  For open source 
           projects, this meant that `bundle install` could work when code was tested and merged, yet fail 
@@ -216,9 +217,12 @@ title: Frequently Asked Questions
           a repository that contains a gem?
 
         %p
-          <strong>A</strong>: To avoid the tradeoff between breaking `gem install` and breaking `bundle install`,
-          one solution is to simply test both.  By keeping the `Gemfile.lock` in source control, it's possible to
-          `bundle install` with and without the lockfile (by deleting it).
+          <strong>A</strong>: To avoid breaking both `gem install` and `bundle install`, one solution is to 
+          simply test both; by keeping the `Gemfile.lock` in source control, it's possible to
+          `bundle install` both with and without the lockfile (by deleting it).  If this is done as part of pull
+          request testing, new contributors may still find themselves facing the broken dependency problem -- but
+          with their first contribution, not their first checkout.
         %p
-          To go a step further, running daily tests of `bundle install` without the lockfile is the most proactive
-          solution to keeping the dependencies in working order.  This the approach taken by tools like Dependabot.
+          Thus, the best practice for accommodating both user and developer experiences is to configure the CI
+          for pull request testing to use `Gemfile.lock`, but run a separate set of <i>scheduled</i> CI builds 
+          without `Gemfile.lock` to test a clean `bundle install`.

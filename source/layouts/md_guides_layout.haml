@@ -1,5 +1,8 @@
 - v = current_page.url.scan(/v\d\.\d+/).first || current_version
 
+- if /v\d\.\d+\//.match(current_page.destination_path)
+  - content_for(:canonical, commands_toplevel_path(current_page.destination_path))
+
 ~ wrap_layout :base do
   - content_for :tail do
     .row.bg-light-blue

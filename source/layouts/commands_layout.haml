@@ -1,4 +1,4 @@
-- if /v(.*?)\/(man|bundle_(.*?))\//.match(current_page.destination_path)
+- if /v\d\.\d+\//.match(current_page.destination_path)
   - content_for(:canonical, commands_toplevel_path(current_page.destination_path))
 
 ~ wrap_layout :base do

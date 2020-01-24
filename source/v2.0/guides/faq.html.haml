@@ -175,18 +175,104 @@ title: Frequently Asked Questions
           $ bundle install --full-index
 
         %h3
-          Committing lockfiles in libraries
+          Using Gemfile and Gemfile.lock in libraries
+
+        %p
+          <strong>Q</strong>: How are Gemfile{,.lock} files used when inside a library?
+
+        %p
+          <strong>A</strong>: This is something not very well known. When end
+          users install your library, the `Gemfile` and `Gemfile.lock` files
+          inside your repo are completely ignored, no matter whether you are
+          shipping them with your gem or not.
+
+          They are only useful for installing your gemspec dependencies in a
+          development environment, and also to include additional dependencies
+          only for development / testing.
+
+          The following is a possible `Gemfile` inside a gem:
+
+          :code
+            source "https://rubygems.org"
+
+            gemspec
+
+            gem "rspec", "~> 3.9"
+            gem "rubocop", "0.79.0"
+
+          The `gemspec` DSL makes sure `bundler` considers the dependencies in
+          your `.gemspec` file for resolution, but again: any dependencies
+          outside of your gemspec file are only used for development and never
+          affect final users of your gem.
+
+          The same thing happens with the development dependencies defined in your
+          gemspec through `Gem::Specification#add_development_dependency`.
 
         %p
           <strong>Q</strong>: Should I commit my `Gemfile.lock` when writing a gem?
 
         %p
-          <strong>A</strong>: Yes. When Bundler first shipped, the
-          `Gemfile.lock` was gitignored inside gems.  Over time, however, it
-          became clear that this practice forces the pain of broken dependencies
-          onto new contributors, while leaving existing contributors potentially
-          unaware of the problem. Since `bundle install` is usually the first
-          step towards a contribution, the pain of broken dependencies would
-          discourage new contributors from contributing. As a result, we have
-          revised our guidance for gem authors to now recommend checking in the
-          lock for gems.
+          <strong>A</strong>: Our advice: yes. The presence of a `Gemfile.lock`
+          in a gem's repository ensures that a fresh checkout of the repository
+          uses the exact same set of dependencies every time. We believe this
+          makes repositories more friendly towards new and existing
+          contributors.
+
+          Ideally, contributors should be able to work over a clean slate by
+          default. So at any given time, cloning the repo, running `bundle
+          install` and then running your gem's test suite should succeed.
+          Otherwise it can get discouraging, specially for beginners.
+
+        %p
+          <strong>Q</strong>: What happens if I don't commit my lockfile to source control when writing a gem?
+
+        %p
+          <strong>A</strong>: If you don't commit your lockfile to source
+          control, your development environment loses this determinism because:
+
+          %ul
+            %li
+              The <code>bundle install</code> step could start failing if you
+              pull new code with changes in the Gemfile. Your current lockfile
+              might get out of date, and bundler would find conflicting
+              requirements in both files and fail.
+
+            %li
+              Even if <code>bundle install</code> succeeds, your tests could
+              start failing because of changes on third party development or
+              runtime dependencies not under your control.
+
+          Some people argue that these are a slight benefit, since they may
+          cause you to find about broken dependencies earlier. The bundler team,
+          however, considers that this is not an issue in most situations
+          because:
+
+          %ul
+            %li
+              Changes in external dependencies _should not_ break your gem. As a
+              gem maintainer, you should find out about your dependencies' semver
+              policy and restrict your requirements accordingly in your gemspec
+              file.
+
+            %li
+              In real life, sometimes changes in external dependencies _do_
+              (unintentionally) cause breakage. If this happens on a development
+              dependency (for example, your testing gem makes a bad release
+              preventing your tests from running), this is not a real issue with
+              your gem, but still harms contributors and the stability of your
+              CI. By committing the lockfile, maintainers can upgrade the
+              development dependency and fix the issue at their own pace, while
+              CI and contributors don't get affected. If it's a runtime
+              dependency causing the breakage, our experience tells us that it's
+              most likely going to be your end users who will find out about the
+              issue and report it anyways, no matter whether you commit your
+              lockfile or not.
+
+            %li
+              There's other good practices that can keep the predictability of
+              committing your lockfile to source control, but still allow you to
+              proactively run your tests against the latest releases of your
+              dependencies and finding out about problems. For example,
+              [dependabot] can create PRs for you in real time as new versions
+              of your dependencies are released, so that as a gem mantainer you
+              can be the first one to find about any issues :)

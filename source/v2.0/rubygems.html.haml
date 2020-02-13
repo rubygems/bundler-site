@@ -22,7 +22,7 @@
         gemspec
     .bullet
       .description
-        Runtime dependencies in your gemspec are treated like base dependencies, and development dependencies are added by default to the group, <code>:development</code>. You can change that group with the <code>:development_group</code> option
+        Runtime dependencies in your gemspec are treated as if they are listed in your Gemfile, and development dependencies are added by default to the group, <code>:development</code>. You can change that group with the <code>:development_group</code> option
       :code
         # lang: ruby
         gemspec :development_group => :dev

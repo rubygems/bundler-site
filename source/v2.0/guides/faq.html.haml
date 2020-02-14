@@ -175,18 +175,59 @@ title: Frequently Asked Questions
           $ bundle install --full-index
 
         %h3
-          Committing lockfiles in libraries
+          Using Gemfiles inside gems
+
+        %p
+          <strong>Q</strong>: What happens if I put a `Gemfile` in my gem?
+
+        %p
+          <strong>A</strong>: When someone installs your gem, the `Gemfile` and
+          `Gemfile.lock` files are completely ignored, even if you include them
+          inside the `.gem` file you upload to rubygems.org.
+
+          The `Gemfile` inside your gem is only to make it easy for developers
+          (like you) to install the dependencies needed to do development work
+          on your gem. The `Gemfile` also provides an easy way to track and
+          install development-only or test-only gems.
+
+          Read about Gemfiles in gems from the <a href="../rubygems.html">
+          Bundler in gems</a> page and the <a href="./creating_gem.html">
+          How to create a gem with Bundler</a> guide.
 
         %p
           <strong>Q</strong>: Should I commit my `Gemfile.lock` when writing a gem?
 
         %p
-          <strong>A</strong>: Yes. When Bundler first shipped, the
-          `Gemfile.lock` was gitignored inside gems.  Over time, however, it
-          became clear that this practice forces the pain of broken dependencies
-          onto new contributors, while leaving existing contributors potentially
-          unaware of the problem. Since `bundle install` is usually the first
-          step towards a contribution, the pain of broken dependencies would
-          discourage new contributors from contributing. As a result, we have
-          revised our guidance for gem authors to now recommend checking in the
-          lock for gems.
+          <strong>A</strong>: Yes, you should commit it. The presence of a
+          `Gemfile.lock` in a gem's repository ensures that a fresh checkout of
+          the repository uses the exact same set of dependencies every time. We
+          believe this makes repositories more friendly towards new and
+          existing contributors.
+
+          Ideally, anyone should be able to clone the repo, run `bundle
+          install`, and have passing tests. If you don't check in your
+          `Gemfile.lock`, new contributors can get different versions of your
+          dependencies, and run into failing tests that they don't know how to
+          fix.
+
+        %p
+          <strong>Q</strong>: But I have read that gems should not check in the
+          Gemfile.lock!
+
+        %p
+          <strong>A</strong>: The main advantage of not checking in your
+          Gemfile.lock is that new checkouts (including CI) will immediately
+          have failing tests if one of your dependencies changes in a breaking
+          way.
+
+          Instead of forcing every fresh checkout (and possible new
+          contributor) to encounter broken builds, the Bundler team recommends
+          either using a tool like <a href="https://dependabot.com">Dependabot
+          </a> to automatically create a PR and run the test suite any time
+          your dependencies release new versions.
+
+          If you don't want to use a dependency monitoring bot, we suggest
+          creating an additional daily CI build that deletes the Gemfile.lock
+          before running `bundle install`. That way you, and others monitoring
+          your CI status, will be the first to know about any failures from
+          dependency changes.

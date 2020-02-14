@@ -1,5 +1,5 @@
 .container.guide
-  %h2 Using Bundler with Rubygem gemspecs
+  %h2 Using Bundler while developing a gem
 
   .contents
     .bullet
@@ -12,17 +12,20 @@
           This will create a new directory named <code>my_gem</code> with your new gem skeleton.
     .bullet
       .description
-        If you already have a gem with a gemspec, you can generate a Gemfile for your gem.
-      :code
-        $ bundle init
-      .notes
-        Then, add the following to your new Gemfile
+        If you already have a gem, you can create a Gemfile and use Bundler to manage your development dependencies. Here's an example.
       :code
         # lang: ruby
+        source "https://rubygems.org"
+
         gemspec
+
+        gem "rspec", "~> 3.9"
+        gem "rubocop", "0.79.0"
+      .notes
+        In this Gemfile, the `gemspec` method imports gems listed with `add_runtime_dependency` in the `my_gem.gemspec` file, and it also installs rspec and rubocop to test and develop the gem. All dependencies from the gemspec and Gemfile will be installed by `bundle install`, but rspec and rubocop will not be included by `gem install mygem` or `bundle add mygem`.
     .bullet
       .description
-        Runtime dependencies in your gemspec are treated like base dependencies, and development dependencies are added by default to the group, <code>:development</code>. You can change that group with the <code>:development_group</code> option
+        Runtime dependencies in your gemspec are treated as if they are listed in your Gemfile, and development dependencies are added by default to the group, <code>:development</code>. You can change that group with the <code>:development_group</code> option
       :code
         # lang: ruby
         gemspec :development_group => :dev

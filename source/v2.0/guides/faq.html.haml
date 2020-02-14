@@ -222,13 +222,12 @@ title: Frequently Asked Questions
 
           Instead of forcing every fresh checkout (and possible new
           contributor) to encounter broken builds, the Bundler team recommends
-          creating a CI configuration that deletes your `Gemfile.lock`, runs
-          `bundle install`, and then runs your tests. That way you, and others
-          monitoring the build status, will be the first to know about failures
-          from dependency changes.
+          either using a tool like <a href="https://dependabot.com">Dependabot
+          </a> to automatically create a PR and run the test suite any time
+          your dependencies release new versions.
 
-          To make updating dependencies less onorous, use tools like <a
-          href="https://dependabot.com">Dependabot</a> to automatically run
-          tests against new versions of your dependencies, and to easily (or
-          even automatically!) update your Gemfile.lock to the latest
-          verisons of your dependencies.
+          If you don't want to use a dependency monitoring bot, we suggest
+          creating an additional daily CI build that deletes the Gemfile.lock
+          before running `bundle install`. That way you, and others monitoring
+          your CI status, will be the first to know about any failures from
+          dependency changes.

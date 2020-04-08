@@ -1,0 +1,21 @@
+---
+- :name: bundler-changelogs
+  :uri: https://github.com/jdar/bundler-changelogs
+- :name: bundler-console
+  :uri: https://github.com/kddeisz/bundler-console
+- :name: bundler-dependency_graph
+  :uri: https://github.com/kerrizor/bundler-dependency_graph
+- :name: bundler-ecology
+  :uri: https://github.com/eco-rb/bundler-ecology
+- :name: bundler-explain
+  :uri: https://github.com/jhawthorn/bundler-explain
+- :name: bundler-inject
+  :uri: https://github.com/ManageIQ/bundler-inject
+- :name: bundler-licensed
+  :uri: https://github.com/sergey-alekseev/bundler-licensed
+- :name: bundler-private_install
+  :uri: https://github.com/fphilipe/bundler-private_install
+- :name: bundler-source-aws-s3
+  :uri: https://github.com/eki/bundler-source-aws-s3
+- :name: bundler-symlink
+  :uri: https://github.com/petekinnecom/bundler-symlink

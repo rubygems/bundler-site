@@ -8,7 +8,7 @@ task :release => [:build, :update_site] do
     File.write("CNAME", "bundler.io")
 
     sh "git add -A ."
-    sh "git commit -m 'bundler/bundler-site@#{commit}'"
+    sh "git commit -m 'rubygems/bundler-site@#{commit}'"
 
     Bundler.with_clean_env do
       puts <<-TWO_FACTOR_WARNING

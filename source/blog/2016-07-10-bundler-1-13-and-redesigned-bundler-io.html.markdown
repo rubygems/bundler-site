@@ -17,7 +17,7 @@ There are also two new guides to go with the new website: [Using Bundler In Appl
 The new site also includes some more improvements:
 
 * Command pages are now built from the Bundler repository instead of hand-written (where possible)
-* Commits to the master branch of [bundler-site](https://github.com/bundler/bundler-site) are now auto-deployed (via Travis)
+* Commits to the master branch of [bundler-site](https://github.com/rubygems/bundler-site) are now auto-deployed (via Travis)
 * Middleman has been updated to latest version
 * Every header in the guides and commands pages now has anchor links for navigation and reference
 * The site now supports multiple translations (although no translations have been completed yet)

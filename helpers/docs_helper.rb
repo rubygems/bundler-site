@@ -14,14 +14,16 @@ module DocsHelper
     path = current_page.file_descriptor.relative_path.to_s
     repo = 
       if path.start_with?('doc/')
-        'bundler/bundler'
+        path = "bundler/#{path}"
+        'rubygems/rubygems'
       elsif path =~ %r{\Av\d+\.\d+/man/(bundle[_-]|gemfile)}
         path = "#{strip_version_from_url(path)}.ronn"
         path.sub!(/\.\d+\.ronn\z/, '.ronn') unless path.end_with?("gemfile.5.ronn")
-        'bundler/bundler'
+        path = "bundler/#{path}"
+        'rubygems/rubygems'
       else
         path = File.join 'source', path
-        'bundler/bundler-site'
+        'rubygems/bundler-site'
       end
     url = "https://github.com/#{repo}/blob/master/#{path}"
     

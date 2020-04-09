@@ -35,7 +35,7 @@ namespace :travis do
       sh "git config user.name 'Travis CI'"
       sh "git config user.email '#{commit_author_email}'"
 
-      sh "git commit -m 'bundler/bundler-site@#{commit}'"
+      sh "git commit -m 'rubygems/bundler-site@#{commit}'"
       sh "git push origin master"
     end
 

@@ -442,4 +442,4 @@ Please include:
 ### Contributing to this guide
 [contributing-to-guide]: #contributing-to-this-guide
 
-If you found a solution not listed here, submit a PR to add your solution to [this guide](https://github.com/bundler/bundler-site/blob/master/source/v1.16/guides/rubygems_tls_ssl_troubleshooting_guide.html.md)!
+If you found a solution not listed here, submit a PR to add your solution to [this guide](https://github.com/rubygems/bundler-site/blob/master/source/v1.16/guides/rubygems_tls_ssl_troubleshooting_guide.html.md)!

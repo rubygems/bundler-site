@@ -9,7 +9,7 @@ The site bundler.io is a static site generated using [Middleman](http://middlema
 
 Begin by cloning the repository onto your location machine:
 
-    git clone https://github.com/bundler/bundler-site.git
+    git clone https://github.com/rubygems/bundler-site.git
 
 Once complete prepare the dependencies by running:
 

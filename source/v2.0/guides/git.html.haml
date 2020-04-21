@@ -148,12 +148,12 @@ title: How to install gems from git repositories
         instead of using the remote version. This can be achieved by setting
         up a local override:
       :code
-        $ bundle config local.GEM_NAME /path/to/local/git/repository
+        $ bundle config set local.GEM_NAME /path/to/local/git/repository
     .bullet
       .description
         For example, in order to use a local Rack repository, a developer could call:
       :code
-        $ bundle config local.rack ~/Work/git/rack
+        $ bundle config set local.rack ~/Work/git/rack
       .description
         and setup the git repo pointing to a branch:
       :code

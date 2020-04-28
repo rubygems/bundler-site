@@ -4,21 +4,24 @@ on: [push, pull_request]
 jobs:
   build:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        ruby: ['2.6.6']
     steps:
       - uses: actions/checkout@v1
 
       - name: Set up Ruby
         uses: actions/setup-ruby@v1
         with:
-          ruby-version: 2.6.x
+          ruby-version: ${{ matrix.ruby }}
 
       - name: Cache gems
         uses: actions/cache@v1
         with:
           path: vendor/bundle
-          key: ${{ runner.os }}-gem-${{ hashFiles('**Gemfile.lock') }}
+          key: ${{ runner.os }}-${{ matrix.ruby }}-gem-${{ hashFiles('**Gemfile.lock') }}
           restore-keys: |
-            ${{ runner.os }}-gem-
+            ${{ runner.os }}-${{ matrix.ruby }}-gem-
 
       - name: Bundle Install
         run: |

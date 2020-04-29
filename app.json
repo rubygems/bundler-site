@@ -3,12 +3,8 @@
   "scripts": {
   },
   "env": {
-    "LANG": {
-      "required": true
-    },
-    "RACK_ENV": {
-      "required": true
-    }
+    "LANG": "en_US.UTF-8",
+    "RACK_ENV": "production"
   },
   "addons": [
 

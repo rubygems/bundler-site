@@ -25,10 +25,12 @@ jobs:
 
       - name: Install bundler
         run: gem install bundler:2.1.4
+
       - name: Bundle Install
-        run: |
-          bundle config path vendor/bundle
-          bundle install --jobs 4 --retry 3
+        run: bundle check --path vendor/bundle || bundle install --path vendor/bundle --jobs 4 --retry 3
+
+      - name: Recompile sassc gem
+        run: bundle pristine sassc
 
       - name: Build
         run: NO_CONTRACTS=true bundle exec middleman build

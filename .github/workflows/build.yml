@@ -23,6 +23,8 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-${{ matrix.ruby }}-gem-
 
+      - name: Install bundler
+        run: gem install bundler:2.1.4
       - name: Bundle Install
         run: |
           bundle config path vendor/bundle

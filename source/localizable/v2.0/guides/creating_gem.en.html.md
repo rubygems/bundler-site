@@ -55,7 +55,7 @@ This command creates a [scaffold directory](https://github.com/radar/guides/tree
 for our new gem and, if we have
 Git installed, initializes a Git repository in this directory so we can start committing right
 away. If this is your first time running the `bundle gem` command, you will be asked whether you 
-want to include a the `CODE_OF_CONDUCT.md` and `LICENSE.txt` files with your project. The files 
+want to include the `CODE_OF_CONDUCT.md` and `LICENSE.txt` files with your project. The files 
 generated are:
 
  * **Gemfile**: Used to manage gem dependencies for our library's

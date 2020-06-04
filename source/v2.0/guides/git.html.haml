@@ -172,9 +172,10 @@ title: How to install gems from git repositories
           you may point to a commit that only exists in your local machine.
 
         %p
+          <strong>Please note!</strong>
           Bundler does many checks to ensure a developer won't work with
-          invalid references. Particularly, we force a developer to specify
-          a branch in the <code>Gemfile</code> in order to use this feature. If the branch
+          invalid references. Particularly, <strong>we force a developer to specify
+          a branch in the <code>Gemfile</code> in order to use this feature</strong>. If the branch
           specified in the <code>Gemfile</code> and the current branch in the local git
           repository do not match, Bundler will abort. This ensures that
           a developer is always working against the correct branches, and prevents

@@ -1,0 +1,16 @@
+%h2 bundle show
+
+.contents
+  .bullet
+    .description
+      Shows all gems that are part of the bundle, or the path to a given gem
+    :code
+      $ bundle show [GEM] [--paths]
+    .notes
+      %p
+        Options:
+      %p
+        <code>--paths</code>: List the paths of all gems that are required by your Gemfile.
+    .description
+      Show lists the names and versions of all gems that are required by your Gemfile.
+      Calling show with [GEM] will list the exact location of that gem on your machine.

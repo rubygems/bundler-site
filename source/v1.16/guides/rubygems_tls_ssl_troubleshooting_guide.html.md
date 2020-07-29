@@ -427,9 +427,9 @@ encountering an issue, go to the [creating an issue][creating-an-issue] section 
 
 If none of these instructions fixed the problem, the next step is to open an issue.
 
-(Create an issue in the [RubyGems issue tracker](https://github.com/rubygems/rubygems/issues)
+(Create an issue in the [RubyGems issue tracker](https://github.com/rubygems/rubygems/issues/new?labels=Rubygems&template=rubygems-related-issue.md)
 if your error came from `gem install`. If it came from `bundle install`, create an issue in
-the [Bundler issue tracker](https://github.com/rubygems/rubygems/issues).)
+the [Bundler issue tracker](https://github.com/rubygems/rubygems/issues/new?labels=Bundler&template=bundler-related-issue.md).)
 
 Please include:
 - The output from running `gem env`:

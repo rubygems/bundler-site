@@ -213,7 +213,7 @@ You're done! Run `gem --version` to verify that you are using the latest version
 ### Updating System Clock
 [update-system-clock]: #updating-system-clock
 
-If your system clock is set to a time in the past or future, your machine will not be able to establish a secure connection to RubyGems.org. To resolve the issue, you will need to set your system clock to the current time. In Linux, you can update the system clock by running `sudo ntpdate ntp.ubuntu.com`. 
+If your system clock is set to a time in the past or future, your machine will not be able to establish a secure connection to RubyGems.org. To resolve the issue, you will need to set your system clock to the current time. In Linux, you can update the system clock by running `sudo ntpdate ntp.ubuntu.com`.
 
 Here are other possible solutions for updating a system clock:
 
@@ -427,9 +427,9 @@ encountering an issue, go to the [creating an issue][creating-an-issue] section 
 
 If none of these instructions fixed the problem, the next step is to open an issue.
 
-(Create an issue in the [RubyGems issue tracker](https://github.com/rubygems/rubygems/issues)
+(Create an issue in the [RubyGems issue tracker](https://github.com/rubygems/rubygems/issues/new?labels=Rubygems&template=rubygems-related-issue.md)
 if your error came from `gem install`. If it came from `bundle install`, create an issue in
-the [Bundler issue tracker](https://github.com/bundler/bundler).)
+the [Bundler issue tracker](https://github.com/rubygems/rubygems/issues/new?labels=Bundler&template=bundler-related-issue.md).)
 
 Please include:
 - The output from running `gem env`:

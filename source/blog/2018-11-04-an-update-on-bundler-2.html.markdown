@@ -22,4 +22,4 @@ To be extremely clear: **all applications and Gemfiles that currently work with 
 
 In future releases of Bundler, we hope to schedule future breaking changes with a one-year deprecation warning period, while listening to user feedback and doing everything that we can to keep existing applications from breaking. Keep an eye on [@bundlerio](https://twitter.com/bundlerio) or [the Bundler blog](https://bundler.io/blog) to hear more about the future of Bundler as we figure things out.
 
-As always, if you have problems or feedback, we want to hear from you! Head over to the [Bundler issue tracker](https://github.com/bundler/bundler/issues) and let us know.
+As always, if you have problems or feedback, we want to hear from you! Head over to the [Bundler issue tracker](https://github.com/rubygems/rubygems/issues) and let us know.

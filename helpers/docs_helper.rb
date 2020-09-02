@@ -18,7 +18,6 @@ module DocsHelper
         'rubygems/rubygems'
       elsif path =~ %r{\Av\d+\.\d+/man/(bundle[_-]|gemfile)}
         path = "#{strip_version_from_url(path)}.ronn"
-        path.sub!(/\.\d+\.ronn\z/, '.ronn') unless path.end_with?("gemfile.5.ronn")
         path = "bundler/#{path}"
         'rubygems/rubygems'
       else

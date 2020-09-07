@@ -31,7 +31,7 @@ with the exact same gems you use in development.
 If you have run <code>bundle package</code>, the cached
 gems will be used automatically.
 
-<a href="/man/bundle-package.1.html" class="btn btn-primary">Learn More: Packing</a>
+<a href="/man/bundle-cache.1.html" class="btn btn-primary">Learn More: Packing</a>
 
 ### Automatic deployment with Capistrano
 

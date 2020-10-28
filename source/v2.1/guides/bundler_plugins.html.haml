@@ -122,6 +122,10 @@ title: How to write a Bundler plugin
           # The exec method will be called with the `command` and the `args`.
           # This is where you should handle all logic and functionality
           def exec(command, args)
+            if args.empty?
+              # Using BundlerError in plugins is recommended. See below.
+              raise BundlerError, 'My plugin requires arguments'
+            end
             puts "You called " + command + " with args: " + args.inspect
           end
         end
@@ -147,6 +151,13 @@ title: How to write a Bundler plugin
           <code>Bundler::Plugin::API.command(COMMAND_NAME, CLASS)</code> or <code>command 'COMMAND_NAME'</code> is called, depending on the method used (see examples above)
         %li
           The class defines the instance method <code>exec(command_name, args)</code>
+
+      %h4#raising_errors
+        Raising Errors
+      %p
+        If something goes wrong, your plugins should raise a `BundlerError`. It's not recommended to raise e.g. `Exception` in a plugin, because that will cause bundler to print its own bug report template, asking users to report the bug to bundler itself.
+      %p
+        To see in detail how bundler rescues errors, check out `bundler/friendly_errors.rb`.
 
       %h3#developing_your_plugin_hooks
         4. Using Bundler hooks

@@ -57,10 +57,13 @@ title: How to write a Bundler plugin
         Install a plugin from a command
 
       %p
-        Plugins can be installed from RubyGems (default) or from a Git server. To use a gem on your machine, you can run <code>bundler plugin install <gem_name></code>. Once the plugin is installed, the commands will be available for use and the hooks will be automatically registered with Bundler.
+        Plugins can be installed from RubyGems (default) or from a Git server. To use a gem on your machine, you can run <code>bundler plugin install gem_name</code>. Once the plugin is installed, the commands will be available for use and the hooks will be automatically registered with Bundler.
 
       %p
         Run <code>bundler plugin help install</code> for more details help and instructions on installing from Git.
+
+      %p
+        In Bundler 2.2.0, you can uninstall with <code>bundler plugin uninstall gem_name</code>.
 
       %h4#install_from_command
         Install a plugin from your Gemfile

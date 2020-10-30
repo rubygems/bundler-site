@@ -158,7 +158,7 @@ title: How to write a Bundler plugin
       %h4#raising_errors
         Raising Errors
       %p
-        If something goes wrong, your plugins should raise a `BundlerError`. It's not recommended to raise e.g. `Exception` in a plugin, because that will cause bundler to print its own bug report template, asking users to report the bug to bundler itself.
+        If something goes wrong, your plugins should raise a `BundlerError`. It's not recommended to raise e.g. `Exception` in a plugin, because that will cause Bundler to print its own bug report template, asking users to report the bug to Bundler itself.
       %p
         To see in detail how bundler rescues errors, check out `bundler/friendly_errors.rb`.
 

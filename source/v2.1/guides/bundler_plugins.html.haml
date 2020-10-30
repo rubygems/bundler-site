@@ -57,10 +57,13 @@ title: How to write a Bundler plugin
         Install a plugin from a command
 
       %p
-        Plugins can be installed from RubyGems (default) or from a Git server. To use a gem on your machine, you can run <code>bundler plugin install <gem_name></code>. Once the plugin is installed, the commands will be available for use and the hooks will be automatically registered with Bundler.
+        Plugins can be installed from RubyGems (default) or from a Git server. To use a gem on your machine, you can run <code>bundler plugin install gem_name</code>. Once the plugin is installed, the commands will be available for use and the hooks will be automatically registered with Bundler.
 
       %p
         Run <code>bundler plugin help install</code> for more details help and instructions on installing from Git.
+
+      %p
+        In Bundler 2.2.0, you can uninstall with <code>bundler plugin uninstall gem_name</code>.
 
       %h4#install_from_command
         Install a plugin from your Gemfile
@@ -122,6 +125,10 @@ title: How to write a Bundler plugin
           # The exec method will be called with the `command` and the `args`.
           # This is where you should handle all logic and functionality
           def exec(command, args)
+            if args.empty?
+              # Using BundlerError in plugins is recommended. See below.
+              raise BundlerError, 'My plugin requires arguments'
+            end
             puts "You called " + command + " with args: " + args.inspect
           end
         end
@@ -147,6 +154,13 @@ title: How to write a Bundler plugin
           <code>Bundler::Plugin::API.command(COMMAND_NAME, CLASS)</code> or <code>command 'COMMAND_NAME'</code> is called, depending on the method used (see examples above)
         %li
           The class defines the instance method <code>exec(command_name, args)</code>
+
+      %h4#raising_errors
+        Raising Errors
+      %p
+        If something goes wrong, your plugins should raise a `BundlerError`. It's not recommended to raise e.g. `Exception` in a plugin, because that will cause Bundler to print its own bug report template, asking users to report the bug to Bundler itself.
+      %p
+        To see in detail how bundler rescues errors, check out `bundler/friendly_errors.rb`.
 
       %h3#developing_your_plugin_hooks
         4. Using Bundler hooks

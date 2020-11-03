@@ -164,7 +164,7 @@ GEM
     rb-fsevent (0.10.3)
     rb-inotify (0.10.0)
       ffi (~> 1.0)
-    rdiscount (2.2.0.1)
+    rdiscount (2.2.0.2)
     ref (2.0.0)
     ronn (0.7.3)
       hpricot (>= 0.8.2)

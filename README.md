@@ -15,6 +15,21 @@ Once complete prepare the dependencies by running:
 
     bundle install
 
+### If you have trouble installing the `middleman-search` gem
+
+`middleman-search` depends on the deprecated gem `therubyracer`, which depends
+on an obsolete version of `libv8`. They can be difficult to install.
+
+```
+gem install libv8 -v '3.16.14.19' -- --with-system-v8
+gem install therubyracer -v '0.12.3' --source 'https://rubygems.org/' -- --with-v8-dir=/usr/local/opt/v8@3.15
+```
+
+For further discussion, see https://gist.github.com/fernandoaleman/868b64cd60ab2d51ab24e7bf384da1ca
+
+There is an open PR to fix `middleman-search`:
+https://github.com/manastech/middleman-search/issues/18
+
 ## Basic Middleman Commands
 
 Fetch latest documentation from bundler repo (should be done before running local development web server):

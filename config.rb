@@ -63,21 +63,21 @@ Dir.glob("./source/localizable/#{config[:current_version]}/**/*").select{ |f| Fi
   proxy "#{country}/#{proxy_path}", page_path, locale: country.to_sym
   proxy proxy_path, page_path, locale: :en if country == 'en'
 end
+# Same for man-generated documentation
+# Ex: /v2.1/man/bundle-config.1.html.erb (adapted from bundler/bundler) available at /bundle_config.html
+Dir.glob("./source/#{config[:current_version]}/man/**/*").select{ |f| File.file?(f) }.each do |file_path|
+  handle_man_page(file_path) do |man_page_name, page_path|
+    proxy "/#{man_page_name}.html", page_path unless man_page_exists?(man_page_name, config[:current_version])
+  end
+end
 
 # Proxy man generated documentation to be available at /vX.XX/ (for compatibility with old guides)
-# Ex: /v1.12/man/bundle-install.1.html.erb available at /v1.12/bundle_install.html
+# Ex: /v1.12/man/bundle-install.1.html.erb (adapted from bundler/bundler) available at /v1.12/bundle_install.html
 config[:versions].each do |version|
   Dir.glob("./source/#{version}/man/**/*").select{ |f| File.file?(f) }.each do |file_path|
-    file_path = file_path[0..-5]
-    page_path = file_path.sub(/^\.\/source/, '')
-
-    man_page_name_matched = file_path.match(/man\/(.*)\.html$/)
-    next unless man_page_name_matched
-
-    man_page_name = man_page_name_matched[1].gsub(/\.\d+$/, '').gsub('-', '_')
-    man_page_name = 'gemfile_man' if man_page_name == 'gemfile'
-
-    proxy "/#{version}/#{man_page_name}.html", page_path unless man_page_exists?(man_page_name, version)
+    handle_man_page(file_path) do |man_page_name, page_path|
+      proxy "/#{version}/#{man_page_name}.html", page_path unless man_page_exists?(man_page_name, version)
+    end
   end
 end
 

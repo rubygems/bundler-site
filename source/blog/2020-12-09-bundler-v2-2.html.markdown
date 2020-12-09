@@ -1,0 +1,9 @@
+---
+
+title: Bundler v2.2
+date: 2020-12-09 16:32 UTC
+tags: 
+
+---
+
+

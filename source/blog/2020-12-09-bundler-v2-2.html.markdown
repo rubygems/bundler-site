@@ -1,0 +1,100 @@
+---
+
+title: "Bundler v2.2: Multiplatform, Funding, and more."
+date: 2020-12-09 16:32 UTC
+tags:
+author: David Rodríguez
+author_url: https://github.com/deivid-rodriguez/
+category: release
+---
+
+After an intense year of work, we're finally ready to announce the release of
+the final version of bundler 2.2, right in time to be included with Christmas'
+eve Ruby 3.0 release.
+
+## Multiplatform support
+
+Historically, bundler has had issues when it comes to choosing and prioritizing
+platform specific versions of gems during resolution. With this release, we have
+made several improvements in this regard and we expect to ship a much more user
+friendly behavior here.
+
+Huge thanks to [@kou](https://github.com/kou) for contributing awesome fixes in
+this area, and to [@larskanis](https://github.com/larskanis) for early testing
+the improvements and giving us feedback.
+
+Bundler now needs to record the specific platform it used to resolve a given
+`Gemfile` in the lockfile, so you will notice some source control differences
+there when you upgrade. Commit these changes for all your supported platforms to
+make sure all developers of your application get a consistent resolution under
+all platforms.
+
+## Find out about gems you depend on that need funding
+
+We really want to help building a more sustainable ruby ecosystem, so we're
+shipping a new `bundle fund` command that helps you discovering the libraries
+you depend on that need funding.
+
+If you develop a gem that needs funding, make sure you fill in the `funding_uri`
+metadata in your gemspec, like this:
+
+~~~ruby
+Gem::Specification.new do |gem|
+  gem.name = "#{GEM_NAME}"
+  gem.homepage = "#{GEM_HOMEPAGE}"
+  s.metadata = {
+    "funding_uri" => "#{GEM_FUNDING_PAGE}"
+  }
+end
+~~~
+
+As soon as people start filling this metadata, `bundle fund` will start
+reporting all of your dependencies that need funding.
+
+Big kudos to [@gjtorikian](https://github.com/gjtorikian) for coding this
+feature both on the server and the client sides, and for waiting so patiently
+until we had time to review his work.
+
+And talking about funding, remember: [RubyTogether](https://rubytogether.org/) needs ❤️.
+
+## Improved Windows support
+
+Partly because of the improved multiplatform support, but also because of many
+other fixes, bundler now supports Windows much better. We even have a Windows CI
+running to make sure we minimize regressions under that platform.
+
+## Better integration inside ruby-core
+
+Since ruby 2.6 bundler is included as default gem with ruby. This change was
+exciting but didn't happen without issues. We have made many fixes in this
+regard and we believe things should be much smoother now. As in, you shouldn't
+notice any behavioral difference at all when running bundler as a regular gem vs
+as a default gem.
+
+## Better support for JRuby
+
+We have been working on improving our compatibility with jruby as well. We now
+run a small subset of our CI under jruby to prevent regressions and cover the
+related bug fixes that we ship.
+
+## Better, more flexible, gem templates
+
+We have shipped a lot of improvements to the default `bundle gem` template. You
+can now automatically set up a configuration for the main CI providers, or
+include `rubocop` to check your code style, among other improvements. We also
+make sure all gems are now generated with a default minimum supported ruby,
+which is a good practice that we really want to promote.
+
+## And a bunch of bug fixes!
+
+Last but not least, we have fixed about 60 bugs in this release. Our main focus
+at the moment is stability, so we want to kill all those issues that sometimes
+make bundler get in the middle.
+
+## How to get it
+
+Run `gem install bundler` to upgrade to the newest version of Bundler.
+
+- - - -
+
+That's all for now. We really hope you enjoy this release. Happy Bundling!

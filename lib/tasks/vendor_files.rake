@@ -42,8 +42,13 @@ directory "vendor/bundler" => ["vendor"] do
   system "git clone https://github.com/bundler/bundler.git vendor/bundler"
 end
 
-task :update_vendor => ["vendor/bundler"] do
+directory "vendor/rubygems" => ["vendor"] do
+  system "git clone https://github.com/rubygems/rubygems.git vendor/rubygems"
+end
+
+task :update_vendor => ["vendor/bundler", "vendor/rubygems"] do
   Dir.chdir("vendor/bundler") { sh "git fetch" }
+  Dir.chdir("vendor/rubygems") { sh "git fetch" }
 end
 
 desc "Pulls in pages maintained in the bundler repo."

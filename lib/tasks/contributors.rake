@@ -19,7 +19,7 @@ namespace :contributors do
     require "octokit"
     require "yaml"
     client = Octokit::Client.new(auto_paginate: true)
-    contributors = client.contributors("bundler/bundler", false)
+    contributors = client.contributors("rubygems/rubygems", false)
     contributors.reject!{|c| credited_elsewhere.include?(c[:login]) }
     contributors.map! do |c|
       {

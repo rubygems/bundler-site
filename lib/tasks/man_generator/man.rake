@@ -2,20 +2,31 @@ desc "Pull in the man pages for the specified gem versions."
 task :man => [:update_vendor] do
   VERSIONS.each do |version|
     next if version == "v0.9"
-    branch = (version[1..-1].split('.') + %w(stable)).join('-')
+
+    if version <= "v2.1"
+      branch = (version[1..-1].split('.') + %w(stable)).join('-')
+      vendor_folder = "vendor/bundler"
+      man_folder = "man"
+    else
+      branch = Gem::Version.new(version[1..-1]).segments.map.with_index { |segment, i| i == 0 ? segment + 1 : segment }.join(".")
+      vendor_folder = "vendor/rubygems/bundler"
+      man_folder = "lib/bundler/man"
+    end
 
     rm_rf "source/#{version}/man"
     mkdir_p "source/#{version}/man"
 
-    Dir.chdir "vendor/bundler" do
-      sh("bin/rake", "index.txt") { } # it's OK if this fails, as it means there was no index.txt file
+    Dir.chdir vendor_folder do
       sh "git reset --hard HEAD"
       sh "git checkout origin/#{branch}"
-      sh "#{Gem.ruby} -S bundle exec ronn -5 man/*.ronn"
-      cp(FileList["man/*.html"], "../../source/#{version}/man")
+      sh "#{Gem.ruby} -S ronn -5 #{man_folder}/*.ronn"
+
+      segments_up = vendor_folder.split(File::SEPARATOR).map { |_| ".." }.join(File::SEPARATOR)
+
+      cp(FileList["#{man_folder}/*.html"], "#{segments_up}/source/#{version}/man")
       sh "git clean -fd"
 
-      Rake::Task["man:strip_pages"].execute("../../source/#{version}/man")
+      Rake::Task["man:strip_pages"].execute("#{segments_up}/source/#{version}/man")
     end
   end
 

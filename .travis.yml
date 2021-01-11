@@ -3,7 +3,7 @@ cache: bundler
 rvm:
   - 2.7.2
 install:
-  - gem install bundler:2.1.4
+  - gem install bundler:2.2.4
   - bundle install --deployment
   - eval "$(ssh-agent -s)"
 script:

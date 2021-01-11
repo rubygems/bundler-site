@@ -18,17 +18,7 @@ Can't find gem bundler (>= 0.a) with executable bundle (Gem::GemNotFoundExceptio
 
 This error is saying (in a very particular way) that RubyGems was unable to find the exact version of Bundler that is in your Gemfile.lock.
 
-This is a bug, and RubyGems should be willing to use the version of Bundler that you have installed. The bug is fixed in RubyGems 2.7.10 or 3.0.0 and above, which you can install by running `gem update --system`.
-
-If you want to know more about how this happened, keep reading!
-
-## Why does this bug exist?
-
-Starting in RubyGems 2.7, the RubyGems and Bundler teams worked together to add a feature for the future: a Bundler version switcher. The intention was that later on when Bundler 2 eventually came out, RubyGems would be able to lock Bundler's version on a per-application basis. It did this by reading the Gemfile.lock and using the version of Bundler listed in the `BUNDLED WITH` section.
-
-After more discussion and experimentation, before Bundler 2 actually shipped, the Bunder team decided that this was too surprising and the user experience did not meet expectations.
-
-Unfortunately, the code in RubyGems that looked for an exact version of the Bundler gem based on `BUNDLED WITH` was already out there. We didn't realize it in advance, but that code causes this error anytime the `BUNDLED WITH` version is even slightly different from the exact Bundler gem you have installed. (For example, you might have only Bundler 2.0.3, while `BUNDLED WITH` calls for 2.0.2. In that case, RubyGems will unfortunately raise this error.)
+This is a bug, and future Bundler & RubyGems versions will automatically install and use the exact version of Bundler your application needs to run.
 
 ## What are the possible solutions?
 

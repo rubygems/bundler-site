@@ -44,10 +44,6 @@ You can try updating RubyGems by running `gem update --system`, but note that if
 
 Similarly to the previous solution, Ruby 2.6.3 includes a version of RubyGems that's less strict, so upgrading Ruby will automatically upgrade RubyGems and should fix the issue too.
 
-## I'm still having this problem after trying everything else
-
-Oh no! We'd like to help you figure it out. Head over to the GitHub issue tracker and open a new issue, and we'll do what we can to help.
-
 ---
 
 — Colby and the Bundler team

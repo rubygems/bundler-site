@@ -6,9 +6,13 @@ author: Colby Swandale
 category: release
 ---
 
-TL;DR: run `gem update --system`.
+TL;DR: run
 
-## What is this bug?
+```
+$ gem install bundler -v "$(grep -A 1 "BUNDLED WITH" Gemfile.lock | tail -n 1)"
+```
+
+## What is this error?
 
 Some versions of RubyGems try to use the exact version of Bundler listed in your Gemfile.lock anytime you run the bundle command. If you are using one of those versions of RubyGems, but do not have that exact version of Bundler installed, you will run into this error:
 
@@ -18,43 +22,31 @@ Can't find gem bundler (>= 0.a) with executable bundle (Gem::GemNotFoundExceptio
 
 This error is saying (in a very particular way) that RubyGems was unable to find the exact version of Bundler that is in your Gemfile.lock.
 
-This is a bug, and RubyGems should be willing to use the version of Bundler that you have installed. The bug is fixed in RubyGems 2.7.10 or 3.0.0 and above, which you can install by running `gem update --system`.
-
-If you want to know more about how this happened, keep reading!
-
-## Why does this bug exist?
-
-Starting in RubyGems 2.7, the RubyGems and Bundler teams worked together to add a feature for the future: a Bundler version switcher. The intention was that later on when Bundler 2 eventually came out, RubyGems would be able to lock Bundler's version on a per-application basis. It did this by reading the Gemfile.lock and using the version of Bundler listed in the `BUNDLED WITH` section.
-
-After more discussion and experimentation, before Bundler 2 actually shipped, the Bunder team decided that this was too surprising and the user experience did not meet expectations.
-
-Unfortunately, the code in RubyGems that looked for an exact version of the Bundler gem based on `BUNDLED WITH` was already out there. We didn't realize it in advance, but that code causes this error anytime the `BUNDLED WITH` version is even slightly different from the exact Bundler gem you have installed. (For example, you might have only Bundler 2.0.3, while `BUNDLED WITH` calls for 2.0.2. In that case, RubyGems will unfortunately raise this error.)
+This is a bug, and future Bundler & RubyGems versions will automatically install and use the exact version of Bundler your application needs to run.
 
 ## What are the possible solutions?
 
 There are a few options, depending on what you are able to update to newer versions.
 
-## Update RubyGems
-
-The easiest way is to update to the latest RubyGems (2.7.10 and 3.0.4) or higher. You can do that by running `gem update --system`.
-
-## Update Ruby
-
-Ruby 2.6.3 includes a version of RubyGems with the fix for this issue.
-
 ## Install the exact Bundler
 
-If updating Ruby or RubyGems is not an available option, you install the exact version of Bundler that RubyGems is looking for by running:
+The only version of Bundler 100% guaranteed to work with a given `Gemfile.lock` file is the Bundler version that generated it. So the most reliable way to fix this error is to install that exact Bundler version.
+
+This will be the default behavior of `bundle install` in the future, but for now you can get that result with:
 
 ```
 $ gem install bundler -v "$(grep -A 1 "BUNDLED WITH" Gemfile.lock | tail -n 1)"
 ```
 
-Once you've installed the exact version that RubyGems will try to load, future bundle commands should work.
+## Update RubyGems
 
-## I'm still having this problem after trying everything else
+More recent RubyGems versions are less strict and as long as the major Bundler version in the `BUNDLED WITH` section of your `Gemfile.lock` file matches the major Bundler version you are running, it won't generate an error.
 
-Oh no! We'd like to help you figure it out. Head over to the GitHub issue tracker and open a new issue, and we'll do what we can to help.
+You can try updating RubyGems by running `gem update --system`, but note that if the Ruby you're running is provided by an OS package, this most likely won't work since the RubyGems update should come from another OS package.
+
+## Update Ruby
+
+Similarly to the previous solution, Ruby 2.6.3 includes a version of RubyGems that's less strict, so upgrading Ruby will automatically upgrade RubyGems and should fix the issue too.
 
 ---
 

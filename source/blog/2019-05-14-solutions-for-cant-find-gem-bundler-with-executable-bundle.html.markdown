@@ -6,7 +6,11 @@ author: Colby Swandale
 category: release
 ---
 
-TL;DR: run `gem update --system`.
+TL;DR: run
+
+```
+$ gem install bundler -v "$(grep -A 1 "BUNDLED WITH" Gemfile.lock | tail -n 1)"
+```
 
 ## What is this error?
 

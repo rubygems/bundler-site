@@ -8,7 +8,7 @@ category: release
 
 TL;DR: run `gem update --system`.
 
-## What is this bug?
+## What is this error?
 
 Some versions of RubyGems try to use the exact version of Bundler listed in your Gemfile.lock anytime you run the bundle command. If you are using one of those versions of RubyGems, but do not have that exact version of Bundler installed, you will run into this error:
 

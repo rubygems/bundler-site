@@ -72,6 +72,7 @@ GEM
     launchy (2.4.3)
       addressable (~> 2.3)
     libv8 (3.16.14.19)
+    libv8 (3.16.14.19-x86_64-linux)
     listen (3.0.8)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
@@ -129,7 +130,7 @@ GEM
       middleman-core (>= 3.2)
       rouge (~> 3.2)
     mini_portile2 (2.5.0)
-    minitest (5.12.2)
+    minitest (5.14.3)
     multi_json (1.13.1)
     multipart-post (2.1.1)
     mustache (1.0.5)
@@ -138,6 +139,8 @@ GEM
     nio4r (2.5.2)
     nokogiri (1.11.0)
       mini_portile2 (~> 2.5.0)
+      racc (~> 1.4)
+    nokogiri (1.11.0-x86_64-linux)
       racc (~> 1.4)
     octokit (4.15.0)
       faraday (>= 0.9)
@@ -209,6 +212,7 @@ GEM
 
 PLATFORMS
   ruby
+  x86_64-linux
 
 DEPENDENCIES
   bootstrap-sass
@@ -233,7 +237,7 @@ DEPENDENCIES
   travis
 
 RUBY VERSION
-   ruby 2.7.2p137
+   ruby 3.0.0p0
 
 BUNDLED WITH
    2.2.4

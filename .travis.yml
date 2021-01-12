@@ -1,7 +1,7 @@
 language: ruby
 cache: bundler
 rvm:
-  - 2.7.2
+  - 3.0.0
 install:
   - gem install bundler:2.2.5
   - bundle install --deployment

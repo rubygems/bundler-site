@@ -2,7 +2,7 @@
   "name": "bundler-site",
   "scripts": {
   },
-  "stack": "heroku-18",
+  "stack": "heroku-20",
   "env": {
     "LANG": "en_US.UTF-8",
     "RACK_ENV": "production"

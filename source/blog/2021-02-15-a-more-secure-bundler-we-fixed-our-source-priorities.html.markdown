@@ -9,6 +9,11 @@ category: security
 
 ---
 
+> __NOTE__: The part about the Bundler release in this blog post is not currently
+> relevant. We had to revert the change since it created breaking behavior for
+> our users. We'll remove this note once we release a properly working version
+> that implements this improvement.
+
 ## What happened?
 
 Last week [an article about "Dependency

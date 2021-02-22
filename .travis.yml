@@ -15,5 +15,3 @@ script:
 branches:
   only:
     - master
-    - staging
-    - trying

@@ -4,7 +4,8 @@ rvm:
   - 3.0.0
 install:
   - gem install bundler:2.2.8
-  - bundle install --deployment
+  - bundle config set --local deployment true
+  - bundle install
   - eval "$(ssh-agent -s)"
 script:
   - |

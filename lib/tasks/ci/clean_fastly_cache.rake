@@ -2,7 +2,7 @@ require 'net/http'
 require 'json'
 require 'openssl'
 
-namespace :travis do
+namespace :ci do
   def fastly_cache_purge_uri
     URI("https://api.fastly.com/service/#{fastly_service_id}/purge_all")
   end

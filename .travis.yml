@@ -10,7 +10,7 @@ install:
 script:
   - |
       if [ "$TRAVIS_BRANCH" = "master" ];
-      then bundle exec rake travis:deploy
+      then bundle exec rake ci:deploy
       else bundle exec rake build
       fi
 branches:

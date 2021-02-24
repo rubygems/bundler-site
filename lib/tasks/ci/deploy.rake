@@ -32,7 +32,7 @@ namespace :ci do
 
       sh "git add -A ."
 
-      sh "git config user.name 'Travis CI'"
+      sh "git config user.name 'Github Actions'"
       sh "git config user.email '#{commit_author_email}'"
 
       sh "git commit -m 'rubygems/bundler-site@#{commit}'"

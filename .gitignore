@@ -30,3 +30,6 @@ source/doc
 # man pages built from the bundler repo
 /source/man/
 /source/v*/man/
+
+# deploy key
+/deploy_key

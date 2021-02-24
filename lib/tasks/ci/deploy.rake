@@ -1,10 +1,10 @@
 namespace :ci do
   def encrypted_key
-    ENV["encrypted_#{ENV["ENCRYPTION_LABEL"]}_key"]
+    ENV["encrypted_key"]
   end
 
   def encrypted_iv
-    ENV["encrypted_#{ENV["ENCRYPTION_LABEL"]}_iv"]
+    ENV["encrypted_iv"]
   end
 
   def commit_author_email

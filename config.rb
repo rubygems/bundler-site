@@ -81,7 +81,8 @@ config[:versions].each do |version|
   end
 end
 
-page '/sponsors.html', layout: :compatibility_layout
+redirect "sponsors.html", to: "https://rubygems.org/pages/sponsors" # Backwards compatibility
+
 page '/conduct.html', layout: :guides_layout
 page '/older_versions.html', layout: :guides_layout
 page '/compatibility.html', layout: :guides_layout

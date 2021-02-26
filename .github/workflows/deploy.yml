@@ -1,8 +1,10 @@
-name: Middleman build
-on: [pull_request]
+name: Middleman deploy
+on:
+  push:
+    branches: [master]
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-20.04
     strategy:
       matrix:
@@ -18,8 +20,13 @@ jobs:
 
       - name: Bundle Install
         run: |
-          bundle config set --local deployment true
+          bundle config deployment true
           bundle install
 
-      - name: Build
-        run: NO_CONTRACTS=true bundle exec middleman build
+      - name: Deploy
+        run: |
+          eval "$(ssh-agent -s)"
+          bundle exec rake ci:deploy
+        env:
+          encrypted_key: ${{ secrets.encrypted_key }}
+          encrypted_iv: ${{ secrets.encrypted_iv }}

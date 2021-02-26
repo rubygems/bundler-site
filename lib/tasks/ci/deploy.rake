@@ -1,10 +1,10 @@
-namespace :travis do
+namespace :ci do
   def encrypted_key
-    ENV["encrypted_#{ENV["ENCRYPTION_LABEL"]}_key"]
+    ENV["encrypted_key"]
   end
 
   def encrypted_iv
-    ENV["encrypted_#{ENV["ENCRYPTION_LABEL"]}_iv"]
+    ENV["encrypted_iv"]
   end
 
   def commit_author_email
@@ -21,7 +21,7 @@ namespace :travis do
   task :deploy => [:build] do
     configure_ssh_deploy_key
 
-    Rake::Task["travis:update_ssh_site"].invoke
+    Rake::Task["ci:update_ssh_site"].invoke
 
     commit = `git rev-parse HEAD`.chomp
 
@@ -32,13 +32,13 @@ namespace :travis do
 
       sh "git add -A ."
 
-      sh "git config user.name 'Travis CI'"
+      sh "git config user.name 'Github Actions'"
       sh "git config user.email '#{commit_author_email}'"
 
       sh "git commit -m 'rubygems/bundler-site@#{commit}'"
       sh "git push origin master"
     end
 
-    Rake::Task["travis:clean_fastly_cache"].invoke
+    Rake::Task["ci:clean_fastly_cache"].invoke
   end
 end

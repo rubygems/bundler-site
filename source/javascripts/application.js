@@ -9,7 +9,6 @@
 //= require search
 //= require search_arrows
 //= require anchor.min
-//= require seedanddew
 
 anchors.options = {
   visible: 'touch'

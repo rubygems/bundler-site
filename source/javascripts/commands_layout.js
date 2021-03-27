@@ -1,3 +1,8 @@
+import $ from 'jquery'
+import AnchorJS from 'anchor-js';
+
+const anchors = new AnchorJS();
+
 $('.version-selects').change(function(e) {
   document.location.href = $(e.target).find(":selected").val();
 });

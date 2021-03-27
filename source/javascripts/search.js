@@ -1,4 +1,5 @@
-//= require lunr.min
+import $ from 'jquery'
+import lunr from 'lunr'
 
 var lunrIndex = null;
 var lunrData  = null;

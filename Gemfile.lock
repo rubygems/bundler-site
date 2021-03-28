@@ -54,24 +54,11 @@ GEM
       sassc (>= 2.0.0)
     builder (3.2.4)
     byebug (11.0.0)
-    chunky_png (1.4.0)
     coderay (1.1.2)
     coffee-script (2.4.1)
       coffee-script-source
       execjs
     coffee-script-source (1.12.2)
-    compass (1.0.3)
-      chunky_png (~> 1.2)
-      compass-core (~> 1.0.2)
-      compass-import-once (~> 1.0.5)
-      rb-fsevent (>= 0.9.3)
-      rb-inotify (>= 0.9)
-      sass (>= 3.3.13, < 3.5)
-    compass-core (1.0.3)
-      multi_json (~> 1.0)
-      sass (>= 3.3.0, < 3.5)
-    compass-import-once (1.0.5)
-      sass (>= 3.2, < 3.5)
     concurrent-ruby (1.1.8)
     contracts (0.13.0)
     dotenv (2.7.6)
@@ -107,9 +94,6 @@ GEM
       addressable (~> 2.3)
       middleman-core (>= 4.0.0)
       tzinfo (>= 0.3.0)
-    middleman-compass (4.0.1)
-      compass (>= 1.0.0, < 2.0.0)
-      middleman-core (>= 4.0.0)
     middleman-minify-html (3.4.1)
       htmlcompressor (~> 0.2.0)
       middleman-core (>= 3.2)
@@ -125,7 +109,6 @@ GEM
       rouge (~> 3.2)
     mini_portile2 (2.5.0)
     minitest (5.14.3)
-    multi_json (1.15.0)
     multipart-post (2.1.1)
     mustache (1.0.5)
     nio4r (2.5.2)
@@ -204,7 +187,6 @@ DEPENDENCIES
   kramdown
   middleman (~> 4.3)!
   middleman-blog
-  middleman-compass
   middleman-minify-html
   middleman-search
   middleman-sprockets (~> 4.0)
@@ -216,6 +198,7 @@ DEPENDENCIES
   puma (~> 4.3)
   rake
   ronn
+  sass
 
 RUBY VERSION
    ruby 3.0.0p0

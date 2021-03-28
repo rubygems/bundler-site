@@ -5,7 +5,7 @@ gem 'octokit', '~> 4.15'
 gem 'middleman', '~> 4.3', github: "middleman/middleman", branch: "4.x"
 gem 'middleman-syntax'
 gem 'middleman-blog'
-gem 'middleman-compass'
+gem 'sass'
 gem 'middleman-minify-html'
 gem 'puma', '~> 4.3'
 gem 'middleman-sprockets', '~> 4.0'

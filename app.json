@@ -15,7 +15,15 @@
     "LANG": "en_US.UTF-8",
     "RACK_ENV": "production",
     "NPM_CONFIG_PRODUCTION": "false"
-  }
+  },
+  "environments": {
+    "review": {
+      "env": {
+        "LANG": "en_US.UTF-8",
+        "RACK_ENV": "production",
+        "NPM_CONFIG_PRODUCTION": "false"
+      }
+    }
   },
   "addons": [
 

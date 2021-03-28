@@ -20,7 +20,7 @@ jobs:
 
       - name: Bundle Install
         run: |
-          bundle config deployment true
+          bundle config set --local deployment true
           bundle install
 
       - name: Deploy

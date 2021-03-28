@@ -1,5 +1,13 @@
 {
   "name": "bundler-site",
+  "buildpacks": [
+    {
+      "url": "heroku/nodejs"
+    },
+    {
+      "url": "heroku/ruby"
+    }
+  ],
   "scripts": {
   },
   "stack": "heroku-20",

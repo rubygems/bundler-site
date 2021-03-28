@@ -5,7 +5,6 @@
 //= require bootstrap/popover
 //= require bootstrap/dropdown
 //= require bootstrap/collapse
-//= require lunr.min
 //= require search
 //= require search_arrows
 //= require anchor.min

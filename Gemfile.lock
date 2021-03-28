@@ -76,7 +76,6 @@ GEM
       concurrent-ruby (~> 1.0)
     hashie (3.6.0)
     hpricot (0.8.6)
-    htmlcompressor (0.2.0)
     i18n (0.9.5)
       concurrent-ruby (~> 1.0)
     jquery-middleman (3.1.2)
@@ -94,9 +93,6 @@ GEM
       addressable (~> 2.3)
       middleman-core (>= 4.0.0)
       tzinfo (>= 0.3.0)
-    middleman-minify-html (3.4.1)
-      htmlcompressor (~> 0.2.0)
-      middleman-core (>= 3.2)
     middleman-search (0.10.0)
       middleman-core (>= 3.2)
       nokogiri (~> 1.6)
@@ -187,7 +183,6 @@ DEPENDENCIES
   kramdown
   middleman (~> 4.3)!
   middleman-blog
-  middleman-minify-html
   middleman-search
   middleman-sprockets (~> 4.0)
   middleman-syntax

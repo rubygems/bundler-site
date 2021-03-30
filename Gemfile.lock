@@ -94,7 +94,7 @@ GEM
       concurrent-ruby (~> 1.0)
     jquery-middleman (3.1.2)
       thor (>= 0.14, < 2.0)
-    kramdown (2.3.0)
+    kramdown (2.3.1)
       rexml
     libv8 (3.16.14.19)
     libv8 (3.16.14.19-x86_64-linux)
@@ -221,4 +221,4 @@ RUBY VERSION
    ruby 3.0.0p0
 
 BUNDLED WITH
-   2.2.11
+   2.2.15

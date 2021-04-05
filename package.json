@@ -1,0 +1,43 @@
+{
+  "name": "bundler-site",
+  "version": "1.0.0",
+  "description": "bundler.io is intended to serve as a convenient source for documentation on the [bundler](https://github.com/rubygems/rubygems) gem.",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npx webpack -d source-map --progress --color",
+    "build": "npx webpack --bail --mode production"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rubygems/bundler-site.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rubygems/bundler-site/issues"
+  },
+  "homepage": "https://github.com/rubygems/bundler-site#readme",
+  "devDependencies": {
+    "css-loader": "^5.2.0",
+    "imports-loader": "^2.0.0",
+    "mini-css-extract-plugin": "^1.4.0",
+    "node-sass": "^5.0.0",
+    "sass-loader": "^11.0.1",
+    "style-loader": "^2.0.0",
+    "url-loader": "^4.1.1",
+    "webpack": "^5.28.0",
+    "webpack-cli": "^4.6.0"
+  },
+  "dependencies": {
+    "anchor-js": "^3.2.0",
+    "bootstrap-sass": "^3.4.1",
+    "jquery": "^3.6.0",
+    "lunr": "^0.7.0"
+  }
+}

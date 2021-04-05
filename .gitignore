@@ -33,3 +33,9 @@ source/doc
 
 # deploy key
 /deploy_key
+
+# javascript libraries
+/node_modules
+
+# packed assets
+/.tmp

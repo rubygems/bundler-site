@@ -1,11 +1,20 @@
 {
   "name": "bundler-site",
+  "buildpacks": [
+    {
+      "url": "heroku/nodejs"
+    },
+    {
+      "url": "heroku/ruby"
+    }
+  ],
   "scripts": {
   },
   "stack": "heroku-20",
   "env": {
     "LANG": "en_US.UTF-8",
-    "RACK_ENV": "production"
+    "RACK_ENV": "production",
+    "NPM_CONFIG_PRODUCTION": "false"
   },
   "addons": [
 

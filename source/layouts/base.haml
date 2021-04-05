@@ -14,8 +14,7 @@
     - if content_for?(:canonical)
       %link(rel="canonical" href="#{yield_content(:canonical)}")
 
-    = javascript_include_tag "application"
-    = javascript_include_tag "analytics", async: true
+    = javascript_include_tag "application.min"
     = stylesheet_link_tag "application"
     = partial 'layouts/favicon'
     = feed_tag :atom, "#{blog.options.prefix.to_s}/feed.xml", title: "Atom Feed"

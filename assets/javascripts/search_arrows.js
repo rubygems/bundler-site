@@ -1,3 +1,4 @@
+import $ from 'jquery'
 (function() {
   var SearchArrows = window.SearchArrows = function() {
     this.LI_SELECTOR = '.search-list-li';

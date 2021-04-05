@@ -1,3 +1,6 @@
+import $ from 'jquery'
+import lunr from 'lunr'
+
 var lunrIndex = null;
 var lunrData  = null;
 var search = null;

@@ -32,10 +32,7 @@
         .bottom-sidebar-nav
           = partial 'partials/guides_sidebar'
 
-  :javascript
-    $(document).ready(function() {
-      anchors.add();
-    });
+  = javascript_include_tag 'anchors.min'
 
 :css
   .main-wrapper {

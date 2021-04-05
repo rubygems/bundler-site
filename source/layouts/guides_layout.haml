@@ -18,10 +18,7 @@
       .col-md-12
         ~ yield
 
-  :javascript
-    $(document).ready(function() {
-      anchors.add();
-    });
+  = javascript_include_tag 'anchors.min'
 
 :css
   .main-wrapper {

@@ -5,7 +5,6 @@ config[:current_version] = config[:versions].last
 
 activate :syntax
 activate :i18n
-activate :sprockets
 activate :search do |search|
   search.resources = ['index.html', "#{config[:current_version]}/", 'compatibility.html', 'conduct.html', 'contributors.html', 'older_versions.html']
 
@@ -35,8 +34,13 @@ set :markdown,
     superscript: true,
     tables: true
 
-set :javascript_dir, 'javascripts'
-set :css_dir, 'stylesheets'
+# Webpack
+activate :external_pipeline,
+ name: :webpack,
+ command: build? ? "npm run build" : "npm run start",
+ source: ".tmp/dist",
+ latency: 1
+
 set :images_dir, 'images'
 
 # Make documentation for the latest version available at the top level, too.
@@ -121,7 +125,12 @@ end
 
 page "/blog/feed.xml", layout: false
 
+configure :development do
+  config[:css_dir] = ".tmp/dist"
+  config[:js_dir] = ".tmp/dist"
+end
+
 configure :build do
-  activate :minify_css
-  activate :minify_javascript
+  config[:css_dir] = ""
+  config[:js_dir] = ""
 end

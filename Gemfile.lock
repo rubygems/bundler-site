@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/middleman/middleman.git
-  revision: 00ae2d963e4b9bd3b93e16544c62fe17ab5ae36d
+  revision: 0c950d82f6f4f540e8572195f80c9a9fb15ab80c
   branch: 4.x
   specs:
     middleman (4.3.11)
@@ -29,7 +29,7 @@ GIT
       memoist (~> 0.14)
       padrino-helpers (~> 0.13.0)
       parallel
-      rack (>= 1.4.5, < 2.1)
+      rack (>= 1.4.5, < 3)
       sassc (~> 2.0)
       servolux
       tilt (~> 2.0.9)
@@ -40,13 +40,14 @@ GIT
 GEM
   remote: https://rubygems.org/
   specs:
-    activesupport (5.2.4.4)
+    activesupport (5.2.5)
       concurrent-ruby (~> 1.0, >= 1.0.2)
       i18n (>= 0.7, < 2)
       minitest (~> 5.1)
       tzinfo (~> 1.1)
-    addressable (2.4.0)
-    backports (3.20.2)
+    addressable (2.7.0)
+      public_suffix (>= 2.0.2, < 5.0)
+    backports (3.21.0)
     builder (3.2.4)
     byebug (11.0.0)
     coderay (1.1.2)
@@ -62,8 +63,8 @@ GEM
     faraday (0.17.3)
       multipart-post (>= 1.2, < 3)
     fast_blank (1.0.0)
-    fastimage (2.2.2)
-    ffi (1.14.2)
+    fastimage (2.2.3)
+    ffi (1.15.0)
     haml (5.1.2)
       temple (>= 0.8.0)
       tilt
@@ -94,7 +95,7 @@ GEM
       middleman-core (>= 3.2)
       rouge (~> 3.2)
     mini_portile2 (2.5.0)
-    minitest (5.14.3)
+    minitest (5.14.4)
     multipart-post (2.1.1)
     mustache (1.0.5)
     nio4r (2.5.2)
@@ -120,10 +121,11 @@ GEM
     pry-byebug (3.7.0)
       byebug (~> 11.0)
       pry (~> 0.10)
+    public_suffix (4.0.6)
     puma (4.3.5)
       nio4r (~> 2.0)
     racc (1.5.2)
-    rack (2.0.9)
+    rack (2.2.3)
     rake (13.0.1)
     rb-fsevent (0.10.4)
     rb-inotify (0.10.1)

@@ -287,8 +287,9 @@ A Finder window will open showing the directory that RubyGems is installed into.
 
 **Step 3: Copy new trust certificate**
 
-In the window, open the `ssl_certs` directory and drag your `.pem`
-file into it. It will be listed with other files like `AddTrustExternalCARoot.pem`.
+In the window, open the `ssl_certs` directory. Find other `.pem` files like
+`AddTrustExternalCARoot.pem` (may be located in subdirectories like `rubygems.org`)
+and drag your file beside them.
 
 Once you’ve done this, it should be possible to follow the directions at the very top to
 automatically update RubyGems. Visit the [Update RubyGems][update-rubygems] section for

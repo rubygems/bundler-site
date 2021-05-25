@@ -9,10 +9,9 @@ category: security
 
 ---
 
-> __NOTE__: As of bundler 2.2.15, the part about the Bundler release in this
-> blog post is not fully relevant. Issue has been partially addressed for
-> situations where there's an existing lockfile, but we're still working on
-> fixing it when there's no lockfile.
+> __NOTE__: Whereas the issue was initially fixed in bundler 2.2.10, it had to
+> be reverted due to several problems caused by the initial approach. A proper
+> fix was finally released with bundler 2.2.18.
 
 ## What happened?
 

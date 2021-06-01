@@ -56,7 +56,16 @@ title: How to manage groups of gems
       .description
         Restrict the groups of gems that you
         want to add to the load path. Only gems
-        in these groups will be require'able
+        in these groups will be require'able.
+        Note though that `Bundler.setup` can be
+        called only once, all subsequent calls are
+        no-op. In particular, since running a
+        script through `bundle exec` already calls
+        `Bundler.setup`, any later calls inside
+        your user code will be ignored. In order to
+        control the groups that are loaded by
+        `bundle exec` you can use the `BUNDLE_WITH`
+        and `BUNDLE_WITHOUT` configurations.
       :code
         # lang: ruby
         require 'rubygems'

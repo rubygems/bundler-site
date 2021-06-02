@@ -31,11 +31,13 @@ title: How to manage groups of gems
         gem 'cucumber', group: [:cucumber, :test]
     .bullet
       .description
-        Install all gems, except those in the
-        listed groups. Gems in at least one
-        non-excluded group will still be installed.
+        Configure bundler so that subsequent
+        `bundle install` invokations will install
+        all gems, except those in the listed
+        groups. Gems in at least one non-excluded
+        group will still be installed.
       :code
-        $ bundle install --without test development
+        $ bundle config set --local without test development
     .bullet
       .description
         Require the gems in particular groups,
@@ -56,7 +58,16 @@ title: How to manage groups of gems
       .description
         Restrict the groups of gems that you
         want to add to the load path. Only gems
-        in these groups will be require'able
+        in these groups will be require'able.
+        Note though that `Bundler.setup` can be
+        called only once, all subsequent calls are
+        no-op. In particular, since running a
+        script through `bundle exec` already calls
+        `Bundler.setup`, any later calls inside
+        your user code will be ignored. In order to
+        control the groups that are loaded by
+        `bundle exec` you can use the `BUNDLE_WITH`
+        and `BUNDLE_WITHOUT` configurations.
       :code
         # lang: ruby
         require 'rubygems'
@@ -67,11 +78,11 @@ title: How to manage groups of gems
 
 
     %h2#optional-groups
-      Optional groups and <code>--with</code>
+      Optional groups and <code>BUNDLE_WITH</code>
     .bullet
       .description
       Mark a group as optional using <code>group :name, optional: true do</code> and then opt
-      into installing an optional group with <code>bundle install --with name</code>.
+      into installing an optional group with <code>bundle config set --local with name</code>.
 
     %h2#grouping-your-dependencies
       Grouping your dependencies
@@ -104,24 +115,19 @@ title: How to manage groups of gems
         Now, in development, you can instruct bundler to skip the <code>production</code> group:
 
       :code
-        $ bundle install --without production
+        $ bundle config set --local without production
     .bullet
       .description
-        Bundler will remember that you installed the gems using <code>--without
-        production</code>. For curious readers, bundler stores the flag in
-        <code>APP_ROOT/.bundle/config</code>. You can see all of the settings that bundler saved
-        there by running <code>bundle config</code>, which will also print out global settings
-        (stored in <code>~/.bundle/config</code>) and settings set via environment variables.
-        For more information on configuring bundler, please see:
-        #{link_to_documentation "bundle_config"}
+        Bundler stores the flag in <code>APP_ROOT/.bundle/config</code> and the
+        next time you run `bundle install`, it will skip production gems.
+        Similarly, when you require `bundler/setup`, Bundler will ignore gems in
+        these groups. You can see all of the settings that Bundler saved there
+        by running <code>bundle config</code>, which will also print out global
+        settings (stored in <code>~/.bundle/config</code>) and settings set via
+        environment variables.  For more information on configuring Bundler,
+        please see: #{link_to_documentation "bundle_config"}
 
     .bullet
-      %p.description
-        If you run <code>bundle install</code> later without any flags, bundler will remember
-        that you last called <code>bundle install --without production</code> and use that flag
-        again. When you <code>require 'bundler/setup'</code>, bundler will ignore gems in these
-        groups.
-
       %p.description
         You can also specify which groups to automatically require through the parameters to
         <code>Bundler.require</code>. The <code>:default</code> group includes all gems not

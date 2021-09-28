@@ -11,7 +11,7 @@ gem 'rake'
 gem 'ronn'
 gem 'kramdown'
 gem 'builder'
-gem 'nokogiri', '~> 1.11'
+gem 'nokogiri', '~> 1.12'
 gem 'haml', '~> 5.1.2'
 
 group :development do

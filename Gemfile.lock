@@ -94,15 +94,15 @@ GEM
     middleman-syntax (3.2.0)
       middleman-core (>= 3.2)
       rouge (~> 3.2)
-    mini_portile2 (2.5.1)
+    mini_portile2 (2.6.1)
     minitest (5.14.4)
     multipart-post (2.1.1)
     mustache (1.0.5)
     nio4r (2.5.7)
-    nokogiri (1.11.4)
-      mini_portile2 (~> 2.5.0)
+    nokogiri (1.12.5)
+      mini_portile2 (~> 2.6.1)
       racc (~> 1.4)
-    nokogiri (1.11.4-x86_64-linux)
+    nokogiri (1.12.5-x86_64-linux)
       racc (~> 1.4)
     octokit (4.15.0)
       faraday (>= 0.9)
@@ -171,7 +171,7 @@ DEPENDENCIES
   middleman-blog
   middleman-search
   middleman-syntax
-  nokogiri (~> 1.11)
+  nokogiri (~> 1.12)
   octokit (~> 4.15)
   pry
   pry-byebug

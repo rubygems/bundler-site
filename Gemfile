@@ -6,7 +6,7 @@ gem 'middleman', '~> 4.3', github: "middleman/middleman", branch: "4.x"
 gem 'middleman-syntax'
 gem 'middleman-blog'
 gem 'puma', '~> 4.3'
-gem 'middleman-search'
+gem 'middleman-search', github: 'deivid-rodriguez/middleman-search', branch: 'workarea-commerce-master'
 gem 'rake'
 gem 'ronn'
 gem 'kramdown'

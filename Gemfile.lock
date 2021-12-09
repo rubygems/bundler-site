@@ -1,4 +1,14 @@
 GIT
+  remote: https://github.com/deivid-rodriguez/middleman-search.git
+  revision: 50465e1c1580e282a45247b77036da3c2719870d
+  branch: workarea-commerce-master
+  specs:
+    middleman-search (0.10.0)
+      middleman-core (>= 3.2)
+      mini_racer (~> 0.5)
+      nokogiri (~> 1.6)
+
+GIT
   remote: https://github.com/middleman/middleman.git
   revision: 0c950d82f6f4f540e8572195f80c9a9fb15ab80c
   branch: 4.x
@@ -76,8 +86,9 @@ GEM
       concurrent-ruby (~> 1.0)
     kramdown (2.3.1)
       rexml
-    libv8 (3.16.14.19)
-    libv8 (3.16.14.19-x86_64-linux)
+    libv8-node (16.10.0.0)
+    libv8-node (16.10.0.0-arm64-darwin)
+    libv8-node (16.10.0.0-x86_64-linux)
     listen (3.0.8)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
@@ -87,14 +98,12 @@ GEM
       addressable (~> 2.3)
       middleman-core (>= 4.0.0)
       tzinfo (>= 0.3.0)
-    middleman-search (0.10.0)
-      middleman-core (>= 3.2)
-      nokogiri (~> 1.6)
-      therubyracer (~> 0.12.2)
     middleman-syntax (3.2.0)
       middleman-core (>= 3.2)
       rouge (~> 3.2)
     mini_portile2 (2.6.1)
+    mini_racer (0.5.0)
+      libv8-node (~> 16.10.0.0)
     minitest (5.14.4)
     multipart-post (2.1.1)
     mustache (1.0.5)
@@ -133,7 +142,6 @@ GEM
     rb-inotify (0.10.1)
       ffi (~> 1.0)
     rdiscount (2.2.0.2)
-    ref (2.0.0)
     rexml (3.2.5)
     ronn (0.7.3)
       hpricot (>= 0.8.2)
@@ -147,9 +155,6 @@ GEM
       faraday (> 0.8, < 2.0)
     servolux (0.13.0)
     temple (0.8.2)
-    therubyracer (0.12.3)
-      libv8 (~> 3.16.14.15)
-      ref
     thor (1.1.0)
     thread_safe (0.3.6)
     tilt (2.0.10)
@@ -172,7 +177,7 @@ DEPENDENCIES
   kramdown
   middleman (~> 4.3)!
   middleman-blog
-  middleman-search
+  middleman-search!
   middleman-syntax
   nokogiri (~> 1.12)
   octokit (~> 4.15)

@@ -1,8 +1,8 @@
 ---
 - :name: bundler-changelogs
   :uri: https://github.com/jdar/bundler-changelogs
-- :name: bundler-console
-  :uri: https://github.com/kddeisz/bundler-console
+- :name: bundler-audit
+  :uri: https://github.com/rubysec/bundler-audit
 - :name: bundler-dependency_graph
   :uri: https://github.com/kerrizor/bundler-dependency_graph
 - :name: bundler-ecology

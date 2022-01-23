@@ -1,0 +1,50 @@
+%h2 bundle plugin
+
+.contents
+  .bullet
+    .description
+      Manage Bundler plugins.
+    .notes
+      %ul
+        %li
+          See also
+          = link_to 'How to write a Bundler plugin', './guides/bundler_plugins.html'
+        %li
+          In 2.2.0, an additional <code>uninstall</code> command will be added.
+    :code
+      $ bundle plugin install PLUGINS
+    .description
+      Install the plugin from the source
+    .notes
+      %p
+        Options:
+      %p
+        <code>--source</code>: URL of the RubyGems source to fetch the plugin from
+      %p
+        <code>--version</code>: The version of the plugin to fetch
+      %p
+        <code>--git</code>: URL of the git repo to fetch from.
+      %p
+        <code>--local-git</code>: Path of the local git repo to fetch from. This is the
+        = link_to 'recommended', 'https://github.com/rubygems/bundler-site/pull/464'
+        way to install a plugin from a local filesystem (a useful technique for plugin developers)
+      %p
+        <code>--branch</code>: The git branch to checkout
+      %p
+        <code>--ref</code>: The git revision to check out
+
+    :code
+      $ bundle plugin list
+    .description
+      List the installed plugins and available commands
+    .notes
+      %p
+        No options.
+
+    :code
+      $ bundle plugin help [COMMAND]
+    .description
+      Describe subcommands or one specific subcommand
+    .notes
+      %p
+        No options.

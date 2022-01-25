@@ -22,7 +22,7 @@ reverted.
 ## So, how did things work before Bundler 2.3?
 
 Up until now, RubyGems would prefer to activate the version of Bundler recorded
-in the `Gemfile.lock` file if available, and would fallback to the highest
+in the `Gemfile.lock` file if available, and would fall back to the highest
 version installed otherwise. That's cool but there was no way to ensure that the
 exact version that generated the lockfile was always used, other than making
 some manual installing and lockfile parsing like explained here:

@@ -10,7 +10,7 @@ category: release
 
 2021 saw a fair amount of development in the RubyGems & Bundler repositories. We
 tried to release more often than ever to catch and fix bugs and distribute our
-improvements as early as possible users. That has led to 33 patch level versions
+improvements as early as possible to our users. That has led to 33 patch-level versions
 in the Bundler 2.x series released about a year ago.
 
 Our goal for Bundler 2.3 was to implement a long wanted feature of being able to

@@ -13,7 +13,7 @@ tried to release more often than ever to catch and fix bugs and distribute our
 improvements as early as possible to our users. That has led to 33 patch-level versions
 in the Bundler 2.x series released about a year ago.
 
-Our goal for Bundler 2.3 was to implement a long wanted feature of being able to
+Our goal for Bundler 2.3 was to implement a long-wanted feature of being able to
 fully control the version of Bundler itself an application runs. There's a long
 story with this feature, because it was shipped a few years ago in a manner that
 was too strict and ended up causing more harm than good, so had to be partially

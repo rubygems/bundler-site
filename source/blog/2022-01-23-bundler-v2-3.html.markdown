@@ -21,20 +21,20 @@ reverted.
 
 ## So, how did things work before Bundler 2.3?
 
-Up until now, RubyGems would prefer to activate the version of Bundler recorded
-in the `Gemfile.lock` file if available, and would fall back to the highest
-version installed otherwise. That's cool but there was no way to ensure that the
-exact version that generated the lockfile was always used, other than making
-some manual installing and lockfile parsing like explained here:
-https://bundler.io/blog/2019/05/14/solutions-for-cant-find-gem-bundler-with-executable-bundle.html
+Up until now, RubyGems would try to activate the version of Bundler recorded in
+the `Gemfile.lock` file if already installed, and would fall back to the
+highest version installed otherwise. That's better than nothing, but it did not
+ensure the exact version in the lockfile was always used, which led to
+workarounds like [manually parsing the lockfile and then installing that
+version](https://bundler.io/blog/2019/05/14/solutions-for-cant-find-gem-bundler-with-executable-bundle.html).
 
 ## And how do they work now?
 
-From Bundler 2.3, running `bundle install` on any application with a lockfile
-will use the exact version locked in the BUNDLED WITH section of the lockfile.
-If that version is not installed before `bundle install` install is run, the
-latest version available will run and will take care of installing the locked
-version and restart using it.
+In Bundler 2.3 and up, running `bundle install` on any application with a
+lockfile will use the exact version locked in the BUNDLED WITH section of the
+lockfile.  If that version is not installed before `bundle install` install is
+run, the installed version of Bundler will run, install the locked version, and
+then run your original command using the locked version.
 
 So, if you have a lockfile ending with
 
@@ -67,7 +67,7 @@ But..
 ## Why are we doing this?
 
 Being able to lock the version of Bundler itself, just like Bundler is able to
-lock other dependencies has been a goal of the Bundler team for years. There are
+lock other dependencies, has been a goal of the Bundler team for years. There are
 a number of benefits of locking your dependencies, like avoiding dependency
 nightmares where your application breaks due to third party releases, or
 avoiding "works on my machine" issues. Bundler has a ton of features and edge

@@ -12,17 +12,20 @@
     .bullet
       .description
         %p
-          We having implemented a mechanism to be able to ensure that the
-          `BUNDLED WITH` section in the `Gemfile.lock` file is automatically
-          installed and use by `bundle install`.
+          Bundler is now able to lock itself! The Bundler version used to
+          create <code>Gemfile.lock</code> will be used for all future runs of
+          <code>bundle install</code>. Upgrade Bundler for your app by running
+          <code>bundle update --bundler</code>. (Requires RubyGems 3.3 or
+          higher.)
 
   %h3 Other improvements
   .contents
     .bullet
       .description
         %p
-          Bundler 2.3 also includes other improvements like enhancements `bundle
-          gem` or `bundle add`, and deprecation messages to make dropping
-          support for old rubies in the future smoother.
+          Bundler 2.3 also includes other improvements like enhancements
+          <code>bundle gem</code> or <code>bundle add</code>, and deprecation
+          messages to make dropping support for old rubies in the future
+          smoother.
 
       = link_to 'Full 2.3 changelog', 'https://github.com/rubygems/rubygems/blob/3.3/bundler/CHANGELOG.md', class: 'btn btn-primary'

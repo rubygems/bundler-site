@@ -30,11 +30,11 @@ version](https://bundler.io/blog/2019/05/14/solutions-for-cant-find-gem-bundler-
 
 ## And how do they work now?
 
-In Bundler 2.3 and up, running `bundle install` on any application with a
-lockfile will use the exact version locked in the BUNDLED WITH section of the
-lockfile.  If that version is not installed before `bundle install` install is
-run, the installed version of Bundler will run, install the locked version, and
-then run your original command using the locked version.
+In Bundler 2.3 and up (if you also have RubyGems 3.3 or higher), running
+`bundle install` will use the exact version from the BUNDLED WITH section of
+the lockfile.  If that version is not installed before you run `bundle
+install`, the running version of Bundler will install the locked version, and
+then run your original command using the newly-installed locked version.
 
 So, if you have a lockfile ending with
 

@@ -1,0 +1,102 @@
+---
+
+title: "Bundler v2.3: Locking the version of Bundler itself"
+date: 2022-01-23 16:07 UTC
+tags:
+author: David Rodríguez
+author_url: https://github.com/deivid-rodriguez/
+category: release
+---
+
+2021 saw a fair amount of development in the RubyGems & Bundler repositories. We
+tried to release more often than ever to catch and fix bugs and distribute our
+improvements as early as possible to our users. That has led to 33 patch-level versions
+in the Bundler 2.x series released about a year ago.
+
+Our goal for Bundler 2.3 was to implement a long-wanted feature of being able to
+fully control the version of Bundler itself an application runs. There's a long
+story with this feature, because it was shipped a few years ago in a manner that
+was too strict and ended up causing more harm than good, so had to be partially
+reverted.
+
+## So, how did things work before Bundler 2.3?
+
+Up until now, RubyGems would try to activate the version of Bundler recorded in
+the `Gemfile.lock` file if already installed, and would fall back to the
+highest version installed otherwise. That's better than nothing, but it did not
+ensure the exact version in the lockfile was always used, which led to
+workarounds like [manually parsing the lockfile and then installing that
+version](https://bundler.io/blog/2019/05/14/solutions-for-cant-find-gem-bundler-with-executable-bundle.html).
+
+## And how do they work now?
+
+In Bundler 2.3 and up (if you also have RubyGems 3.3 or higher), running
+`bundle install` will use the exact version from the BUNDLED WITH section of
+the lockfile.  If that version is not installed before you run `bundle
+install`, the running version of Bundler will install the locked version, and
+then run your original command using the newly-installed locked version.
+
+So, if you have a lockfile ending with
+
+~~~
+BUNDLED WITH
+   2.2.33
+~~~
+
+and you only have Bundler 2.3.5 installed, you'll see the following output when
+running `bundle install`.
+
+~~~
+$ bundle install
+Bundler 2.3.5 is running, but your lockfile was generated with 2.2.33. Installing Bundler 2.2.33 and restarting using that version.
+Fetching gem metadata from https://rubygems.org/.
+Fetching bundler 2.2.33
+Installing bundler 2.2.33
+...
+~~~~
+
+After that all your commands will automatically use Bundler 2.2.33, as specified
+by your lockfile. If you want to upgrade the Bundler version used by your
+application, you can run `bundle update --bundler`, and your lockfile will be
+regenerated using the latest version. From that moment, all users of the
+lockfile will automatically pick up the new version, no matter whether they have
+a newer or older version installed instead.
+
+But..
+
+## Why are we doing this?
+
+Being able to lock the version of Bundler itself, just like Bundler is able to
+lock other dependencies, has been a goal of the Bundler team for years. There are
+a number of benefits of locking your dependencies, like avoiding dependency
+nightmares where your application breaks due to third party releases, or
+avoiding "works on my machine" issues. Bundler has a ton of features and edge
+cases, and
+
+* We sometimes introduce regressions when trying to improve things. Locking the
+  version of Bundler prevents those issues from hitting you.
+
+* Once in a while we need to put a security fix out there. Being able to lock
+  the Bundler version allows you to ensure that every user of your application
+  gets a secure version of Bundler.
+
+* Occasionally, you might want to use a new feature of the Bundler DSL in your
+  Gemfile. However, old versions of Bundler don't understand this feature and
+  you don't want to suddenly break things for the users of yours that use those
+  old versions. With version locking this is no longer a concern. Bundler is now
+  able to upgrade itself to the version that your application understands.
+
+All in all, we aim to provide a less surprising, less error prone and more
+consistent experience when using Bundler, and let each application be in control
+of the version that they use, and the moment that they upgrade.
+
+# What's coming next?
+
+Future enhancements to this feature might include:
+
+* Full support for `gem "bundler", "<arbitrary_requirement>"` in `Gemfile`.
+* Automatic update of Bundler when running `bundle install` without a lockfile.
+* Automatic update of Bundler when running `bundle update`.
+
+In other words, our end goal is to be able to treat Bundler just like any other
+dependency of your application.

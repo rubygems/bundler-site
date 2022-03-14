@@ -42,6 +42,3 @@
       %ul
         - versions.reverse.select{ |version| path_exist?('whats_new', version) }.each do |v|
           %li= link_to "Version #{v}", "/#{v}/whats_new.html"
-
-        %li= link_to 'Version v1.1', 'https://github.com/bundler/bundler/blob/master/CHANGELOG.md#110-mar-7-2012'
-        %li= link_to 'Version v1.0', 'https://github.com/bundler/bundler/blob/master/CHANGELOG.md#100-august-29-2010'

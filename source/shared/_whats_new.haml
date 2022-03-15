@@ -3,6 +3,3 @@
   .col-sm-12
     - versions.reverse.select{ |version| path_exist?('whats_new', version) }.each do |v|
       = link_to v, "/#{v}/whats_new.html", class: "btn btn-sm #{current_visible_version == v ? 'btn-default' : 'btn-primary'}"
-
-    = link_to 'v1.1', 'https://github.com/bundler/bundler/blob/master/CHANGELOG.md#110-mar-7-2012', class: 'btn btn-sm btn-primary'
-    = link_to 'v1.0', 'https://github.com/bundler/bundler/blob/master/CHANGELOG.md#100-august-29-2010', class: 'btn btn-sm btn-primary'

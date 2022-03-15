@@ -101,6 +101,7 @@ page /\/doc\/(.*)/, layout: :md_guides_layout # Imported from bundler/bundler
 page '/sitemap.xml', layout: false
 
 redirect "issues.html", to: "doc/contributing/issues.html" # Backwards compatibility
+redirect "commands.html", to: "man/bundle.1.html" # Backwards compatibility
 
 ###
 # Helpers

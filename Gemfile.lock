@@ -149,7 +149,7 @@ GEM
       faraday (> 0.8, < 2.0)
     servolux (0.13.0)
     temple (0.8.2)
-    thor (1.1.0)
+    thor (1.2.1)
     tilt (2.0.10)
     toml (0.3.0)
       parslet (>= 1.8.0, < 3.0.0)

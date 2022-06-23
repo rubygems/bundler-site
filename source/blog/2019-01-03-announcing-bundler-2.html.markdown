@@ -1,6 +1,5 @@
 ---
 title: "Announcing Bundler 2.0"
-date: 2019-01-03
 tags:
 author: Colby Swandale
 category: release

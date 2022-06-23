@@ -1,6 +1,5 @@
 ---
 title: "November 2018 Bundler Update"
-date: 2018-12-08
 tags:
 author: Stephanie Morillo
 ---

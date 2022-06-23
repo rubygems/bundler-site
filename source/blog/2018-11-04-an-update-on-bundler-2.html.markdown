@@ -1,6 +1,5 @@
 ---
 title: "An Update on Bundler 2.0"
-date: 2018-11-04
 tags:
 author: Colby Swandale & André Arko
 category: release

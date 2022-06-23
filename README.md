@@ -3,7 +3,7 @@ bundler.io is intended to serve as a convenient source for documentation on the 
 
 The site bundler.io is a static site generated using [Middleman](http://middlemanapp.com/).
 
-[Bundler's manual pages](https://github.com/rubygems/rubygems/tree/master/bundler/man) document much of its functionality and serve as an important part of the site. They are included via the **Rakefile**.
+[Bundler's manual pages](https://github.com/rubygems/rubygems/tree/master/bundler/lib/bundler/man) document much of its functionality and serve as an important part of the site. They are included via the **Rakefile**.
 
 ## Development Set Up
 

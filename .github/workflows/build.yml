@@ -25,6 +25,9 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Run RuboCop
+        run: bundle exec rubocop
+
       - name: Build
         run: bundle exec middleman build
         env:

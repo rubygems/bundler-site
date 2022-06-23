@@ -17,4 +17,5 @@ gem 'haml', '~> 5.1.2'
 group :development do
   gem 'pry'
   gem 'pry-byebug'
+  gem 'rubocop'
 end

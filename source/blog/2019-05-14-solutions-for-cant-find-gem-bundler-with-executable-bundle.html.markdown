@@ -1,6 +1,5 @@
 ---
 title: "Solutions for 'Cant find gem bundler (>= 0.a) with executable bundle'"
-date: 2019-05-14
 tags:
 author: Colby Swandale
 category: release

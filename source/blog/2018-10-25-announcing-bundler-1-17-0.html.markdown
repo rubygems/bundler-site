@@ -1,6 +1,5 @@
 ---
 title: "Announcing Bundler 1.17.0"
-date: 2018-10-25
 tags:
 author: Colby Swandale
 category: release

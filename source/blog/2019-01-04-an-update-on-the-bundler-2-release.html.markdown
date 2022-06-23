@@ -1,6 +1,5 @@
 ---
 title: "An update on the Bundler 2 release"
-date: 2019-01-04
 tags:
 author: Colby Swandale
 category: release

@@ -1,6 +1,5 @@
 ---
 title: "March Bundler Update"
-date: 2020-04-27
 tags:
 author: Gift Egwuenu
 ---

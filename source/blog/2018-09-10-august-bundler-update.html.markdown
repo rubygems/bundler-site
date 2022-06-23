@@ -1,6 +1,5 @@
 ---
 title: "August 2018 Bundler Update"
-date: 2018-09-10 
 tags:
 author: Stephanie Morillo
 author_url: http://www.stephaniemorillo.co

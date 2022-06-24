@@ -11,23 +11,34 @@ module DocsHelper
   end
 
   def link_to_editable_version
+    editable = true
     path = current_page.file_descriptor.relative_path.to_s
     repo =
       if path.start_with?('doc/')
         path = "bundler/#{path}"
         'rubygems/rubygems'
-      elsif path =~ %r{\Av\d+\.\d+/man/(bundle[_-]|gemfile)}
-        path = "#{strip_version_from_url(path)}.ronn"
-        path = "bundler/#{path}"
+      elsif %r{\A(?<version>v\d+\.\d+)/man/(?<filename>(bundle[_-]|gemfile)[^/]*)\.html} =~ path
+        if version == current_version
+          path = "bundler/lib/bundler/man/#{filename}.ronn"
+        else
+          editable = false
+        end
         'rubygems/rubygems'
       else
         path = File.join 'source', path
         'rubygems/bundler-site'
       end
-    url = "https://github.com/#{repo}/blob/master/#{path}"
 
-    link_to('Edit this document on GitHub', url) +
-      ' if you caught an error or noticed something was missing.'
+    if editable
+      url = "https://github.com/#{repo}/blob/master/#{path}"
+      link_to('Edit this document on GitHub', url) +
+        ' if you caught an error or noticed something was missing.'
+    else
+      url = "/" + path.sub(version, current_version).sub(/\.html.*/, '.html')
+      'This document is obsolete. ' +
+        link_to('See the latest version of this document', url) +
+        ' if you caught an error or noticed something was missing, it may be fixed there.'
+    end
   end
 
   def path_exist?(page, version=nil)

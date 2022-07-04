@@ -27,9 +27,9 @@ Run a local development web server:
 
 This will start a local web server running at: *http://localhost:4567*. It will serve the site as it exists in **/source**.
 
-To specify the host and/or port, add the -h, -p flag(s):
+To specify the host and/or port, add the --bind-address, -p flag(s):
 
-    bundle exec middleman -h 0.0.0.0 -p 8080
+    bundle exec middleman --bind-address 0.0.0.0 -p 8080
 
 Note: the development server will automatically reload pages when they or there associated stylesheets are modified. This feature is enabled in **config.rb**.
 

@@ -16,7 +16,7 @@ namespace :versions do
     succ = VERSIONS.last.succ
     puts "Latest version is #{last}. Creating version #{succ}..."
     cp_r "source/#{last}", "source/#{succ}"
-    cp_r "source/localizable/#{last}", "source/localizable/#{succ}"
+    mv "source/localizable/#{last}", "source/localizable/#{succ}"
     puts "Creating empty What's New page..."
     render_whats_new(succ)
     puts "Creating announcement blog post..."

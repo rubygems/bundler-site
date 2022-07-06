@@ -1,22 +1,8 @@
-.search-wrapper {
-  height: $navbar-height;
-  padding: ($navbar-height - 29)/2 0;
-  position: relative;
-
-  .form-control-feedback  {
-    line-height: 30px;
-    opacity: 0.4;
-  }
-}
-
-@media (min-width: $screen-md-min) {
-  .search-wrapper {
-    width: 300px;
-  }
-}
-
 .input-search {
   width: 100%;
+  min-width: 18.75rem;
+  margin-right: -2.25rem;
+  padding-right: 2.5rem;
   font-size: 18px;
   background: transparent;
   border: 0;
@@ -86,10 +72,4 @@
 
 .popover{
   max-width: 100%; /* Max Width of the popover (depending on the container!) */
-}
-
-@media (max-width: $screen-xs-max) {
-  .search-wrapper {
-    padding-left: 15px;
-  }
 }

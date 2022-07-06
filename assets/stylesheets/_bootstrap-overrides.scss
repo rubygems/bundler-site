@@ -1,24 +1,36 @@
+$theme-colors: (
+  // for .btn-primary. This color is applied to $link-color so tweak is followed.
+  // - Discussion: https://github.com/rubygems/bundler-site/pull/644#issuecomment-1178722939
+  "primary": #12AEE2
+);
+
 // navbar
-$navbar-default-bg: #fff;
-$navbar-default-border: #fff;
+$navbar-padding-y: 0;
 
-$navbar-default-link-color: #000;
-$navbar-default-link-hover-color: #777;
+$navbar-light-brand-color: #06456A;
+$navbar-light-color: #000;
 
-$navbar-default-brand-color: #06456A;
-$navbar-default-brand-hover-color: $navbar-default-brand-color;
+// Transition workaround for skipping improvement from Bootstrap 3.4.1 to Bootstrap 4.6.1
+// - Discussion: https://github.com/rubygems/bundler-site/pull/644#issuecomment-1178722939
+// - Color adapted from https://github.com/twbs/bootstrap/blob/v3.4.1/less/variables.less#L389
+$_navbar-default-toggle-icon-bar-bg: #888;
+$navbar-light-toggler-icon-bg: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'><path stroke='#{$_navbar-default-toggle-icon-bar-bg}' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/></svg>");
+// /Transition workaround
 
-$btn-primary-bg: #12AEE2;
-$btn-primary-border: transparent;
+$navbar-nav-link-padding-x: 0.875rem;
 
-$font-family-sans-serif: "SancoaleSlab";
-$font-size-base: 16px;
+// font-size: 1.25rem ($font-size-lg) is too large for .navbar-toggler
+// - Discussion: https://github.com/rubygems/bundler-site/pull/644#issuecomment-1177959921
+$navbar-toggler-font-size: 1rem;
 
-$pre-bg: #373737;
-$pre-color: #fff;
-$pre-border-color: #373737;
+// .btn does not need border
+$btn-border-width: 0;
 
-$thumbnail-padding: 25px;
-$thumbnail-border: #fff;
-$thumbnail-caption-color: $navbar-default-brand-color;
-$thumbnail-caption-padding: 0px;
+$font-family-sans-serif: "SancoaleSlab", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+
+// for contributors
+$card-border-width: 0;
+
+// Transition workaround for unifying link color and button (btn-primary) in Boostrap 4.6.1
+$link-color: #337ab7;
+// /Transition workaround

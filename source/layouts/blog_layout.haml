@@ -1,8 +1,8 @@
 ~ wrap_layout :base do
   = partial 'partials/blog_header'
   .container
-    .row
-      .col-md-12.col-lg-10.col-lg-offset-1
+    .row.my-5
+      .col-md-12.col-xl-10.offset-xl-1
         .contents.blog
           %h2.title
             = link_to current_article.title, current_article.url

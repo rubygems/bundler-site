@@ -45,7 +45,6 @@ $(document).ready(function() {
     };
 
     this.hidePopover = function() {
-      this.popover.options.animation = true;
       this.searchInput.popover('hide');
       this.searchArrows.destroy();
     };
@@ -114,7 +113,6 @@ $(document).ready(function() {
       });
       this.searchInput.on('shown.bs.popover', function()  {
         self.popoverHandler = $(self.POPOVER_CLASS);
-        self.popover.options.animation = false;
         self.popoverHandler.click(function(e) { e.stopPropagation() });
         self.searchArrows.init();
       });

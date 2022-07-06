@@ -8,42 +8,48 @@ $navbar-height: 50px;
   src: url('fonts/SancoaleSlabNormRegular.otf') format("opentype");
 }
 
+@import "~bootstrap/scss/functions";
+
+pre {
+  color: #fff;
+  // https://github.com/twbs/bootstrap/pull/28966
+  background-color: #373737;
+  border-color: #373737;
+}
+$pre-color: #fff;
+
 @import "code.css";
 @import "bootstrap-overrides";
 
-$icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
+$icon-font-path: '~bootstrap/assets/fonts/bootstrap/';
 
 // Core variables and mixins
-@import "~bootstrap-sass/assets/stylesheets/bootstrap/variables";
-@import "~bootstrap-sass/assets/stylesheets/bootstrap/mixins";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
 // Reset and dependencies
-@import "~bootstrap-sass/assets/stylesheets/bootstrap/normalize";
-@import "~bootstrap-sass/assets/stylesheets/bootstrap/glyphicons";
+@import "~bootstrap/scss/reboot";
 // Core CSS
-@import "~bootstrap-sass/assets/stylesheets/bootstrap/scaffolding";
-@import "~bootstrap-sass/assets/stylesheets/bootstrap/type";
-@import "~bootstrap-sass/assets/stylesheets/bootstrap/code";
-@import "~bootstrap-sass/assets/stylesheets/bootstrap/grid";
-@import "~bootstrap-sass/assets/stylesheets/bootstrap/tables";
-@import "~bootstrap-sass/assets/stylesheets/bootstrap/forms";
-@import "~bootstrap-sass/assets/stylesheets/bootstrap/buttons";
+@import "~bootstrap/scss/type";
+@import "~bootstrap/scss/code";
+@import "~bootstrap/scss/grid";
+@import "~bootstrap/scss/tables";
+@import "~bootstrap/scss/forms";
+@import "~bootstrap/scss/buttons";
+@import "~bootstrap/scss/transitions";
 // Components
-@import "~bootstrap-sass/assets/stylesheets/bootstrap/component-animations";
-@import "~bootstrap-sass/assets/stylesheets/bootstrap/dropdowns";
-@import "~bootstrap-sass/assets/stylesheets/bootstrap/navs";
-@import "~bootstrap-sass/assets/stylesheets/bootstrap/navbar";
-@import "~bootstrap-sass/assets/stylesheets/bootstrap/pagination";
-@import "~bootstrap-sass/assets/stylesheets/bootstrap/pager";
-@import "~bootstrap-sass/assets/stylesheets/bootstrap/thumbnails";
-@import "~bootstrap-sass/assets/stylesheets/bootstrap/media";
-@import "~bootstrap-sass/assets/stylesheets/bootstrap/responsive-embed";
+@import "~bootstrap/scss/dropdown";
+@import "~bootstrap/scss/nav";
+@import "~bootstrap/scss/navbar";
+@import "~bootstrap/scss/pagination";
+@import "~bootstrap/scss/media";
+@import "~bootstrap/scss/code";
+@import "~bootstrap/scss/images";
 // Utility classes
-@import "~bootstrap-sass/assets/stylesheets/bootstrap/utilities";
-@import "~bootstrap-sass/assets/stylesheets/bootstrap/responsive-utilities";
+@import "~bootstrap/scss/utilities";
 
-@import "~bootstrap-sass/assets/stylesheets/bootstrap/modals";
-@import "~bootstrap-sass/assets/stylesheets/bootstrap/tooltip";
-@import "~bootstrap-sass/assets/stylesheets/bootstrap/popovers";
+@import "~bootstrap/scss/modal";
+@import "~bootstrap/scss/tooltip";
+@import "~bootstrap/scss/popover";
 
 @import "navbar";
 @import "docs";
@@ -55,10 +61,8 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import "anchorjs";
 @import "search";
 
-.row {
-  margin-left: auto;
-  margin-right: auto;
-}
+// Utilities from Bootstrap 5.x
+@import "opacity";
 
 .row:after {
   clear: none;
@@ -87,7 +91,7 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
   margin-bottom: 35px;
 }
 
-@media (max-width: $screen-xs-max) {
+@include media-breakpoint-down(sm) {
   .btn-responsive {
     font-size: 100%;
     text-align: center;
@@ -118,10 +122,6 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
   width: 70%;
 }
 
-.main-wrapper {
-  padding-bottom: 50px;
-}
-
 .header {
   position: relative;
   height: $header-height;
@@ -142,14 +142,14 @@ p {
 .contents {
   font-size: 17px;
 
-  @media(min-width: $screen-lg-min) {
+  @include media-breakpoint-up(lg) {
     font-size: 18px;
   }
 
   .btn {
     font-size: 17px;
 
-    @media(min-width: $screen-lg-min) {
+    @include media-breakpoint-up(lg) {
       font-size: 18px;
     }
   }

@@ -1,16 +1,3 @@
-/*
- * To use, add:
- .col-xs-6.col-md-4
-   .thumbnail
-     .polygon-each-img-wrap
-       = image_tag 'team/square_image.jpg', class: 'polygon-clip-hexagon'
-     .caption.text-center
-       %h4
-         %b Name
-       %h5= link_to '@username', 'https://github.com/username'
- * to contributors.html.haml
-**/
-
 .clip-svg {
   width: 0;
   height: 0;

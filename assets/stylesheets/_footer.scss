@@ -1,26 +1,15 @@
 /* Sticky footer styles
 -------------------------------------------------- */
-$footer-height: 75px;
+$footer-height: 4.6875rem;
 $footer-color: #55BCEB;
 
 html {
   position: relative;
   min-height: 100%;
 }
-body {
-  margin-bottom: $footer-height;
-}
 
 .footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  margin-top: 30px;
-  padding-top: 5px;
-
-  .row {
-    background-color: $footer-color;
-  }
+  background-color: $footer-color;
 
   .footer-logo {
     float: right;
@@ -41,7 +30,7 @@ body {
       display: inline-block;
 
       a {
-        line-height: $footer-height - 2*14;
+        line-height: $footer-height - $nav-link-padding-y * 2;
         color: black;
       }
 

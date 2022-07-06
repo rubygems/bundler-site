@@ -93,6 +93,14 @@ end
   end
 end
 
+# Redirect old localizable guides (v1.16-v2.2) to the latest version (v2.3) of guide compatible
+["", "pl/"].each do |lang|
+  %w[1.16 1.17 2.0 2.1 2.2].each do |version|
+    redirect "#{lang}v#{version}/guides/creating_gem.html", to: "#{lang}v2.3/guides/creating_gem.html"
+    redirect "#{lang}v#{version}/guides/using_bundler_in_applications.html", to: "#{lang}v2.3/guides/using_bundler_in_applications.html"
+  end
+end
+
 redirect "sponsors.html", to: "https://rubygems.org/pages/sponsors" # Backwards compatibility
 
 page '/conduct.html', layout: :guides_layout

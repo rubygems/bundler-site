@@ -12,7 +12,7 @@ gem 'ronn'
 gem 'kramdown'
 gem 'builder'
 gem 'nokogiri', '~> 1.13'
-gem 'haml', '~> 5.1.2'
+gem 'haml', '~> 5.2.2'
 
 group :development do
   gem 'pry'

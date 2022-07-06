@@ -89,7 +89,7 @@ end
 ["", "pl/"].each do |lang|
   %w[1.12 1.13 1.14].each do |version|
     redirect "#{lang}v#{version}/guides/creating_gem.html", to: "#{lang}v1.15/guides/creating_gem.html"
-    redirect "#{lang}v#{version}/guides/using_bundler_in_applications.html", to: "#{lang}v1.15/using_bundler_in_applications.html"
+    redirect "#{lang}v#{version}/guides/using_bundler_in_applications.html", to: "#{lang}v1.15/guides/using_bundler_in_applications.html"
   end
 end
 

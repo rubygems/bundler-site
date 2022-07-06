@@ -4,7 +4,8 @@ module GuidesHelper
 
   def guides
     guides = Dir.glob("./source/#{current_visible_version}/guides/*")
-    localizable_guides = Dir.glob("./source/localizable/#{current_visible_version}/guides/*.en.html.md")
+    target_version = [current_visible_version, "v1.15"].max
+    localizable_guides = Dir.glob("./source/localizable/#{target_version}/guides/*.en.html.md")
     all_guides = guides + localizable_guides + ADDITIONAL_GUIDES
 
     guides = all_guides.map do |filename|

@@ -14,6 +14,7 @@ Begin by cloning the repository onto your location machine:
 Once complete prepare the dependencies by running:
 
     bundle install
+    npm install
 
 ## Basic Middleman Commands
 

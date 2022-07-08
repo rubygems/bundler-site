@@ -16,6 +16,10 @@ Once complete prepare the dependencies by running:
     bundle install
     npm install
 
+Or you can prepare a development environment on Gitpod cloud from the below link:
+
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/rubygems/bundler-site)
+
 ## Basic Middleman Commands
 
 Fetch latest documentation from bundler repo (should be done before running local development web server):

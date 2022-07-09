@@ -24,7 +24,7 @@ Or you can prepare a development environment on Gitpod cloud from the below link
 
 Fetch latest documentation from bundler repo (should be done before running local development web server):
 
-    rake man
+    bundle exec rake man
 
 Run a local development web server:
 

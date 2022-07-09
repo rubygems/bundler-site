@@ -1,5 +1,5 @@
 desc "Pull in the man pages for the specified gem versions."
-task :man => [:update_vendor] do
+task man: :update_vendor do
   VERSIONS.each do |version|
     next if version == "v0.9"
 

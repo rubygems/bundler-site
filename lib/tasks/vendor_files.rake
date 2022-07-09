@@ -46,13 +46,13 @@ directory "vendor/rubygems" => ["vendor"] do
   system "git clone --depth 1 --no-single-branch https://github.com/rubygems/rubygems.git vendor/rubygems"
 end
 
-task :update_vendor => ["vendor/bundler", "vendor/rubygems"] do
+task update_vendor: ["vendor/bundler", "vendor/rubygems"] do
   Dir.chdir("vendor/bundler") { sh "git fetch" }
   Dir.chdir("vendor/rubygems") { sh "git fetch" }
 end
 
 desc "Pulls in pages maintained in the bundler repo."
-task :repo_pages => [:update_vendor] do
+task repo_pages: :update_vendor do
   Dir.chdir "vendor/bundler" do
     sh "git reset --hard HEAD"
     sh "git checkout origin/master"
@@ -71,7 +71,7 @@ directory "vendor/bundler.github.io" => ["vendor"] do
   system "git clone https://github.com/bundler/bundler.github.io vendor/bundler.github.io"
 end
 
-task :update_site => ["vendor/bundler.github.io"] do
+task update_site: "vendor/bundler.github.io" do
   Dir.chdir "vendor/bundler.github.io" do
     sh "git checkout master"
     sh "git reset --hard HEAD"

@@ -18,7 +18,7 @@ namespace :ci do
     sh "rm deploy_key"
   end
 
-  task :deploy => [:build] do
+  task deploy: :build do
     configure_ssh_deploy_key
 
     Rake::Task["ci:update_ssh_site"].invoke

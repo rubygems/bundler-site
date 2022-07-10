@@ -3,3 +3,7 @@ AllCops:
 
 Layout/TrailingWhitespace:
   Enabled: true
+
+Style/HashSyntax:
+  EnforcedStyle: ruby19
+  EnforcedShorthandSyntax: never

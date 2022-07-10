@@ -14,10 +14,10 @@ module CommandReferenceHelper
     yield command
     partial(
       'shared/command',
-      :locals => {
-        :name => command.name,
-        :desc => command.desc,
-        :opts => command.opts
+      locals: {
+        name: command.name,
+        desc: command.desc,
+        opts: command.opts
       }
     )
   end

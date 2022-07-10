@@ -1,5 +1,5 @@
 desc "Release the current commit to bundler/bundler.github.io"
-task :release => [:build, :update_site] do
+task release: [:build, :update_site] do
   commit = `git rev-parse HEAD`.chomp
 
   Dir.chdir "vendor/bundler.github.io" do

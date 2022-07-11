@@ -131,7 +131,7 @@ GEM
       byebug (~> 11.0)
       pry (~> 0.10)
     public_suffix (4.0.6)
-    puma (4.3.12)
+    puma (5.6.4)
       nio4r (~> 2.0)
     racc (1.6.0)
     rack (2.2.3.1)
@@ -197,7 +197,7 @@ DEPENDENCIES
   octokit (~> 4.15)
   pry
   pry-byebug
-  puma (~> 4.3)
+  puma (~> 5.6)
   rake
   ronn
   rubocop

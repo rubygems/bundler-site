@@ -93,12 +93,32 @@ end
   end
 end
 
-# Redirect old localizable guides (v1.16-v2.2) to the latest version (v2.3) of guide compatible
-["", "pl/"].each do |lang|
-  %w[1.16 1.17 2.0 2.1 2.2].each do |version|
-    redirect "#{lang}v#{version}/guides/creating_gem.html", to: "#{lang}v2.3/guides/creating_gem.html"
-    redirect "#{lang}v#{version}/guides/using_bundler_in_applications.html", to: "#{lang}v2.3/guides/using_bundler_in_applications.html"
+# Redirect versioned-guides (which are not localizable) between v1.16 and v2.3 to version-independent guides
+%w[1.16 1.17 2.0 2.1 2.2 2.3].each do |version|
+  redirect "v#{version}/guides/bundler_docker_guide.html", to: "guides/bundler_docker_guide.html"
+  redirect "v#{version}/guides/bundler_in_a_single_file_ruby_script.html", to: "guides/bundler_in_a_single_file_ruby_script.html"
+  redirect "v#{version}/guides/bundler_plugins.html", to: "guides/bundler_plugins.html"
+  redirect "v#{version}/guides/bundler_setup.html", to: "guides/bundler_setup.html"
+  redirect "v#{version}/guides/bundler_sharing.html", to: "guides/bundler_sharing.html"
+  redirect "v#{version}/guides/deploying.html", to: "guides/deploying.html"
+  redirect "v#{version}/guides/faq.html", to: "guides/faq.html"
+  redirect "v#{version}/guides/git.html", to: "guides/git.html"
+  redirect "v#{version}/guides/git_bisect.html", to: "guides/git_bisect.html"
+  redirect "v#{version}/guides/groups.html", to: "guides/groups.html"
+  redirect "v#{version}/guides/rails.html", to: "guides/rails.html"
+  redirect "v#{version}/guides/rubygems_tls_ssl_troubleshooting_guide.html", to: "guides/rubygems_tls_ssl_troubleshooting_guide.html"
+  redirect "v#{version}/guides/sinatra.html", to: "guides/sinatra.html"
+  redirect "v#{version}/guides/updating_gems.html", to: "guides/updating_gems.html"
+
+  # Redirect old localizable guides (v1.16-v2.3) to the current (version-independent) guide
+  ["", "pl/"].each do |lang|
+    redirect "#{lang}v#{version}/guides/creating_gem.html", to: "#{lang}guides/creating_gem.html"
+    redirect "#{lang}v#{version}/guides/using_bundler_in_applications.html", to: "#{lang}guides/using_bundler_in_applications.html"
   end
+end
+# Redirect versioned-guides (which are not localizable) between v2.0 and v2.3 to version-independent guides
+%w[2.0 2.1 2.2 2.3].each do |version|
+  redirect "v#{version}/guides/bundler_2_upgrade.html", to: "guides/bundler_2_upgrade.html"
 end
 
 redirect "sponsors.html", to: "https://rubygems.org/pages/sponsors" # Backwards compatibility
@@ -112,6 +132,7 @@ page /\/v(.*)\/man\/(.*)/, layout: :commands_layout
 page /\/man\/(.*)/, layout: :commands_layout
 page /\/v(.*)\/commands\.html/, layout: :commands_layout
 page /\/v(.*)\/guides\/(.*)/, layout: :md_guides_layout
+page /guides\/(.*)/, layout: :md_guides_layout
 page /\/doc\/(.*)/, layout: :md_guides_layout # Imported from bundler/bundler
 
 page '/sitemap.xml', layout: false

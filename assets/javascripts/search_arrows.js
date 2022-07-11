@@ -1,4 +1,3 @@
-import $ from 'jquery'
 (function() {
   var SearchArrows = window.SearchArrows = function() {
     this.LI_SELECTOR = '.search-list-li';
@@ -18,6 +17,7 @@ import $ from 'jquery'
         this.onEnter(e);
       }
     };
+    this.onKeydownCb = this.onKeydown.bind(this);
 
     this.onUpArrow = function() {
       this.removeActiveClass();
@@ -27,7 +27,8 @@ import $ from 'jquery'
         if (this.currentSelection === 0) this.currentSelection = this.listLength - 1;
         else this.currentSelection -= 1;
 
-        this.selectedLi = this.list.eq(this.currentSelection).addClass(this.ACTIVE_CLASS);
+        this.selectedLi = this.list[this.currentSelection];
+        this.selectedLi.classList.add(this.ACTIVE_CLASS);
       }
     };
 
@@ -39,7 +40,8 @@ import $ from 'jquery'
         if (this.currentSelection === this.listLength - 1) this.currentSelection = 0;
         else this.currentSelection += 1;
 
-        this.selectedLi = this.list.eq(this.currentSelection).addClass(this.ACTIVE_CLASS);
+        this.selectedLi = this.list[this.currentSelection];
+        this.selectedLi.classList.add(this.ACTIVE_CLASS);
       }
     };
 
@@ -48,16 +50,18 @@ import $ from 'jquery'
     };
 
     this.removeActiveClass = function() {
-      if (this.selectedLi) this.selectedLi.removeClass(this.ACTIVE_CLASS);
+      if (this.selectedLi) this.selectedLi.classList.remove(this.ACTIVE_CLASS);
     };
 
     this.markFirstItem = function() {
-      this.selectedLi = this.list.eq(0).addClass(this.ACTIVE_CLASS);
+      this.selectedLi = this.list[0];
+      this.selectedLi.classList.add(this.ACTIVE_CLASS);
       this.currentSelection = 0;
     };
 
     this.markLastItem = function()  {
-      this.selectedLi = this.list.last().addClass(this.ACTIVE_CLASS);
+      this.selectedLi = this.list[this.list.length - 1];
+      this.selectedLi.classList.add(this.ACTIVE_CLASS);
       this.currentSelection = this.listLength - 1;
     };
   };
@@ -65,16 +69,16 @@ import $ from 'jquery'
   SearchArrows.prototype.init = function()  {
     if (this.isActive()) this.destroy();
 
-    this.list = $(this.LI_SELECTOR);
+    this.list = document.querySelectorAll(this.LI_SELECTOR);
     this.listLength = this.list.length;
     if (this.listLength === 0) return;
 
-    $(window).keydown(this.onKeydown.bind(this));
+    window.addEventListener('keydown', this.onKeydownCb);
     this.active = true;
   };
 
   SearchArrows.prototype.destroy = function() {
-    $(window).unbind('keydown');
+    window.removeEventListener('keydown', this.onKeydownCb);
     this.active = false;
     this.currentSelection = null;
   };
@@ -84,6 +88,6 @@ import $ from 'jquery'
   };
 
   SearchArrows.prototype.isOneOfKeys = function(keyCode) {
-    return ($.inArray(keyCode, [40, 38, 13]) !== -1);
+    return ([40, 38, 13].indexOf(keyCode) !== -1);
   }
 })();

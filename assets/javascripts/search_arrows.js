@@ -46,7 +46,7 @@
     };
 
     this.onEnter = function() {
-      window.location.href = this.selectedLi.find('a').attr('href');
+      window.location.href = this.selectedLi.querySelector('a').getAttribute('href');
     };
 
     this.removeActiveClass = function() {

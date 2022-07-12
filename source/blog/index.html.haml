@@ -1,8 +1,8 @@
 = partial 'partials/blog_header'
 
-.row
-  .container
-    .col-md-12.col-lg-10.col-lg-offset-1
+.container
+  .row.my-5
+    .col-md-12.col-xl-10.offset-xl-1
       .contents.blog
         %h2.title
           = link_to blog.articles.first.title, blog.articles.first.url
@@ -15,9 +15,8 @@
         .blog-content
           = blog.articles.first.render layout: false
 
-.row.btn-margin-top
-  .container
-    .col-md-12.col-lg-10.col-lg-offset-1
+  .row.my-5
+    .col-md-12.col-xl-10.offset-xl-1
       .contents.blog
         %h1 Previous Posts
         %ul.posts

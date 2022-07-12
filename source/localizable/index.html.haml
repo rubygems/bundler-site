@@ -3,7 +3,7 @@
     .col-md-12
       = image_tag '/images/header_transparent_bg.png',
         srcset: '/images/header_transparent_bg.png 1x, /images/header_transparent_bg@2x.png 2x, /images/header_transparent_bg@3x.png 3x',
-        class: 'img-responsive'
+        class: 'img-fluid'
 
 .row.btn-margin-top
   .container
@@ -51,7 +51,7 @@
             gem 'rack', '~> 2.0.1'
             gem 'rspec'
           %p.center-on-xs
-            = link_to t('home.learn_more_gemfile'), './gemfile.html', class: 'btn btn-primary btn-lg pull-right btn-responsive'
+            = link_to t('home.learn_more_gemfile'), './gemfile.html', class: 'btn btn-primary btn-lg float-right btn-responsive'
         .clearfix
 
         .bullet
@@ -61,7 +61,7 @@
             $ bundle install
             $ git add Gemfile Gemfile.lock
           %p.center-on-xs
-            = link_to t('home.learn_more_bundle_install'), "./#{current_version}/man/bundle-install.1.html", class: 'btn btn-primary btn-lg pull-right btn-responsive'
+            = link_to t('home.learn_more_bundle_install'), "./#{current_version}/man/bundle-install.1.html", class: 'btn btn-primary btn-lg float-right btn-responsive'
 
 .row.bg-light-blue
   .container
@@ -76,8 +76,3 @@
           = link_to 'Join the Bundler Slack', 'http://slack.bundler.io', class: 'btn btn-primary'
           = link_to 'Contributing guide', 'https://github.com/rubygems/rubygems/blob/master/bundler/doc/contributing/README.md', class: 'btn btn-primary'
           = link_to 'Report security issue', 'https://hackerone.com/rubygems', class: 'btn btn-primary'
-
-:css
-  .main-wrapper {
-    padding-bottom: 0;
-  }

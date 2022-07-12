@@ -1,7 +1,6 @@
-.row
-  .container.text-center
-    %ul.nav.navbar-nav
-      %li= link_to t('navbar.docs'), "/docs.html"
-      %li= link_to t('navbar.team'), "/contributors.html"
-      %li= link_to t('navbar.blog'), "/blog"
-      %li= link_to t('navbar.repository'), "https://github.com/rubygems/rubygems/tree/master/bundler"
+%nav.navbar.justify-content-center
+  %ul.navbar-nav
+    %li.nav-item= link_to t('navbar.docs'), "/docs.html", class: "nav-link px-3"
+    %li.nav-item= link_to t('navbar.team'), "/contributors.html", class: "nav-link px-3"
+    %li.nav-item= link_to t('navbar.blog'), "/blog", class: "nav-link px-3"
+    %li.nav-item= link_to t('navbar.repository'), "https://github.com/rubygems/rubygems/tree/master/bundler", class: "nav-link px-3"

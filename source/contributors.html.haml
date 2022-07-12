@@ -5,7 +5,7 @@ title: Contributors
 .row.bg-light-blue.header
   = image_tag '/images/team_header_transparent_bg.png',
     srcset: '/images/team_header_transparent_bg.png 1x, /images/team_header_transparent_bg@2x.png 2x, /images/team_header_transparent_bg@3x.png 3x',
-    class: 'img-responsive header-padding',
+    class: 'img-fluid header-padding',
     style: 'max-width: 460px; padding-bottom: 10px; width: 78%;'
 
 :css
@@ -21,8 +21,9 @@ title: Contributors
 
 .container
   .row
-    %h3 Maintainers
-  .row.team
+    .col
+      %h3 Maintainers
+  .row.row-cols-2.row-cols-md-3.row-cols-lg-4.team
     = team_member("indirect", "André Arko")
     = team_member("segiddins", "Samuel Giddins")
     = team_member("colby-swandale", "Colby Swandale")
@@ -32,20 +33,21 @@ title: Contributors
     = team_member("rubymorillo", "Stephanie Morillo")
 
   .row
-    %h3 Website team
-  .row.team
+    .col
+      %h3 Website team
+  .row.row-cols-2.row-cols-md-3.row-cols-lg-4.team
     = team_member("sailorhg", "Amy Wibowo")
     = team_member("kruczjak", "Jakub Kruczek")
 
-.container
   .row
-    %h3 And many, many thanks to all of our contributors throughout the years, including:
-    %br
+    .col
+      %h3 And many, many thanks to all of our contributors throughout the years, including:
   .row
-    - data.contributors.each do |c|
-      %span.contributor
-        = link_to c[:name], c[:href], title: "#{pluralize(c[:commits], "commit")}"
-        = "&nbsp;•&nbsp;" unless c == data.contributors.last
-    %p
+    .col
+      - data.contributors.each do |c|
+        %span.contributor
+          = link_to c[:name], c[:href], title: "#{pluralize(c[:commits], "commit")}"
+          = "&nbsp;•&nbsp;" unless c == data.contributors.last
       %br
-      …and everyone who has given time, effort, thought, or help, instead of git commits &lt;3
+      %p
+        …and everyone who has given time, effort, thought, or help, instead of git commits &lt;3

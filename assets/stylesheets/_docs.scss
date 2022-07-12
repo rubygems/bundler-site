@@ -18,7 +18,7 @@
   }
 
   .thumbnail {
-    @media(min-width: $screen-sm-min) {
+    @include media-breakpoint-up(sm) {
       img {
         max-width: 200px;
       }
@@ -32,3 +32,26 @@
     margin-bottom: 20px;
   }
 }
+
+// transition code in Bootstrap 4 migration
+// https://github.com/twbs/bootstrap/commit/4fdd63a516cdce26c6914f2b7d11e0af0b08df17
+pre {
+  padding: 0.625rem;
+  border-radius: 4px;
+
+  code {
+    padding: 0;
+    font-size: inherit;
+    color: inherit;
+    white-space: pre-wrap;
+    background-color: transparent;
+  }
+}
+
+code {
+  padding: 0.125rem 0.25rem;
+  color: #c7254e;
+  background-color: #f9f2f4;
+  border-radius: 0.25rem;
+}
+// end of transition code in Bootstrap 4 migration

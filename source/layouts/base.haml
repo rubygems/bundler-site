@@ -24,7 +24,7 @@
   %body{class: current_page.data.page_classes || ''}
     = partial 'layouts/navbar'
 
-    .main-wrapper
+    .main-wrapper.container-fluid
       ~ yield
 
       = yield_content :tail

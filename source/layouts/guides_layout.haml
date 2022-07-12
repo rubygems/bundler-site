@@ -11,7 +11,7 @@
   .row.bg-light-blue.header
     = image_tag '/images/docs_header_transparent_bg.png',
       srcset: '/images/docs_header_transparent_bg.png 1x, /images/docs_header_transparent_bg@2x.png 2x, /images/docs_header_transparent_bg@3x.png 3x',
-      class: 'img-responsive header-padding',
+      class: 'img-fluid header-padding',
       style: 'max-width: 400px;'
   .row
     #guide-container.container
@@ -19,8 +19,3 @@
         ~ yield
 
   = javascript_include_tag 'anchors.min'
-
-:css
-  .main-wrapper {
-    padding-bottom: 0;
-  }

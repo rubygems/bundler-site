@@ -1,5 +1,5 @@
 %h1 What's New in each Release
 .row
-  .col-sm-12
+  .col-12
     - versions.reverse.select{ |version| path_exist?('whats_new', version) }.each do |v|
-      = link_to v, "/#{v}/whats_new.html", class: "btn btn-sm #{current_visible_version == v ? 'btn-default' : 'btn-primary'}"
+      = link_to v, "/#{v}/whats_new.html", class: "btn btn-sm #{current_visible_version == v ? 'btn-secondary' : 'btn-primary'}"

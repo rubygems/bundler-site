@@ -68,6 +68,11 @@ Dir.glob("./source/localizable/#{config[:current_version]}/**/*").select{ |f| Fi
   proxy proxy_path, page_path, locale: :en if country == 'en'
 end
 
+# Workaround for https://github.com/rubygems/bundler-site/pull/44 for 9 years
+%w[bundler_workflow gemfile gemfile_ruby rationale rubygems rubymotion].each do |filename|
+  redirect "#{filename}.html", to: "guides/#{filename}.html"
+end
+
 # Proxy man generated documentation to be available at /vX.XX/ (for compatibility with old guides)
 # Ex: /v1.12/man/bundle-install.1.html.erb available at /v1.12/bundle_install.html
 config[:versions].each do |version|

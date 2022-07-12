@@ -85,12 +85,19 @@ config[:versions].each do |version|
   end
 end
 
-# Redirect old localizable guides (v1.12-v1.14) to the latest version (1.15) of guide compatible with Ruby 1.8.x
-["", "pl/"].each do |lang|
-  %w[1.12 1.13 1.14].each do |version|
+%w[1.12 1.13 1.14].each do |version|
+  %w[bundler_setup bundler_sharing deploying faq git_bisect git groups rails sinatra updating_gems].each do |filename|
+    redirect "v#{version}/guides/#{filename}.html", to: "v1.15/guides/#{filename}.html"
+  end
+
+  # Redirect old localizable guides (v1.12-v1.14) to the latest version (1.15) of guide compatible with Ruby 1.8.x
+  ["", "pl/"].each do |lang|
     redirect "#{lang}v#{version}/guides/creating_gem.html", to: "#{lang}v1.15/guides/creating_gem.html"
     redirect "#{lang}v#{version}/guides/using_bundler_in_applications.html", to: "#{lang}v1.15/guides/using_bundler_in_applications.html"
   end
+end
+%w[rails23 rails3].each do |filename|
+  redirect "v1.12/guides/#{filename}.html", to: "v1.15/guides/#{filename}.html"
 end
 
 # Redirect versioned-guides (which are not localizable) between v1.16 and v2.3 to version-independent guides

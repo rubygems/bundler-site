@@ -1,12 +1,11 @@
 - primary_commands = %w(bundle-install.1 bundle-update.1 bundle-cache.1 bundle-exec.1 bundle-config.1 bundle_help)
 
 %h4 Choose version
-.form-group
-  %select.version-selects.form-control
-    - versions.reverse.each do |version|
-      %option{selected: version == current_visible_version,
-                        value: documentation_path(current_page_without_version, version) || documentation_path('bundle-install.1', version)}
-        = version
+%select.version-selects.form-select.mb-3
+  - versions.reverse.each do |version|
+    %option{selected: version == current_visible_version,
+                      value: documentation_path(current_page_without_version, version) || documentation_path('bundle-install.1', version)}
+      = version
 %h4 Primary Commands
 %ul
   - primary_commands.select{ |page| path_exist?(page, current_visible_version) }.each do |page|

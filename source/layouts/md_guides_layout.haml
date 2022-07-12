@@ -16,20 +16,13 @@
       srcset: '/images/docs_header_transparent_bg.png 1x, /images/docs_header_transparent_bg@2x.png 2x, /images/docs_header_transparent_bg@3x.png 3x',
       class: 'img-fluid header-padding',
       style: 'max-width: 400px;'
-  .row
-    #guide-container.container
-      #wrapper
-        #sidebar-wrapper.d-none.d-sm-block
-          .sidebar-nav
-            %h4 Guides
-            = partial 'partials/guides_sidebar'
-        #page-content-wrapper.guide.contents
-          ~ yield
-
-  .row
-    .container
-      #bottom-sidebar-wrapper.d-sm-none
-        .bottom-sidebar-nav
+  .container
+    .row.flex-column.flex-md-row-reverse
+      #page-content-wrapper.col-12.col-md-9.guide.contents
+        ~ yield
+      #sidebar-wrapper.col-12.col-md-3.mt-4
+        .sidebar-nav
+          %h4 Guides
           = partial 'partials/guides_sidebar'
 
   = javascript_include_tag 'anchors.min'

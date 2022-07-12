@@ -1,9 +1,9 @@
-AllCops:
-  DisabledByDefault: true
+inherit_from:
+  - .rubocop_todo.yml
 
-Layout/TrailingWhitespace:
-  Enabled: true
+AllCops:
+  NewCops: enable
+  TargetRubyVersion: 3.1
 
 Style/HashSyntax:
-  EnforcedStyle: ruby19
   EnforcedShorthandSyntax: never

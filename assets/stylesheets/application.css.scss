@@ -18,39 +18,37 @@ pre {
 }
 $pre-color: #fff;
 
+//
 @import "code.css";
 @import "bootstrap-overrides";
 
 $icon-font-path: '~bootstrap/assets/fonts/bootstrap/';
+@import "~bootstrap/scss/bootstrap";
 
-// Core variables and mixins
-@import "~bootstrap/scss/variables";
-@import "~bootstrap/scss/mixins";
-// Reset and dependencies
-@import "~bootstrap/scss/reboot";
-// Core CSS
-@import "~bootstrap/scss/type";
-@import "~bootstrap/scss/code";
-@import "~bootstrap/scss/grid";
-@import "~bootstrap/scss/tables";
-@import "~bootstrap/scss/forms";
-@import "~bootstrap/scss/buttons";
-@import "~bootstrap/scss/transitions";
-// Components
-@import "~bootstrap/scss/dropdown";
-@import "~bootstrap/scss/nav";
-@import "~bootstrap/scss/navbar";
-@import "~bootstrap/scss/pagination";
-@import "~bootstrap/scss/media";
-@import "~bootstrap/scss/code";
-@import "~bootstrap/scss/images";
-// Utility classes
-@import "~bootstrap/scss/utilities";
-
-@import "~bootstrap/scss/modal";
-@import "~bootstrap/scss/tooltip";
-@import "~bootstrap/scss/popover";
-
+//// Core variables and mixins
+//@import "~bootstrap/scss/variables";
+//@import "~bootstrap/scss/mixins";
+//// Reset and dependencies
+//@import "~bootstrap/scss/reboot";
+//// Core CSS
+//@import "~bootstrap/scss/type";
+//@import "~bootstrap/scss/grid";
+//@import "~bootstrap/scss/tables";
+//@import "~bootstrap/scss/forms";
+//@import "~bootstrap/scss/buttons";
+//@import "~bootstrap/scss/transitions";
+//// Components
+//@import "~bootstrap/scss/dropdown";
+//@import "~bootstrap/scss/nav";
+//@import "~bootstrap/scss/navbar";
+//@import "~bootstrap/scss/pagination";
+//@import "~bootstrap/scss/images";
+//// Utility classes
+//@import "~bootstrap/scss/utilities";
+//
+//@import "~bootstrap/scss/modal";
+//@import "~bootstrap/scss/tooltip";
+//@import "~bootstrap/scss/popover";
 @import "navbar";
 @import "docs";
 @import "blog";
@@ -159,4 +157,20 @@ p {
       font-weight: bold;
     }
   }
+}
+
+// Bootstrap 5 suggested #000 as `color:` and hover `color:` as it violates
+// "WCAG 2.1 text color contrast ratio of 4.5:1" with `color: #fff`.
+// https://webaim.org/resources/contrastchecker/?fcolor=FFFFFF&bcolor=12AEE2
+// https://webaim.org/resources/contrastchecker/?fcolor=FFFFFF&bcolor=0F94C0
+$_color-for-btn-primary: #fff;
+.btn-primary {
+  @include button-variant(
+    $primary,
+    $primary,
+    $_color-for-btn-primary,
+    if($_color-for-btn-primary == $color-contrast-light, shade-color($primary, $btn-hover-bg-shade-amount), tint-color($primary, $btn-hover-bg-tint-amount)),
+    if($_color-for-btn-primary == $color-contrast-light, shade-color($primary, $btn-hover-border-shade-amount), tint-color($primary, $btn-hover-border-tint-amount)),
+    $_color-for-btn-primary
+  );
 }

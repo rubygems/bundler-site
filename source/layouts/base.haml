@@ -24,10 +24,9 @@
   %body{class: current_page.data.page_classes || ''}
     = partial 'layouts/navbar'
 
-    .main-wrapper.container-fluid
-      ~ yield
+    ~ yield
 
-      = yield_content :tail
+    = yield_content :tail
 
     .footer
       = partial 'layouts/footer'

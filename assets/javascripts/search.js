@@ -1,4 +1,5 @@
 import $ from 'jquery'
+import { Popover } from 'bootstrap';
 import lunr from 'lunr'
 
 var lunrIndex = null;
@@ -41,17 +42,24 @@ $(document).ready(function() {
     };
 
     this.initializePopover = function() {
-      this.popover = this.searchInput.popover(this.POPOVER_OPTIONS).data('bs.popover');
+      this.popover = new Popover(this.searchInput, this.POPOVER_OPTIONS);
     };
 
     this.hidePopover = function() {
-      this.searchInput.popover('hide');
+      const popover = Popover.getInstance(this.searchInput);
+      popover && popover.hide();
       this.searchArrows.destroy();
     };
 
     this.showPopover = function(text) {
       this.popoverContent = this.generatePopoverContent(text);
-      this.searchInput.popover('show');
+      const popover = Popover.getInstance(this.searchInput);
+      popover.show();
+      document.querySelector(".popover-body").innerHTML = this.popoverContent;
+
+      this.popoverHandler = $(self.POPOVER_CLASS);
+      this.popoverHandler.click(function(e) { e.stopPropagation() });
+      this.searchArrows.init();
     };
 
     this.generatePopoverContent = function(text) {
@@ -110,11 +118,6 @@ $(document).ready(function() {
         if (text === '') return;
         
         self.showPopover(text);
-      });
-      this.searchInput.on('shown.bs.popover', function()  {
-        self.popoverHandler = $(self.POPOVER_CLASS);
-        self.popoverHandler.click(function(e) { e.stopPropagation() });
-        self.searchArrows.init();
       });
       this.searchInput.click(function(e) { e.stopPropagation() });
       $(window).click(function() { self.hidePopover() });

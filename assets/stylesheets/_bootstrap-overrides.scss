@@ -1,8 +1,6 @@
-$theme-colors: (
-  // for .btn-primary. This color is applied to $link-color so tweak is followed.
-  // - Discussion: https://github.com/rubygems/bundler-site/pull/644#issuecomment-1178722939
-  "primary": #12AEE2
-);
+// for .btn-primary. This color is applied to $link-color so tweak is followed.
+// - Discussion: https://github.com/rubygems/bundler-site/pull/644#issuecomment-1178722939
+$primary: #12AEE2;
 
 // navbar
 $navbar-padding-y: 0;
@@ -33,4 +31,9 @@ $card-border-width: 0;
 
 // Transition workaround for unifying link color and button (btn-primary) in Boostrap 4.6.1
 $link-color: #337ab7;
+// /Transition workaround
+
+// Transition workaround for text-decoration: underline only for a:hover in Boostrap 5.0
+$link-decoration: none;
+$link-hover-decoration: underline
 // /Transition workaround

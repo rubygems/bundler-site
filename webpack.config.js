@@ -37,19 +37,6 @@ module.exports = {
           loader: 'url-loader?name=fonts/[name].[ext]',
         }
       },
-      {
-        test: /bootstrap\/(transition|button|tooltip|popover|dropdown|collapse)\.js$/,
-        use: [
-          {
-            loader: 'imports-loader',
-            options: {
-              imports: [
-                'default jquery jQuery'
-              ]
-            }
-          }
-        ]
-      }
     ]
   },
   plugins: [

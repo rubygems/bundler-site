@@ -6,7 +6,7 @@ config[:current_version] = config[:versions].last
 activate :syntax
 activate :i18n
 activate :search do |search|
-  search.resources = ['index.html', 'guides/', "#{config[:current_version]}/", 'compatibility.html', 'conduct.html', 'contributors.html', 'older_versions.html']
+  search.resources = ['index.html', 'guides/', "#{config[:current_version]}/", 'compatibility.html', 'conduct.html', 'contributors.html']
 
   search.index_path = 'search/lunr-index.json'
 
@@ -136,7 +136,6 @@ end
 redirect "sponsors.html", to: "https://rubygems.org/pages/sponsors" # Backwards compatibility
 
 page '/conduct.html', layout: :guides_layout
-page '/older_versions.html', layout: :guides_layout
 page '/compatibility.html', layout: :guides_layout
 page /\/v(\d+.\d+)\/(?!bundle_|commands|docs|man)(.*)/, layout: :md_guides_layout
 page /\/v(.*)\/bundle_(.*)/, layout: :commands_layout
@@ -151,6 +150,7 @@ page '/sitemap.xml', layout: false
 
 redirect "issues.html", to: "doc/contributing/issues.html" # Backwards compatibility
 redirect "commands.html", to: "man/bundle.1.html" # Backwards compatibility
+redirect "older_versions.html", to: "whats_new.html" # Backwards compatibility
 
 ###
 # Helpers

@@ -122,6 +122,10 @@ end
   redirect "v#{version}/guides/sinatra.html", to: "guides/sinatra.html"
   redirect "v#{version}/guides/updating_gems.html", to: "guides/updating_gems.html"
 
+  %w[bundler_workflow gemfile gemfile_ruby rationale rubygems rubymotion].each do |filename|
+    redirect "v#{version}/#{filename}.html", to: "guides/#{filename}.html"
+  end
+
   # Redirect old localizable guides (v1.16-v2.3) to the current (version-independent) guide
   ["", "pl/"].each do |lang|
     redirect "#{lang}v#{version}/guides/creating_gem.html", to: "#{lang}guides/creating_gem.html"

@@ -1,14 +1,15 @@
 %link{rel: "stylesheet", href: "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css", integrity: "sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==", crossorigin: "anonymous", referrerpolicy: "no-referrer"}
-%nav.navbar.navbar-expand-md.navbar-light.container-md.justify-content-between
-  = link_to 'Bundler', '/', class: "navbar-brand mr-auto font-weight-bold"
-  %button.navbar-toggler{type: "button", "data-toggle": "collapse", "data-target": "#bs-navbar-collapse", "aria-controls": "bs-navbar-collapse", "aria-expanded": "false", "aria-label": "Toggle navigation"}
-    %span.navbar-toggler-icon
-  .collapse.navbar-collapse.flex-grow-0#bs-navbar-collapse
-    %ul.nav.navbar-nav
-      %li.nav-item
-        %input#input-search.input-search.my-1.pl-1.pt-1{type: :text, placeholder: t('search.placeholder')}
-        %i.fa.fa-search.text-opacity-40.px-1.py-2
-      %li.nav-item= link_to t('navbar.docs'), '/docs.html', class: "nav-link"
-      %li.nav-item= link_to t('navbar.team'), '/contributors.html', class: "nav-link"
-      %li.nav-item= link_to t('navbar.blog'), '/blog', class: "nav-link"
-      %li.nav-item= link_to t('navbar.repository'), 'https://github.com/rubygems/rubygems/tree/master/bundler', target: '_blank', rel: 'noopener noreferrer', class: "nav-link"
+%nav.navbar.navbar-expand-md.navbar-light
+  .container-md
+    = link_to 'Bundler', '/', class: "navbar-brand me-auto fw-bold"
+    %button.navbar-toggler{type: "button", "data-bs-toggle": "collapse", "data-bs-target": "#bs-navbar-collapse", "aria-controls": "bs-navbar-collapse", "aria-expanded": "false", "aria-label": "Toggle navigation"}
+      %span.navbar-toggler-icon
+    .collapse.navbar-collapse.flex-grow-0#bs-navbar-collapse
+      %ul.navbar-nav
+        %li.nav-item
+          %input#input-search.input-search.my-1.ps-1.pt-1{type: :text, placeholder: t('search.placeholder')}
+          %i.fa.fa-search.text-opacity-40.px-1.py-2
+        %li.nav-item= link_to t('navbar.docs'), '/docs.html', class: "nav-link"
+        %li.nav-item= link_to t('navbar.team'), '/contributors.html', class: "nav-link"
+        %li.nav-item= link_to t('navbar.blog'), '/blog', class: "nav-link"
+        %li.nav-item= link_to t('navbar.repository'), 'https://github.com/rubygems/rubygems/tree/master/bundler', target: '_blank', rel: 'noopener noreferrer', class: "nav-link"

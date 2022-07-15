@@ -8,6 +8,9 @@ $navbar-height: 50px;
   src: url('fonts/SancoaleSlabNormRegular.otf') format("opentype");
 }
 
+// Boostrap 5 customization
+// Document: https://getbootstrap.com/docs/5.2/customize/sass/#importing
+// List of SCSS to load: https://github.com/twbs/bootstrap/blob/v5.1.3/scss/bootstrap.scss
 @import "~bootstrap/scss/functions";
 
 pre {
@@ -23,33 +26,35 @@ $pre-color: #fff;
 
 $icon-font-path: '~bootstrap/assets/fonts/bootstrap/';
 
-// Core variables and mixins
 @import "~bootstrap/scss/variables";
 @import "~bootstrap/scss/mixins";
-// Reset and dependencies
+@import "~bootstrap/scss/utilities";
+
+// Layout & components
+// Note: tables, dropdown, button-group, accordion, breadcrumb, pagination,
+// badge, alert, progress, list-group, close, toasts, modal, tooltip, carousel,
+// spinners, offcanvas, and placeholders were excluded as they are not used as
+// of Bootstrap 5.1.3
+@import "~bootstrap/scss/root";
 @import "~bootstrap/scss/reboot";
-// Core CSS
 @import "~bootstrap/scss/type";
-@import "~bootstrap/scss/code";
+@import "~bootstrap/scss/images";
+@import "~bootstrap/scss/containers";
 @import "~bootstrap/scss/grid";
-@import "~bootstrap/scss/tables";
 @import "~bootstrap/scss/forms";
 @import "~bootstrap/scss/buttons";
 @import "~bootstrap/scss/transitions";
-// Components
-@import "~bootstrap/scss/dropdown";
 @import "~bootstrap/scss/nav";
 @import "~bootstrap/scss/navbar";
-@import "~bootstrap/scss/pagination";
-@import "~bootstrap/scss/media";
-@import "~bootstrap/scss/code";
-@import "~bootstrap/scss/images";
-// Utility classes
-@import "~bootstrap/scss/utilities";
-
-@import "~bootstrap/scss/modal";
-@import "~bootstrap/scss/tooltip";
+@import "~bootstrap/scss/card";
 @import "~bootstrap/scss/popover";
+
+// Helpers
+@import "~bootstrap/scss/helpers";
+
+// Utilities
+@import "~bootstrap/scss/utilities/api";
+// end of Boostrap 5 customization
 
 @import "navbar";
 @import "docs";
@@ -61,7 +66,7 @@ $icon-font-path: '~bootstrap/assets/fonts/bootstrap/';
 @import "anchorjs";
 @import "search";
 
-// Utilities from Bootstrap 5.x
+// More various utilities extended from Bootstrap 5.1
 @import "opacity";
 
 .row:after {
@@ -98,9 +103,6 @@ $icon-font-path: '~bootstrap/assets/fonts/bootstrap/';
     float: none !important;
   }
 
-  .center-on-xs {
-    text-align: center;
-  }
 }
 
 .content-padding {

@@ -74,8 +74,8 @@ end
 end
 
 # Redirect old pages in this repo to manpages (see https://github.com/rubygems/bundler-site/issues/723)
-# TODO: install help binstubs check clean console init inject open plugin version
-%w[outdated show viz].each do |command|
+# TODO: help binstubs check clean console init inject open plugin version
+%w[install outdated show viz].each do |command|
   redirect "bundle_#{command}.html", to: "man/bundle-#{command}.1.html"
 end
 
@@ -98,8 +98,8 @@ end
 
 %w[1.12 1.13 1.14 1.15].each do |version|
   # Redirect old pages in this repo to manpages (see https://github.com/rubygems/bundler-site/issues/723)
-  # TODO: install help binstubs check clean console init inject open plugin version
-  %w[outdated show viz].each do |command|
+  # TODO: help binstubs check clean console init inject open plugin version
+  %w[install outdated show viz].each do |command|
     redirect "v#{version}/bundle_#{command}.html", to: "v1.15/man/bundle-#{command}.1.html"
   end
 
@@ -142,8 +142,8 @@ end
   end
 
   # Redirect old pages in this repo to manpages (see https://github.com/rubygems/bundler-site/issues/723)
-  # TODO: install help binstubs check clean console init inject open plugin version
-  %w[outdated show viz].each do |command|
+  # TODO: help binstubs check clean console init inject open plugin version
+  %w[install outdated show viz].each do |command|
     redirect "v#{version}/bundle_#{command}.html", to: "v#{version}/man/bundle-#{command}.1.html"
   end
 

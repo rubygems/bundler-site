@@ -28,14 +28,11 @@ module.exports = {
         loader: 'style-loader',
       },
       {
-        test: /\.(woff|woff2|ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-        loader: 'url-loader',
-      },
-      {
         test: /\.otf$/,
-        use: {
-          loader: 'url-loader?name=fonts/[name].[ext]',
-        }
+        type: 'asset/resource',
+        generator: {
+          filename: 'font/[hash][ext][query]'
+        },
       },
     ]
   },

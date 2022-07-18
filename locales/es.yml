@@ -24,5 +24,3 @@ es:
     blog: "Blog"
     repository: "Repositorio"
     toggle_navigation: "Cambiar navigación"
-  search:
-    placeholder: "Haga búsqueda..."

@@ -1,6 +1,6 @@
 xml.instruct!
 xml.feed "xmlns" => "http://www.w3.org/2005/Atom" do
-  site_url = "http://bundler.io/"
+  site_url = "https://bundler.io/"
   xml.title "Bundler Blog"
   xml.subtitle "The latest news on Bundler"
   xml.id URI.join(site_url, blog.options.prefix.to_s)

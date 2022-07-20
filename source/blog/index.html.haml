@@ -1,26 +1,19 @@
+---
+title: Blog | Official blog for Bundler
+---
 = partial 'partials/blog_header'
 
 .container
   .row.my-5
     .col-md-12.col-xl-10.offset-xl-1
       .contents.blog
-        %h2.title
-          = link_to blog.articles.first.title, blog.articles.first.url
-        .subtitle
-          by
-          = link_to blog.articles.first.data.author, blog.articles.first.data.author_url, :target => '_blank'
-          on
-          %time
-            = blog.articles.first.date.strftime('%b %e %Y')
-        .blog-content
-          = blog.articles.first.render layout: false
+        %h1
+          The Bundler blog
 
-  .row.my-5
-    .col-md-12.col-xl-10.offset-xl-1
-      .contents.blog
-        %h1 Previous Posts
-        %ul.posts
-          - blog.articles[1..-1].each do |article|
-            %li
-              .date= article.date.to_date.strftime("%b %e, %Y")
-              = link_to article.title, article.url
+        - blog.articles.group_by { |a| a.date.strftime("%Y") }.each do |year, articles|
+          %h2= year
+          %ul.posts
+            - articles.each do |article|
+              %li.ms-2.ms-lg-4
+                .date.h3.d-block.d-md-inline-block.text-md-end.me-lg-4.me-2= article.date.to_date.strftime("%b %e")
+                = link_to article.title, article.url

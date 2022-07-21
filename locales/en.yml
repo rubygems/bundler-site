@@ -22,6 +22,7 @@ en:
     learn_more_bundle_install: "Learn More: bundle install"
     whats_new: "What's new?"
   navbar:
+    about: "About"
     docs: "Docs"
     team: "Team"
     blog: "Blog"

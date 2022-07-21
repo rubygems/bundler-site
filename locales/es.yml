@@ -18,6 +18,7 @@ es:
     learn_more_bundle_install: "Aprenda más: bundle install"
     whats_new: "Novedades"
   navbar:
+    about: "Acerca de"
     docs: "Docs"
     team: "Equipo"
     blog: "Blog"

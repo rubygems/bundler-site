@@ -1,0 +1,73 @@
+---
+title: About this site
+layout: md_guides_layout
+---
+.container
+  .row.my-5
+    %h1
+      About this Web site
+    %h2
+      Source code
+    %p
+      = link_to "https://github.com/rubygems/bundler-site", "https://github.com/rubygems/bundler-site"
+
+    %h2
+      Architecture
+    %p
+      Middleman 4.4 is the core system of this Web site.
+      A half of source code is located in
+      %code ./source
+      , but the other half is located in
+      = succeed "," do
+        = link_to "rubygems/rubygems/tree/master/bundler/lib/bundler/man" , "https://github.com/rubygems/rubygems/tree/master/bundler/lib/bundler/man"
+      which would be retrieved by executing
+      %code bundle exec rake man
+      \.
+    %p
+      When the source code is merged to the default branch
+      %code master
+      on GitHub,
+      = link_to "Deploy job on GitHub Actions", "https://github.com/rubygems/bundler-site/blob/HEAD/.github/workflows/deploy.yml"
+      would be automatically triggered to push build source (HTML, JS, CSS and
+      font) to
+      = succeed "." do
+        = link_to "rubygems/bundler.github.io", "https://github.com/rubygems/bundler.github.io"
+      Custom domain is used as defined in
+      = link_to "CNAME in bundler.github.io", "https://github.com/rubygems/bundler.github.io/blob/master/CNAME"
+      (see also
+      = succeed ")." do
+        = link_to "Managing a custom domain for your GitHub Pages site", "https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site#configuring-a-subdomain"
+    %p
+      As seen above, you might sometimes take care about the difference in
+      deploy methods between review apps and production. Unlike production
+      mentioned above, review apps of this Web site rely on Heroku architecture,
+      which run as middleman server with Puma.
+
+    %h2
+      Localization
+    %p
+      While
+      = succeed "," do
+        = link_to "internationalization system was introduced in 2016", "/blog/2016/07/10/bundler-1-13-and-redesigned-bundler-io.html"
+      multilingualization is still ongoing.
+
+      We welcome multilingualize more guides and other documentations.
+      To get started, move some files existing in
+      %code /source
+      or create a file to
+      %code /source/localizable
+      to multiligualize
+      files.
+
+    %h2
+      Becoming a maintainer of this Web site (namely
+      = succeed ")" do
+        %code rubygems/bundler-site
+    %p
+      If you want to be an official maintainer, start by helping out.
+    %p
+      As a first step, we welcome you to create a few of pull requests to improve
+      the Web site to
+      = succeed "." do
+        = link_to "the repo", "https://github.com/rubygems/bundler-site/pulls"
+      Also new feature improvement proposals are welcome.

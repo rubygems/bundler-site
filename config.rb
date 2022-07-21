@@ -156,6 +156,21 @@ redirect "issues.html", to: "doc/contributing/issues.html" # Backwards compatibi
 redirect "commands.html", to: "man/bundle.1.html" # Backwards compatibility
 redirect "older_versions.html", to: "whats_new.html" # Backwards compatibility
 
+# Backwards compatibility for year/month/day index
+ymds = %w[2013/10/12 2013/12/07 2014/07/16 2014/08/14 2014/08/15 2015/03/19 2015/03/20 2015/03/21 2015/06/24 2015/12/12 2016/04/28 2016/07/10 2016/09/08 2017/03/28 2017/05/19 2017/10/31 2018/01/08 2018/01/17 2018/03/09 2018/04/09 2018/05/07 2018/06/07 2018/07/12 2018/08/10 2018/09/10 2018/10/15 2018/10/25 2018/11/04 2018/11/05 2018/12/08 2019/01/03 2019/01/04 2019/02/02 2019/03/12 2019/05/14 2020/04/27 2020/12/09 2021/02/15 2022/01/23]
+## /blog/YYYY/MM/DD/
+ymds.each do |ymd|
+  redirect "blog/#{ymd}/", to: "/blog/"
+end
+## /blog/YYYY/MM/
+ymds.map { |ymd| ymd.sub(%r{/\d+$}, "") }.each do |ym|
+  redirect "blog/#{ym}/", to: "blog/"
+end
+## /blog/YYYY/
+ymds.map { |ymd| ymd.sub(%r{/\d+/\d+$}, "") }.each do |y|
+  redirect "blog/#{y}/", to: "blog/"
+end
+
 ###
 # Helpers
 ###
@@ -170,11 +185,6 @@ activate :blog do |blog|
   blog.prefix = 'blog'
   blog.permalink = '{year}/{month}/{day}/{title}.html'
   blog.layout = 'blog_layout'
-
-  blog.calendar_template = 'blog/calendar.html'
-  blog.year_link = "{year}/index.html"
-  blog.month_link = "{year}/{month}/index.html"
-  blog.day_link = "{year}/{month}/{day}/index.html"
 end
 
 page "/blog/feed.xml", layout: false

@@ -36,10 +36,10 @@ set :markdown,
 
 # Webpack
 activate :external_pipeline,
- name: :webpack,
- command: build? ? "npm run build" : "npm run start",
- source: ".tmp/dist",
- latency: 1
+         name: :webpack,
+         command: build? ? "npm run build" : "npm run start",
+         source: ".tmp/dist",
+         latency: 1
 
 set :images_dir, 'images'
 

@@ -73,6 +73,12 @@ end
   redirect "#{filename}.html", to: "guides/#{filename}.html"
 end
 
+# Redirect old pages in this repo to manpages (see https://github.com/rubygems/bundler-site/issues/723)
+# TODO: install help binstubs check clean console init inject open outdated plugin show version
+%w[viz].each do |command|
+  redirect "bundle_#{command}.html", to: "man/bundle-#{command}.1.html"
+end
+
 # Proxy man generated documentation to be available at /vX.XX/ (for compatibility with old guides)
 # Ex: /v1.12/man/bundle-install.1.html.erb available at /v1.12/bundle_install.html
 config[:versions].each do |version|
@@ -90,7 +96,16 @@ config[:versions].each do |version|
   end
 end
 
-%w[1.12 1.13 1.14].each do |version|
+%w[1.12 1.13 1.14 1.15].each do |version|
+  # Redirect old pages in this repo to manpages (see https://github.com/rubygems/bundler-site/issues/723)
+  # TODO: install help binstubs check clean console init inject open outdated plugin show version
+  %w[viz].each do |command|
+    redirect "v#{version}/bundle_#{command}.html", to: "v1.15/man/bundle-#{command}.1.html"
+  end
+
+  # Add the rule above here if you need it for v1.15 as well
+  next if version == "1.15"
+
   %w[bundler_setup bundler_sharing deploying faq git_bisect git groups rails sinatra updating_gems].each do |filename|
     redirect "v#{version}/guides/#{filename}.html", to: "v1.15/guides/#{filename}.html"
   end
@@ -124,6 +139,12 @@ end
 
   %w[bundler_workflow gemfile gemfile_ruby rationale rubygems rubymotion].each do |filename|
     redirect "v#{version}/#{filename}.html", to: "guides/#{filename}.html"
+  end
+
+  # Redirect old pages in this repo to manpages (see https://github.com/rubygems/bundler-site/issues/723)
+  # TODO: install help binstubs check clean console init inject open outdated plugin show version
+  %w[viz].each do |command|
+    redirect "v#{version}/bundle_#{command}.html", to: "v#{version}/man/bundle-#{command}.1.html"
   end
 
   # Redirect old localizable guides (v1.16-v2.3) to the current (version-independent) guide

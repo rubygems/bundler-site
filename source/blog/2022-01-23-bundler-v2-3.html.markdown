@@ -1,5 +1,4 @@
 ---
-
 title: "Bundler v2.3: Locking the version of Bundler itself"
 date: 2022-01-23 16:07 UTC
 tags:
@@ -90,7 +89,7 @@ All in all, we aim to provide a less surprising, less error prone and more
 consistent experience when using Bundler, and let each application be in control
 of the version that they use, and the moment that they upgrade.
 
-# What's coming next?
+## What's coming next?
 
 Future enhancements to this feature might include:
 

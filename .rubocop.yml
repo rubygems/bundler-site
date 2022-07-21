@@ -1,5 +1,14 @@
+inherit_mode:
+  merge:
+    - Exclude
+
 AllCops:
   DisabledByDefault: true
+  Exclude:
+    - "bin/*"
+
+Layout/ArgumentAlignment:
+  Enabled: true
 
 Layout/TrailingWhitespace:
   Enabled: true

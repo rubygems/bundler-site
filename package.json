@@ -8,9 +8,10 @@
   },
   "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "npx webpack --bail --mode production",
+    "lint": "prettier --check assets/javascripts",
     "start": "npx webpack -d source-map --progress --color",
-    "build": "npx webpack --bail --mode production"
+    "test": "npm run lint"
   },
   "repository": {
     "type": "git",
@@ -26,6 +27,7 @@
   "devDependencies": {
     "css-loader": "^6.7.1",
     "mini-css-extract-plugin": "^2.6.1",
+    "prettier": "2.7.1",
     "sass": "^1.53.0",
     "sass-loader": "^13.0.2",
     "style-loader": "^3.3.1",

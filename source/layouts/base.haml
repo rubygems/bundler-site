@@ -15,7 +15,7 @@
     - if content_for?(:canonical)
       %link(rel="canonical" href="#{yield_content(:canonical)}")
 
-    = javascript_include_tag "application.min"
+    = stylesheet_link_tag "https://cdn.jsdelivr.net/npm/@docsearch/css@3.1.1/dist/style.min.css"
     = stylesheet_link_tag "application"
     = partial 'layouts/favicon'
     = feed_tag :atom, "#{blog.options.prefix.to_s}/feed.xml", title: "Atom Feed"
@@ -30,3 +30,6 @@
 
     .footer
       = partial 'layouts/footer'
+    = javascript_include_tag "https://cdn.jsdelivr.net/npm/typesense-docsearch.js@3.0.0-3/dist/umd/index.min.js"
+    = javascript_include_tag "https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
+    = javascript_include_tag "application.min"

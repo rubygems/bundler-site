@@ -48,7 +48,6 @@ $icon-font-path: '~bootstrap/assets/fonts/bootstrap/';
 @import "~bootstrap/scss/nav";
 @import "~bootstrap/scss/navbar";
 @import "~bootstrap/scss/card";
-@import "~bootstrap/scss/popover";
 
 // Helpers
 @import "~bootstrap/scss/helpers";
@@ -65,7 +64,7 @@ $icon-font-path: '~bootstrap/assets/fonts/bootstrap/';
 @import "team";
 @import "footer";
 @import "anchorjs";
-@import "search";
+@import "docsearch";
 
 // More various utilities extended from Bootstrap 5.1
 @import "opacity";

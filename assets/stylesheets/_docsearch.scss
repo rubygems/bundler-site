@@ -1,0 +1,17 @@
+.DocSearch-Hits mark {
+  padding: 0;
+}
+
+.DocSearch-Logo {
+  visibility: hidden;
+
+  a:hover {
+    text-decoration: none;
+  }
+}
+
+:root {
+  --docsearch-logo-color: var(--bs-gray-300);
+  --docsearch-primary-color: var(--bs-primary);
+  --docsearch-searchbox-background: #DBEAF3; // .bg-light-blue and .sidebar-nav .active
+}

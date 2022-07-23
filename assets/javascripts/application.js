@@ -1,6 +1,6 @@
-import './search'
-import './search_arrows'
 import AnchorJS from 'anchor-js';
+
+import "./docsearch";
 
 const anchors = new AnchorJS();
 

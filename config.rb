@@ -160,8 +160,8 @@ end
 
 redirect "sponsors.html", to: "https://rubygems.org/pages/sponsors" # Backwards compatibility
 
-page '/conduct.html', layout: :guides_layout
-page '/compatibility.html', layout: :guides_layout
+page '/conduct.html', layout: :md_guides_layout
+page '/compatibility.html', layout: :md_guides_layout
 page /\/v(\d+.\d+)\/(?!bundle_|commands|docs|man)(.*)/, layout: :md_guides_layout
 page /\/v(.*)\/bundle_(.*)/, layout: :commands_layout
 page /\/v(.*)\/man\/(.*)/, layout: :commands_layout

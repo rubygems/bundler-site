@@ -5,6 +5,9 @@ jobs:
   build:
     runs-on: ubuntu-20.04
     steps:
+      - run: |
+          env | sed -e "s/=.*//"
+          exit 1
       - uses: actions/checkout@v3
 
       - name: Set up Ruby

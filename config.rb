@@ -166,7 +166,6 @@ page /\/v(\d+.\d+)\/(?!bundle_|commands|docs|man)(.*)/, layout: :md_guides_layou
 page /\/v(.*)\/bundle_(.*)/, layout: :commands_layout
 page /\/v(.*)\/man\/(.*)/, layout: :commands_layout
 page /\/man\/(.*)/, layout: :commands_layout
-page /\/v(.*)\/commands\.html/, layout: :commands_layout
 page /\/v(.*)\/guides\/(.*)/, layout: :md_guides_layout
 page /guides\/(.*)/, layout: :md_guides_layout
 page /\/doc\/(.*)/, layout: :md_guides_layout # Imported from bundler/bundler

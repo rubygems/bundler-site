@@ -8,3 +8,6 @@ tasks:
       bundle install
       npm install
     command: bundle exec middleman server
+github:
+  prebuilds:
+    addCheck: false

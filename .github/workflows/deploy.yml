@@ -30,3 +30,6 @@ jobs:
         env:
           encrypted_key: ${{ secrets.encrypted_key }}
           encrypted_iv: ${{ secrets.encrypted_iv }}
+
+      - name: Purge CDN
+        run: bundle exec rake ci:clean_fastly_cache

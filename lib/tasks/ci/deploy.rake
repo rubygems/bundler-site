@@ -38,7 +38,5 @@ namespace :ci do
       sh "git commit -m 'rubygems/bundler-site@#{commit}'"
       sh "git push origin master"
     end
-
-    Rake::Task["ci:clean_fastly_cache"].invoke
   end
 end

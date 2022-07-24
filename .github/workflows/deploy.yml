@@ -6,16 +6,13 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-20.04
-    strategy:
-      matrix:
-        ruby: ['3.1.2']
     steps:
       - uses: actions/checkout@v3
 
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: ${{ matrix.ruby }}
+          ruby-version: '3.1.2'
           bundler-cache: true # 'bundle install' and cache
 
       - name: Install Node.js

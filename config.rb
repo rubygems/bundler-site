@@ -18,6 +18,8 @@ activate :search do |search|
   }
 end
 
+set :layout, :base
+
 set :markdown_engine, :kramdown
 
 # Markdown extentions

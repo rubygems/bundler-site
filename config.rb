@@ -162,15 +162,15 @@ end
 
 redirect "sponsors.html", to: "https://rubygems.org/pages/sponsors" # Backwards compatibility
 
-page '/conduct.html', layout: :md_guides_layout
-page '/compatibility.html', layout: :md_guides_layout
-page /\/v(\d+.\d+)\/(?!bundle_|commands|docs|man)(.*)/, layout: :md_guides_layout
-page /\/v(.*)\/bundle_(.*)/, layout: :md_guides_layout
-page /\/v(.*)\/man\/(.*)/, layout: :md_guides_layout
-page /\/man\/(.*)/, layout: :md_guides_layout
-page /\/v(.*)\/guides\/(.*)/, layout: :md_guides_layout
-page /guides\/(.*)/, layout: :md_guides_layout
-page /\/doc\/(.*)/, layout: :md_guides_layout # Imported from bundler/bundler
+page '/conduct.html', layout: :two_column_layout
+page '/compatibility.html', layout: :two_column_layout
+page /\/v(\d+.\d+)\/(?!bundle_|commands|docs|man)(.*)/, layout: :two_column_layout
+page /\/v(.*)\/bundle_(.*)/, layout: :two_column_layout
+page /\/v(.*)\/man\/(.*)/, layout: :two_column_layout
+page /\/man\/(.*)/, layout: :two_column_layout
+page /\/v(.*)\/guides\/(.*)/, layout: :two_column_layout
+page /guides\/(.*)/, layout: :two_column_layout
+page /\/doc\/(.*)/, layout: :two_column_layout # Imported from bundler/bundler
 
 page '/sitemap.xml', layout: false
 

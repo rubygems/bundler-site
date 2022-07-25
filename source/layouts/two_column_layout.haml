@@ -1,3 +1,6 @@
+- is_command = command?(current_page.url)
+- v = current_page.url.scan(/v\d\.\d+/).first || current_version
+
 - if /v\d\.\d+\//.match(current_page.destination_path)
   - content_for(:canonical, commands_toplevel_path(current_page.destination_path))
 
@@ -16,10 +19,16 @@
       style: 'max-width: 400px;'
   .container
     .row.flex-column.flex-md-row-reverse
-      #page-content-wrapper.col-12.col-md-9.commands.contents
+      #page-content-wrapper.col-12.col-md-9.contents{ class: is_command ? "commands" : "guide" }
         ~ yield
       #sidebar-wrapper.col-12.col-md-3.mt-4
         .sidebar-nav
-          = partial 'partials/commands_sidebar'
+          - if is_command
+            = partial 'partials/commands_sidebar'
+          - else
+            = partial 'partials/guides_sidebar'
 
-  = javascript_include_tag 'commands_layout.min'
+  - if is_command
+    = javascript_include_tag 'commands_layout.min'
+  - else
+    = javascript_include_tag 'anchors.min'

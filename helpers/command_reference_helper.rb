@@ -25,4 +25,10 @@ module CommandReferenceHelper
   def slugize(str)
     str.sub(/^([^\s]*).*/, "\\1")
   end
+
+  # Check if the argument path is a part of command references
+  def command?(path)
+    !!(%r{\A/v(.*)/bundle_(.*)\z} =~ path || # https://github.com/rubygems/bundler-site/issues/723 will remove this line
+       %r{\A/(v(.*)/|)man\/(.*)\z} =~ path)
+  end
 end

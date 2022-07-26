@@ -105,6 +105,9 @@ end
     redirect "v#{version}/bundle_#{command}.html", to: "v1.15/man/bundle-#{command}.1.html"
   end
 
+  # /v:ver/docs.html is now the center of versioned docs
+  redirect "v#{version}/index.html", to: "v#{version}/docs.html"
+
   # Add the rule above here if you need it for v1.15 as well
   next if version == "1.15"
 
@@ -148,6 +151,9 @@ end
   %w[install outdated show viz].each do |command|
     redirect "v#{version}/bundle_#{command}.html", to: "v#{version}/man/bundle-#{command}.1.html"
   end
+
+  # /v:ver/docs.html is now the center of versioned docs
+  redirect "v#{version}/index.html", to: "v#{version}/docs.html"
 
   # Redirect old localizable guides (v1.16-v2.3) to the current (version-independent) guide
   ["", "pl/"].each do |lang|

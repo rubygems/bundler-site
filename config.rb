@@ -1,6 +1,7 @@
 Dir.glob(File.expand_path('../lib/config/*.rb', __FILE__), &method(:require))
+require_relative "lib/versions"
 
-config[:versions] = `rake versions`.split
+config[:versions] = VERSIONS
 config[:current_version] = config[:versions].last
 
 activate :syntax

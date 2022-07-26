@@ -2,7 +2,7 @@ require 'date'
 require 'erb'
 require 'pathname'
 
-VERSIONS = Dir.chdir("source") { Dir.glob("v*").sort_by{|x| Gem::Version.new(x[1..-1]) } }.freeze
+require_relative "../versions"
 
 desc "Print the Bundler versions the site documents"
 task :versions do

@@ -3,7 +3,7 @@ title: The new index format, Fastly, and Bundler 1.12
 date: 2016-04-28 23:00 UTC
 tags:
 author: André Arko
-author_url: http://arko.net
+author_url: https://arko.net
 category: release
 ---
 

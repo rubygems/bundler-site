@@ -3,7 +3,7 @@ title: Version 1.10 released
 date: 2015-06-24 05:36 UTC
 tags:
 author: André Arko
-author_url: http://arko.net
+author_url: https://arko.net
 category: release
 ---
 

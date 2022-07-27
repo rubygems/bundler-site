@@ -13,7 +13,7 @@ title: Getting Started
   Starting work on a project is as simple as <code>bundle install</code>.
 
 .buttons.contents
-  = link_to 'What\'s new in Bundler', './whats_new.html', class: 'btn btn-primary'
+  = link_to 'What\'s new in Bundler', "../#{current_version}/whats_new.html", class: 'btn btn-primary'
   = link_to 'Why Bundler exists', './rationale.html', class: 'btn btn-primary'
 
 %h2#getting-started
@@ -51,7 +51,7 @@ title: Getting Started
     :code
       $ bundle install
       $ git add Gemfile Gemfile.lock
-    = link_to 'Learn More: bundle install', './bundle_install.html', class: 'btn btn-primary'
+    = link_to 'Learn More: bundle install', "../#{current_version}/man/bundle-install.1.html", class: 'btn btn-primary'
     .notes
       %p
         The second command adds the Gemfile and Gemfile.lock to your repository. This ensures
@@ -69,7 +69,7 @@ title: Getting Started
 
       # require your gems as usual
       require 'nokogiri'
-    = link_to 'Learn More: Bundler.setup', './guides/bundler_setup.html', class: 'btn btn-primary'
+    = link_to 'Learn More: Bundler.setup', './bundler_setup.html', class: 'btn btn-primary'
   .bullet
     .description
       %p
@@ -96,7 +96,7 @@ title: Getting Started
       %p
         The executables installed into <code>bin</code> are scoped to the
         bundle, and will always work.
-    = link_to 'Learn More: Executables', './man/bundle-exec.1.html', class: 'btn btn-primary'
+    = link_to 'Learn More: Executables', "../#{current_version}/man/bundle-exec.1.html", class: 'btn btn-primary'
 
 %h2#create-gem Create a rubygem with Bundler
 
@@ -126,13 +126,13 @@ title: Getting Started
           create  my_gem/test/my_gem_test.rb
     Initializing git repo in ./my_gem
 
-  = link_to 'Learn More: bundle gem', './man/bundle-gem.1.html', class: 'btn btn-primary'
+  = link_to 'Learn More: bundle gem', "../#{current_version}/man/bundle-gem.1.html", class: 'btn btn-primary'
 
 %h2#use-bundler Use Bundler with
 .contents
   .buttons
-    = link_to 'Rails', './guides/rails.html', class: 'btn btn-primary'
-    = link_to 'Sinatra', './guides/sinatra.html', class: 'btn btn-primary'
+    = link_to 'Rails', './rails.html', class: 'btn btn-primary'
+    = link_to 'Sinatra', './sinatra.html', class: 'btn btn-primary'
     = link_to 'RubyGems', './rubygems.html', class: 'btn btn-primary'
     = link_to 'RubyMotion', './rubymotion.html', class: 'btn btn-primary'
 

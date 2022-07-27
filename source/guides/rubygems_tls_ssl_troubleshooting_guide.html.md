@@ -357,6 +357,7 @@ macOS (or else install a newer version of Ruby with Homebrew by following the ne
 instructions after these).
 
 To upgrade to High Sierra:
+
 - 1. Open the App Store application
 - 2. Choose the “Updates” tab
 - 3. Click the “Install” button for “macOS High Sierra”
@@ -433,6 +434,7 @@ if your error came from `gem install`. If it came from `bundle install`, create 
 the [Bundler issue tracker](https://github.com/bundler/bundler).)
 
 Please include:
+
 - The output from running `gem env`:
 - The output from running `bundle env`:
 - Output from running `ruby -ropenssl -e 'puts OpenSSL::OPENSSL_LIBRARY_VERSION'`:

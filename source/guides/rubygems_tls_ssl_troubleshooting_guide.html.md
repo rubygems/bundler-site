@@ -217,7 +217,7 @@ If your system clock is set to a time in the past or future, your machine will n
 
 Here are other possible solutions for updating a system clock:
 
-- macOS: [Set the time and date on your Mac](https://support.apple.com/kb/PH25523?locale=en_US)
+- macOS: [Set the date and time on your Mac](https://support.apple.com/guide/mac-help/set-the-date-and-time-mchlp2996/mac)
 - Ubuntu: [Ubuntu Time Management](https://help.ubuntu.com/community/UbuntuTime)
 - Windows: [Getting Windows 10 time to sync with a time server](https://answers.microsoft.com/en-us/windows/forum/windows_10-other_settings-winpc/how-to-force-windows-10-time-to-synch-with-a-time/20f3b546-af38-42fb-a2d0-d4df13cc8f43)
 - Vagrant: [Correcting the system clock in Vagrant](https://stackoverflow.com/questions/33939834/how-to-correct-system-clock-in-vagrant-automatically)

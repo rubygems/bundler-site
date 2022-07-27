@@ -1,7 +1,7 @@
 ---
 title: Announcing Ruby Together
 date: 2015-03-19 02:56 UTC
-author_url: "http://arko.net"
+author_url: "https://arko.net"
 category: announcement
 ---
 

@@ -1,12 +1,6 @@
 skip_frontmatter: true
 
 linters:
-  ClassesBeforeIds:
-    exclude:
-      - "source/guides/getting_started.html.haml"
-      - "source/layouts/_navbar.haml"
-      - "source/layouts/two_column_layout.haml"
-
   HtmlAttributes:
     exclude:
       - "source/layouts/base.haml"

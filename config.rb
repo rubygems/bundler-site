@@ -6,18 +6,6 @@ config[:current_version] = config[:versions].last
 
 activate :syntax
 activate :i18n
-activate :search do |search|
-  search.resources = ['index.html', 'guides/', "#{config[:current_version]}/", 'compatibility.html', 'conduct.html', 'contributors.html']
-
-  search.index_path = 'search/lunr-index.json'
-
-  search.fields = {
-    title: {boost: 100, store: true, required: true},
-    content: {boost: 50},
-    url: {index: false, store: true},
-    description: {index: false, store: true},
-  }
-end
 
 set :layout, :base
 

@@ -25,10 +25,7 @@ linters:
       - "source/guides/bundler_plugins.html.haml"
 
   RuboCop:
-    exclude:
-      - "source/contributors.html.haml"
-      - "source/layouts/_favicon.haml"
-      - "source/layouts/blog_layout.haml"
+    enabled: true
 
   SpaceBeforeScript:
     exclude:

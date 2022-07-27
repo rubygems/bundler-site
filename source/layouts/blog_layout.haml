@@ -8,7 +8,7 @@
             = link_to current_article.title, current_article.url
           .subtitle
             by
-            = link_to current_article.data.author, current_article.data.author_url, :target => '_blank'
+            = link_to current_article.data.author, current_article.data.author_url, target: '_blank'
             on
             %time
               = current_article.date.strftime('%b %e %Y')

@@ -19,9 +19,9 @@
       style: 'max-width: 400px;'
   .container
     .row.flex-column.flex-md-row-reverse
-      #page-content-wrapper.col-12.col-md-9.contents{ class: is_command ? "commands" : "guide" }
+      .col-12.col-md-9.contents#page-content-wrapper{ class: is_command ? "commands" : "guide" }
         ~ yield
-      #sidebar-wrapper.col-12.col-md-3.mt-4
+      .col-12.col-md-3.mt-4#sidebar-wrapper
         .sidebar-nav
           - if is_command
             = partial 'partials/commands_sidebar'

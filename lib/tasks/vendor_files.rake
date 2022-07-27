@@ -53,17 +53,18 @@ end
 
 desc "Pulls in pages maintained in the bundler repo."
 task repo_pages: :update_vendor do
-  Dir.chdir "vendor/bundler" do
+  Dir.chdir "vendor/rubygems/bundler" do
     sh "git reset --hard HEAD"
     sh "git checkout origin/master"
 
+    source_dir = File.expand_path("../source/", File.dirname(__dir__))
     Dir['doc/**/*.md'].each do |file|
       file_name = file[0..-4] # Removes .md suffix
-      to = File.expand_path("../../source/#{file_name}.html.md").downcase
+      to = File.expand_path("./#{file_name}.html.md", source_dir).downcase
       write_file(file, to)
     end
 
-    write_file("CODE_OF_CONDUCT.md", File.expand_path("../../source/conduct.html.md"))
+    write_file("../CODE_OF_CONDUCT.md", File.expand_path("./conduct.html.md", source_dir))
   end
 end
 

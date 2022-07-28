@@ -7,11 +7,11 @@
       height: 704
 
 .container
-  .my-5.large-font
+  .mx-xl-5.px-xl-5.my-5.large-font
     %p= t('home.bundler_info1')
     %p= t('home.bundler_info2')
 
-  %p.text-center
+  %p.mx-xl-5.text-center
     = link_to t('home.what_can_bundler_do'), "/guides/getting_started.html#getting-started", class: 'btn btn-primary btn-lg btn-responsive'
     = link_to "#{t("home.new_in")} #{current_version}", '/whats_new.html', class: 'btn btn-primary btn-lg btn-responsive'
     = link_to t('home.cli_docs'), "/#{current_version}/man/bundle-install.1.html", class: 'btn btn-primary btn-lg btn-responsive'
@@ -19,15 +19,16 @@
 
 .bg-light-blue
   .container
-    %h2
-      The latest news
-    %h3
-      - blog.articles[0..0].each do |article|
-        = article.date.to_date.strftime("%b %e, %Y")
-        = link_to article.title, article.url
+    .mx-xl-5.px-xl-5
+      %h2
+        The latest news
+      %h3
+        - blog.articles[0..0].each do |article|
+          = article.date.to_date.strftime("%b %e, %Y")
+          = link_to article.title, article.url
 
-.my-3.my-md-4.p-3
-  .container
+.container
+  .mx-xl-5.px-xl-5.my-3.my-md-4.py-3
     %h2#getting-started
       %b= t('home.getting_started')
 
@@ -60,13 +61,14 @@
 
 .bg-light-blue
   .container
-    %h2#get-involved Get involved
-    .large-font
-      Bundler has a lot of contributors and users, and we would love to have your help! If you have questions, join #{link_to 'the Bundler Slack', 'http://slack.bundler.io'} and we'll try to answer them. If you're interested in contributing (no programming skills needed), start with #{link_to 'the contributing guide', 'https://github.com/rubygems/rubygems/blob/master/bundler/doc/contributing/README.md'}. While participating in the Bundler project, please keep the #{link_to 'code of conduct', '/conduct.html'} in mind, and be inclusive and friendly towards everyone. If you think you've found a security issue, please report it via #{link_to 'HackerOne', 'https://hackerone.com/rubygems'}.
+    .mx-xl-5.px-xl-5
+      %h2#get-involved Get involved
+      .large-font
+        Bundler has a lot of contributors and users, and we would love to have your help! If you have questions, join #{link_to 'the Bundler Slack', 'http://slack.bundler.io'} and we'll try to answer them. If you're interested in contributing (no programming skills needed), start with #{link_to 'the contributing guide', 'https://github.com/rubygems/rubygems/blob/master/bundler/doc/contributing/README.md'}. While participating in the Bundler project, please keep the #{link_to 'code of conduct', '/conduct.html'} in mind, and be inclusive and friendly towards everyone. If you think you've found a security issue, please report it via #{link_to 'HackerOne', 'https://hackerone.com/rubygems'}.
 
-    .contents
-      .buttons
-        = link_to 'Code of Conduct', '/conduct.html', class: 'btn btn-primary'
-        = link_to 'Join the Bundler Slack', 'http://slack.bundler.io', class: 'btn btn-primary'
-        = link_to 'Contributing guide', 'https://github.com/rubygems/rubygems/blob/master/bundler/doc/contributing/README.md', class: 'btn btn-primary'
-        = link_to 'Report security issue', 'https://hackerone.com/rubygems', class: 'btn btn-primary'
+      .contents
+        .buttons
+          = link_to 'Code of Conduct', '/conduct.html', class: 'btn btn-primary'
+          = link_to 'Join the Bundler Slack', 'http://slack.bundler.io', class: 'btn btn-primary'
+          = link_to 'Contributing guide', 'https://github.com/rubygems/rubygems/blob/master/bundler/doc/contributing/README.md', class: 'btn btn-primary'
+          = link_to 'Report security issue', 'https://hackerone.com/rubygems', class: 'btn btn-primary'

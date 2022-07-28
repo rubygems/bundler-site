@@ -16,3 +16,21 @@ Layout/TrailingWhitespace:
 Style/HashSyntax:
   EnforcedStyle: ruby19
   EnforcedShorthandSyntax: never
+
+Style/StringLiterals:
+  Enabled: true
+  EnforcedStyle: double_quotes
+  Exclude:
+    - "Gemfile"
+    - "config.rb"
+    - "config.ru"
+    - "helpers/command_reference_helper.rb"
+    - "helpers/docs_helper.rb"
+    - "helpers/guides_helper.rb"
+    - "lib/tasks/ci/clean_fastly_cache.rake"
+    - "lib/tasks/man_generator/man.rake"
+    - "lib/tasks/man_generator/strip_pages.rake"
+    - "lib/tasks/regenerate_known_plugins_yml.rake"
+    - "lib/tasks/vendor_files.rake"
+    - "lib/tasks/versions.rake"
+    - "source/sitemap.xml.builder"

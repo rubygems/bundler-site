@@ -26,6 +26,8 @@ linters:
 
   RuboCop:
     enabled: true
+    ignored_cops:
+      - "Style/StringLiterals"
 
   SpaceBeforeScript:
     exclude:

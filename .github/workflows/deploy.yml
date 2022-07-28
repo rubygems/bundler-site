@@ -31,6 +31,3 @@ jobs:
           encrypted_key: ${{ secrets.encrypted_key }}
           encrypted_iv: ${{ secrets.encrypted_iv }}
           COMMIT_AUTHOR_EMAIL: team@bundler.io
-
-      - name: Purge CDN
-        run: bundle exec rake ci:clean_fastly_cache

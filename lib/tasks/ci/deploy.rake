@@ -18,20 +18,19 @@ namespace :ci do
     sh "rm deploy_key"
   end
 
-  task deploy: :build do
+  task deploy: [:build, "vendor/ssh_bundler.github.io"] do
     configure_ssh_deploy_key
-
-    Rake::Task["ci:update_ssh_site"].invoke
 
     commit = `git rev-parse HEAD`.chomp
 
     Dir.chdir "vendor/ssh_bundler.github.io" do
-      BRANCH_FOR_PAGES = "gh-pages".freeze
-      sh "git checkout #{BRANCH_FOR_PAGES}"
-
       rm_rf FileList["*"]
       cp_r FileList["../../build/*"], "./"
       File.write("CNAME", "bundler.io")
+
+      # Copy gitconfig prepared by actions/checkout Action from .git/config
+      # to get configuration for `git push`
+      cp "../../.git/config", ".git/config"
 
       sh "git add -A ."
 

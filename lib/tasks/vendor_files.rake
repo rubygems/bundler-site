@@ -68,16 +68,16 @@ task repo_pages: :update_vendor do
   end
 end
 
+BRANCH_FOR_PAGES = "gh-pages".freeze
+
 directory "vendor/bundler.github.io" => ["vendor"] do
-  system "git clone https://github.com/rubygems/bundler-site.git vendor/bundler.github.io"
+  system "git clone --branch #{BRANCH_FOR_PAGES} --single-branch https://github.com/rubygems/bundler-site.git vendor/bundler.github.io"
 end
 
 task update_site: "vendor/bundler.github.io" do
   Dir.chdir "vendor/bundler.github.io" do
-    BRANCH_FOR_PAGES = "gh-pages".freeze
-
     sh "git checkout #{BRANCH_FOR_PAGES}"
     sh "git reset --hard HEAD"
-    sh "git pull origin #{BRANCH_FOR_PAGES}"
+    sh "git pull origin HEAD"
   end
 end

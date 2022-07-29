@@ -26,6 +26,9 @@ namespace :ci do
     commit = `git rev-parse HEAD`.chomp
 
     Dir.chdir "vendor/ssh_bundler.github.io" do
+      BRANCH_FOR_PAGES = "gh-pages".freeze
+      sh "git checkout #{BRANCH_FOR_PAGES}"
+
       rm_rf FileList["*"]
       cp_r FileList["../../build/*"], "./"
       File.write("CNAME", "bundler.io")
@@ -36,7 +39,7 @@ namespace :ci do
       sh "git config user.email '#{commit_author_email}'"
 
       sh "git commit -m 'rubygems/bundler-site@#{commit}'"
-      sh "git push origin master"
+      sh "git push origin #{BRANCH_FOR_PAGES}"
     end
   end
 end

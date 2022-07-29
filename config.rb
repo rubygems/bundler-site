@@ -21,6 +21,10 @@ end
 
 set :layout, :base
 
+# Easy setup just for deployment for GitHub Pages
+set :build_dir, "_site"
+set :images_dir, "images"
+
 set :markdown_engine, :kramdown
 
 # Markdown extentions
@@ -43,8 +47,6 @@ activate :external_pipeline,
          command: build? ? "npm run build" : "npm run start",
          source: ".tmp/dist",
          latency: 1
-
-set :images_dir, 'images'
 
 # Make documentation for the latest version available at the top level, too.
 # Any pages with names that conflict with files already at the top level will be skipped.

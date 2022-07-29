@@ -26,6 +26,8 @@ jobs:
       - name: Deploy
         run: |
           eval "$(ssh-agent -s)"
+          mkdir -p vendor/ssh_bundler.github.io/.git
+          cp -f .git/config vendor/ssh_bundler.github.io/.git/config
           bundle exec rake ci:deploy
         env:
           encrypted_key: ${{ secrets.encrypted_key }}

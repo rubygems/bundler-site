@@ -1,5 +1,5 @@
 directory "vendor/ssh_bundler.github.io" => ["vendor"] do
-  system "git clone git@github.com:rubygems/bundler-site.git vendor/ssh_bundler.github.io"
+  system "git clone https://github.com/rubygems/bundler-site vendor/ssh_bundler.github.io"
 end
 
 namespace :ci do

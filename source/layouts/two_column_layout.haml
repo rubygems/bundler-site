@@ -28,7 +28,4 @@
           - else
             = partial 'partials/guides_sidebar'
 
-  - if is_command
-    = javascript_include_tag 'commands_layout.min'
-  - else
-    = javascript_include_tag 'anchors.min'
+  = javascript_include_tag 'two_column_layout.min'

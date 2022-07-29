@@ -1,4 +1,7 @@
 # bundler.io
+
+[![Middleman deploy](https://github.com/rubygems/bundler-site/actions/workflows/deploy.yml/badge.svg)](https://github.com/rubygems/bundler-site/deployments/activity_log?environment=github-pages)
+
 bundler.io is intended to serve as a convenient source for documentation on the [bundler](https://github.com/rubygems/rubygems) gem.
 
 The site bundler.io is a static site generated using [Middleman](http://middlemanapp.com/).

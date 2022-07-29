@@ -28,13 +28,11 @@ layout: two_column_layout
       %code master
       on GitHub,
       = link_to "Deploy job on GitHub Actions", "https://github.com/rubygems/bundler-site/blob/HEAD/.github/workflows/deploy.yml"
-      would be automatically triggered to push build source (HTML, JS, CSS and
-      font) to
+      would automatically build source (HTML, JS, CSS and font) and push them to GitHub Pages.
+      Deploy status can be followed in
       = succeed "." do
-        = link_to "rubygems/bundler.github.io", "https://github.com/rubygems/bundler.github.io"
-      Custom domain is used as defined in
-      = link_to "CNAME in bundler.github.io", "https://github.com/rubygems/bundler.github.io/blob/master/CNAME"
-      (see also
+        = link_to "github-pages Deployment history", "https://github.com/rubygems/bundler-site/deployments/activity_log?environment=github-pages"
+      Custom domain is used to host `bundler.io` (see also
       = succeed ")." do
         = link_to "Managing a custom domain for your GitHub Pages site", "https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site#configuring-a-subdomain"
     %p

@@ -3,6 +3,5 @@
     .polygon-each-img-wrap
       = image_tag "team/#{login}.jpg", class: "polygon-clip-hexagon"
     .card-body.caption.text-center
-      %h4
-        %b= name
-      %h5= link_to "@#{login}", "https://github.com/#{login}"
+      %h4.fw-bold= name
+      .fs-5= link_to "@#{login}", "https://github.com/#{login}"

@@ -1,18 +1,30 @@
 source 'https://rubygems.org'
 ruby File.read(File.expand_path('../.ruby-version', __FILE__)).strip
 
-gem 'octokit', '~> 5.1'
+# Static site generator
 gem 'middleman', '~> 4.4'
-gem 'middleman-syntax'
+## Extensions
 gem 'middleman-blog'
-gem 'puma', '~> 5.6'
 gem 'middleman-search', github: 'deivid-rodriguez/middleman-search', branch: 'workarea-commerce-master'
-gem 'rake'
-gem 'ronn'
-gem 'kramdown'
+gem 'middleman-syntax'
+
+## Template engines
 gem 'builder'
-gem 'nokogiri', '~> 1.13'
 gem 'haml', '~> 5.2.2'
+gem 'kramdown'
+
+# Rake tasks
+gem 'rake'
+## To retrieve a list of contributors from GitHub
+gem 'octokit', '~> 5.1'
+## To generate ERB files from ronn files from rubygems/rubygems
+gem 'ronn'
+## To strip (man:strip_pages)
+gem 'nokogiri', '~> 1.13'
+
+# Deploy
+## Make deploy to Heroku review apps faster: https://github.com/rubygems/bundler-site/pull/228
+gem 'puma', '~> 5.6'
 
 group :development do
   gem 'pry'

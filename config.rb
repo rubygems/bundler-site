@@ -82,8 +82,8 @@ end
   redirect "bundle_#{command}.html", to: "man/bundle-#{command}.1.html"
 end
 
-# Proxy man generated documentation to be available at /vX.XX/ (for compatibility with old guides)
-# Ex: /v1.12/man/bundle-install.1.html.erb available at /v1.12/bundle_install.html
+# Redirect meaningless pages proxied for 6 years to the original pages
+# https://github.com/rubygems/bundler-site/issues/807
 config[:versions].each do |version|
   Dir.glob("./source/#{version}/man/**/*").select{ |f| File.file?(f) }.each do |file_path|
     file_path = file_path[0..-5]
@@ -95,7 +95,7 @@ config[:versions].each do |version|
     man_page_name = man_page_name_matched[1].gsub(/\.\d+$/, '').gsub('-', '_')
     man_page_name = 'gemfile_man' if man_page_name == 'gemfile'
 
-    proxy "/#{version}/#{man_page_name}.html", page_path unless man_page_exists?(man_page_name, version)
+    redirect "#{version}/#{man_page_name}.html", to: page_path unless man_page_exists?(man_page_name, version)
   end
 end
 

@@ -21,8 +21,6 @@ end
 
 set :layout, :base
 
-# Easy setup just for deployment for GitHub Pages
-set :build_dir, "_site"
 set :images_dir, "images"
 
 set :markdown_engine, :kramdown

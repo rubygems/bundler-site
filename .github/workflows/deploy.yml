@@ -42,10 +42,12 @@ jobs:
 
       - run: bundle exec rake build # Output to ./_site as build_dir is configured in config.rb
 
-      - run: echo "bundler.io" > ./_site/CNAME
+      - run: echo "bundler.io" > ./build/CNAME
 
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v1 # This will automatically upload an artifact from the '/_site' directory
+        uses: actions/upload-pages-artifact@v1
+        with:
+          path: "build/" # The action will automatically upload an artifact from this directory
 
   # Deployment job
   deploy:

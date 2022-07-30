@@ -7,6 +7,9 @@ AllCops:
   Exclude:
     - "bin/*"
 
+Bundler/OrderedGems:
+  Enabled: true
+
 Layout/ArgumentAlignment:
   Enabled: true
 

@@ -22,10 +22,6 @@ gem "ronn"
 ## To strip (man:strip_pages)
 gem "nokogiri", "~> 1.13"
 
-# Deploy
-## Make deploy to Heroku review apps faster: https://github.com/rubygems/bundler-site/pull/228
-gem "puma", "~> 5.6"
-
 group :development do
   gem "pry"
   gem "pry-byebug"

@@ -10,8 +10,7 @@ es:
       Empezando trabajar en un proyecto es tan simple como <code>bundle install</code>.
     getting_started: Para empezar
     getting_started_description: |
-      ¡Empezando con bundler es fácil! Abre una ventana del terminal y ejecuta este comando:
-    getting_started_description2: |
+      ¡Empezando con bundler es fácil!
       Especifique sus dependencias en un Gemfile en la raíz de su proyecto:
     learn_more_gemfile: "Aprenda más: Gemfiles"
     bundle_install_description: "Instala todas de las gemas necesarias de sus fuentes especificadas:"

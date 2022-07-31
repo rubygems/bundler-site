@@ -14,8 +14,7 @@ en:
     chat_with_us: Chat With Us
     getting_started: Getting Started
     getting_started_description: |
-      Getting started with bundler is easy! Open a terminal window and run this command:
-    getting_started_description2: |
+      Getting started with bundler is easy!
       Specify your dependencies in a Gemfile in your project's root:
     learn_more_gemfile: "Learn More: Gemfiles"
     bundle_install_description: "Install all of the required gems from your specified sources:"

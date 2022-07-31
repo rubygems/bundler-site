@@ -1,24 +1,24 @@
-require 'nokogiri'
+require "nokogiri"
 
 namespace :man do
   def extract_command_name(file_path)
-    file_path.match(/man\/(.*)\.\d+\.html$/)[1].gsub('-', ' ')
+    file_path.match(/man\/(.*)\.\d+\.html$/)[1].gsub("-", " ")
   end
 
   def strip_html(command_name, content)
     # remove man navigation
-    content.search('.man-navigation').remove
-    content.search('ol.man-decor.man-head.man.head').remove
-    content.search('ol.man-decor.man-foot.man.foot').remove
+    content.search(".man-navigation").remove
+    content.search("ol.man-decor.man-head.man.head").remove
+    content.search("ol.man-decor.man-foot.man.foot").remove
 
     # headers
-    content.search('#SYNOPSIS').first.next_element.name = 'pre'
-    content.search('#SYNOPSIS').remove
-    content.search('h2, h3').each { |elem| elem.content = titleize(elem.content) }
-    content.search('#NAME').first.content = command_name
+    content.search("#SYNOPSIS").first.next_element.name = "pre"
+    content.search("#SYNOPSIS").remove
+    content.search("h2, h3").each { |elem| elem.content = titleize(elem.content) }
+    content.search("#NAME").first.content = command_name
 
     # man_whatis
-    man_whatis = content.search('.man-whatis').text
+    man_whatis = content.search(".man-whatis").text
 
     { content: content, man_whatis: man_whatis }
   end
@@ -36,12 +36,12 @@ description: #{man_whatis}
   end
 
   def titleize(header)
-    header.split(' ').map(&:capitalize).join(' ')
+    header.split(" ").map(&:capitalize).join(" ")
   end
 
   task :strip_pages, :directory do |_, arg|
     puts
-    puts '-' * 40
+    puts "-" * 40
     puts "*** Parsing man pages in #{arg} ***"
 
     Dir.glob("#{arg}/**/*").select{ |f| !File.directory? f }.each do |file_path|
@@ -51,13 +51,13 @@ description: #{man_whatis}
       rm_f file_path
 
       command_name = extract_command_name(file_path)
-      hash = strip_html(command_name, doc.at('body').children)
+      hash = strip_html(command_name, doc.at("body").children)
       html_content = add_middleman_title(command_name, hash[:man_whatis], hash[:content].to_html)
 
       File.write("#{file_path}.erb", html_content)
     end
 
-    puts '-' * 40
+    puts "-" * 40
     puts
   end
 end

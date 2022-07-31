@@ -13,7 +13,7 @@ module CommandReferenceHelper
     command = CommandInfo.new
     yield command
     partial(
-      'shared/command',
+      "shared/command",
       locals: {
         name: command.name,
         desc: command.desc,

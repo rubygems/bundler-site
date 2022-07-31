@@ -7,37 +7,37 @@ module DocsHelper
   end
 
   def link_to_documentation(page, version=nil)
-    link_to page.gsub(/_|-/, ' ').gsub(/\.\d+$/, ''), documentation_path(page, version)
+    link_to page.gsub(/_|-/, " ").gsub(/\.\d+$/, ""), documentation_path(page, version)
   end
 
   def link_to_editable_version
     editable = true
     path = current_page.file_descriptor.relative_path.to_s
     repo =
-      if path.start_with?('doc/')
+      if path.start_with?("doc/")
         path = "bundler/#{path}"
-        'rubygems/rubygems'
+        "rubygems/rubygems"
       elsif %r{\A(?<version>v\d+\.\d+)/man/(?<filename>(bundle[_-]|gemfile)[^/]*)\.html} =~ path
         if version == current_version
           path = "bundler/lib/bundler/man/#{filename}.ronn"
         else
           editable = false
         end
-        'rubygems/rubygems'
+        "rubygems/rubygems"
       else
-        path = File.join 'source', path
-        'rubygems/bundler-site'
+        path = File.join "source", path
+        "rubygems/bundler-site"
       end
 
     if editable
       url = "https://github.com/#{repo}/blob/master/#{path}"
-      link_to('Edit this document on GitHub', url) +
-        ' if you caught an error or noticed something was missing.'
+      link_to("Edit this document on GitHub", url) +
+        " if you caught an error or noticed something was missing."
     else
-      url = "/" + path.sub(version, current_version).sub(/\.html.*/, '.html')
-      'This document is obsolete. ' +
-        link_to('See the latest version of this document', url) +
-        ' if you caught an error or noticed something was missing, it may be fixed there.'
+      url = "/" + path.sub(version, current_version).sub(/\.html.*/, ".html")
+      "This document is obsolete. " +
+        link_to("See the latest version of this document", url) +
+        " if you caught an error or noticed something was missing, it may be fixed there."
     end
   end
 
@@ -78,7 +78,7 @@ module DocsHelper
   def normalize_man_page(page)
     return unless page
 
-    page.gsub(/\.\d+$/, '').gsub('-', '_')
+    page.gsub(/\.\d+$/, "").gsub("-", "_")
   end
 
   def strip_man_path_to_page(path)

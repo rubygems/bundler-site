@@ -67,17 +67,3 @@ task repo_pages: :update_vendor do
     write_file("../CODE_OF_CONDUCT.md", File.expand_path("./conduct.html.md", source_dir))
   end
 end
-
-BRANCH_FOR_PAGES = "gh-pages".freeze
-
-directory "vendor/bundler.github.io" => ["vendor"] do
-  system "git clone --branch #{BRANCH_FOR_PAGES} --single-branch https://github.com/rubygems/bundler-site.git vendor/bundler.github.io"
-end
-
-task update_site: "vendor/bundler.github.io" do
-  Dir.chdir "vendor/bundler.github.io" do
-    sh "git checkout #{BRANCH_FOR_PAGES}"
-    sh "git reset --hard HEAD"
-    sh "git pull origin HEAD"
-  end
-end

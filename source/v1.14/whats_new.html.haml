@@ -1,5 +1,7 @@
 .container.guide
-  = partial "shared/whats_new"
+  %h1
+    What's New in
+    = current_visible_version
 
   %p
     The
@@ -48,3 +50,5 @@
         %li The output from `bundle env` is now preformatted as Markdown for pasting into a GitHub issue.
         %li After Bundler 2.0 is (eventually) released, Bundler 1.14 and greater will be able to automatically switch to Bundler 2.0+ for apps that need it.
       = link_to 'Full 1.14 changelog', 'https://github.com/bundler/bundler/blob/1-14-stable/CHANGELOG.md', class: 'btn btn-primary'
+
+= partial "shared/whats_new"

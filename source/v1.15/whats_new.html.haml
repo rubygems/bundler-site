@@ -1,5 +1,7 @@
 .container.guide
-  = partial "shared/whats_new"
+  %h1
+    What's New in
+    = current_visible_version
 
   %p
     The
@@ -34,3 +36,5 @@
       .description
         %p
           Just like the `gem pristine` command, the `bundle pristine` command wipes out any changes you have made to the gems installed locally, for testing or debugging reasons, and restores them to a freshly-installed state.
+
+= partial "shared/whats_new"

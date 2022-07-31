@@ -1,5 +1,7 @@
 .container.guide
-  = partial "shared/whats_new"
+  %h1
+    What's New in
+    = current_visible_version
 
   %p
     The
@@ -29,3 +31,5 @@
           smoother.
 
       = link_to 'Full 2.3 changelog', 'https://github.com/rubygems/rubygems/blob/3.3/bundler/CHANGELOG.md', class: 'btn btn-primary'
+
+= partial "shared/whats_new"

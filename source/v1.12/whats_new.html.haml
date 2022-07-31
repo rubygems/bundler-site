@@ -1,9 +1,9 @@
 -# TODO maybe add header?
 
 .container.guide
-  = partial "shared/whats_new"
-
-  %h2#version112 What's New in v1.12
+  %h1
+    What's New in
+    = current_visible_version
 
   %h3 New index format
 
@@ -39,3 +39,5 @@
           %li support for frozen string literals
           %li many, many, many bugfixes
         = link_to 'Full 1.12 changelog', 'https://github.com/bundler/bundler/blob/1-12-stable/CHANGELOG.md', class: 'btn btn-primary'
+
+= partial "shared/whats_new"

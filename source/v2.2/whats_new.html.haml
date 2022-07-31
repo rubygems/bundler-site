@@ -1,5 +1,7 @@
 .container.guide
-  = partial "shared/whats_new"
+  %h1
+    What's New in
+    = current_visible_version
 
   %p
     The
@@ -38,3 +40,5 @@
           default gem, and dozens of bug fixes
 
       = link_to 'Full 2.2 changelog', 'https://github.com/rubygems/rubygems/blob/3.2/bundler/CHANGELOG.md', class: 'btn btn-primary'
+
+= partial "shared/whats_new"

@@ -1,1 +1,1 @@
-web: bin/puma -p $PORT
+web: bundle exec middleman -p $PORT

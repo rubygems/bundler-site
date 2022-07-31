@@ -111,7 +111,6 @@ GEM
       libv8-node (~> 16.10.0.0)
     minitest (5.14.4)
     mustache (1.0.5)
-    nio4r (2.5.8)
     nokogiri (1.13.8)
       mini_portile2 (~> 2.8.0)
       racc (~> 1.4)
@@ -138,8 +137,6 @@ GEM
       byebug (~> 11.0)
       pry (~> 0.10)
     public_suffix (4.0.7)
-    puma (5.6.4)
-      nio4r (~> 2.0)
     racc (1.6.0)
     rack (2.2.3.1)
     rainbow (3.1.1)
@@ -207,7 +204,6 @@ DEPENDENCIES
   octokit (~> 5.1)
   pry
   pry-byebug
-  puma (~> 5.6)
   rake
   ronn
   rubocop

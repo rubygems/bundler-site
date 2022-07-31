@@ -15,6 +15,7 @@ namespace :man do
     content.search("#SYNOPSIS").first.next_element.name = "pre"
     content.search("#SYNOPSIS").remove
     content.search("h2, h3").each { |elem| elem.content = titleize(elem.content) }
+    content.search("#NAME").first.name = "h1"
     content.search("#NAME").first.content = command_name
 
     # man_whatis

@@ -1,9 +1,6 @@
-image:
-  file: .gitpod.Dockerfile
+image: gitpod/workspace-full
 tasks:
   - init: |
-      curl -fsSL https://deb.nodesource.com/setup_16.x | sudo -E bash -
-      sudo apt install -y nodejs
       bundle config set path vendor/bundle
       bundle install
       npm install

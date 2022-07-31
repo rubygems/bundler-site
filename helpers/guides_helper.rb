@@ -10,7 +10,7 @@ module GuidesHelper
     all_guides = guides + localizable_guides + ADDITIONAL_GUIDES
 
     guides = all_guides.map do |filename|
-      filename = filename.sub(/^\.\/source\//, '').sub(/\.(md|haml)$/, '')
+      filename = filename.sub(/^\.\/source\//, "").sub(/\.(md|haml)$/, "")
       resource = sitemap.find_resource_by_path(filename)
       next unless resource
       { filename: filename, title: resource.metadata[:page][:title] }
@@ -25,11 +25,11 @@ module GuidesHelper
   end
 
   def current_guide?(filename)
-    return 'active' if current_page.path == filename
+    return "active" if current_page.path == filename
     matched = filename.match(LOCALIZABLE_REGEX)
-    return '' unless matched
-    return 'active' if current_page.path == "#{matched[1]}.html"
-    ''
+    return "" unless matched
+    return "active" if current_page.path == "#{matched[1]}.html"
+    ""
   end
 
   private

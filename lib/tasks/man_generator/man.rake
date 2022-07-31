@@ -4,7 +4,7 @@ task man: :update_vendor do
     next if version == "v0.9"
 
     if version <= "v2.1"
-      branch = (version[1..-1].split('.') + %w(stable)).join('-')
+      branch = (version[1..-1].split(".") + %w(stable)).join("-")
       vendor_folder = "vendor/bundler"
       man_folder = "man"
     else

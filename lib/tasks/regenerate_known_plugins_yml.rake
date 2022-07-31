@@ -3,7 +3,7 @@ desc "Recreate data/known_plugins.yml from RubyGems.org data. " \
   "skipping invalid gems. Run with RUBYOPT=-W1 enabled to see diagnostic " \
   "output about data not found. Uses curl, grep."
 task :regenerate_known_plugins_yml do
-  require 'yaml'
+  require "yaml"
 
   names_content = `curl --silent https://index.rubygems.org/names | grep '^bundler-'`
   all_plugin_names = names_content.lines.map(&:chomp)
@@ -65,7 +65,7 @@ task :regenerate_known_plugins_yml do
   # Example: https://rubygems.org/api/v1/gems/rails.json
   plugins = plugin_names.map do |gem_name|
     json_string = `curl --silent https://rubygems.org/api/v1/gems/#{gem_name}.json`
-    next "<#{gem_name.inspect} is unknown by the API>" if json_string == 'This rubygem could not be found.'
+    next "<#{gem_name.inspect} is unknown by the API>" if json_string == "This rubygem could not be found."
 
     gem_info = JSON.parse(json_string)
 
@@ -85,7 +85,7 @@ task :regenerate_known_plugins_yml do
 
   valid_plugins = plugins.select { |e| e.is_a?(Hash) }
 
-  File.write(File.expand_path('../../data/known_plugins.yml', __dir__), YAML.dump(valid_plugins))
+  File.write(File.expand_path("../../data/known_plugins.yml", __dir__), YAML.dump(valid_plugins))
   puts "Saved #{valid_plugins.size} plugins as data/known_plugins.yml"
   puts "Done."
 end

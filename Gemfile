@@ -1,35 +1,35 @@
-source 'https://rubygems.org'
-ruby File.read(File.expand_path('../.ruby-version', __FILE__)).strip
+source "https://rubygems.org"
+ruby File.read(File.expand_path("../.ruby-version", __FILE__)).strip
 
 # Static site generator
-gem 'middleman', '~> 4.4'
+gem "middleman", "~> 4.4"
 ## Extensions
-gem 'middleman-blog'
-gem 'middleman-search', github: 'deivid-rodriguez/middleman-search', branch: 'workarea-commerce-master'
-gem 'middleman-syntax'
+gem "middleman-blog"
+gem "middleman-search", github: "deivid-rodriguez/middleman-search", branch: "workarea-commerce-master"
+gem "middleman-syntax"
 
 ## Template engines
-gem 'builder'
-gem 'haml', '~> 5.2.2'
-gem 'kramdown'
+gem "builder"
+gem "haml", "~> 5.2.2"
+gem "kramdown"
 
 # Rake tasks
-gem 'rake'
+gem "rake"
 ## To retrieve a list of contributors from GitHub
-gem 'octokit', '~> 5.1'
+gem "octokit", "~> 5.1"
 ## To generate ERB files from ronn files from rubygems/rubygems
-gem 'ronn'
+gem "ronn"
 ## To strip (man:strip_pages)
-gem 'nokogiri', '~> 1.13'
+gem "nokogiri", "~> 1.13"
 
 # Deploy
 ## Make deploy to Heroku review apps faster: https://github.com/rubygems/bundler-site/pull/228
-gem 'puma', '~> 5.6'
+gem "puma", "~> 5.6"
 
 group :development do
-  gem 'pry'
-  gem 'pry-byebug'
+  gem "pry"
+  gem "pry-byebug"
 
   gem "haml_lint", "~> 0.40"
-  gem 'rubocop'
+  gem "rubocop"
 end

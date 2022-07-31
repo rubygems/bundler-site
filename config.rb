@@ -1,4 +1,4 @@
-Dir.glob(File.expand_path('../lib/config/*.rb', __FILE__), &method(:require))
+Dir.glob(File.expand_path("../lib/config/*.rb", __FILE__), &method(:require))
 require_relative "lib/versions"
 
 config[:versions] = VERSIONS
@@ -7,9 +7,9 @@ config[:current_version] = config[:versions].last
 activate :syntax
 activate :i18n
 activate :search do |search|
-  search.resources = ['index.html', 'guides/', "#{config[:current_version]}/", 'compatibility.html', 'conduct.html', 'contributors.html']
+  search.resources = ["index.html", "guides/", "#{config[:current_version]}/", "compatibility.html", "conduct.html", "contributors.html"]
 
-  search.index_path = 'search/lunr-index.json'
+  search.index_path = "search/lunr-index.json"
 
   search.fields = {
     title: {boost: 100, store: true, required: true},
@@ -49,9 +49,9 @@ activate :external_pipeline,
 # Make documentation for the latest version available at the top level, too.
 # Any pages with names that conflict with files already at the top level will be skipped.
 Dir.glob("./source/#{config[:current_version]}/**/*").select{ |f| File.file?(f) }.each do |file_path|
-  file_path = file_path.sub(/(\.haml$|\.md$)/, '')
+  file_path = file_path.sub(/(\.haml$|\.md$)/, "")
 
-  page_path = file_path.sub(/^\.\/source\//, '')
+  page_path = file_path.sub(/^\.\/source\//, "")
   proxy_path = file_path["./source/#{config[:current_version]}/".length..-1]
 
   proxy proxy_path, page_path unless file_exist?(proxy_path)
@@ -68,7 +68,7 @@ Dir.glob("./source/localizable/#{config[:current_version]}/**/*").select{ |f| Fi
   next if file_exist?(proxy_path)
 
   proxy "#{country}/#{proxy_path}", page_path, locale: country.to_sym
-  proxy proxy_path, page_path, locale: :en if country == 'en'
+  proxy proxy_path, page_path, locale: :en if country == "en"
 end
 
 # Workaround for https://github.com/rubygems/bundler-site/pull/44 for 9 years
@@ -87,13 +87,13 @@ end
 config[:versions].each do |version|
   Dir.glob("./source/#{version}/man/**/*").select{ |f| File.file?(f) }.each do |file_path|
     file_path = file_path[0..-5]
-    page_path = file_path.sub(/^\.\/source/, '')
+    page_path = file_path.sub(/^\.\/source/, "")
 
     man_page_name_matched = file_path.match(/man\/(.*)\.html$/)
     next unless man_page_name_matched
 
-    man_page_name = man_page_name_matched[1].gsub(/\.\d+$/, '').gsub('-', '_')
-    man_page_name = 'gemfile_man' if man_page_name == 'gemfile'
+    man_page_name = man_page_name_matched[1].gsub(/\.\d+$/, "").gsub("-", "_")
+    man_page_name = "gemfile_man" if man_page_name == "gemfile"
 
     redirect "#{version}/#{man_page_name}.html", to: page_path unless man_page_exists?(man_page_name, version)
   end
@@ -169,8 +169,8 @@ end
 
 redirect "sponsors.html", to: "https://rubygems.org/pages/sponsors" # Backwards compatibility
 
-page '/conduct.html', layout: :two_column_layout
-page '/compatibility.html', layout: :two_column_layout
+page "/conduct.html", layout: :two_column_layout
+page "/compatibility.html", layout: :two_column_layout
 page /\/v(\d+.\d+)\/(?!bundle_|commands|docs|man)(.*)/, layout: :two_column_layout
 page /\/v(.*)\/bundle_(.*)/, layout: :two_column_layout
 page /\/v(.*)\/man\/(.*)/, layout: :two_column_layout
@@ -179,7 +179,7 @@ page /\/v(.*)\/guides\/(.*)/, layout: :two_column_layout
 page /guides\/(.*)/, layout: :two_column_layout
 page /\/doc\/(.*)/, layout: :two_column_layout # Imported from bundler/bundler
 
-page '/sitemap.xml', layout: false
+page "/sitemap.xml", layout: false
 
 redirect "issues.html", to: "doc/contributing/issues.html" # Backwards compatibility
 redirect "commands.html", to: "man/bundle.1.html" # Backwards compatibility
@@ -203,17 +203,17 @@ end
 ###
 # Helpers
 ###
-Dir.glob(File.expand_path('../helpers/**/*.rb', __FILE__), &method(:require))
+Dir.glob(File.expand_path("../helpers/**/*.rb", __FILE__), &method(:require))
 helpers CommandReferenceHelper
 helpers ConfigHelper
 helpers DocsHelper
 helpers AvatarHelper
 
 activate :blog do |blog|
-  blog.name = 'blog'
-  blog.prefix = 'blog'
-  blog.permalink = '{year}/{month}/{day}/{title}.html'
-  blog.layout = 'blog_layout'
+  blog.name = "blog"
+  blog.prefix = "blog"
+  blog.permalink = "{year}/{month}/{day}/{title}.html"
+  blog.layout = "blog_layout"
 end
 
 page "/blog/feed.xml", layout: false

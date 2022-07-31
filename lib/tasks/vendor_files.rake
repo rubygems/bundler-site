@@ -1,4 +1,4 @@
-require 'pathname'
+require "pathname"
 
 # Match
 # ([get an invite here](contributing/GETTING_HELP.md))
@@ -12,16 +12,16 @@ RELATIVE_LINK_REGEX = %r{
 }x
 
 def new_link(file, link)
-  if link.end_with?('CODE_OF_CONDUCT.md')
-    'conduct' # Special case we manually write
-  elsif link.start_with?('mailto:') || link.start_with?('http')
+  if link.end_with?("CODE_OF_CONDUCT.md")
+    "conduct" # Special case we manually write
+  elsif link.start_with?("mailto:") || link.start_with?("http")
     link
   else
     directory = Pathname.new(File.dirname(file))               # The directory : doc/contributing
     link_path = Pathname.new(link)                             # The path of the link : ../TROUBLESHOOTING.md
     new_link = File.expand_path(link_path, directory)          # The full local path : /path/to/site/doc/TROUBLESHOOTING.md
-    new_link = new_link.gsub(Dir.pwd, '')                      # Remove the local part : /doc/TROUBLESHOOTING.md
-    new_link.gsub!(/.md$/, '.html')                            # Remove .md
+    new_link = new_link.gsub(Dir.pwd, "")                      # Remove the local part : /doc/TROUBLESHOOTING.md
+    new_link.gsub!(/.md$/, ".html")                            # Remove .md
     new_link
   end
 end
@@ -58,7 +58,7 @@ task repo_pages: :update_vendor do
     sh "git checkout origin/master"
 
     source_dir = File.expand_path("../source/", File.dirname(__dir__))
-    Dir['doc/**/*.md'].each do |file|
+    Dir["doc/**/*.md"].each do |file|
       file_name = file[0..-4] # Removes .md suffix
       to = File.expand_path("./#{file_name}.html.md", source_dir).downcase
       write_file(file, to)

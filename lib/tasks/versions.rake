@@ -1,12 +1,12 @@
-require 'date'
-require 'erb'
-require 'pathname'
+require "date"
+require "erb"
+require "pathname"
 
 require_relative "../versions"
 
 desc "Print the Bundler versions the site documents"
 task :versions do
-  puts VERSIONS.join(' ')
+  puts VERSIONS.join(" ")
 end
 
 namespace :versions do
@@ -25,9 +25,9 @@ end
 
 def render_whats_new(full_version)
   version = full_version[1..-1]
-  version_slug = version.tr('.', '-')
+  version_slug = version.tr(".", "-")
   rubygems_version = Gem::Version.new(version).segments.map.with_index {|segment, i| i == 0 ? segment + 1 : segment }.join(".")
-  date_slug = Date.today.strftime('%Y/%m/%d')
+  date_slug = Date.today.strftime("%Y/%m/%d")
 
   template = Pathname.new("../templates/whats_new.html.haml.erb").expand_path(__dir__)
   renderer = ERB.new(template.read)

@@ -10,8 +10,7 @@ pl:
       Dzięki temu rozpoczęcie pracy nad projektem to wpisanie <code>bundle install</code> w konsoli.
     getting_started: Jak rozpocząć?
     getting_started_description: |
-      Rozpoczęcie pracy z bundler'em jest bardzo proste! Otwórz terminal i uruchom tą komendę:
-    getting_started_description2: |
+      Rozpoczęcie pracy z bundler'em jest bardzo proste!
       Określ zależności w Gemfile'u znajdującym się w głównym katalogu Twojego projektu:
     learn_more_gemfile: "Zobacz więcej: Gemfiles"
     bundle_install_description: "Instalacja wszystkich potrzebnych gem'ów z określonego źródła:"

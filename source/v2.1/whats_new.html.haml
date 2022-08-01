@@ -1,5 +1,7 @@
 .container.guide
-  = partial "shared/whats_new"
+  %h1
+    What's New in
+    = current_visible_version
 
   %p
     This time there was not blog post announcement for the 2.1 release, but as
@@ -334,3 +336,5 @@
             %p
               In general, we don't want to maintain integrations for every
               deployment system out there, so that's why we are removing these.
+
+= partial "shared/whats_new"

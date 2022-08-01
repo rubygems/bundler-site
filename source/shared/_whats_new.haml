@@ -1,5 +1,10 @@
-%h1 What's New in each Release
-.row
-  .col-12
-    - versions.reverse.select{ |version| path_exist?('whats_new', version) }.each do |v|
-      = link_to v, "/#{v}/whats_new.html", class: "btn btn-sm #{current_visible_version == v ? 'btn-secondary' : 'btn-primary'}"
+%aside.my-5
+  .container
+    .h4 What's New in other Releases
+    .row
+      .col-12
+        - versions.reverse.select{ |version| path_exist?('whats_new', version) }.each do |v|
+          - if current_visible_version == v
+            %span.btn.btn-sm.btn-secondary= v
+          - else
+            = link_to v, "/#{v}/whats_new.html", class: "btn btn-sm btn-primary"

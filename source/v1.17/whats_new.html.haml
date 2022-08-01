@@ -1,5 +1,7 @@
 .container.guide
-  = partial "shared/whats_new"
+  %h1
+    What's New in
+    = current_visible_version
 
   %p
     The
@@ -68,5 +70,4 @@
 
           To change the directory where Bundler will store all user-level files (which is <code>~/.bundle</code> by default), set <code>BUNDLE_USER_HOME</code>. To change the directory where Bundler caches downloaded gems and gem metadata (which is <code>~/.bundle/cache</code> by default), set <code>BUNDLE_USER_CACHE</code>. To change the location of the user-level configuration file (which is <code>~/.bundle/config</code> by default), set <code>BUNDLE_USER_CONFIG</code>. Finally, to set the location that Bundler will look for plugin files (which is <code>~/.bundle/plugins</code> by default), set <code>BUNDLE_USER_PLUGIN</code>.
 
-
-
+= partial "shared/whats_new"

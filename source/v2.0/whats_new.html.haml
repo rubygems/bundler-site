@@ -1,5 +1,7 @@
 .container.guide
-  = partial "shared/whats_new"
+  %h1
+    What's New in
+    = current_visible_version
 
   %p
     The
@@ -24,3 +26,5 @@
             Errors/warnings will now print to <code>STDERR</code>
           %li
             Bundler now auto-switches between version 1 and 2 based on the Lockfile
+
+= partial "shared/whats_new"

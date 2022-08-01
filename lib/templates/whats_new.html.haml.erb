@@ -1,5 +1,7 @@
 .container.guide
-  = partial "shared/whats_new"
+  %h1
+    What's New in
+    = current_visible_version
 
   %p
     The
@@ -21,3 +23,5 @@
       %ul
         %li SMALL NEW THING FIXES A PROBLEM
       = link_to 'Full <%= version %> changelog', 'https://github.com/rubygems/rubygems/blob/<%= rubygems_version %>/bundler/CHANGELOG.md', class: 'btn btn-primary'
+
+= partial "shared/whats_new"

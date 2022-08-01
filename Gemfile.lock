@@ -1,15 +1,4 @@
 GIT
-  remote: https://github.com/deivid-rodriguez/ronn-ng.git
-  revision: f1c1c79414c85351720e1d9ff6cd1737fe337295
-  branch: fix-charset
-  specs:
-    ronn-ng (0.10.1.pre1)
-      kramdown (~> 2.1)
-      kramdown-parser-gfm (~> 1.0.1)
-      mustache (~> 1.0)
-      nokogiri (~> 1.11, >= 1.11.0)
-
-GIT
   remote: https://github.com/middleman/middleman.git
   revision: 038f4f606ff6cfc75cbe5c8690c5eae2e34f78f3
   ref: 038f4f606ff6cfc75cbe5c8690c5eae2e34f78f3
@@ -132,6 +121,11 @@ GEM
     nokogiri (1.13.10)
       mini_portile2 (~> 2.8.0)
       racc (~> 1.4)
+    nronn (0.10.2)
+      kramdown (~> 2.1)
+      kramdown-parser-gfm (~> 1.0.1)
+      mustache (~> 1.0)
+      nokogiri (~> 1.10, >= 1.10.10)
     octokit (6.0.1)
       faraday (>= 1, < 3)
       sawyer (~> 0.9)
@@ -217,11 +211,11 @@ DEPENDENCIES
   middleman-search!
   middleman-syntax
   nokogiri (~> 1.13)
+  nronn
   octokit (~> 6.0)
   pry
   pry-byebug
   rake
-  ronn-ng!
   rubocop
 
 RUBY VERSION

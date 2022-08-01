@@ -184,6 +184,7 @@ page "/sitemap.xml", layout: false
 redirect "issues.html", to: "doc/contributing/issues.html" # Backwards compatibility
 redirect "commands.html", to: "man/bundle.1.html" # Backwards compatibility
 redirect "older_versions.html", to: "whats_new.html" # Backwards compatibility
+redirect "team.html", to: "contributors.html" # https://github.com/rubygems/bundler-site/issues/842
 
 # Backwards compatibility for year/month/day index
 ymds = %w[2013/10/12 2013/12/07 2014/07/16 2014/08/14 2014/08/15 2015/03/19 2015/03/20 2015/03/21 2015/06/24 2015/12/12 2016/04/28 2016/07/10 2016/09/08 2017/03/28 2017/05/19 2017/10/31 2018/01/08 2018/01/17 2018/03/09 2018/04/09 2018/05/07 2018/06/07 2018/07/12 2018/08/10 2018/09/10 2018/10/15 2018/10/25 2018/11/04 2018/11/05 2018/12/08 2019/01/03 2019/01/04 2019/02/02 2019/03/12 2019/05/14 2020/04/27 2020/12/09 2021/02/15 2022/01/23]

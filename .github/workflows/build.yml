@@ -25,7 +25,7 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Build
-        run: bundle exec middleman build
+      - name: Build everything from scratch
+        run: bundle exec rake build
         env:
           NO_CONTRACTS: "true"

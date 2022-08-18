@@ -2,53 +2,83 @@
 title: bundle plugin
 description: bundle-plugin allows you to manage Bundler plugins.
 ---
-%h1 bundle plugin
-
 .contents
-  .bullet
-    .description
-      Manage Bundler plugins.
-    .notes
-      %ul
-        %li
-          See also
-          = link_to 'How to write a Bundler plugin', './guides/bundler_plugins.html'
-        %li
-          In 2.2.0, an additional <code>uninstall</code> command will be added.
-    :code
-      $ bundle plugin install PLUGINS
-    .description
-      Install the plugin from the source
-    .notes
-      %p
-        Options:
-      %p
-        <code>--source</code>: URL of the RubyGems source to fetch the plugin from
-      %p
-        <code>--version</code>: The version of the plugin to fetch
-      %p
-        <code>--git</code>: URL of the git repo to fetch from.
-      %p
-        <code>--local-git</code>: Path of the local git repo to fetch from. This is the
-        = link_to 'recommended', 'https://github.com/rubygems/bundler-site/pull/464'
-        way to install a plugin from a local filesystem (a useful technique for plugin developers)
-      %p
-        <code>--branch</code>: The git branch to checkout
-      %p
-        <code>--ref</code>: The git revision to check out
+  %h1 bundle plugin
+  %p.man-name
+    %code bundle-plugin
+    = " - "
+    %span.man-whatis Manage Bundler plugins.
 
-    :code
-      $ bundle plugin list
-    .description
-      List the installed plugins and available commands
-    .notes
-      %p
-        No options.
+  %pre
+    <code>bundle plugin</code> install <var>PLUGINS</var> [--source=&lt;SOURCE&gt;] [--version=&lt;version&gt;]
+    \                              [--git|--local_git=&lt;git-url&gt;] [--branch=&lt;branch&gt;] [--ref=&lt;rev&gt;]
+    <code>bundle plugin</code> list
+    <code>bundle plugin</code> help [COMMAND]
 
-    :code
-      $ bundle plugin help [COMMAND]
-    .description
-      Describe subcommands or one specific subcommand
-    .notes
+  %h2#DESCRIPTION Description
+  %p
+    You can install and list plugin(s) with this command to extend functionalities of Bundler.
+    In 2.2.0, an additional <code>uninstall</code> command will be added.
+
+  %h2#SUB-COMMANDS Sub-commands
+
+  %h3#INSTALL install
+  %p
+    Install the plugin from the source.
+
+  %dl
+    %dt
+      %code bundle plugin install bundler-graph
+    %dl
       %p
-        No options.
+        Install bundler-graph gem from RubyGems.org. The global source, specified in <code>source</code> in <code>Gemfile</code> is ignored.
+    %dt
+      %code bundle plugin install bundler-graph --source https://example.com
+    %dl
+      %p
+        Install bundler-graph gem from example.com. The global source, specified in <code>source</code> in <code>Gemfile</code> is not considered.
+    %dt
+      %code bundle plugin install bundler-graph --version 0.2.1
+    %dl
+      %p
+        You can specify the version of the gem via <code>--version</code>.
+    %dt
+      %code bundle plugin install bundler-graph --git https://github.com/rubygems/bundler-graph
+    %dl
+      %p
+        Install bundler-graph gem from Git repository. <code>--git</code> can be replaced with <code>--local-git</code>.
+        You cannot use both <code>--git</code> and <code>--local-git</code>.
+        You can use standard Git URLs like:
+        %ul
+          %li
+            %code ssh://[user@]host.xz[:port]/path/to/repo.git
+          %li
+            %code http[s]://host.xz[:port]/path/to/repo.git
+          %li
+            %code /path/to/repo
+          %li
+            %code file:///path/to/repo
+      %p
+        When you specify <code>--git</code>/<code>--local-git</code>, you can use <code>--branch</code>
+        or <code>--ref</code> to specify any branch, tag, or commit hash (revision) to use.
+        When you specify both, only the latter is used.
+
+  %h3#UNINSTALL uninstall
+  %p
+    Uninstall the plugin specified in <var>PLUGINS</var>.
+
+  %h3#LIST list
+  %p
+    List the installed plugins and available commands.
+  %p
+    No options.
+
+  %h3#HELP help
+  %p
+    Describe subcommands or one specific subcommand.
+  %p
+    No options.
+
+  %h2#SEE-ALSO See Also
+  %ul
+    %li= link_to 'How to write a Bundler plugin', './guides/bundler_plugins.html'

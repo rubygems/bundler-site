@@ -12,6 +12,14 @@ linters:
       - "source/guides/rails.html.haml"
       - "source/v1.15/guides/rails.html.haml"
 
+  # Exlcude some files to align with ronn-generated HTML
+  # see https://github.com/rubygems/bundler-site/pull/860
+  IdNames:
+    exclude:
+      - "source/v2.1/bundle_plugin.html.haml"
+      - "source/v2.2/bundle_plugin.html.haml"
+      - "source/v2.3/bundle_plugin.html.haml"
+
   InlineStyles:
     exclude:
       - "source/contributors.html.haml"

@@ -53,7 +53,7 @@ title: How to write a Bundler plugin
     .bullet
       .description
 
-      %h4#install_from_command
+      %h4#install-from-command
         Install a plugin from a command
 
       %p
@@ -65,7 +65,7 @@ title: How to write a Bundler plugin
       %p
         In Bundler 2.2.0, you can uninstall with <code>bundler plugin uninstall gem_name</code>.
 
-      %h4#install_from_command
+      %h4#install-from-gemfile
         Install a plugin from your Gemfile
 
       %p
@@ -93,7 +93,7 @@ title: How to write a Bundler plugin
         = link_to 'Create a gem using this guide.', './creating_gem.html'
         When you're done, come back to this guide and move onto step two.
 
-      %h3#plugins_rb
+      %h3#plugins-rb{ id: 'plugins_rb' }
         2. Create a plugins.rb file
 
       %p
@@ -107,7 +107,7 @@ title: How to write a Bundler plugin
           require 'my_plugin'
       %p
         The <code>lib/my_plugin.rb</code> file would include other require statements, hooks, and commands similar to a normal gem.
-      %h3#developing_your_plugin_commands
+      %h3#developing-your-plugin-commands{ id: 'developing_your_plugin_commands' }
         3. Making Bundler commands
 
       %p
@@ -155,14 +155,14 @@ title: How to write a Bundler plugin
         %li
           The class defines the instance method <code>exec(command_name, args)</code>
 
-      %h4#raising_errors
+      %h4#raising-errors{ id: 'raising_errors' }
         Raising Errors
       %p
         If something goes wrong, your plugins should raise a `BundlerError`. It's not recommended to raise e.g. `Exception` in a plugin, because that will cause Bundler to print its own bug report template, asking users to report the bug to Bundler itself.
       %p
         To see in detail how bundler rescues errors, check out `bundler/friendly_errors.rb`.
 
-      %h3#developing_your_plugin_hooks
+      %h3#developing-your-plugin-hooks{ id: 'developing_your_plugin_hooks' }
         4. Using Bundler hooks
 
       %p
@@ -176,7 +176,7 @@ title: How to write a Bundler plugin
         Bundler::Plugin.add_hook('before-install-all') do |dependencies|
           # Do something with the dependencies
         end
-      %h3#developing_your_plugin_sources
+      %h3#developing-your-plugin-sources{ id: 'developing_your_plugin_sources' }
         5. Developing a source plugin
 
       %p
@@ -205,13 +205,13 @@ title: How to write a Bundler plugin
         %li
           = link_to 'path source', 'https://github.com/bundler/bundler/blob/master/lib/bundler/source/path.rb'
 
-      %h3#running_your_plugin_locally
+      %h3#running-your-plugin-locally{ id: 'running_your_plugin_locally' }
         6. Running your plugin locally
 
       %p
         To install and run your plugin locally, you can run <code>bundler plugin install --git '/PATH/TO/GEM' copycat</code>
 
-      %h3#deploying_your_plugin
+      %h3#deploying-your-plugin{ id: 'deploying_your_plugin' }
         7. Deploying your plugin
 
       %p

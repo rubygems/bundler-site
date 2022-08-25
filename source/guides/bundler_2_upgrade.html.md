@@ -26,7 +26,7 @@ Here's an example Gemfile.lock that was created with Bundler 1.17.1.
     GEM
       remote: https://rubygems.org/
       specs:
-        rack (2.0.6)
+        rack (2.2.4)
 
     PLATFORMS
       ruby

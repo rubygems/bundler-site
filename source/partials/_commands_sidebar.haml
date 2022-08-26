@@ -8,6 +8,12 @@
         %option{selected: version == current_visible_version,
                           value: documentation_path(current_page_without_version, version) || documentation_path('bundle-install.1', version)}
           = version
+%h4 General
+%ul
+  %li{class: current_page.url.end_with?("whats_new.html") ? "active" : ""}
+    = link_to "Release notes", "/#{current_visible_version}/whats_new.html"
+    %li.separator
+      %hr
 %h4 Primary Commands
 %ul
   - primary_commands.select{ |page| path_exist?(page, current_visible_version) }.each do |page|

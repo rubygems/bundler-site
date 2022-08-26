@@ -8,7 +8,7 @@
 
 .container
   .row.docs.my-5
-    .col-md-5.offset-md-0.col-9.offset-2
+    .col-md-6.col-12
       %h3
         %b Guides
       %p
@@ -18,7 +18,7 @@
           %li= link_to_guide guide
         %li= link_to "Contributing to Bundler", "/doc/readme.html"
 
-    .col-md-4.offset-md-0.col-9.offset-2
+    .col-md-5.offset-md-1.col-12
       %h3
         %b Reference Guides
       %p
@@ -34,12 +34,3 @@
       %ul.ul-padding
         - other_commands(primary_commands).each do |page|
           %li= link_to_documentation(page)
-
-    .col-md-2.offset-md-0.col-9.offset-2
-      %h3
-        %b Release Notes
-      %h4
-        %b What's new in
-      %ul
-        - versions.reverse.select{ |version| path_exist?('whats_new', version) }.each do |v|
-          %li= link_to "Version #{v}", "/#{v}/whats_new.html"

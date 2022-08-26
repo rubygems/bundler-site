@@ -69,6 +69,11 @@ module DocsHelper
     strip_version_from_url(current_page.url)
   end
 
+  # Check if the argument path is a kind of whats_new
+  def whats_new?(path)
+    path.include?("whats_new")
+  end
+
   private
 
   def strip_version_from_url(url)

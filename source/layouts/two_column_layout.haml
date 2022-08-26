@@ -1,4 +1,4 @@
-- is_command = command?(current_page.url)
+- is_command = command?(current_page.url) || whats_new?(current_page.url)
 - v = current_page.url.scan(/v\d\.\d+/).first || current_version
 
 - if /v\d\.\d+\//.match(current_page.destination_path)

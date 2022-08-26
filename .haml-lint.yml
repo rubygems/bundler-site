@@ -1,10 +1,6 @@
 skip_frontmatter: true
 
 linters:
-  HtmlAttributes:
-    exclude:
-      - "source/layouts/base.haml"
-
   IdNames:
     exclude:
       - "source/guides/bundler_plugins.html.haml"

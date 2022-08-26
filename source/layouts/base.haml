@@ -1,11 +1,11 @@
 !!! 5
-%html(lang="#{I18n.locale.to_s}")
+%html{ lang: I18n.locale }
   %head
-    %meta(charset="utf-8")
-    %meta(http-equiv="X-UA-Compatible" content="IE=edge")
-    %meta(http-equiv="Content-Language" content="#{I18n.locale.to_s}")
-    %meta(name="viewport" content="width=device-width, initial-scale=1")
-    %meta(name="globalsign-domain-verification" content="276VSYOko8B8vIu1i8i5qbj7_ql5PXo0dU69XQy-SL")
+    %meta{ charset: "utf-8" }
+    %meta{ "http-equiv": "X-UA-Compatible", content: "IE=edge" }
+    %meta{ "http-equiv": "Content-Language", content: I18n.locale }
+    %meta{ name: "viewport", content: "width=device-width, initial-scale=1" }
+    %meta{ name: "globalsign-domain-verification", content: "276VSYOko8B8vIu1i8i5qbj7_ql5PXo0dU69XQy-SL" }
     %title
       - page_title = current_page.data.title
       = "Bundler: #{ page_title || "The best way to manage a Ruby application's gems" }"
@@ -13,7 +13,7 @@
     = yield_content :head
 
     - if content_for?(:canonical)
-      %link(rel="canonical" href="#{yield_content(:canonical)}")
+      %link{ rel: "canonical", href: yield_content(:canonical) }
 
     = javascript_include_tag "application.min"
     = stylesheet_link_tag "application"

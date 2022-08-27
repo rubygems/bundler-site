@@ -6,16 +6,16 @@
       width: 1120,
       height: 704
 
-.container
-  .mx-xl-5.px-xl-5.my-5.large-font
+.container.py-5
+  .mx-xl-5.px-xl-5.my-4.large-font
     %p= t('home.bundler_info1')
     %p= t('home.bundler_info2')
 
-  %p.mx-xl-5.text-center
-    = link_to t('home.what_can_bundler_do'), "/guides/getting_started.html#getting-started", class: 'btn btn-primary btn-lg btn-responsive'
-    = link_to "#{t("home.new_in")} #{current_version}", '/whats_new.html', class: 'btn btn-primary btn-lg btn-responsive'
-    = link_to t('home.cli_docs'), "/#{current_version}/man/bundle-install.1.html", class: 'btn btn-primary btn-lg btn-responsive'
-    = link_to t('home.chat_with_us'), 'http://slack.bundler.io', class: 'btn btn-primary btn-lg btn-responsive'
+  .d-grid.d-md-flex.gap-2.mx-auto.my-md-4.justify-content-md-center
+    = link_to t('home.what_can_bundler_do'), "/guides/getting_started.html#getting-started", class: 'btn btn-primary btn-lg'
+    = link_to "#{t("home.new_in")} #{current_version}", '/whats_new.html', class: 'btn btn-primary btn-lg'
+    = link_to t('home.cli_docs'), "/#{current_version}/man/bundle-install.1.html", class: 'btn btn-primary btn-lg'
+    = link_to t('home.chat_with_us'), 'http://slack.bundler.io', class: 'btn btn-primary btn-lg'
 
 .bg-light-blue
   .container
@@ -42,8 +42,8 @@
           gem 'nokogiri'
           gem 'rack', '~> 2.2.4'
           gem 'rspec'
-        %p.text-center.text-md-end
-          = link_to t('home.learn_more_gemfile'), './gemfile.html', class: 'btn btn-primary btn-lg btn-responsive'
+        .d-grid.d-md-flex.gap-2.my-3.justify-content-md-end
+          = link_to t('home.learn_more_gemfile'), './gemfile.html', class: 'btn btn-primary btn-lg'
 
       .bullet
         .description
@@ -51,19 +51,18 @@
         :code
           $ bundle install
           $ git add Gemfile Gemfile.lock
-        %p.text-center.text-md-end
-          = link_to t('home.learn_more_bundle_install'), "./#{current_version}/man/bundle-install.1.html", class: 'btn btn-primary btn-lg btn-responsive'
+        .d-grid.d-md-flex.gap-2.my-3.justify-content-md-end
+          = link_to t('home.learn_more_bundle_install'), "./#{current_version}/man/bundle-install.1.html", class: 'btn btn-primary btn-lg'
 
 .bg-light-blue
   .container
     .mx-xl-5.px-xl-5
       %h2#get-involved Get involved
-      .large-font
+      .my-4.large-font
         Bundler has a lot of contributors and users, and we would love to have your help! If you have questions, join #{link_to 'the Bundler Slack', 'http://slack.bundler.io'} and we'll try to answer them. If you're interested in contributing (no programming skills needed), start with #{link_to 'the contributing guide', 'https://github.com/rubygems/rubygems/blob/master/bundler/doc/contributing/README.md'}. While participating in the Bundler project, please keep the #{link_to 'code of conduct', '/conduct.html'} in mind, and be inclusive and friendly towards everyone. If you think you've found a security issue, please report it via #{link_to 'HackerOne', 'https://hackerone.com/rubygems'}.
 
-      .contents
-        .buttons
-          = link_to 'Code of Conduct', '/conduct.html', class: 'btn btn-primary'
-          = link_to 'Join the Bundler Slack', 'http://slack.bundler.io', class: 'btn btn-primary'
-          = link_to 'Contributing guide', 'https://github.com/rubygems/rubygems/blob/master/bundler/doc/contributing/README.md', class: 'btn btn-primary'
-          = link_to 'Report security issue', 'https://hackerone.com/rubygems', class: 'btn btn-primary'
+      .d-grid.d-md-flex.gap-2.mx-auto.my-md-4.justify-content-md-center
+        = link_to 'Code of Conduct', '/conduct.html', class: 'btn btn-primary btn-lg'
+        = link_to 'Join the Bundler Slack', 'http://slack.bundler.io', class: 'btn btn-primary btn-lg'
+        = link_to 'Contributing guide', 'https://github.com/rubygems/rubygems/blob/master/bundler/doc/contributing/README.md', class: 'btn btn-primary btn-lg'
+        = link_to 'Report security issue', 'https://hackerone.com/rubygems', class: 'btn btn-primary btn-lg'

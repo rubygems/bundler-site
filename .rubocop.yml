@@ -1,11 +1,5 @@
-inherit_mode:
-  merge:
-    - Exclude
-
 AllCops:
   DisabledByDefault: true
-  Exclude:
-    - "bin/*"
 
 Bundler/OrderedGems:
   Enabled: true

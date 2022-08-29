@@ -88,20 +88,6 @@ $icon-font-path: '~bootstrap/assets/fonts/bootstrap/';
   font-size: 19px;
 }
 
-.btn {
-  margin-top: 10px;
-  margin-bottom: 35px;
-}
-
-@include media-breakpoint-down(sm) {
-  .btn-responsive {
-    font-size: 100%;
-    text-align: center;
-    float: none !important;
-  }
-
-}
-
 .content-padding {
   padding: 30px 2%;
 }
@@ -147,6 +133,9 @@ p {
 
   .btn {
     font-size: 17px;
+    // TODO: remove these two lines
+    margin-top: 10px;
+    margin-bottom: 35px;
 
     @include media-breakpoint-up(lg) {
       font-size: 18px;

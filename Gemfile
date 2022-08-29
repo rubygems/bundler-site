@@ -16,7 +16,7 @@ gem "kramdown"
 # Rake tasks
 gem "rake"
 ## To retrieve a list of contributors from GitHub
-gem "octokit", "~> 5.2"
+gem "octokit", "~> 5.3"
 ## To generate ERB files from ronn files from rubygems/rubygems
 gem "ronn"
 ## To strip (man:strip_pages)

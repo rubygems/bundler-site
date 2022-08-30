@@ -8,6 +8,45 @@ GIT
       mini_racer (~> 0.5)
       nokogiri (~> 1.6)
 
+GIT
+  remote: https://github.com/tnir/middleman.git
+  revision: e1ef0564da354b36b5aba3543526745f6494c0f1
+  branch: 4.x-backport-936d19c
+  specs:
+    middleman (4.4.2)
+      coffee-script (~> 2.2)
+      haml (>= 4.0.5)
+      kramdown (>= 2.3.0)
+      middleman-cli (= 4.4.2)
+      middleman-core (= 4.4.2)
+    middleman-cli (4.4.2)
+      thor (>= 0.17.0, < 2.0)
+    middleman-core (4.4.2)
+      activesupport (>= 6.1, < 7.1)
+      addressable (~> 2.4)
+      backports (~> 3.6)
+      bundler (~> 2.0)
+      contracts (~> 0.13)
+      dotenv
+      erubis
+      execjs (~> 2.0)
+      fast_blank
+      fastimage (~> 2.0)
+      hamster (~> 3.0)
+      hashie (~> 3.4)
+      i18n (~> 1.6.0)
+      listen (~> 3.0)
+      memoist (~> 0.14)
+      padrino-helpers (~> 0.15.0)
+      parallel
+      rack (>= 1.4.5, < 3)
+      sassc (~> 2.0)
+      servolux
+      tilt (~> 2.0.9)
+      toml
+      uglifier (~> 3.0)
+      webrick
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -29,7 +68,7 @@ GEM
       execjs
     coffee-script-source (1.12.2)
     concurrent-ruby (1.1.10)
-    contracts (0.13.0)
+    contracts (0.17)
     dotenv (2.8.1)
     erubis (2.7.0)
     execjs (2.8.1)
@@ -61,48 +100,15 @@ GEM
     libv8-node (16.10.0.0)
     libv8-node (16.10.0.0-arm64-darwin)
     libv8-node (16.10.0.0-x86_64-linux)
-    listen (3.0.8)
-      rb-fsevent (~> 0.9, >= 0.9.4)
-      rb-inotify (~> 0.9, >= 0.9.7)
+    listen (3.7.1)
+      rb-fsevent (~> 0.10, >= 0.10.3)
+      rb-inotify (~> 0.9, >= 0.9.10)
     memoist (0.16.2)
     method_source (1.0.0)
-    middleman (4.4.2)
-      coffee-script (~> 2.2)
-      haml (>= 4.0.5)
-      kramdown (>= 2.3.0)
-      middleman-cli (= 4.4.2)
-      middleman-core (= 4.4.2)
     middleman-blog (4.0.3)
       addressable (~> 2.3)
       middleman-core (>= 4.0.0)
       tzinfo (>= 0.3.0)
-    middleman-cli (4.4.2)
-      thor (>= 0.17.0, < 2.0)
-    middleman-core (4.4.2)
-      activesupport (>= 6.1, < 7.0)
-      addressable (~> 2.4)
-      backports (~> 3.6)
-      bundler (~> 2.0)
-      contracts (~> 0.13.0)
-      dotenv
-      erubis
-      execjs (~> 2.0)
-      fast_blank
-      fastimage (~> 2.0)
-      hamster (~> 3.0)
-      hashie (~> 3.4)
-      i18n (~> 1.6.0)
-      listen (~> 3.0.0)
-      memoist (~> 0.14)
-      padrino-helpers (~> 0.15.0)
-      parallel
-      rack (>= 1.4.5, < 3)
-      sassc (~> 2.0)
-      servolux
-      tilt (~> 2.0.9)
-      toml
-      uglifier (~> 3.0)
-      webrick
     middleman-syntax (3.3.0)
       middleman-core (>= 3.2)
       rouge (~> 3.2)
@@ -192,11 +198,12 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  activesupport (~> 6.1)
   builder
   haml (~> 5.2.2)
   haml_lint (~> 0.40)
   kramdown
-  middleman (~> 4.4)
+  middleman!
   middleman-blog
   middleman-search!
   middleman-syntax

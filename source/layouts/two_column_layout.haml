@@ -21,7 +21,7 @@
     .row.flex-column.flex-md-row-reverse
       .col-12.col-md-9.contents#page-content-wrapper{ class: is_command ? "commands" : "guide" }
         ~ yield
-      .col-12.col-md-3.mt-4#sidebar-wrapper
+      .col-12.col-md-3.mt-4
         .sidebar-nav
           - if is_command
             = partial 'partials/commands_sidebar'

@@ -162,7 +162,7 @@ GEM
       mustache (>= 0.7.0)
       rdiscount (>= 1.5.8)
     rouge (3.30.0)
-    rubocop (1.35.1)
+    rubocop (1.36.0)
       json (~> 2.3)
       parallel (~> 1.10)
       parser (>= 3.1.2.1)

@@ -77,8 +77,7 @@ end
 end
 
 # Redirect old pages in this repo to manpages (see https://github.com/rubygems/bundler-site/issues/723)
-# TODO: help console version
-%w[binstubs check clean init inject install open outdated plugin show viz].each do |command|
+%w[help binstubs check clean console init inject install open outdated plugin show version viz].each do |command|
   redirect "bundle_#{command}.html", to: "man/bundle-#{command}.1.html"
 end
 
@@ -148,9 +147,8 @@ end
   end
 
   # Redirect old pages in this repo to manpages (see https://github.com/rubygems/bundler-site/issues/723)
-  # TODO: help console version
-  %w[binstubs check clean init inject install open outdated plugin show viz].each do |command|
-    next if command == "plugin" && version < "2.3"
+  %w[help binstubs check clean console init inject install open outdated plugin show version viz].each do |command|
+    next if %w[help console plugin version].include?(command) && version < "2.3"
     redirect "v#{version}/bundle_#{command}.html", to: "v#{version}/man/bundle-#{command}.1.html"
   end
 

@@ -3,7 +3,7 @@ title: bundle console
 description: Start an interactive Ruby console session in the context of the current bundle
 ---
 
-## bundle console
+# bundle console
 
 Start an interactive Ruby console session in the context of the current bundle
 

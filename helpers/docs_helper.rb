@@ -50,13 +50,8 @@ module DocsHelper
 
     current_man_pages = sitemap.resources.select{ |page| page.path.start_with?("#{version}/man/bundle-") }
     commands_from_man = current_man_pages.map{ |page| strip_man_path_to_page(page.path) } # ex: bundle-config.1
-    comparable_commands_from_man = commands_from_man.map{ |page| normalize_man_page(page) } # ex: bundle_config
 
-    current_other_pages = sitemap.resources.select{ |page| page.path.start_with?("#{version}/bundle_") }
-    commands_from_others = current_other_pages.map{ |page| page.path[(version.length + 1)..-6] } # ex: bundle_console
-    commands_from_others -= comparable_commands_from_man
-
-    (commands_from_man + commands_from_others - primary_commands + ADDITIONAL_PAGES).sort do |x,y|
+    (commands_from_man - primary_commands + ADDITIONAL_PAGES).sort do |x,y|
       normalize_man_page(x) <=> normalize_man_page(y)
     end
   end

@@ -100,8 +100,7 @@ end
 
 %w[1.12 1.13 1.14 1.15].each do |version|
   # Redirect old pages in this repo to manpages (see https://github.com/rubygems/bundler-site/issues/723)
-  # TODO: help console version
-  %w[binstubs check clean init inject install open outdated show viz].each do |command|
+  %w[help binstubs check clean console init inject install open outdated show version viz].each do |command|
     redirect "v#{version}/bundle_#{command}.html", to: "v1.15/man/bundle-#{command}.1.html"
   end
 
@@ -148,7 +147,7 @@ end
 
   # Redirect old pages in this repo to manpages (see https://github.com/rubygems/bundler-site/issues/723)
   %w[help binstubs check clean console init inject install open outdated plugin show version viz].each do |command|
-    next if %w[help console plugin version].include?(command) && version < "2.3"
+    next if %w[plugin].include?(command) && version < "2.3"
     redirect "v#{version}/bundle_#{command}.html", to: "v#{version}/man/bundle-#{command}.1.html"
   end
 
@@ -171,7 +170,6 @@ redirect "sponsors.html", to: "https://rubygems.org/pages/sponsors" # Backwards 
 page "/conduct.html", layout: :two_column_layout
 page "/compatibility.html", layout: :two_column_layout
 page /\/v(\d+.\d+)\/(?!bundle_|commands|docs|man)(.*)/, layout: :two_column_layout
-page /\/v(.*)\/bundle_(.*)/, layout: :two_column_layout
 page /\/v(.*)\/man\/(.*)/, layout: :two_column_layout
 page /\/man\/(.*)/, layout: :two_column_layout
 page /\/v(.*)\/guides\/(.*)/, layout: :two_column_layout

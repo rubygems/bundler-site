@@ -13,4 +13,4 @@ Bundler saw some fixes in February thanks to contributors [@nholden](https://git
 
 This month, Bundler gained 23 new commits, contributed by 8 authors. There were 291 additions and 59 deletions across 50 files.
 
-Interested in contributing to Bundler? We always welcome contributions in the forms of triaging bugs, adding new features, writing docs, and engaging with the wider community. Visit the [Bundler Contributor Guidelines](https://github.com/bundler/bundler/blob/master/doc/contributing/README.md) on GitHub to get started.
+Interested in contributing to Bundler? We always welcome contributions in the forms of triaging bugs, adding new features, writing docs, and engaging with the wider community. Visit the [Bundler Contributor Guidelines](https://github.com/rubygems/rubygems/blob/master/bundler/doc/contributing/README.md) on GitHub to get started.

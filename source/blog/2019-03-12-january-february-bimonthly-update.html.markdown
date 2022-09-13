@@ -47,4 +47,4 @@ In January and February, Bundler gained 110 new commits, contributed by 11 autho
 
 ---
 
-Interested in contributing to Bundler? We always welcome contributions in the forms of triaging bugs, adding new features, writing docs, and engaging with the wider community. Visit the [Bundler Contributor Guidelines](https://github.com/bundler/bundler/blob/master/doc/contributing/README.md) on GitHub to get started. Don’t have time to contribute, but want to support our work? Sign up as a member of [Ruby Together](https://rubytogether.org/) to help fund our work to keep Bundler working for everyone.
+Interested in contributing to Bundler? We always welcome contributions in the forms of triaging bugs, adding new features, writing docs, and engaging with the wider community. Visit the [Bundler Contributor Guidelines](https://github.com/rubygems/rubygems/blob/master/bundler/doc/contributing/README.md) on GitHub to get started. Don’t have time to contribute, but want to support our work? Sign up as a member of [Ruby Together](https://rubytogether.org/) to help fund our work to keep Bundler working for everyone.

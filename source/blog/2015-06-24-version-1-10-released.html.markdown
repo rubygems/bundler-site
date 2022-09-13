@@ -17,7 +17,7 @@ This release comes with a bunch of new features: the `lock` command, support for
 
 First up, the new `lock` command. Running `bundle lock` will resolve the Gemfile and write a Gemfile.lock, but will not download or install any gems.
 
-Next, for single-file scripts that still depend on gems, a `gemfile` method is provided by `require "bundler/inline"`. This method will not generate a lock, so be careful what gem versions you allow! Check out the [inline docs](https://github.com/bundler/bundler/blob/master/lib/bundler/inline.rb) for details and examples.
+Next, for single-file scripts that still depend on gems, a `gemfile` method is provided by `require "bundler/inline"`. This method will not generate a lock, so be careful what gem versions you allow! Check out the [inline docs](https://github.com/rubygems/rubygems/blob/master/bundler/lib/bundler/inline.rb) for details and examples.
 
 Are you tired of being told to HTTParty hard? This option's for you. Run `bundle config ignore_messages.httparty true` to silence HTTParty for good, or run `bundle config ignore_messages true` to turn off all messages forever.
 

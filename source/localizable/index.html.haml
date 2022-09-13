@@ -9,7 +9,7 @@
 .container.py-5
   .mx-xl-5.px-xl-5.my-4.large-font
     %p= t('home.bundler_info1')
-    %p= t('home.bundler_info2')
+    %p!= t('home.bundler_info2')
 
   .d-grid.d-md-flex.gap-2.mx-auto.my-md-4.justify-content-md-center
     = link_to t('home.what_can_bundler_do'), "/guides/getting_started.html#getting-started", class: 'btn btn-primary btn-lg'

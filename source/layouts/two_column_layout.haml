@@ -5,13 +5,6 @@
   - content_for(:canonical, commands_toplevel_path(current_page.destination_path))
 
 ~ wrap_layout :base do
-  - content_for :tail do
-    .bg-light-blue
-      .container
-        .contents
-          .edit-on-github.text-center
-            = link_to_editable_version
-
   = partial 'partials/docs_header'
 
   .container
@@ -26,3 +19,9 @@
             = partial 'partials/guides_sidebar'
 
   = javascript_include_tag 'two_column_layout.min'
+
+  .bg-light-blue
+    .container
+      .contents
+        .edit-on-github.text-center
+          = link_to_editable_version

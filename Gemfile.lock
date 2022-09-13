@@ -106,8 +106,9 @@ GEM
     ffi (1.17.1)
     ffi (1.17.1-arm64-darwin)
     ffi (1.17.1-x86_64-linux-gnu)
-    haml (5.2.2)
-      temple (>= 0.8.0)
+    haml (6.3.0)
+      temple (>= 0.8.2)
+      thor
       tilt
     haml_lint (0.59.0)
       haml (>= 5.0)
@@ -247,7 +248,7 @@ PLATFORMS
 DEPENDENCIES
   builder
   faraday-retry (~> 2.2)
-  haml (~> 5.2.2)
+  haml (~> 6.3)
   haml_lint (~> 0.59)
   irb
   kramdown

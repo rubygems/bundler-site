@@ -57,7 +57,7 @@ In addition to those larger additions, we made some smaller tweaks with the aim 
 - Bundler will let you know when a new version of itself is available. How meta.
 - `bundle update` works a lot better now when only unlocking a single gem.
 
-We also fixed over 20 separate bugs, and you can read about every single one of them [in the Bundler 1.15 changelog](https://github.com/bundler/bundler/blob/1-15-stable/CHANGELOG.md).
+We also fixed over 20 separate bugs, and you can read about every single one of them [in the Bundler 1.15 changelog](https://github.com/rubygems/bundler/blob/1-15-stable/CHANGELOG.md).
 
 ### How To Upgrade
 

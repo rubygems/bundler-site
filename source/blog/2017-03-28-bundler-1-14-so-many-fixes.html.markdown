@@ -39,7 +39,7 @@ In addition to those larger additions, we made some smaller tweaks with the aim 
 - The output from `bundle env` is now preformatted as Markdown for pasting into a GitHub issue.
 - After Bundler 2.0 is (eventually) released, Bundler 1.14 and greater will be able to automatically switch to Bundler 2.0+ for apps that need it.
 
-We also fixed over 60 separate bugs, and you can read about every single one of them [in the Bundler 1.14 changelog](https://github.com/bundler/bundler/blob/1-14-stable/CHANGELOG.md).
+We also fixed over 60 separate bugs, and you can read about every single one of them [in the Bundler 1.14 changelog](https://github.com/rubygems/bundler/blob/1-14-stable/CHANGELOG.md).
 
 ### How To Upgrade
 

@@ -9,7 +9,7 @@ Welcome to the Bundler monthly (and yearly) update! We've been writing monthly u
 
 As you may have noticed, [Bundler didn’t end up shipping with Ruby 2.5](https://www.ruby-lang.org/en/news/2017/12/25/ruby-2-5-0-released/). The Ruby language core team has yet to announce why they decided to remove Bundler a few hours before Ruby 2.5 was released on Christmas Day. Hopefully, we’ll find out the story there soon.
 
-In the meantime, Bundler 1.16.1 has been released, with fixes or workarounds for all known issues. If you were waiting to upgrade to version 1.16, give it a try now! If you’re still seeing issues on version 1.16.1, please [let us know!](https://github.com/bundler/bundler/blob/master/doc/contributing/ISSUES.md) We care a lot about fixing bugs and maintaining backwards compatibility, but we need to hear from users in order to know when bugs have crept in. &lt;3
+In the meantime, Bundler 1.16.1 has been released, with fixes or workarounds for all known issues. If you were waiting to upgrade to version 1.16, give it a try now! If you’re still seeing issues on version 1.16.1, please [let us know!](https://github.com/rubygems/rubygems/issues/new?labels=Bundler&template=bundler-related-issue.md) We care a lot about fixing bugs and maintaining backwards compatibility, but we need to hear from users in order to know when bugs have crept in. &lt;3
 
 In December, Bundler gained 59 new commits, contributed by 8 authors. There were 419 additions and 301 deletions across 36 files.
 

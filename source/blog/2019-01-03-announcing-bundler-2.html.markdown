@@ -69,7 +69,7 @@ If you have more questions, or want more information about Bundler 2, read our [
 
 ### I tried to upgrade but something is broken!
 
-Oh no! Sorry about that. Please head over to our [troubleshooting guide](https://github.com/bundler/bundler/blob/master/doc/contributing/ISSUES.md) and open a ticket so that we can try to fix your problem ASAP.
+Oh no! Sorry about that. Please head over to our [troubleshooting guide](/doc/troubleshooting.html) and open a ticket so that we can try to fix your problem ASAP.
 
 ---- 
 

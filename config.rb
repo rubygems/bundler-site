@@ -176,7 +176,7 @@ page /\/v(.*)\/man\/(.*)/, layout: :two_column_layout
 page /\/man\/(.*)/, layout: :two_column_layout
 page /\/v(.*)\/guides\/(.*)/, layout: :two_column_layout
 page /guides\/(.*)/, layout: :two_column_layout
-page /\/doc\/(.*)/, layout: :two_column_layout # Imported from bundler/bundler
+page /\/doc\/(.*)/, layout: :two_column_layout # Imported from rubygems/bundler
 
 page "/sitemap.xml", layout: false
 

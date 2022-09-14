@@ -14,7 +14,7 @@ linters:
       - "source/layouts/_navbar.haml"
 
   LineLength:
-    max: 849
+    max: 250
 
   RuboCop:
     enabled: true

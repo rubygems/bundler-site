@@ -57,7 +57,9 @@ title: How to write a Bundler plugin
         Install a plugin from a command
 
       %p
-        Plugins can be installed from RubyGems (default) or from a Git server. To use a gem on your machine, you can run <code>bundler plugin install gem_name</code>. Once the plugin is installed, the commands will be available for use and the hooks will be automatically registered with Bundler.
+        Plugins can be installed from RubyGems (default) or from a Git server.
+        To use a gem on your machine, you can run <code>bundler plugin install gem_name</code>.
+        Once the plugin is installed, the commands will be available for use and the hooks will be automatically registered with Bundler.
 
       %p
         Run <code>bundler plugin help install</code> for more details help and instructions on installing from Git.
@@ -97,10 +99,12 @@ title: How to write a Bundler plugin
         2. Create a plugins.rb file
 
       %p
-        A <code>plugins.rb</code> file is located at the top level of your gem's folder and is the entry point Bundler will use to call your plugin. This is a Ruby file that defines your commands, hooks, and other code. Often, you may just require the gem's upper-most lib file.
+        A <code>plugins.rb</code> file is located at the top level of your gem's folder and is the entry point Bundler will use to call your plugin.
+        This is a Ruby file that defines your commands, hooks, and other code. Often, you may just require the gem's upper-most lib file.
 
       %p
-        For example, if your gem is called "my_plugin", you might have a file at <code>lib/my_plugin.rb</code> which contains the highest level namespace for your gem. Your <code>plugins.rb</code> file might be:
+        For example, if your gem is called "my_plugin", you might have a file at <code>lib/my_plugin.rb</code> which contains the highest level namespace for your gem.
+        Your <code>plugins.rb</code> file might be:
 
         :code
           # lang: ruby
@@ -114,7 +118,8 @@ title: How to write a Bundler plugin
         Bundler commands allow you to extend the Bundler interface with additional functionality.
 
       %p
-        To add a Bundler command, you need to make a class that registers itself (or another class) as a command. For example, to add support for a <code>bundler my_command</code> command, you might create a class like so:
+        To add a Bundler command, you need to make a class that registers itself (or another class) as a command.
+        For example, to add support for a <code>bundler my_command</code> command, you might create a class like so:
 
       :code
         # lang: ruby
@@ -158,7 +163,8 @@ title: How to write a Bundler plugin
       %h4#raising-errors{ id: 'raising_errors' }
         Raising Errors
       %p
-        If something goes wrong, your plugins should raise a `BundlerError`. It's not recommended to raise e.g. `Exception` in a plugin, because that will cause Bundler to print its own bug report template, asking users to report the bug to Bundler itself.
+        If something goes wrong, your plugins should raise a `BundlerError`.
+        It's not recommended to raise e.g. `Exception` in a plugin, because that will cause Bundler to print its own bug report template, asking users to report the bug to Bundler itself.
       %p
         To see in detail how bundler rescues errors, check out `bundler/friendly_errors.rb`.
 
@@ -166,7 +172,9 @@ title: How to write a Bundler plugin
         4. Using Bundler hooks
 
       %p
-        To interface with various parts of Bundler, you can use a hook. Hooks will let you inject some functionality at specific events by registering to listen for specific things to happen. To listen to an event, you need to add a hook for it and provide a block.
+        To interface with various parts of Bundler, you can use a hook.
+        Hooks will let you inject some functionality at specific events by registering to listen for specific things to happen.
+        To listen to an event, you need to add a hook for it and provide a block.
 
       %p
         For example, for a <code>Bundler::Plugin::Events::GEM_BEFORE_INSTALL_ALL</code> hook you must give a block that has an argument for an Array of <code>Bundler::Dependency</code> objects:
@@ -180,7 +188,8 @@ title: How to write a Bundler plugin
         5. Developing a source plugin
 
       %p
-        A source plugin allows you to specify more possible installation sources to use within Bundler. For example, let's say you want to install gems from Amazon S3. This can be done by building a plugin.
+        A source plugin allows you to specify more possible installation sources to use within Bundler.
+        For example, let's say you want to install gems from Amazon S3. This can be done by building a plugin.
 
       %p
         It is recommended to get familiar with the API for <code>Bundler::Plugin::API::Source</code> which is available
@@ -192,7 +201,8 @@ title: How to write a Bundler plugin
         = link_to 'in the source code.', 'https://github.com/bundler/bundler/blob/master/lib/bundler/plugin/api/source.rb'
 
       %p
-        The basic overview of the source plugin is that you must subclass <code>Bundler::Plugin::API::Source</code> and override a number of methods. Those methods are indicated in the docs/source code linked above.
+        The basic overview of the source plugin is that you must subclass <code>Bundler::Plugin::API::Source</code> and override a number of methods.
+        Those methods are indicated in the docs/source code linked above.
 
       %p
         Bundler uses the source plugin API to provide interfaces for RubyGems, Git, and path-based gems. The source code for these pieces may prove useful in understanding the API:

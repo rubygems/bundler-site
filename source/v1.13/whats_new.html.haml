@@ -22,28 +22,37 @@
     .bullet
       .description
         %p
-          Gems that declare a <code>required_ruby_version</code> will now resolve correctly as long as your Gemfile contains a <code>ruby</code> declaration. If a gem cannot be resolved because of your Ruby version, the error will correctly indicate that your Ruby version conflicts with your other gem version requirements.
+          Gems that declare a <code>required_ruby_version</code> will now resolve correctly as long as your Gemfile contains a <code>ruby</code> declaration.
+          If a gem cannot be resolved because of your Ruby version, the error will correctly indicate that your Ruby version conflicts with your other gem version requirements.
 
   %h3 Manage locked platforms
   .contents
     .bullet
       .description
         %p
-          In the past, the only way to resolve your Gemfile on a new platform (like <code>java</code> or <code>mswin</code>) was to run <code>bundle install</code> on that platform. We've added explicit options to the <code>lock</code> command to allow managing platforms. Platforms can be added using <code>bundle lock --add-platform NAME</code>, and platforms can be removed using <code>bundle lock --remove-platform NAME</code>.
+          In the past, the only way to resolve your Gemfile on a new platform (like <code>java</code> or <code>mswin</code>) was to run <code>bundle install</code> on that platform.
+          We've added explicit options to the <code>lock</code> command to allow managing platforms.
+          Platforms can be added using <code>bundle lock --add-platform NAME</code>, and platforms can be removed using <code>bundle lock --remove-platform NAME</code>.
 
   %h3 Fine controls for the <code>update</code> command
   .contents
     .bullet
       .description
         %p
-        The <code>update</code> command now has several options to enable users to fine-tune exactly what it is that they will get, using the new flags <code>--major</code>, <code>--minor</code>, <code>--patch</code>, and <code>--strict</code>. It was also recently pointed out to us that running <code>update</code> could even result in some locked gems being changed to an older version! We can’t change the default behavior to avoid that until version 2.0, but for now we’ve added a config setting. To prevent the <code>update</code> command from ever “upgrading” you to an older version, run <code>bundle config only_update_to_newer_versions true</code>.
+          The <code>update</code> command now has several options to enable users to fine-tune exactly what it is that they will get,
+          using the new flags <code>--major</code>, <code>--minor</code>, <code>--patch</code>, and <code>--strict</code>.
+          It was also recently pointed out to us that running <code>update</code> could even result in some locked gems being changed to an older version!
+          We can’t change the default behavior to avoid that until version 2.0, but for now we’ve added a config setting.
+          To prevent the <code>update</code> command from ever “upgrading” you to an older version, run <code>bundle config only_update_to_newer_versions true</code>.
 
   %h3 Experimental plugin system
   .contents
     .bullet
       .description
         %p
-          The plugin system also supports "source" plugins, which means it should be possible to use gems from Subversion, Mercurial, S3, or anything else you can think of. In addition to source plugins, we've started adding new "lifecycle" hooks. That means plugins will be able to hook in and run their own code before, during, or after the install or update process.
+          The plugin system also supports "source" plugins, which means it should be possible to use gems from Subversion, Mercurial, S3, or anything else you can think of.
+          In addition to source plugins, we've started adding new "lifecycle" hooks.
+          That means plugins will be able to hook in and run their own code before, during, or after the install or update process.
 
   %h3 Experimental Bundler version locking
   .contents

@@ -26,7 +26,7 @@ In addition to those larger additions, we made some smaller tweaks with the aim 
 - `bundle pristine` will now allow passing a list of gems to pristine
 - gemfiles are evaluated one fewer time when running `bundle install`
 
-We also fixed over 20 separate bugs, and you can read about every single one of them [in the Bundler 1.16 changelog](https://github.com/bundler/bundler/blob/1-16-stable/CHANGELOG.md).
+We also fixed over 20 separate bugs, and you can read about every single one of them [in the Bundler 1.16 changelog](https://github.com/rubygems/bundler/blob/1-16-stable/CHANGELOG.md).
 
 ### Kicking off the transition to Bundler 2
 

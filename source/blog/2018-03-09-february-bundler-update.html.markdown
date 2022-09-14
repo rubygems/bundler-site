@@ -9,7 +9,7 @@ category: release
 
 Welcome to the Bundler monthly update! 
 
-Bundler saw some fixes in February thanks to contributors [@nholden](https://github.com/nholden), [@voxik](https://github.com/voxik), [@cpgo](https://github.com/cpgo),  [@deivid-rodriguez](https://github.com/deivid-rodriguez), and [@alyssais](https://github.com/alyssais). Fixes this month included [a fix for certain instances of the “perhaps the lockfile is corrupted?” error](https://github.com/bundler/bundler/pull/6288), as well as [clear enforcement steps for the code of conduct](https://github.com/bundler/bundler/pull/6283). We also received [an awesome proposal](https://github.com/bundler/rfcs/pull/10) to give the `add` command superpowers, and add a `remove` command.
+Bundler saw some fixes in February thanks to contributors [@nholden](https://github.com/nholden), [@voxik](https://github.com/voxik), [@cpgo](https://github.com/cpgo),  [@deivid-rodriguez](https://github.com/deivid-rodriguez), and [@alyssais](https://github.com/alyssais). Fixes this month included [a fix for certain instances of the “perhaps the lockfile is corrupted?” error](https://github.com/rubygems/bundler/pull/6288), as well as [clear enforcement steps for the code of conduct](https://github.com/rubygems/bundler/pull/6283). We also received [an awesome proposal](https://github.com/bundler/rfcs/pull/10) to give the `add` command superpowers, and add a `remove` command.
 
 This month, Bundler gained 23 new commits, contributed by 8 authors. There were 291 additions and 59 deletions across 50 files.
 

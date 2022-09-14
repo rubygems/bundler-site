@@ -72,4 +72,4 @@ $ [sudo] gem install bundler
 ```
 
 For all the details, don’t miss the
-[Changelog](https://github.com/bundler/bundler/blob/v1.11.0/CHANGELOG.md#1110-2015-12-12)!
+[Changelog](https://github.com/rubygems/bundler/blob/v1.11.0/CHANGELOG.md#1110-2015-12-12)!

@@ -6,8 +6,8 @@ author_url: http://www.benjaminfleischer.com/2015/02/18/til-rubygem-executables-
 category: release
 ---
 
-[Bundler 1.8](https://github.com/bundler/bundler/blob/v1.8.0/lib/bundler/templates/newgem/newgem.gemspec.tt)
-[moves the executables directory in generated gemspecs from `bin/` to `exe/`](https://github.com/bundler/bundler/commit/ab3e21784c6c18702869c771fbe7ae23c82cc7c0).
+[Bundler 1.8](https://github.com/rubygems/bundler/blob/v1.8.0/lib/bundler/templates/newgem/newgem.gemspec.tt)
+[moves the executables directory in generated gemspecs from `bin/` to `exe/`](https://github.com/rubygems/bundler/commit/ab3e21784c6c18702869c771fbe7ae23c82cc7c0).
 
 ~~~ diff
 -  spec.executables   = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }

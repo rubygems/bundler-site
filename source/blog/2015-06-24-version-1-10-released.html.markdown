@@ -25,7 +25,7 @@ Who needs a jetpack future when you can have optional groups? The long-requested
 
 At the same time as adding the long-awaited optional groups, we added groups that can be installed (or not) completely automatically! Provide a lambda or proc to determine if gems in the `install_if` group should be installed, and they will be. Or not. For an example, check out the [Gemfile](/man/gemfile.5.html#INSTALL_IF) documentation. The idea for this feature came entirely from discussions with [Ruby Together members](https://rubytogether.org/members). If you'd like to see more features like this one, or even suggest some of your own, [join Ruby Together today](https://rubytogether.org/join).
 
-That's not all! There are several more smaller changes, including better support for gems with native extensions on RubyGems 2.2. Check out the full [1.10 changelog](https://github.com/bundler/bundler/blob/1-10-stable/CHANGELOG.md) for the entire list.
+That's not all! There are several more smaller changes, including better support for gems with native extensions on RubyGems 2.2. Check out the full [1.10 changelog](https://github.com/rubygems/bundler/blob/1-10-stable/CHANGELOG.md) for the entire list.
 
 ### BUNDLED WITH
 

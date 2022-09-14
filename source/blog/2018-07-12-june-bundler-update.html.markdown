@@ -8,9 +8,9 @@ author_url: http://www.stephaniemorillo.co
 
 Welcome to the June Bundler update!
 
-Last month, we fixed some bugs and our Google Summer of Code (GSoC) students finished work on the `bundle remove` feature. We also created a [checklist for the Bundler 2 release](https://github.com/bundler/bundler/issues/6582), and finished documentation for the [Bundler release process](https://github.com/bundler/bundler/pull/5252).
+Last month, we fixed some bugs and our Google Summer of Code (GSoC) students finished work on the `bundle remove` feature. We also created a [checklist for the Bundler 2 release](https://github.com/rubygems/bundler/issues/6582), and finished documentation for the [Bundler release process](https://github.com/rubygems/bundler/pull/5252).
 
-After that, we published a [public request for comments](https://github.com/bundler/rfcs/pull/12) on the idea of Bundler release channels. Just this week, we learned a lot about [how Docker and Bundler can work better together](https://github.com/bundler/bundler/pull/6524).
+After that, we published a [public request for comments](https://github.com/bundler/rfcs/pull/12) on the idea of Bundler release channels. Just this week, we learned a lot about [how Docker and Bundler can work better together](https://github.com/rubygems/bundler/pull/6524).
 
 We published a new zine called ["The Evolution of Bundler"](https://shop.rubytogether.org/products/the-evolution-of-bundler-zine) in partnership with [@sailorhg](https://www.twitter.com/sailorhg) of Bubblesort Zines. It's now available for sale in the Ruby Together store.
 

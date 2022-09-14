@@ -29,7 +29,7 @@ Minor changes include adding support for Ruby 2.4, RubyGems 2.6.3, and support f
 
 ## Changelog
 
-We added a bunch of other small tweaks, features, and bugfixes, so be sure to check out [the changelog](https://github.com/bundler/bundler/blob/master/CHANGELOG.md) for the entire list!
+We added a bunch of other small tweaks, features, and bugfixes, so be sure to check out [the changelog](https://github.com/rubygems/rubygems/blob/master/bundler/CHANGELOG.md) for the entire list!
 
 ## Updating
 

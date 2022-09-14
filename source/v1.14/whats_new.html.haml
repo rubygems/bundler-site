@@ -14,21 +14,25 @@
     .bullet
       .description
         %p
-          The conservative flag allows `bundle update --conservative GEM` to update the version of GEM, but prevents Bundler from updating the versions of any of the gems that GEM depends on, similar to changing a gem's version number in the Gemfile and then running `bundle install`.
+          The conservative flag allows `bundle update --conservative GEM` to update the version of GEM,
+          but prevents Bundler from updating the versions of any of the gems that GEM depends on,
+          similar to changing a gem's version number in the Gemfile and then running `bundle install`.
 
   %h3 Checksum validation
   .contents
     .bullet
       .description
         %p
-          As part of the compact index format provided by RubyGems.org, Bundler now has access to checksums for every .gem file. Starting with version 1.14, Bundler actively validates those checksums against downloaded .gem files before installing them. Hooray! 🎉
+          As part of the compact index format provided by RubyGems.org, Bundler now has access to checksums for every .gem file.
+          Starting with version 1.14, Bundler actively validates those checksums against downloaded .gem files before installing them. Hooray! 🎉
 
   %h3 Improved platform support
   .contents
     .bullet
       .description
         %p
-          The `force_ruby_platform` and `specific_platform` settings tell Bundler to always compile gems and to consider platforms during dependency resolution, respectively. These options can significantly improve things for users installing a single bundle on more than one platform.
+          The `force_ruby_platform` and `specific_platform` settings tell Bundler to always compile gems and to consider platforms during dependency resolution, respectively.
+          These options can significantly improve things for users installing a single bundle on more than one platform.
 
   %h3 Required Ruby and RubyGems conflict messages
   .contents

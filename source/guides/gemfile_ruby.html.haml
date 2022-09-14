@@ -4,7 +4,9 @@
   .contents
     .bullet
       .description
-        Like gems, developers can setup a dependency on Ruby. This makes your app fail faster in case you depend on specific features in a Ruby VM. This way, the Ruby VM on your deployment server will match your local one. You can do this by using the <code>ruby</code> directive in the <code>Gemfile</code>:
+        Like gems, developers can setup a dependency on Ruby.
+        This makes your app fail faster in case you depend on specific features in a Ruby VM.
+        This way, the Ruby VM on your deployment server will match your local one. You can do this by using the <code>ruby</code> directive in the <code>Gemfile</code>:
       :code
         # lang: ruby
         ruby 'RUBY_VERSION', :engine => 'ENGINE', :engine_version => 'ENGINE_VERSION',
@@ -32,7 +34,9 @@
 
     .bullet
       .description
-        Both <code>:engine</code> and <code>:engine_version</code> are optional. When these options are omitted, this means the app is compatible with a particular Ruby ABI but the engine is irrelevant. When <code>:engine</code> is used, <code>:engine_version</code> must also be specified.
+        Both <code>:engine</code> and <code>:engine_version</code> are optional.
+        When these options are omitted, this means the app is compatible with a particular Ruby ABI but the engine is irrelevant.
+        When <code>:engine</code> is used, <code>:engine_version</code> must also be specified.
     .bullet
       .description
         Using the <code>platform</code> command with the <code>--ruby</code> flag, you can see what <code>ruby</code> directive is specified in the <code>Gemfile</code>.
@@ -42,11 +46,13 @@
 
     .bullet
       .description
-        In the <code>ruby</code> directive, <code>:patchlevel</code> is optional, as patchlevel releases are usually compatible and include important security fixes. The patchlevel option checks the <code>RUBY_PATCHLEVEL</code> constant, and if not specified then bundler will simply ignore it.
+        In the <code>ruby</code> directive, <code>:patchlevel</code> is optional, as patchlevel releases are usually compatible and include important security fixes.
+        The patchlevel option checks the <code>RUBY_PATCHLEVEL</code> constant, and if not specified then bundler will simply ignore it.
 
     .bullet
       .description
-        Version operators for specifying a Ruby version are also available. The set of supported version operators is that of Rubygems (<code>gem</code> version operators). (ie. <code><</code>, <code>></code>, <code><=</code>, <code>>=</code>, <code>~></code>, <code>=</code>)
+        Version operators for specifying a Ruby version are also available.
+        The set of supported version operators is that of Rubygems (<code>gem</code> version operators). (ie. <code><</code>, <code>></code>, <code><=</code>, <code>>=</code>, <code>~></code>, <code>=</code>)
       :code
         # lang: ruby
         ruby '~> 2.3.0'

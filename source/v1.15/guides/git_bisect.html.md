@@ -33,4 +33,4 @@ git reset --hard HEAD
 exit $status
 ~~~
 
-See also the discussion at [bundler/bundler#3726](https://github.com/rubygems/bundler/issues/3726).
+See also the discussion at [rubygems/bundler#3726](https://github.com/rubygems/bundler/issues/3726).

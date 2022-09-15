@@ -39,7 +39,7 @@ end
 
 directory "vendor"
 directory "vendor/bundler" => ["vendor"] do
-  system "git clone --depth 1 --no-single-branch https://github.com/bundler/bundler.git vendor/bundler"
+  system "git clone --depth 1 --no-single-branch https://github.com/rubygems/bundler.git vendor/bundler"
 end
 
 directory "vendor/rubygems" => ["vendor"] do

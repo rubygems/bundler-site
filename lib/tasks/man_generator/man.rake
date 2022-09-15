@@ -13,7 +13,7 @@ task man: :update_vendor do
       man_folder = "lib/bundler/man"
     end
 
-    rm_rf "source/#{version}/man"
+    # v2.3 or later versions do not have `man` dir even after #922.
     mkdir_p "source/#{version}/man"
 
     Dir.chdir vendor_folder do

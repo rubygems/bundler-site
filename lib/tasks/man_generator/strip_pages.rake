@@ -45,7 +45,7 @@ description: #{man_whatis}
     puts "-" * 40
     puts "*** Parsing man pages in #{arg} ***"
 
-    Dir.glob("#{arg}/**/*").select{ |f| !File.directory? f }.each do |file_path|
+    Dir.glob("#{arg}/**/*.html").select{ |f| !File.directory? f }.each do |file_path|
       puts "*** Processing #{file_path} ***"
 
       doc = File.open(file_path) { |f| Nokogiri::HTML(f) }

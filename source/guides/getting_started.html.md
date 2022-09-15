@@ -1,151 +1,139 @@
 ---
 title: Getting Started
 ---
-%h2 What is Bundler?
+## What is Bundler?
 
-%p.contents#intro
-  Bundler provides a consistent environment for Ruby projects by tracking
-  and installing the exact gems and versions that are needed.
-  %br
-  %br
-  Bundler is an exit from dependency hell, and ensures that the gems
-  you need are present in development, staging, and production.
-  Starting work on a project is as simple as <code>bundle install</code>.
+<a id="intro"></a>
+Bundler provides a consistent environment for Ruby projects by tracking
+and installing the exact gems and versions that are needed.
+<br>
+Bundler is an exit from dependency hell, and ensures that the gems
+you need are present in development, staging, and production.
+Starting work on a project is as simple as `bundle install`.
 
-.buttons.contents
-  = link_to 'What\'s new in Bundler', "../#{current_version}/whats_new.html", class: 'btn btn-primary'
-  = link_to 'Why Bundler exists', './rationale.html', class: 'btn btn-primary'
+<a href="../whats_new.html" class="btn btn-primary">What's new in Bundler</a>
+<a href="./rationale.html" class="btn btn-primary">Why Bundler exists</a>
 
-%h2#getting-started
-  Getting Started
+## Getting Started
 
-.contents
-  .bullet
-    .description
-      %p
-        This guide assumes that you have both #{ link_to("Ruby", "https://www.ruby-lang.org/en/downloads/") }
-        and #{ link_to("RubyGems", "https://rubygems.org/pages/download") } installed. If you do not have Ruby
-        and RubyGems installed, do that first and then check back here!
-  .bullet
-    .description
-      %p
-        Getting started with bundler is easy!
-        Specify your dependencies in a Gemfile in your project's root:
-    :code
-      # lang: ruby
-      source 'https://rubygems.org'
-      gem 'nokogiri'
-      gem 'rack', '~> 2.2.4'
-      gem 'rspec'
-    = link_to 'Learn More: Gemfiles', './gemfile.html', class: 'btn btn-primary'
+This guide assumes that you have both [Ruby](https://www.ruby-lang.org/en/downloads/)
+and [RubyGems](https://rubygems.org/pages/download) installed. If you do not have Ruby
+and RubyGems installed, do that first and then check back here!
 
-  .bullet
-    .description
-      %p
-        Install all of the required gems from your specified sources:
-    :code
-      $ bundle install
-      $ git add Gemfile Gemfile.lock
-    = link_to 'Learn More: bundle install', "../#{current_version}/man/bundle-install.1.html", class: 'btn btn-primary'
-    .notes
-      %p
-        The second command adds the Gemfile and Gemfile.lock to your repository. This ensures
-        that other developers on your app, as well as your deployment environment, will all use
-        the same third-party code that you are using now.
+Getting started with bundler is easy!
+Specify your dependencies in a Gemfile in your project's root:
 
-  .bullet
-    .description
-      %p
-        Inside your app, load up the bundled environment:
-    :code
-      # lang: ruby
-      require 'rubygems'
-      require 'bundler/setup'
+~~~ruby
+source 'https://rubygems.org'
+gem 'nokogiri'
+gem 'rack', '~> 2.2.4'
+gem 'rspec'
+~~~
 
-      # require your gems as usual
-      require 'nokogiri'
-    = link_to 'Learn More: Bundler.setup', './bundler_setup.html', class: 'btn btn-primary'
-  .bullet
-    .description
-      %p
-        Run an executable that comes with a gem in your bundle:
-    :code
-      $ bundle exec rspec spec/models
-    .notes
-      %p
-        In some cases, running executables without <code>bundle exec</code>
-        may work, if the executable happens to be installed in your system
-        and does not pull in any gems that conflict with your bundle.
-      %p
-        However, this is unreliable and is the source of considerable pain.
-        Even if it looks like it works, it may not work in the future or
-        on another machine.
+<a href="./gemfile.html" class="btn btn-primary">Learn More: Gemfiles</a>
 
-    .description
-      %p
-        Finally, if you want a way to get a shortcut to gems in your bundle:
-    :code
-      $ bundle install --binstubs
-      $ bin/rspec spec/models
-    .notes
-      %p
-        The executables installed into <code>bin</code> are scoped to the
-        bundle, and will always work.
-    = link_to 'Learn More: Executables', "../#{current_version}/man/bundle-exec.1.html", class: 'btn btn-primary'
+Install all of the required gems from your specified sources:
 
-%h2#create-gem Create a rubygem with Bundler
+~~~
+$ bundle install
+$ git add Gemfile Gemfile.lock
+~~~
 
-%p
-  Bundler is also an easy way to create new gems. Just like you might create a standard Rails project using <code>rails new</code>, you can create a standard gem project with <code>bundle gem</code>.
+<a href="../man/bundle-install.1.html" class="btn btn-primary">Learn More: bundle install</a>
 
-.bullet
-  .description
-    %p
-      Create a new gem with a README, .gemspec, Rakefile, directory structure, and all the basic boilerplate you need to describe, test, and publish a gem:
-  :code
-    $ bundle gem my_gem
-    Creating gem 'my_gem'...
-          create  my_gem/Gemfile
-          create  my_gem/.gitignore
-          create  my_gem/lib/my_gem.rb
-          create  my_gem/lib/my_gem/version.rb
-          create  my_gem/my_gem.gemspec
-          create  my_gem/Rakefile
-          create  my_gem/README.md
-          create  my_gem/bin/console
-          create  my_gem/bin/setup
-          create  my_gem/CODE_OF_CONDUCT.md
-          create  my_gem/LICENSE.txt
-          create  my_gem/.travis.yml
-          create  my_gem/test/test_helper.rb
-          create  my_gem/test/my_gem_test.rb
-    Initializing git repo in ./my_gem
+The second command adds the Gemfile and Gemfile.lock to your repository. This ensures
+that other developers on your app, as well as your deployment environment, will all use
+the same third-party code that you are using now.
 
-  = link_to 'Learn More: bundle gem', "../#{current_version}/man/bundle-gem.1.html", class: 'btn btn-primary'
+Inside your app, load up the bundled environment:
 
-%h2#use-bundler Use Bundler with
-.contents
-  .buttons
-    = link_to 'Rails', './rails.html', class: 'btn btn-primary'
-    = link_to 'Sinatra', './sinatra.html', class: 'btn btn-primary'
-    = link_to 'RubyGems', './rubygems.html', class: 'btn btn-primary'
-    = link_to 'RubyMotion', './rubymotion.html', class: 'btn btn-primary'
+~~~ruby
+require 'rubygems'
+require 'bundler/setup'
 
-%h2#get-involved Get involved
-%p.contents
-  Bundler has a lot of contributors and users, and they all talk to each other quite a bit.
-  If you have questions, try #{link_to 'the IRC channel', 'http://webchat.freenode.net/?channels=bundler'}
-  or #{link_to 'mailing list', 'http://groups.google.com/group/ruby-bundler'}.
-  If you're interested in contributing to the project (no programming skills needed),
-  read #{link_to 'the contributing guide', 'https://github.com/rubygems/rubygems/blob/master/bundler/doc/contributing/README.md'}
-  or #{link_to 'the development guide', 'https://github.com/rubygems/rubygems/blob/master/bundler/doc/development/README.md'}.
-  While participating in the Bundler project, please keep the #{link_to 'code of conduct', '/conduct.html'}
-  in mind, and be inclusive and friendly towards everyone. If you have sponsorship or security questions, please contact the core team directly.
+# require your gems as usual
+require 'nokogiri'
+~~~
 
-.contents
-  .buttons
-    = link_to 'Code of Conduct', '/conduct.html', class: 'btn btn-primary'
-    = link_to '#bundler on IRC', 'http://webchat.freenode.net/?channels=bundler', class: 'btn btn-primary'
-    = link_to 'Mailing list', 'http://groups.google.com/group/ruby-bundler', class: 'btn btn-primary'
-    = link_to 'Contributing', 'https://github.com/rubygems/rubygems/blob/master/bundler/doc/contributing/README.md', class: 'btn btn-primary'
-    = link_to 'Email core team', 'mailto:team@bundler.io', class: 'btn btn-primary'
+<a href="./bundler_setup.html" class="btn btn-primary">Learn More: Bundler.setup</a>
+
+Run an executable that comes with a gem in your bundle:
+
+~~~
+$ bundle exec rspec spec/models
+~~~
+
+In some cases, running executables without `bundle exec`
+may work, if the executable happens to be installed in your system
+and does not pull in any gems that conflict with your bundle.
+
+However, this is unreliable and is the source of considerable pain.
+Even if it looks like it works, it may not work in the future or
+on another machine.
+
+Finally, if you want a way to get a shortcut to gems in your bundle:
+
+~~~
+$ bundle install --binstubs
+$ bin/rspec spec/models
+~~~
+
+The executables installed into `bin` are scoped to the
+bundle, and will always work.
+
+<a href="../man/bundle-exec.1.html" class="btn btn-primary">Learn More: Executables</a>
+
+## Create a rubygem with Bundler
+<a id="create-gem"></a>
+
+Bundler is also an easy way to create new gems. Just like you might create a standard Rails project using `rails new`, you can create a standard gem project with `bundle gem`.
+
+Create a new gem with a README, .gemspec, Rakefile, directory structure, and all the basic boilerplate you need to describe, test, and publish a gem:
+
+~~~
+$ bundle gem my_gem
+Creating gem 'my_gem'...
+      create  my_gem/Gemfile
+      create  my_gem/.gitignore
+      create  my_gem/lib/my_gem.rb
+      create  my_gem/lib/my_gem/version.rb
+      create  my_gem/my_gem.gemspec
+      create  my_gem/Rakefile
+      create  my_gem/README.md
+      create  my_gem/bin/console
+      create  my_gem/bin/setup
+      create  my_gem/CODE_OF_CONDUCT.md
+      create  my_gem/LICENSE.txt
+      create  my_gem/.travis.yml
+      create  my_gem/test/test_helper.rb
+      create  my_gem/test/my_gem_test.rb
+Initializing git repo in ./my_gem
+~~~
+
+<a href="../man/bundle-gem.1.html" class="btn btn-primary">Learn More: bundle gem</a>
+
+## Use Bundler with
+<a id="use-bundler"></a>
+
+<a href="./rails.html" class="btn btn-primary">Rails</a>
+<a href="./sinatra.html" class="btn btn-primary">Sinatra</a>
+<a href="./rubygems.html" class="btn btn-primary">RubyGems</a>
+<a href="./rubymotion.html" class="btn btn-primary">RubyMotion</a>
+
+## Get involved
+<a id="get-involved"></a>
+
+Bundler has a lot of contributors and users, and they all talk to each other quite a bit.
+If you have questions, try [the IRC channel](http://webchat.freenode.net/?channels=bundler)
+or [mailing list](http://groups.google.com/group/ruby-bundler).
+If you're interested in contributing to the project (no programming skills needed),
+read [the contributing guide](https://github.com/rubygems/rubygems/blob/master/bundler/doc/contributing/README.md)
+or [the development guide](https://github.com/rubygems/rubygems/blob/master/bundler/doc/development/README.md).
+While participating in the Bundler project, please keep the [code of conduct](/conduct.html)
+in mind, and be inclusive and friendly towards everyone. If you have sponsorship or security questions, please contact the core team directly.
+
+<a href="/conduct.html" class="btn btn-primary">Code of Conduct</a>
+<a href="http://webchat.freenode.net/?channels=bundler" class="btn btn-primary">#bundler on IRC</a>
+<a href="http://groups.google.com/group/ruby-bundler" class="btn btn-primary">Mailing list</a>
+<a href="https://github.com/rubygems/rubygems/blob/master/bundler/doc/contributing/README.md" class="btn btn-primary">Contributing</a>
+<a href="mailto:team@bundler.io" class="btn btn-primary">Email core team</a>

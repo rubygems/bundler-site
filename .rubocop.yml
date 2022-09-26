@@ -4,9 +4,8 @@ AllCops:
 Bundler/OrderedGems:
   Enabled: true
 
-# Unsupported by haml-lint https://github.com/sds/haml-lint/issues/333
 Layout/ArgumentAlignment:
-  Enabled: false
+  Enabled: true
 
 Layout/TrailingWhitespace:
   Enabled: true

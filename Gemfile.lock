@@ -80,8 +80,8 @@ GEM
     haml (5.2.2)
       temple (>= 0.8.0)
       tilt
-    haml_lint (0.40.1)
-      haml (>= 4.0, < 5.3)
+    haml_lint (0.41.0)
+      haml (>= 4.0, < 6.1)
       parallel (~> 1.10)
       rainbow
       rubocop (>= 0.50.0)
@@ -193,7 +193,7 @@ GEM
       parslet (>= 1.8.0, < 3.0.0)
     tzinfo (2.0.5)
       concurrent-ruby (~> 1.0)
-    unicode-display_width (2.2.0)
+    unicode-display_width (2.3.0)
     webrick (1.7.0)
 
 PLATFORMS
@@ -204,7 +204,7 @@ PLATFORMS
 DEPENDENCIES
   builder
   haml (~> 5.2.2)
-  haml_lint (~> 0.40)
+  haml_lint (~> 0.41)
   kramdown
   middleman!
   middleman-blog

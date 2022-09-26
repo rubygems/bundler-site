@@ -27,6 +27,6 @@ group :development do
   gem "pry"
   gem "pry-byebug"
 
-  gem "haml_lint", "~> 0.40"
+  gem "haml_lint", "~> 0.41"
   gem "rubocop"
 end

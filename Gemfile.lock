@@ -9,9 +9,9 @@ GIT
       nokogiri (~> 1.6)
 
 GIT
-  remote: https://github.com/tnir/middleman.git
-  revision: 80f9122a88c770a11726df4cd459c8b8acc7c166
-  branch: delegate-each_with_index-sitemap-resourcelistcontainer
+  remote: https://github.com/middleman/middleman.git
+  revision: 038f4f606ff6cfc75cbe5c8690c5eae2e34f78f3
+  ref: 038f4f606ff6cfc75cbe5c8690c5eae2e34f78f3
   specs:
     middleman (5.0.0.rc.2)
       coffee-script (~> 2.4)

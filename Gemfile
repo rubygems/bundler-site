@@ -2,8 +2,8 @@ source "https://rubygems.org"
 ruby File.read(File.expand_path("../.ruby-version", __FILE__)).strip
 
 # Static site generator
-## See https://github.com/middleman/middleman/pull/2565
-gem "middleman", github: "tnir/middleman", branch: "delegate-each_with_index-sitemap-resourcelistcontainer"
+## Includes https://github.com/middleman/middleman/pull/2565, https://github.com/middleman/middleman/pull/2571
+gem "middleman", github: "middleman/middleman", ref: "038f4f606ff6cfc75cbe5c8690c5eae2e34f78f3"
 ## Extensions
 gem "middleman-blog"
 gem "middleman-search", github: "deivid-rodriguez/middleman-search", branch: "workarea-commerce-master"

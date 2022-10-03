@@ -77,8 +77,9 @@ GEM
     faraday-net_http (3.0.0)
     fastimage (2.2.6)
     ffi (1.15.5)
-    haml (5.2.2)
-      temple (>= 0.8.0)
+    haml (6.0.4)
+      temple (>= 0.8.2)
+      thor
       tilt
     haml_lint (0.42.0)
       haml (>= 4.0, < 6.1)
@@ -203,7 +204,7 @@ PLATFORMS
 
 DEPENDENCIES
   builder
-  haml (~> 5.2.2)
+  haml (~> 6.0.4)
   haml_lint (~> 0.42)
   kramdown
   middleman!

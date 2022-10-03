@@ -80,7 +80,7 @@ GEM
     haml (5.2.2)
       temple (>= 0.8.0)
       tilt
-    haml_lint (0.41.0)
+    haml_lint (0.42.0)
       haml (>= 4.0, < 6.1)
       parallel (~> 1.10)
       rainbow
@@ -151,7 +151,7 @@ GEM
     rb-inotify (0.10.1)
       ffi (~> 1.0)
     rdiscount (2.2.0.2)
-    regexp_parser (2.5.0)
+    regexp_parser (2.6.0)
     rexml (3.2.5)
     rgl (0.5.9)
       pairing_heap (>= 0.3.0)
@@ -204,7 +204,7 @@ PLATFORMS
 DEPENDENCIES
   builder
   haml (~> 5.2.2)
-  haml_lint (~> 0.41)
+  haml_lint (~> 0.42)
   kramdown
   middleman!
   middleman-blog

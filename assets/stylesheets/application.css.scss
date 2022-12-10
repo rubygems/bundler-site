@@ -23,7 +23,7 @@ pre {
 $pre-color: #fff;
 
 @import "code.css";
-@import "bootstrap-overrides";
+@import "bootstrap-variable-overrides";
 
 $icon-font-path: '~bootstrap/assets/fonts/bootstrap/';
 
@@ -55,6 +55,8 @@ $icon-font-path: '~bootstrap/assets/fonts/bootstrap/';
 
 // Utilities
 @import "~bootstrap/scss/utilities/api";
+
+@import "bootstrap-class-overrides";
 // end of Boostrap 5 customization
 
 @import "navbar";

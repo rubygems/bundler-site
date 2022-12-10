@@ -1,0 +1,12 @@
+// See this issue https://github.com/rubygems/bundler-site/issues/684
+// to understand why we use this colors.
+.btn-primary {
+  color: #FFF;
+  background-color: #0D7FA5;
+  border-color: #0D7FA5;
+
+  &:hover {
+    background-color: #0A6A8A;
+    border-color: #095F7B;
+  }
+}

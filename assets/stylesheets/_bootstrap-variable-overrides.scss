@@ -1,6 +1,6 @@
 // for .btn-primary. This color is applied to $link-color so tweak is followed.
 // - Discussion: https://github.com/rubygems/bundler-site/pull/644#issuecomment-1178722939
-$primary: #12AEE2;
+$primary: #0D7FA5;
 
 // navbar
 $navbar-padding-y: 0;
@@ -37,14 +37,3 @@ $link-color: #337ab7;
 $link-decoration: none;
 $link-hover-decoration: underline;
 // /Transition workaround
-
-// Bootstrap 5 would suggest `color:#000` for `.btn-primary`/`.btn-primary:hover`
-// by default when `$primary: #12AEE2;` as it violates "WCAG 2.1 text color
-// contrast ratio of 4.5:1" if it is `color: #fff`.
-// https://webaim.org/resources/contrastchecker/?fcolor=FFFFFF&bcolor=12AEE2 (2.56:1) (.btn-primary)
-// https://webaim.org/resources/contrastchecker/?fcolor=FFFFFF&bcolor=0F94C0 (3.48:1) (.btn-primary:hover)
-//
-// Upstream change: https://github.com/twbs/bootstrap/pull/30168
-//
-// cf. https://stackoverflow.com/questions/65170317/sass-scss-bootstrap-5-color-functions-not-working-well
-$min-contrast-ratio: 2.55;

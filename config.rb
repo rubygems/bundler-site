@@ -165,13 +165,21 @@ end
   redirect "v#{version}/guides/bundler_2_upgrade.html", to: "guides/bundler_2_upgrade.html"
 end
 
+# Redirect to the latest man page when version isn't specified
+man_files = Dir.glob("./source/#{config[:current_version]}/man/*.html.erb")
+man_files.each do |file|
+  url = file.delete_prefix("./source/#{config[:current_version]}/").delete_suffix(".erb")
+  latest_man = "#{config[:current_version]}/#{url}"
+  redirect url, to: latest_man
+end
+
 redirect "sponsors.html", to: "https://rubygems.org/pages/sponsors" # Backwards compatibility
 
 page "/conduct.html", layout: :two_column_layout
 page "/compatibility.html", layout: :two_column_layout
 page /\/v(\d+.\d+)\/(?!bundle_|commands|docs|man)(.*)/, layout: :two_column_layout
 page /\/v(.*)\/man\/(.*)/, layout: :two_column_layout
-page /\/man\/(.*)/, layout: :two_column_layout
+page /\/man\/(.*)/, layout: false
 page /\/v(.*)\/guides\/(.*)/, layout: :two_column_layout
 page /guides\/(.*)/, layout: :two_column_layout
 page /\/doc\/(.*)/, layout: :two_column_layout # Imported from rubygems/bundler

@@ -80,8 +80,8 @@ GEM
     haml (5.2.2)
       temple (>= 0.8.0)
       tilt
-    haml_lint (0.42.0)
-      haml (>= 4.0, < 6.1)
+    haml_lint (0.43.0)
+      haml (>= 4.0, < 6.2)
       parallel (~> 1.10)
       rainbow
       rubocop (>= 0.50.0)
@@ -184,7 +184,7 @@ GEM
     servolux (0.13.0)
     stream (0.5.5)
     sysexits (1.2.0)
-    temple (0.8.2)
+    temple (0.9.1)
     terser (1.1.12)
       execjs (>= 0.3.0, < 3)
     thor (1.2.1)
@@ -204,7 +204,7 @@ PLATFORMS
 DEPENDENCIES
   builder
   haml (~> 5.2.2)
-  haml_lint (~> 0.42)
+  haml_lint (~> 0.43)
   kramdown
   middleman!
   middleman-blog

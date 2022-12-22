@@ -18,7 +18,9 @@ namespace :contributors do
 
     require "octokit"
     require "yaml"
-    client = Octokit::Client.new(auto_paginate: true)
+    options = { auto_paginate: true }
+    options[:access_token] = ENV["GITHUB_TOKEN"] if ENV["GITHUB_TOKEN"]
+    client = Octokit::Client.new(**options)
     contributors = client.contributors("rubygems/rubygems", false)
     contributors.reject!{|c| credited_elsewhere.include?(c[:login]) }
     contributors.map! do |c|

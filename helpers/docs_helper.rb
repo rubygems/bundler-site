@@ -1,5 +1,7 @@
 module DocsHelper
-  ADDITIONAL_PAGES = %w(bundle.1 gemfile.5).freeze
+  def additional_pages
+    %w(bundle.1 gemfile.5).freeze
+  end
 
   def documentation_path(page, version=nil)
     check_single_page("/man/#{page}.html", version) || check_single_page("/#{page}.html", version) ||
@@ -51,7 +53,7 @@ module DocsHelper
     current_man_pages = sitemap.resources.select{ |page| page.path.start_with?("#{version}/man/bundle-") }
     commands_from_man = current_man_pages.map{ |page| strip_man_path_to_page(page.path) } # ex: bundle-config.1
 
-    (commands_from_man - primary_commands + ADDITIONAL_PAGES).sort do |x,y|
+    (commands_from_man - primary_commands + additional_pages).sort do |x,y|
       normalize_man_page(x) <=> normalize_man_page(y)
     end
   end

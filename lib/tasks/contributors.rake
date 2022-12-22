@@ -1,3 +1,4 @@
+desc "Regenerate file with contributor's information that our team page will display"
 namespace :contributors do
   task :update do
     def small_avatar(url)

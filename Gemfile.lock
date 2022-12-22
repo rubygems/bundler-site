@@ -75,6 +75,8 @@ GEM
       faraday-net_http (>= 2.0, < 3.1)
       ruby2_keywords (>= 0.0.4)
     faraday-net_http (3.0.2)
+    faraday-retry (2.0.0)
+      faraday (~> 2.0)
     fastimage (2.2.6)
     ffi (1.15.5)
     haml (5.2.2)
@@ -203,6 +205,7 @@ PLATFORMS
 
 DEPENDENCIES
   builder
+  faraday-retry (~> 2.0)
   haml (~> 5.2.2)
   haml_lint (~> 0.43)
   kramdown

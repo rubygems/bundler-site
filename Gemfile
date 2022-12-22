@@ -17,6 +17,7 @@ gem "kramdown"
 # Rake tasks
 gem "rake"
 ## To retrieve a list of contributors from GitHub
+gem "faraday-retry", "~> 2.0"
 gem "octokit", "~> 6.0"
 ## To generate ERB files from ronn files from rubygems/rubygems
 gem "ronn"

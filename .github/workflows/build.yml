@@ -28,3 +28,4 @@ jobs:
         run: bundle exec rake build
         env:
           NO_CONTRACTS: "true"
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

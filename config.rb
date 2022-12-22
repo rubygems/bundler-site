@@ -217,15 +217,6 @@ ymds.map { |ymd| ymd.sub(%r{/\d+/\d+$}, "") }.each do |y|
   redirect "blog/#{y}/index.html", to: "/blog/"
 end
 
-###
-# Helpers
-###
-Dir.glob(File.expand_path("../helpers/**/*.rb", __FILE__), &method(:require))
-helpers CommandReferenceHelper
-helpers ConfigHelper
-helpers DocsHelper
-helpers AvatarHelper
-
 activate :blog do |blog|
   blog.name = "blog"
   blog.prefix = "blog"

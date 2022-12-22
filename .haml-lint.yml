@@ -21,18 +21,6 @@ linters:
     ignored_cops:
       - "Style/StringLiterals"
 
-  SpaceBeforeScript:
-    exclude:
-      - "source/v1.13/whats_new.html.haml"
-      - "source/v1.14/whats_new.html.haml"
-      - "source/v1.15/whats_new.html.haml"
-      - "source/v1.16/whats_new.html.haml"
-      - "source/v1.17/whats_new.html.haml"
-      - "source/v2.0/whats_new.html.haml"
-      - "source/v2.1/whats_new.html.haml"
-      - "source/v2.2/whats_new.html.haml"
-      - "source/v2.3/whats_new.html.haml"
-
   SpaceInsideHashAttributes:
     exclude:
       - "source/contributors.html.haml"
@@ -49,15 +37,6 @@ linters:
   UnnecessaryStringOutput:
     exclude:
       - "source/layouts/base.haml"
-      - "source/v1.13/whats_new.html.haml"
-      - "source/v1.14/whats_new.html.haml"
-      - "source/v1.15/whats_new.html.haml"
-      - "source/v1.16/whats_new.html.haml"
-      - "source/v1.17/whats_new.html.haml"
-      - "source/v2.0/whats_new.html.haml"
-      - "source/v2.1/whats_new.html.haml"
-      - "source/v2.2/whats_new.html.haml"
-      - "source/v2.3/whats_new.html.haml"
 
   ViewLength:
     max: 413

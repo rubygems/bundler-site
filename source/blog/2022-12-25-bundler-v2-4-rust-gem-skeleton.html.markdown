@@ -1,5 +1,5 @@
 ---
-title: "Bundler v2.4: Generate gem skeleton with Rust extension"
+title: "Generate gem skeleton with Rust extension"
 date: 2022-12-25 20:00 UTC
 tags:
 author: Josef Šimánek

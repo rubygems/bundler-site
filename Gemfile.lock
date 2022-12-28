@@ -1,14 +1,4 @@
 GIT
-  remote: https://github.com/apjanke/ronn-ng.git
-  revision: 5c3da4065a4d3c42d80b3751cf5350a8c42bdc32
-  specs:
-    ronn-ng (0.10.1.pre1)
-      kramdown (~> 2.1)
-      kramdown-parser-gfm (~> 1.0.1)
-      mustache (~> 1.0)
-      nokogiri (~> 1.11, >= 1.11.0)
-
-GIT
   remote: https://github.com/deivid-rodriguez/middleman-search.git
   revision: 50465e1c1580e282a45247b77036da3c2719870d
   branch: workarea-commerce-master
@@ -17,6 +7,17 @@ GIT
       middleman-core (>= 3.2)
       mini_racer (~> 0.5)
       nokogiri (~> 1.6)
+
+GIT
+  remote: https://github.com/deivid-rodriguez/ronn-ng.git
+  revision: f1c1c79414c85351720e1d9ff6cd1737fe337295
+  branch: fix-charset
+  specs:
+    ronn-ng (0.10.1.pre1)
+      kramdown (~> 2.1)
+      kramdown-parser-gfm (~> 1.0.1)
+      mustache (~> 1.0)
+      nokogiri (~> 1.11, >= 1.11.0)
 
 GIT
   remote: https://github.com/middleman/middleman.git

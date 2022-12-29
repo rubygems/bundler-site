@@ -14,9 +14,9 @@ module ConfigHelper
   private
 
   def status(version)
-    if version == "v2.3"
+    if version == "v2.4"
       "Current release"
-    elsif %w[v2.2 v2.1].include?(version)
+    elsif %w[v2.3 v2.2 v2.1].include?(version)
       "Legacy release"
     else
       "Deprecated release"

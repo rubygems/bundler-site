@@ -1,0 +1,36 @@
+- primary_commands = %w(bundle-install.1 bundle-update.1 bundle-cache.1 bundle-exec.1 bundle-config.1 bundle-help.1)
+
+.bg-light-blue.header
+  = image_tag '/images/docs_header_transparent_bg.png',
+    srcset: '/images/docs_header_transparent_bg.png 1x, /images/docs_header_transparent_bg@2x.png 2x, /images/docs_header_transparent_bg@3x.png 3x',
+    class: 'img-fluid header-padding',
+    style: 'max-width: 400px;'
+
+.container
+  .row.docs.my-5
+    .col-md-6.col-12
+      %h3
+        %b Guides
+      %p
+        Step-by-step tutorials that include useful explanations and and detailed instructions to help you get up and running.
+      %ul.ul-padding
+        - guides.each do |guide|
+          %li= link_to_guide guide
+        %li= link_to "Contributing to Bundler", "/doc/readme.html"
+
+    .col-md-5.offset-md-1.col-12
+      %h3
+        %b Reference Guides
+      %p
+        In-depth articles with information on each primary command and utility, and how to use them.
+      %h4
+        %b Primary Commands
+      %ul.ul-padding
+        - primary_commands.select{ |page| path_exist?(page) }.each do |page|
+          %li= link_to_documentation(page)
+
+      %h4
+        %b Utilities
+      %ul.ul-padding
+        - other_commands(primary_commands).each do |page|
+          %li= link_to_documentation(page)

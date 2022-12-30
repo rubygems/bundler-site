@@ -48,8 +48,8 @@ activate :external_pipeline,
 
 # Make documentation for the latest version available at the top level, too.
 # Any pages with names that conflict with files already at the top level will be skipped.
-Dir.glob("./source/#{config[:current_version]}/**/*").select{ |f| File.file?(f) }.each do |file_path|
-  file_path = file_path.sub(/(\.haml$|\.md$)/, "")
+Dir.glob("./source/#{config[:current_version]}/*.haml").each do |file_path|
+  file_path = file_path.sub(/\.haml$/, "")
 
   page_path = file_path.sub(/^\.\/source\//, "")
   proxy_path = file_path["./source/#{config[:current_version]}/".length..-1]
@@ -171,7 +171,6 @@ page "/conduct.html", layout: :two_column_layout
 page "/compatibility.html", layout: :two_column_layout
 page /\/v(\d+.\d+)\/(?!bundle_|commands|docs|man)(.*)/, layout: :two_column_layout
 page /\/v(.*)\/man\/(.*)/, layout: :two_column_layout
-page /\/man\/(.*)/, layout: :two_column_layout
 page /\/v(.*)\/guides\/(.*)/, layout: :two_column_layout
 page /guides\/(.*)/, layout: :two_column_layout
 page /\/doc\/(.*)/, layout: :two_column_layout # Imported from rubygems/bundler

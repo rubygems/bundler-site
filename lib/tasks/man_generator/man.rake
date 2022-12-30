@@ -29,8 +29,4 @@ task man: :update_vendor do
       Rake::Task["man:strip_pages"].execute("#{segments_up}/source/#{version}/man")
     end
   end
-
-  # Make man pages for the latest version available at the top level, too.
-  rm_rf "source/man"
-  cp_r "source/#{VERSIONS.last}/man", "source"
 end

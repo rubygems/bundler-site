@@ -8,7 +8,7 @@ author_url: http://www.stephaniemorillo.co
 
 Welcome to the May Bundler update!
 
-Last month, Bundler saw some bug fixes, [a new `--skip-install` flag](https://github.com/rubygems/bundler/commit/9e87a1ca4b0c3002ac2774e4837234cef7e3ce08) for `bundler add`, and a [new guide on writing Bundler plugins](https://bundler.io/v1.16/guides/bundler_plugins.html). (Thank you [@jules2689](https://github.com/jules2689) for producing this guide!)
+Last month, Bundler saw some bug fixes, [a new `--skip-install` flag](https://github.com/rubygems/bundler/commit/9e87a1ca4b0c3002ac2774e4837234cef7e3ce08) for `bundler add`, and a [new guide on writing Bundler plugins](https://bundler.io/guides/bundler_plugins.html). (Thank you [@jules2689](https://github.com/jules2689) for producing this guide!)
 
 Bundler gained 9 new commits, contributed by 3 authors. There were 66 additions and 48 deletions across 17 files.
 

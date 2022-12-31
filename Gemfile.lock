@@ -1,14 +1,4 @@
 GIT
-  remote: https://github.com/deivid-rodriguez/middleman-search.git
-  revision: 50465e1c1580e282a45247b77036da3c2719870d
-  branch: workarea-commerce-master
-  specs:
-    middleman-search (0.10.0)
-      middleman-core (>= 3.2)
-      mini_racer (~> 0.5)
-      nokogiri (~> 1.6)
-
-GIT
   remote: https://github.com/deivid-rodriguez/ronn-ng.git
   revision: f1c1c79414c85351720e1d9ff6cd1737fe337295
   branch: fix-charset
@@ -58,6 +48,16 @@ GIT
       tilt (~> 2.0.9)
       toml
       webrick
+
+GIT
+  remote: https://github.com/tnir/middleman-search.git
+  revision: 45af9e686469142fb003f58d6cd0ae0ba33cb496
+  branch: edge
+  specs:
+    middleman-search (0.10.0)
+      middleman-core (>= 3.2)
+      mini_racer (~> 0.5)
+      nokogiri (~> 1.6)
 
 GEM
   remote: https://rubygems.org/

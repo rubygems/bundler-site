@@ -6,7 +6,7 @@ ruby File.read(File.expand_path("../.ruby-version", __FILE__)).strip
 gem "middleman", github: "middleman/middleman", ref: "038f4f606ff6cfc75cbe5c8690c5eae2e34f78f3"
 ## Extensions
 gem "middleman-blog"
-gem "middleman-search", github: "deivid-rodriguez/middleman-search", branch: "workarea-commerce-master"
+gem "middleman-search", github: "tnir/middleman-search", branch: "edge" # https://github.com/manastech/middleman-search/pull/39
 gem "middleman-syntax"
 
 ## Template engines

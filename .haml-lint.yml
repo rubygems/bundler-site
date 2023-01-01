@@ -34,9 +34,5 @@ linters:
     exclude:
       - "source/contributors.html.haml"
 
-  UnnecessaryStringOutput:
-    exclude:
-      - "source/layouts/base.haml"
-
   ViewLength:
     max: 413

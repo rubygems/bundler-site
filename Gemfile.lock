@@ -1,4 +1,14 @@
 GIT
+  remote: https://github.com/apjanke/ronn-ng.git
+  revision: 40b8e193bdee2e446473702f31315c2861c57657
+  specs:
+    ronn-ng (0.10.1.pre1)
+      kramdown (~> 2.1)
+      kramdown-parser-gfm (~> 1.0.1)
+      mustache (~> 1.0)
+      nokogiri (~> 1.10, >= 1.10.10)
+
+GIT
   remote: https://github.com/middleman/middleman.git
   revision: 50f76c2984c4f82b243b0a5e3f860aeaf63e07d5
   ref: 50f76c2984c4f82b243b0a5e3f860aeaf63e07d5
@@ -96,7 +106,7 @@ GEM
     json (2.6.3)
     kramdown (2.4.0)
       rexml
-    kramdown-parser-gfm (1.1.0)
+    kramdown-parser-gfm (1.0.1)
       kramdown (~> 2.0)
     libv8-node (16.10.0.0)
     libv8-node (16.10.0.0-arm64-darwin)
@@ -121,11 +131,6 @@ GEM
     nokogiri (1.13.10)
       mini_portile2 (~> 2.8.0)
       racc (~> 1.4)
-    nronn (0.11.1)
-      kramdown (~> 2.1)
-      kramdown-parser-gfm (>= 1.0.1, < 1.2)
-      mustache (~> 1.0)
-      nokogiri (~> 1.10, >= 1.10.10)
     octokit (6.0.1)
       faraday (>= 1, < 3)
       sawyer (~> 0.9)
@@ -213,11 +218,11 @@ DEPENDENCIES
   middleman-search!
   middleman-syntax
   nokogiri (~> 1.13)
-  nronn
   octokit (~> 6.0)
   pry
   pry-byebug
   rake
+  ronn-ng!
   rubocop
   rubocop-rake
 

@@ -11,7 +11,7 @@ A new version of Bundler has arrived! With 1.12, we’re shipping one huge chang
 
 ## The new index format
 
-The biggest change landing in this release is [the fabled new index format](http://andre.arko.net/2014/03/28/the-new-rubygems-index-format/), which has been in development for over two years. It has required significant work on Bundler and the Bundler API webapp, but it also lays the foundation for years of speed, stability, and security. In addition to the speed increases provided by the format itself, we’re also serving the new index directly from the Fastly CDN. That means Bundler will be able to talk to a server located nearby, no matter where you are in the world. We expect that to make a huge difference, especially in Oceania and Africa. 🎉
+The biggest change landing in this release is [the fabled new index format](https://andre.arko.net/2014/03/28/the-new-rubygems-index-format/), which has been in development for over two years. It has required significant work on Bundler and the Bundler API webapp, but it also lays the foundation for years of speed, stability, and security. In addition to the speed increases provided by the format itself, we’re also serving the new index directly from the Fastly CDN. That means Bundler will be able to talk to a server located nearby, no matter where you are in the world. We expect that to make a huge difference, especially in Oceania and Africa. 🎉
 
 ## `exec` performance
 

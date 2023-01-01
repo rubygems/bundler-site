@@ -173,6 +173,8 @@ GEM
       unicode-display_width (>= 1.4.0, < 3.0)
     rubocop-ast (1.24.0)
       parser (>= 3.1.1.0)
+    rubocop-rake (0.6.0)
+      rubocop (~> 1.0)
     ruby-progressbar (1.11.0)
     ruby2_keywords (0.0.5)
     sassc (2.4.0)
@@ -217,6 +219,7 @@ DEPENDENCIES
   pry-byebug
   rake
   rubocop
+  rubocop-rake
 
 RUBY VERSION
    ruby 3.2.0p0

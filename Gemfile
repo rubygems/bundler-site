@@ -30,4 +30,5 @@ group :development do
 
   gem "haml_lint", "~> 0.43"
   gem "rubocop"
+  gem "rubocop-rake", require: false
 end

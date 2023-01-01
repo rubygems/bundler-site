@@ -1,3 +1,8 @@
+inherit_from: .rubocop_todo.yml
+
+require:
+  - rubocop-rake
+
 AllCops:
   DisabledByDefault: true
 
@@ -9,6 +14,12 @@ Layout/ArgumentAlignment:
 
 Layout/TrailingWhitespace:
   Enabled: true
+
+Rake:
+  Enabled: true
+  Include:
+    - "Rakefile"
+    - "**/*.rake"
 
 Style/HashSyntax:
   EnforcedStyle: ruby19

@@ -20,7 +20,7 @@ gem "rake"
 gem "faraday-retry", "~> 2.0"
 gem "octokit", "~> 6.0"
 ## To generate ERB files from ronn files from rubygems/rubygems
-gem "ronn-ng", github: "deivid-rodriguez/ronn-ng", branch: "fix-charset"
+gem "nronn"
 ## To strip (man:strip_pages)
 gem "nokogiri", "~> 1.13"
 

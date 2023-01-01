@@ -17,7 +17,7 @@ Building on the previous [fine controls for the update command](http://bundler.i
 
 ### Checksum validation
 
-As part of the [compact index format](http://andre.arko.net/2014/03/28/the-new-rubygems-index-format/) provided by RubyGems.org, Bundler now has access to checksums for every .gem file. Starting with version 1.14, Bundler actively validates those checksums against downloaded .gem files before installing them. Hooray! 🎉
+As part of the [compact index format](https://andre.arko.net/2014/03/28/the-new-rubygems-index-format/) provided by RubyGems.org, Bundler now has access to checksums for every .gem file. Starting with version 1.14, Bundler actively validates those checksums against downloaded .gem files before installing them. Hooray! 🎉
 
 ### Improved platform support
 

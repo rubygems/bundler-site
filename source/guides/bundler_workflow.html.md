@@ -216,4 +216,4 @@ $ bin/rspec spec/models
 The executables installed into `bin` are scoped to the
 bundle, and will always work.
 
-<a href="./man/bundle-exec.1.html" class="btn btn-primary">Learn More: Executables</a>
+<a href="/man/bundle-exec.1.html" class="btn btn-primary">Learn More: Executables</a>

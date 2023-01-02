@@ -3,7 +3,7 @@ title: "Making gem development a little better"
 date: 2018-01-17 15:01 UTC
 tags:
 author: Hiren Mistry
-author_url: http://github.com/hmistry
+author_url: https://github.com/hmistry
 category: release
 ---
 

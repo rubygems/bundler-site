@@ -396,7 +396,7 @@ we'll look at how to write a generator using it too.
 
 To make this CLI work we're going to need to create a `Foodie::CLI` class and define a `start` 
 method on it. Or you know, there's probably a gem out there for us to use. Like 
-[Thor](http://github.com/wycats/thor). Named after the badass lightning god from Norse mythology, 
+[Thor](https://github.com/wycats/thor). Named after the badass lightning god from Norse mythology, 
 this gem is definitely on the fast-track to being just as badass. This gem is what we'll be using 
 to build our CLI interface and then later on the generator (if you behave, remember?).
 
@@ -709,7 +709,7 @@ also takes options to do these things:
     gem bump --version 1.1.1 # bumps to the specified version
 
 For more information, check out the ["gem-release" GitHub repository 
-homepage](http://github.com/svenfuchs/gem-release).
+homepage](https://github.com/svenfuchs/gem-release).
 
 ## Podsumowanie
 
@@ -717,7 +717,7 @@ Nie jest to może _stuprocentowa_ instrukcja jak dewelopować gem, to jednak zaw
 Naprawdę zachęcam, żeby sprawdzić źródła Bundler-a, Rails-ów 
 i RSpec-a. Są tam świetne przykłady pokazujące, jak pisać swojego własnego gem-a.
 
-**Kompletne źródła tego przykładu możesz znaleźć [tutaj](http://github.com/radar/guides/tree/master/gem-development/foodie)**
+**Kompletne źródła tego przykładu możesz znaleźć [tutaj](https://github.com/radar/guides/tree/master/gem-development/foodie)**
 
 ***
 

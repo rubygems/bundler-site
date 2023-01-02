@@ -7,7 +7,7 @@ author_url: http://www.stephaniemorillo.co
 
 Welcome to the August monthly update!
 
-With the help of [@eanlain](http://github.com/eanlain), we shipped a new guide: [“How to use Bundler with Docker”](https://bundler.io/guides/bundler_docker_guide.html). We also dramatically improved error messages when version requirements conflict, shipped a playbook for adding or removing core team members, and fixed some issues handling gemspecs with non-ASCII characters. We also merged a fix that could cause Bundler to [fail when trying to install a gem that has had a version yanked recently](https://github.com/rubygems/bundler/pull/6675).
+With the help of [@eanlain](https://github.com/eanlain), we shipped a new guide: [“How to use Bundler with Docker”](https://bundler.io/guides/bundler_docker_guide.html). We also dramatically improved error messages when version requirements conflict, shipped a playbook for adding or removing core team members, and fixed some issues handling gemspecs with non-ASCII characters. We also merged a fix that could cause Bundler to [fail when trying to install a gem that has had a version yanked recently](https://github.com/rubygems/bundler/pull/6675).
 
 On top of that code work, we also added two new contributors to [the Bundler team](https://bundler.io/contributors.html)! Welcome to [Stephanie Morillo](https://www.twitter.com/radiomorillo) and [Grey Baker](https://twitter.com/greybaker).
 

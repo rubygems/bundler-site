@@ -29,8 +29,8 @@ def render_whats_new(full_version)
   rubygems_version = Gem::Version.new(version).segments.map.with_index {|segment, i| i == 0 ? segment + 1 : segment }.join(".")
   date_slug = Date.today.strftime("%Y/%m/%d")
 
-  template = Pathname.new("../templates/whats_new.html.haml.erb").expand_path(__dir__)
+  template = Pathname.new("../templates/whats_new.html.md.erb").expand_path(__dir__)
   renderer = ERB.new(template.read)
-  whats_new = Pathname.new("../../source/#{full_version}/whats_new.html.haml").expand_path(__dir__)
+  whats_new = Pathname.new("../../source/#{full_version}/whats_new.html.md").expand_path(__dir__)
   File.write whats_new.to_s, renderer.result(binding)
 end

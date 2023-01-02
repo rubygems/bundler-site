@@ -161,7 +161,7 @@ GEM
       ffi (~> 1.0)
     regexp_parser (2.6.1)
     rexml (3.2.5)
-    rgl (0.5.9)
+    rgl (0.5.10)
       pairing_heap (>= 0.3.0)
       rexml (~> 3.2, >= 3.2.4)
       stream (~> 0.5.3)

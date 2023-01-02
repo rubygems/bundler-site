@@ -16,9 +16,9 @@ along this path.
 Related reading:
 
 * [Creating a gem with a C
-  extension](http://guides.rubygems.org/gems-with-extensions/)
+  extension](https://guides.rubygems.org/gems-with-extensions/)
 * [Common practices for developing
-  gems](http://guides.rubygems.org/patterns/)
+  gems](https://guides.rubygems.org/patterns/)
 
 ## But first, why?
 
@@ -49,7 +49,7 @@ We call our gem `foodie` because this gem is going to do a couple of things arou
 portraying them as either "Delicious!" or "Gross!". Stay tuned.
 
 For information on gem naming conventions, you can read the &ldquo;[Name Your
-Gem](http://guides.rubygems.org/name-your-gem/)&rdquo; guide on the RubyGems website.
+Gem](https://guides.rubygems.org/name-your-gem/)&rdquo; guide on the RubyGems website.
 
 This command creates a [scaffold directory](https://github.com/radar/guides/tree/master/gem-scaffold/foodie)
 for our new gem and, if we have

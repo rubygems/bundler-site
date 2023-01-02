@@ -131,6 +131,11 @@ end
   redirect "v1.15/guides/#{filename}.html", to: "guides/#{filename}.html"
 end
 
+# Redirect es versioned-guides (which are not localizable) on v1.15 to version-independent guides
+%w[bundler_setup bundler_sharing].each do |filename|
+  redirect "es/v1.15/guides/#{filename}.html", to: "es/guides/#{filename}.html"
+end
+
 # Redirect versioned-guides (which are not localizable) between v1.16 and v2.3 to version-independent guides
 %w[1.16 1.17 2.0 2.1 2.2 2.3].each do |version|
   redirect "v#{version}/guides/bundler_docker_guide.html", to: "guides/bundler_docker_guide.html"

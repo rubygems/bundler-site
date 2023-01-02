@@ -110,12 +110,12 @@ end
   # Add the rule above here if you need it for v1.15 as well
   next if version == "1.15"
 
-  %w[faq git].each do |filename|
+  %w[git].each do |filename|
     redirect "v#{version}/#{filename}.html", to: "v1.15/guides/#{filename}.html"
   end
 
   # Redirect versioned-guides (which are not localizable) on v1.12-v1.14 to version-independent guides
-  %w[bundler_setup bundler_sharing deploying git_bisect groups rails sinatra updating_gems].each do |filename|
+  %w[bundler_setup bundler_sharing deploying faq git_bisect groups rails sinatra updating_gems].each do |filename|
     redirect "v#{version}/#{filename}.html", to: "guides/#{filename}.html"
   end
 
@@ -130,7 +130,7 @@ end
 end
 
 # Redirect versioned-guides (which are not localizable) on v1.15 and below to version-independent guides
-%w[bundler_setup bundler_sharing deploying git_bisect groups rails sinatra updating_gems].each do |filename|
+%w[bundler_setup bundler_sharing deploying faq git_bisect groups rails sinatra updating_gems].each do |filename|
   redirect "v1.15/guides/#{filename}.html", to: "guides/#{filename}.html"
 end
 

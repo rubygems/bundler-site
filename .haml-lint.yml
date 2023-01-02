@@ -1,13 +1,6 @@
 skip_frontmatter: true
 
 linters:
-  IdNames:
-    exclude:
-      - "source/guides/bundler_plugins.html.haml"
-      - "source/guides/bundler_workflow.html.haml"
-      - "source/guides/rails.html.haml"
-      - "source/v1.15/guides/rails.html.haml"
-
   InlineStyles:
     exclude:
       - "source/contributors.html.haml"

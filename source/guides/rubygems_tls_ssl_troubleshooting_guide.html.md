@@ -148,7 +148,7 @@ users all around the world download gems really quickly.
 
 Last year, Fastly announced it will deprecate TLS versions 1.0 and 1.1 due to a mandate
 published by the PCI Security Standard Council.
-([Read more about this in Fastly’s blog post.](https://www.fastly.com/blog/phase-two-our-tls-10-and-11-deprecation-plan))
+([Read more about this in Fastly’s blog post.](https://www.fastly.com/blog/update-our-tls-10-and-11-deprecation-plan))
 
 As a result, RubyGems.org will require TLSv1.2 at minimum starting January 2018. This means
 RubyGems.org and the `gem` command will no longer support versions of Ruby and OpenSSL that are

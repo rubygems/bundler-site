@@ -127,7 +127,7 @@ end
 end
 
 # Redirect versioned-guides (which are not localizable) on v1.15 and below to version-independent guides
-%w[bundler_setup bundler_sharing deploying faq git git_bisect groups rails sinatra updating_gems].each do |filename|
+%w[bundler_setup bundler_sharing deploying faq git git_bisect groups rails rubygems_tls_ssl_troubleshooting_guide sinatra updating_gems].each do |filename|
   redirect "v1.15/guides/#{filename}.html", to: "guides/#{filename}.html"
 end
 

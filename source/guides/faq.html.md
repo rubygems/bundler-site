@@ -123,7 +123,7 @@ as necessary.
 **Q**:  I do not have an internet connection but I have installed the gem before.
 How do I get bundler to use my local gem cache and not connect to the gem server?
 
-**A**: Use the --local flag with bundle install. The --local flag tells bundler
+**A**: Use the `--local` flag with bundle install. The `--local` flag tells bundler
 to use the local gem cache instead of reaching out to the remote gem server.
 
 ~~~

@@ -10,7 +10,7 @@ Bundler is an exit from dependency hell, and ensures that the gems
 you need are present in development, staging, and production.
 Starting work on a project is as simple as `bundle install`.
 
-<a href="../whats_new.html" class="btn btn-primary">What's new in Bundler</a>
+<a href="../v2.4/whats_new.html" class="btn btn-primary">What's new in Bundler</a>
 <a href="./rationale.html" class="btn btn-primary">Why Bundler exists</a>
 
 ## Getting Started

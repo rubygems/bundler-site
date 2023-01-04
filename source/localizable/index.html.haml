@@ -13,7 +13,7 @@
 
   .d-grid.d-md-flex.gap-2.mx-auto.my-md-4.justify-content-md-center
     = link_to t('home.what_can_bundler_do'), "/guides/getting_started.html#getting-started", class: 'btn btn-primary btn-lg'
-    = link_to "#{t("home.new_in")} #{current_version}", '/whats_new.html', class: 'btn btn-primary btn-lg'
+    = link_to "#{t("home.new_in")} #{current_version}", "/#{current_version}/whats_new.html", class: 'btn btn-primary btn-lg'
     = link_to t('home.cli_docs'), "/#{current_version}/man/bundle-install.1.html", class: 'btn btn-primary btn-lg'
     = link_to t('home.chat_with_us'), 'https://slack.bundler.io', class: 'btn btn-primary btn-lg'
 

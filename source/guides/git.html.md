@@ -13,6 +13,7 @@ a gem using git is as easy as adding a gem to your Gemfile.
 Note that because RubyGems lacks the ability to handle gems from git, any gems
 installed from a git repository will not show up in `gem list`.
 They will, however, be available after running `Bundler.setup`.
+
 Specify that a gem should come from a git
 repository with a .gemspec at its root
 
@@ -120,11 +121,12 @@ gem 'my_gist', gist: '4815162342'
 The `:github` shortcut used above is one of Bundler's built in git sources. Bundler comes
 with shortcuts for `:github`, `:gist`, and `:bitbucket`, but you can
 also add your own.
+
 If you're using Github Enterprise, Stash, or just have a custom git setup, create your own shortcuts
 by calling `git_source` before you use your custom option. Here's an example for Stash:
 
 ~~~ruby
-git_source(:stash){ |repo_name| "https://stash.corp.acme.pl/\#{repo_name}.git" }
+git_source(:stash){ |repo_name| "https://stash.corp.acme.pl/#{repo_name}.git" }
 gem 'rails', stash: 'forks/rails'
 ~~~
 

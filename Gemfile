@@ -7,11 +7,11 @@ gem "middleman", github: "middleman/middleman", ref: "50f76c2984c4f82b243b0a5e3f
 ## Extensions
 gem "middleman-blog"
 gem "middleman-search", github: "tnir/middleman-search", branch: "edge" # https://github.com/manastech/middleman-search/pull/39
-gem "middleman-syntax"
+gem "middleman-syntax", github: "tnir/middleman-syntax", branch: "haml-6.x" # https://github.com/middleman/middleman-syntax/pull/81
 
 ## Template engines
 gem "builder"
-gem "haml", "~> 5.2.2"
+gem "haml", ">= 6.0.0.beta.2"
 gem "kramdown"
 
 # Rake tasks

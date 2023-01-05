@@ -84,12 +84,11 @@ extension and the _.bundle_ directory.
 where we provide information for Rubygems' consumption such as the name, description and homepage 
 of our gem. This is also where we specify the dependencies our gem needs to run.
     * Fields to complete:
-      * *summary:* A short summary of your gem's description.
-      * *description (optional):* A long description of your gem. The description should be more detailed than the summary but not excessively long. A few paragraphs is a recommended length with no examples or formatting.
-      * *homepage:* The URL of your gem's home page, it can be the URL of its website or public repo
-      * *metadata["allowed_push_host"]:* The field allows you to restrict gem pushes to a single host. If you are not running your own gem server you should comment this line, otherwise you will not be able to push your gem to rubygems.org.
-      * *metadata["source_code_uri"]:* The URL of your gem's public repo
-      * *metadata["changelog_uri"]:* The URL of your gem's CHANGELOG.md
+      * `description (optional):` A long description of your gem. The description should be more detailed than the summary but not excessively long. A few paragraphs is a recommended length with no examples or formatting.
+      * `homepage:` The URL of your gem's home page, it can be the URL of its website or public repo.
+      * `metadata["allowed_push_host"]:` The field allows you to restrict gem pushes to a single host. If you are not running your own gem server you should comment this line, otherwise you will not be able to push your gem to rubygems.org.
+      * `metadata["source_code_uri"]:` The URL of your gem's public repo.
+      * `metadata["changelog_uri"]:` The URL of your gem's CHANGELOG.
 
  * **lib/foodie.rb**: The main file to define our gem's
 code. This is the file that will be required by Bundler (or any similarly smart system) when our 

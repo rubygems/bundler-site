@@ -68,7 +68,6 @@ control the groups that are loaded by
 and `BUNDLE_WITHOUT` configurations.
 
 ~~~ruby
-require 'rubygems'
 require 'bundler'
 Bundler.setup(:default, :ci)
 require 'nokogiri'

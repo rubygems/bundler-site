@@ -7,7 +7,6 @@ Configure the load path so all dependencies in
 your Gemfile can be required
 
 ~~~ruby
-require 'rubygems'
 require 'bundler/setup'
 require 'nokogiri'
 ~~~
@@ -17,7 +16,6 @@ load path. If you want the gems in the
 default group, make sure to include it
 
 ~~~ruby
-require 'rubygems'
 require 'bundler'
 Bundler.setup(:default, :ci)
 require 'nokogiri'
@@ -43,14 +41,12 @@ application loads (for Sinatra, the file that calls `require 'sinatra'`), put
 the following code:
 
 ~~~ruby
-require 'rubygems'
 require 'bundler/setup'
 ~~~
 
 This will automatically discover your `Gemfile` and make all of the gems in
 your `Gemfile` available to Ruby (in technical terms, it puts the gems "on the
-load path"). You can think of it as adding some extra powers to `require
-'rubygems'`.
+load path").
 
 Now that your code is available to Ruby, you can require the gems that you need. For
 instance, you can `require 'sinatra'`. If you have a lot of dependencies, you

@@ -7,7 +7,6 @@ Configure la ruta de carga para que todas las dependencias en
 su Gemfile puedan ser requerídas
 
 ~~~ruby
-require 'rubygems'
 require 'bundler/setup'
 require 'nokogiri'
 ~~~
@@ -17,7 +16,6 @@ a la ruta de carga. Si quiere usar las gemas en el grupo
 por defecto, inclúyalo
 
 ~~~ruby
-require 'rubygems'
 require 'bundler'
 Bundler.setup(:default, :ci)
 require 'nokogiri'
@@ -43,14 +41,12 @@ que su aplicación carga (para Sinatra, el archivo que contiene `require 'sinatr
 ponga el código siguiente:
 
 ~~~ruby
-require 'rubygems'
 require 'bundler/setup'
 ~~~
 
 Esto automáticamente lee su `Gemfile`, y hace que todas
 las gemas en él estén disponibles para Ruby (en terminos
-técnicos, pone las gemas en "la ruta de carga"). Puede pensarlo
-como una manera de agregar superpoderes extra a `require 'rubygems'`.
+técnicos, pone las gemas en "la ruta de carga").
 
 Ahora que su código está disponible para Ruby, puede requerir
 las gemas que necesite. Por ejemplo, puede usar el código `require 'sinatra'`.

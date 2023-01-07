@@ -103,6 +103,9 @@ GEM
     hashie (5.0.0)
     i18n (1.12.0)
       concurrent-ruby (~> 1.0)
+    io-console (0.6.0)
+    irb (1.6.2)
+      reline (>= 0.3.0)
     json (2.6.3)
     kramdown (2.4.0)
       rexml
@@ -160,6 +163,8 @@ GEM
     rb-inotify (0.10.1)
       ffi (~> 1.0)
     regexp_parser (2.6.1)
+    reline (0.3.2)
+      io-console (~> 0.5)
     rexml (3.2.5)
     rgl (0.5.10)
       pairing_heap (>= 0.3.0)
@@ -212,6 +217,7 @@ DEPENDENCIES
   faraday-retry (~> 2.0)
   haml (~> 5.2.2)
   haml_lint (~> 0.43)
+  irb
   kramdown
   middleman!
   middleman-blog
@@ -219,7 +225,6 @@ DEPENDENCIES
   middleman-syntax
   nokogiri (~> 1.13)
   octokit (~> 6.0)
-  pry
   pry-byebug
   rake
   ronn-ng!

@@ -25,7 +25,7 @@ gem "ronn-ng", github: "apjanke/ronn-ng"
 gem "nokogiri", "~> 1.13"
 
 group :development do
-  gem "pry"
+  gem "irb"
   gem "pry-byebug"
 
   gem "haml_lint", "~> 0.43"

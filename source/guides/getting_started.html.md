@@ -48,7 +48,6 @@ the same third-party code that you are using now.
 Inside your app, load up the bundled environment:
 
 ~~~ruby
-require 'rubygems'
 require 'bundler/setup'
 
 # require your gems as usual

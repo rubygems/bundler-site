@@ -96,7 +96,6 @@ application loads (for Sinatra, the file that calls `require 'sinatra'`), put
 the following code:
 
 ~~~ruby
-require 'rubygems'
 require 'bundler/setup'
 ~~~
 

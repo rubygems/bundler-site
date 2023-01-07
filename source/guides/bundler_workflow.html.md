@@ -183,7 +183,6 @@ $ bundle update
 Inside your app, load up the bundled environment:
 
 ~~~ruby
-require 'rubygems'
 require 'bundler/setup'
 
 # require your gems as usual

@@ -26,7 +26,7 @@ Specify your dependencies in a Gemfile in your project's root:
 ~~~ruby
 source 'https://rubygems.org'
 gem 'nokogiri'
-gem 'rack](~> 2.2.4'
+gem 'rack', '~> 2.2.4'
 gem 'rspec'
 ~~~
 

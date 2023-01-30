@@ -92,7 +92,7 @@ GEM
     haml (5.2.2)
       temple (>= 0.8.0)
       tilt
-    haml_lint (0.43.0)
+    haml_lint (0.45.0)
       haml (>= 4.0, < 6.2)
       parallel (~> 1.10)
       rainbow
@@ -166,7 +166,7 @@ GEM
     rb-fsevent (0.11.2)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
-    regexp_parser (2.6.1)
+    regexp_parser (2.6.2)
     reline (0.3.2)
       io-console (~> 0.5)
     rexml (3.2.5)
@@ -199,7 +199,7 @@ GEM
     servolux (0.13.0)
     stream (0.5.5)
     sysexits (1.2.0)
-    temple (0.9.1)
+    temple (0.10.0)
     terser (1.1.13)
       execjs (>= 0.3.0, < 3)
     thor (1.2.1)
@@ -220,7 +220,7 @@ DEPENDENCIES
   builder
   faraday-retry (~> 2.0)
   haml (~> 5.2.2)
-  haml_lint (~> 0.43)
+  haml_lint (~> 0.45)
   irb
   kramdown
   middleman!

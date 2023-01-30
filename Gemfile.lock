@@ -1,8 +1,8 @@
 GIT
   remote: https://github.com/apjanke/ronn-ng.git
-  revision: fb0a11ccec49d951572d87c19b83ebab55adde6d
+  revision: a489599d0e622b448615fe348245b74e0711e3f0
   specs:
-    ronn-ng (0.10.1.pre2)
+    ronn-ng (0.10.1.pre3)
       kramdown (~> 2.1)
       kramdown-parser-gfm (>= 1.0.1, < 1.2)
       mustache (~> 1.0)

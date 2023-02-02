@@ -1,6 +1,6 @@
 # What's New in v2.4
 
-The [Bundler 2.4 announcement](/blog/2022/12/22/bundler-v2-4.html)
+The [Bundler 2.4 announcement](/blog/2023/01/31/bundler-v2-4.html)
 includes context and a more detailed explanation of the changes in this version. This is a summary of the biggest changes. As always, a detailed list of every change is provided in
 [the changelog](https://github.com/rubygems/rubygems/blob/3.4/bundler/CHANGELOG.md).
 

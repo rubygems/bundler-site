@@ -120,7 +120,7 @@ with very big repositories.
 We have improved the way we clone these repositories to be faster and use less
 disk space. For example, something like
 
-```ruby
+```
 gem "rails", github: "rails/rails"
 ```
 

@@ -37,7 +37,7 @@ jobs:
       # cf. https://github.com/actions/starter-workflows/blob/4a8f18e34dd13d2b6ee4d8da2ba72629eafe1609/pages/jekyll.yml
       - name: Setup Pages
         id: pages
-        uses: actions/configure-pages@v2
+        uses: actions/configure-pages@v3
 
       - name: Build site
         run: bundle exec rake build # Output to ./_site as build_dir is configured in config.rb

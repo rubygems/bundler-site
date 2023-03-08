@@ -3,33 +3,11 @@ title: Bundler compatibility with Ruby
 description: Ruby and RubyGems requirements needed for Bundler compatibility
 ---
 
-%h2 Bundler compatibility with Ruby
+%h2 Bundler compatibility with Ruby & RubyGems
 
 %p.contents
   The latest Bundler release should always support, at the very least, all
   rubies that have not yet reached their End of Life date.
-
-.contents
-  .bullet
-    .description
-      Bundler <b>2.4</b> or higher
-    .notes
-      %ul
-        %li requires a minimum ruby version of <b>2.6.0</b>.
-
-    .description
-      Bundler <b>2.0</b> through <b>2.3</b>
-    .notes
-      %ul
-        %li requires a minimum ruby version of <b>2.3.0</b>.
-
-    .description
-      Bundler <b>1</b>
-    .notes
-      %ul
-        %li Requires a minimum Ruby version of <b>1.8.7</b>.
-
-%h2 Bundler compatibility with RubyGems
 
 %p.contents
   The latest Bundler release should always support all RubyGems versions higher
@@ -37,22 +15,25 @@ description: Ruby and RubyGems requirements needed for Bundler compatibility
   RubyGems is not allowed to be downgraded further than that, so upgrading or
   downgrading RubyGems should not affect Bundler.
 
+%p.contents
+  That effectively comes down to the following:
+
 .contents
   .bullet
     .description
       Bundler <b>2.4</b> or higher
     .notes
       %ul
-        %li Requires a minimum RubyGems version of <b>3.0.1</b>.
+        %li requires a minimum ruby version of <b>2.6.0</b>, and a minimum RubyGems version of <b>3.0.1</b> (version of RubyGems shipped with ruby <b>2.6.0</b>).
 
     .description
       Bundler <b>2.0</b> through <b>2.3</b>
     .notes
       %ul
-        %li Requires a minimum RubyGems version of <b>2.5</b>, since that's the version of RubyGems included with Ruby <b>2.3.0</b>.
+        %li requires a minimum ruby version of <b>2.3.0</b>, and a minimum RubyGems version of <b>2.5</b> (version of RubyGems shipped with ruby <b>2.3.0</b>).
 
-  .bullet
     .description
       Bundler <b>1</b>
+    .notes
       %ul
-        %li Requires a minimum RubyGems version of <b>1.3.6</b>.
+        %li Requires a minimum Ruby version of <b>1.8.7</b>, and a minimum RubyGems version of <b>1.3.6</b> (version of RubyGems shipped with ruby <b>1.8.7</b>).

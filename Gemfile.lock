@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/apjanke/ronn-ng.git
-  revision: a489599d0e622b448615fe348245b74e0711e3f0
+  revision: 1dc589a60d48a753519b1eb6f6f71f47657d2c77
   specs:
     ronn-ng (0.10.1.pre3)
       kramdown (~> 2.1)

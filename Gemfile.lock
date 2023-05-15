@@ -149,7 +149,7 @@ GEM
     padrino-support (0.15.2)
     pairing_heap (0.3.0)
     parallel (1.23.0)
-    parser (3.2.2.1)
+    parser (3.2.2.0)
       ast (~> 2.4.1)
     parslet (2.0.0)
     pry (0.14.1)

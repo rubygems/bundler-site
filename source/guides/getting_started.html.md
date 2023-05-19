@@ -16,9 +16,9 @@ Starting work on a project is as simple as `bundle install`.
 ## Getting Started
 <a name="getting-started"></a>
 
-This guide assumes that you have both [Ruby](https://www.ruby-lang.org/en/downloads/)
-and [RubyGems](https://rubygems.org/pages/download) installed. If you do not have Ruby
-and RubyGems installed, do that first and then check back here!
+This guide assumes that you have [Ruby](https://www.ruby-lang.org/en/downloads/)
+installed. If you do not have Ruby installed, do that first and then check back here!
+Any modern distribution of Ruby comes with Bundler preinstalled by default.
 
 Getting started with bundler is easy!
 Specify your dependencies in a Gemfile in your project's root:

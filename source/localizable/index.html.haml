@@ -35,7 +35,13 @@
     .large-font.mt-4
       .bullet
         .description
+          %p
+            This guide assumes that you have #{link_to 'Ruby', 'https://www.ruby-lang.org/en/downloads/'}
+            installed. If you do not have Ruby installed, do that first and then check back here!
+            Any modern distribution of Ruby comes with Bundler preinstalled by default.
+
           %p= t('home.getting_started_description')
+
         :code
           # lang: ruby
           source 'https://rubygems.org'

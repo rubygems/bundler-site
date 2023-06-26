@@ -92,11 +92,11 @@ GEM
     haml (5.2.2)
       temple (>= 0.8.0)
       tilt
-    haml_lint (0.45.0)
+    haml_lint (0.46.0)
       haml (>= 4.0, < 6.2)
       parallel (~> 1.10)
       rainbow
-      rubocop (>= 0.50.0)
+      rubocop (>= 1.0)
       sysexits (~> 1.1)
     hamster (3.0.0)
       concurrent-ruby (~> 1.0)
@@ -202,7 +202,7 @@ GEM
     servolux (0.13.0)
     stream (0.5.5)
     sysexits (1.2.0)
-    temple (0.10.0)
+    temple (0.10.2)
     terser (1.1.13)
       execjs (>= 0.3.0, < 3)
     thor (1.2.1)
@@ -223,7 +223,7 @@ DEPENDENCIES
   builder
   faraday-retry (~> 2.2)
   haml (~> 5.2.2)
-  haml_lint (~> 0.45)
+  haml_lint (~> 0.46)
   irb
   kramdown
   middleman!

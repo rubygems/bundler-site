@@ -164,7 +164,7 @@ gem 'rack', github: 'rack/rack', branch: 'master'
 
 Now instead of checking out the remote git repository, the local
 override will be used. Similar to a path source, every time the local
-git repository change, changes will be automatically picked up by
+git repository changes, the changes will be automatically picked up by
 Bundler. This means a commit in the local git repo will update the
 revision in the `Gemfile.lock` to the local git repo revision. This
 requires the same attention as git submodules. Before pushing to

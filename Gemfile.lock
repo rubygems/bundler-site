@@ -93,7 +93,7 @@ GEM
     haml (5.2.2)
       temple (>= 0.8.0)
       tilt
-    haml_lint (0.49.3)
+    haml_lint (0.50.0)
       haml (>= 4.0, < 6.2)
       parallel (~> 1.10)
       rainbow
@@ -225,7 +225,7 @@ DEPENDENCIES
   builder
   faraday-retry (~> 2.2)
   haml (~> 5.2.2)
-  haml_lint (~> 0.49)
+  haml_lint (~> 0.50)
   irb
   kramdown
   middleman!

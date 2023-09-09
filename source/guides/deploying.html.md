@@ -116,7 +116,7 @@ As a result, bundler comes with a `--deployment` flag that encapsulates the
 best practices for using bundler in a deployment environment. These practices are based
 on significant feedback we have received during the development of bundler, as well as a
 number of bug reports that mostly reflected a misunderstanding of how to best configure
-bundler for deployment. The `--deployment` flags adds the following defaults:
+bundler for deployment. The `--deployment` flag adds the following defaults:
 
 - Instead of installing gems to the system location, bundler will install gems to
 `vendor/bundle` inside your application. Bundler will transparently remember

@@ -8,7 +8,7 @@ jobs:
   lint:
     runs-on: ubuntu-22.04
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
@@ -24,7 +24,7 @@ jobs:
   prettier:
     runs-on: ubuntu-22.04
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: actions/setup-node@v3
         with:
           node-version: 18

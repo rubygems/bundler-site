@@ -18,7 +18,7 @@ gem "kramdown"
 gem "rake"
 ## To retrieve a list of contributors from GitHub
 gem "faraday-retry", "~> 2.2"
-gem "octokit", "~> 7.1"
+gem "octokit", "~> 7.2"
 ## To generate ERB files from ronn files from rubygems/rubygems
 gem "ronn-ng", github: "apjanke/ronn-ng"
 ## To strip (man:strip_pages)

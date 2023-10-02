@@ -183,7 +183,7 @@ GEM
       rexml (~> 3.2, >= 3.2.4)
       stream (~> 0.5.3)
     rouge (3.30.0)
-    rubocop (1.56.3)
+    rubocop (1.56.4)
       base64 (~> 0.1.1)
       json (~> 2.3)
       language_server-protocol (>= 3.17.0)
@@ -219,7 +219,7 @@ GEM
       parslet (>= 1.8.0, < 3.0.0)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
-    unicode-display_width (2.4.2)
+    unicode-display_width (2.5.0)
     webrick (1.7.0)
 
 PLATFORMS

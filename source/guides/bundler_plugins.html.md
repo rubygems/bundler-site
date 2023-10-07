@@ -182,7 +182,7 @@ Although plugins can be installed from a git branch, it's recommended to install
 Here are a few plugins that you can use as examples and inspiration:
 
 - For a plugin that adds a command, take a look at
-[rubysec/bundler-audit](https://github.com/rubysec/bundler-audit)
+[rubygems/bundler-graph](https://github.com/rubygems/bundler-graph)
 - For a plugin that makes use of hooks, take a look at
 [jules2689/extended_bundler-errors](https://github.com/jules2689/extended_bundler-errors)
 - For an example of source plugin, take a look at Bundler's implementations for
@@ -190,3 +190,5 @@ Here are a few plugins that you can use as examples and inspiration:
 [the git source,](https://github.com/rubygems/rubygems/blob/master/bundler/lib/bundler/source/git.rb)
 and
 [the path source](https://github.com/rubygems/rubygems/blob/master/bundler/lib/bundler/source/path.rb)
+
+You can also look at the [full list of bundler plugins](./plugins.html).

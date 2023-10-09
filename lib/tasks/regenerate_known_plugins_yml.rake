@@ -10,11 +10,12 @@ task :regenerate_known_plugins_yml do
     extended_bundler-errors
   ]
   skipped_gems = %w[
+    bundler-explain
+    bundler-fast_git
     bundler-interactive source-does-not-exist yanked-all-but-last
     bundler-next
     bundler-security
-    bundler-explain
-    bundler-fast_git
+    bundler-shellsplit-plugin
   ]
 
   rubygems = Gem::Source.new("https://rubygems.org")

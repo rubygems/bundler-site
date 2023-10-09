@@ -13,6 +13,8 @@ task :regenerate_known_plugins_yml do
     bundler-interactive source-does-not-exist yanked-all-but-last
     bundler-next
     bundler-security
+    bundler-explain
+    bundler-fast_git
   ]
 
   rubygems = Gem::Source.new("https://rubygems.org")

@@ -28,12 +28,6 @@
 - :name: bundler-ecology
   :summary: Bundler plugin to avoid installing unwanted gems
   :uri: https://github.com/eco-rb/bundler-ecology
-- :name: bundler-explain
-  :summary: Explains bundle update conflicts
-  :uri: https://github.com/jhawthorn/bundler-explain
-- :name: bundler-fast_git
-  :summary: Make bundler git source faster
-  :uri: https://github.com/mtsmfm/bundler-fast_git
 - :name: bundler-graph
   :summary: Generates a visual dependency graph for your Gemfile
   :uri: https://github.com/rubygems/bundler-graph

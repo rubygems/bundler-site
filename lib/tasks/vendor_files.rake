@@ -14,6 +14,8 @@ RELATIVE_LINK_REGEX = %r{
 def new_link(file, link)
   if link.end_with?("CODE_OF_CONDUCT.md")
     "conduct" # Special case we manually write
+  elsif link.end_with?("CHANGELOG.md")
+    "changelog" # Special case we manually write
   elsif link.start_with?("mailto:") || link.start_with?("http")
     link
   else
@@ -65,5 +67,6 @@ task repo_pages: :update_vendor do
     end
 
     write_file("../CODE_OF_CONDUCT.md", File.expand_path("./conduct.html.md", source_dir))
+    write_file("../CHANGELOG.md", File.expand_path("./changelog.html.md", source_dir))
   end
 end

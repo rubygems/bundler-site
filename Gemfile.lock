@@ -94,8 +94,8 @@ GEM
     haml (5.2.2)
       temple (>= 0.8.0)
       tilt
-    haml_lint (0.50.0)
-      haml (>= 4.0, < 6.2)
+    haml_lint (0.51.0)
+      haml (>= 4.0)
       parallel (~> 1.10)
       rainbow
       rubocop (>= 1.0)
@@ -153,7 +153,7 @@ GEM
     padrino-support (0.15.2)
     pairing_heap (0.3.0)
     parallel (1.23.0)
-    parser (3.2.2.3)
+    parser (3.2.2.4)
       ast (~> 2.4.1)
       racc
     parslet (2.0.0)
@@ -211,7 +211,7 @@ GEM
     stream (0.5.5)
     stringio (3.0.8)
     sysexits (1.2.0)
-    temple (0.10.2)
+    temple (0.10.3)
     terser (1.1.13)
       execjs (>= 0.3.0, < 3)
     thor (1.2.1)
@@ -232,7 +232,7 @@ DEPENDENCIES
   builder
   faraday-retry (~> 2.2)
   haml (~> 5.2.2)
-  haml_lint (~> 0.50)
+  haml_lint (~> 0.51)
   irb
   kramdown
   middleman!

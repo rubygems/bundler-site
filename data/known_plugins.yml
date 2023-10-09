@@ -57,10 +57,6 @@
   :summary: A Bundler plugin that installs gems in an additional private Gemfile after
     bundle install.
   :uri: https://github.com/fphilipe/bundler-private_install
-- :name: bundler-shellsplit-plugin
-  :summary: Plugin to fix shell splitting of bundle config arguments in Bundler 1.17.3
-    to Bundler 2.0.2, fixed in Bundler 2.1.0.
-  :uri: https://github.com/wovnio/bundler-shellsplit-plugin
 - :name: bundler-source-aws-s3
   :summary: Add aws-s3 source to bundler via plugin.
   :uri: https://github.com/eki/bundler-source-aws-s3

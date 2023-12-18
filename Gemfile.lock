@@ -179,7 +179,7 @@ GEM
       rexml (~> 3.2, >= 3.2.4)
       stream (~> 0.5.3)
     rouge (3.30.0)
-    rubocop (1.58.0)
+    rubocop (1.59.0)
       json (~> 2.3)
       language_server-protocol (>= 3.17.0)
       parallel (~> 1.10)

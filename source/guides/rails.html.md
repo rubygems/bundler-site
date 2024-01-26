@@ -16,6 +16,7 @@ $ gem install rails
 We recommend using rvm for dependable Ruby
 installations, especially if you are switching
 between different versions of Ruby
+
 Generate a Rails app as usual
 
 ~~~

@@ -21,6 +21,18 @@ It's also possible to restrict the patchlevel of the Ruby used by doing the foll
 ruby '1.9.3', :patchlevel => '448'
 ~~~
 
+If you wish to derive your Ruby version from a version file (i.e. `.ruby-version`),
+you can use the `file` option instead.
+
+~~~ruby
+ruby file: ".ruby-version"
+~~~
+
+The version file should conform to any of the following formats:
+
+- `3.1.2` (`.ruby-version`)
+- `ruby 3.1.2` ([`.tool-versions`](https://asdf-vm.com/manage/configuration.html#tool-versions))
+
 Bundler will make checks against the current running Ruby VM to make sure it matches what is specified in the `Gemfile`. If things don't match, Bundler will raise an Exception explaining what doesn't match.
 
 ~~~

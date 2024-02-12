@@ -27,7 +27,7 @@
   "devDependencies": {
     "css-loader": "^6.10.0",
     "mini-css-extract-plugin": "^2.7.7",
-    "prettier": "3.2.4",
+    "prettier": "3.2.5",
     "sass": "^1.70.0",
     "sass-loader": "^13.3.3",
     "style-loader": "^3.3.4",

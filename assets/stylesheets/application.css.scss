@@ -10,8 +10,8 @@ $navbar-height: 50px;
 }
 
 // Boostrap 5 customization
-// Document: https://getbootstrap.com/docs/5.2/customize/sass/#importing
-// List of SCSS to load: https://github.com/twbs/bootstrap/blob/v5.2.0/scss/bootstrap.scss
+// Document: https://getbootstrap.com/docs/5.3/customize/sass/#importing
+// List of SCSS to load: https://github.com/twbs/bootstrap/blob/v5.3.3/scss/bootstrap.scss
 @import "~bootstrap/scss/functions";
 
 pre {
@@ -36,7 +36,7 @@ $icon-font-path: '~bootstrap/assets/fonts/bootstrap/';
 // Note: tables, dropdown, button-group, accordion, breadcrumb, pagination,
 // badge, alert, progress, list-group, close, toasts, modal, tooltip, carousel,
 // spinners, offcanvas, and placeholders were excluded as they are not used as
-// of Bootstrap 5.2.0
+// of Bootstrap 5.3.3
 @import "~bootstrap/scss/root";
 @import "~bootstrap/scss/reboot";
 @import "~bootstrap/scss/type";
@@ -70,7 +70,7 @@ $icon-font-path: '~bootstrap/assets/fonts/bootstrap/';
 @import "anchorjs";
 @import "search";
 
-// More various utilities extended from Bootstrap 5.2
+// More various utilities extended from Bootstrap 5.3
 @import "opacity";
 
 .row:after {

@@ -29,7 +29,7 @@ gem 'cucumber', group: [:cucumber, :test]
 ~~~
 
 Configure bundler so that subsequent
-`bundle install` invokations will install
+`bundle install` invocations will install
 all gems, except those in the listed
 groups. Gems in at least one non-excluded
 group will still be installed.

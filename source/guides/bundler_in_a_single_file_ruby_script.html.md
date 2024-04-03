@@ -4,7 +4,7 @@ title: How to use Bundler in a single-file Ruby script
 
 # How to use Bundler in a single-file Ruby script
 
-To use Bundler in a single-file script, add `require 'bundler/inline' ` at the top of your Ruby file. Then, use the `gemfile` method to declare any gem sources and gems that you need. Here's an example:
+To use Bundler in a single-file script, add `require 'bundler/inline'` at the top of your Ruby file. Then, use the `gemfile` method to declare any gem sources and gems that you need. Here's an example:
 
 ~~~ ruby
 require 'bundler/inline'

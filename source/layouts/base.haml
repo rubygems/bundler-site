@@ -12,6 +12,10 @@
 
     = yield_content :head
 
+    - site_url = %w[es pl].include?(I18n.locale) ? "https://bundler.io/#{I18n.locale}/" : "https://bundler.io/"
+
+    %link{ rel: 'alternate', href: site_url, hreflang: I18n.locale }
+
     - if content_for?(:canonical)
       %link{ rel: "canonical", href: yield_content(:canonical) }
 

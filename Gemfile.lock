@@ -81,7 +81,7 @@ GEM
       ruby2_keywords
     erubis (2.7.0)
     execjs (2.9.1)
-    faraday (2.9.0)
+    faraday (2.9.1)
       faraday-net_http (>= 2.0, < 3.2)
     faraday-net_http (3.1.0)
       net-http
@@ -148,8 +148,7 @@ GEM
       kramdown-parser-gfm (>= 1.0.1, < 1.2)
       mustache (~> 1.0)
       nokogiri (~> 1.10, >= 1.10.10)
-    octokit (8.1.0)
-      base64
+    octokit (9.1.0)
       faraday (>= 1, < 3)
       sawyer (~> 0.9)
     oj (3.16.3)
@@ -173,7 +172,7 @@ GEM
       pry (>= 0.13, < 0.15)
     psych (5.1.2)
       stringio
-    public_suffix (5.0.4)
+    public_suffix (5.1.1)
     racc (1.8.0)
     rack (2.2.8.1)
     rainbow (3.1.1)
@@ -251,7 +250,7 @@ DEPENDENCIES
   middleman-syntax
   nokogiri (~> 1.16)
   nronn
-  octokit (~> 8.1)
+  octokit (~> 9.1)
   pry-byebug
   rake
   rubocop

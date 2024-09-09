@@ -28,7 +28,7 @@
     "css-loader": "^7.1.2",
     "mini-css-extract-plugin": "^2.9.1",
     "prettier": "3.3.3",
-    "sass": "^1.77.8",
+    "sass": "^1.78.0",
     "sass-loader": "^14.2.1",
     "style-loader": "^4.0.0",
     "webpack": "^5.94.0",

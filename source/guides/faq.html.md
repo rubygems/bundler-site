@@ -184,9 +184,7 @@ Instead of forcing every fresh checkout (and possible new
 contributor) to encounter broken builds, the Bundler team recommends
 either using a tool like [Dependabot](https://dependabot.com)
 to automatically create a PR and run the test suite any time
-your dependencies release new versions. You might need to keep 
-separate Gemfiles for different ruby versions for Dependabot dependency
-resolution to work accurately.
+your dependencies release new versions.
 If you don't want to use a dependency monitoring bot, we suggest
 creating an additional daily CI build that deletes the Gemfile.lock
 before running `bundle install`. That way you, and others monitoring

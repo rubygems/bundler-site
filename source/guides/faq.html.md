@@ -190,3 +190,5 @@ creating an additional daily CI build that deletes the Gemfile.lock
 before running `bundle install`. That way you, and others monitoring
 your CI status, will be the first to know about any failures from
 dependency changes.
+Finally, when publishing your gem, consider deleting and regenerating your Gemfile.lock with the latest
+dependencies just before running your tests.

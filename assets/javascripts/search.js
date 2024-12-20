@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     this.hidePopover = function () {
       const popover = Popover.getInstance(this.searchInput);
-      popover && popover.hide();
+      popover.hide();
       this.searchArrows.destroy();
     };
 

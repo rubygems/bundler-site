@@ -32,7 +32,7 @@ consider it compromised.
 
 Bundler 2.6 provides two ways of enabling checksums.
 
-* For a single lockfile, you can run `bundle lock --add-checkums`. This will add
+* For a single lockfile, you can run `bundle lock --add-checksums`. This will add
   a new `CHECKSUMS` section to the lockfile that Bundler will keep up to date.
 
 * To configure Bundler to always include checksums in new lockfiles, run `bundle

@@ -140,12 +140,12 @@ GEM
     mutex_m (0.2.0)
     net-http (0.4.1)
       uri
-    nokogiri (1.17.2)
+    nokogiri (1.18.1)
       mini_portile2 (~> 2.8.2)
       racc (~> 1.4)
-    nokogiri (1.17.2-arm64-darwin)
+    nokogiri (1.18.1-arm64-darwin)
       racc (~> 1.4)
-    nokogiri (1.17.2-x86_64-linux)
+    nokogiri (1.18.1-x86_64-linux-gnu)
       racc (~> 1.4)
     nronn (0.11.1)
       kramdown (~> 2.1)
@@ -252,7 +252,7 @@ DEPENDENCIES
   middleman-blog
   middleman-search!
   middleman-syntax
-  nokogiri (~> 1.17)
+  nokogiri (~> 1.18)
   nronn
   octokit (~> 9.2)
   pry-byebug

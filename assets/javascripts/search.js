@@ -46,13 +46,15 @@ document.addEventListener('DOMContentLoaded', function () {
 
     this.hidePopover = function () {
       const popover = Popover.getInstance(this.searchInput);
-      popover && popover.hide();
+      popover.hide();
+      popover._activeTrigger['hover'] = true;
       this.searchArrows.destroy();
     };
 
     this.showPopover = function (text) {
       this.popoverContent = this.generatePopoverContent(text);
       const popover = Popover.getInstance(this.searchInput);
+      popover._activeTrigger['hover'] = true;
       popover._disposePopper();
       popover.show();
       document.querySelector('.popover-body').innerHTML = this.popoverContent;

@@ -20,6 +20,12 @@ namespace :versions do
     render_whats_new(succ)
     puts "Creating announcement blog post..."
     sh "middleman article 'Bundler #{succ}'"
+    puts "Updating latest version symlinks..."
+    Dir.glob("source/#{succ}/man/*.html.erb") do |file|
+      url = file.delete_prefix("source/#{succ}/")
+      latest_man = "source/#{url}"
+      FileUtils.ln_sf Pathname.new(file).relative_path_from(File.dirname(latest_man)), latest_man
+    end
   end
 end
 

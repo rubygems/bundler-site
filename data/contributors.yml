@@ -23,14 +23,14 @@
   :commits: 303
   :href: https://github.com/bronzdoc
   :name: bronzdoc
-- :avatar_url: https://avatars.githubusercontent.com/u/193936?v=4&s=40
-  :commits: 285
-  :href: https://github.com/simi
-  :name: simi
 - :avatar_url: https://avatars.githubusercontent.com/in/29110?v=4&s=40
-  :commits: 283
+  :commits: 290
   :href: https://github.com/apps/dependabot
   :name: dependabot[bot]
+- :avatar_url: https://avatars.githubusercontent.com/u/193936?v=4&s=40
+  :commits: 287
+  :href: https://github.com/simi
+  :name: simi
 - :avatar_url: https://avatars.githubusercontent.com/u/237?v=4&s=40
   :commits: 278
   :href: https://github.com/chad
@@ -335,6 +335,10 @@
   :commits: 14
   :href: https://github.com/Shekharrajak
   :name: Shekharrajak
+- :avatar_url: https://avatars.githubusercontent.com/u/24788699?v=4&s=40
+  :commits: 14
+  :href: https://github.com/soda92
+  :name: soda92
 - :avatar_url: https://avatars.githubusercontent.com/u/174?v=4&s=40
   :commits: 14
   :href: https://github.com/wilson
@@ -415,10 +419,6 @@
   :commits: 11
   :href: https://github.com/ryanfox1985
   :name: ryanfox1985
-- :avatar_url: https://avatars.githubusercontent.com/u/24788699?v=4&s=40
-  :commits: 11
-  :href: https://github.com/soda92
-  :name: soda92
 - :avatar_url: https://avatars.githubusercontent.com/u/22021150?v=4&s=40
   :commits: 10
   :href: https://github.com/ankitkataria

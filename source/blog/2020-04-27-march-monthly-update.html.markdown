@@ -13,5 +13,5 @@ Not just the repositories have changed, either: the Bundler and RubyGems teams h
 From this point forward, Bundler news will be reported together with RubyGems news. Hooray! 🎉
 
 ---
-Interested in contributing to Bundler? We always welcome contributions in the forms of triaging bugs, adding new features, writing docs, and engaging with the wider community. Visit the [Bundler Contributor Guidelines](https://github.com/rubygems/rubygems/blob/master/bundler/doc/contributing/README.md) on GitHub to get started. Don’t have time to contribute, but want to support our work? Sign up as a member of [Ruby Together](https://rubytogether.org/) to help fund our work to keep Bundler working for everyone.
+Interested in contributing to Bundler? We always welcome contributions in the forms of triaging bugs, adding new features, writing docs, and engaging with the wider community. Visit the [Bundler Contributor Guidelines](https://github.com/rubygems/rubygems/blob/master/doc/bundler/contributing/README.md) on GitHub to get started. Don’t have time to contribute, but want to support our work? Sign up as a member of [Ruby Together](https://rubytogether.org/) to help fund our work to keep Bundler working for everyone.
 

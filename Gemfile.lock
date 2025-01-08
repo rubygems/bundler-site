@@ -1,6 +1,16 @@
 GIT
+  remote: https://github.com/middleman/middleman-blog.git
+  revision: f02c962a07a8a43f67e87ecf71e59698a8626b55
+  specs:
+    middleman-blog (4.0.3)
+      addressable (~> 2.3)
+      middleman-core (>= 4.0.0)
+      tzinfo (>= 0.3.0)
+
+GIT
   remote: https://github.com/middleman/middleman.git
-  revision: ee4460a59cb36d2b7b814f90da6c8585e4af8d3d
+  revision: fb05dd94ff6f1a74dc313aed4e623f18c1ea6cf7
+  ref: refs/pull/2777/head
   specs:
     middleman (4.5.1)
       middleman-cli (= 4.5.1)
@@ -27,10 +37,11 @@ GIT
       memoist (~> 0.14)
       padrino-helpers (~> 0.15.0)
       parallel
-      rack (>= 1.4.5, < 4)
+      rack (>= 3)
+      rackup
       sassc (~> 2.0)
       servolux
-      tilt (~> 2.0)
+      tilt (~> 2.2)
       toml
       uglifier (>= 3, < 5)
       webrick
@@ -75,23 +86,23 @@ GEM
       execjs
     coffee-script-source (1.12.2)
     concurrent-ruby (1.3.4)
-    connection_pool (2.4.1)
+    connection_pool (2.5.0)
     contracts (0.17.2)
     date (3.4.1)
     dotenv (3.1.7)
     drb (2.2.1)
     erubi (1.13.1)
-    execjs (2.9.1)
-    faraday (2.12.0)
-      faraday-net_http (>= 2.0, < 3.4)
+    execjs (2.10.0)
+    faraday (2.12.2)
+      faraday-net_http (>= 2.0, < 3.5)
       json
       logger
-    faraday-net_http (3.3.0)
-      net-http
+    faraday-net_http (3.4.0)
+      net-http (>= 0.5.0)
     faraday-retry (2.2.1)
       faraday (~> 2.0)
     fast_blank (1.0.1)
-    fastimage (2.3.1)
+    fastimage (2.4.0)
     ffi (1.17.1)
     ffi (1.17.1-arm64-darwin)
     ffi (1.17.1-x86_64-linux-gnu)
@@ -113,34 +124,30 @@ GEM
     irb (1.14.3)
       rdoc (>= 4.0.0)
       reline (>= 0.4.2)
-    json (2.9.0)
+    json (2.9.1)
     kramdown (2.5.1)
       rexml (>= 3.3.9)
     kramdown-parser-gfm (1.1.0)
       kramdown (~> 2.0)
     language_server-protocol (3.17.0.3)
-    libv8-node (18.16.0.0)
-    libv8-node (18.16.0.0-arm64-darwin)
-    libv8-node (18.16.0.0-x86_64-linux)
+    libv8-node (18.19.0.0)
+    libv8-node (18.19.0.0-arm64-darwin)
+    libv8-node (18.19.0.0-x86_64-linux)
     listen (3.9.0)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
-    logger (1.6.4)
+    logger (1.6.5)
     memoist (0.16.2)
-    method_source (1.0.0)
-    middleman-blog (4.0.3)
-      addressable (~> 2.3)
-      middleman-core (>= 4.0.0)
-      tzinfo (>= 0.3.0)
+    method_source (1.1.0)
     middleman-syntax (3.4.0)
       middleman-core (>= 3.2)
       rouge (~> 3.2)
     mini_portile2 (2.8.8)
-    mini_racer (0.8.0)
-      libv8-node (~> 18.16.0.0)
+    mini_racer (0.16.0)
+      libv8-node (~> 18.19.0.0)
     minitest (5.25.4)
     mustache (1.1.1)
-    net-http (0.4.1)
+    net-http (0.6.0)
       uri
     nokogiri (1.18.1)
       mini_portile2 (~> 2.8.2)
@@ -167,7 +174,7 @@ GEM
       ast (~> 2.4.1)
       racc
     parslet (2.0.0)
-    pry (0.14.1)
+    pry (0.14.2)
       coderay (~> 1.1)
       method_source (~> 1.0)
     pry-byebug (3.10.1)
@@ -178,7 +185,9 @@ GEM
       stringio
     public_suffix (6.0.1)
     racc (1.8.1)
-    rack (2.2.10)
+    rack (3.1.8)
+    rackup (2.2.1)
+      rack (>= 3)
     rainbow (3.1.1)
     rake (13.2.1)
     rb-fsevent (0.11.2)
@@ -186,12 +195,12 @@ GEM
       ffi (~> 1.0)
     rdoc (6.10.0)
       psych (>= 4.0.0)
-    regexp_parser (2.9.3)
+    regexp_parser (2.10.0)
     reline (0.6.0)
       io-console (~> 0.5)
     rexml (3.4.0)
     rouge (3.30.0)
-    rubocop (1.69.2)
+    rubocop (1.70.0)
       json (~> 2.3)
       language_server-protocol (>= 3.17.0)
       parallel (~> 1.10)
@@ -224,7 +233,7 @@ GEM
       concurrent-ruby (~> 1.0)
     uglifier (4.2.1)
       execjs (>= 0.3.0, < 3)
-    unicode-display_width (3.1.2)
+    unicode-display_width (3.1.3)
       unicode-emoji (~> 4.0, >= 4.0.4)
     unicode-emoji (4.0.4)
     uri (1.0.2)
@@ -243,7 +252,7 @@ DEPENDENCIES
   irb
   kramdown
   middleman!
-  middleman-blog
+  middleman-blog!
   middleman-search!
   middleman-syntax
   nokogiri (~> 1.18)

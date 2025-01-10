@@ -2,9 +2,9 @@ source "https://rubygems.org"
 ruby File.read(File.expand_path("../.ruby-version", __FILE__)).strip
 
 # Static site generator
-gem "middleman", github: "middleman/middleman"
+gem "middleman", github: "https://github.com/middleman/middleman/pull/2777"
 ## Extensions
-gem "middleman-blog"
+gem "middleman-blog", github: "middleman/middleman-blog"
 gem "middleman-search", github: "tnir/middleman-search", branch: "edge" # https://github.com/manastech/middleman-search/pull/39
 gem "middleman-syntax"
 

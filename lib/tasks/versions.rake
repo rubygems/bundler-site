@@ -15,14 +15,16 @@ namespace :versions do
     last = VERSIONS.last
     succ = VERSIONS.last.succ
     puts "Latest version is #{last}. Creating version #{succ}..."
-    cp_r "source/#{last}", "source/#{succ}"
+    last_root = "source/#{last}"
+    succ_root = "source/#{succ}"
+    cp_r last_root, succ_root
     puts "Creating empty What's New page..."
     render_whats_new(succ)
     puts "Creating announcement blog post..."
     sh "middleman article 'Bundler #{succ}'"
     puts "Updating latest version symlinks..."
-    Dir.glob("source/#{succ}/man/*.html.erb") do |file|
-      url = file.delete_prefix("source/#{succ}/")
+    Dir.glob("#{succ_root}/man/*.html.erb") do |file|
+      url = file.delete_prefix("#{succ_root}/")
       latest_man = "source/#{url}"
       FileUtils.ln_sf Pathname.new(file).relative_path_from(File.dirname(latest_man)), latest_man
     end

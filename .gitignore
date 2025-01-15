@@ -27,6 +27,9 @@
 source/conduct.html.md
 source/doc
 
+# contributor data generated from the bundler repo
+data/contributors.yml
+
 # man pages built from the bundler repo
 /source/v*/man/
 

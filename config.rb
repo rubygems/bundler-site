@@ -182,6 +182,7 @@ redirect "sponsors.html", to: "https://rubygems.org/pages/sponsors" # Backwards 
 page "/changelog.html", layout: :two_column_layout
 page "/conduct.html", layout: :two_column_layout
 page "/compatibility.html", layout: :two_column_layout
+page "/whats_new.html", layout: :two_column_layout
 page /\/v(\d+.\d+)\/(?!bundle_|commands|docs|man)(.*)/, layout: :two_column_layout
 page /\/v(.*)\/man\/(.*)/, layout: :two_column_layout
 page /man\/(.*)/, layout: :two_column_layout

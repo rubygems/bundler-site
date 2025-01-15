@@ -24,6 +24,7 @@
 /bin
 
 # pages from the bundler repo
+source/changelog.html.md
 source/conduct.html.md
 source/doc
 

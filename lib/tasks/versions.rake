@@ -28,6 +28,8 @@ namespace :versions do
       latest_man = "source/#{url}"
       FileUtils.ln_sf Pathname.new(file).relative_path_from(File.dirname(latest_man)), latest_man
     end
+    puts "Updating whats_new symlink..."
+    FileUtils.ln_sf Pathname.new("#{succ_root}/whats_new.html.md").relative_path_from("source"), "source/whats_new.html.md"
   end
 end
 

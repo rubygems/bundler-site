@@ -6,7 +6,7 @@
     %optgroup{label: status}
       - _versions.each do |version|
         - selected = version == current_visible_version
-        - value = documentation_path(current_page_without_version, version) || documentation_path('bundle-install.1', version)
+        - value = documentation_path(current_page_without_version, version)
         %option{selected: selected, value: value}
           = version
 %h4 General

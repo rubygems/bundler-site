@@ -1,3 +1,7 @@
+---
+title: Ruby Directive
+---
+
 ## Specifying a Ruby Version
 
 Like gems, developers can setup a dependency on Ruby.

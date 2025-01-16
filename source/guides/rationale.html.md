@@ -1,3 +1,7 @@
+---
+title: Why Bundler exists
+---
+
 If you just want to know our recommended workflow and don't care about the rationale, feel
 free to [jump to the summary](#summary) below.
 

@@ -1,3 +1,7 @@
+---
+title: RubyGems and Bundler Code of Conduct
+---
+
 # RubyGems and Bundler Code of Conduct
 
 ## Our Pledge

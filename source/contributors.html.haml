@@ -48,7 +48,7 @@ title: Contributors
       - data.contributors.each do |c|
         %span.contributor
           = link_to c[:name], c[:href], title: "#{pluralize(c[:commits], "commit")}"
-          = "&nbsp;•&nbsp;" unless c == data.contributors.last
+          != "&nbsp;•&nbsp;" unless c == data.contributors.last
       %br
       %p
         …and everyone who has given time, effort, thought, or help, instead of git commits &lt;3

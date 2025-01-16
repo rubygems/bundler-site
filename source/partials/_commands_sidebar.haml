@@ -1,14 +1,15 @@
 - primary_commands = %w(bundle-install.1 bundle-update.1 bundle-cache.1 bundle-exec.1 bundle-config.1 bundle-help.1)
 
-%h4 Choose version
-%select.version-selects.form-select.mb-3
-  - versions_grouped_by_status.each do |status, _versions|
-    %optgroup{label: status}
-      - _versions.each do |version|
-        - selected = version == current_visible_version
-        - value = documentation_path(current_page_without_version, version)
-        %option{selected: selected, value: value}
-          = version
+- if versions_with_documentation_page.size > 1
+  %h4 Choose version
+  %select.version-selects.form-select.mb-3
+    - versions_with_documentation_page.reverse.group_by { status(_1) }.each do |status, _versions|
+      %optgroup{label: status}
+        - _versions.each do |version|
+          - selected = version == current_visible_version
+          - value = documentation_path(current_page_without_version, version)
+          %option{selected: selected, value: value}
+            = version
 %h4 General
 %ul
   %li{class: current_page.url.end_with?("whats_new.html") ? "active" : ""}

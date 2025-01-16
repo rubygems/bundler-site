@@ -1,7 +1,7 @@
 Dir.glob("lib/tasks/**/*.rake").each { |r| load r }
 
 desc "Build the static site"
-task build: ["contributors:update", :repo_pages, :man] do
+task build: [:contributors, :repo_pages, :man] do
   sh "middleman build --clean --verbose"
 end
 

@@ -25,9 +25,9 @@ Or you can prepare a development environment on Gitpod cloud from the below link
 
 ## Basic Middleman Commands
 
-Fetch latest documentation from bundler repo (should be done before running local development web server):
+Fetch latest documentation and contributor information from bundler repo (should be done before running local development web server):
 
-    bundle exec rake man
+    bundle exec rake build
 
 Run a local development web server:
 

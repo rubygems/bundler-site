@@ -8,7 +8,7 @@ require "pathname"
 # [Heroku support](http://www.heroku.com/support)
 RELATIVE_LINK_REGEX = %r{
   \[(?<title>.*)\]            # Match title
-  \((?<link>[^(http)].*?)\)   # Match all non-http links
+  \((?<link>(?!http).*?)\)    # Match all non-http links
 }x
 
 def new_link(file, link)

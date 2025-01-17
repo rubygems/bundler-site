@@ -15,7 +15,11 @@ module DocsHelper
   def link_to_editable_version
     path = current_page.file_descriptor.relative_path.to_s
     if path.start_with?("doc/")
-      path = "bundler/#{path}"
+      path.delete_prefix!("doc/")
+      path.prepend("doc/bundler/")
+      dirname = File.dirname(path)
+      basename = File.basename(path, ".html.md").upcase
+      path = File.join(dirname, "#{basename}.md")
       link_to_source("rubygems/rubygems", path)
     elsif %r{\A(?<version>v\d+\.\d+)/man/(?<filename>(bundle[_-]|gemfile)[^/]*)\.html} =~ path
       if version == current_version

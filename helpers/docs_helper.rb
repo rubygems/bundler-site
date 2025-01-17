@@ -21,6 +21,9 @@ module DocsHelper
       basename = File.basename(path, ".html.md").upcase
       path = File.join(dirname, "#{basename}.md")
       link_to_source("rubygems/rubygems", path)
+    elsif %r{\Aman/(?<filename>(bundle[_-]|gemfile)[^/]*)\.html} =~ path
+      path = "bundler/lib/bundler/man/#{filename}.ronn"
+      link_to_source("rubygems/rubygems", path)
     elsif %r{\A(?<version>v\d+\.\d+)/man/(?<filename>(bundle[_-]|gemfile)[^/]*)\.html} =~ path
       if version == current_version
         path = "bundler/lib/bundler/man/#{filename}.ronn"

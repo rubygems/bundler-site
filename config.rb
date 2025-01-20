@@ -27,6 +27,7 @@ set :markdown_engine, :kramdown
 
 # Markdown extentions
 set :markdown,
+    input: "GFM",
     autolink: true,
     fenced_code_blocks: true,
     footnotes: true,

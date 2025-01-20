@@ -251,7 +251,7 @@ DEPENDENCIES
   haml (~> 6.3)
   haml_lint (~> 0.59)
   irb
-  kramdown
+  kramdown-parser-gfm
   middleman!
   middleman-blog!
   middleman-search!

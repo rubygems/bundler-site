@@ -1,3 +1,7 @@
+---
+title: How to use Bundler with RubyMotion
+---
+
 ## How to use Bundler with RubyMotion
 
 If you don't have a RubyMotion app yet, generate one.

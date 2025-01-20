@@ -28,7 +28,7 @@ def new_link(file, link)
   end
 end
 
-def write_file(file, to)
+def write_file(file, to, title: nil)
   content = File.read(file)
 
   file = file.sub("doc/bundler/", "doc/").downcase
@@ -38,6 +38,7 @@ def write_file(file, to)
     new_link = new_link(file, Regexp.last_match[:link].downcase)
     "[#{Regexp.last_match[:title]}](#{new_link})"
   end
+  content.prepend("---\ntitle: #{title}\n---\n\n") if title
 
   FileUtils.mkpath(File.dirname(to))
   File.write(to, content)
@@ -70,7 +71,7 @@ task repo_pages: :update_vendor do
       write_file(file, to)
     end
 
-    write_file("CODE_OF_CONDUCT.md", File.expand_path("./conduct.html.md", source_dir))
-    write_file("CHANGELOG.md", File.expand_path("./changelog.html.md", source_dir))
+    write_file("CODE_OF_CONDUCT.md", File.expand_path("./conduct.html.md", source_dir), title: "RubyGems and Bundler Code of Conduct")
+    write_file("CHANGELOG.md", File.expand_path("./changelog.html.md", source_dir), title: "ChangeLog")
   end
 end

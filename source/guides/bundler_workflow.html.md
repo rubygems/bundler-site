@@ -1,3 +1,7 @@
+---
+title: Recommended Workflow with Version Control
+---
+
 ## Recommended Workflow with Version Control
 
 In general, when working with an application managed with bundler, you

@@ -13,33 +13,28 @@ module DocsHelper
   end
 
   def link_to_editable_version
-    editable = true
     path = current_page.file_descriptor.relative_path.to_s
-    repo =
-      if path.start_with?("doc/")
-        path = "bundler/#{path}"
-        "rubygems/rubygems"
-      elsif %r{\A(?<version>v\d+\.\d+)/man/(?<filename>(bundle[_-]|gemfile)[^/]*)\.html} =~ path
-        if version == current_version
-          path = "bundler/lib/bundler/man/#{filename}.ronn"
-        else
-          editable = false
-        end
-        "rubygems/rubygems"
+    if path.start_with?("doc/")
+      path.delete_prefix!("doc/")
+      path.prepend("doc/bundler/")
+      dirname = File.dirname(path)
+      basename = File.basename(path, ".html.md").upcase
+      path = File.join(dirname, "#{basename}.md")
+      link_to_source("rubygems/rubygems", path)
+    elsif %r{\Aman/(?<filename>(bundle[_-]|gemfile)[^/]*)\.html} =~ path
+      path = "bundler/lib/bundler/man/#{filename}.ronn"
+      link_to_source("rubygems/rubygems", path)
+    elsif %r{\A(?<version>v\d+\.\d+)/man/(?<filename>(bundle[_-]|gemfile)[^/]*)\.html} =~ path
+      if version == current_version
+        path = "bundler/lib/bundler/man/#{filename}.ronn"
+        link_to_source("rubygems/rubygems", path)
       else
-        path = File.join "source", path
-        "rubygems/bundler-site"
+        path = path.sub(version, current_version)
+        link_to_latest(path)
       end
-
-    if editable
-      url = "https://github.com/#{repo}/blob/master/#{path}"
-      link_to("Edit this document on GitHub", url) +
-        " if you caught an error or noticed something was missing."
     else
-      url = "/" + path.sub(version, current_version).sub(/\.html.*/, ".html")
-      "This document is obsolete. " +
-        link_to("See the latest version of this document", url) +
-        " if you caught an error or noticed something was missing, it may be fixed there."
+      path = File.join "source", path
+      link_to_source("rubygems/bundler-site", path)
     end
   end
 
@@ -72,6 +67,19 @@ module DocsHelper
   end
 
   private
+
+  def link_to_source(repo, path)
+    url = "https://github.com/#{repo}/blob/master/#{path}"
+    link_to("Edit this document on GitHub", url) +
+      " if you caught an error or noticed something was missing."
+  end
+
+  def link_to_latest(path)
+    url = "/" + path.sub(/\.html.*/, ".html")
+    "This document is obsolete. " +
+      link_to("See the latest version of this document", url) +
+      " if you caught an error or noticed something was missing, it may be fixed there."
+  end
 
   def strip_version_from_url(url)
     url.scan(/v\d\.\d+\/(.*).html/)&.first&.first || url

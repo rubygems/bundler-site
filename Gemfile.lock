@@ -9,8 +9,7 @@ GIT
 
 GIT
   remote: https://github.com/middleman/middleman.git
-  revision: fb05dd94ff6f1a74dc313aed4e623f18c1ea6cf7
-  ref: refs/pull/2777/head
+  revision: 0cb9caca6ec5222d4cf9710b5f1b11ae3977acf9
   specs:
     middleman (4.5.1)
       middleman-cli (= 4.5.1)
@@ -22,6 +21,7 @@ GIT
       addressable (~> 2.4)
       bundler (~> 2.0)
       coffee-script (~> 2.2)
+      concurrent-ruby (= 1.3.4)
       contracts
       dotenv
       erubi
@@ -119,7 +119,7 @@ GEM
     hamster (3.0.0)
       concurrent-ruby (~> 1.0)
     hashie (5.0.0)
-    i18n (1.14.6)
+    i18n (1.14.7)
       concurrent-ruby (~> 1.0)
     io-console (0.8.0)
     irb (1.14.3)
@@ -227,7 +227,7 @@ GEM
     sysexits (1.2.0)
     temple (0.10.3)
     thor (1.2.2)
-    tilt (2.5.0)
+    tilt (2.6.0)
     toml (0.3.0)
       parslet (>= 1.8.0, < 3.0.0)
     tzinfo (2.0.6)

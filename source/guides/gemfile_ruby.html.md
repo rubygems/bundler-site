@@ -13,16 +13,16 @@ ruby 'RUBY_VERSION', :engine => 'ENGINE', :engine_version => 'ENGINE_VERSION',
 :patchlevel => 'RUBY_PATCHLEVEL'
 ~~~
 
-If you wanted to use JRuby 1.6.7 using Ruby 1.9.3, you would simply do the following:
+If you wanted to use JRuby 9.4.10.0 using Ruby 3.1.4, you would simply do the following:
 
 ~~~ruby
-ruby '1.9.3', :engine => 'jruby', :engine_version => '1.6.7'
+ruby '3.1.4', :engine => 'jruby', :engine_version => '9.4.10.0'
 ~~~
 
 It's also possible to restrict the patchlevel of the Ruby used by doing the following:
 
 ~~~ruby
-ruby '1.9.3', :patchlevel => '448'
+ruby '3.3.6', :patchlevel => '108'
 ~~~
 
 If you wish to derive your Ruby version from a version file (i.e. `.ruby-version`),
@@ -35,12 +35,14 @@ ruby file: ".ruby-version"
 The version file should conform to any of the following formats:
 
 - `3.1.2` (`.ruby-version`)
+- `ruby-3.1.2` (`.ruby-version`)
 - `ruby 3.1.2` ([`.tool-versions`](https://asdf-vm.com/manage/configuration.html#tool-versions))
+- `ruby = '3.1.2'` ([`mise.toml`](https://mise.jdx.dev/dev-tools/))
 
 Bundler will make checks against the current running Ruby VM to make sure it matches what is specified in the `Gemfile`. If things don't match, Bundler will raise an Exception explaining what doesn't match.
 
 ~~~
-Your Ruby version is 1.8.7, but your Gemfile specified 1.9.3
+Your Ruby version is 3.3.7, but your Gemfile specified 3.4.1
 ~~~
 
 Both `:engine` and `:engine_version` are optional.
@@ -49,7 +51,7 @@ When `:engine` is used, `:engine_version` must also be specified.
 Using the `platform` command with the `--ruby` flag, you can see what `ruby` directive is specified in the `Gemfile`.
 
 ~~~
-ruby 1.9.3 (jruby 1.6.7)
+ruby 3.1.4p0 (jruby 9.4.10.0)
 ~~~
 
 <a href="/man/bundle-platform.1.html" class="btn btn-primary">Learn More: bundle platform</a>
@@ -60,7 +62,7 @@ Version operators for specifying a Ruby version are also available.
 The set of supported version operators is that of Rubygems (`gem` version operators). (ie. `<`, `>`, `<=`, `>=`, `~>`, `=`)
 
 ~~~ruby
-ruby '~> 2.3.0'
+ruby '~> 3.3.0'
 ~~~
 
 <a href="https://guides.rubygems.org/patterns/#declaring-dependencies" class="btn btn-primary">Learn More: Version Operators</a>

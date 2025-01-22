@@ -38,7 +38,8 @@ set :markdown,
     smartypants: true,
     strikethrough: true,
     superscript: true,
-    tables: true
+    tables: true,
+    hard_wrap: false
 
 # Webpack
 activate :external_pipeline,

@@ -3,9 +3,9 @@
 - if versions_with_documentation_page.size > 1
   %h4 Choose version
   %select.version-selects.form-select.mb-3
-    - versions_with_documentation_page.reverse.group_by { status(_1) }.each do |status, _versions|
+    - versions_with_documentation_page.reverse.group_by { status(_1) }.each do |status, versions|
       %optgroup{label: status}
-        - _versions.each do |version|
+        - versions.each do |version|
           - selected = version == current_visible_version
           - value = documentation_path(current_page_without_version, version)
           %option{selected: selected, value: value}

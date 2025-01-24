@@ -7,8 +7,8 @@ module ConfigHelper
     config[:versions]
   end
 
-  def versions_grouped_by_status
-    versions.reverse.group_by { status(_1) }
+  def versions_with_documentation_page
+    versions.select {|version| documentation_path(current_page_without_version, version) }
   end
 
   private

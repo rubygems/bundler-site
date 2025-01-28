@@ -9,7 +9,7 @@ GIT
 
 GIT
   remote: https://github.com/middleman/middleman.git
-  revision: 339477ee96d788d3d9cf6d518a3395279f72a0af
+  revision: 18e328a14e7b816fb39304bde707b6f1b7e799cd
   specs:
     middleman (4.5.1)
       middleman-cli (= 4.5.1)

@@ -63,6 +63,9 @@
 - :name: bundler-symlink
   :summary: Post-install hook for bundler to symlink to all gems from a local directory
   :uri: https://github.com/petekinnecom/bundler-symlink
+- :name: bundler-versions_report
+  :summary: At the end of `bundle update` report all updated major and minor versions
+  :uri: https://github.com/igneus/bundler-versions_report
 - :name: bundler-why
   :summary: Explains the presence of a dependency.
   :uri: https://github.com/jaredbeck/bundler-why

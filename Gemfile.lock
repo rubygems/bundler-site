@@ -9,7 +9,7 @@ GIT
 
 GIT
   remote: https://github.com/middleman/middleman.git
-  revision: 0cb9caca6ec5222d4cf9710b5f1b11ae3977acf9
+  revision: 339477ee96d788d3d9cf6d518a3395279f72a0af
   specs:
     middleman (4.5.1)
       middleman-cli (= 4.5.1)
@@ -21,7 +21,6 @@ GIT
       addressable (~> 2.4)
       bundler (~> 2.0)
       coffee-script (~> 2.2)
-      concurrent-ruby (= 1.3.4)
       contracts
       dotenv
       erubi
@@ -85,7 +84,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.12.2)
-    concurrent-ruby (1.3.4)
+    concurrent-ruby (1.3.5)
     connection_pool (2.5.0)
     contracts (0.17.2)
     date (3.4.1)

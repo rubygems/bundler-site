@@ -44,7 +44,6 @@ possible, you can jump straight to [solutions for SSL issues][solutions-for-ssl-
   - **Additional Help**
     - [Another automated SSL check][another-automated-ssl-check]
     - [Creating an issue][creating-an-issue]
-    - [Contributing to this guide][contributing-to-guide]
 
 ## The Problems
 
@@ -441,8 +440,3 @@ Please include:
 - Your Ruby version manager (if any):
 - Your OS and OS version:
 - Your package manager name and version (if applicable):
-
-### Contributing to this guide
-[contributing-to-guide]: #contributing-to-this-guide
-
-If you found a solution not listed here, submit a PR to add your solution to [this guide](https://github.com/rubygems/bundler-site/blob/master/source/guides/rubygems_tls_ssl_troubleshooting_guide.html.md)!

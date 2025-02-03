@@ -109,7 +109,7 @@ GEM
       temple (>= 0.8.2)
       thor
       tilt
-    haml_lint (0.59.0)
+    haml_lint (0.60.0)
       haml (>= 5.0)
       parallel (~> 1.10)
       rainbow
@@ -252,7 +252,7 @@ DEPENDENCIES
   builder
   faraday-retry (~> 2.2)
   haml (~> 6.3)
-  haml_lint (~> 0.59)
+  haml_lint (~> 0.60)
   irb
   kramdown-parser-gfm
   middleman!

@@ -9,7 +9,7 @@ GIT
 
 GIT
   remote: https://github.com/middleman/middleman.git
-  revision: 18e328a14e7b816fb39304bde707b6f1b7e799cd
+  revision: 68b3cc5f90f5401c20972fdeaa618b0acdebe947
   specs:
     middleman (4.5.1)
       middleman-cli (= 4.5.1)
@@ -189,7 +189,7 @@ GEM
       stringio
     public_suffix (6.0.1)
     racc (1.8.1)
-    rack (3.1.8)
+    rack (3.1.9)
     rackup (2.2.1)
       rack (>= 3)
     rainbow (3.1.1)

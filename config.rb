@@ -194,7 +194,7 @@ page /\/doc\/(.*)/, layout: :two_column_layout # Imported from rubygems/bundler
 
 page "/sitemap.xml", layout: false
 
-redirect "issues.html", to: "doc/contributing/issues.html" # Backwards compatibility
+redirect "issues.html", to: "https://github.com/rubygems/rubygems/issues/new?labels=Bundler&template=bundler-related-issue.md" # Backwards compatibility
 redirect "commands.html", to: "man/bundle.1.html" # Backwards compatibility
 redirect "older_versions.html", to: "whats_new.html" # Backwards compatibility
 redirect "team.html", to: "contributors.html" # https://github.com/rubygems/bundler-site/issues/842

@@ -4,8 +4,7 @@ module DocsHelper
   end
 
   def documentation_path(page, version=nil)
-    check_single_page("/man/#{page}.html", version) || check_single_page("/#{page}.html", version) ||
-    check_single_page("/#{normalize_man_page(page)}.html", version)
+    check_single_page("/man#{page}", version) || check_single_page(page, version) || check_single_page(normalize_man_page(page), version)
   end
 
   def link_to_documentation(page, version=nil)
@@ -82,7 +81,7 @@ module DocsHelper
   end
 
   def strip_version_from_url(url)
-    url.scan(/v\d\.\d+\/(.*).html/)&.first&.first || url
+    url.sub(/\A\/v\d\.\d+/, "")
   end
 
   def normalize_man_page(page)

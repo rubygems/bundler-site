@@ -8,7 +8,7 @@ module DocsHelper
   end
 
   def link_to_documentation(page, version=nil)
-    link_to page.gsub(/_|-/, " ").gsub(/\.\d+$/, ""), documentation_path("/#{page}.html", version)
+    link_to page.gsub(/_|-/, " ").gsub(/\.\d+$/, ""), normalized_documentation_path(page, version)
   end
 
   def link_to_editable_version
@@ -38,8 +38,9 @@ module DocsHelper
   end
 
   def path_exist?(page, version=nil)
-    documentation_path(page, version)
+    documentation_path("/#{page}.html", version)
   end
+  alias_method :normalized_documentation_path, :path_exist?
 
   def other_commands(primary_commands, version=nil)
     version ||= current_version

@@ -54,7 +54,11 @@ module DocsHelper
   end
 
   def current_visible_version
-    current_page.url.scan(/v\d\.\d+/).first || latest_version
+    current_page.url.scan(/v\d\.\d+/).first
+  end
+
+  def current_version
+    current_visible_version || latest_version
   end
 
   def current_page_without_version
@@ -96,7 +100,7 @@ module DocsHelper
   end
 
   def check_single_page(path_part, version)
-    path = "/#{version || latest_version}#{path_part}"
+    path = version ? "/#{version}#{path_part}" : path_part
     sitemap.find_resource_by_path(path) ? path : nil
   end
 end

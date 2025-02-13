@@ -6,14 +6,14 @@
     - versions_with_documentation_page.reverse.group_by { status(_1) }.each do |status, versions|
       %optgroup{label: status}
         - versions.each do |version|
-          - selected = version == current_visible_version
+          - selected = version == current_version
           - value = documentation_path(current_page_without_version, version)
           %option{selected: selected, value: value}
             = version
 %h4 General
 %ul
   %li{class: current_page.url.end_with?("whats_new.html") ? "active" : ""}
-    = link_to "Release notes", "/#{current_visible_version}/whats_new.html"
+    = link_to "Release notes", normalized_documentation_path("whats_new", current_visible_version)
     %li.separator
       %hr
 %h4 Primary Commands

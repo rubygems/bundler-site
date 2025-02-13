@@ -8,9 +8,9 @@ module GuidesHelper
   end
 
   def guides
-    target_version = current_visible_version > "v1.15" ? "" : "#{current_visible_version}/"
+    target_version = current_version > "v1.15" ? "" : "#{current_version}/"
     guides = Dir.glob("./source/#{target_version}guides/*")
-    target_version = current_visible_version > "v1.15" ? "" : "v1.15/"
+    target_version = current_version > "v1.15" ? "" : "v1.15/"
     localizable_guides = Dir.glob("./source/localizable/#{target_version}guides/*.en.html.md")
     all_guides = guides + localizable_guides + additional_guides
 

@@ -8,7 +8,7 @@ module DocsHelper
   end
 
   def link_to_documentation(page, version=nil)
-    link_to page.gsub(/_|-/, " ").gsub(/\.\d+$/, ""), documentation_path("/#{page}.html", version)
+    link_to page.gsub(/_|-/, " ").gsub(/\.\d+$/, ""), normalized_documentation_path(page, version)
   end
 
   def link_to_editable_version
@@ -24,11 +24,11 @@ module DocsHelper
       path = "bundler/lib/bundler/man/#{filename}.ronn"
       link_to_source("rubygems/rubygems", path)
     elsif %r{\A(?<version>v\d+\.\d+)/man/(?<filename>(bundle[_-]|gemfile)[^/]*)\.html} =~ path
-      if version == current_version
+      if version == latest_version
         path = "bundler/lib/bundler/man/#{filename}.ronn"
         link_to_source("rubygems/rubygems", path)
       else
-        path = path.sub(version, current_version)
+        path = path.sub(version, latest_version)
         link_to_latest(path)
       end
     else
@@ -38,11 +38,12 @@ module DocsHelper
   end
 
   def path_exist?(page, version=nil)
-    documentation_path(page, version)
+    documentation_path("/#{page}.html", version)
   end
+  alias_method :normalized_documentation_path, :path_exist?
 
   def other_commands(primary_commands, version=nil)
-    version ||= current_version
+    version ||= latest_version
 
     current_man_pages = sitemap.resources.select{ |page| page.path.start_with?("#{version}/man/bundle-") }
     commands_from_man = current_man_pages.map{ |page| strip_man_path_to_page(page.path) } # ex: bundle-config.1
@@ -53,7 +54,11 @@ module DocsHelper
   end
 
   def current_visible_version
-    current_page.url.scan(/v\d\.\d+/).first || current_version
+    current_page.url.scan(/v\d\.\d+/).first
+  end
+
+  def current_version
+    current_visible_version || latest_version
   end
 
   def current_page_without_version
@@ -95,7 +100,7 @@ module DocsHelper
   end
 
   def check_single_page(path_part, version)
-    path = "/#{version || current_version}#{path_part}"
+    path = version ? "/#{version}#{path_part}" : path_part
     sitemap.find_resource_by_path(path) ? path : nil
   end
 end

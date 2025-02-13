@@ -1,6 +1,6 @@
 module ConfigHelper
-  def current_version
-    config[:current_version]
+  def latest_version
+    config[:latest_version]
   end
 
   def versions

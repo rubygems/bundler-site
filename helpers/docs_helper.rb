@@ -24,11 +24,11 @@ module DocsHelper
       path = "bundler/lib/bundler/man/#{filename}.ronn"
       link_to_source("rubygems/rubygems", path)
     elsif %r{\A(?<version>v\d+\.\d+)/man/(?<filename>(bundle[_-]|gemfile)[^/]*)\.html} =~ path
-      if version == current_version
+      if version == latest_version
         path = "bundler/lib/bundler/man/#{filename}.ronn"
         link_to_source("rubygems/rubygems", path)
       else
-        path = path.sub(version, current_version)
+        path = path.sub(version, latest_version)
         link_to_latest(path)
       end
     else
@@ -43,7 +43,7 @@ module DocsHelper
   alias_method :normalized_documentation_path, :path_exist?
 
   def other_commands(primary_commands, version=nil)
-    version ||= current_version
+    version ||= latest_version
 
     current_man_pages = sitemap.resources.select{ |page| page.path.start_with?("#{version}/man/bundle-") }
     commands_from_man = current_man_pages.map{ |page| strip_man_path_to_page(page.path) } # ex: bundle-config.1
@@ -54,7 +54,7 @@ module DocsHelper
   end
 
   def current_visible_version
-    current_page.url.scan(/v\d\.\d+/).first || current_version
+    current_page.url.scan(/v\d\.\d+/).first || latest_version
   end
 
   def current_page_without_version
@@ -96,7 +96,7 @@ module DocsHelper
   end
 
   def check_single_page(path_part, version)
-    path = "/#{version || current_version}#{path_part}"
+    path = "/#{version || latest_version}#{path_part}"
     sitemap.find_resource_by_path(path) ? path : nil
   end
 end

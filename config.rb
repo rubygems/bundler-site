@@ -2,12 +2,12 @@ Dir.glob(File.expand_path("../lib/config/*.rb", __FILE__), &method(:require))
 require_relative "lib/versions"
 
 config[:versions] = VERSIONS
-config[:current_version] = config[:versions].last
+config[:latest_version] = config[:versions].last
 
 activate :syntax
 activate :i18n
 activate :search do |search|
-  search.resources = ["index.html", "guides/", "#{config[:current_version]}/", "changelog.html", "compatibility.html", "conduct.html", "contributors.html"]
+  search.resources = ["index.html", "guides/", "#{config[:latest_version]}/", "changelog.html", "compatibility.html", "conduct.html", "contributors.html"]
 
   search.index_path = "search/lunr-index.json"
 
@@ -50,16 +50,16 @@ activate :external_pipeline,
 
 # Make documentation for the latest version available at the top level, too.
 # Any pages with names that conflict with files already at the top level will be skipped.
-Dir.glob("./source/#{config[:current_version]}/*.haml").each do |file_path|
+Dir.glob("./source/#{config[:latest_version]}/*.haml").each do |file_path|
   file_path = file_path.sub(/\.haml$/, "")
 
   page_path = file_path.sub(/^\.\/source\//, "")
-  proxy_path = file_path["./source/#{config[:current_version]}/".length..-1]
+  proxy_path = file_path["./source/#{config[:latest_version]}/".length..-1]
 
   proxy proxy_path, page_path unless file_exist?(proxy_path)
 end
 # Same for localizable
-Dir.glob("./source/localizable/#{config[:current_version]}/**/*").select{ |f| File.file?(f) }.each do |file_path|
+Dir.glob("./source/localizable/#{config[:latest_version]}/**/*").select{ |f| File.file?(f) }.each do |file_path|
   matched = file_path.match(/(localizable\/v\d+.\d+\/(.*)\.(.{2})\.html)/)
   next unless matched
 

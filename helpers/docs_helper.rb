@@ -8,7 +8,7 @@ module DocsHelper
   end
 
   def link_to_documentation(page, version=nil)
-    link_to page.gsub(/_|-/, " ").gsub(/\.\d+$/, ""), documentation_path(page, version)
+    link_to page.gsub(/_|-/, " ").gsub(/\.\d+$/, ""), documentation_path("/#{page}.html", version)
   end
 
   def link_to_editable_version

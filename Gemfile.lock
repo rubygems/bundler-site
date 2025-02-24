@@ -9,7 +9,7 @@ GIT
 
 GIT
   remote: https://github.com/middleman/middleman.git
-  revision: 68b3cc5f90f5401c20972fdeaa618b0acdebe947
+  revision: 0874e02bc9cc85e3ab54e96ca627478bd12ecb9e
   specs:
     middleman (4.5.1)
       middleman-cli (= 4.5.1)
@@ -138,7 +138,7 @@ GEM
     listen (3.9.0)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
-    logger (1.6.5)
+    logger (1.6.6)
     memoist (0.16.2)
     method_source (1.1.0)
     middleman-syntax (3.4.0)
@@ -203,7 +203,7 @@ GEM
     regexp_parser (2.10.0)
     reline (0.6.0)
       io-console (~> 0.5)
-    rexml (3.4.0)
+    rexml (3.4.1)
     rouge (3.30.0)
     rubocop (1.72.2)
       json (~> 2.3)

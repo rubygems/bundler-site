@@ -98,7 +98,7 @@ GEM
       logger
     faraday-net_http (3.4.0)
       net-http (>= 0.5.0)
-    faraday-retry (2.2.1)
+    faraday-retry (2.3.0)
       faraday (~> 2.0)
     fast_blank (1.0.1)
     fastimage (2.4.0)
@@ -138,7 +138,7 @@ GEM
     listen (3.9.0)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
-    logger (1.6.6)
+    logger (1.7.0)
     memoist (0.16.2)
     method_source (1.1.0)
     middleman-syntax (3.4.0)
@@ -253,7 +253,7 @@ PLATFORMS
 
 DEPENDENCIES
   builder
-  faraday-retry (~> 2.2)
+  faraday-retry (~> 2.3)
   haml (~> 6.3)
   haml_lint (~> 0.61)
   irb

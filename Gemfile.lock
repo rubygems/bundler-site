@@ -1,8 +1,8 @@
 GIT
   remote: https://github.com/middleman/middleman-blog.git
-  revision: f02c962a07a8a43f67e87ecf71e59698a8626b55
+  revision: 538c28905e8d0361098545270734b3b27a1a4b20
   specs:
-    middleman-blog (4.0.3)
+    middleman-blog (4.1.0)
       addressable (~> 2.3)
       middleman-core (>= 4.0.0)
       tzinfo (>= 0.3.0)
@@ -136,7 +136,7 @@ GEM
       toml
       uglifier (>= 3, < 5)
       webrick
-    middleman-syntax (3.4.0)
+    middleman-syntax (3.5.0)
       middleman-core (>= 3.2)
       rouge (~> 3.2)
     mini_portile2 (2.8.8)

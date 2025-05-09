@@ -72,6 +72,6 @@ task repo_pages: :update_vendor do
     end
 
     write_file("CODE_OF_CONDUCT.md", File.expand_path("./conduct.html.md", source_dir), title: "RubyGems and Bundler Code of Conduct")
-    write_file("CHANGELOG.md", File.expand_path("./changelog.html.md", source_dir), title: "ChangeLog")
+    write_file("bundler/CHANGELOG.md", File.expand_path("./changelog.html.md", source_dir), title: "ChangeLog")
   end
 end

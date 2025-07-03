@@ -4,7 +4,9 @@ module GuidesHelper
   end
 
   def additional_guides
-     %w(./source/doc/contributing/issues.html.md)
+    [
+      { filename: "doc/contributing/issues.html", title: "Filing Issues: a guide" }
+    ]
   end
 
   def guides
@@ -12,7 +14,7 @@ module GuidesHelper
     guides = Dir.glob("./source/#{target_version}guides/*")
     target_version = current_version > "v1.15" ? "" : "v1.15/"
     localizable_guides = Dir.glob("./source/localizable/#{target_version}guides/*.en.html.md")
-    all_guides = guides + localizable_guides + additional_guides
+    all_guides = guides + localizable_guides
 
     guides = all_guides.map do |filename|
       filename = filename.sub(/^\.\/source\//, "").sub(/\.(md|haml)$/, "")
@@ -21,7 +23,7 @@ module GuidesHelper
       { filename: filename, title: resource.metadata[:page][:title] }
     end.compact
 
-    guides.select { |page| page[:title] }.sort_by { |page| page[:title] }
+    (guides + additional_guides).select { |page| page[:title] }.sort_by { |page| page[:title] }
   end
 
   def link_to_guide(page, options = {})

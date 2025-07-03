@@ -5,7 +5,7 @@ module GuidesHelper
 
   def additional_guides
     [
-      { filename: "doc/contributing/issues.html", title: "Filing Issues: a guide" }
+      { filename: "doc/readme.html", title: "Contributing to Bundler" }
     ]
   end
 

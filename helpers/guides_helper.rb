@@ -23,7 +23,7 @@ module GuidesHelper
       { filename: filename, title: resource.metadata[:page][:title] }
     end.compact.sort_by { |page| page[:title] }
 
-    (guides + additional_guides).select { |page| page[:title] }
+    guides + additional_guides
   end
 
   def link_to_guide(page, options = {})

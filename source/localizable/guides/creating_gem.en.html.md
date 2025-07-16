@@ -136,9 +136,8 @@ have gem version conflicts.
 
 By running `bundle install`, Bundler will generate the **extremely important** _Gemfile.lock_
 file. This file is responsible for ensuring that every system this library is developed on has
-the *exact same* gems so it should always be checked into version control. For more information
-on this file [read "THE GEMFILE.LOCK" section of the `bundle install`
-manpage](/man/bundle-install.1.html#THE-GEMFILE-LOCK).
+the *exact same* gems. For more information on this file [read "THE GEMFILE.LOCK" section of
+the `bundle install` manpage](/man/bundle-install.1.html#THE-GEMFILE-LOCK).
 
 Additionally in the `bundle install` output, we will see this line:
 

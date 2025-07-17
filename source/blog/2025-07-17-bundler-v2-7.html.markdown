@@ -1,0 +1,46 @@
+---
+title: "Bundler v2.7: last release before Bundler 4"
+date: 2025-07-17 07:13 +0000
+tags: breaking-changes, bundler-4
+author: David Rodríguez
+author_url: https://github.com/deivid-rodriguez
+category: release
+---
+
+A major release of Bundler is finally happening, consolidating unreleased major
+changes that had been pending for a decade. It will be named Bundler 4 (skipping
+Bundler 3), so that we can release it in lockstep with RubyGems 4, making the
+version number of Bundler & RubyGems in sync from now on.
+
+Final Bundler 4 release will happen at the end of 2025, but for now we're
+presenting Bundler 2.7 as the last big step towards this major release.
+
+Bundler 2.7 features a `simulate_version` configuration that will allow users to
+configure Bundler to behave exactly as Bundler 4 will behave, with all major
+breaking changes enabled by default. We encourage all users to enable this
+setting, experiment with Bundler 4, and leave us feedback. Community feedback is
+super important to us, and we're still open to revisiting the changes that the
+final version will include.
+
+You can find more about future Bundler 4 changes and how to enable Bundler 4
+mode in our [upgrade
+guide](https://github.com/rubygems/rubygems/blob/ff473128011e7abe1eeb0414d9cd48677acb5487/doc/bundler/UPGRADING.md)
+
+In addition to changes to get ready for Bundler 4, Bundler 2.7 also features
+some additional improvements such as:
+
+* Our gem generator is now more customizable than ever, displays more
+  informative output, and provides a skeleton with better defaults.
+* Network errors are better handled to print more actionable errors and avoid
+  unnecessary retries that will never succeed.
+* Bundler is now more resilient in presence of incorrect lockfiles, or locally
+  installed gemspecs with incorrect dependencies.
+* Several issues have been fixed to make Bundler play nicer with default gems
+  like `rdoc` or `irb`.
+* Auto-switch and auto-restart mechanism based on locked version of Bundler has
+  been improved.
+* `bundle install` can now properly unlock rails (or any other gem including its
+  own dependencies as a monorepo) when changing its Gemfile `git` source to pin
+  it to a specific `ref`.
+
+Happy bundling!

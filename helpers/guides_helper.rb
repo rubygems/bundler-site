@@ -21,9 +21,9 @@ module GuidesHelper
       resource = sitemap.find_resource_by_path(filename)
       next unless resource
       { filename: filename, title: resource.metadata[:page][:title] }
-    end.compact
+    end.compact.sort_by { |page| page[:title] }
 
-    (guides + additional_guides).select { |page| page[:title] }.sort_by { |page| page[:title] }
+    (guides + additional_guides).select { |page| page[:title] }
   end
 
   def link_to_guide(page, options = {})

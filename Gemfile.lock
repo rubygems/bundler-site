@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/middleman/middleman-blog.git
-  revision: 538c28905e8d0361098545270734b3b27a1a4b20
+  revision: d232557833df1f417f033900e6daa4dc1725dd2d
   specs:
     middleman-blog (4.1.0)
       addressable (~> 2.3)

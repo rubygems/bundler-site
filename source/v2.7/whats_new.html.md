@@ -7,7 +7,7 @@ This is a summary of the biggest changes. As always, a detailed list of every ch
 
 ## A new setting to simulate the next major version (Bundler 4)
 
-With Bundler 2.7, you can configure `bundle config simulate_version 4` and get
+With Bundler 2.7, you can configure `bundle config set simulate_version 4` and get
 all future Bundler 4 defaults enabled by default. Please do use this setting and
 contribute to Bundler 4 by leaving us feedback.
 

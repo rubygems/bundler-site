@@ -169,3 +169,11 @@ ruby '1.9.3', :engine => 'jruby', :engine_version => '1.6.7'
 ~~~
 
 <a href="./gemfile_ruby.html" class="btn btn-primary">Learn More: Ruby Directive</a>
+
+In some cases, you may wish to split your gems across multiple files. To read the contents of one file from another, you can use `eval_gemfile`.
+
+~~~ruby
+eval_gemfile 'another.gemfile'
+~~~
+
+This can be useful to run tests against multiple combinations of dependencies, or to load per-developer gems from an untracked gemfile.

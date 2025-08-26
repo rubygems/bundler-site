@@ -47,7 +47,7 @@ jobs:
       - run: echo "bundler.io" > ./build/CNAME
 
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v4
         with:
           path: "build/" # The action will automatically upload an artifact from this directory
 

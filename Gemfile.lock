@@ -68,7 +68,7 @@ GEM
     ffi (1.17.2)
     ffi (1.17.2-arm64-darwin)
     ffi (1.17.2-x86_64-linux-gnu)
-    haml (7.0.1)
+    haml (7.0.2)
       temple (>= 0.8.2)
       thor
       tilt

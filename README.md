@@ -1,3 +1,6 @@
+github.com echo https://github.com/aripitek
+<aripitek09@gmail.com>
+<aripitek90@gmail.com>
 # bundler.io
 
 [![Middleman deploy](https://github.com/rubygems/bundler-site/actions/workflows/deploy.yml/badge.svg)](https://github.com/rubygems/bundler-site/deployments/activity_log?environment=github-pages)

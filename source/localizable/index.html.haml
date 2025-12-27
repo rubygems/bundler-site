@@ -1,3 +1,4 @@
+- join_slack_link = 'https://join.slack.com/t/bundler/shared_invite/zt-3kza12u0j-Fw3rwvPi6zqe6EC3RCDGMA'
 .bg-dark-blue
   .mx-auto.text-center
     = image_tag '/images/header_transparent_bg.png',
@@ -15,7 +16,7 @@
     = link_to t('home.what_can_bundler_do'), "/guides/getting_started.html#getting-started", class: 'btn btn-primary btn-lg'
     = link_to "#{t("home.new_in")} #{latest_version}", "/#{latest_version}/whats_new.html", class: 'btn btn-primary btn-lg'
     = link_to t('home.cli_docs'), "/#{latest_version}/man/bundle-install.1.html", class: 'btn btn-primary btn-lg'
-    = link_to t('home.chat_with_us'), 'https://join.slack.com/t/bundler/shared_invite/zt-3e7ej5qo2-D1KqQpnYTTb6T01G4dK4bA', class: 'btn btn-primary btn-lg'
+    = link_to t('home.chat_with_us'), join_slack_link, class: 'btn btn-primary btn-lg'
 
 .bg-light-blue
   .container
@@ -66,7 +67,7 @@
       %h2#get-involved Get involved
       .my-4.large-font
         Bundler has a lot of contributors and users, and we would love to have your help!
-        If you have questions, join #{link_to 'the Bundler Slack', 'https://join.slack.com/t/bundler/shared_invite/zt-3e7ej5qo2-D1KqQpnYTTb6T01G4dK4bA'}
+        If you have questions, join #{link_to 'the Bundler Slack', join_slack_link}
         and we'll try to answer them. If you're interested in contributing (no programming skills needed), start with
         #{link_to 'the contributing guide', '/doc/readme.html'}.
         While participating in the Bundler project, please keep the #{link_to 'code of conduct', '/conduct.html'}
@@ -75,6 +76,6 @@
 
       .d-grid.d-md-flex.gap-2.mx-auto.my-md-4.justify-content-md-center
         = link_to 'Code of Conduct', '/conduct.html', class: 'btn btn-primary btn-lg'
-        = link_to 'Join the Bundler Slack', 'https://join.slack.com/t/bundler/shared_invite/zt-3e7ej5qo2-D1KqQpnYTTb6T01G4dK4bA', class: 'btn btn-primary btn-lg'
+        = link_to 'Join the Bundler Slack', join_slack_link, class: 'btn btn-primary btn-lg'
         = link_to 'Contributing guide', '/doc/readme.html', class: 'btn btn-primary btn-lg'
         = link_to 'Report security issue', 'https://hackerone.com/rubygems', class: 'btn btn-primary btn-lg'

@@ -46,13 +46,13 @@ GEM
     erb (6.0.1)
     erubi (1.13.1)
     execjs (2.10.0)
-    faraday (2.13.1)
+    faraday (2.14.0)
       faraday-net_http (>= 2.0, < 3.5)
       json
       logger
-    faraday-net_http (3.4.1)
-      net-http (>= 0.5.0)
-    faraday-retry (2.3.2)
+    faraday-net_http (3.4.2)
+      net-http (~> 0.5)
+    faraday-retry (2.4.0)
       faraday (~> 2.0)
     fast_blank (1.0.1)
     fastimage (2.4.0)
@@ -140,8 +140,8 @@ GEM
       libv8-node (~> 18.19.0.0)
     minitest (5.25.5)
     mustache (1.1.1)
-    net-http (0.6.0)
-      uri
+    net-http (0.9.1)
+      uri (>= 0.11.1)
     nokogiri (1.18.10)
       mini_portile2 (~> 2.8.2)
       racc (~> 1.4)
@@ -239,7 +239,7 @@ GEM
     unicode-display_width (3.2.0)
       unicode-emoji (~> 4.1)
     unicode-emoji (4.2.0)
-    uri (1.0.3)
+    uri (1.1.1)
     webrick (1.9.1)
 
 PLATFORMS
@@ -249,7 +249,7 @@ PLATFORMS
 
 DEPENDENCIES
   builder
-  faraday-retry (~> 2.3)
+  faraday-retry (~> 2.4)
   haml (~> 7.1)
   haml_lint (~> 0.68)
   irb

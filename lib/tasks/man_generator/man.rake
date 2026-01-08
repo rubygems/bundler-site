@@ -1,7 +1,7 @@
 desc "Pull in the man pages for the specified gem versions."
 task man: :update_vendor do
   VERSIONS.each do |version|
-    next if version == "v0.9"
+    next if version == "v0.9" || version == "v4.0"
 
     if version <= "v2.1"
       branch = (version[1..-1].split(".") + %w(stable)).join("-")

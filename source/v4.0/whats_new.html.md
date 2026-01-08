@@ -52,7 +52,7 @@ The new `bundle install --lockfile` option and `lockfile` method in Gemfile allo
 
 * Vendored URI bumped to 1.0.4.
 
-**Notable Enhancements**
+## Notable Enhancements
 
 * Better "did you mean" gem suggestions using `DidYouMean::SpellChecker`.
 * Improved Windows loading support.

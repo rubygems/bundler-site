@@ -18,15 +18,16 @@
     = link_to t('home.cli_docs'), "/#{latest_version}/man/bundle-install.1.html", class: 'btn btn-primary btn-lg'
     = link_to t('home.chat_with_us'), join_slack_link, class: 'btn btn-primary btn-lg'
 
-.bg-light-blue
-  .container
-    .mx-xl-5.px-xl-5
-      %h2
-        The latest news
-      %h3
-        - blog.articles[0..0].each do |article|
-          = article.date.to_date.strftime("%b %e, %Y")
-          = link_to article.title, article.url
+- if blog.articles.any? && blog.articles.first.date.to_date > (Date.today - 90)
+  .bg-light-blue
+    .container
+      .mx-xl-5.px-xl-5
+        %h2
+          The latest news
+        %h3
+          - blog.articles[0..0].each do |article|
+            = article.date.to_date.strftime("%b %e, %Y")
+            = link_to article.title, article.url
 
 .container
   .mx-xl-5.px-xl-5.my-3.my-md-4.py-3

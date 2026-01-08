@@ -1,12 +1,16 @@
 desc "Pull in the man pages for the specified gem versions."
 task man: :update_vendor do
   VERSIONS.each do |version|
-    next if version == "v0.9" || version == "v4.0"
+    next if version == "v0.9"
 
     if version <= "v2.1"
       branch = (version[1..-1].split(".") + %w(stable)).join("-")
       vendor_folder = "vendor/bundler"
       man_folder = "man"
+    elsif version == "v4.0"
+      branch = "master"
+      vendor_folder = "vendor/rubygems/bundler"
+      man_folder = "lib/bundler/man"
     else
       branch = Gem::Version.new(version[1..-1]).segments.map.with_index { |segment, i| i == 0 ? segment + 1 : segment }.join(".")
       vendor_folder = "vendor/rubygems/bundler"

@@ -95,7 +95,7 @@ look for gems declared in the `Gemfile` at `https://rubygems.org` by default.
 After declaring your first set of dependencies, you tell bundler to go get them:
 
 ~~~
-$ bundle install    # `bundle` is a shortcut for `bundle install`
+$ bundle install
 ~~~
 
 Bundler will connect to `rubygems.org` (and any other sources that you declared),

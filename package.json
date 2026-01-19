@@ -26,7 +26,7 @@
   "homepage": "https://github.com/rubygems/bundler-site#readme",
   "devDependencies": {
     "css-loader": "^7.1.2",
-    "mini-css-extract-plugin": "^2.9.4",
+    "mini-css-extract-plugin": "^2.10.0",
     "prettier": "3.8.0",
     "sass": "^1.97.2",
     "sass-loader": "^16.0.6",

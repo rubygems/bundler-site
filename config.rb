@@ -7,7 +7,7 @@ config[:latest_version] = config[:versions].last
 activate :syntax
 activate :i18n
 activate :search do |search|
-  search.resources = ["index.html", "guides/", "#{config[:latest_version]}/", "changelog.html", "compatibility.html", "conduct.html", "contributors.html"]
+  search.resources = ["index.html", "guides/", "#{config[:latest_version]}/", "changelog.html", "compatibility.html", "conduct.html"]
 
   search.index_path = "search/lunr-index.json"
 

@@ -1,0 +1,124 @@
+---
+title: "Bundler 4: a major release, a decade in the making"
+date: 2025-12-03 12:00 UTC
+tags: release, breaking-changes, bundler-4
+author: Bundler Team
+category: release
+---
+
+It's finally here. After years of incremental preparation, Bundler 4.0.0 has
+been released. This is the first major version bump since Bundler 2 back in
+January 2019, and it consolidates breaking changes that had been pending for
+close to a decade.
+
+As [we announced with Bundler 2.7](/blog/2025/07/17/bundler-v2-7.html), this
+release skips version 3 entirely so that the Bundler and RubyGems version
+numbers are now in sync. From this point on, Bundler and RubyGems will be
+released in lockstep as a single version.
+
+## Installing Bundler 4
+
+```
+gem install bundler
+```
+
+Or, to upgrade an existing application:
+
+```
+bundle update --bundler=4.0.0
+```
+
+If you already tested the `simulate_version` configuration from Bundler 2.7,
+you should be in great shape. If not, keep reading.
+
+## Performance improvements
+
+Bundler 4 is noticeably faster than its predecessors.
+
+* **Parallel network connections.** The default connection pool has been
+  expanded to 5 parallel connections, reducing `bundle install` times by up to
+  70% in some cases.
+
+* **Parallelized C-extension builds.** RubyGems now automatically sets
+  `MAKEFLAGS=-j` during native extension compilation, using all available CPU
+  cores by default. `BUNDLE_JOBS` is also passed through to RubyGems so your
+  existing parallelism settings are respected.
+
+* **Reduced API roundtrips.** The API batch size has been doubled from 50 to
+  100 gems per request, cutting network roundtrips in half for larger projects.
+
+* **Parallel git operations.** Git source cloning and fetching now runs in
+  parallel, which makes a meaningful difference in projects with multiple git
+  dependencies.
+
+## New features
+
+* **Flexible lockfiles.** `bundle install --lockfile=custom.lock` lets you use
+  a custom lockfile name. `bundle install --no-lock` skips lockfile generation
+  entirely, useful for CI or testing scenarios. The `BUNDLE_LOCKFILE`
+  environment variable is also supported.
+
+* **Lockfile checksums enabled by default.** The `CHECKSUMS` section introduced
+  in Bundler 2.6 is now on by default for all new lockfiles, providing
+  tamper-detection for every installed gem out of the box.
+
+* **JSON output for `bundle list`.** `bundle list --format=json` provides
+  machine-readable dependency output for programmatic integration with external
+  tools.
+
+* **Go native extensions.** `bundle gem --ext=go` scaffolds a gem with Go
+  native extension support, joining the existing C and Rust options.
+
+* **Better typo suggestions.** Bundler now uses `DidYouMean::SpellChecker` for
+  gem name suggestions, consistent with how Ruby itself handles typos.
+
+* **Checksum support for private gem servers.** Lockfile checksums now work
+  correctly with private gem servers, not just rubygems.org.
+
+## Breaking changes
+
+Bundler 4 removes a significant amount of deprecated functionality. If you've
+been following the deprecation warnings in Bundler 2.x, most of this should be
+familiar.
+
+* **Removed commands.** `bundle viz` and `bundle inject` are gone. `bundle show
+  --outdated` now raises an error (use `bundle outdated` instead).
+
+* **Removed CLI flags.** `bundle install --binstubs`, `bundle remove --install`,
+  `bundle plugin install --local-git`, and passing `--ext` to `bundle gem`
+  without a value all raise errors now.
+
+* **No more remembered CLI flags.** Bundler no longer remembers flags from
+  previous `bundle install` runs. Each invocation stands on its own.
+
+* **Multiple global sources forbidden.** Every gem in your Gemfile must have an
+  unambiguous source. If you have multiple `source` blocks, make sure each gem
+  is scoped to one of them.
+
+* **Cache-all mode on by default.** `bundle cache` now caches all gems
+  (including git and path gems) by default.
+
+* **Legacy entrypoints removed.** The old `require "bundler/deployment"`,
+  `require "bundler/capistrano"`, and `require "bundler/vlad"` entrypoints no
+  longer exist.
+
+## Upgrading
+
+If you used the `simulate_version` setting from Bundler 2.7 and resolved all
+warnings, upgrading should be seamless. Otherwise, the general approach is:
+
+1. Update to the latest Bundler 2.7 first.
+2. Enable `bundle config simulate_version 4` and fix any warnings.
+3. Run `bundle update --bundler` to move your lockfile to Bundler 4.
+
+For a comprehensive list of changes and migration steps, see the [upgrade
+guide](https://github.com/rubygems/rubygems/blob/master/doc/bundler/UPGRADING.md).
+
+## What's next
+
+We're planning to consolidate the RubyGems and Bundler resolver codebases in
+version 4.1, and improve CPU detection in containerized environments. Expect
+more frequent, smaller releases going forward now that Bundler and RubyGems
+share a version number and release cadence.
+
+Happy bundling!

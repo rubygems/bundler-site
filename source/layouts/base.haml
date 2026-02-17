@@ -22,7 +22,6 @@
     = javascript_include_tag "application.min"
     = stylesheet_link_tag "application"
     = partial 'layouts/favicon'
-    = feed_tag :atom, "#{blog.options.prefix.to_s}/feed.xml", title: "Atom Feed"
     = yield_content :head
 
   %body{class: current_page.data.page_classes || ''}

@@ -199,9 +199,6 @@ redirect "commands.html", to: "man/bundle.1.html" # Backwards compatibility
 redirect "older_versions.html", to: "whats_new.html" # Backwards compatibility
 redirect "team.html", to: "contributors.html" # https://github.com/rubygems/bundler-site/issues/842
 
-redirect /^blog\/(.*)$/, to: ->(path) { "https://blog.rubygems.org/#{$1}" }
-redirect "blog/feed.xml", to: "https://blog.rubygems.org/feed.xml"
-
 configure :development do
   config[:css_dir] = ".tmp/dist"
   config[:js_dir] = ".tmp/dist"

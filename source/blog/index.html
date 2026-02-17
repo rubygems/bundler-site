@@ -1,0 +1,25 @@
+---
+layout: false
+---
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Redirecting&hellip;</title>
+  <link rel="canonical" href="https://blog.rubygems.org/">
+  <meta http-equiv="refresh" content="0; url=https://blog.rubygems.org/">
+  <style>
+    body { font-family: sans-serif; padding: 2rem; }
+  </style>
+</head>
+<body>
+  <h1>Redirecting&hellip;</h1>
+  <p>The blog has moved to <a href="https://blog.rubygems.org/">blog.rubygems.org</a>.</p>
+  <script>
+    // Extract the path after /blog/ and redirect to blog.rubygems.org
+    var path = window.location.pathname.replace(/^\/blog\/?/, '');
+    var url = 'https://blog.rubygems.org/' + path;
+    window.location = url;
+  </script>
+</body>
+</html>

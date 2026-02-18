@@ -5,7 +5,7 @@ module GuidesHelper
 
   def additional_guides
     [
-      { filename: "doc/readme.html", title: "Contributing to Bundler" }
+      { filename: "https://guides.rubygems.org/contributing", title: "Contributing to Bundler" }
     ]
   end
 

@@ -126,7 +126,7 @@ Bundler has a lot of contributors and users, and they all talk to each other qui
 If you have questions, try [the IRC channel](http://webchat.freenode.net/?channels=bundler)
 or [mailing list](http://groups.google.com/group/ruby-bundler).
 If you're interested in contributing to the project (no programming skills needed),
-read [the contributing guide](/doc/readme.html)
+read [the contributing guide](https://guides.rubygems.org/contributing)
 or [the development guide](https://github.com/rubygems/rubygems/blob/master/bundler/doc/development/README.md).
 While participating in the Bundler project, please keep the [code of conduct](/conduct.html)
 in mind, and be inclusive and friendly towards everyone. If you have sponsorship or security questions, please contact the core team directly.
@@ -134,5 +134,5 @@ in mind, and be inclusive and friendly towards everyone. If you have sponsorship
 <a href="/conduct.html" class="btn btn-primary">Code of Conduct</a>
 <a href="http://webchat.freenode.net/?channels=bundler" class="btn btn-primary">#bundler on IRC</a>
 <a href="http://groups.google.com/group/ruby-bundler" class="btn btn-primary">Mailing list</a>
-<a href="/doc/readme.html" class="btn btn-primary">Contributing</a>
+<a href="https://guides.rubygems.org/contributing" class="btn btn-primary">Contributing</a>
 <a href="mailto:team@bundler.io" class="btn btn-primary">Email core team</a>

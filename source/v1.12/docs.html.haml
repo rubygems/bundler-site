@@ -13,19 +13,7 @@ description: Main Docs page with all available resources
 
 .container
   .row.docs.my-5
-    .col-md-6.col-12
-      %h3
-        %b Guides
-      %p
-        Step-by-step tutorials that include useful explanations and detailed instructions to help you get up and running.
-      %ul.ul-padding
-        - guides.each do |guide|
-          %li= link_to_guide guide
-        -# The below entries are not included in the above `guides`
-        %li= link_to 'Compatibility', '/compatibility.html'
-        %li= link_to 'Troubleshooting Guide', '/doc/contributing/issues.html'
-
-    .col-md-5.offset-md-1.col-12
+    .col-12
       %h3
         %b Reference Guides
       %p

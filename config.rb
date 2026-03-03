@@ -7,7 +7,7 @@ config[:latest_version] = config[:versions].last
 activate :syntax
 activate :i18n
 activate :search do |search|
-  search.resources = ["index.html", "guides/", "#{config[:latest_version]}/", "changelog.html", "compatibility.html", "conduct.html"]
+  search.resources = ["index.html", "#{config[:latest_version]}/", "changelog.html", "compatibility.html", "conduct.html"]
 
   search.index_path = "search/lunr-index.json"
 
@@ -73,11 +73,6 @@ Dir.glob("./source/localizable/#{config[:latest_version]}/**/*").select{ |f| Fil
   proxy proxy_path, page_path, locale: :en if country == "en"
 end
 
-# Workaround for https://github.com/rubygems/bundler-site/pull/44 for 9 years
-%w[bundler_workflow gemfile gemfile_ruby rationale rubygems rubymotion].each do |filename|
-  redirect "#{filename}.html", to: "guides/#{filename}.html"
-end
-
 # Redirect old pages in this repo to manpages (see https://github.com/rubygems/bundler-site/issues/723)
 %w[help binstubs check clean console init inject install open outdated plugin show version viz].each do |command|
   redirect "bundle_#{command}.html", to: "man/bundle-#{command}.1.html"
@@ -108,57 +103,9 @@ end
 
   # /v:ver/docs.html is now the center of versioned docs
   redirect "v#{version}/index.html", to: "v#{version}/docs.html"
-
-  # Redirect old localizable guides (v1.12-v1.14) to the version-independent guides
-  ["", "pl/"].each do |lang|
-    redirect "#{lang}v#{version}/guides/creating_gem.html", to: "#{lang}guides/creating_gem.html"
-    # to latest version (1.15) compatible with Ruby 1.8.x
-    redirect "#{lang}v#{version}/guides/using_bundler_in_applications.html", to: "#{lang}guides/using_bundler_in_applications.html"
-  end
-
-  # Add the rule above here if you need it for v1.15 as well
-  next if version == "1.15"
-
-  # Redirect versioned-guides (which are not localizable) on v1.12-v1.14 to version-independent guides
-  %w[bundler_setup bundler_sharing deploying faq git git_bisect groups rails sinatra updating_gems].each do |filename|
-    redirect "v#{version}/#{filename}.html", to: "guides/#{filename}.html"
-  end
-end
-%w[rails23 rails3].each do |filename|
-  redirect "v1.12/#{filename}.html", to: "guides/rails.html"
 end
 
-# Redirect versioned-guides (which are not localizable) on v1.15 and below to version-independent guides
-%w[bundler_setup bundler_sharing deploying faq git git_bisect groups rails rubygems_tls_ssl_troubleshooting_guide sinatra updating_gems].each do |filename|
-  redirect "v1.15/guides/#{filename}.html", to: "guides/#{filename}.html"
-end
-
-# Redirect es versioned-guides (which are not localizable) on v1.15 to version-independent guides
-%w[bundler_setup bundler_sharing].each do |filename|
-  redirect "es/v1.15/guides/#{filename}.html", to: "es/guides/#{filename}.html"
-end
-
-# Redirect versioned-guides (which are not localizable) between v1.16 and v2.3 to version-independent guides
 %w[1.16 1.17 2.0 2.1 2.2 2.3].each do |version|
-  redirect "v#{version}/guides/bundler_docker_guide.html", to: "guides/bundler_docker_guide.html"
-  redirect "v#{version}/guides/bundler_in_a_single_file_ruby_script.html", to: "guides/bundler_in_a_single_file_ruby_script.html"
-  redirect "v#{version}/guides/bundler_plugins.html", to: "guides/bundler_plugins.html"
-  redirect "v#{version}/guides/bundler_setup.html", to: "guides/bundler_setup.html"
-  redirect "v#{version}/guides/bundler_sharing.html", to: "guides/bundler_sharing.html"
-  redirect "v#{version}/guides/deploying.html", to: "guides/deploying.html"
-  redirect "v#{version}/guides/faq.html", to: "guides/faq.html"
-  redirect "v#{version}/guides/git.html", to: "guides/git.html"
-  redirect "v#{version}/guides/git_bisect.html", to: "guides/git_bisect.html"
-  redirect "v#{version}/guides/groups.html", to: "guides/groups.html"
-  redirect "v#{version}/guides/rails.html", to: "guides/rails.html"
-  redirect "v#{version}/guides/rubygems_tls_ssl_troubleshooting_guide.html", to: "guides/rubygems_tls_ssl_troubleshooting_guide.html"
-  redirect "v#{version}/guides/sinatra.html", to: "guides/sinatra.html"
-  redirect "v#{version}/guides/updating_gems.html", to: "guides/updating_gems.html"
-
-  %w[bundler_workflow gemfile gemfile_ruby rationale rubygems rubymotion].each do |filename|
-    redirect "v#{version}/#{filename}.html", to: "guides/#{filename}.html"
-  end
-
   # Redirect old pages in this repo to manpages (see https://github.com/rubygems/bundler-site/issues/723)
   %w[help binstubs check clean console init inject install open outdated plugin show version viz].each do |command|
     next if %w[plugin].include?(command) && version < "2.3"
@@ -167,16 +114,6 @@ end
 
   # /v:ver/docs.html is now the center of versioned docs
   redirect "v#{version}/index.html", to: "v#{version}/docs.html"
-
-  # Redirect old localizable guides (v1.16-v2.3) to the current (version-independent) guide
-  ["", "pl/"].each do |lang|
-    redirect "#{lang}v#{version}/guides/creating_gem.html", to: "#{lang}guides/creating_gem.html"
-    redirect "#{lang}v#{version}/guides/using_bundler_in_applications.html", to: "#{lang}guides/using_bundler_in_applications.html"
-  end
-end
-# Redirect versioned-guides (which are not localizable) between v2.0 and v2.3 to version-independent guides
-%w[2.0 2.1 2.2 2.3].each do |version|
-  redirect "v#{version}/guides/bundler_2_upgrade.html", to: "guides/bundler_2_upgrade.html"
 end
 
 redirect "sponsors.html", to: "https://rubygems.org/pages/sponsors" # Backwards compatibility
@@ -188,8 +125,6 @@ page "/whats_new.html", layout: :two_column_layout
 page /\/v(\d+.\d+)\/(?!bundle_|commands|docs|man)(.*)/, layout: :two_column_layout
 page /\/v(.*)\/man\/(.*)/, layout: :two_column_layout
 page /man\/(.*)/, layout: :two_column_layout
-page /\/v(.*)\/guides\/(.*)/, layout: :two_column_layout
-page /guides\/(.*)/, layout: :two_column_layout
 page /\/doc\/(.*)/, layout: :two_column_layout # Imported from rubygems/bundler
 
 page "/sitemap.xml", layout: false

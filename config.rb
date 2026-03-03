@@ -73,6 +73,86 @@ Dir.glob("./source/localizable/#{config[:latest_version]}/**/*").select{ |f| Fil
   proxy proxy_path, page_path, locale: :en if country == "en"
 end
 
+# Redirect removed guide pages to https://guides.rubygems.org/
+guides_target = "https://guides.rubygems.org/"
+
+## /guides/:name.html (top-level, version-independent guides)
+%w[
+  bundler_2_upgrade bundler_docker_guide bundler_in_a_single_file_ruby_script
+  bundler_plugins bundler_setup bundler_sharing bundler_workflow
+  deploying faq gemfile gemfile_ruby getting_started git git_bisect
+  groups plugins rails rationale rubygems
+  rubygems_tls_ssl_troubleshooting_guide rubymotion sinatra updating_gems
+].each do |filename|
+  redirect "guides/#{filename}.html", to: guides_target
+end
+
+## /guides/creating_gem.html, /guides/using_bundler_in_applications.html (localizable guides)
+%w[creating_gem using_bundler_in_applications].each do |filename|
+  redirect "guides/#{filename}.html", to: guides_target
+  %w[es pl].each do |lang|
+    redirect "#{lang}/guides/#{filename}.html", to: guides_target
+  end
+end
+
+## Top-level pages that were previously redirected to guides/
+%w[bundler_workflow gemfile gemfile_ruby rationale rubygems rubymotion].each do |filename|
+  redirect "#{filename}.html", to: guides_target
+end
+
+## /v1.12/rails23.html, /v1.12/rails3.html
+%w[rails23 rails3].each do |filename|
+  redirect "v1.12/#{filename}.html", to: guides_target
+end
+
+## Versioned guide redirects for v1.12-v1.14
+%w[1.12 1.13 1.14].each do |version|
+  %w[bundler_setup bundler_sharing deploying faq git git_bisect groups rails sinatra updating_gems].each do |filename|
+    redirect "v#{version}/#{filename}.html", to: guides_target
+  end
+end
+
+## Versioned localizable guide redirects for v1.12-v1.15
+%w[1.12 1.13 1.14 1.15].each do |version|
+  ["", "pl/"].each do |lang|
+    redirect "#{lang}v#{version}/guides/creating_gem.html", to: guides_target
+    redirect "#{lang}v#{version}/guides/using_bundler_in_applications.html", to: guides_target
+  end
+end
+
+## v1.15 guides
+%w[bundler_setup bundler_sharing deploying faq git git_bisect groups rails rubygems_tls_ssl_troubleshooting_guide sinatra updating_gems].each do |filename|
+  redirect "v1.15/guides/#{filename}.html", to: guides_target
+end
+%w[bundler_setup bundler_sharing].each do |filename|
+  redirect "es/v1.15/guides/#{filename}.html", to: guides_target
+end
+
+## Versioned guide redirects for v1.16-v2.3
+%w[1.16 1.17 2.0 2.1 2.2 2.3].each do |version|
+  %w[
+    bundler_docker_guide bundler_in_a_single_file_ruby_script bundler_plugins
+    bundler_setup bundler_sharing deploying faq git git_bisect groups rails
+    rubygems_tls_ssl_troubleshooting_guide sinatra updating_gems
+  ].each do |filename|
+    redirect "v#{version}/guides/#{filename}.html", to: guides_target
+  end
+
+  %w[bundler_workflow gemfile gemfile_ruby rationale rubygems rubymotion].each do |filename|
+    redirect "v#{version}/#{filename}.html", to: guides_target
+  end
+
+  ["", "pl/"].each do |lang|
+    redirect "#{lang}v#{version}/guides/creating_gem.html", to: guides_target
+    redirect "#{lang}v#{version}/guides/using_bundler_in_applications.html", to: guides_target
+  end
+end
+
+## v2.0-v2.3 bundler_2_upgrade
+%w[2.0 2.1 2.2 2.3].each do |version|
+  redirect "v#{version}/guides/bundler_2_upgrade.html", to: guides_target
+end
+
 # Redirect old pages in this repo to manpages (see https://github.com/rubygems/bundler-site/issues/723)
 %w[help binstubs check clean console init inject install open outdated plugin show version viz].each do |command|
   redirect "bundle_#{command}.html", to: "man/bundle-#{command}.1.html"

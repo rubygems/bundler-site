@@ -1,5 +1,3 @@
-- is_command = command?(current_page.url) || whats_new?(current_page.url)
-
 - if /v\d\.\d+\//.match?(current_page.destination_path)
   - content_for(:canonical, commands_toplevel_path(current_page.destination_path))
 
@@ -8,14 +6,11 @@
 
   .container
     .row.flex-column.flex-md-row-reverse
-      .col-12.col-md-9.contents#page-content-wrapper{ class: is_command ? "commands" : "guide" }
+      .col-12.col-md-9.contents.commands#page-content-wrapper
         ~ yield
       .col-12.col-md-3.mt-4
         .sidebar-nav
-          - if is_command
-            = partial 'partials/commands_sidebar'
-          - else
-            = partial 'partials/guides_sidebar'
+          = partial 'partials/commands_sidebar'
 
   = javascript_include_tag 'two_column_layout.min'
 

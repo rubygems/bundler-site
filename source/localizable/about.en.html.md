@@ -24,11 +24,6 @@ Deploy status can be followed in
 Custom domain is used to host `bundler.io` (see also
 [Managing a custom domain for your GitHub Pages site](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site#configuring-a-subdomain)).
 
-As seen above, you might sometimes take care about the difference in
-deploy methods between review apps and production. Unlike production
-mentioned above, review apps of this Web site rely on Heroku architecture,
-which run as middleman server.
-
 ## Localization
 
 While

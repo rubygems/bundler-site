@@ -11,11 +11,9 @@
 Rake/Desc:
   Exclude:
     - 'Rakefile'
-    - 'lib/tasks/contributors.rake'
     - 'lib/tasks/man_generator/strip_pages.rake'
 
 # Offense count: 5
 Rake/MethodDefinitionInTask:
   Exclude:
-    - 'lib/tasks/contributors.rake'
     - 'lib/tasks/man_generator/strip_pages.rake'

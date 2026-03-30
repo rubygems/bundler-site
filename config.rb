@@ -76,20 +76,8 @@ end
 # Redirect removed guide pages to https://guides.rubygems.org/
 guides_target = "https://guides.rubygems.org/"
 
-## /guides/:name.html (top-level, version-independent guides)
-%w[
-  bundler_2_upgrade bundler_docker_guide bundler_in_a_single_file_ruby_script
-  bundler_plugins bundler_setup bundler_sharing bundler_workflow
-  deploying faq gemfile gemfile_ruby getting_started git git_bisect
-  groups plugins rails rationale rubygems
-  rubygems_tls_ssl_troubleshooting_guide rubymotion sinatra updating_gems
-].each do |filename|
-  redirect "guides/#{filename}.html", to: guides_target
-end
-
-## /guides/creating_gem.html, /guides/using_bundler_in_applications.html (localizable guides)
+## /guides/creating_gem.html, /guides/using_bundler_in_applications.html (localizable guides, non-en)
 %w[creating_gem using_bundler_in_applications].each do |filename|
-  redirect "guides/#{filename}.html", to: guides_target
   %w[es pl].each do |lang|
     redirect "#{lang}/guides/#{filename}.html", to: guides_target
   end

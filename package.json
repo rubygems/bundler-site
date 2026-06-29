@@ -32,7 +32,7 @@
     "sass-loader": "^17.0.0",
     "style-loader": "^4.0.0",
     "webpack": "^5.107.2",
-    "webpack-cli": "^7.0.3"
+    "webpack-cli": "^7.1.0"
   },
   "dependencies": {
     "@popperjs/core": "^2.11.8",

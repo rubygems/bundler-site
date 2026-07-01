@@ -7,7 +7,7 @@ includes context and a more detailed explanation of the changes in this version.
 ### A new PubGrub based resolver
 
 Bundler now uses [pub_grub](https://github.com/jhawthorn/pub_grub) under the
-hood to resolve versions. The most advance algorithm to approach the version
+hood to resolve versions. The most advanced algorithm to approach the version
 solving problem! 💪
 
 ### Generate gems with Rust extensions

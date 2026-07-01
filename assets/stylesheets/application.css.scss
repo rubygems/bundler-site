@@ -9,7 +9,7 @@ $navbar-height: 50px;
   font-display: swap;
 }
 
-// Boostrap 5 customization
+// Bootstrap 5 customization
 // Document: https://getbootstrap.com/docs/5.3/customize/sass/#importing
 // List of SCSS to load: https://github.com/twbs/bootstrap/blob/v5.3.3/scss/bootstrap.scss
 @import "~bootstrap/scss/functions";
@@ -58,7 +58,7 @@ $icon-font-path: '~bootstrap/assets/fonts/bootstrap/';
 @import "~bootstrap/scss/utilities/api";
 
 @import "bootstrap-class-overrides";
-// end of Boostrap 5 customization
+// end of Bootstrap 5 customization
 
 @import "navbar";
 @import "docs";

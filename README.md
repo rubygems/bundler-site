@@ -10,7 +10,7 @@ The site bundler.io is a static site generated using [Middleman](http://middlema
 
 ## Development Set Up
 
-Begin by cloning the repository onto your location machine:
+Begin by cloning the repository onto your local machine:
 
     git clone https://github.com/rubygems/bundler-site.git
 
@@ -35,7 +35,7 @@ To specify the host and/or port, add the --bind-address, -p flag(s):
 
     bundle exec middleman --bind-address 0.0.0.0 -p 8080
 
-Note: the development server will automatically reload pages when they or there associated stylesheets are modified. This feature is enabled in **config.rb**.
+Note: the development server will automatically reload pages when they or their associated stylesheets are modified. This feature is enabled in **config.rb**.
 
 Build the site:
 

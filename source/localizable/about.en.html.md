@@ -32,7 +32,7 @@ multilingualization is still ongoing.
 We welcome multilingualize more guides and other documentations.
 To get started, move some files existing in `/source`
 or create a file to `/source/localizable`
-to multiligualize
+to multilingualize
 files.
 
 ## Becoming a maintainer of this Web site (namely `rubygems/bundler-site`)

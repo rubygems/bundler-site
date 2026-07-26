@@ -13,10 +13,10 @@ layout: two_column_layout
 
 Middleman 4.4 is the core system of this Web site.
 A half of source code is located in `./source`,
-but the other half is located in [rubygems/rubygems/tree/master/bundler/lib/bundler/man"](https://github.com/rubygems/rubygems/tree/master/bundler/lib/bundler/man),
+but the other half is located in [ruby/rubygems/tree/master/lib/bundler/man](https://github.com/ruby/rubygems/tree/master/lib/bundler/man),
 which would be retrieved by executing `bundle exec rake man`.
 
-When the source code is merged to the default branch `master` on GitHub,
+When the source code is merged to the default branch `main` on GitHub,
 [Deploy job on GitHub Actions](https://github.com/rubygems/bundler-site/blob/HEAD/.github/workflows/deploy.yml)
 would automatically build source (HTML, JS, CSS and font) and push them to GitHub Pages.
 Deploy status can be followed in

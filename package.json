@@ -1,7 +1,7 @@
 {
   "name": "bundler-site",
   "version": "1.0.0",
-  "description": "bundler.io is intended to serve as a convenient source for documentation on the [bundler](https://github.com/rubygems/rubygems) gem.",
+  "description": "bundler.io is intended to serve as a convenient source for documentation on the [bundler](https://github.com/ruby/rubygems) gem.",
   "main": "index.js",
   "directories": {
     "lib": "lib"

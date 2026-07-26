@@ -19,14 +19,14 @@ module DocsHelper
       dirname = File.dirname(path)
       basename = File.basename(path, ".html.md").upcase
       path = File.join(dirname, "#{basename}.md")
-      link_to_source("rubygems/rubygems", path)
+      link_to_source("ruby/rubygems", path)
     elsif %r{\Aman/(?<filename>(bundle[_-]|gemfile)[^/]*)\.html} =~ path
-      path = "bundler/lib/bundler/man/#{filename}.ronn"
-      link_to_source("rubygems/rubygems", path)
+      path = "lib/bundler/man/#{filename}.ronn"
+      link_to_source("ruby/rubygems", path)
     elsif %r{\A(?<version>v\d+\.\d+)/man/(?<filename>(bundle[_-]|gemfile)[^/]*)\.html} =~ path
       if version == latest_version
-        path = "bundler/lib/bundler/man/#{filename}.ronn"
-        link_to_source("rubygems/rubygems", path)
+        path = "lib/bundler/man/#{filename}.ronn"
+        link_to_source("ruby/rubygems", path)
       else
         path = path.sub(version, latest_version)
         link_to_latest(path)
@@ -73,7 +73,7 @@ module DocsHelper
   private
 
   def link_to_source(repo, path)
-    url = "https://github.com/#{repo}/blob/master/#{path}"
+    url = "https://github.com/#{repo}/blob/HEAD/#{path}"
     link_to("Edit this document on GitHub", url) +
       " if you caught an error or noticed something was missing."
   end

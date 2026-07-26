@@ -18,10 +18,10 @@ module DocsHelper
       basename = File.basename(path, ".html.md").upcase
       path = File.join(dirname, "#{basename}.md")
       link_to_source("ruby/rubygems", path)
-    elsif %r{\Aman/(?<filename>(bundle[_-]|gemfile)[^/]*)\.html} =~ path
+    elsif %r{\Aman/(?<filename>(bundle[._-]|gemfile)[^/]*)\.html} =~ path
       path = "lib/bundler/man/#{filename}.ronn"
       link_to_source("ruby/rubygems", path)
-    elsif %r{\A(?<version>v\d+\.\d+)/man/(?<filename>(bundle[_-]|gemfile)[^/]*)\.html} =~ path
+    elsif %r{\A(?<version>v\d+\.\d+)/man/(?<filename>(bundle[._-]|gemfile)[^/]*)\.html} =~ path
       if version == latest_version
         path = "lib/bundler/man/#{filename}.ronn"
         link_to_source("ruby/rubygems", path)
@@ -33,6 +33,8 @@ module DocsHelper
         # file left to edit. `bundle inject` and `bundle viz` are gone as of Bundler 4.0.
         obsolete_without_latest
       end
+    elsif (repo_page = repo_pages[path])
+      link_to_source("ruby/rubygems", repo_page)
     else
       path = File.join "source", path
       link_to_source("rubygems/bundler-site", path)
@@ -73,6 +75,14 @@ module DocsHelper
   end
 
   private
+
+  # Pages written into source/ by `rake repo_pages`, so the editable copy lives in the rubygems repo.
+  def repo_pages
+    {
+      "changelog.html.md" => "CHANGELOG-bundler.md",
+      "conduct.html.md" => "CODE_OF_CONDUCT.md",
+    }.freeze
+  end
 
   def link_to_source(repo, path)
     url = "https://github.com/#{repo}/blob/HEAD/#{path}"

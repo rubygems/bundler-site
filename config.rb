@@ -141,6 +141,16 @@ end
   redirect "v#{version}/guides/bundler_2_upgrade.html", to: guides_target
 end
 
+## /doc/*, imported from doc/bundler/ in the rubygems repo until that tree was merged into doc/
+%w[
+  contributing/bug_triage contributing/community contributing/how_you_can_help contributing/readme
+  development/debugging development/new_features development/pull_requests development/readme
+  development/setup documentation/readme documentation/vision documentation/writing
+  playbooks/merging_a_pr playbooks/team_changes policies readme troubleshooting upgrading
+].each do |filename|
+  redirect "doc/#{filename}.html", to: guides_target
+end
+
 # Redirect old pages in this repo to manpages (see https://github.com/rubygems/bundler-site/issues/723)
 %w[help binstubs check clean console init inject install open outdated plugin show version viz].each do |command|
   redirect "bundle_#{command}.html", to: "man/bundle-#{command}.1.html"

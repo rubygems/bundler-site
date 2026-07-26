@@ -50,7 +50,7 @@ directory "vendor/bundler" => ["vendor"] do
 end
 
 directory "vendor/rubygems" => ["vendor"] do
-  system "git clone --depth 1 --no-single-branch https://github.com/rubygems/rubygems.git vendor/rubygems"
+  system "git clone --depth 1 --no-single-branch https://github.com/ruby/rubygems.git vendor/rubygems"
 end
 
 task update_vendor: ["vendor/bundler", "vendor/rubygems"] do
@@ -72,6 +72,6 @@ task repo_pages: :update_vendor do
     end
 
     write_file("CODE_OF_CONDUCT.md", File.expand_path("./conduct.html.md", source_dir), title: "RubyGems and Bundler Code of Conduct")
-    write_file("bundler/CHANGELOG.md", File.expand_path("./changelog.html.md", source_dir), title: "ChangeLog")
+    write_file("CHANGELOG-bundler.md", File.expand_path("./changelog.html.md", source_dir), title: "ChangeLog")
   end
 end

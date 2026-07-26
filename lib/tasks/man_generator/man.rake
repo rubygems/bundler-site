@@ -9,12 +9,13 @@ task man: :update_vendor do
       man_folder = "man"
     elsif version == "v4.0"
       branch = "master"
-      vendor_folder = "vendor/rubygems/bundler"
+      vendor_folder = "vendor/rubygems"
+      # The Bundler tree was moved to the repository root on master.
       man_folder = "lib/bundler/man"
     else
       branch = Gem::Version.new(version[1..-1]).segments.map.with_index { |segment, i| i == 0 ? segment + 1 : segment }.join(".")
-      vendor_folder = "vendor/rubygems/bundler"
-      man_folder = "lib/bundler/man"
+      vendor_folder = "vendor/rubygems"
+      man_folder = "bundler/lib/bundler/man"
     end
 
     # v2.3 or later versions do not have `man` dir even after #922.

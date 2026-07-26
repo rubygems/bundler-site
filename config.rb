@@ -146,6 +146,16 @@ end
   redirect "bundle_#{command}.html", to: "man/bundle-#{command}.1.html"
 end
 
+# `bundle inject` and `bundle viz` were removed in Bundler 4.0, so the top-level manpages
+# that mirror the latest version are gone. Keep their URLs working by pointing them at the
+# last version that still documents them.
+%w[bundle-inject.1 bundle-viz.1].each do |man_page|
+  version = config[:versions].reverse.find{ |v| File.exist?("./source/#{v}/man/#{man_page}.html.erb") }
+  next unless version
+
+  redirect "man/#{man_page}.html", to: "/#{version}/man/#{man_page}.html"
+end
+
 # Redirect meaningless pages proxied for 6 years to the original pages
 # https://github.com/rubygems/bundler-site/issues/807
 config[:versions].each do |version|

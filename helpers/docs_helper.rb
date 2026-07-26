@@ -25,9 +25,13 @@ module DocsHelper
       if version == latest_version
         path = "lib/bundler/man/#{filename}.ronn"
         link_to_source("ruby/rubygems", path)
-      else
+      elsif path_exist?("man/#{filename}", latest_version)
         path = path.sub(version, latest_version)
         link_to_latest(path)
+      else
+        # The command was removed upstream, so there is nothing to link to and no ronn
+        # file left to edit. `bundle inject` and `bundle viz` are gone as of Bundler 4.0.
+        obsolete_without_latest
       end
     else
       path = File.join "source", path
@@ -81,6 +85,10 @@ module DocsHelper
     "This document is obsolete. " +
       link_to("See the latest version of this document", url) +
       " if you caught an error or noticed something was missing, it may be fixed there."
+  end
+
+  def obsolete_without_latest
+    "This document is obsolete. It describes a command that no longer exists in Bundler #{latest_version.delete_prefix("v")}."
   end
 
   def strip_version_from_url(url)

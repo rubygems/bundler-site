@@ -31,8 +31,8 @@ end
 def write_file(file, to, title: nil)
   content = File.read(file)
 
-  file = file.sub("doc/bundler/", "doc/").downcase
-  to = to.sub("doc/bundler/", "doc/").downcase
+  file = file.downcase
+  to = to.downcase
 
   content.gsub!(RELATIVE_LINK_REGEX) do |match_data|
     new_link = new_link(file, Regexp.last_match[:link].downcase)
@@ -65,7 +65,7 @@ task repo_pages: :update_vendor do
     sh "git checkout origin/master"
 
     source_dir = File.expand_path("../source/", File.dirname(__dir__))
-    Dir["doc/bundler/**/*.md"].each do |file|
+    Dir["doc/**/*.md"].each do |file|
       file_name = file[0..-4] # Removes .md suffix
       to = File.expand_path("./#{file_name}.html.md", source_dir)
       write_file(file, to)

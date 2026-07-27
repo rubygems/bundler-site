@@ -5,15 +5,3 @@
 # one by one as the offenses are removed from the code base.
 # Note that changes in the inspected code, or installation of new
 # versions of RuboCop, may require this file to be generated again.
-
-# Offense count: 3
-# This cop supports safe autocorrection (--autocorrect).
-Rake/Desc:
-  Exclude:
-    - 'Rakefile'
-    - 'lib/tasks/man_generator/strip_pages.rake'
-
-# Offense count: 5
-Rake/MethodDefinitionInTask:
-  Exclude:
-    - 'lib/tasks/man_generator/strip_pages.rake'

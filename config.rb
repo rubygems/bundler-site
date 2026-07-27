@@ -1,4 +1,3 @@
-Dir.glob(File.expand_path("../lib/config/*.rb", __FILE__), &method(:require))
 require_relative "lib/versions"
 
 config[:versions] = VERSIONS
@@ -6,7 +5,7 @@ config[:latest_version] = config[:versions].last
 
 activate :syntax
 activate :search do |search|
-  search.resources = ["index.html", "#{config[:latest_version]}/"]
+  search.resources = ["index.html"]
 
   search.index_path = "search/lunr-index.json"
 
@@ -47,17 +46,6 @@ activate :external_pipeline,
          source: ".tmp/dist",
          latency: 1
 
-# Make documentation for the latest version available at the top level, too.
-# Any pages with names that conflict with files already at the top level will be skipped.
-Dir.glob("./source/#{config[:latest_version]}/*.haml").each do |file_path|
-  file_path = file_path.sub(/\.haml$/, "")
-
-  page_path = file_path.sub(/^\.\/source\//, "")
-  proxy_path = file_path["./source/#{config[:latest_version]}/".length..-1]
-
-  proxy proxy_path, page_path unless file_exist?(proxy_path)
-end
-
 # The site is English-only now. Redirect the old localized top pages to the top page.
 %w[es pl].each do |lang|
   redirect "#{lang}/index.html", to: "/"
@@ -74,9 +62,12 @@ guides_target = "https://guides.rubygems.org/"
 end
 
 ## Top-level pages that were previously redirected to guides/
-%w[bundler_workflow gemfile gemfile_ruby rationale rubygems rubymotion].each do |filename|
+%w[bundler_workflow gemfile_ruby rationale rubygems rubymotion].each do |filename|
   redirect "#{filename}.html", to: guides_target
 end
+
+## The Gemfile guide was replaced by the gemfile(5) reference on the guides site.
+redirect "gemfile.html", to: "#{guides_target}gemfile/"
 
 ## /compatibility.html moved to the RubyGems guides
 redirect "compatibility.html", to: "#{guides_target}bundler-compatibility/"
@@ -119,9 +110,10 @@ end
     redirect "v#{version}/guides/#{filename}.html", to: guides_target
   end
 
-  %w[bundler_workflow gemfile gemfile_ruby rationale rubygems rubymotion].each do |filename|
+  %w[bundler_workflow gemfile_ruby rationale rubygems rubymotion].each do |filename|
     redirect "v#{version}/#{filename}.html", to: guides_target
   end
+  redirect "v#{version}/gemfile.html", to: "#{guides_target}gemfile/"
 
   ["", "pl/"].each do |lang|
     redirect "#{lang}v#{version}/guides/creating_gem.html", to: guides_target
@@ -174,57 +166,49 @@ redirect "conduct.html", to: "#{rubygems_repo}CODE_OF_CONDUCT.md"
 ## The about page was folded into this repo's README.
 redirect "about.html", to: "https://github.com/rubygems/bundler-site#readme"
 
-# Redirect old pages in this repo to manpages (see https://github.com/rubygems/bundler-site/issues/723)
-%w[help binstubs check clean console init inject install open outdated plugin show version viz].each do |command|
-  redirect "bundle_#{command}.html", to: "man/bundle-#{command}.1.html"
+# The man pages moved to the command reference on the guides site. Every man page URL
+# this site ever served (any version, the top-level mirror of the latest version, and
+# the underscore aliases from https://github.com/rubygems/bundler-site/issues/723 and
+# https://github.com/rubygems/bundler-site/issues/807) redirects to the guides page for
+# that command. The guides document the latest Bundler only, so commands that were
+# removed upstream point at their successor, or at the bundle(1) index for bundle viz.
+command_reference = "#{guides_target}command-reference/"
+man_pages = %w[
+  bundle.1 bundle-add.1 bundle-binstubs.1 bundle-cache.1 bundle-check.1
+  bundle-clean.1 bundle-config.1 bundle-console.1 bundle-doctor.1 bundle-env.1
+  bundle-exec.1 bundle-fund.1 bundle-gem.1 bundle-help.1 bundle-info.1
+  bundle-init.1 bundle-inject.1 bundle-install.1 bundle-issue.1 bundle-licenses.1
+  bundle-list.1 bundle-lock.1 bundle-open.1 bundle-outdated.1 bundle-package.1
+  bundle-platform.1 bundle-plugin.1 bundle-pristine.1 bundle-remove.1
+  bundle-show.1 bundle-update.1 bundle-version.1 bundle-viz.1 gemfile.5
+]
+man_targets = {
+  "gemfile.5" => "#{guides_target}gemfile/",
+  "bundle-inject.1" => "#{command_reference}bundle-add/",
+  "bundle-package.1" => "#{command_reference}bundle-cache/",
+  "bundle-viz.1" => "#{command_reference}bundle/",
+}
+
+man_pages.each do |man_page|
+  target = man_targets.fetch(man_page) { "#{command_reference}#{man_page.sub(/\.\d+$/, "")}/" }
+  alias_name = man_page.sub(/\.\d+$/, "").tr("-", "_")
+  alias_name = "gemfile_man" if alias_name == "gemfile"
+
+  redirect "man/#{man_page}.html", to: target
+  redirect "#{alias_name}.html", to: target unless alias_name == "bundle"
+
+  config[:versions].each do |version|
+    redirect "#{version}/man/#{man_page}.html", to: target
+    redirect "#{version}/#{alias_name}.html", to: target
+  end
 end
 
-# `bundle inject` and `bundle viz` were removed in Bundler 4.0, so the top-level manpages
-# that mirror the latest version are gone. Keep their URLs working by pointing them at the
-# last version that still documents them.
-%w[bundle-inject.1 bundle-viz.1].each do |man_page|
-  version = config[:versions].reverse.find{ |v| File.exist?("./source/#{v}/man/#{man_page}.html.erb") }
-  next unless version
-
-  redirect "man/#{man_page}.html", to: "/#{version}/man/#{man_page}.html"
-end
-
-# Redirect meaningless pages proxied for 6 years to the original pages
-# https://github.com/rubygems/bundler-site/issues/807
+# /docs.html and /v:ver/docs.html were the indexes of the man pages, and /v:ver/index.html
+# redirected there. bundle(1) plays that role on the guides site.
+redirect "docs.html", to: "#{command_reference}bundle/"
 config[:versions].each do |version|
-  Dir.glob("./source/#{version}/man/**/*").select{ |f| File.file?(f) }.each do |file_path|
-    file_path = file_path[0..-5]
-    page_path = file_path.sub(/^\.\/source/, "")
-
-    man_page_name_matched = file_path.match(/man\/(.*)\.html$/)
-    next unless man_page_name_matched
-
-    man_page_name = man_page_name_matched[1].gsub(/\.\d+$/, "").gsub("-", "_")
-    man_page_name = "gemfile_man" if man_page_name == "gemfile"
-
-    redirect "#{version}/#{man_page_name}.html", to: page_path unless man_page_exists?(man_page_name, version)
-  end
-end
-
-%w[1.12 1.13 1.14 1.15].each do |version|
-  # Redirect old pages in this repo to manpages (see https://github.com/rubygems/bundler-site/issues/723)
-  %w[help binstubs check clean console init inject install open outdated show version viz].each do |command|
-    redirect "v#{version}/bundle_#{command}.html", to: "v1.15/man/bundle-#{command}.1.html"
-  end
-
-  # /v:ver/docs.html is now the center of versioned docs
-  redirect "v#{version}/index.html", to: "v#{version}/docs.html"
-end
-
-%w[1.16 1.17 2.0 2.1 2.2 2.3].each do |version|
-  # Redirect old pages in this repo to manpages (see https://github.com/rubygems/bundler-site/issues/723)
-  %w[help binstubs check clean console init inject install open outdated plugin show version viz].each do |command|
-    next if %w[plugin].include?(command) && version < "2.3"
-    redirect "v#{version}/bundle_#{command}.html", to: "v#{version}/man/bundle-#{command}.1.html"
-  end
-
-  # /v:ver/docs.html is now the center of versioned docs
-  redirect "v#{version}/index.html", to: "v#{version}/docs.html"
+  redirect "#{version}/docs.html", to: "#{command_reference}bundle/"
+  redirect "#{version}/index.html", to: "#{command_reference}bundle/"
 end
 
 redirect "sponsors.html", to: "https://rubygems.org/pages/sponsors" # Backwards compatibility
@@ -249,7 +233,7 @@ page /man\/(.*)/, layout: :two_column_layout
 page "/sitemap.xml", layout: false
 
 redirect "issues.html", to: "https://github.com/ruby/rubygems/issues/new?labels=Bundler&template=bundler-related-issue.md" # Backwards compatibility
-redirect "commands.html", to: "man/bundle.1.html" # Backwards compatibility
+redirect "commands.html", to: "#{command_reference}bundle/" # Backwards compatibility
 redirect "older_versions.html", to: "https://github.com/ruby/rubygems/releases/latest" # Backwards compatibility
 redirect "team.html", to: "https://guides.rubygems.org/contributing" # https://github.com/rubygems/bundler-site/issues/842
 redirect "contributors.html", to: "https://guides.rubygems.org/contributing"

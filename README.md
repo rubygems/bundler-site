@@ -6,7 +6,7 @@ bundler.io is intended to serve as a convenient source for documentation on the 
 
 The site bundler.io is a static site generated using [Middleman](http://middlemanapp.com/).
 
-[Bundler's manual pages](https://github.com/ruby/rubygems/tree/master/lib/bundler/man) document much of its functionality and serve as an important part of the site. They are included via the **Rakefile**.
+Bundler's manual pages moved to the [command reference on the RubyGems guides](https://guides.rubygems.org/command-reference/bundle/); this site redirects the old man page URLs there.
 
 ## Development Set Up
 
@@ -20,10 +20,6 @@ Once complete prepare the dependencies by running:
     npm install
 
 ## Basic Middleman Commands
-
-Fetch latest documentation from bundler repo (should be done before running local development web server):
-
-    bundle exec rake build
 
 Run a local development web server:
 

@@ -178,6 +178,9 @@ end
 redirect "changelog.html", to: "#{rubygems_repo}CHANGELOG-bundler.md"
 redirect "conduct.html", to: "#{rubygems_repo}CODE_OF_CONDUCT.md"
 
+## The about page was folded into this repo's README.
+redirect "about.html", to: "https://github.com/rubygems/bundler-site#readme"
+
 # Redirect old pages in this repo to manpages (see https://github.com/rubygems/bundler-site/issues/723)
 %w[help binstubs check clean console init inject install open outdated plugin show version viz].each do |command|
   redirect "bundle_#{command}.html", to: "man/bundle-#{command}.1.html"

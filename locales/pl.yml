@@ -17,7 +17,6 @@ pl:
     learn_more_bundle_install: "Zobacz więcej: bundle install"
     whats_new: "What's new?"
   navbar:
-    about: "Cerca de"
     docs: "Docs"
     team: "Zespół"
     blog: "Blog"

@@ -1,10 +1,6 @@
 skip_frontmatter: true
 
 linters:
-  InlineStyles:
-    exclude:
-      - "source/layouts/_navbar.haml"
-
   LineLength:
     max: 250
 

@@ -23,11 +23,6 @@
 # Bundler binstubs
 /bin
 
-# pages from the bundler repo
-source/changelog.html.md
-source/conduct.html.md
-source/doc
-
 # contributor data generated from the bundler repo
 data/contributors.yml
 

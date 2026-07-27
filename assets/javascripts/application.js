@@ -1,2 +1,2 @@
-import './search';
-import './search_arrows';
+// The navbar toggler relies on Bootstrap's data API.
+import 'bootstrap';

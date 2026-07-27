@@ -4,18 +4,6 @@ config[:versions] = VERSIONS
 config[:latest_version] = config[:versions].last
 
 activate :syntax
-activate :search do |search|
-  search.resources = ["index.html"]
-
-  search.index_path = "search/lunr-index.json"
-
-  search.fields = {
-    title: {boost: 100, store: true, required: true},
-    content: {boost: 50},
-    url: {index: false, store: true},
-    description: {index: false, store: true},
-  }
-end
 
 set :layout, :base
 

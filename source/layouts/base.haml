@@ -1,9 +1,9 @@
 !!! 5
-%html{ lang: I18n.locale }
+%html{ lang: "en" }
   %head
     %meta{ charset: "utf-8" }
     %meta{ "http-equiv": "X-UA-Compatible", content: "IE=edge" }
-    %meta{ "http-equiv": "Content-Language", content: I18n.locale }
+    %meta{ "http-equiv": "Content-Language", content: "en" }
     %meta{ name: "viewport", content: "width=device-width, initial-scale=1" }
     %meta{ name: "globalsign-domain-verification", content: "276VSYOko8B8vIu1i8i5qbj7_ql5PXo0dU69XQy-SL" }
     %title
@@ -11,10 +11,6 @@
       Bundler: #{page_title || "The best way to manage a Ruby application's gems"}
 
     = yield_content :head
-
-    - site_url = %w[es pl].include?(I18n.locale) ? "https://bundler.io/#{I18n.locale}/" : "https://bundler.io/"
-
-    %link{ rel: 'alternate', href: site_url, hreflang: I18n.locale }
 
     - if content_for?(:canonical)
       %link{ rel: "canonical", href: yield_content(:canonical) }

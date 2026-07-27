@@ -20,7 +20,7 @@ When the source code is merged to the default branch `main` on GitHub,
 [Deploy job on GitHub Actions](https://github.com/rubygems/bundler-site/blob/HEAD/.github/workflows/deploy.yml)
 would automatically build source (HTML, JS, CSS and font) and push them to GitHub Pages.
 Deploy status can be followed in
-[github-pages Deployment history](https://github.com/rubygems/bundler-site/deployments/activity_log?environment=github-pages).
+[the deploy workflow history](https://github.com/rubygems/bundler-site/actions/workflows/deploy.yml).
 Custom domain is used to host `bundler.io` (see also
 [Managing a custom domain for your GitHub Pages site](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site#configuring-a-subdomain)).
 

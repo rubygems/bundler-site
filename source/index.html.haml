@@ -9,19 +9,24 @@
 
 .container.py-5
   .mx-xl-5.px-xl-5.my-4.large-font
-    %p= t('home.bundler_info1')
-    %p!= t('home.bundler_info2')
+    %p
+      Bundler provides a consistent environment for Ruby projects by tracking
+      and installing the exact gems and versions that are needed.
+    %p
+      Bundler is an exit from dependency hell, and ensures that the gems
+      you need are present in development, staging, and production.
+      Starting work on a project is as simple as <code>bundle install</code>.
 
   .d-grid.d-md-flex.gap-2.mx-auto.my-md-4.justify-content-md-center
-    = link_to t('home.what_can_bundler_do'), "/guides/getting_started.html#getting-started", class: 'btn btn-primary btn-lg'
-    = link_to "#{t("home.new_in")} #{latest_version}", "https://github.com/ruby/rubygems/releases/latest", class: 'btn btn-primary btn-lg'
-    = link_to t('home.cli_docs'), "/#{latest_version}/man/bundle-install.1.html", class: 'btn btn-primary btn-lg'
-    = link_to t('home.chat_with_us'), discussions_link, class: 'btn btn-primary btn-lg'
+    = link_to 'What Can Bundler Do?', "/guides/getting_started.html#getting-started", class: 'btn btn-primary btn-lg'
+    = link_to "New in #{latest_version}", "https://github.com/ruby/rubygems/releases/latest", class: 'btn btn-primary btn-lg'
+    = link_to 'CLI Docs', "/#{latest_version}/man/bundle-install.1.html", class: 'btn btn-primary btn-lg'
+    = link_to 'Chat With Us', discussions_link, class: 'btn btn-primary btn-lg'
 
 .container
   .mx-xl-5.px-xl-5.my-3.my-md-4.py-3
     %h2#getting-started
-      %b= t('home.getting_started')
+      %b Getting Started
 
     .large-font.mt-4
       .bullet
@@ -31,7 +36,9 @@
             installed. If you do not have Ruby installed, do that first and then check back here!
             Any modern distribution of Ruby comes with Bundler preinstalled by default.
 
-          %p= t('home.getting_started_description')
+          %p
+            Getting started with bundler is easy!
+            Specify your dependencies in a Gemfile in your project's root:
 
         :code
           # lang: ruby
@@ -40,16 +47,16 @@
           gem 'rack', '~> 2.2.4'
           gem 'rspec'
         .d-grid.d-md-flex.gap-2.my-3.justify-content-md-end
-          = link_to t('home.learn_more_gemfile'), './gemfile.html', class: 'btn btn-primary btn-lg'
+          = link_to 'Learn More: Gemfiles', './gemfile.html', class: 'btn btn-primary btn-lg'
 
       .bullet
         .description
-          %p= t('home.bundle_install_description')
+          %p Install all of the required gems from your specified sources:
         :code
           $ bundle install
           $ git add Gemfile Gemfile.lock
         .d-grid.d-md-flex.gap-2.my-3.justify-content-md-end
-          = link_to t('home.learn_more_bundle_install'), "./#{latest_version}/man/bundle-install.1.html", class: 'btn btn-primary btn-lg'
+          = link_to 'Learn More: bundle install', "./#{latest_version}/man/bundle-install.1.html", class: 'btn btn-primary btn-lg'
 
 .bg-light-blue
   .container

@@ -5,7 +5,6 @@ config[:versions] = VERSIONS
 config[:latest_version] = config[:versions].last
 
 activate :syntax
-activate :i18n
 activate :search do |search|
   search.resources = ["index.html", "#{config[:latest_version]}/"]
 
@@ -58,19 +57,10 @@ Dir.glob("./source/#{config[:latest_version]}/*.haml").each do |file_path|
 
   proxy proxy_path, page_path unless file_exist?(proxy_path)
 end
-# Same for localizable
-Dir.glob("./source/localizable/#{config[:latest_version]}/**/*").select{ |f| File.file?(f) }.each do |file_path|
-  matched = file_path.match(/(localizable\/v\d+.\d+\/(.*)\.(.{2})\.html)/)
-  next unless matched
 
-  page_path = matched[1]
-  proxy_path = "#{matched[2]}.html"
-  country = matched[3]
-
-  next if file_exist?(proxy_path)
-
-  proxy "#{country}/#{proxy_path}", page_path, locale: country.to_sym
-  proxy proxy_path, page_path, locale: :en if country == "en"
+# The site is English-only now. Redirect the old localized top pages to the top page.
+%w[es pl].each do |lang|
+  redirect "#{lang}/index.html", to: "/"
 end
 
 # Redirect removed guide pages to https://guides.rubygems.org/

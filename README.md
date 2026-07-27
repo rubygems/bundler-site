@@ -42,3 +42,7 @@ Build the site:
     bundle exec middleman build
 
 This will use the files in **/source** to generate a static site in **/build**.
+
+## Deployment
+
+When a pull request is merged into the `main` branch, the [deploy workflow](https://github.com/rubygems/bundler-site/blob/HEAD/.github/workflows/deploy.yml) on GitHub Actions builds the site and pushes it to GitHub Pages. Deploy status can be followed in [the workflow history](https://github.com/rubygems/bundler-site/actions/workflows/deploy.yml). The site is served at bundler.io using a [custom domain](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site).

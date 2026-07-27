@@ -7,7 +7,7 @@ config[:latest_version] = config[:versions].last
 activate :syntax
 activate :i18n
 activate :search do |search|
-  search.resources = ["index.html", "#{config[:latest_version]}/", "compatibility.html"]
+  search.resources = ["index.html", "#{config[:latest_version]}/"]
 
   search.index_path = "search/lunr-index.json"
 
@@ -87,6 +87,9 @@ end
 %w[bundler_workflow gemfile gemfile_ruby rationale rubygems rubymotion].each do |filename|
   redirect "#{filename}.html", to: guides_target
 end
+
+## /compatibility.html moved to the RubyGems guides
+redirect "compatibility.html", to: "#{guides_target}bundler-compatibility/"
 
 ## /v1.12/rails23.html, /v1.12/rails3.html
 %w[rails23 rails3].each do |filename|
@@ -233,7 +236,6 @@ end
 
 redirect "sponsors.html", to: "https://rubygems.org/pages/sponsors" # Backwards compatibility
 
-page "/compatibility.html", layout: :two_column_layout
 page "/whats_new.html", layout: :two_column_layout
 page /\/v(\d+.\d+)\/(?!bundle_|commands|docs|man)(.*)/, layout: :two_column_layout
 page /\/v(.*)\/man\/(.*)/, layout: :two_column_layout

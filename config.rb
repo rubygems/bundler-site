@@ -7,7 +7,7 @@ config[:latest_version] = config[:versions].last
 activate :syntax
 activate :i18n
 activate :search do |search|
-  search.resources = ["index.html", "#{config[:latest_version]}/", "changelog.html", "compatibility.html", "conduct.html"]
+  search.resources = ["index.html", "#{config[:latest_version]}/", "compatibility.html"]
 
   search.index_path = "search/lunr-index.json"
 
@@ -141,15 +141,42 @@ end
   redirect "v#{version}/guides/bundler_2_upgrade.html", to: guides_target
 end
 
-## /doc/*, imported from doc/bundler/ in the rubygems repo until that tree was merged into doc/
-%w[
-  contributing/bug_triage contributing/community contributing/how_you_can_help contributing/readme
-  development/debugging development/new_features development/pull_requests development/readme
-  development/setup documentation/readme documentation/vision documentation/writing
-  playbooks/merging_a_pr playbooks/team_changes policies readme troubleshooting upgrading
-].each do |filename|
-  redirect "doc/#{filename}.html", to: guides_target
+## /doc/* pages were imported from the rubygems repo. The Bundler doc tree was merged into the
+## RubyGems one, so each page is redirected to wherever its content lives now.
+rubygems_repo = "https://github.com/ruby/rubygems/blob/HEAD/"
+{
+  "contributing/bug_triage" => "#{rubygems_repo}doc/ISSUE_TRIAGE.md",
+  "contributing/community" => "#{guides_target}contributing/",
+  "contributing/how_you_can_help" => "#{guides_target}contributing/",
+  "contributing/readme" => "#{guides_target}contributing/",
+  "debugging" => "#{rubygems_repo}doc/DEBUGGING.md",
+  "development/debugging" => "#{rubygems_repo}doc/DEBUGGING.md",
+  "development/new_features" => "#{rubygems_repo}doc/NEW_FEATURES.md",
+  "development/pull_requests" => "#{rubygems_repo}doc/PULL_REQUESTS.md",
+  "development/readme" => "#{rubygems_repo}doc/README.md",
+  "development/setup" => "#{rubygems_repo}doc/GETTING_STARTED.md",
+  "documentation" => "#{rubygems_repo}doc/DOCUMENTATION.md",
+  "documentation/readme" => "#{rubygems_repo}doc/DOCUMENTATION.md",
+  "documentation/vision" => "#{rubygems_repo}doc/DOCUMENTATION.md",
+  "documentation/writing" => "#{rubygems_repo}doc/DOCUMENTATION.md",
+  "getting_started" => "#{rubygems_repo}doc/GETTING_STARTED.md",
+  "issue_triage" => "#{rubygems_repo}doc/ISSUE_TRIAGE.md",
+  "new_features" => "#{rubygems_repo}doc/NEW_FEATURES.md",
+  "playbooks/merging_a_pr" => "#{rubygems_repo}doc/PULL_REQUESTS.md",
+  "playbooks/team_changes" => "#{rubygems_repo}doc/POLICIES.md",
+  "policies" => "#{rubygems_repo}doc/POLICIES.md",
+  "pull_requests" => "#{rubygems_repo}doc/PULL_REQUESTS.md",
+  "readme" => "#{rubygems_repo}doc/README.md",
+  "release" => "#{rubygems_repo}doc/RELEASE.md",
+  "troubleshooting" => "#{rubygems_repo}doc/TROUBLESHOOTING.md",
+  "upgrading" => "#{rubygems_repo}doc/UPGRADING.md",
+}.each do |page, target|
+  redirect "doc/#{page}.html", to: target
 end
+
+## The changelog and the code of conduct were imported from the rubygems repo, too.
+redirect "changelog.html", to: "#{rubygems_repo}CHANGELOG-bundler.md"
+redirect "conduct.html", to: "#{rubygems_repo}CODE_OF_CONDUCT.md"
 
 # Redirect old pages in this repo to manpages (see https://github.com/rubygems/bundler-site/issues/723)
 %w[help binstubs check clean console init inject install open outdated plugin show version viz].each do |command|
@@ -206,14 +233,11 @@ end
 
 redirect "sponsors.html", to: "https://rubygems.org/pages/sponsors" # Backwards compatibility
 
-page "/changelog.html", layout: :two_column_layout
-page "/conduct.html", layout: :two_column_layout
 page "/compatibility.html", layout: :two_column_layout
 page "/whats_new.html", layout: :two_column_layout
 page /\/v(\d+.\d+)\/(?!bundle_|commands|docs|man)(.*)/, layout: :two_column_layout
 page /\/v(.*)\/man\/(.*)/, layout: :two_column_layout
 page /man\/(.*)/, layout: :two_column_layout
-page /\/doc\/(.*)/, layout: :two_column_layout # Imported from rubygems/bundler
 
 page "/sitemap.xml", layout: false
 

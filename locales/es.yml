@@ -15,7 +15,6 @@ es:
     learn_more_gemfile: "Aprenda más: Gemfiles"
     bundle_install_description: "Instala todas de las gemas necesarias de sus fuentes especificadas:"
     learn_more_bundle_install: "Aprenda más: bundle install"
-    whats_new: "Novedades"
   navbar:
     docs: "Docs"
     team: "Equipo"

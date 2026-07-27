@@ -236,7 +236,19 @@ end
 
 redirect "sponsors.html", to: "https://rubygems.org/pages/sponsors" # Backwards compatibility
 
-page "/whats_new.html", layout: :two_column_layout
+# The curated What's New pages were removed in favor of the GitHub releases page.
+# Bundler tags exist in ruby/rubygems from bundler-v2.1.0 onwards only, so older
+# versions can't be filtered there and point to the latest release instead.
+releases_url = "https://github.com/ruby/rubygems/releases"
+redirect "whats_new.html", to: "#{releases_url}/latest"
+config[:versions].each do |version|
+  target = if Gem::Version.new(version[1..-1]) >= Gem::Version.new("2.1")
+    "#{releases_url}?q=tag%3Abundler-#{version}"
+  else
+    "#{releases_url}/latest"
+  end
+  redirect "#{version}/whats_new.html", to: target
+end
 page /\/v(\d+.\d+)\/(?!bundle_|commands|docs|man)(.*)/, layout: :two_column_layout
 page /\/v(.*)\/man\/(.*)/, layout: :two_column_layout
 page /man\/(.*)/, layout: :two_column_layout
@@ -245,7 +257,7 @@ page "/sitemap.xml", layout: false
 
 redirect "issues.html", to: "https://github.com/ruby/rubygems/issues/new?labels=Bundler&template=bundler-related-issue.md" # Backwards compatibility
 redirect "commands.html", to: "man/bundle.1.html" # Backwards compatibility
-redirect "older_versions.html", to: "whats_new.html" # Backwards compatibility
+redirect "older_versions.html", to: "https://github.com/ruby/rubygems/releases/latest" # Backwards compatibility
 redirect "team.html", to: "https://guides.rubygems.org/contributing" # https://github.com/rubygems/bundler-site/issues/842
 redirect "contributors.html", to: "https://guides.rubygems.org/contributing"
 

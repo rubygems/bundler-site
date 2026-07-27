@@ -46,7 +46,7 @@ GEM
       temple (>= 0.8.2)
       thor
       tilt
-    haml_lint (0.73.0)
+    haml_lint (0.76.0)
       haml (>= 5.0)
       parallel (>= 1.10)
       rainbow
@@ -182,7 +182,7 @@ GEM
     sysexits (1.2.0)
     temple (0.10.4)
     thor (1.5.0)
-    tilt (2.7.0)
+    tilt (2.8.0)
     toml (0.3.0)
       parslet (>= 1.8.0, < 3.0.0)
     tsort (0.2.0)
@@ -204,7 +204,7 @@ PLATFORMS
 DEPENDENCIES
   builder
   haml (~> 7.2)
-  haml_lint (~> 0.73)
+  haml_lint (~> 0.76)
   irb
   kramdown-parser-gfm
   middleman (~> 4.6)

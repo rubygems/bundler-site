@@ -19,7 +19,6 @@ linters:
       - "source/layouts/_favicon.haml"
       - "source/layouts/_navbar.haml"
       - "source/layouts/base.haml"
-      - "source/partials/_commands_sidebar.haml"
 
   ViewLength:
     max: 413

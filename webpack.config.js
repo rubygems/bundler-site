@@ -6,7 +6,6 @@ module.exports = {
   mode: 'development',
   entry: {
     application: ['./assets/javascripts/application.js', './assets/stylesheets/application.css.scss'],
-    two_column_layout: ['./assets/javascripts/two_column_layout.js'],
   },
   output: {
     path: path.resolve(__dirname, '.tmp/dist'),

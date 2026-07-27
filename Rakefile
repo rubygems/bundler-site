@@ -1,6 +1,4 @@
-Dir.glob("lib/tasks/**/*.rake").each { |r| load r }
-
 desc "Build the static site"
-task build: [:man] do
+task :build do
   sh "middleman build --clean --verbose"
 end

@@ -14,10 +14,6 @@ gem "kramdown-parser-gfm"
 
 # Rake tasks
 gem "rake"
-## To generate ERB files from ronn files from rubygems/rubygems
-gem "nronn"
-## To strip (man:strip_pages)
-gem "nokogiri", "~> 1.19"
 
 group :development do
   gem "irb"

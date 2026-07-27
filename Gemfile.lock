@@ -129,7 +129,6 @@ GEM
     mini_racer (0.16.0)
       libv8-node (~> 18.19.0.0)
     minitest (5.27.0)
-    mustache (1.1.1)
     nokogiri (1.19.4)
       mini_portile2 (~> 2.8.2)
       racc (~> 1.4)
@@ -137,11 +136,6 @@ GEM
       racc (~> 1.4)
     nokogiri (1.19.4-x86_64-linux-gnu)
       racc (~> 1.4)
-    nronn (0.11.1)
-      kramdown (~> 2.1)
-      kramdown-parser-gfm (>= 1.0.1, < 1.2)
-      mustache (~> 1.0)
-      nokogiri (~> 1.10, >= 1.10.10)
     padrino-helpers (0.15.3)
       i18n (>= 0.6.7, < 2)
       padrino-support (= 0.15.3)
@@ -239,8 +233,6 @@ DEPENDENCIES
   middleman (~> 4.6)
   middleman-search!
   middleman-syntax
-  nokogiri (~> 1.19)
-  nronn
   pry-byebug
   rake
   rubocop

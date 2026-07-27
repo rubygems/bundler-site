@@ -226,10 +226,6 @@ config[:versions].each do |version|
   end
   redirect "#{version}/whats_new.html", to: target
 end
-page /\/v(\d+.\d+)\/(?!bundle_|commands|docs|man)(.*)/, layout: :two_column_layout
-page /\/v(.*)\/man\/(.*)/, layout: :two_column_layout
-page /man\/(.*)/, layout: :two_column_layout
-
 page "/sitemap.xml", layout: false
 
 redirect "issues.html", to: "https://github.com/ruby/rubygems/issues/new?labels=Bundler&template=bundler-related-issue.md" # Backwards compatibility

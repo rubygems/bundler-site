@@ -17,7 +17,6 @@
 
 # (optional) local gems, installed with
 # bundle install --path vendor/bundle
-# also a checkout of bundler for manpages and releases
 /vendor
 
 # Bundler binstubs
@@ -25,9 +24,6 @@
 
 # contributor data generated from the bundler repo
 data/contributors.yml
-
-# man pages built from the bundler repo
-/source/v*/man/
 
 # deploy key
 /deploy_key

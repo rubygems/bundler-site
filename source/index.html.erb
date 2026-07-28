@@ -1,95 +1,85 @@
 <% discussions_link = "https://github.com/ruby/rubygems/discussions" %>
-<div class="bg-dark-blue">
-  <div class="mx-auto text-center">
-    <%= image_tag "/images/header_transparent_bg.png",
-                  srcset: "/images/header_transparent_bg.png 1x, /images/header_transparent_bg@2x.png 2x, /images/header_transparent_bg@3x.png 3x",
-                  class: "img-fluid",
-                  width: 1120,
-                  height: 704 %>
+<div class="hero">
+  <%= image_tag "/images/header_transparent_bg.png",
+                srcset: "/images/header_transparent_bg.png 1x, /images/header_transparent_bg@2x.png 2x, /images/header_transparent_bg@3x.png 3x",
+                width: 1120,
+                height: 704 %>
+</div>
+
+<div class="section">
+  <div class="wrap">
+    <div class="lead">
+      <p>
+        Bundler provides a consistent environment for Ruby projects by tracking
+        and installing the exact gems and versions that are needed.
+      </p>
+      <p>
+        Bundler is an exit from dependency hell, and ensures that the gems
+        you need are present in development, staging, and production.
+        Starting work on a project is as simple as <code>bundle install</code>.
+      </p>
+    </div>
+
+    <div class="button-row">
+      <%= link_to "What Can Bundler Do?", "https://guides.rubygems.org/getting_started/#getting-started", class: "button" %>
+      <%= link_to "New in #{latest_version}", "https://github.com/ruby/rubygems/releases/latest", class: "button" %>
+      <%= link_to "CLI Docs", "https://guides.rubygems.org/command-reference/bundle/", class: "button" %>
+      <%= link_to "Chat With Us", discussions_link, class: "button" %>
+    </div>
   </div>
 </div>
 
-<div class="container py-5">
-  <div class="mx-xl-5 px-xl-5 my-4 large-font">
-    <p>
-      Bundler provides a consistent environment for Ruby projects by tracking
-      and installing the exact gems and versions that are needed.
-    </p>
-    <p>
-      Bundler is an exit from dependency hell, and ensures that the gems
-      you need are present in development, staging, and production.
-      Starting work on a project is as simple as <code>bundle install</code>.
-    </p>
-  </div>
-
-  <div class="d-grid d-md-flex gap-2 mx-auto my-md-4 justify-content-md-center">
-    <%= link_to "What Can Bundler Do?", "https://guides.rubygems.org/getting_started/#getting-started", class: "btn btn-primary btn-lg" %>
-    <%= link_to "New in #{latest_version}", "https://github.com/ruby/rubygems/releases/latest", class: "btn btn-primary btn-lg" %>
-    <%= link_to "CLI Docs", "https://guides.rubygems.org/command-reference/bundle/", class: "btn btn-primary btn-lg" %>
-    <%= link_to "Chat With Us", discussions_link, class: "btn btn-primary btn-lg" %>
-  </div>
-</div>
-
-<div class="container">
-  <div class="mx-xl-5 px-xl-5 my-3 my-md-4 py-3">
+<div class="section">
+  <div class="wrap">
     <h2 id="getting-started"><b>Getting Started</b></h2>
 
-    <div class="large-font mt-4">
-      <div class="bullet">
-        <div class="description">
-          <p>
-            This guide assumes that you have <%= link_to "Ruby", "https://www.ruby-lang.org/en/downloads/" %>
-            installed. If you do not have Ruby installed, do that first and then check back here!
-            Any modern distribution of Ruby comes with Bundler preinstalled by default.
-          </p>
-          <p>
-            Getting started with bundler is easy!
-            Specify your dependencies in a Gemfile in your project's root:
-          </p>
-        </div>
-        <% code("ruby") do %>source 'https://rubygems.org'
+    <div class="steps">
+      <p>
+        This guide assumes that you have <%= link_to "Ruby", "https://www.ruby-lang.org/en/downloads/" %>
+        installed. If you do not have Ruby installed, do that first and then check back here!
+        Any modern distribution of Ruby comes with Bundler preinstalled by default.
+      </p>
+      <p>
+        Getting started with bundler is easy!
+        Specify your dependencies in a Gemfile in your project's root:
+      </p>
+      <% code("ruby") do %>source 'https://rubygems.org'
 gem 'nokogiri'
 gem 'rack', '~> 2.2.4'
 gem 'rspec'<% end %>
-        <div class="d-grid d-md-flex gap-2 my-3 justify-content-md-end">
-          <%= link_to "Learn More: Gemfiles", "https://guides.rubygems.org/gemfile/", class: "btn btn-primary btn-lg" %>
-        </div>
+      <div class="button-row button-row-end">
+        <%= link_to "Learn More: Gemfiles", "https://guides.rubygems.org/gemfile/", class: "button" %>
       </div>
 
-      <div class="bullet">
-        <div class="description">
-          <p>Install all of the required gems from your specified sources:</p>
-        </div>
-        <% code do %>$ bundle install
+      <p>Install all of the required gems from your specified sources:</p>
+      <% code do %>$ bundle install
 $ git add Gemfile Gemfile.lock<% end %>
-        <div class="d-grid d-md-flex gap-2 my-3 justify-content-md-end">
-          <%= link_to "Learn More: bundle install", "https://guides.rubygems.org/command-reference/bundle-install/", class: "btn btn-primary btn-lg" %>
-        </div>
+      <div class="button-row button-row-end">
+        <%= link_to "Learn More: bundle install", "https://guides.rubygems.org/command-reference/bundle-install/", class: "button" %>
       </div>
     </div>
   </div>
 </div>
 
-<div class="bg-light-blue">
-  <div class="container">
-    <div class="mx-xl-5 px-xl-5">
-      <h2 id="get-involved">Get involved</h2>
-      <div class="my-4 large-font">
-        Bundler has a lot of contributors and users, and we would love to have your help!
-        If you have questions, join <%= link_to "the RubyGems Discussions", discussions_link %>
-        and we'll try to answer them. If you're interested in contributing (no programming skills needed), start with
-        <%= link_to "the contributing guide", "https://guides.rubygems.org/contributing" %>.
-        While participating in the Bundler project, please keep the <%= link_to "code of conduct", "https://github.com/ruby/rubygems/blob/HEAD/CODE_OF_CONDUCT.md" %>
-        in mind, and be inclusive and friendly towards everyone.
-        If you think you've found a security issue, please report it via <%= link_to "HackerOne", "https://hackerone.com/rubygems" %>.
-      </div>
+<div class="section-tinted">
+  <div class="wrap">
+    <h2 id="get-involved">Get involved</h2>
 
-      <div class="d-grid d-md-flex gap-2 mx-auto my-md-4 justify-content-md-center">
-        <%= link_to "Code of Conduct", "https://github.com/ruby/rubygems/blob/HEAD/CODE_OF_CONDUCT.md", class: "btn btn-primary btn-lg" %>
-        <%= link_to "Join RubyGems Discussions", discussions_link, class: "btn btn-primary btn-lg" %>
-        <%= link_to "Contributing guide", "https://guides.rubygems.org/contributing", class: "btn btn-primary btn-lg" %>
-        <%= link_to "Report security issue", "https://hackerone.com/rubygems", class: "btn btn-primary btn-lg" %>
-      </div>
+    <div class="lead">
+      Bundler has a lot of contributors and users, and we would love to have your help!
+      If you have questions, join <%= link_to "the RubyGems Discussions", discussions_link %>
+      and we'll try to answer them. If you're interested in contributing (no programming skills needed), start with
+      <%= link_to "the contributing guide", "https://guides.rubygems.org/contributing" %>.
+      While participating in the Bundler project, please keep the <%= link_to "code of conduct", "https://github.com/ruby/rubygems/blob/HEAD/CODE_OF_CONDUCT.md" %>
+      in mind, and be inclusive and friendly towards everyone.
+      If you think you've found a security issue, please report it via <%= link_to "HackerOne", "https://hackerone.com/rubygems" %>.
+    </div>
+
+    <div class="button-row">
+      <%= link_to "Code of Conduct", "https://github.com/ruby/rubygems/blob/HEAD/CODE_OF_CONDUCT.md", class: "button" %>
+      <%= link_to "Join RubyGems Discussions", discussions_link, class: "button" %>
+      <%= link_to "Contributing guide", "https://guides.rubygems.org/contributing", class: "button" %>
+      <%= link_to "Report security issue", "https://hackerone.com/rubygems", class: "button" %>
     </div>
   </div>
 </div>

@@ -18,13 +18,6 @@ set :layout, :base
 
 set :images_dir, "images"
 
-# Webpack
-activate :external_pipeline,
-         name: :webpack,
-         command: build? ? "npm run build" : "npm run start",
-         source: ".tmp/dist",
-         latency: 1
-
 # The site is English-only now. Redirect the old localized top pages to the top page.
 %w[es pl].each do |lang|
   redirect "#{lang}/index.html", to: "/"
@@ -237,14 +230,4 @@ end
 ## /blog/YYYY/
 ymds.map { |ymd| ymd.sub(%r{/\d+/\d+$}, "") }.each do |y|
   redirect "blog/#{y}/index.html", to: "/blog/"
-end
-
-configure :development do
-  config[:css_dir] = ".tmp/dist"
-  config[:js_dir] = ".tmp/dist"
-end
-
-configure :build do
-  config[:css_dir] = ""
-  config[:js_dir] = ""
 end

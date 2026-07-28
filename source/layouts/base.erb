@@ -11,15 +11,15 @@
     <% if content_for?(:canonical) %>
       <link rel="canonical" href="<%= yield_content :canonical %>">
     <% end %>
-    <%= javascript_include_tag "application.min" %>
+    <%= javascript_include_tag "application", defer: true %>
     <%= stylesheet_link_tag "application" %>
     <%= partial "layouts/favicon" %>
   </head>
   <body class="<%= current_page.data.page_classes %>">
     <%= partial "layouts/navbar" %>
     <%= yield %>
-    <div class="footer">
+    <footer class="site-footer">
       <%= partial "layouts/footer" %>
-    </div>
+    </footer>
   </body>
 </html>

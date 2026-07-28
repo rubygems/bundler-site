@@ -15,15 +15,6 @@ jobs:
         with:
           bundler-cache: true # 'bundle install' and cache
 
-      - name: Install Node.js
-        uses: actions/setup-node@v6
-        with:
-          node-version: 18
-          cache: npm
-
-      - name: Install dependencies
-        run: npm ci
-
       - name: Build everything from scratch
         run: bundle exec rake build
         env:

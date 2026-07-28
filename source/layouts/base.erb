@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Language" content="en">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="globalsign-domain-verification" content="276VSYOko8B8vIu1i8i5qbj7_ql5PXo0dU69XQy-SL">
+    <title>Bundler: <%= current_page.data.title || "The best way to manage a Ruby application's gems" %></title>
+    <%= yield_content :head %>
+    <% if content_for?(:canonical) %>
+      <link rel="canonical" href="<%= yield_content :canonical %>">
+    <% end %>
+    <%= javascript_include_tag "application.min" %>
+    <%= stylesheet_link_tag "application" %>
+    <%= partial "layouts/favicon" %>
+  </head>
+  <body class="<%= current_page.data.page_classes %>">
+    <%= partial "layouts/navbar" %>
+    <%= yield %>
+    <div class="footer">
+      <%= partial "layouts/footer" %>
+    </div>
+  </body>
+</html>

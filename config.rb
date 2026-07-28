@@ -7,7 +7,10 @@ versions = %w[
   v4.0
 ]
 
-config[:latest_version] = versions.last
+helpers do
+  # def would open a new scope that cannot reach the versions local.
+  define_method(:latest_version) { versions.last }
+end
 
 activate :syntax
 

@@ -1,16 +1,14 @@
-<nav class="navbar navbar-expand-md navbar-light">
-  <div class="container-md">
-    <%= link_to "Bundler", "/", class: "navbar-brand me-auto fw-bold" %>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#bs-navbar-collapse" aria-controls="bs-navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
+<nav class="site-nav">
+  <div class="site-nav-inner">
+    <%= link_to "Bundler", "/", class: "site-nav-brand" %>
+    <button class="site-nav-toggle" type="button" aria-controls="site-nav-menu" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="site-nav-toggle-icon"></span>
     </button>
-    <div class="collapse navbar-collapse flex-grow-0" id="bs-navbar-collapse">
-      <ul class="navbar-nav">
-        <li class="nav-item"><%= link_to "Docs", "https://guides.rubygems.org/command-reference/bundle/", class: "nav-link" %></li>
-        <li class="nav-item"><%= link_to "Team", "https://guides.rubygems.org/contributing", class: "nav-link" %></li>
-        <li class="nav-item"><%= link_to "Blog", "https://blog.rubygems.org/", target: "_blank", rel: "noopener noreferrer", class: "nav-link" %></li>
-        <li class="nav-item"><%= link_to "Repository", "https://github.com/ruby/rubygems", target: "_blank", rel: "noopener noreferrer", class: "nav-link" %></li>
-      </ul>
-    </div>
+    <ul class="site-nav-menu" id="site-nav-menu">
+      <li><%= link_to "Docs", "https://guides.rubygems.org/command-reference/bundle/" %></li>
+      <li><%= link_to "Team", "https://guides.rubygems.org/contributing" %></li>
+      <li><%= link_to "Blog", "https://blog.rubygems.org/", target: "_blank", rel: "noopener noreferrer" %></li>
+      <li><%= link_to "Repository", "https://github.com/ruby/rubygems", target: "_blank", rel: "noopener noreferrer" %></li>
+    </ul>
   </div>
 </nav>

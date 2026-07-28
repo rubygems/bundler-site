@@ -1,7 +1,3 @@
-$larger-font-size: 18px;
-$header-height: 200px;
-$navbar-height: 50px;
-
 @font-face {
   font-family: SancoaleSlab;
   font-style:  normal;
@@ -63,13 +59,6 @@ $icon-font-path: '~bootstrap/assets/fonts/bootstrap/';
 @import "navbar";
 @import "footer";
 
-// More various utilities extended from Bootstrap 5.3
-@import "opacity";
-
-.row:after {
-  clear: none;
-}
-
 .bg-light-blue {
   background-color: #DBEAF3;
   padding: 30px 2%;
@@ -84,63 +73,6 @@ $icon-font-path: '~bootstrap/assets/fonts/bootstrap/';
   font-size: 19px;
 }
 
-.content-padding {
-  padding: 30px 2%;
-}
-
-.content-width-padding {
-  padding: 0 2%;
-}
-
-.header-padding {
-  @extend .container;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  margin: auto;
-  width: 70%;
-}
-
-.header {
-  position: relative;
-  height: $header-height;
-  margin-bottom: 25px;
-}
-
-h1, h2, h3, h4, h5 {
-  code {
-    background-color: transparent;
-    color: black;
-  }
-}
-
 p {
   margin-bottom: 15px;
-}
-
-.contents {
-  font-size: 17px;
-
-  @include media-breakpoint-up(lg) {
-    font-size: 18px;
-  }
-
-  .btn {
-    font-size: 17px;
-    // TODO: remove these two lines
-    margin-top: 10px;
-    margin-bottom: 35px;
-
-    @include media-breakpoint-up(lg) {
-      font-size: 18px;
-    }
-  }
-
-  .edit-on-github {
-    a {
-      font-weight: bold;
-    }
-  }
 }

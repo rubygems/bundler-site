@@ -1,4 +1,4 @@
-name: Middleman build
+name: CI
 on: [pull_request]
 
 permissions:
@@ -19,3 +19,16 @@ jobs:
         run: bundle exec rake build
         env:
           NO_CONTRACTS: "true"
+
+  lint:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          bundler-cache: true
+
+      - name: Run RuboCop
+        run: bundle exec rubocop

@@ -11,12 +11,6 @@ html {
 .footer {
   background-color: $footer-color;
 
-  .footer-logo {
-    float: right;
-    max-height: $footer-height;
-    padding: 5px;
-  }
-
   ul {
     height: $footer-height;
     display: inline-block;

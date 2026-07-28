@@ -1,8 +1,0 @@
-// https://getbootstrap.com/docs/5.1/utilities/colors/#opacity
-// Transition workaround for skipping improvement from Bootstrap 3.4.1 to Bootstrap 4.6.1
-// - Discussion: https://github.com/rubygems/bundler-site/pull/644#issuecomment-1178722939
-.text-opacity-40 {
-  --bs-text-opacity: 0.4;
-  color: rgba($body-color, var(--bs-text-opacity));
-}
-// /Transition workaround

@@ -33,10 +33,6 @@ module.exports = {
         ],
       },
       {
-        test: /\.css$/,
-        loader: 'style-loader',
-      },
-      {
         test: /\.otf$/,
         type: 'asset/resource',
         generator: {

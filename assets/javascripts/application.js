@@ -1,2 +1,2 @@
 // The navbar toggler relies on Bootstrap's data API.
-import 'bootstrap';
+import 'bootstrap/js/dist/collapse';

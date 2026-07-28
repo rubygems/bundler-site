@@ -66,8 +66,6 @@ GEM
     json (2.21.1)
     kramdown (2.5.1)
       rexml (>= 3.3.9)
-    kramdown-parser-gfm (1.1.0)
-      kramdown (~> 2.0)
     language_server-protocol (3.17.0.6)
     lint_roller (1.1.0)
     listen (3.9.0)
@@ -206,7 +204,6 @@ DEPENDENCIES
   haml (~> 7.2)
   haml_lint (~> 0.73)
   irb
-  kramdown-parser-gfm
   middleman (~> 4.6)
   middleman-syntax
   pry-byebug

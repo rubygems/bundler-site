@@ -9,24 +9,6 @@ set :layout, :base
 
 set :images_dir, "images"
 
-set :markdown_engine, :kramdown
-
-# Markdown extentions
-set :markdown,
-    input: "GFM",
-    autolink: true,
-    fenced_code_blocks: true,
-    footnotes: true,
-    gh_codeblock: true,
-    highlight: true,
-    no_intra_emphasis: true,
-    quote: true,
-    smartypants: true,
-    strikethrough: true,
-    superscript: true,
-    tables: true,
-    hard_wrap: false
-
 # Webpack
 activate :external_pipeline,
          name: :webpack,

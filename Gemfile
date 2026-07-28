@@ -9,7 +9,6 @@ gem "middleman-syntax"
 ## Template engines
 gem "builder"
 gem "haml", "~> 7.2"
-gem "kramdown-parser-gfm"
 
 # Rake tasks
 gem "rake"

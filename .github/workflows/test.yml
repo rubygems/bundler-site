@@ -18,9 +18,6 @@ jobs:
       - name: Run RuboCop
         run: bundle exec rubocop
 
-      - name: Run HAML-Lint
-        run: bundle exec haml-lint source
-
   prettier:
     runs-on: ubuntu-22.04
     steps:

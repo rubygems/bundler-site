@@ -1,7 +1,13 @@
-require_relative "lib/versions"
+# The versions bundler.io used to document. The man pages moved to
+# https://guides.rubygems.org/command-reference/bundle/, so these only drive
+# the redirects that keep the old versioned URLs working.
+versions = %w[
+  v1.12 v1.13 v1.14 v1.15 v1.16 v1.17
+  v2.0 v2.1 v2.2 v2.3 v2.4 v2.5 v2.6 v2.7
+  v4.0
+]
 
-config[:versions] = VERSIONS
-config[:latest_version] = config[:versions].last
+config[:latest_version] = versions.last
 
 activate :syntax
 
@@ -167,7 +173,7 @@ man_pages.each do |man_page|
   redirect "man/#{man_page}.html", to: target
   redirect "#{alias_name}.html", to: target unless alias_name == "bundle"
 
-  config[:versions].each do |version|
+  versions.each do |version|
     redirect "#{version}/man/#{man_page}.html", to: target
     redirect "#{version}/#{alias_name}.html", to: target
   end
@@ -176,7 +182,7 @@ end
 # /docs.html and /v:ver/docs.html were the indexes of the man pages, and /v:ver/index.html
 # redirected there. bundle(1) plays that role on the guides site.
 redirect "docs.html", to: "#{command_reference}bundle/"
-config[:versions].each do |version|
+versions.each do |version|
   redirect "#{version}/docs.html", to: "#{command_reference}bundle/"
   redirect "#{version}/index.html", to: "#{command_reference}bundle/"
 end
@@ -188,7 +194,7 @@ redirect "sponsors.html", to: "https://rubygems.org/pages/sponsors" # Backwards 
 # versions can't be filtered there and point to the latest release instead.
 releases_url = "https://github.com/ruby/rubygems/releases"
 redirect "whats_new.html", to: "#{releases_url}/latest"
-config[:versions].each do |version|
+versions.each do |version|
   target = if Gem::Version.new(version[1..-1]) >= Gem::Version.new("2.1")
     "#{releases_url}?q=tag%3Abundler-#{version}"
   else

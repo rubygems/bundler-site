@@ -14,9 +14,6 @@ gem "haml", "~> 7.2"
 gem "rake"
 
 group :development do
-  gem "irb"
-  gem "pry-byebug"
-
   gem "haml_lint", "~> 0.73"
   gem "rubocop"
   gem "rubocop-rake", require: false

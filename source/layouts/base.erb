@@ -13,13 +13,40 @@
     <% end %>
     <%= javascript_include_tag "application", defer: true %>
     <%= stylesheet_link_tag "application" %>
-    <%= partial "layouts/favicon" %>
+    <link href="/images/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180">
+    <link href="/images/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png">
+    <link href="/images/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png">
+    <link href="/manifest.json" rel="manifest">
+    <link color="#50bced" href="/images/safari-pinned-tab.svg" rel="mask-icon">
+    <meta content="bundler.io" name="apple-mobile-web-app-title">
+    <meta content="bundler.io" name="application-name">
+    <meta content="#ffffff" name="theme-color">
   </head>
   <body class="<%= current_page.data.page_classes %>">
-    <%= partial "layouts/navbar" %>
+    <nav class="site-nav">
+      <div class="site-nav-inner">
+        <%= link_to "Bundler", "/", class: "site-nav-brand" %>
+        <button class="site-nav-toggle" type="button" aria-controls="site-nav-menu" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="site-nav-toggle-icon"></span>
+        </button>
+        <ul class="site-nav-menu" id="site-nav-menu">
+          <li><%= link_to "Docs", "https://guides.rubygems.org/command-reference/bundle/" %></li>
+          <li><%= link_to "Team", "https://guides.rubygems.org/contributing" %></li>
+          <li><%= link_to "Blog", "https://blog.rubygems.org/", target: "_blank", rel: "noopener noreferrer" %></li>
+          <li><%= link_to "Repository", "https://github.com/ruby/rubygems", target: "_blank", rel: "noopener noreferrer" %></li>
+        </ul>
+      </div>
+    </nav>
+
     <%= yield %>
+
     <footer class="site-footer">
-      <%= partial "layouts/footer" %>
+      <ul class="site-footer-menu">
+        <li><%= link_to "Docs", "https://guides.rubygems.org/command-reference/bundle/" %></li>
+        <li><%= link_to "Team", "https://guides.rubygems.org/contributing" %></li>
+        <li><%= link_to "Blog", "https://blog.rubygems.org/", target: "_blank", rel: "noopener noreferrer" %></li>
+        <li><%= link_to "Repository", "https://github.com/ruby/rubygems" %></li>
+      </ul>
     </footer>
   </body>
 </html>

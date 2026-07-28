@@ -40,9 +40,7 @@ jobs:
         uses: actions/configure-pages@v6
 
       - name: Build site
-        run: bundle exec rake build # Output to ./_site as build_dir is configured in config.rb
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: bundle exec rake build
 
       - run: echo "bundler.io" > ./build/CNAME
 

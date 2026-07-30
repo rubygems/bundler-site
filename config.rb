@@ -26,25 +26,44 @@ end
 # Redirect removed guide pages to https://guides.rubygems.org/
 guides_target = "https://guides.rubygems.org/"
 
+# Where each guide this site used to host lives on the guides site now. Most kept their
+# name; the rest were folded into another page there. Pointing at the final URL keeps
+# every redirect below a single hop, instead of landing on a guides redirect stub.
+guides_pages = %w[
+  bundler_docker_guide bundler_in_a_single_file_ruby_script bundler_plugins bundler_setup
+  deploying gemfile gemfile_ruby getting_started git git_bisect groups plugins rails
+  rubygems rubygems_tls_ssl_troubleshooting_guide sinatra updating_gems
+  using_bundler_in_applications
+].to_h { |filename| [filename, "#{guides_target}#{filename}/"] }.merge(
+  "bundler_2_upgrade" => "#{guides_target}faqs/",
+  "bundler_sharing" => "#{guides_target}dependency_management/",
+  "bundler_workflow" => "#{guides_target}dependency_management/",
+  "creating_gem" => "#{guides_target}make-your-own-gem/",
+  "faq" => "#{guides_target}faqs/",
+  "rationale" => "#{guides_target}dependency_management/",
+  "rubymotion" => "#{guides_target}bundler_docker_guide/",
+)
+
 ## /guides/creating_gem.html, /guides/using_bundler_in_applications.html (localizable guides, non-en)
 %w[creating_gem using_bundler_in_applications].each do |filename|
   %w[es pl].each do |lang|
-    redirect "#{lang}/guides/#{filename}.html", to: guides_target
+    redirect "#{lang}/guides/#{filename}.html", to: guides_pages.fetch(filename)
   end
 end
 
 ## Top-level pages that were previously redirected to guides/
 %w[bundler_workflow gemfile_ruby rationale rubygems rubymotion].each do |filename|
-  redirect "#{filename}.html", to: guides_target
+  redirect "#{filename}.html", to: guides_pages.fetch(filename)
 end
 
 ## The Gemfile guide was replaced by the gemfile(5) reference on the guides site.
-redirect "gemfile.html", to: "#{guides_target}gemfile/"
+redirect "gemfile.html", to: guides_pages.fetch("gemfile")
 
 ## /compatibility.html moved to the RubyGems guides
 redirect "compatibility.html", to: "#{guides_target}bundler-compatibility/"
 
-## /v1.12/rails23.html, /v1.12/rails3.html
+## /v1.12/rails23.html, /v1.12/rails3.html. These documented Rails 2.3 and Rails 3, which
+## the guides site never carried, so they land on its index rather than a specific page.
 %w[rails23 rails3].each do |filename|
   redirect "v1.12/#{filename}.html", to: guides_target
 end
@@ -52,24 +71,25 @@ end
 ## Versioned guide redirects for v1.12-v1.14
 %w[1.12 1.13 1.14].each do |version|
   %w[bundler_setup bundler_sharing deploying faq git git_bisect groups rails sinatra updating_gems].each do |filename|
-    redirect "v#{version}/#{filename}.html", to: guides_target
+    redirect "v#{version}/#{filename}.html", to: guides_pages.fetch(filename)
   end
 end
 
 ## Versioned localizable guide redirects for v1.12-v1.15
 %w[1.12 1.13 1.14 1.15].each do |version|
   ["", "pl/"].each do |lang|
-    redirect "#{lang}v#{version}/guides/creating_gem.html", to: guides_target
-    redirect "#{lang}v#{version}/guides/using_bundler_in_applications.html", to: guides_target
+    %w[creating_gem using_bundler_in_applications].each do |filename|
+      redirect "#{lang}v#{version}/guides/#{filename}.html", to: guides_pages.fetch(filename)
+    end
   end
 end
 
 ## v1.15 guides
 %w[bundler_setup bundler_sharing deploying faq git git_bisect groups rails rubygems_tls_ssl_troubleshooting_guide sinatra updating_gems].each do |filename|
-  redirect "v1.15/guides/#{filename}.html", to: guides_target
+  redirect "v1.15/guides/#{filename}.html", to: guides_pages.fetch(filename)
 end
 %w[bundler_setup bundler_sharing].each do |filename|
-  redirect "es/v1.15/guides/#{filename}.html", to: guides_target
+  redirect "es/v1.15/guides/#{filename}.html", to: guides_pages.fetch(filename)
 end
 
 ## Versioned guide redirects for v1.16-v2.3
@@ -79,23 +99,24 @@ end
     bundler_setup bundler_sharing deploying faq git git_bisect groups rails
     rubygems_tls_ssl_troubleshooting_guide sinatra updating_gems
   ].each do |filename|
-    redirect "v#{version}/guides/#{filename}.html", to: guides_target
+    redirect "v#{version}/guides/#{filename}.html", to: guides_pages.fetch(filename)
   end
 
   %w[bundler_workflow gemfile_ruby rationale rubygems rubymotion].each do |filename|
-    redirect "v#{version}/#{filename}.html", to: guides_target
+    redirect "v#{version}/#{filename}.html", to: guides_pages.fetch(filename)
   end
-  redirect "v#{version}/gemfile.html", to: "#{guides_target}gemfile/"
+  redirect "v#{version}/gemfile.html", to: guides_pages.fetch("gemfile")
 
   ["", "pl/"].each do |lang|
-    redirect "#{lang}v#{version}/guides/creating_gem.html", to: guides_target
-    redirect "#{lang}v#{version}/guides/using_bundler_in_applications.html", to: guides_target
+    %w[creating_gem using_bundler_in_applications].each do |filename|
+      redirect "#{lang}v#{version}/guides/#{filename}.html", to: guides_pages.fetch(filename)
+    end
   end
 end
 
 ## v2.0-v2.3 bundler_2_upgrade
 %w[2.0 2.1 2.2 2.3].each do |version|
-  redirect "v#{version}/guides/bundler_2_upgrade.html", to: guides_target
+  redirect "v#{version}/guides/bundler_2_upgrade.html", to: guides_pages.fetch("bundler_2_upgrade")
 end
 
 ## /doc/* pages were imported from the rubygems repo. The Bundler doc tree was merged into the

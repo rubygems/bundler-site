@@ -112,7 +112,7 @@ GEM
     prism (2.1.0-x86_64-linux-gnu)
     public_suffix (7.0.5)
     racc (1.8.1)
-    rack (3.2.7)
+    rack (3.2.8)
     rackup (2.3.1)
       rack (>= 3)
     rainbow (3.1.1)
